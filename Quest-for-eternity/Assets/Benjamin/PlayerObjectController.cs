@@ -9,6 +9,7 @@ public class PlayerObjectController : NetworkBehaviour
     [SyncVar] public int PlayerIDNumber;
     [SyncVar] public ulong PlayerSteamID;
     [SyncVar(hook = nameof(PlayerNameUpdate))] public string PlayerName;
+    [SyncVar(hook = nameof(PlayerReadyUpdate))] public bool Ready;
 
     private CustomNetworkManager manager;
 
@@ -22,6 +23,53 @@ public class PlayerObjectController : NetworkBehaviour
             }
 
             return manager = CustomNetworkManager.singleton as CustomNetworkManager;
+        }
+    }
+
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void PlayerReadyUpdate(bool oldValue, bool newValue)
+    {
+        if (isServer)
+        {
+            this.Ready = newValue;
+        }
+
+        if (isClient)
+        {
+            LobbyController.Instance.UpdatePlayerList();
+        }
+    }
+
+    public void PlayerNameUpdate(string OldValue, string NewValue)
+    {
+        if (isServer)
+        {
+            this.PlayerName = NewValue;
+        }
+
+        if (isClient)
+        {
+            LobbyController.Instance.UpdatePlayerList();
+        }
+    }
+
+    public void ChangeReady()
+    {
+        if (isOwned)
+        {
+            CmdSetPlayerReady();
+        }
+    }
+
+    public void CanStartGame(string SceneName)
+    {
+        if (isOwned)
+        {
+            CmdCanStartGame(SceneName);
         }
     }
 
@@ -52,17 +100,16 @@ public class PlayerObjectController : NetworkBehaviour
         this.PlayerNameUpdate(this.PlayerName, PlayerName);
     }
 
-
-    public void PlayerNameUpdate(string OldValue, string NewValue)
+    [Command]
+    private void CmdSetPlayerReady()
     {
-        if (isServer)
-        {
-            this.PlayerName = NewValue;
-        }
-
-        if (isClient)
-        {
-            LobbyController.Instance.UpdatePlayerList();
-        }
+        this.PlayerReadyUpdate(this.Ready, !this.Ready);
     }
+
+    [Command]
+    public void CmdCanStartGame(string SceneName)
+    {
+        manager.StartGame(SceneName);
+    }
+
 }
