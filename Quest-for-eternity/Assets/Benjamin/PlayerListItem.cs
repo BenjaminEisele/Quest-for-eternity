@@ -49,7 +49,7 @@ public class PlayerListItem : MonoBehaviour
 
             if (isValid)
             {
-                texture = new Texture2D((int)width, (int)height, TextureFormat.ARGB32, false, true);
+                texture = new Texture2D((int)width, (int)height, TextureFormat.RGBA32, false, true);
                 texture.LoadRawTextureData(image);
                 texture.Apply();
             }
