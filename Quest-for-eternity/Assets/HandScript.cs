@@ -21,21 +21,23 @@ public class HandScript : MonoBehaviour
     TurnScript turnScriptAccess;
 
     [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
-    private List<GameObject> cardList;
+    private List<CardScript> cardList;
+    //private List<GameObject> cardList;
 
     [SerializeField]
     int cardCount = 0;
 
     Vector3 cardPlacementVector;
 
-    void Start()
+    private void Start()
     {
+        cardCount = 0;
         CardInstantiation();
     }
 
-    void Update()
+    private void Update()
     {
-        if(turnScriptAccess.isPlayersTurn)
+        if(turnScriptAccess.GetPlayerTurnBool())
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -59,7 +61,7 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    public void CardInstantiation()
+    private void CardInstantiation()
     {
         Vector3 cardPlacementVector = new Vector3(1, 0, 0);
         for (int i = 0; i < cardLimit; i++)
@@ -70,6 +72,21 @@ public class HandScript : MonoBehaviour
         
     }
 
+    public void HandReset()
+    {
+        foreach(CardScript card in cardList)
+        {
+            if(card != null)
+            {
+                Destroy(card.gameObject);
+            }
+            
+        }
+        cardList.Clear();
+        cardCount = 0;
+        CardInstantiation();
+
+    }
 
     public void AddCardsToHand(int refillCount)
     {
@@ -139,27 +156,19 @@ public class HandScript : MonoBehaviour
                 }
             }
         }
-
-
-
-       
     }
-    void GenerateCard(Vector3 cardPlacementVectorReference, int cardIndex)
+    private void GenerateCard(Vector3 cardPlacementVectorReference, int cardIndex)
     {
         GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVectorReference, Quaternion.identity);
         cardClone.SetActive(true);
         cardCount++;
         if (cardIndex < 0)
         {
-            cardList.Add(cardClone);
+            cardList.Add(cardClone.GetComponent<CardScript>());
         }
         else
         {
-            cardList[cardIndex] = cardClone;
-        }
-        
-        
-       
+            cardList[cardIndex] = cardClone.GetComponent<CardScript>();
+        }  
     }
-
 }

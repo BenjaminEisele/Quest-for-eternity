@@ -549,6 +549,7 @@ MonoBehaviour:
   targetEnemy: {fileID: 759136206}
   playerAccess: {fileID: 1889118660}
   enemyList: []
+  turnScriptAccess: {fileID: 317175596}
 --- !u!4 &543248972
 Transform:
   m_ObjectHideFlags: 0

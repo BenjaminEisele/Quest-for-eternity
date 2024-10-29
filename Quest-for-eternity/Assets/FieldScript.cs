@@ -44,18 +44,18 @@ public class FieldScript : MonoBehaviour
         UpdateFieldDamageText();
     }
 
-    public void FieldClear()
+    public void FieldClearAndDealDamage(bool doWeDealDamage)
     {
         foreach(GameObject activeCardMember in activeCardList)
         {
             Destroy(activeCardMember);
         }
-
-        refereeScriptAccess.dealDamageToEnemy(damagePoints);
-
         activeCardList.Clear();
-        //Debug.Log($"dealt {damagePoints} damage!");
         activeCardSpawnPosition = spawnpoint.position;
+        if (doWeDealDamage)
+        {
+            refereeScriptAccess.dealDamageToEnemy(damagePoints);
+        }
         damagePoints = 0;
         UpdateFieldDamageText();
     }
