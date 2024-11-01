@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerController : NetworkBehaviour
 {
     public GameObject PlayerModel;
-    public Button EndTurnButton;
 
     private void Start()
     {
@@ -21,7 +20,6 @@ public class PlayerController : NetworkBehaviour
             {
                 //For every Player & only once
                 PlayerModel.SetActive(true);
-                //EndTurnButton;
             } 
             
             if (isOwned)
@@ -32,8 +30,4 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
-    public void EndTurn()
-    {
-        EndTurnButton.interactable = false;
-    }
 }
