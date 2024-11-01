@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 9443df6312edd254bb5880c25e1cc08c
   - enabled: 1
-    path: Assets/HerkusScene.unity
+    path: Assets/Scenes/HerkusScene.unity
     guid: c887c3a4eb3f16b4086505a3d0318518
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
