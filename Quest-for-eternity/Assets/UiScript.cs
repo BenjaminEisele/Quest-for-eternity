@@ -40,18 +40,18 @@ public class UiScript : MonoBehaviour
             turnInfoString = "the enemy's";
         }
         //!!!!!!!!!!!!!!!!!!!!!!
-       // uiTextArray[1].text = $"It is {turnInfoString} turn!";
+        uiTextArray[1].text = $"It is {turnInfoString} turn!";
     }
 
     public static void UpdateFieldDamageText(int value)
     {
         //!!!!!!!!!!!!!!!!!!!!!!
-        // uiTextArray[0].text = "Total damage: " + value.ToString();
+         uiTextArray[0].text = "Total damage: " + value.ToString();
     }
 
     public static void UpdateActionWindow(string inputString)
     {
         //!!!!!!!!!!!!!!!!!!!!!!
-        //uiTextArray[1].text = inputString;
+        uiTextArray[1].text = inputString;
     }
 }

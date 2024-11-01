@@ -109,11 +109,15 @@ public class HandScript : MonoBehaviour
             }
             
         }
-        StopCoroutine(handScriptDelayCoroutine);
+        if(handScriptDelayCoroutine != null)
+        {
+            StopCoroutine(handScriptDelayCoroutine);
+        }
+       
         cardList.Clear();
         cardCount = 0;
         CardInstantiation();
-
+        canInteract = true;
     }
 
     public void AddCardsToHand(int refillCount)
