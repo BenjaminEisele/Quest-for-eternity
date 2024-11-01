@@ -10,25 +10,21 @@ public class LobbyController : MonoBehaviour
 {
     public static LobbyController Instance;
 
-    //UI Elements
     public Text LobbyNameText;
 
-    //Player Data
     public GameObject PlayerListViewContent;
     public GameObject PlayerListItemPrefab;
     public GameObject LocalPlayerObject;
 
-    //Other Data
     public ulong CurrentLobbyID;
     public bool PlayerItemCreated = false;
     private List<PlayerListItem> PlayerListItems = new List<PlayerListItem>();
     public PlayerObjectController LocalPlayerController;
 
-    //Ready
+    public Button InvitePlayerButton;
     public Button StartGameButton;
     public Text ReadyButtonText;
 
-    //Manager
     private CustomNetworkManager manager;
 
     private CustomNetworkManager Manager
@@ -218,5 +214,11 @@ public class LobbyController : MonoBehaviour
     {
         LocalPlayerController.CanStartGame(SceneName);
     }
+
+    /*public void InvitePlayer()
+    {
+        SteamUser.AdvertiseGame();
+        SteamMatchmaking.InviteUserToLobby();
+    }*/
 
 }
