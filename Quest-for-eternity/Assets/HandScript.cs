@@ -30,7 +30,7 @@ public class HandScript : MonoBehaviour
     Vector3 cardPlacementVector;
     Coroutine handScriptDelayCoroutine;
 
-    bool canInteract;
+    public bool canInteract;
 
     private void Start()
     {
@@ -45,12 +45,15 @@ public class HandScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 100))
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
+                    Debug.Log("1");
                     if (hit.transform.GetComponentInParent<CardScript>())
-                    {           
+                    {
+                        
                         if (fieldScriptAccess.SpawnActiveCard(hit.transform.GetComponentInParent<CardScript>().myCardId))
                         {
                             Debug.Log("end turn by card");
@@ -66,6 +69,10 @@ public class HandScript : MonoBehaviour
                         Destroy(hit.transform.parent.gameObject);
                         cardCount--;
                     }
+                }
+                else
+                {
+                    Debug.Log("2");
                 }
             }
             if (Input.GetKeyDown(KeyCode.D))
