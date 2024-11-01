@@ -31,7 +31,6 @@ public class RefereeScript : MonoBehaviour
         foreach (EnemyScript enemy in enemyList)
         {
             enemy.ResetEnemy();
-
         }
         playerAccess.ResetPlayer();
     }
@@ -76,7 +75,7 @@ public class RefereeScript : MonoBehaviour
         if(playerAccess.TakeDamageAndCheckIfDead(inputDamage))
         {
             //turnScriptAccess.isPlayersTurn = false;
-            turnScriptAccess.StartPlayerTurn(false);
+            turnScriptAccess.ShouldStartPlayerTurn(false);
             EndGame();
         }
         
@@ -88,6 +87,7 @@ public class RefereeScript : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         dealDamageToPlayer(enemy.BeginAttack());
         Debug.Log("attack over");
-        turnScriptAccess.StartPlayerTurn(true);
+        UiScript.UpdateTurnInfo(0);
+        turnScriptAccess.ShouldStartPlayerTurn(true);
     }
 }

@@ -28,28 +28,42 @@ public class HandScript : MonoBehaviour
     int cardCount = 0;
 
     Vector3 cardPlacementVector;
+    Coroutine handScriptDelayCoroutine;
+
+    bool canInteract;
 
     private void Start()
     {
         cardCount = 0;
+        canInteract = true;
         CardInstantiation();
     }
 
     private void Update()
     {
-        if(turnScriptAccess.GetPlayerTurnBool())
+        if(canInteract)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                //  Physics.Raycast(ray, out RaycastHit hitInfo)
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, 100))
                 {
-                    if (hit.transform.GetComponent<CardScript>())
-                    {
-                        fieldScriptAccess.SpawnActiveCard(hit.transform.GetComponent<CardScript>().cardId);
-                        Destroy(hit.transform.gameObject);
+                    if (hit.transform.GetComponentInParent<CardScript>())
+                    {           
+                        if (fieldScriptAccess.SpawnActiveCard(hit.transform.GetComponentInParent<CardScript>().myCardId))
+                        {
+                            Debug.Log("end turn by card");
+                            //turnScriptAccess.ShouldStartPlayerTurn(false);
+                            canInteract = false;
+                            handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
+                            //turnScriptAccess.EndPlayersTurn();   
+                        }
+                        else
+                        {
+                            Debug.Log("false");
+                        }
+                        Destroy(hit.transform.parent.gameObject);
                         cardCount--;
                     }
                 }
@@ -61,6 +75,12 @@ public class HandScript : MonoBehaviour
         }
     }
 
+    private IEnumerator EndTurnDelayCoroutine()
+    {
+        yield return new WaitForSeconds(0.75f);
+        turnScriptAccess.EndPlayersTurn();
+    }
+    
     private void CardInstantiation()
     {
         Vector3 cardPlacementVector = new Vector3(1, 0, 0);
@@ -82,6 +102,7 @@ public class HandScript : MonoBehaviour
             }
             
         }
+        StopCoroutine(handScriptDelayCoroutine);
         cardList.Clear();
         cardCount = 0;
         CardInstantiation();
@@ -95,6 +116,7 @@ public class HandScript : MonoBehaviour
         bool isFullRefill;
         if(refillCount <= 0)
         {
+            canInteract = true;
             refillCycleCount = cardList.Count;
             isFullRefill = true;
         }
@@ -161,6 +183,7 @@ public class HandScript : MonoBehaviour
     {
         GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVectorReference, Quaternion.identity);
         cardClone.SetActive(true);
+        
         cardCount++;
         if (cardIndex < 0)
         {

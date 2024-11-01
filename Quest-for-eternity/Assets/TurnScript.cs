@@ -14,8 +14,7 @@ public class TurnScript : MonoBehaviour
 
     private void Start()
     {
-        isPlayersTurn = true;
-      
+        isPlayersTurn = true; 
     }
 
     public bool GetPlayerTurnBool()
@@ -28,22 +27,25 @@ public class TurnScript : MonoBehaviour
         isPlayersTurn = true;
     }*/
 
-    public void StartPlayerTurn(bool playerTurnBool)
+    public void ShouldStartPlayerTurn(bool playerTurnBool)
     {
         if(!refereeScriptAccess.GetIsGameOver())
         {
             isPlayersTurn = playerTurnBool;
-        }
-       
+           
+        }   
     }
 
-    private void EndPlayersTurn()
+    public void EndPlayersTurn()
     {
-        fieldScriptAccess.FieldClearAndDealDamage(true);
-        handScriptAccess.AddCardsToHand(0);
-        isPlayersTurn = false;
-        //  isPlayersTurn = 
-        refereeScriptAccess.EnemyAttack();
+        if(isPlayersTurn)
+        {
+            UiScript.UpdateTurnInfo(1);
+            fieldScriptAccess.FieldClearAndDealDamage(true);
+            handScriptAccess.AddCardsToHand(0);
+            isPlayersTurn = false;
+            refereeScriptAccess.EnemyAttack();
+        }
     }
 
     private void RestartGame()
@@ -55,7 +57,7 @@ public class TurnScript : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isPlayersTurn)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             EndPlayersTurn();
         }

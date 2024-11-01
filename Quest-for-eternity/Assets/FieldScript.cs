@@ -15,8 +15,6 @@ public class FieldScript : MonoBehaviour
     [SerializeField]
     RefereeScript refereeScriptAccess;
 
-    TextMeshPro fieldDamageText;
-
     int damagePoints = 0;
 
     private Vector3 activeCardSpawnPosition;
@@ -30,18 +28,30 @@ public class FieldScript : MonoBehaviour
     private void Start()
     {
         activeCardSpawnPosition = spawnpoint.position;
-        fieldDamageText = GetComponentInChildren<TextMeshPro>();
     }
-    public void SpawnActiveCard(int cardId)
+    public bool SpawnActiveCard(int cardId)
     {
-       
+        //Debug.Log("Active card spawn called");
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
         activeCardSpawnPosition += new Vector3(2, 0, 0);
- 
+        activeCardInstance.SetActive(true);
+
+
         activeCardList.Add(activeCardInstance);
 
         damagePoints += activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
-        UpdateFieldDamageText();
+       
+        UiScript.UpdateFieldDamageText(damagePoints);
+
+        if (activeCardInstance.GetComponent<ActiveCardScript>().GetActiveCardType() == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     public void FieldClearAndDealDamage(bool doWeDealDamage)
@@ -57,12 +67,6 @@ public class FieldScript : MonoBehaviour
             refereeScriptAccess.dealDamageToEnemy(damagePoints);
         }
         damagePoints = 0;
-        UpdateFieldDamageText();
+        UiScript.UpdateFieldDamageText(damagePoints);
     }
-
-    private void UpdateFieldDamageText()
-    {
-        fieldDamageText.text = damagePoints.ToString();
-    }
-
 }

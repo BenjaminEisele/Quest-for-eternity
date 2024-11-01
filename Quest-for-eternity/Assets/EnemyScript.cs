@@ -15,14 +15,15 @@ public class EnemyScript : MonoBehaviour
         enemyHealth = 25;
         savedEnemyHealth = enemyHealth;
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
-        enemyHealthText.text = enemyHealth.ToString();
-
+        //enemyHealthText.text = enemyHealth.ToString();
+        UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }
 
     public void ResetEnemy()
     {
         enemyHealth = savedEnemyHealth;
-        enemyHealthText.text = enemyHealth.ToString();
+        //enemyHealthText.text = enemyHealth.ToString();
+        UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
@@ -31,21 +32,22 @@ public class EnemyScript : MonoBehaviour
         {
             enemyHealth = 0;
             Debug.Log("enemy is dead");
-            enemyHealthText.text = enemyHealth.ToString();
+            //enemyHealthText.text = enemyHealth.ToString();
+            UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             return true;
         }
         else
         {
-            enemyHealthText.text = enemyHealth.ToString();
+            //enemyHealthText.text = enemyHealth.ToString();
+            UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             return false;
         }
-       
     }
 
     public int BeginAttack()
     {
         int enemyDamage = Random.Range(1, 6);
-        Debug.Log(enemyDamage);
+       // Debug.Log(enemyDamage);
         return enemyDamage;
     }
 }

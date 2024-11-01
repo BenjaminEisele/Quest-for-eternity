@@ -13,13 +13,15 @@ public class PlayerStatScript : MonoBehaviour
         playerHealth = 25;
         savedPlayerHealth = playerHealth;
         playerHealthText = GetComponentInChildren<TextMeshPro>();
-        playerHealthText.text = playerHealth.ToString();
+        //playerHealthText.text = playerHealth.ToString();
+        UiScript.UpdateFighterText(playerHealthText, playerHealth);
 
     }
     public void ResetPlayer()
     {
         playerHealth = savedPlayerHealth;
-        playerHealthText.text = playerHealth.ToString();
+        //playerHealthText.text = playerHealth.ToString();
+        UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
@@ -28,12 +30,14 @@ public class PlayerStatScript : MonoBehaviour
         {
             playerHealth = 0;
             Debug.Log("player is dead");
-            playerHealthText.text = playerHealth.ToString();
+            //playerHealthText.text = playerHealth.ToString();
+            UiScript.UpdateFighterText(playerHealthText, playerHealth);
             return true;
         }
         else
         {
-            playerHealthText.text = playerHealth.ToString();
+            // playerHealthText.text = playerHealth.ToString();
+            UiScript.UpdateFighterText(playerHealthText, playerHealth);
             return false;
         }
        
