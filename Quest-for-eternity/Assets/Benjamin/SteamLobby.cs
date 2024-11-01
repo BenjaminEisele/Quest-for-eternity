@@ -31,7 +31,7 @@ public class SteamLobby : MonoBehaviour
 
     public void HostLobby()
     {
-        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePrivate, 2);
+        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 2);
     }
 
     private void OnLobbyCreated(LobbyCreated_t callback)
