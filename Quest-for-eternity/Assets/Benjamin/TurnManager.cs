@@ -3,48 +3,29 @@ using UnityEngine;
 
 public class TurnManager : NetworkBehaviour
 {
-    private GameObject Player1;
-    private GameObject Player2;
-    private GameObject Enemie;
-    private int TurnOrder = 0;
+    [SyncVar] public bool IsPlayerATurn = true;
+    [SyncVar] public bool IsPlayerBTurn = false;
 
-    private void UpdateTurnOrder()
-        {
-            switch (TurnOrder) //later bools and then chekc in class
-            {
-                case 0:
-                    Player1.SetActive(false);
-                    Player2.SetActive(true);
-                    break;
+    [SerializeField] private GameObject EndTurnButtonA;
+    [SerializeField] private GameObject EndTurnButtonB;
 
-                case 1:
-                    Player2.SetActive(false);
-                    Enemie.SetActive(true);
-                    break;
-
-                case 2:
-                    Enemie.SetActive(false);
-                    Player1.SetActive(true);
-                    break;
-            }
-        }
-
-    private void Player1EndTurn()
-    {
-        TurnOrder = 1;
-        UpdateTurnOrder();
+    public void PlayerAEndTurn()
+    { 
+        this.IsPlayerATurn = false;
+        this.IsPlayerBTurn = true;
+        UpdateTurn(false);
     }
 
-    private void Player2EndTurn()
+    public void PlayerBEndTurn()
     {
-        TurnOrder = 2; 
-        UpdateTurnOrder();
+        this.IsPlayerATurn = true;
+        this.IsPlayerBTurn = false;
+        UpdateTurn(true);
     }
 
-    private void EnemieEndTurn()
+    public void UpdateTurn(bool input)
     {
-        TurnOrder= 0;
-        UpdateTurnOrder();
+        this.EndTurnButtonA.SetActive(input);
+        this.EndTurnButtonB.SetActive(!input);
     }
-
 }

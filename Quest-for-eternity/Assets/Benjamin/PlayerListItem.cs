@@ -80,7 +80,7 @@ public class PlayerListItem : MonoBehaviour
 
         else
         {
-            PlayerReadyText.text = "Unready";
+            PlayerReadyText.text = "Not ready";
             PlayerReadyText.color = Color.red;
         }
     }

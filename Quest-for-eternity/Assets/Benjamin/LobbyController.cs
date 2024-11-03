@@ -5,6 +5,7 @@ using Steamworks;
 using System.Linq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LobbyController : MonoBehaviour
 {
@@ -21,7 +22,6 @@ public class LobbyController : MonoBehaviour
     private List<PlayerListItem> PlayerListItems = new List<PlayerListItem>();
     public PlayerObjectController LocalPlayerController;
 
-    public Button InvitePlayerButton;
     public Button StartGameButton;
     public Text ReadyButtonText;
 
@@ -215,10 +215,9 @@ public class LobbyController : MonoBehaviour
         LocalPlayerController.CanStartGame(SceneName);
     }
 
-    /*public void InvitePlayer()
+    public void Quit()
     {
-        SteamUser.AdvertiseGame();
-        SteamMatchmaking.InviteUserToLobby();
-    }*/
+        LocalPlayerController.Quit();
+    }
 
 }

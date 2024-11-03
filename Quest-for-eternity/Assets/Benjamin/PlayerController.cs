@@ -30,4 +30,10 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
+    public void SetPosition()
+    {
+        //set spawnpositions of cameras
+        transform.position = new Vector2(0,0);      
+    }
+
 }
