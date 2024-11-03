@@ -14,6 +14,7 @@ public class TurnManager : NetworkBehaviour
         this.IsPlayerATurn = false;
         this.IsPlayerBTurn = true;
         UpdateTurn(false);
+        CmdUpdateTurn(false);
     }
 
     public void PlayerBEndTurn()
@@ -21,9 +22,17 @@ public class TurnManager : NetworkBehaviour
         this.IsPlayerATurn = true;
         this.IsPlayerBTurn = false;
         UpdateTurn(true);
+        CmdUpdateTurn(true);
     }
 
     public void UpdateTurn(bool input)
+    {
+        this.EndTurnButtonA.SetActive(input);
+        this.EndTurnButtonB.SetActive(!input);
+    }
+
+    [Command]
+    public void CmdUpdateTurn(bool input)
     {
         this.EndTurnButtonA.SetActive(input);
         this.EndTurnButtonB.SetActive(!input);
