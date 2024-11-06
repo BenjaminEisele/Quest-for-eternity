@@ -41,6 +41,7 @@ public class TurnManager : NetworkBehaviour
             IsPlayerATurn = false;
             IsPlayerBTurn = true;
             EndTurnButton.SetActive(false);
+            Debug.Log("1");
         }
         
         else if (PlayerObjectController.Instance.ConnectionID > 0)
@@ -48,6 +49,7 @@ public class TurnManager : NetworkBehaviour
             IsPlayerATurn = true;
             IsPlayerBTurn = false;
             EndTurnButton.SetActive(false);
+            Debug.Log("2");
         }
     }
     
@@ -56,11 +58,13 @@ public class TurnManager : NetworkBehaviour
         if (PlayerObjectController.Instance.ConnectionID == 0)
         {
             EndTurnButton.SetActive(input);
+            Debug.Log("3");
         }
         
         else if (PlayerObjectController.Instance.ConnectionID > 0)
         {
             EndTurnButton.SetActive(!input);
+            Debug.Log("4");
         }
     }
 
@@ -70,24 +74,14 @@ public class TurnManager : NetworkBehaviour
         if (PlayerObjectController.Instance.ConnectionID == 0)
         {
             EndTurnButton.SetActive(input);
+            Debug.Log("5");
         }
         
         else if (PlayerObjectController.Instance.ConnectionID > 0)
         {
             EndTurnButton.SetActive(!input);
+            Debug.Log("6");
         }
     }
-
-    public void Test()
-    {
-        if (PlayerObjectController.Instance.ConnectionID == 0)
-        {
-            Debug.Log("Connection ID 0");
-        }
-        
-        else if (PlayerObjectController.Instance.ConnectionID > 0)
-        {
-            Debug.Log("Connection ID 1");
-        }
-    }
+    
 }
