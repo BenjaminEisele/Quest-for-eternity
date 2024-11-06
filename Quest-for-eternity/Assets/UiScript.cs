@@ -42,10 +42,19 @@ public class UiScript : MonoBehaviour
         uiTextArray[1].text = $"It is {turnInfoString} turn!";
     }
 
-    public static void UpdateFieldDamageText(string inputString)
+    public static void UpdateFieldDamageText(string inputString, bool isPlayerAttacking)
     {
         //!!!!!!!!!!!!!!!!!!!!!!
-         uiTextArray[0].text = "Total damage: " + inputString;
+        string attackerName;
+        if(isPlayerAttacking)
+        {
+            attackerName = "The player";
+        }
+        else
+        {
+            attackerName = "The enemy";
+        }
+        uiTextArray[0].text = $"{attackerName}'s total damage: " + inputString;
     }
 
     public static void UpdateActionWindow(string inputString)

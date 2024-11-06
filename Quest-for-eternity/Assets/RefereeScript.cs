@@ -22,7 +22,7 @@ public class RefereeScript : MonoBehaviour
     }
     private void EndGame(bool didPlayerWin)
     {
-        
+        turnScriptAccess.SetPlayerTurnBool(false);
         Debug.Log("game end");
         isGameOver = true;
         string winnerName;
@@ -34,7 +34,6 @@ public class RefereeScript : MonoBehaviour
         {
             winnerName = "The enemy";
         }
-
         UiScript.UpdateGameOverText($"Game over! {winnerName} is victorious!");
     }
     public void RefereeReset()
@@ -96,7 +95,9 @@ public class RefereeScript : MonoBehaviour
     private IEnumerator EnemyTurnCoroutine(EnemyScript enemy)
     {
         yield return new WaitForSeconds(0.75f);
-        dealDamageToPlayer(enemy.BeginAttack());
+        int enemyDamage = enemy.GenerateAttack();
+        dealDamageToPlayer(enemyDamage);
+        UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
         Debug.Log("attack over");
         UiScript.UpdateTurnInfo(0);
         turnScriptAccess.ShouldStartPlayerTurn(true);

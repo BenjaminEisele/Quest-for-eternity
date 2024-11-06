@@ -41,7 +41,7 @@ public class FieldScript : MonoBehaviour
 
         damagePoints += activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
        
-        UiScript.UpdateFieldDamageText(damagePoints.ToString());
+        UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
 
         if (activeCardInstance.GetComponent<ActiveCardScript>().GetActiveCardType() == 1)
         {
@@ -66,6 +66,6 @@ public class FieldScript : MonoBehaviour
             refereeScriptAccess.dealDamageToEnemy(damagePoints);
         }
         damagePoints = 0;
-        UiScript.UpdateFieldDamageText(damagePoints.ToString());
+        UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
     }
 }

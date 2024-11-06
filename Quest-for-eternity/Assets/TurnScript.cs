@@ -8,7 +8,6 @@ public class TurnScript : MonoBehaviour
     [SerializeField]
     private bool isPlayersTurn;
 
-
     [SerializeField]
     RefereeScript refereeScriptAccess;
 
@@ -20,6 +19,11 @@ public class TurnScript : MonoBehaviour
     public bool GetPlayerTurnBool()
     {
         return isPlayersTurn;
+    }
+
+    public void SetPlayerTurnBool(bool inputBool)
+    {
+        isPlayersTurn = inputBool;
     }
    
    /* public void StartPlayersTurn()
