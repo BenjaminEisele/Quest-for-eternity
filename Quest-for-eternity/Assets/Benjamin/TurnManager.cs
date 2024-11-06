@@ -15,7 +15,7 @@ public class TurnManager : NetworkBehaviour
         {
             IsPlayerATurn = false;
             IsPlayerBTurn = true;
-            EndTurnButton.SetActive(false);
+            //EndTurnButton.SetActive(false);
             Debug.Log("1");
         }
         
@@ -23,7 +23,7 @@ public class TurnManager : NetworkBehaviour
         {
             IsPlayerATurn = true;
             IsPlayerBTurn = false;
-            EndTurnButton.SetActive(false);
+            //EndTurnButton.SetActive(false);
             Debug.Log("2");
         }
     }
