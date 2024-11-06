@@ -21,8 +21,6 @@ public class UiScript : MonoBehaviour
         //fieldDamageText = GetComponentInChildren<TextMeshPro>();
         //turnInfoText = GetComponentInChildren<TextMeshPro>();
         uiTextArray = GetComponentsInChildren<TextMeshPro>();
-      
-
     }
     public static void UpdateFighterText(TextMeshPro changedText, int value)
     {
@@ -36,6 +34,7 @@ public class UiScript : MonoBehaviour
         {
             turnInfoString = "your";
         }
+        else
         {
             turnInfoString = "the enemy's";
         }
@@ -43,15 +42,21 @@ public class UiScript : MonoBehaviour
         uiTextArray[1].text = $"It is {turnInfoString} turn!";
     }
 
-    public static void UpdateFieldDamageText(int value)
+    public static void UpdateFieldDamageText(string inputString)
     {
         //!!!!!!!!!!!!!!!!!!!!!!
-         uiTextArray[0].text = "Total damage: " + value.ToString();
+         uiTextArray[0].text = "Total damage: " + inputString;
     }
 
     public static void UpdateActionWindow(string inputString)
     {
         //!!!!!!!!!!!!!!!!!!!!!!
-        uiTextArray[1].text = inputString;
+        //uiTextArray[1].text = inputString;
+    }
+
+    public static void UpdateGameOverText(string inputString)
+    {
+        //!!!!!!!!!!!!!!!!!!!!!!
+        uiTextArray[2].text = inputString;
     }
 }

@@ -20,10 +20,22 @@ public class RefereeScript : MonoBehaviour
         enemyList.Add(targetEnemy);
         isGameOver = false;
     }
-    private void EndGame()
+    private void EndGame(bool didPlayerWin)
     {
+        
         Debug.Log("game end");
         isGameOver = true;
+        string winnerName;
+        if(didPlayerWin)
+        {
+            winnerName = "The player";
+        }
+        else
+        {
+            winnerName = "The enemy";
+        }
+
+        UiScript.UpdateGameOverText($"Game over! {winnerName} is victorious!");
     }
     public void RefereeReset()
     {
@@ -45,7 +57,6 @@ public class RefereeScript : MonoBehaviour
             foreach (EnemyScript enemy in enemyList)
             {
                 StartCoroutine(EnemyTurnCoroutine(enemy));
-
             }
         }
     }
@@ -65,7 +76,7 @@ public class RefereeScript : MonoBehaviour
             }
             if(areAllEnemiesDead)
             {
-                EndGame();
+                EndGame(true);
             }
         }    
     }
@@ -76,7 +87,7 @@ public class RefereeScript : MonoBehaviour
         {
             //turnScriptAccess.isPlayersTurn = false;
             turnScriptAccess.ShouldStartPlayerTurn(false);
-            EndGame();
+            EndGame(false);
         }
         
         //playerAccess.playerHealth -= inputDamage;
