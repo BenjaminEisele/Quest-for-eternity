@@ -15,18 +15,18 @@ public class TurnManager : NetworkBehaviour
         {
             if (IsPlayerATurn)
             {
-                if (this.EndTurnButton.activeSelf == false)
+                if (EndTurnButton.activeSelf == false)
                 {
                     UpdateTurnButton(true);
                 }
             }
         }
         
-        else if (PlayerObjectController.Instance.ConnectionID >= 0)
+        else if (PlayerObjectController.Instance.ConnectionID > 0)
         {
             if (IsPlayerBTurn)
             {
-                if (this.EndTurnButton.activeSelf == false)
+                if (EndTurnButton.activeSelf == false)
                 {
                     CmdUpdateTurnButton(false);
                 }
@@ -40,12 +40,14 @@ public class TurnManager : NetworkBehaviour
         {
             IsPlayerATurn = false;
             IsPlayerBTurn = true;
+            EndTurnButton.SetActive(false);
         }
         
-        else if (PlayerObjectController.Instance.ConnectionID >= 0)
+        else if (PlayerObjectController.Instance.ConnectionID > 0)
         {
             IsPlayerATurn = true;
             IsPlayerBTurn = false;
+            EndTurnButton.SetActive(false);
         }
     }
     
@@ -53,12 +55,12 @@ public class TurnManager : NetworkBehaviour
     {
         if (PlayerObjectController.Instance.ConnectionID == 0)
         {
-            this.EndTurnButton.SetActive(input);
+            EndTurnButton.SetActive(input);
         }
         
-        else if (PlayerObjectController.Instance.ConnectionID >= 0)
+        else if (PlayerObjectController.Instance.ConnectionID > 0)
         {
-            this.EndTurnButton.SetActive(!input);
+            EndTurnButton.SetActive(!input);
         }
     }
 
@@ -67,12 +69,12 @@ public class TurnManager : NetworkBehaviour
     {
         if (PlayerObjectController.Instance.ConnectionID == 0)
         {
-            this.EndTurnButton.SetActive(input);
+            EndTurnButton.SetActive(input);
         }
         
-        else if (PlayerObjectController.Instance.ConnectionID >= 0)
+        else if (PlayerObjectController.Instance.ConnectionID > 0)
         {
-            this.EndTurnButton.SetActive(!input);
+            EndTurnButton.SetActive(!input);
         }
     }
 }
