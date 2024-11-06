@@ -77,4 +77,17 @@ public class TurnManager : NetworkBehaviour
             EndTurnButton.SetActive(!input);
         }
     }
+
+    public void Test()
+    {
+        if (PlayerObjectController.Instance.ConnectionID == 0)
+        {
+            Debug.Log("Connection ID 0");
+        }
+        
+        else if (PlayerObjectController.Instance.ConnectionID > 0)
+        {
+            Debug.Log("Connection ID 1");
+        }
+    }
 }
