@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerObjectController : NetworkBehaviour
 {
-    public static PlayerObjectController Instance;
-    
     //Player Data
     [SyncVar] public int ConnectionID;
     [SyncVar] public int PlayerIDNumber;
@@ -17,7 +15,7 @@ public class PlayerObjectController : NetworkBehaviour
     [SyncVar(hook = nameof(PlayerReadyUpdate))] public bool Ready;
 
     private CustomNetworkManager manager;
-
+    
     private CustomNetworkManager Manager
     {
         get
@@ -29,11 +27,6 @@ public class PlayerObjectController : NetworkBehaviour
 
             return manager = CustomNetworkManager.singleton as CustomNetworkManager;
         }
-    }
-    
-    public void Awake()
-    {
-        if (Instance == null) { Instance = this; }
     }
 
     private void Start()
