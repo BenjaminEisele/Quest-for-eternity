@@ -713,4 +713,4 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  EndTurnButton: {fileID: 0}
+  EndTurnButton: {fileID: 6230412097602033036}
