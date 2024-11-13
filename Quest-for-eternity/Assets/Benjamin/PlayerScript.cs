@@ -24,14 +24,28 @@ public class PlayerScript : NetworkBehaviour
         
         if (isServer)
         {
-            if (TurnManagerScript.Instance.IsPlayerATurn) {EndTurnButton.SetActive(true);}
-            if (TurnManagerScript.Instance.IsPlayerBTurn) {EndTurnButton.SetActive(false);}
+            if (TurnManagerScript.Instance.IsPlayerATurn)
+            {
+                if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
+            }
+
+            if (TurnManagerScript.Instance.IsPlayerBTurn)
+            {
+                if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
+            }
         }
 
         if (!isServer)
         {
-            if (TurnManagerScript.Instance.IsPlayerATurn) {EndTurnButton.SetActive(false);}
-            if (TurnManagerScript.Instance.IsPlayerBTurn) {EndTurnButton.SetActive(true);}
+            if (TurnManagerScript.Instance.IsPlayerATurn)
+            {
+                if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
+            }
+
+            if (TurnManagerScript.Instance.IsPlayerBTurn)
+            {
+                if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
+            }
         }
         
     }
