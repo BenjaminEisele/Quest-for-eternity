@@ -19,7 +19,7 @@ public class PlayerScript : NetworkBehaviour
         }
     }
 
-    public void Update()
+    public void UpdateButton()
     {
         if (EndTurnButton.activeSelf == false)
         {
@@ -48,6 +48,8 @@ public class PlayerScript : NetworkBehaviour
             TurnManagerScript.Instance.EndTurn();
             EndTurnButton.SetActive(false);
         }
+
+        UpdateButton();
     }
     
     [Command]
