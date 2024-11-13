@@ -41,7 +41,7 @@ public class HandScript : MonoBehaviour
 
     private void Update()
     {
-        if(canInteract)
+        if(canInteract && turnScriptAccess.GetPlayerTurnBool())
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
