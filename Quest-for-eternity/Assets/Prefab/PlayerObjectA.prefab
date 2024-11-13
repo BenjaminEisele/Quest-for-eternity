@@ -416,7 +416,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8801201717540204848}
         m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
-        m_MethodName: CmdEndTurn
+        m_MethodName: EndTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
