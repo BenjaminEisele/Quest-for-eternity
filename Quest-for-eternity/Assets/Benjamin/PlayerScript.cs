@@ -19,37 +19,35 @@ public class PlayerScript : NetworkBehaviour
         }
     }
 
-    public void UpdateButton()
+    public void Update()
     {
-        if (EndTurnButton.activeSelf == false)
+        
+        if (isServer)
         {
-            if (isServer)
-            {
-                if (TurnManagerScript.Instance.IsPlayerATurn == true) { EndTurnButton.SetActive(true); }
-            }
-
-            if (!isServer)
-            {
-                if (TurnManagerScript.Instance.IsPlayerBTurn == true) { EndTurnButton.SetActive(true); }
-            }
+            if (TurnManagerScript.Instance.IsPlayerATurn) {EndTurnButton.SetActive(true);}
+            if (TurnManagerScript.Instance.IsPlayerBTurn) {EndTurnButton.SetActive(false);}
         }
+
+        if (!isServer)
+        {
+            if (TurnManagerScript.Instance.IsPlayerATurn) {EndTurnButton.SetActive(false);}
+            if (TurnManagerScript.Instance.IsPlayerBTurn) {EndTurnButton.SetActive(true);}
+        }
+        
     }
 
     public void EndTurn()
     {
         if (!isServer)
         {
-            CmdEndTurn();
-            EndTurnButton.SetActive(false);
+            CmdEndTurn();   
         }
 
         else if (isServer)
         {
             TurnManagerScript.Instance.EndTurn();
-            EndTurnButton.SetActive(false);
         }
 
-        UpdateButton();
     }
     
     [Command]
