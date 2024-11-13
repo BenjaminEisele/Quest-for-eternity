@@ -13,7 +13,7 @@ public class PlayerScript : NetworkBehaviour
             if (TurnManagerScript.Instance.IsPlayerATurn == true) {EndTurnButton.SetActive(true);}
         }
 
-        if (!isClient) //evtl !isServer
+        if (isClient) //evtl !isServer
         {
             if (TurnManagerScript.Instance.IsPlayerBTurn == true) {EndTurnButton.SetActive(true);}    
         }
@@ -21,7 +21,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void EndTurn()
     {
-        if (isClient)
+        if (!isServer)
         {
             CmdEndTurn();
             EndTurnButton.SetActive(false);
