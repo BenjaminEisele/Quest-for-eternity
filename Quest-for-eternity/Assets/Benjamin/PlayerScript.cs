@@ -8,12 +8,12 @@ public class PlayerScript : NetworkBehaviour
 
     public void Update()
     {
-        if (isServer)
+        if (isOwned)
         {
             if (TurnManagerScript.Instance.IsPlayerATurn == true) {EndTurnButton.SetActive(true);}
         }
 
-        if (isClient) //evtl !isServer
+        if (!isOwned) //evtl !isServer
         {
             if (TurnManagerScript.Instance.IsPlayerBTurn == true) {EndTurnButton.SetActive(true);}    
         }
@@ -21,13 +21,13 @@ public class PlayerScript : NetworkBehaviour
 
     public void EndTurn()
     {
-        if (isClient)
+        if (isOwned)
         {
             CmdEndTurn();
             EndTurnButton.SetActive(false);
         }
 
-        else if (isServer)
+        else if (!isOwned)
         {
             TurnManagerScript.Instance.EndTurn();
             EndTurnButton.SetActive(false);
