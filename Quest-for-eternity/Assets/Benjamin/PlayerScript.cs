@@ -6,16 +6,32 @@ public class PlayerScript : NetworkBehaviour
 {
     public GameObject EndTurnButton;
 
-    public void Update()
+    public void Start()
     {
         if (isServer)
         {
-            if (TurnManagerScript.Instance.IsPlayerATurn == true) {EndTurnButton.SetActive(true);}
+            EndTurnButton.SetActive(true);
         }
 
         if (!isServer)
         {
-            if (TurnManagerScript.Instance.IsPlayerBTurn == true) {EndTurnButton.SetActive(true);}    
+            EndTurnButton.SetActive(false);
+        }
+    }
+
+    public void Update()
+    {
+        if (EndTurnButton.activeSelf == false)
+        {
+            if (isServer)
+            {
+                if (TurnManagerScript.Instance.IsPlayerATurn == true) { EndTurnButton.SetActive(true); }
+            }
+
+            if (!isServer)
+            {
+                if (TurnManagerScript.Instance.IsPlayerBTurn == true) { EndTurnButton.SetActive(true); }
+            }
         }
     }
 
