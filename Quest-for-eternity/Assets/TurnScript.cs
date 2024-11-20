@@ -36,7 +36,7 @@ public class TurnScript : MonoBehaviour
         if(!refereeScriptAccess.GetIsGameOver())
         {
             isPlayersTurn = playerTurnBool;
-           
+            UiScript.UpdateTurnInfo(0);
         }   
     }
 
@@ -46,9 +46,9 @@ public class TurnScript : MonoBehaviour
         {
             UiScript.UpdateTurnInfo(1);
             fieldScriptAccess.FieldClearAndDealDamage(true);
-            handScriptAccess.AddCardsToHand(0);
+            //handScriptAccess.AddCardsToHand(0);
             isPlayersTurn = false;
-            refereeScriptAccess.EnemyAttack();
+            refereeScriptAccess.StartEnemyCoroutines();
         }
     }
 

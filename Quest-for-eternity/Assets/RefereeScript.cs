@@ -49,7 +49,7 @@ public class RefereeScript : MonoBehaviour
     {
         return isGameOver;
     }
-    public void EnemyAttack()
+    public void StartEnemyCoroutines()
     {
         if(!isGameOver)
         {
@@ -57,7 +57,10 @@ public class RefereeScript : MonoBehaviour
             {
                 StartCoroutine(EnemyTurnCoroutine(enemy));
             }
+            turnScriptAccess.ShouldStartPlayerTurn(true);
+            Debug.Log("zzoz");//ar galima sitoj vietoj padaryti kad visa logika eitu tik per turn script puse?
         }
+        
     }
     public void dealDamageToEnemy(int inputDamage)
     {
@@ -95,11 +98,13 @@ public class RefereeScript : MonoBehaviour
     private IEnumerator EnemyTurnCoroutine(EnemyScript enemy)
     {
         yield return new WaitForSeconds(0.75f);
+
         int enemyDamage = enemy.GenerateAttack();
         dealDamageToPlayer(enemyDamage);
         UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
+
+
         Debug.Log("attack over");
-        UiScript.UpdateTurnInfo(0);
-        turnScriptAccess.ShouldStartPlayerTurn(true);
+        //turnScriptAccess.ShouldStartPlayerTurn(true);
     }
 }
