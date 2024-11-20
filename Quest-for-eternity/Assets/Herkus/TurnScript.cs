@@ -1,7 +1,6 @@
 using UnityEngine;
-using Mirror;
 
-public class TurnScript : NetworkBehaviour
+public class TurnScript : MonoBehaviour
 {
     public FieldScript fieldScriptAccess;
     public HandScript handScriptAccess;
@@ -14,15 +13,7 @@ public class TurnScript : NetworkBehaviour
 
     private void Start()
     {
-        if (isServer)
-        {
-            isPlayersTurn = true;
-        }
-
-        if (!isServer)
-        {
-            isPlayersTurn = false;
-        }
+        isPlayersTurn = true; 
     }
 
     public bool GetPlayerTurnBool()
@@ -40,11 +31,11 @@ public class TurnScript : NetworkBehaviour
         isPlayersTurn = true;
     }*/
 
-    public void ShouldStartPlayerTurn()
+    public void ShouldStartPlayerTurn(bool playerTurnBool)
     {
         if(!refereeScriptAccess.GetIsGameOver())
         {
-            isPlayersTurn = !isPlayersTurn;
+            isPlayersTurn = playerTurnBool;
            
         }   
     }

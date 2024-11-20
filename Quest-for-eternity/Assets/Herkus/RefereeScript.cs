@@ -85,6 +85,7 @@ public class RefereeScript : MonoBehaviour
         if(playerAccess.TakeDamageAndCheckIfDead(inputDamage))
         {
             //turnScriptAccess.isPlayersTurn = false;
+            turnScriptAccess.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
         
@@ -99,6 +100,6 @@ public class RefereeScript : MonoBehaviour
         UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
         Debug.Log("attack over");
         UiScript.UpdateTurnInfo(0);
-        turnScriptAccess.ShouldStartPlayerTurn();
+        turnScriptAccess.ShouldStartPlayerTurn(true);
     }
 }
