@@ -2436,54 +2436,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardDatabase:
-  - damage: 3
-    hitFraction: {x: 3, y: 5}
-    cardColor: {r: 0.4867924, g: 0.4867924, b: 0.4867924, a: 1}
-    cardType: 0
-    cardName: Boost 1
-    cardSprite: {fileID: 6854849867053495550, guid: c715bd6e26ee5914bb3b7735635421e7, type: 3}
   - damage: 2
     hitFraction: {x: 8, y: 10}
-    cardColor: {r: 0.4641509, g: 0.4641509, b: 0.4641509, a: 1}
+    cardColor: {r: 0, g: 1, b: 0.12385988, a: 1}
     cardType: 0
     cardName: Boost 2
     cardSprite: {fileID: 6854849867053495550, guid: c715bd6e26ee5914bb3b7735635421e7, type: 3}
+    cardEffect:
+    - {fileID: 11400000, guid: ad18a930fa4d1e249be1db1ad3a9a38a, type: 2}
   - damage: 4
     hitFraction: {x: 4, y: 5}
-    cardColor: {r: 0.4943396, g: 0.4943396, b: 0.4943396, a: 1}
+    cardColor: {r: 1, g: 0, b: 0, a: 1}
     cardType: 0
     cardName: Boost 3
-    cardSprite: {fileID: 6854849867053495550, guid: c715bd6e26ee5914bb3b7735635421e7, type: 3}
+    cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
+    cardEffect:
+    - {fileID: 11400000, guid: bec9d464cf2b5b54d9f619d6f5577bb8, type: 2}
   - damage: 4
     hitFraction: {x: 4, y: 5}
-    cardColor: {r: 0.8037735, g: 0.23506573, b: 0.23506573, a: 1}
-    cardType: 1
-    cardName: Warrior Scream
-    cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
-  - damage: 2
-    hitFraction: {x: 4, y: 5}
-    cardColor: {r: 0.44294053, g: 0.511103, b: 0.8792453, a: 1}
-    cardType: 1
-    cardName: Arcane Curse
-    cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
-  - damage: 5
-    hitFraction: {x: 4, y: 5}
-    cardColor: {r: 0.44313726, g: 0.50980395, b: 0.8784314, a: 1}
-    cardType: 1
-    cardName: Arcane Wrath
-    cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
-  - damage: 2
-    hitFraction: {x: 4, y: 5}
-    cardColor: {r: 0.8039216, g: 0.23529412, b: 0.23529412, a: 1}
-    cardType: 1
-    cardName: Skullbash
-    cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
-  - damage: 3
-    hitFraction: {x: 4, y: 5}
-    cardColor: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 1}
+    cardColor: {r: 0, g: 0.109398365, b: 1, a: 1}
     cardType: 0
-    cardName: Boost 4
-    cardSprite: {fileID: 6854849867053495550, guid: c715bd6e26ee5914bb3b7735635421e7, type: 3}
+    cardName: Boost 3
+    cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
+    cardEffect:
+    - {fileID: 11400000, guid: ad18a930fa4d1e249be1db1ad3a9a38a, type: 2}
+    - {fileID: 11400000, guid: bec9d464cf2b5b54d9f619d6f5577bb8, type: 2}
 --- !u!4 &1042591250
 Transform:
   m_ObjectHideFlags: 0

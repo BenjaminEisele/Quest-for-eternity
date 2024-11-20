@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class DataUnit //: MonoBehaviour
@@ -9,4 +11,7 @@ public class DataUnit //: MonoBehaviour
     public int cardType;
     public string cardName;
     public Sprite cardSprite;
+    public List<BaseEffect> cardEffect;
+    //public List<EffectDataUnit> cardEffect;
+    
 }

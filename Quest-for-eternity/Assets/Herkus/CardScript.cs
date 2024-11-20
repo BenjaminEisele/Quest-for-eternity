@@ -46,22 +46,20 @@ public class CardScript : MonoBehaviour
         myDamage = databaseAccess.cardDatabase[myCardId].damage;
         myCardName = databaseAccess.cardDatabase[myCardId].cardName;
 
-
-        //SpriteRenderer mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        databaseAccess.cardDatabase[myCardId].cardEffect[0].ExecuteEffect(databaseAccess.cardDatabase[myCardId].cardEffect[0].damage);
+        
+        // MIGHT BE IMPORTANT
+        //HealEffect generatedCardEffect = ScriptableObject.CreateInstance("HealEffect") as HealEffect;
+        //BaseEffect generatedCardEffect = ScriptableObject.CreateInstance("BaseEffect") as BaseEffect;
+        // generatedCardEffect.ExecuteEffect(5);
 
         GetComponentInChildren<SpriteRenderer>().color = myCardColor;
-        // mySpriteRenderer.color = myCardColor;
-        // mySpriteRenderer.sprite = databaseAccess.cardDatabase[cardId].cardSprite;
         myCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardDatabase[myCardId].cardSprite;
-        //myCardImage = databaseAccess.cardDatabase[myCardId].cardSprite;
 
 
-         cardTextArray = GetComponentsInChildren<TextMeshPro>();
+        cardTextArray = GetComponentsInChildren<TextMeshPro>();
 
         cardTextArray[0].text = myDamage.ToString();
-
-        /*float percentage = (cardHitFraction.x * 100) / cardHitFraction.y;
-        textArray[1].text = "p: " + percentage;//.ToString(); */
 
         cardTextArray[1].text = CalculateString(cardType);
 
