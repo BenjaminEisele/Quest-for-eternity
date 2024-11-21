@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public class UiScript : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class UiScript : MonoBehaviour
         //fieldDamageText = GetComponentInChildren<TextMeshPro>();
         //turnInfoText = GetComponentInChildren<TextMeshPro>();
         uiTextArray = GetComponentsInChildren<TextMeshPro>();
+        UpdateTurnInfo(0);
+        //Debug.Log(uiTextArray[1].gameObject.name);
     }
     public static void UpdateFighterText(TextMeshPro changedText, int value)
     {
@@ -32,10 +35,14 @@ public class UiScript : MonoBehaviour
         string turnInfoString;
         if(inputInfo == 0)
         {
+            Debug.Log("GGGGGGGGGG");
             turnInfoString = "your";
+            //turnInfoString = "the enemy's";
         }
         else
         {
+            EditorApplication.isPaused = true;  
+            Debug.Log("RURRU");
             turnInfoString = "the enemy's";
         }
         //!!!!!!!!!!!!!!!!!!!!!!

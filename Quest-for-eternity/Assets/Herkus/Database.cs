@@ -8,7 +8,7 @@ public class Database : MonoBehaviour
     public List<BaseCard> cardList;
 
 
-    private void Start()
+   /* private void Start()
     {
         Debug.Log("hello");
 
@@ -17,5 +17,5 @@ public class Database : MonoBehaviour
         {
             ut.effectList[0].UseEffect<string>(123, "asdf");
         } 
-    }
+    } */
 }

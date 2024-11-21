@@ -43,20 +43,23 @@ public class FieldScript : MonoBehaviour
        
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
 
-        if (activeCardInstance.GetComponent<ActiveCardScript>().GetActiveCardType() == 1)
+
+        return activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType();
+       /* if (activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType())
         {
             return true;
         }
         else
         {
             return false;
-        }
+        } */
     }
 
     public void FieldClearAndDealDamage(bool doWeDealDamage)
     {
         foreach(GameObject activeCardMember in activeCardList)
         {
+            activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
             Destroy(activeCardMember);
         }
         activeCardList.Clear();

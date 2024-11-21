@@ -16,26 +16,49 @@ public class ActiveCardScript : MonoBehaviour
     private string activeCardName;
 
     private int activeCardType;
+    private int activeCardId;
+
+    bool isActionCard;
+
 
     [SerializeField]
     GameObject activeCardImage;
 
-    public int GetActiveCardType()
+    public bool CheckIfCardHasActionType()
     {
-        return activeCardType;
+        return isActionCard;
+    }
+
+    public void ActivateMyEffect()
+    {
+        if(!isActionCard)
+        {
+            Utility utilityCardAccess = databaseAccess.cardList[activeCardId] as Utility;
+            if (utilityCardAccess)
+            {
+                foreach(EffectUnit myEffectUnit in utilityCardAccess.effectUnitList)
+                {
+                    myEffectUnit.myEffect.UseEffect<string>(myEffectUnit.effectValue, "asdf");
+                }
+                // utilityCardAccess.effectUnitList[0].myEffect.UseEffect<string>(utilityCardAccess.effectUnitList[0].effectValue, "asdf");
+            }
+        } 
     }
     public int ActiveCardSetup(int activeCardId)
     {
+        this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
 
-        Action utilityCardAccess = databaseAccess.cardList[activeCardId] as Action;
-        if (utilityCardAccess)
+        Action actionCardAccess = databaseAccess.cardList[activeCardId] as Action;
+        if (actionCardAccess)
         {
-            activeCardDamage = utilityCardAccess.cardDamage;
+            activeCardDamage = actionCardAccess.cardDamage;
+            isActionCard = true;
         }
         else
         {
             activeCardDamage = 0;
+            isActionCard = false;
         }
 
         GetComponentInChildren<SpriteRenderer>().color = databaseAccess.cardList[activeCardId].cardColor;

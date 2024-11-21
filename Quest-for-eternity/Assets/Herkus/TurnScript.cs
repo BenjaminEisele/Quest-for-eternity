@@ -13,8 +13,13 @@ public class TurnScript : MonoBehaviour
 
     private void Start()
     {
-        isPlayersTurn = true; 
+        isPlayersTurn = true;
+        // UiScript.UpdateTurnInfo(0);
+       // ShouldStartPlayerTurn(true);
     }
+
+
+    
 
     public bool GetPlayerTurnBool()
     {
@@ -36,7 +41,14 @@ public class TurnScript : MonoBehaviour
         if(!refereeScriptAccess.GetIsGameOver())
         {
             isPlayersTurn = playerTurnBool;
-            UiScript.UpdateTurnInfo(0);
+            if(playerTurnBool)
+            {
+                UiScript.UpdateTurnInfo(0);
+            }
+            else
+            {
+                UiScript.UpdateTurnInfo(1);
+            }
         }   
     }
 

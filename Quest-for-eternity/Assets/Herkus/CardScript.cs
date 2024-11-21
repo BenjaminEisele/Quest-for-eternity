@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 
 public class CardScript : MonoBehaviour
@@ -28,14 +29,12 @@ public class CardScript : MonoBehaviour
     public int cardType;
     //0 - utility
     //1 - action
-    
-     
+
+
 
     private void Awake()
     {
         myCardId = Random.Range(0, databaseAccess.cardList.Count);
-
-
         /* cardType = databaseAccess.cardDatabase[myCardId].cardType;
          cardHitFraction = databaseAccess.cardDatabase[myCardId].hitFraction;
          myCardColor = databaseAccess.cardDatabase[myCardId].cardColor;
@@ -53,16 +52,20 @@ public class CardScript : MonoBehaviour
         myCardColor = databaseAccess.cardList[myCardId].cardColor;
         myCardName = databaseAccess.cardList[myCardId].cardName;
 
+
+        string cardTypeName;
         Utility utilityCardAccess = databaseAccess.cardList[myCardId] as Utility;
         if (utilityCardAccess)
         {
-            utilityCardAccess.effectList[0].UseEffect<string>(123, "asdf");
+            //utilityCardAccess.effectList[0].UseEffect<string>(123, "asdf");
             myDamage = 0;
+            cardTypeName = "Utility";
         }
         else
         {
             Action actionCardAccess = databaseAccess.cardList[myCardId] as Action;
             myDamage = actionCardAccess.cardDamage;
+            cardTypeName = "Action";
         }
 
         
@@ -71,7 +74,7 @@ public class CardScript : MonoBehaviour
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
 
         cardTextArray[0].text = myDamage.ToString();
-        cardTextArray[1].text = CalculateString(cardType);
+        cardTextArray[1].text = cardTypeName;//CalculateString(cardType);
         cardTextArray[2].text = myCardName;
     }
 

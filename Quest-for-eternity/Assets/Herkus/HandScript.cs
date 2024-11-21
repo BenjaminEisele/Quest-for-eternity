@@ -45,12 +45,10 @@ public class HandScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
-                    Debug.Log("1");
                     if (hit.transform.GetComponentInParent<CardScript>())
                     {
                         
@@ -62,17 +60,9 @@ public class HandScript : MonoBehaviour
                             handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
                             //turnScriptAccess.EndPlayersTurn();   
                         }
-                        else
-                        {
-                            Debug.Log("false");
-                        }
                         Destroy(hit.transform.parent.gameObject);
                         cardCount--;
                     }
-                }
-                else
-                {
-                    Debug.Log("2");
                 }
             }
             if (Input.GetKeyDown(KeyCode.D))
