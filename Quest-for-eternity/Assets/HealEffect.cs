@@ -8,7 +8,6 @@ public class HealEffect : BaseEffect, IEffect
 
     override public void ExecuteEffect<T>(T ipnut)
     {
-        Debug.Log("A0");
-        Debug.Log($"I healed {ipnut} points");
+     //   Debug.Log($"I healed {ipnut} points");
     }
 }

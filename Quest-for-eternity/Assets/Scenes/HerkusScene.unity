@@ -2461,6 +2461,11 @@ MonoBehaviour:
     cardEffect:
     - {fileID: 11400000, guid: ad18a930fa4d1e249be1db1ad3a9a38a, type: 2}
     - {fileID: 11400000, guid: bec9d464cf2b5b54d9f619d6f5577bb8, type: 2}
+  cardList:
+  - {fileID: 11400000, guid: 1a21ce1decc803d458339235c330aad6, type: 2}
+  - {fileID: 11400000, guid: 9a9717a4b3e89ba44a995039d308a1d1, type: 2}
+  - {fileID: 11400000, guid: 28c4325bfc81dee4184f22ab652a92d5, type: 2}
+  - {fileID: 11400000, guid: cc57e1bd10cd7b84abbdb6a2823808e0, type: 2}
 --- !u!4 &1042591250
 Transform:
   m_ObjectHideFlags: 0

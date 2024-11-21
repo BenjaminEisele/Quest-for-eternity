@@ -11,7 +11,6 @@ public class ActiveCardScript : MonoBehaviour
     Database databaseAccess;
 
     TextMeshPro activeCardText;
-
     public TextMeshPro[] activeCardTextArray;
 
     private string activeCardName;
@@ -29,13 +28,19 @@ public class ActiveCardScript : MonoBehaviour
     {
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
 
-        GetComponentInChildren<SpriteRenderer>().color = databaseAccess.cardDatabase[activeCardId].cardColor;
+        Action utilityCardAccess = databaseAccess.cardList[activeCardId] as Action;
+        if (utilityCardAccess)
+        {
+            activeCardDamage = utilityCardAccess.cardDamage;
+        }
+        else
+        {
+            activeCardDamage = 0;
+        }
 
-
-        activeCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardDatabase[activeCardId].cardSprite;
-        activeCardType = databaseAccess.cardDatabase[activeCardId].cardType;
-        activeCardDamage = databaseAccess.cardDatabase[activeCardId].damage;
-        activeCardName = databaseAccess.cardDatabase[activeCardId].cardName;
+        GetComponentInChildren<SpriteRenderer>().color = databaseAccess.cardList[activeCardId].cardColor;
+        activeCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[activeCardId].cardSprite;
+        activeCardName = databaseAccess.cardList[activeCardId].cardName;
 
         activeCardTextArray[0].text = activeCardDamage.ToString();
         activeCardTextArray[1].text = activeCardName;
