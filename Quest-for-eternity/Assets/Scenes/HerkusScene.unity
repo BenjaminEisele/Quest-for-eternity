@@ -2462,8 +2462,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ad18a930fa4d1e249be1db1ad3a9a38a, type: 2}
     - {fileID: 11400000, guid: bec9d464cf2b5b54d9f619d6f5577bb8, type: 2}
   cardList:
-  - {fileID: 11400000, guid: 3857a3dbbe1cfcd4f8e4258129414a10, type: 2}
-  - {fileID: 11400000, guid: 9c2811967e000164bb075edbb77e2343, type: 2}
+  - {fileID: 11400000, guid: 07b0a67e7cb2ac54c89e5db86d60e68c, type: 2}
+  - {fileID: 11400000, guid: 365d7f99d7e454e4e98198128a7a73d4, type: 2}
 --- !u!4 &1042591250
 Transform:
   m_ObjectHideFlags: 0
