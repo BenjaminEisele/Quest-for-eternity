@@ -12,6 +12,7 @@ public abstract class BaseCard : ScriptableObject
 }
 
 [CreateAssetMenu(fileName = "UtilityCard", menuName = "Cards/UtilityCard")]
+[System.Serializable]
 public class Utility : BaseCard
 {
    // public List<EffectTemplate> effectList;
