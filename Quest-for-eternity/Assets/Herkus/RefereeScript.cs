@@ -53,11 +53,12 @@ public class RefereeScript : MonoBehaviour
     {
         if(!isGameOver)
         {
-            foreach (EnemyScript enemy in enemyList)
-            {
-                StartCoroutine(EnemyTurnCoroutine(enemy));
-            }
-            turnScriptAccess.ShouldStartPlayerTurn(true);
+            StartCoroutine(EnemyTurnCoroutine());
+            /* foreach (EnemyScript enemy in enemyList)
+             {
+                 StartCoroutine(EnemyTurnCoroutine(enemy));
+             } 
+             turnScriptAccess.ShouldStartPlayerTurn(true);*/
             Debug.Log("zzoz");//ar galima sitoj vietoj padaryti kad visa logika eitu tik per turn script puse?
         }
         
@@ -91,19 +92,23 @@ public class RefereeScript : MonoBehaviour
             turnScriptAccess.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
-        
         //playerAccess.playerHealth -= inputDamage;
     }
 
-    private IEnumerator EnemyTurnCoroutine(EnemyScript enemy)
+    private IEnumerator EnemyTurnCoroutine()//(EnemyScript enemy)
     {
-        yield return new WaitForSeconds(0.75f);
+        foreach (EnemyScript enemy in enemyList)
+        {
+            int enemyDamage = enemy.GenerateAttack();
+            dealDamageToPlayer(enemyDamage);
+            UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
+            yield return new WaitForSeconds(0.75f);
+        }
+        
 
-        int enemyDamage = enemy.GenerateAttack();
-        dealDamageToPlayer(enemyDamage);
-        UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
+        
 
-
+        turnScriptAccess.ShouldStartPlayerTurn(true);
         Debug.Log("attack over");
         //turnScriptAccess.ShouldStartPlayerTurn(true);
     }

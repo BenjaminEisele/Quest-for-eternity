@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PunchCard
   m_EditorClassIdentifier: Assembly-CSharp::Action
   cardName: Punch
-  description: 
-  cardColor: {r: 1, g: 0, b: 0, a: 1}
+  effectValue: 0
+  cardColor: {r: 1, g: 0.5631942, b: 0, a: 1}
   cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
-  cardDamage: 12
+  cardDamage: 4

@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
+[System.Serializable]
 public abstract class BaseCard : ScriptableObject
 {
     public string cardName;
@@ -17,6 +19,7 @@ public class Utility : BaseCard
 }
 
 [CreateAssetMenu(fileName = "ActionCard", menuName = "Cards/ActionCard")]
+[System.Serializable]
 public class Action : BaseCard
 {
     public int cardDamage;

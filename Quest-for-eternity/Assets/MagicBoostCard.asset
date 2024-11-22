@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Utility
   cardName: Magic boost
   effectValue: 0
-  cardColor: {r: 0, g: 0.5888634, b: 1, a: 1}
+  cardColor: {r: 0, g: 0.7650819, b: 1, a: 1}
   cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
   effectUnitList:
+  - myEffect: {fileID: 11400000, guid: 1e4f1fa835bbb2c4ca3effccc46c02bc, type: 2}
+    effectValue: 2
   - myEffect: {fileID: 11400000, guid: 4865f3c5a83e36242980046ab0001cb4, type: 2}
     effectValue: 3
-  - myEffect: {fileID: 11400000, guid: 760eee70354d254468467a7c37c9f2aa, type: 2}
-    effectValue: 2

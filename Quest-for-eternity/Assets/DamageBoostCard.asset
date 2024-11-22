@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: DamageBoostCard
   m_EditorClassIdentifier: Assembly-CSharp::Utility
-  cardName: Damage boost
+  cardName: Damage boost!
   effectValue: 0
-  cardColor: {r: 1, g: 0.63459915, b: 0, a: 1}
+  cardColor: {r: 0.78867924, g: 0.14136694, b: 0.14136694, a: 1}
   cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 4865f3c5a83e36242980046ab0001cb4, type: 2}
-    effectValue: 2
+    effectValue: 5

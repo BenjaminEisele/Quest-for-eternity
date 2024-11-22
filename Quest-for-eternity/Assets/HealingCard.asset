@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: HealingCard
   m_EditorClassIdentifier: Assembly-CSharp::Utility
-  cardName: Basic heal!
+  cardName: Healing surge
   effectValue: 0
-  cardColor: {r: 0, g: 1, b: 0.16007113, a: 1}
+  cardColor: {r: 0.14447132, g: 0.7433963, b: 0.1785546, a: 1}
   cardSprite: {fileID: 6854849867053495550, guid: c715bd6e26ee5914bb3b7735635421e7, type: 3}
   effectUnitList:
-  - myEffect: {fileID: 11400000, guid: 760eee70354d254468467a7c37c9f2aa, type: 2}
+  - myEffect: {fileID: 11400000, guid: 1e4f1fa835bbb2c4ca3effccc46c02bc, type: 2}
     effectValue: 5
