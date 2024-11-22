@@ -2464,9 +2464,6 @@ MonoBehaviour:
   cardList:
   - {fileID: 11400000, guid: 3857a3dbbe1cfcd4f8e4258129414a10, type: 2}
   - {fileID: 11400000, guid: 9c2811967e000164bb075edbb77e2343, type: 2}
-  - {fileID: 11400000, guid: 1a21ce1decc803d458339235c330aad6, type: 2}
-  - {fileID: 11400000, guid: 52634cff26d163b40877d7ed26564d22, type: 2}
-  - {fileID: 11400000, guid: 9a9717a4b3e89ba44a995039d308a1d1, type: 2}
 --- !u!4 &1042591250
 Transform:
   m_ObjectHideFlags: 0

@@ -11,17 +11,5 @@ public abstract class BaseCard : ScriptableObject
     public Sprite cardSprite;
 }
 
-[CreateAssetMenu(fileName = "UtilityCard", menuName = "Cards/UtilityCard")]
-[System.Serializable]
-public class Utility : BaseCard
-{
-   // public List<EffectTemplate> effectList;
-    public List<EffectUnit> effectUnitList;
-}
 
-[CreateAssetMenu(fileName = "ActionCard", menuName = "Cards/ActionCard")]
-[System.Serializable]
-public class Action : BaseCard
-{
-    public int cardDamage;
-}
+
