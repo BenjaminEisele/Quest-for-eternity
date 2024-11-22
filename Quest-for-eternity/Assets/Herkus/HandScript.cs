@@ -157,10 +157,6 @@ public class HandScript : MonoBehaviour
             {
                 if (cardList[i] == null && refillCount > 0)
                 {
-                    /*   GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVector, Quaternion.identity);
-                       cardClone.SetActive(true);
-                       cardList[i] = cardClone;
-                    */
                     GenerateCard(cardPlacementVector, i);
                     refillCount--;
                 }
@@ -171,9 +167,6 @@ public class HandScript : MonoBehaviour
             {
                 for (int i = 0; i < refillCount; i++)
                 {
-                    /*  GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVector, Quaternion.identity);
-                      cardClone.SetActive(true);
-                      cardList.Add(cardClone);*/
                     GenerateCard(cardPlacementVector, -1);
                     cardPlacementVector += new Vector3(2, 0, 0); 
                   

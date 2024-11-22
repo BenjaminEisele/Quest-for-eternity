@@ -35,14 +35,14 @@ public class UiScript : MonoBehaviour
         string turnInfoString;
         if(inputInfo == 0)
         {
-            Debug.Log("GGGGGGGGGG");
+           // Debug.Log("GGGGGGGGGG");
             turnInfoString = "your";
             //turnInfoString = "the enemy's";
         }
         else
         {
             EditorApplication.isPaused = true;  
-            Debug.Log("RURRU");
+           // Debug.Log("RURRU");
             turnInfoString = "the enemy's";
         }
         //!!!!!!!!!!!!!!!!!!!!!!

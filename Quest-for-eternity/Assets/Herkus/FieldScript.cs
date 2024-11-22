@@ -15,7 +15,8 @@ public class FieldScript : MonoBehaviour
     [SerializeField]
     RefereeScript refereeScriptAccess;
 
-    int damagePoints = 0;
+    //[HideInInspector]
+    public static int damagePoints = 0;
 
     private Vector3 activeCardSpawnPosition;
 

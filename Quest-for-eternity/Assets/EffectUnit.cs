@@ -7,4 +7,5 @@ public class EffectUnit
 {
     public EffectTemplate myEffect;
     public int effectValue;
+    public bool shouldActivateNow;
 }

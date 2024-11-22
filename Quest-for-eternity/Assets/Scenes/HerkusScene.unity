@@ -2216,6 +2216,52 @@ MonoBehaviour:
   myCardId: 0
   myCardImage: {fileID: 282018012}
   cardType: 0
+--- !u!1 &961028218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961028220}
+  - component: {fileID: 961028219}
+  m_Layer: 0
+  m_Name: SceneObjecDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &961028219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961028218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06ee0ddf26990f44a771b5317597905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatReference: {fileID: 1889118660}
+  fieldScriptAccess: {fileID: 1724832511}
+--- !u!4 &961028220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961028218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.030169, y: -0.4273169, z: 3.606821}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &993577163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,6 +2510,7 @@ MonoBehaviour:
   cardList:
   - {fileID: 11400000, guid: 07b0a67e7cb2ac54c89e5db86d60e68c, type: 2}
   - {fileID: 11400000, guid: 365d7f99d7e454e4e98198128a7a73d4, type: 2}
+  - {fileID: 11400000, guid: 83b927229db959948bdf51fda5255416, type: 2}
 --- !u!4 &1042591250
 Transform:
   m_ObjectHideFlags: 0
@@ -3062,6 +3109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   databaseAccess: {fileID: 1042591249}
   activeCardTextArray: []
+  sceneObjectAccess: {fileID: 961028219}
   activeCardImage: {fileID: 883545635}
 --- !u!4 &1535370627
 Transform:
@@ -3343,6 +3391,7 @@ MonoBehaviour:
   baseActiveCard: {fileID: 1535370623}
   uiScriptAccess: {fileID: 0}
   refereeScriptAccess: {fileID: 543248971}
+  damagePoints: 0
   activeCardList: []
 --- !u!4 &1724832512
 Transform:
@@ -4095,6 +4144,7 @@ SceneRoots:
   - {fileID: 1724832512}
   - {fileID: 317175597}
   - {fileID: 1042591250}
+  - {fileID: 961028220}
   - {fileID: 1468895706}
   - {fileID: 543248972}
   - {fileID: 1222074726}

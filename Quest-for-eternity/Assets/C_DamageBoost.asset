@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc953effc0f464ca4994f700a808a7, type: 3}
-  m_Name: C_PunchCard
+  m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
+  m_Name: C_DamageBoost
   m_EditorClassIdentifier: 
-  cardName: Punch
+  cardName: Damage boost
   effectValue: 0
-  cardColor: {r: 1, g: 0.5211837, b: 0, a: 1}
+  cardColor: {r: 0.9314246, g: 1, b: 0, a: 1}
   cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
-  cardDamage: 4
+  effectUnitList:
+  - myEffect: {fileID: 11400000, guid: ff9d198543958d047b1bbbf16fedcc6a, type: 2}
+    effectValue: 2
+    shouldActivateNow: 1

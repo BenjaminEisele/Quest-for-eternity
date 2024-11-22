@@ -19,10 +19,16 @@ public class ActiveCardScript : MonoBehaviour
     private int activeCardId;
 
     bool isActionCard;
+    bool isAlreadyActivated;
+
 
 
     [SerializeField]
+    SceneObjectDatabase sceneObjectAccess;
+
+    [SerializeField]
     GameObject activeCardImage;
+
 
     public bool CheckIfCardHasActionType()
     {
@@ -31,14 +37,18 @@ public class ActiveCardScript : MonoBehaviour
 
     public void ActivateMyEffect()
     {
-        if(!isActionCard)
+       
+        if (!isActionCard)
         {
             Utility utilityCardAccess = databaseAccess.cardList[activeCardId] as Utility;
             if (utilityCardAccess)
             {
                 foreach(EffectUnit myEffectUnit in utilityCardAccess.effectUnitList)
                 {
-                    myEffectUnit.myEffect.UseEffect<string>(myEffectUnit.effectValue, "asdf");
+                    if (!myEffectUnit.shouldActivateNow)
+                    {
+                        myEffectUnit.myEffect.UseEffect<GameObject>(0, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                    }      
                 }
                 // utilityCardAccess.effectUnitList[0].myEffect.UseEffect<string>(utilityCardAccess.effectUnitList[0].effectValue, "asdf");
             }
@@ -46,6 +56,7 @@ public class ActiveCardScript : MonoBehaviour
     }
     public int ActiveCardSetup(int activeCardId)
     {
+        isAlreadyActivated = false;
         this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
 
@@ -59,6 +70,15 @@ public class ActiveCardScript : MonoBehaviour
         {
             activeCardDamage = 0;
             isActionCard = false;
+
+            Utility utilityCardAccess = databaseAccess.cardList[activeCardId] as Utility;
+            foreach (EffectUnit myEffectUnit in utilityCardAccess.effectUnitList)
+            {
+                if(myEffectUnit.shouldActivateNow)
+                {
+                    myEffectUnit.myEffect.UseEffect<GameObject>(0, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                }
+            }
         }
 
         GetComponentInChildren<SpriteRenderer>().color = databaseAccess.cardList[activeCardId].cardColor;
