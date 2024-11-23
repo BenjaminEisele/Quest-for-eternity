@@ -9,6 +9,7 @@ public abstract class BaseCard : ScriptableObject
     public int effectValue;
     public Color cardColor;
     public Sprite cardSprite;
+    public string cardDescription;
 }
 
 

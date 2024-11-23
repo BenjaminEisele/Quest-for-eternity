@@ -16,6 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0.4943396, g: 0.4943396, b: 0.4943396, a: 1}
   cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
+  cardDescription: A fast Attack
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 5f2fd925b56b24247aa37f50c810bd20, type: 2}
     effectValue: 0
