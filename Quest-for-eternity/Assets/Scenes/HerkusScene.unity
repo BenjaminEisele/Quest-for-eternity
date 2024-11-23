@@ -2249,7 +2249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatReference: {fileID: 1889118660}
-  fieldScriptReference: {fileID: 0}
+  fieldScriptReference: {fileID: 1724832511}
   handScriptReference: {fileID: 1542795159}
 --- !u!4 &961028220
 Transform:
@@ -2517,6 +2517,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83b927229db959948bdf51fda5255416, type: 2}
   - {fileID: 11400000, guid: 6afda90d52facce4a948b412a2064635, type: 2}
   - {fileID: 11400000, guid: 52942a32b8a22e840a7ef8b214874ccc, type: 2}
+  - {fileID: 11400000, guid: 85bc342d1c0b21246b056cb7193bbe3f, type: 2}
+  - {fileID: 11400000, guid: 07b0a67e7cb2ac54c89e5db86d60e68c, type: 2}
 --- !u!4 &1042591250
 Transform:
   m_ObjectHideFlags: 0
@@ -3174,6 +3176,7 @@ MonoBehaviour:
   cardList: []
   cardCount: 0
   canInteract: 0
+  isInQuickAttackMode: 0
 --- !u!4 &1542795160
 Transform:
   m_ObjectHideFlags: 0
@@ -3399,6 +3402,7 @@ MonoBehaviour:
   uiScriptAccess: {fileID: 0}
   refereeScriptAccess: {fileID: 543248971}
   activeCardList: []
+  hitRateModifier: 0
 --- !u!4 &1724832512
 Transform:
   m_ObjectHideFlags: 0

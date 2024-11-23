@@ -11,7 +11,7 @@ public class DataUnit //: MonoBehaviour
     public int cardType;
     public string cardName;
     public Sprite cardSprite;
-    public List<BaseEffect> cardEffect;
+   // public List<BaseEffect> cardEffect;
     //public List<EffectDataUnit> cardEffect;
     
 }

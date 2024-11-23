@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class QuickAttackEffect : EffectTemplate
 {
-    public override void UseEffect<T>(int targetId, int effectValue, T value)
+    public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)

@@ -25,11 +25,13 @@ public class FieldScript : MonoBehaviour
     private List<GameObject> activeCardList;
 
     ActiveCardScript actionCardReference;
-    
 
+    [HideInInspector]
+    public float hitRateModifier;
 
     private void Start()
     {
+        hitRateModifier = 0;
         activeCardSpawnPosition = spawnpoint.position;
     }
     public bool SpawnActiveCard(int cardId)
@@ -67,7 +69,7 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
         if (doWeDealDamage)
         {
-            if(actionCardReference.DidActiveCardHit())
+            if(actionCardReference.DidActiveCardHit(hitRateModifier))
             {
                 refereeScriptAccess.dealDamageToEnemy(damagePoints);
             }
@@ -77,6 +79,7 @@ public class FieldScript : MonoBehaviour
             }
            
         }
+        hitRateModifier = 0;
         damagePoints = 0;
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
     }

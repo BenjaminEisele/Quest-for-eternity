@@ -6,6 +6,6 @@ using System.Collections.Generic;
 public class EffectUnit
 {
     public EffectTemplate myEffect;
-    public int effectValue;
+    public float effectValue;
     public bool shouldActivateNow;
 }

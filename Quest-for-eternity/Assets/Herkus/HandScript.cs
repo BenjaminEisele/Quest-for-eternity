@@ -146,6 +146,7 @@ public class HandScript : MonoBehaviour
         cardCount = 0;
         CardInstantiation();
         canInteract = true;
+        isInQuickAttackMode = false;
     }
 
     public void AddCardsToHand(int refillCount)

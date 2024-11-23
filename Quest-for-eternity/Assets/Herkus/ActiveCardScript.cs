@@ -38,18 +38,31 @@ public class ActiveCardScript : MonoBehaviour
         return isActionCard;
     }
 
-    public bool DidActiveCardHit()
+    public bool DidActiveCardHit(float hitRateModifier)
     {
-        float successChance = activeCardHitRate * 20;
+        float successChance = (activeCardHitRate + hitRateModifier) * 20;
         int successChanceInteger = (int)successChance;
-        if(Random.Range(1, 21) <= successChanceInteger)
-        {
-            return true;
-        }
-        else
+        if(successChanceInteger <= 0)
         {
             return false;
         }
+        else
+        {
+            int diceRoll = Random.Range(1, 21);
+            if (diceRoll <= successChanceInteger)
+            {
+               
+                return true;
+                
+            }
+            else
+            {
+               // Debug.Log("Success rate: " + successChanceInteger);
+              //  Debug.Log("dice: " + diceRoll);
+                return false;
+            }
+        }
+       
     }
 
     public void ActivateMyEffect()

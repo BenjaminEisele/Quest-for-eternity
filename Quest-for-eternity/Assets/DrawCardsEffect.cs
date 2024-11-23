@@ -4,14 +4,14 @@ using UnityEngine;
 [System.Serializable]
 public class DrawCardsEffect : EffectTemplate
 {
-    public override void UseEffect<T>(int targetId, int effectValue, T value)
+    public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
         Debug.Log("damage boost activated");
         GameObject inputGameobject = value as GameObject;
 
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
-            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.AddCardsToHand(effectValue);
+            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.AddCardsToHand((int)effectValue);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class HealingEffect : EffectTemplate
 {
-    public override void UseEffect<T>(int targetId, int effectValue, T value)
+    public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
         //var myVar = value;
         GameObject inputGameobject = value as GameObject;
@@ -12,7 +12,7 @@ public class HealingEffect : EffectTemplate
         if(inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             SceneObjectDatabase sceneObjectDatabaseAccess = inputGameobject.GetComponent<SceneObjectDatabase>();
-            sceneObjectDatabaseAccess.playerStatReference.playerHealth += effectValue;
+            sceneObjectDatabaseAccess.playerStatReference.playerHealth += (int)effectValue;
             Debug.Log(sceneObjectDatabaseAccess.playerStatReference.playerHealth);
         }
         else
