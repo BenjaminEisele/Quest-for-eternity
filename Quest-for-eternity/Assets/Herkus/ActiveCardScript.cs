@@ -21,7 +21,10 @@ public class ActiveCardScript : MonoBehaviour
     bool isActionCard;
     bool isAlreadyActivated;
 
+    [HideInInspector]
+    public bool shouldShowCard;
 
+    float activeCardHitRate;
 
     [SerializeField]
     SceneObjectDatabase sceneObjectAccess;
@@ -35,9 +38,22 @@ public class ActiveCardScript : MonoBehaviour
         return isActionCard;
     }
 
+    public bool DidActiveCardHit()
+    {
+        float successChance = activeCardHitRate * 20;
+        int successChanceInteger = (int)successChance;
+        if(Random.Range(1, 21) <= successChanceInteger)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void ActivateMyEffect()
     {
-       
         if (!isActionCard)
         {
             Utility utilityCardAccess = databaseAccess.cardList[activeCardId] as Utility;
@@ -56,15 +72,20 @@ public class ActiveCardScript : MonoBehaviour
     }
     public int ActiveCardSetup(int activeCardId)
     {
+        shouldShowCard = true;
         isAlreadyActivated = false;
         this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
+       
+
 
         Action actionCardAccess = databaseAccess.cardList[activeCardId] as Action;
         if (actionCardAccess)
         {
             activeCardDamage = actionCardAccess.cardDamage;
+            activeCardHitRate = actionCardAccess.cardHitRate;
             isActionCard = true;
+            
         }
         else
         {
@@ -72,6 +93,7 @@ public class ActiveCardScript : MonoBehaviour
             isActionCard = false;
 
             Utility utilityCardAccess = databaseAccess.cardList[activeCardId] as Utility;
+            shouldShowCard = utilityCardAccess.isDisplayable;
             foreach (EffectUnit myEffectUnit in utilityCardAccess.effectUnitList)
             {
                 if(myEffectUnit.shouldActivateNow)

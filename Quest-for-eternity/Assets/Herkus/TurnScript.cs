@@ -57,7 +57,7 @@ public class TurnScript : MonoBehaviour
         if(isPlayersTurn)
         {
             UiScript.UpdateTurnInfo(1);
-            fieldScriptAccess.FieldClearAndDealDamage(true);
+           
             //handScriptAccess.AddCardsToHand(0);
             isPlayersTurn = false;
             refereeScriptAccess.StartEnemyCoroutines();

@@ -3,5 +3,6 @@ using UnityEngine;
 public class SceneObjectDatabase : MonoBehaviour
 {
     public PlayerStatScript playerStatReference;
-    public FieldScript fieldScriptAccess;
+    public FieldScript fieldScriptReference;
+    public HandScript handScriptReference;
 }

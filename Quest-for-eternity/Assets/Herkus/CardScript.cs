@@ -25,23 +25,26 @@ public class CardScript : MonoBehaviour
     [SerializeField]
     GameObject myCardImage;
 
+
+    [SerializeField]
+    GameObject myCardOutline;
+
     [HideInInspector]
-    public int cardType;
+    public bool isClickable;
+
+
+    //[HideInInspector]
+    //public int cardType;
     //0 - utility
     //1 - action
 
-
+    [HideInInspector]
+    public bool isActionCard;
 
     private void Awake()
     {
+        isClickable = true;
         myCardId = Random.Range(0, databaseAccess.cardList.Count);
-        /* cardType = databaseAccess.cardDatabase[myCardId].cardType;
-         cardHitFraction = databaseAccess.cardDatabase[myCardId].hitFraction;
-         myCardColor = databaseAccess.cardDatabase[myCardId].cardColor;
-         myDamage = databaseAccess.cardDatabase[myCardId].damage;
-         myCardName = databaseAccess.cardDatabase[myCardId].cardName;
-         databaseAccess.cardDatabase[myCardId].cardEffect[0].ExecuteEffect(databaseAccess.cardDatabase[myCardId].cardEffect[0].damage);
-        */
 
         // MIGHT BE IMPORTANT
         //HealEffect generatedCardEffect = ScriptableObject.CreateInstance("HealEffect") as HealEffect;
@@ -51,6 +54,7 @@ public class CardScript : MonoBehaviour
 
         myCardColor = databaseAccess.cardList[myCardId].cardColor;
         myCardName = databaseAccess.cardList[myCardId].cardName;
+        
 
 
         string cardTypeName;
@@ -60,12 +64,14 @@ public class CardScript : MonoBehaviour
             //utilityCardAccess.effectList[0].UseEffect<string>(123, "asdf");
             myDamage = 0;
             cardTypeName = "Utility";
+            isActionCard = false;
         }
         else
         {
             Action actionCardAccess = databaseAccess.cardList[myCardId] as Action;
             myDamage = actionCardAccess.cardDamage;
             cardTypeName = "Action";
+            isActionCard = true;
         }
 
         
@@ -77,7 +83,13 @@ public class CardScript : MonoBehaviour
         cardTextArray[1].text = cardTypeName;//CalculateString(cardType);
         cardTextArray[2].text = myCardName;
     }
-
+    
+    
+    public void SetCardActiveStatus(bool desiredStatus)
+    {
+        isClickable = desiredStatus;
+        myCardOutline.SetActive(desiredStatus);
+    }
     private string CalculateString(int cardTypeInput)
     {
         if(cardTypeInput == 0)

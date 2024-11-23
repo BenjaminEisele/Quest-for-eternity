@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Punch
   effectValue: 0
-  cardColor: {r: 1, g: 0.5211837, b: 0, a: 1}
+  cardColor: {r: 0.7660377, g: 0.49289408, b: 0.19512273, a: 1}
   cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
   cardDamage: 4
+  cardHitRate: 1

@@ -41,7 +41,7 @@ public class UiScript : MonoBehaviour
         }
         else
         {
-            EditorApplication.isPaused = true;  
+           // EditorApplication.isPaused = true;  
            // Debug.Log("RURRU");
             turnInfoString = "the enemy's";
         }

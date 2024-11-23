@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Healing
   effectValue: 0
-  cardColor: {r: 0, g: 1, b: 0.15898585, a: 1}
+  cardColor: {r: 0.13636878, g: 0.6754716, b: 0.22304802, a: 1}
   cardSprite: {fileID: 6854849867053495550, guid: c715bd6e26ee5914bb3b7735635421e7, type: 3}
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 6ce8ae20ce86e394a857a28aa91a5199, type: 2}
     effectValue: 5
+    shouldActivateNow: 0
+  isDisplayable: 1

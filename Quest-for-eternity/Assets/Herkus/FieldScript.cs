@@ -16,6 +16,7 @@ public class FieldScript : MonoBehaviour
     RefereeScript refereeScriptAccess;
 
     //[HideInInspector]
+    [SerializeField]
     public static int damagePoints = 0;
 
     private Vector3 activeCardSpawnPosition;
@@ -23,6 +24,7 @@ public class FieldScript : MonoBehaviour
     [SerializeField] //kodel null refas pasidaro sita istrynus? alio??
     private List<GameObject> activeCardList;
 
+    ActiveCardScript actionCardReference;
     
 
 
@@ -32,28 +34,26 @@ public class FieldScript : MonoBehaviour
     }
     public bool SpawnActiveCard(int cardId)
     {
-        //Debug.Log("Active card spawn called");
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
-        activeCardSpawnPosition += new Vector3(2, 0, 0);
-        activeCardInstance.SetActive(true);
 
+        int gog = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
+        damagePoints += gog;
 
-        activeCardList.Add(activeCardInstance);
-
-        damagePoints += activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
-       
+        if(activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
+        {
+            activeCardSpawnPosition += new Vector3(2, 0, 0);
+            activeCardInstance.SetActive(true);
+            activeCardList.Add(activeCardInstance);
+        }
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
 
-
-        return activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType();
-       /* if (activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType())
+        bool isSpawningActionCard = activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType();
+        if(isSpawningActionCard)
         {
-            return true;
+            actionCardReference = activeCardInstance.GetComponent<ActiveCardScript>();
         }
-        else
-        {
-            return false;
-        } */
+
+        return isSpawningActionCard;
     }
 
     public void FieldClearAndDealDamage(bool doWeDealDamage)
@@ -67,7 +67,15 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
         if (doWeDealDamage)
         {
-            refereeScriptAccess.dealDamageToEnemy(damagePoints);
+            if(actionCardReference.DidActiveCardHit())
+            {
+                refereeScriptAccess.dealDamageToEnemy(damagePoints);
+            }
+            else
+            {
+                Debug.Log("hit failed");
+            }
+           
         }
         damagePoints = 0;
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);

@@ -46,7 +46,7 @@ public class EnemyScript : MonoBehaviour
 
     public int GenerateAttack()
     {
-        int enemyDamage = Random.Range(1, 6);
+        int enemyDamage = 3;//Random.Range(1, 6);
        // Debug.Log(enemyDamage);
         return enemyDamage;
     }

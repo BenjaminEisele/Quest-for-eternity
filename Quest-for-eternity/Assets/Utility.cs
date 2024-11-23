@@ -8,4 +8,5 @@ public class Utility : BaseCard
 {
     // public List<EffectTemplate> effectList;
     public List<EffectUnit> effectUnitList;
+    public bool isDisplayable;
 }

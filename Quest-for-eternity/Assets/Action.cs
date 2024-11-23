@@ -5,4 +5,5 @@ using UnityEngine;
 public class Action : BaseCard
 {
     public int cardDamage;
+    public float cardHitRate;
 }

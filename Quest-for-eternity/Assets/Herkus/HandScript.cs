@@ -32,8 +32,11 @@ public class HandScript : MonoBehaviour
 
     public bool canInteract;
 
+    public bool isInQuickAttackMode;
+
     private void Start()
     {
+        isInQuickAttackMode = false;
         cardCount = 0;
         canInteract = true;
         CardInstantiation();
@@ -51,17 +54,27 @@ public class HandScript : MonoBehaviour
                 {
                     if (hit.transform.GetComponentInParent<CardScript>())
                     {
-                        
-                        if (fieldScriptAccess.SpawnActiveCard(hit.transform.GetComponentInParent<CardScript>().myCardId))
+                        if (hit.transform.GetComponentInParent<CardScript>().isClickable)
                         {
-                            Debug.Log("end turn by card");
-                            //turnScriptAccess.ShouldStartPlayerTurn(false);
-                            canInteract = false;
-                            handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
-                            //turnScriptAccess.EndPlayersTurn();   
+                           
+                            if (fieldScriptAccess.SpawnActiveCard(hit.transform.GetComponentInParent<CardScript>().myCardId))
+                            {
+                                canInteract = false;
+                                if (isInQuickAttackMode)
+                                {
+                                    handScriptDelayCoroutine = StartCoroutine(QuickAttackModeCoroutine());
+                                }
+                                else
+                                {
+                                    Debug.Log("end turn by card");
+                                    
+                                    handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
+                                    //turnScriptAccess.EndPlayersTurn();   
+                                }
+                            }
+                            Destroy(hit.transform.parent.gameObject);
+                            cardCount--;
                         }
-                        Destroy(hit.transform.parent.gameObject);
-                        cardCount--;
                     }
                 }
             }
@@ -72,11 +85,35 @@ public class HandScript : MonoBehaviour
         }
     }
 
+    public void SetUtilityCardStatus(bool desiredCardStatus)
+    {
+        foreach (CardScript card in cardList)
+        {
+            if(card != null)
+            {
+                if (!card.isActionCard)
+                {
+                    card.SetCardActiveStatus(desiredCardStatus);
+                }
+            }
+            
+        }
+    }
+
+    private IEnumerator QuickAttackModeCoroutine()
+    {
+        yield return new WaitForSeconds(0.75f);
+        fieldScriptAccess.FieldClearAndDealDamage(true);
+        isInQuickAttackMode = false;
+        SetUtilityCardStatus(true);
+        canInteract = true;
+    }
     private IEnumerator EndTurnDelayCoroutine()
     {
         yield return new WaitForSeconds(0.75f);
         AddCardsToHand(0);
         turnScriptAccess.EndPlayersTurn();
+        fieldScriptAccess.FieldClearAndDealDamage(true);
     }
     
     private void CardInstantiation()
