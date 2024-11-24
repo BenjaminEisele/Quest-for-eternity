@@ -69,15 +69,17 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
         if (doWeDealDamage)
         {
-            if(actionCardReference.DidActiveCardHit(hitRateModifier))
+            if(actionCardReference != null)
             {
-                refereeScriptAccess.dealDamageToEnemy(damagePoints);
-            }
-            else
-            {
-                Debug.Log("hit failed");
-            }
-           
+                if (actionCardReference.DidActiveCardHit(hitRateModifier))
+                {
+                    refereeScriptAccess.dealDamageToEnemy(damagePoints);
+                }
+                else
+                {
+                    Debug.Log("hit failed");
+                }
+            } 
         }
         hitRateModifier = 0;
         damagePoints = 0;

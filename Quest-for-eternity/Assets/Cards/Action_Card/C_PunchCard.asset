@@ -18,4 +18,4 @@ MonoBehaviour:
   cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
   cardDescription: Punch Your Enemy
   cardDamage: 4
-  cardHitRate: 0
+  cardHitRate: 1

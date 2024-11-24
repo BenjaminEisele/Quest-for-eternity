@@ -67,8 +67,10 @@ public class ActiveCardScript : MonoBehaviour
 
     public void ActivateMyEffect()
     {
+        
         if (!isActionCard)
         {
+            //Debug.Log("activating");
             Utility utilityCardAccess = databaseAccess.cardList[activeCardId] as Utility;
             if (utilityCardAccess)
             {
@@ -77,6 +79,7 @@ public class ActiveCardScript : MonoBehaviour
                     if (!myEffectUnit.shouldActivateNow)
                     {
                         myEffectUnit.myEffect.UseEffect<GameObject>(0, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                       // Debug.Log("activating 2");
                     }      
                 }
                 // utilityCardAccess.effectUnitList[0].myEffect.UseEffect<string>(utilityCardAccess.effectUnitList[0].effectValue, "asdf");

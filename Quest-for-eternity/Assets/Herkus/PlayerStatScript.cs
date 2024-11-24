@@ -21,23 +21,44 @@ public class PlayerStatScript : MonoBehaviour
     {
         playerHealth = savedPlayerHealth;
         //playerHealthText.text = playerHealth.ToString();
+        ChangePlayerHealth(savedPlayerHealth);
+        UiScript.UpdateFighterText(playerHealthText, playerHealth);
+       
+    }
+
+    public void ChangePlayerHealth(int desiredAmount)
+    {
+        Debug.Log("health altered");
+        int changedValue = playerHealth + desiredAmount;
+        playerHealth = changedValue;
+        if(playerHealth < savedPlayerHealth)
+        {
+            playerHealthText.color = Color.red;
+        }
+        else if(playerHealth >= savedPlayerHealth)
+        {
+            playerHealthText.color = Color.white;
+            playerHealth = savedPlayerHealth;
+            Debug.Log("clamped");
+        }
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
-        playerHealth -= inputDamage;
+        Debug.Log("===");
+        //playerHealth -= inputDamage;
+        ChangePlayerHealth(-inputDamage);
         if (playerHealth <= 0)
         {
             playerHealth = 0;
             Debug.Log("player is dead");
-            //playerHealthText.text = playerHealth.ToString();
-            UiScript.UpdateFighterText(playerHealthText, playerHealth);
+            //UiScript.UpdateFighterText(playerHealthText, playerHealth);
             return true;
         }
         else
         {
             // playerHealthText.text = playerHealth.ToString();
-            UiScript.UpdateFighterText(playerHealthText, playerHealth);
+            //UiScript.UpdateFighterText(playerHealthText, playerHealth);
             return false;
         }
        

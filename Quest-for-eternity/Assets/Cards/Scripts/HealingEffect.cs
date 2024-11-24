@@ -12,8 +12,9 @@ public class HealingEffect : EffectTemplate
         if(inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             SceneObjectDatabase sceneObjectDatabaseAccess = inputGameobject.GetComponent<SceneObjectDatabase>();
-            sceneObjectDatabaseAccess.playerStatReference.playerHealth += (int)effectValue;
-            Debug.Log(sceneObjectDatabaseAccess.playerStatReference.playerHealth);
+           // sceneObjectDatabaseAccess.playerStatReference.playerHealth += (int)effectValue;
+            sceneObjectDatabaseAccess.playerStatReference.ChangePlayerHealth((int)effectValue);
+            //Debug.Log(sceneObjectDatabaseAccess.playerStatReference.playerHealth);
         }
         else
         {

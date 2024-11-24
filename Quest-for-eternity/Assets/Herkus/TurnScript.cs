@@ -76,6 +76,7 @@ public class TurnScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             EndPlayersTurn();
+            fieldScriptAccess.FieldClearAndDealDamage(true);
         }
         else if(Input.GetKeyDown(KeyCode.R))
         {

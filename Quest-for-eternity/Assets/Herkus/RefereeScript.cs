@@ -97,6 +97,7 @@ public class RefereeScript : MonoBehaviour
 
     private IEnumerator EnemyTurnCoroutine()//(EnemyScript enemy)
     {
+        yield return new WaitForSeconds(0.25f);
         foreach (EnemyScript enemy in enemyList)
         {
             int enemyDamage = enemy.GenerateAttack();
