@@ -61,6 +61,5 @@ public class PlayerStatScript : MonoBehaviour
             //UiScript.UpdateFighterText(playerHealthText, playerHealth);
             return false;
         }
-       
     }
 }

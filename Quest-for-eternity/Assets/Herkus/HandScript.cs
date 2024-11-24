@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEditor;
 
 public class HandScript : MonoBehaviour
 {
@@ -19,6 +19,9 @@ public class HandScript : MonoBehaviour
 
     [SerializeField]
     TurnScript turnScriptAccess;
+
+    [SerializeField]
+    DeckManager deckManagerAccess;
 
     [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
     private List<CardScript> cardList;
@@ -56,8 +59,10 @@ public class HandScript : MonoBehaviour
                     {
                         if (hit.transform.GetComponentInParent<CardScript>().isClickable)
                         {
-                           
-                            if (fieldScriptAccess.SpawnActiveCard(hit.transform.GetComponentInParent<CardScript>().myCardId))
+                            int clickedCardId = hit.transform.GetComponentInParent<CardScript>().myCardId;
+                            deckManagerAccess.handCardList.Remove(clickedCardId);
+                            deckManagerAccess.discardedCardList.Add(clickedCardId);
+                            if (fieldScriptAccess.SpawnActiveCard(clickedCardId))
                             {
                                 canInteract = false;
                                 if (isInQuickAttackMode)
@@ -83,6 +88,13 @@ public class HandScript : MonoBehaviour
                 AddCardsToHand(2);
             }
         }
+      /*  if(Input.GetKeyDown(KeyCode.P))
+        {
+            // deckManagerAccess.deckCardList.Remove(deckManagerAccess.deckCardList.Count - 1);
+            //deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
+            deckManagerAccess.deckCardList = deckManagerAccess.discardedCardList;
+            Debug.Log("hhhh");
+        } */ 
     }
 
     public void SetUtilityCardStatus(bool desiredCardStatus)
@@ -216,6 +228,26 @@ public class HandScript : MonoBehaviour
     {
         GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVectorReference, Quaternion.identity);
         cardClone.SetActive(true);
+        if(deckManagerAccess.deckCardList.Count <= 0)
+        {
+            Debug.Log("out of cards!");
+            EditorApplication.isPaused = true;
+
+
+            //List<GameObject> listOfGameObjects = new List<GameObject>();
+            //GameObject[] arrayOfGameObjects = listOfGameObjects.ToArray();
+
+
+            // deckManagerAccess.discardedCardList.CopyTo(deckManagerAccess.deckCardList.ToArray(), 0);
+            deckManagerAccess.deckCardList.AddRange(deckManagerAccess.discardedCardList);
+            
+            //deckManagerAccess.deckCardList = deckManagerAccess.discardedCardList;
+            deckManagerAccess.discardedCardList.Clear();
+        }
+
+            cardClone.GetComponent<CardScript>().HandCardSetup(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
+            deckManagerAccess.handCardList.Add(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
+            deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
         
         cardCount++;
         if (cardIndex < 0)
@@ -225,6 +257,6 @@ public class HandScript : MonoBehaviour
         else
         {
             cardList[cardIndex] = cardClone.GetComponent<CardScript>();
-        }  
+        }
     }
 }

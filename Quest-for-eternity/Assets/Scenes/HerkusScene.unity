@@ -2605,6 +2605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1042591250}
   - component: {fileID: 1042591249}
+  - component: {fileID: 1042591251}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -2650,6 +2651,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6afda90d52facce4a948b412a2064635, type: 2}
   - {fileID: 11400000, guid: 52942a32b8a22e840a7ef8b214874ccc, type: 2}
   - {fileID: 11400000, guid: 85bc342d1c0b21246b056cb7193bbe3f, type: 2}
+  - {fileID: 11400000, guid: e4271abb4fd178943839f63f03b12929, type: 2}
+  - {fileID: 11400000, guid: 4131098686bb20e44b70707fe816e139, type: 2}
   - {fileID: 11400000, guid: 07b0a67e7cb2ac54c89e5db86d60e68c, type: 2}
 --- !u!4 &1042591250
 Transform:
@@ -2666,6 +2669,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1042591251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042591248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckCardList: 0000000001000000000000000200000000000000030000000000000004000000000000000500000000000000
+  handCardList: 
+  discardedCardList: 
 --- !u!1 &1222074724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3305,6 +3323,7 @@ MonoBehaviour:
   cardLimit: 5
   fieldScriptAccess: {fileID: 1724832511}
   turnScriptAccess: {fileID: 317175596}
+  deckManagerAccess: {fileID: 1042591251}
   cardList: []
   cardCount: 0
   canInteract: 0

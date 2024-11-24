@@ -43,9 +43,15 @@ public class CardScript : MonoBehaviour
 
     private void Awake()
     {
+        
+    }
+    
+    public void HandCardSetup(int myId)
+    {
         isClickable = true;
-        myCardId = Random.Range(0, databaseAccess.cardList.Count);
-
+        //myCardId = Random.Range(0, databaseAccess.cardList.Count);
+        myCardId = myId;
+        Debug.Log($"My setup ID is {myId}");
         // MIGHT BE IMPORTANT
         //HealEffect generatedCardEffect = ScriptableObject.CreateInstance("HealEffect") as HealEffect;
         //BaseEffect generatedCardEffect = ScriptableObject.CreateInstance("BaseEffect") as BaseEffect;
@@ -54,7 +60,7 @@ public class CardScript : MonoBehaviour
 
         myCardColor = databaseAccess.cardList[myCardId].cardColor;
         myCardName = databaseAccess.cardList[myCardId].cardName;
-        
+
 
 
         string cardTypeName;
@@ -74,7 +80,7 @@ public class CardScript : MonoBehaviour
             isActionCard = true;
         }
 
-        
+
         GetComponentInChildren<SpriteRenderer>().color = myCardColor;
         myCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[myCardId].cardSprite;
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
@@ -83,8 +89,6 @@ public class CardScript : MonoBehaviour
         cardTextArray[1].text = cardTypeName;//CalculateString(cardType);
         cardTextArray[2].text = myCardName;
     }
-    
-    
     public void SetCardActiveStatus(bool desiredStatus)
     {
         isClickable = desiredStatus;
