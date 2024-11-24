@@ -17,6 +17,10 @@ public class UiScript : MonoBehaviour
     [SerializeField]
     static TextMeshPro[] uiTextArray;
 
+    [SerializeField]
+    public GameObject shuffleWindow;
+
+
     private void Start()
     {
         //fieldDamageText = GetComponentInChildren<TextMeshPro>();
@@ -74,5 +78,9 @@ public class UiScript : MonoBehaviour
     {
         //!!!!!!!!!!!!!!!!!!!!!!
         uiTextArray[2].text = inputString;
+    }
+    public void ToggleShuffleWindow(bool inputBool)
+    {
+        shuffleWindow.SetActive(inputBool);
     }
 }

@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 
 public class HandScript : MonoBehaviour
 {
@@ -37,10 +36,13 @@ public class HandScript : MonoBehaviour
 
     public bool isInQuickAttackMode;
 
+    int cardDebt;
+
     private void Start()
     {
         isInQuickAttackMode = false;
         cardCount = 0;
+        cardDebt = 0;
         canInteract = true;
         CardInstantiation();
     }
@@ -88,28 +90,47 @@ public class HandScript : MonoBehaviour
                 AddCardsToHand(2);
             }
         }
-      /*  if(Input.GetKeyDown(KeyCode.P))
-        {
-            // deckManagerAccess.deckCardList.Remove(deckManagerAccess.deckCardList.Count - 1);
-            //deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
-            deckManagerAccess.deckCardList = deckManagerAccess.discardedCardList;
-            Debug.Log("hhhh");
-        } */ 
     }
 
-    public void SetUtilityCardStatus(bool desiredCardStatus)
+    public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
-        foreach (CardScript card in cardList)
+        if(inputCardType == 0)
         {
-            if(card != null)
+            foreach (CardScript card in cardList)
             {
-                if (!card.isActionCard)
+                if (card != null)
                 {
-                    card.SetCardActiveStatus(desiredCardStatus);
+                    if (!card.isActionCard)
+                    {
+                        card.SetCardActiveStatus(desiredCardStatus);
+                    }
                 }
             }
-            
         }
+        else if(inputCardType == 1)
+        {
+            foreach (CardScript card in cardList)
+            {
+                if (card != null)
+                {
+                    if (card.isActionCard)
+                    {
+                        card.SetCardActiveStatus(desiredCardStatus);
+                    }
+                }
+            }
+        }
+        else if (inputCardType == 2)
+        {
+            foreach (CardScript card in cardList)
+            {
+                if (card != null)
+                {
+                    card.SetCardActiveStatus(desiredCardStatus);   
+                }
+            }
+        }
+        
     }
 
     private IEnumerator QuickAttackModeCoroutine()
@@ -117,7 +138,7 @@ public class HandScript : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         fieldScriptAccess.FieldClearAndDealDamage(true);
         isInQuickAttackMode = false;
-        SetUtilityCardStatus(true);
+        SetCardActivityStatus(true, 0);
         canInteract = true;
     }
     private IEnumerator EndTurnDelayCoroutine()
@@ -156,6 +177,7 @@ public class HandScript : MonoBehaviour
        
         cardList.Clear();
         cardCount = 0;
+        cardDebt = 0;
         CardInstantiation();
         canInteract = true;
         isInQuickAttackMode = false;
@@ -207,8 +229,15 @@ public class HandScript : MonoBehaviour
             {
                 if (cardList[i] == null && refillCount > 0)
                 {
-                    GenerateCard(cardPlacementVector, i);
-                    refillCount--;
+                    if(deckManagerAccess.deckCardList.Count >= 0)
+                    {
+                        GenerateCard(cardPlacementVector, i);
+                        refillCount--;
+                    }
+                    else
+                    {
+                        cardDebt++;
+                    }
                 }
 
                 cardPlacementVector += new Vector3(2, 0, 0);
@@ -217,38 +246,48 @@ public class HandScript : MonoBehaviour
             {
                 for (int i = 0; i < refillCount; i++)
                 {
-                    GenerateCard(cardPlacementVector, -1);
-                    cardPlacementVector += new Vector3(2, 0, 0); 
-                  
+                    if (deckManagerAccess.deckCardList.Count >= 0)
+                    {
+                        GenerateCard(cardPlacementVector, -1);
+                        cardPlacementVector += new Vector3(2, 0, 0);
+                    }
+                    else
+                    {
+                        cardDebt++;
+                    }
+                    
                 }
             }
         }
+       // Debug.Log("EEEE");
     }
     private void GenerateCard(Vector3 cardPlacementVectorReference, int cardIndex)
     {
         GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVectorReference, Quaternion.identity);
         cardClone.SetActive(true);
-        if(deckManagerAccess.deckCardList.Count <= 0)
+
+        cardClone.GetComponent<CardScript>().HandCardSetup(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
+        deckManagerAccess.handCardList.Add(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
+        deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
+
+        if (deckManagerAccess.deckCardList.Count <= 0)
         {
             Debug.Log("out of cards!");
-            EditorApplication.isPaused = true;
 
 
             //List<GameObject> listOfGameObjects = new List<GameObject>();
             //GameObject[] arrayOfGameObjects = listOfGameObjects.ToArray();
-
-
-            // deckManagerAccess.discardedCardList.CopyTo(deckManagerAccess.deckCardList.ToArray(), 0);
-            deckManagerAccess.deckCardList.AddRange(deckManagerAccess.discardedCardList);
+            canInteract = false;
+            //SetCardActivityStatus(false, 2);
+            deckManagerAccess.ResetDeckBegin();
             
-            //deckManagerAccess.deckCardList = deckManagerAccess.discardedCardList;
-            deckManagerAccess.discardedCardList.Clear();
+        }
+        else if(cardDebt > 0)
+        {
+            Debug.Log("card debt activated");
+            AddCardsToHand(cardDebt);
         }
 
-            cardClone.GetComponent<CardScript>().HandCardSetup(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
-            deckManagerAccess.handCardList.Add(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
-            deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
-        
         cardCount++;
         if (cardIndex < 0)
         {
@@ -258,5 +297,10 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponent<CardScript>();
         }
+    }
+
+    private void TransferCardToHand()
+    {
+
     }
 }

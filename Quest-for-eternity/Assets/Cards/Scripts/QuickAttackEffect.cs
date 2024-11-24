@@ -9,7 +9,7 @@ public class QuickAttackEffect : EffectTemplate
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
-            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SetUtilityCardStatus(false);
+            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SetCardActivityStatus(false, 0);
             inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.isInQuickAttackMode = true;
         }
     }

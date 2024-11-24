@@ -49,9 +49,8 @@ public class CardScript : MonoBehaviour
     public void HandCardSetup(int myId)
     {
         isClickable = true;
-        //myCardId = Random.Range(0, databaseAccess.cardList.Count);
         myCardId = myId;
-        Debug.Log($"My setup ID is {myId}");
+        //Debug.Log($"My setup ID is {myId}");
         // MIGHT BE IMPORTANT
         //HealEffect generatedCardEffect = ScriptableObject.CreateInstance("HealEffect") as HealEffect;
         //BaseEffect generatedCardEffect = ScriptableObject.CreateInstance("BaseEffect") as BaseEffect;
