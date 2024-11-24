@@ -37,12 +37,15 @@ public class HandScript : MonoBehaviour
     public bool isInQuickAttackMode;
 
     int cardDebt;
+    public List<CardQueueUnit> cardQueDataList;
+    int cardQueIndex;
 
     private void Start()
     {
         isInQuickAttackMode = false;
         cardCount = 0;
         cardDebt = 0;
+        cardQueIndex = 0;
         canInteract = true;
         CardInstantiation();
     }
@@ -178,6 +181,7 @@ public class HandScript : MonoBehaviour
         cardList.Clear();
         cardCount = 0;
         cardDebt = 0;
+        cardQueIndex = 0;
         CardInstantiation();
         canInteract = true;
         isInQuickAttackMode = false;
@@ -229,13 +233,19 @@ public class HandScript : MonoBehaviour
             {
                 if (cardList[i] == null && refillCount > 0)
                 {
-                    if(deckManagerAccess.deckCardList.Count >= 0)
+                    if(deckManagerAccess.deckCardList.Count > 0)
                     {
                         GenerateCard(cardPlacementVector, i);
                         refillCount--;
                     }
                     else
                     {
+                        cardQueDataList.Add(new CardQueueUnit());
+                        cardQueDataList[cardQueIndex].QueuedVector = cardPlacementVector;
+                        cardQueDataList[cardQueIndex].QueuedIndex = i;
+                        cardQueIndex++;
+
+
                         cardDebt++;
                     }
                 }
@@ -246,16 +256,22 @@ public class HandScript : MonoBehaviour
             {
                 for (int i = 0; i < refillCount; i++)
                 {
-                    if (deckManagerAccess.deckCardList.Count >= 0)
+                    cardPlacementVector += new Vector3(2, 0, 0);
+
+                    if (deckManagerAccess.deckCardList.Count > 0)
                     {
                         GenerateCard(cardPlacementVector, -1);
-                        cardPlacementVector += new Vector3(2, 0, 0);
                     }
                     else
                     {
+                        cardQueDataList.Add(new CardQueueUnit());
+                        cardQueDataList[cardQueIndex].QueuedVector = cardPlacementVector;
+                        cardQueDataList[cardQueIndex].QueuedIndex = i;
+                        cardQueIndex++;
+
+
                         cardDebt++;
                     }
-                    
                 }
             }
         }
@@ -285,7 +301,13 @@ public class HandScript : MonoBehaviour
         else if(cardDebt > 0)
         {
             Debug.Log("card debt activated");
-            AddCardsToHand(cardDebt);
+            while(cardDebt > 0)
+            {
+                cardDebt--;
+               // AddCardsToHand(1);
+            }
+            
+            
         }
 
         cardCount++;
@@ -299,6 +321,18 @@ public class HandScript : MonoBehaviour
         }
     }
 
+    public void DrawQueuedCards()
+    {
+        if(cardDebt > 0)
+        {
+            Debug.Log("reached this!");
+            foreach(CardQueueUnit queUnit in cardQueDataList)
+            {
+                GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
+            }
+            cardQueDataList.Clear();
+        }
+    }
     private void TransferCardToHand()
     {
 

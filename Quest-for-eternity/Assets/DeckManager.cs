@@ -32,6 +32,7 @@ public class DeckManager : MonoBehaviour
         deckCardList.AddRange(discardedCardList);
         discardedCardList.Clear();
         uiScripAccess.ToggleShuffleWindow(false);
+        handScriptAccess.DrawQueuedCards();
         handScriptAccess.canInteract = true;
     }
 
@@ -63,23 +64,24 @@ public class DeckManager : MonoBehaviour
         discardedCardList[switchableA] = discardedCardList[switchableB];
         discardedCardList[switchableB] = temp;
        */
-
-        for (int i = 0; i < lenght; i++)
+        if(inputList.Count > 1)
         {
-            switchableA = 0;
-            switchableB = 0;
-            while (switchableA == switchableB)
+            for (int i = 0; i < lenght; i++)
             {
-                switchableA = Random.Range(0, lenght);
-                switchableB = Random.Range(0, lenght);
+                switchableA = 0;
+                switchableB = 0;
+                while (switchableA == switchableB)
+                {
+                    switchableA = Random.Range(0, lenght);
+                    switchableB = Random.Range(0, lenght);
+                }
+
+                temp = inputList[switchableA];
+                inputList[switchableA] = inputList[switchableB];
+                inputList[switchableB] = temp;
+
             }
-
-            temp = inputList[switchableA];
-            inputList[switchableA] = inputList[switchableB];
-            inputList[switchableB] = temp;
-
-        } 
-
+        }
         //AddLists(input, output);
     }
 }
