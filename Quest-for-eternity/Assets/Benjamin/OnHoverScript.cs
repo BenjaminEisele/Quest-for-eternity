@@ -7,7 +7,7 @@ public class OnHoverScript : MonoBehaviour
 
     private void Awake()
     {
-        initialScale = transform.localScale;
+        initialScale = transform.root.transform.localScale;
     }
 
     private void OnMouseEnter()
@@ -24,7 +24,7 @@ public class OnHoverScript : MonoBehaviour
     {
         Vector3 finalScale = initialScale;
         if (status) {finalScale = initialScale * 2f;}
-        transform.localScale = finalScale;
+        transform.root.transform.localScale = finalScale;
         description.SetActive(status);
     }
 }

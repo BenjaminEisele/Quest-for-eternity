@@ -1115,6 +1115,7 @@ GameObject:
   - component: {fileID: 421505718}
   - component: {fileID: 421505720}
   - component: {fileID: 421505719}
+  - component: {fileID: 421505721}
   m_Layer: 0
   m_Name: CardBody
   m_TagString: Untagged
@@ -1213,6 +1214,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &421505721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421505717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d147d3417652f049991dd450d1eaa24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: {fileID: 1955357474}
 --- !u!1 &488628616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,8 +2558,6 @@ GameObject:
   m_Component:
   - component: {fileID: 952513906}
   - component: {fileID: 952513908}
-  - component: {fileID: 952513910}
-  - component: {fileID: 952513909}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -2595,40 +2607,6 @@ MonoBehaviour:
   myCardOutline: {fileID: 1830970631}
   isClickable: 0
   isActionCard: 0
---- !u!114 &952513909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952513904}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d147d3417652f049991dd450d1eaa24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: {fileID: 1955357474}
---- !u!65 &952513910
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952513904}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.67, y: 2.93, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &961028218
 GameObject:
   m_ObjectHideFlags: 0
