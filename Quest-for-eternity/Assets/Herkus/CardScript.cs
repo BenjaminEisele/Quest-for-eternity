@@ -82,11 +82,14 @@ public class CardScript : MonoBehaviour
 
         GetComponentInChildren<SpriteRenderer>().color = myCardColor;
         myCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[myCardId].cardSprite;
+
+
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
 
         cardTextArray[0].text = myDamage.ToString();
         cardTextArray[1].text = cardTypeName;//CalculateString(cardType);
         cardTextArray[2].text = myCardName;
+        cardTextArray[3].text = databaseAccess.cardList[myCardId].cardDescription;
     }
     public void SetCardActiveStatus(bool desiredStatus)
     {

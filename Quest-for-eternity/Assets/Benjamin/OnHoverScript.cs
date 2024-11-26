@@ -4,10 +4,12 @@ public class OnHoverScript : MonoBehaviour
 {
     private Vector3 initialScale;
     public GameObject description;
-
+    MeshRenderer myMeshRenderer;
     private void Awake()
     {
         initialScale = transform.root.transform.localScale;
+        myMeshRenderer = description.GetComponent<MeshRenderer>();
+        myMeshRenderer.enabled = false;
     }
 
     private void OnMouseEnter()
@@ -25,6 +27,7 @@ public class OnHoverScript : MonoBehaviour
         Vector3 finalScale = initialScale;
         if (status) {finalScale = initialScale * 2f;}
         transform.root.transform.localScale = finalScale;
-        description.SetActive(status);
+        myMeshRenderer.enabled = status;
+        //description.SetActive(status);
     }
 }
