@@ -76,7 +76,7 @@ public class HandScript : MonoBehaviour
                                 }
                                 else
                                 {
-                                    Debug.Log("end turn by card");
+                                   // Debug.Log("end turn by card");
                                     
                                     handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
                                     //turnScriptAccess.EndPlayersTurn();   
@@ -189,7 +189,7 @@ public class HandScript : MonoBehaviour
 
     public void AddCardsToHand(int refillCount)
     {
-        //Refill count should be 0 if we want to 
+        //Refill count should be 0 if we want to fill the hand until it has 5 cards 
         int refillCycleCount;
         bool isFullRefill;
         if(refillCount <= 0)
@@ -204,19 +204,40 @@ public class HandScript : MonoBehaviour
             isFullRefill = false;
         }
 
-
+        cardDebt = 0;
+        cardQueIndex = 0;
         cardPlacementVector = new Vector3(1, 0, 0);
         
-        if(isFullRefill)
+
+
+        if (isFullRefill)
         {
             for (int i = 0; i < cardList.Count; i++)
             {
                 if (cardList[i] == null)
                 {
-                    if(cardCount < cardLimit)
+                   
+                    if (cardCount < cardLimit)
                     {
-                        GenerateCard(cardPlacementVector, i);
+                        if (deckManagerAccess.deckCardList.Count > 0)
+                        {
+                            GenerateCard(cardPlacementVector, i);
+                        }
+                        else
+                        {
+                            cardQueDataList.Add(new CardQueueUnit());
+                            cardQueDataList[cardQueIndex].QueuedVector = cardPlacementVector;
+                            cardQueDataList[cardQueIndex].QueuedIndex = i;
+                            cardQueIndex++;
+
+                            Debug.Log("Card debt added");
+                            cardDebt++;
+                            cardCount++;
+                        }
                     }
+                    
+                    
+                    
                     /* GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVector, Quaternion.identity);
                      cardClone.SetActive(true);
                      cardList[i] = cardClone;
@@ -236,7 +257,7 @@ public class HandScript : MonoBehaviour
                     if(deckManagerAccess.deckCardList.Count > 0)
                     {
                         GenerateCard(cardPlacementVector, i);
-                        refillCount--;
+                        
                     }
                     else
                     {
@@ -244,10 +265,11 @@ public class HandScript : MonoBehaviour
                         cardQueDataList[cardQueIndex].QueuedVector = cardPlacementVector;
                         cardQueDataList[cardQueIndex].QueuedIndex = i;
                         cardQueIndex++;
-
-
+                        cardCount++;
+                        Debug.Log("Card debt added");
                         cardDebt++;
                     }
+                    refillCount--;
                 }
 
                 cardPlacementVector += new Vector3(2, 0, 0);
@@ -256,7 +278,7 @@ public class HandScript : MonoBehaviour
             {
                 for (int i = 0; i < refillCount; i++)
                 {
-                    cardPlacementVector += new Vector3(2, 0, 0);
+                    
 
                     if (deckManagerAccess.deckCardList.Count > 0)
                     {
@@ -269,9 +291,10 @@ public class HandScript : MonoBehaviour
                         cardQueDataList[cardQueIndex].QueuedIndex = i;
                         cardQueIndex++;
 
-
+                        Debug.Log("Card debt added");
                         cardDebt++;
                     }
+                    cardPlacementVector += new Vector3(2, 0, 0);
                 }
             }
         }
@@ -288,7 +311,7 @@ public class HandScript : MonoBehaviour
 
         if (deckManagerAccess.deckCardList.Count <= 0)
         {
-            Debug.Log("out of cards!");
+            //Debug.Log("out of cards!");
 
 
             //List<GameObject> listOfGameObjects = new List<GameObject>();
@@ -298,7 +321,7 @@ public class HandScript : MonoBehaviour
             deckManagerAccess.ResetDeckBegin();
             
         }
-        else if(cardDebt > 0)
+        /*else if(cardDebt > 0)
         {
             Debug.Log("card debt activated");
             while(cardDebt > 0)
@@ -308,7 +331,7 @@ public class HandScript : MonoBehaviour
             }
             
             
-        }
+        }*/
 
         cardCount++;
         if (cardIndex < 0)
@@ -323,14 +346,19 @@ public class HandScript : MonoBehaviour
 
     public void DrawQueuedCards()
     {
+        
         if(cardDebt > 0)
         {
-            Debug.Log("reached this!");
+            //Debug.Log("reached this!");
+            Debug.Log($"Card debt is {cardDebt}");
             foreach(CardQueueUnit queUnit in cardQueDataList)
             {
+                cardCount--;
                 GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
             }
             cardQueDataList.Clear();
+            cardDebt = 0;
+            cardQueIndex = 0;
         }
     }
     private void TransferCardToHand()

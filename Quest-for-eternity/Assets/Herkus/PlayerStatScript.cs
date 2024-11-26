@@ -28,7 +28,7 @@ public class PlayerStatScript : MonoBehaviour
 
     public void ChangePlayerHealth(int desiredAmount)
     {
-        Debug.Log("health altered");
+        //Debug.Log("health altered");
         int changedValue = playerHealth + desiredAmount;
         playerHealth = changedValue;
         if(playerHealth < savedPlayerHealth)
@@ -39,13 +39,12 @@ public class PlayerStatScript : MonoBehaviour
         {
             playerHealthText.color = Color.white;
             playerHealth = savedPlayerHealth;
-            Debug.Log("clamped");
+            //Debug.Log("clamped");
         }
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
-        Debug.Log("===");
         //playerHealth -= inputDamage;
         ChangePlayerHealth(-inputDamage);
         if (playerHealth <= 0)

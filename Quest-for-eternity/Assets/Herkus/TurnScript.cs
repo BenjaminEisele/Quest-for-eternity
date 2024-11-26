@@ -11,6 +11,9 @@ public class TurnScript : MonoBehaviour
     [SerializeField]
     RefereeScript refereeScriptAccess;
 
+    [SerializeField]
+    DeckManager deckManagerAccess;
+
     private void Start()
     {
         isPlayersTurn = true;
@@ -67,6 +70,7 @@ public class TurnScript : MonoBehaviour
     private void RestartGame()
     {
         fieldScriptAccess.FieldClearAndDealDamage(false);
+        deckManagerAccess.ResetAllCardLists();
         handScriptAccess.HandReset();
         refereeScriptAccess.RefereeReset();
         isPlayersTurn = true;

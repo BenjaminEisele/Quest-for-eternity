@@ -36,6 +36,15 @@ public class DeckManager : MonoBehaviour
         handScriptAccess.canInteract = true;
     }
 
+    public void ResetAllCardLists()
+    {
+        deckCardList.AddRange(discardedCardList);
+        discardedCardList.Clear();
+        deckCardList.AddRange(handCardList);
+        handCardList.Clear();
+        ShuffleCards(deckCardList);
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.P))

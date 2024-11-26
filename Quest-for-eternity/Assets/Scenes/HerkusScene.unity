@@ -811,6 +811,7 @@ MonoBehaviour:
   handScriptAccess: {fileID: 1542795159}
   isPlayersTurn: 0
   refereeScriptAccess: {fileID: 543248971}
+  deckManagerAccess: {fileID: 1042591251}
 --- !u!4 &317175597
 Transform:
   m_ObjectHideFlags: 0
@@ -3634,6 +3635,7 @@ MonoBehaviour:
   cardCount: 0
   canInteract: 0
   isInQuickAttackMode: 0
+  cardQueDataList: []
 --- !u!4 &1542795160
 Transform:
   m_ObjectHideFlags: 0

@@ -110,7 +110,7 @@ public class RefereeScript : MonoBehaviour
         
 
         turnScriptAccess.ShouldStartPlayerTurn(true);
-        Debug.Log("attack over");
+       // Debug.Log("attack over");
         //turnScriptAccess.ShouldStartPlayerTurn(true);
     }
 }
