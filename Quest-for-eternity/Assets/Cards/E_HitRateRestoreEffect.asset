@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027a429e38531d04fa7243944f284701, type: 3}
-  m_Name: HealEffect2
+  m_Script: {fileID: 11500000, guid: 190b5cf15b41d254e9520590899af3bc, type: 3}
+  m_Name: E_HitRateRestoreEffect
   m_EditorClassIdentifier: 
-  damage: 10
-  lalala: lalalalalala
-  lolololol: 0

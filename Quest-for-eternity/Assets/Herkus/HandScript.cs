@@ -39,6 +39,8 @@ public class HandScript : MonoBehaviour
     int cardDebt;
     public List<CardQueueUnit> cardQueDataList;
     int cardQueIndex;
+    bool isHitrateAffected;
+    float savedHitrateDelta;
 
     private void Start()
     {
@@ -143,6 +145,7 @@ public class HandScript : MonoBehaviour
         fieldScriptAccess.FieldClearAndDealDamage(true);
         isInQuickAttackMode = false;
         SetCardActivityStatus(true, 0);
+        RestoreAllOriginalHitrates();
         canInteract = true;
     }
     private IEnumerator EndTurnDelayCoroutine()
@@ -162,6 +165,28 @@ public class HandScript : MonoBehaviour
             cardPlacementVector += new Vector3(2, 0, 0);
         }
         
+    }
+
+    public void HitRateRestoriationMethod()
+    {
+        RestoreAllOriginalHitrates();
+    }
+    private void RestoreAllOriginalHitrates()
+    {
+        foreach (CardScript card in cardList)
+        {
+            card.RestroreOriginalHitrate();
+        }
+        ChangeAllVisualHitrates(true, 0);
+    }
+    public void ChangeAllVisualHitrates(bool shouldRestoreOriginal, float effectValue)
+    {
+        isHitrateAffected = !shouldRestoreOriginal;
+        savedHitrateDelta = effectValue;
+        foreach (CardScript card in cardList)
+        {
+           card.ChangeVisualCardHitrate(shouldRestoreOriginal, effectValue);
+        }
     }
 
     public void HandReset()
@@ -310,11 +335,13 @@ public class HandScript : MonoBehaviour
         deckManagerAccess.handCardList.Add(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
         deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
 
+        if(isHitrateAffected)
+        {
+            cardClone.GetComponent<CardScript>().ChangeVisualCardHitrate(false, savedHitrateDelta);
+        }
+
         if (deckManagerAccess.deckCardList.Count <= 0)
         {
-            //Debug.Log("out of cards!");
-
-
             //List<GameObject> listOfGameObjects = new List<GameObject>();
             //GameObject[] arrayOfGameObjects = listOfGameObjects.ToArray();
             canInteract = false;
@@ -322,17 +349,7 @@ public class HandScript : MonoBehaviour
             deckManagerAccess.ResetDeckBegin();
             
         }
-        /*else if(cardDebt > 0)
-        {
-            Debug.Log("card debt activated");
-            while(cardDebt > 0)
-            {
-                cardDebt--;
-               // AddCardsToHand(1);
-            }
-            
-            
-        }*/
+       
 
         cardCount++;
         if (cardIndex < 0)

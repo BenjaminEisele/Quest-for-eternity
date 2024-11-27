@@ -17,6 +17,8 @@ public class CardScript : MonoBehaviour
     public int myCardId;
 
     int myDamage;
+    public float myCardHitRate;
+    public float savedCardHitRate;
 
     Vector2 cardHitFraction;
 
@@ -32,7 +34,7 @@ public class CardScript : MonoBehaviour
     [HideInInspector]
     public bool isClickable;
 
-
+    string hitRateString;
     //[HideInInspector]
     //public int cardType;
     //0 - utility
@@ -77,8 +79,13 @@ public class CardScript : MonoBehaviour
             myDamage = actionCardAccess.cardDamage;
             cardTypeName = "Action";
             isActionCard = true;
+            myCardHitRate = actionCardAccess.cardHitRate;
+            savedCardHitRate = myCardHitRate;
         }
 
+
+
+        
 
         GetComponentInChildren<SpriteRenderer>().color = myCardColor;
         myCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[myCardId].cardSprite;
@@ -90,6 +97,40 @@ public class CardScript : MonoBehaviour
         cardTextArray[1].text = cardTypeName;//CalculateString(cardType);
         cardTextArray[2].text = myCardName;
         cardTextArray[3].text = databaseAccess.cardList[myCardId].cardDescription;
+        if(isActionCard)
+        {
+            hitRateString = myCardHitRate * 100 + " %";
+            cardTextArray[4].text = hitRateString;
+            cardTextArray[4].text = hitRateString;
+        }
+        else
+        {
+            cardTextArray[4].gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
+
+    public void RestroreOriginalHitrate()
+    {
+        myCardHitRate = savedCardHitRate;
+        ChangeVisualCardHitrate(true, 0);
+    }
+    public void ChangeVisualCardHitrate(bool shouldRestoreOriginal, float hitRateChange)
+    {
+        if(isActionCard)
+        {
+            if (shouldRestoreOriginal)
+            {
+                myCardHitRate = savedCardHitRate;
+                hitRateString = myCardHitRate * 100 + " %";
+                cardTextArray[4].text = hitRateString;
+            }
+            else
+            {
+                myCardHitRate += hitRateChange;
+                hitRateString = myCardHitRate * 100 + " %";
+                cardTextArray[4].text = hitRateString;
+            }
+        }
     }
     public void SetCardActiveStatus(bool desiredStatus)
     {

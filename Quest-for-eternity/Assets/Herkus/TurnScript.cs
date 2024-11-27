@@ -60,7 +60,8 @@ public class TurnScript : MonoBehaviour
         if(isPlayersTurn)
         {
             UiScript.UpdateTurnInfo(1);
-           
+            Debug.Log("added cards from turn script");
+            handScriptAccess.AddCardsToHand(0);
             //handScriptAccess.AddCardsToHand(0);
             isPlayersTurn = false;
             refereeScriptAccess.StartEnemyCoroutines();
@@ -80,6 +81,7 @@ public class TurnScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             EndPlayersTurn();
+            handScriptAccess.AddCardsToHand(0);
             fieldScriptAccess.FieldClearAndDealDamage(true);
         }
         else if(Input.GetKeyDown(KeyCode.R))

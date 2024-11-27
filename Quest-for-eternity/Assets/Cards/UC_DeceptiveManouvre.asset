@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
+  m_Name: UC_DeceptiveManouvre
+  m_EditorClassIdentifier: 
+  cardName: Deceptive Manouvre
+  effectValue: 0
+  cardColor: {r: 0.26274505, g: 0.32103032, b: 0.9490196, a: 1}
+  cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
+  cardDescription: 
+  effectUnitList:
+  - myEffect: {fileID: 11400000, guid: 5f2fd925b56b24247aa37f50c810bd20, type: 2}
+    effectValue: 0
+    shouldActivateNow: 1
+  - myEffect: {fileID: 11400000, guid: 06da1e4558a26be41afd54525ee61d55, type: 2}
+    effectValue: -0.3
+    shouldActivateNow: 1
+  - myEffect: {fileID: 11400000, guid: ff9d198543958d047b1bbbf16fedcc6a, type: 2}
+    effectValue: 2
+    shouldActivateNow: 1
+  isDisplayable: 1

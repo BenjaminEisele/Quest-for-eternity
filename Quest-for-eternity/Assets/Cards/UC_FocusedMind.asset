@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
-  m_Name: C_HitRateBoostCard
+  m_Name: UC_FocusedMind
   m_EditorClassIdentifier: 
-  cardName: Boost hitrate
+  cardName: Focused Mind
   effectValue: 0
-  cardColor: {r: 0.11801341, g: 0.45515412, b: 0.83396226, a: 1}
+  cardColor: {r: 0.2627056, g: 0.4508331, b: 0.94716984, a: 1}
   cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
-  cardDescription: Boosts your Hitrate
+  cardDescription: 
   effectUnitList:
-  - myEffect: {fileID: 11400000, guid: 06da1e4558a26be41afd54525ee61d55, type: 2}
+  - myEffect: {fileID: 11400000, guid: ff9d198543958d047b1bbbf16fedcc6a, type: 2}
     effectValue: 1
     shouldActivateNow: 1
   isDisplayable: 1
