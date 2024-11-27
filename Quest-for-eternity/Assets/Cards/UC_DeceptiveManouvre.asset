@@ -15,8 +15,9 @@ MonoBehaviour:
   cardName: Deceptive Manouvre
   effectValue: 0
   cardColor: {r: 0.26274505, g: 0.32103032, b: 0.9490196, a: 1}
-  cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
-  cardDescription: 
+  cardSprite: {fileID: 3091292902017952104, guid: 0d19cf3619545bd48a0156f958d68aeb, type: 3}
+  cardDescription: Next ACT -30% HR Only true masters of combat can deliver a feint
+    as effectively as a prepared attack. Anyway, it's worth a shot.
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 5f2fd925b56b24247aa37f50c810bd20, type: 2}
     effectValue: 0

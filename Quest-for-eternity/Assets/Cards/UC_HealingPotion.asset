@@ -15,8 +15,9 @@ MonoBehaviour:
   cardName: Healing Potion
   effectValue: 0
   cardColor: {r: 0.26274505, g: 0.9490196, b: 0.38005644, a: 1}
-  cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
-  cardDescription: 
+  cardSprite: {fileID: -4557677265772311375, guid: b70aa673149fdd44495a3c7edc5e605e, type: 3}
+  cardDescription: Heals 2 HP A replacement for all medications in one bottle. Just
+    don't forget to see a real doctor when you get back, okay?
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 6ce8ae20ce86e394a857a28aa91a5199, type: 2}
     effectValue: 2

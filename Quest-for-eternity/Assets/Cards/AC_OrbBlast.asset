@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Orb Blast
   effectValue: 0
   cardColor: {r: 1, g: 0, b: 0.07709837, a: 1}
-  cardSprite: {fileID: 6854849867053495550, guid: c715bd6e26ee5914bb3b7735635421e7, type: 3}
-  cardDescription: 
+  cardSprite: {fileID: 6656857864564678473, guid: 836ecb5b529a602408d5fc8d4fa1af5f, type: 3}
+  cardDescription: Hit all enemies
   cardDamage: 2
   cardHitRate: 0.6
