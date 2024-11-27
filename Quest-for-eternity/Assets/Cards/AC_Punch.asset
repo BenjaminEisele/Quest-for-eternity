@@ -16,6 +16,6 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 1, g: 0, b: 0.07709837, a: 1}
   cardSprite: {fileID: -6568634375014480378, guid: a53214834f8ca8f4fbae022ca3dca957, type: 3}
-  cardDescription: Sometimes all they need is good a punch in the face.
+  cardDescription: Hit the enemy
   cardDamage: 1
   cardHitRate: 0.9
