@@ -6,6 +6,7 @@ public class PlayerStatScript : MonoBehaviour
 {
     public int playerHealth;
     int savedPlayerHealth;
+    public int playerHealthOffset;
 
     TextMeshPro playerHealthText;
     private void Awake()
@@ -15,10 +16,12 @@ public class PlayerStatScript : MonoBehaviour
         playerHealthText = GetComponentInChildren<TextMeshPro>();
         //playerHealthText.text = playerHealth.ToString();
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
+        ResetPlayer();
 
     }
     public void ResetPlayer()
     {
+        playerHealthOffset = 0;
         playerHealth = savedPlayerHealth;
         //playerHealthText.text = playerHealth.ToString();
         ChangePlayerHealth(savedPlayerHealth);
@@ -46,7 +49,13 @@ public class PlayerStatScript : MonoBehaviour
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
         //playerHealth -= inputDamage;
+        inputDamage -= playerHealthOffset;
+        if(inputDamage <= 0)
+        {
+            inputDamage = 0;
+        }
         ChangePlayerHealth(-inputDamage);
+        playerHealthOffset = 0;
         if (playerHealth <= 0)
         {
             playerHealth = 0;
@@ -60,5 +69,6 @@ public class PlayerStatScript : MonoBehaviour
             //UiScript.UpdateFighterText(playerHealthText, playerHealth);
             return false;
         }
+        
     }
 }

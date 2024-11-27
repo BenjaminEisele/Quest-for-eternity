@@ -12,7 +12,7 @@ public class EnemyScript : MonoBehaviour
     //public bool isAlive;
     private void Awake()
     {
-        enemyHealth = 25;
+        //enemyHealth = 25;
         savedEnemyHealth = enemyHealth;
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         //enemyHealthText.text = enemyHealth.ToString();

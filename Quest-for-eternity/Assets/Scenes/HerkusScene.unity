@@ -2193,7 +2193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3f1ee84648325479e37fb067522a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 1000
+  enemyHealth: 15
 --- !u!65 &759136207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3199,6 +3199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 0
+  playerHealthOffset: 0
 --- !u!1 &1042591248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,15 +3250,15 @@ MonoBehaviour:
     cardName: Boost 3
     cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
   cardList:
-  - {fileID: 11400000, guid: 07b0a67e7cb2ac54c89e5db86d60e68c, type: 2}
-  - {fileID: 11400000, guid: 365d7f99d7e454e4e98198128a7a73d4, type: 2}
-  - {fileID: 11400000, guid: 83b927229db959948bdf51fda5255416, type: 2}
-  - {fileID: 11400000, guid: 6afda90d52facce4a948b412a2064635, type: 2}
-  - {fileID: 11400000, guid: 52942a32b8a22e840a7ef8b214874ccc, type: 2}
-  - {fileID: 11400000, guid: 85bc342d1c0b21246b056cb7193bbe3f, type: 2}
-  - {fileID: 11400000, guid: e4271abb4fd178943839f63f03b12929, type: 2}
-  - {fileID: 11400000, guid: 4131098686bb20e44b70707fe816e139, type: 2}
-  - {fileID: 11400000, guid: 07b0a67e7cb2ac54c89e5db86d60e68c, type: 2}
+  - {fileID: 11400000, guid: e204e4bbf6014384c9b30ac680f65f88, type: 2}
+  - {fileID: 11400000, guid: f487b3a606233f342a733dda7a9addc4, type: 2}
+  - {fileID: 11400000, guid: d5e2053cc51739245b6359b8720c3628, type: 2}
+  - {fileID: 11400000, guid: fe02e729406b34147a59fd43e4d4c850, type: 2}
+  - {fileID: 11400000, guid: 2d2087be51df9dd49b5b1f2ae566baf5, type: 2}
+  - {fileID: 11400000, guid: 7aedfe28c065e494b854d876da68f7aa, type: 2}
+  - {fileID: 11400000, guid: eeae388f7a3fc744890989f2750ceb4f, type: 2}
+  - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
+  - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
 --- !u!4 &1042591250
 Transform:
   m_ObjectHideFlags: 0
@@ -3285,7 +3286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 030000000500000002000000030000000000000005000000000000000500000004000000040000000400000004000000060000000700000008000000
+  deckCardList: 010000000100000002000000020000000300000003000000040000000400000005000000050000000600000006000000070000000700000008000000080000000000000000000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 1222074725}
@@ -4800,6 +4801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 0
+  playerHealthOffset: 0
 --- !u!1 &1922093088
 GameObject:
   m_ObjectHideFlags: 0
