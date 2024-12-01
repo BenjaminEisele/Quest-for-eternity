@@ -1,6 +1,7 @@
 using UnityEngine;
+using Mirror;
 
-public class TurnScript : MonoBehaviour
+public class TurnScript : NetworkBehaviour
 {
     public FieldScript fieldScriptAccess;
     public HandScript handScriptAccess;
@@ -16,7 +17,9 @@ public class TurnScript : MonoBehaviour
 
     private void Start()
     {
-        isPlayersTurn = true;
+        if (isServer) {isPlayersTurn = true;}
+        if (!isServer) {isPlayersTurn = false;}
+        
         // UiScript.UpdateTurnInfo(0);
        // ShouldStartPlayerTurn(true);
     }
