@@ -7,6 +7,7 @@ public class TurnScript : NetworkBehaviour
     public HandScript handScriptAccess;
 
     [SerializeField]
+    [SyncVar]
     private bool isPlayersTurn;
 
     [SerializeField]
