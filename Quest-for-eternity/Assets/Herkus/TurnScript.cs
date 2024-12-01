@@ -97,12 +97,6 @@ public class TurnScript : NetworkBehaviour
 
     }
 
-    [Command]
-    public void CmdEndTurn()
-    {
-        TurnManagerScript.Instance.EndTurn();
-    }
-
     private void Update()
     {
         if (isServer)
@@ -139,5 +133,11 @@ public class TurnScript : NetworkBehaviour
         {
             RestartGame();
         }
+    }
+
+    [Command]
+    public void CmdEndTurn()
+    {
+        TurnManagerScript.Instance.EndTurn();
     }
 }
