@@ -2295,6 +2295,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4973786725427984824}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: EndTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3757771138895143951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,6 +2927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed983ed28af9ad544b04d6c82f5a2a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   fieldScriptAccess: {fileID: 7435887801007149820}
   handScriptAccess: {fileID: 7294800125378994488}
   isPlayersTurn: 0

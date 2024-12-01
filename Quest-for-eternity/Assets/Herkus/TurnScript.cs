@@ -55,7 +55,9 @@ public class TurnScript : NetworkBehaviour
             {
                 UiScript.UpdateTurnInfo(1);
             }
-        }   
+        } 
+        
+        EndTurn();
     }
 
     public void EndPlayersTurn()
@@ -79,9 +81,54 @@ public class TurnScript : NetworkBehaviour
         refereeScriptAccess.RefereeReset();
         isPlayersTurn = true;
     }
+
+    public void EndTurn()
+    {
+        if (!isServer)
+        {
+            CmdEndTurn();
+        }
+
+        else if (isServer)
+        {
+            TurnManagerScript.Instance.EndTurn();
+        }
+
+    }
+
+    [Command]
+    public void CmdEndTurn()
+    {
+        TurnManagerScript.Instance.EndTurn();
+    }
+
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (isServer)
+        {
+            if (TurnManagerScript.Instance.IsPlayerATurn)
+            {
+                isPlayersTurn = true;
+            }
+            else
+            {
+                isPlayersTurn = false;
+            }
+        }
+
+        if (!isServer)
+        {
+            if (TurnManagerScript.Instance.IsPlayerBTurn)
+            {
+                isPlayersTurn = true;
+            }
+            else
+            {
+                isPlayersTurn = false;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             EndPlayersTurn();
             handScriptAccess.AddCardsToHand(0);
