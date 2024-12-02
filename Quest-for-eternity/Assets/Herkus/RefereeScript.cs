@@ -15,10 +15,58 @@ public class RefereeScript : MonoBehaviour
     TurnScript turnScriptAccess;
 
     private bool isGameOver;
+
+    [SerializeField]
+    int chosenEnemyId;
     private void Start()
     {
-        enemyList.Add(targetEnemy);
+        //enemyList.Add(targetEnemy);
         isGameOver = false;
+        
+        
+        //ChooseNewEnemy(0);
+    }
+    
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            ChooseNewEnemy(1);
+        }
+        else if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            ChooseNewEnemy(-1);
+        }
+    }
+    public void EnemyWaveSetup()
+    {
+        foreach(EnemyScript enemy in enemyList)
+        {
+            enemy.ChangeSelectedStatus(false);
+        }
+        chosenEnemyId = 0;
+        targetEnemy = enemyList[chosenEnemyId];
+        enemyList[chosenEnemyId].ChangeSelectedStatus(true);
+    }
+    private void ChooseNewEnemy(int inputDirection)
+    {
+        enemyList[chosenEnemyId].ChangeSelectedStatus(false);
+        if (chosenEnemyId + inputDirection < enemyList.Count && chosenEnemyId + inputDirection >= 0)
+        {
+            chosenEnemyId += inputDirection;
+        }
+        else if(chosenEnemyId + inputDirection >= enemyList.Count)
+        {
+            chosenEnemyId = 0;
+        }
+        else if (chosenEnemyId + inputDirection < 0)
+        {
+            chosenEnemyId = enemyList.Count - 1;
+        }
+
+
+        targetEnemy = enemyList[chosenEnemyId];
+        enemyList[chosenEnemyId].ChangeSelectedStatus(true);
     }
     private void EndGame(bool didPlayerWin)
     {
@@ -66,8 +114,8 @@ public class RefereeScript : MonoBehaviour
     public void dealDamageToEnemy(int inputDamage)
     {
         //targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
-
-        if (targetEnemy.TakeDamageAndCheckIfDead(inputDamage))
+        //targetEnemy = enemyList[0];
+        if (!targetEnemy.TakeDamageAndCheckIfDead(inputDamage))
         {
             bool areAllEnemiesDead = true;
             foreach (EnemyScript enemy in enemyList)

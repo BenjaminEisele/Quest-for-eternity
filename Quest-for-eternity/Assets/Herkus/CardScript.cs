@@ -52,12 +52,6 @@ public class CardScript : MonoBehaviour
     {
         isClickable = true;
         myCardId = myId;
-        //Debug.Log($"My setup ID is {myId}");
-        // MIGHT BE IMPORTANT
-        //HealEffect generatedCardEffect = ScriptableObject.CreateInstance("HealEffect") as HealEffect;
-        //BaseEffect generatedCardEffect = ScriptableObject.CreateInstance("BaseEffect") as BaseEffect;
-        // generatedCardEffect.ExecuteEffect(5);
-        //databaseAccess.cardDatabase[myCardId].cardEffect[0].ExecuteEffect(databaseAccess.cardDatabase[myCardId].cardEffect[0].damage);
 
         myCardColor = databaseAccess.cardList[myCardId].cardColor;
         myCardName = databaseAccess.cardList[myCardId].cardName;

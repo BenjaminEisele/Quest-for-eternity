@@ -6,19 +6,30 @@ public class EnemyScript : MonoBehaviour
     //[Hide]
     public int enemyHealth;
     int savedEnemyHealth;
+    int myId;
+    public Database databaseAccess;
 
+    public bool isEnemyAlive;
     TextMeshPro enemyHealthText;
-
+    public GameObject myMarker;
     //public bool isAlive;
     private void Awake()
     {
-        //enemyHealth = 25;
-        savedEnemyHealth = enemyHealth;
-        enemyHealthText = GetComponentInChildren<TextMeshPro>();
-        //enemyHealthText.text = enemyHealth.ToString();
-        UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
+        //EnemySetUp();
     }
 
+    public void EnemySetUp()
+    {
+        isEnemyAlive = true;
+        myId = Random.Range(0, databaseAccess.enemyList.Count);
+        this.enemyHealth = databaseAccess.enemyList[myId].enemyHealth;
+        savedEnemyHealth = enemyHealth;
+       // Debug.Log($"I am a {databaseAccess.enemyList[myId].enemyName}");
+
+        
+        enemyHealthText = GetComponentInChildren<TextMeshPro>();
+        UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
+    }
     public void ResetEnemy()
     {
         enemyHealth = savedEnemyHealth;
@@ -34,20 +45,34 @@ public class EnemyScript : MonoBehaviour
             Debug.Log("enemy is dead");
             //enemyHealthText.text = enemyHealth.ToString();
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
-            return true;
+            isEnemyAlive = false;
         }
         else
         {
             //enemyHealthText.text = enemyHealth.ToString();
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
-            return false;
+            isEnemyAlive = true;
         }
+        return isEnemyAlive;
     }
-
+    public void ChangeSelectedStatus(bool inputBool)
+    {
+        myMarker.SetActive(inputBool);
+    }
     public int GenerateAttack()
     {
-        int enemyDamage = 3;//Random.Range(1, 6);
-       // Debug.Log(enemyDamage);
-        return enemyDamage;
+        int myDamage;
+        if(isEnemyAlive)
+        {
+            myDamage = databaseAccess.enemyList[myId].GenerateAttack();
+            Debug.Log($"I dealt {myDamage} damage");
+        }
+        else
+        {
+            myDamage = 0;
+            Debug.Log($"I can't attack because i am DEAD, my name is {databaseAccess.enemyList[myId].enemyName}");
+        }
+        
+        return myDamage;
     }
 }

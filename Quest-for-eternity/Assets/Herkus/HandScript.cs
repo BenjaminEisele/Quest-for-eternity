@@ -84,7 +84,7 @@ public class HandScript : MonoBehaviour
                                     //turnScriptAccess.EndPlayersTurn();   
                                 }
                             }
-                            Debug.Log(hit.transform.parent.gameObject);
+                            //Debug.Log(hit.transform.parent.gameObject);
                             Destroy(hit.transform.parent.gameObject);
                             cardCount--;
                         }
