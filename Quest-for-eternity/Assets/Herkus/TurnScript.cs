@@ -1,13 +1,11 @@
 using UnityEngine;
-using Mirror;
 
-public class TurnScript : NetworkBehaviour
+public class TurnScript : MonoBehaviour
 {
     public FieldScript fieldScriptAccess;
     public HandScript handScriptAccess;
 
     [SerializeField]
-    [SyncVar]
     private bool isPlayersTurn;
 
     [SerializeField]
@@ -18,8 +16,7 @@ public class TurnScript : NetworkBehaviour
 
     private void Start()
     {
-        if (isServer) {isPlayersTurn = true;}
-        if (!isServer) {isPlayersTurn = false;}
+        isPlayersTurn = true;
         
         // UiScript.UpdateTurnInfo(0);
        // ShouldStartPlayerTurn(true);
@@ -58,7 +55,6 @@ public class TurnScript : NetworkBehaviour
             }
         } 
         
-        EndTurn();
     }
 
     public void EndPlayersTurn()
@@ -83,52 +79,8 @@ public class TurnScript : NetworkBehaviour
         isPlayersTurn = true;
     }
 
-    public void EndTurn()
-    {
-        if (!isServer)
-        {
-            CmdEndTurn();
-        }
-
-        else if (isServer)
-        {
-            TurnManagerScript.Instance.EndTurn();
-        }
-
-    }
-
-    [Command]
-    public void CmdEndTurn()
-    {
-        TurnManagerScript.Instance.EndTurn();
-    }
-
     private void Update()
     {
-        if (isServer)
-        {
-            if (TurnManagerScript.Instance.IsPlayerATurn)
-            {
-                isPlayersTurn = true;
-            }
-            else
-            {
-                isPlayersTurn = false;
-            }
-        }
-
-        if (!isServer)
-        {
-            if (TurnManagerScript.Instance.IsPlayerBTurn)
-            {
-                isPlayersTurn = true;
-            }
-            else
-            {
-                isPlayersTurn = false;
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             EndPlayersTurn();
