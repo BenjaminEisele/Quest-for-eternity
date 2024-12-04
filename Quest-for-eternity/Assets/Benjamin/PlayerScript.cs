@@ -69,4 +69,9 @@ public class PlayerScript : NetworkBehaviour
         TurnManagerMultiplayer.Instance.EndTurn();
     }
 
+    public void TestDebug()
+    {
+        Debug.Log("HAjfhöjfahljd");
+    }
+
 }

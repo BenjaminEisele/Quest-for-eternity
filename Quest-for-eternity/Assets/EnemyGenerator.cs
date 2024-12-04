@@ -11,7 +11,7 @@ public class EnemyGenerator : MonoBehaviour
     public RefereeScript refereeScriptAccess;
     private void Start()
     {
-        GenerateEnemies(4);
+        GenerateEnemies(1);
     }
 
     private void GenerateEnemies(int howManyEnemies)

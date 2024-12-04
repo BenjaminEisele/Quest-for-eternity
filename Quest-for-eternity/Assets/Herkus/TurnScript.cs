@@ -5,6 +5,7 @@ public class TurnScript : MonoBehaviour
 {
     public FieldScript fieldScriptAccess;
     public HandScript handScriptAccess;
+    public PlayerScript playerScriptAccess;
 
     [SerializeField]
     //[SyncVar]
