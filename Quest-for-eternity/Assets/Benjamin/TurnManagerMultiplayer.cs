@@ -8,6 +8,8 @@ public class TurnManagerMultiplayer : NetworkBehaviour
     [SyncVar] public bool IsPlayerATurn = true;
     [SyncVar] public bool IsPlayerBTurn = false;
 
+    
+
     public List<GameObject> playerList;
 
     public static TurnManagerMultiplayer Instance;
@@ -31,7 +33,11 @@ public class TurnManagerMultiplayer : NetworkBehaviour
             IsPlayerATurn = true;
             IsPlayerBTurn = false;
         }
-        foreach(GameObject playerObject in playerList)
+        foreach (GameObject playerObject in playerList)
+        {
+            playerObject.GetComponent<PlayerScript>().isThisPlayersTurn = !playerObject.GetComponent<PlayerScript>().isThisPlayersTurn;
+        }
+        foreach (GameObject playerObject in playerList)
         {
             playerObject.GetComponent<PlayerScript>().TogglePlayerButtons();
         }

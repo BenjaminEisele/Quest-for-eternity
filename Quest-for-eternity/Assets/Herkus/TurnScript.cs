@@ -132,11 +132,15 @@ public class TurnScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            EndPlayersTurn();
-            handScriptAccess.AddCardsToHand(0);
-            fieldScriptAccess.FieldClearAndDealDamage(true);
-            Debug.Log(transform.parent.parent.name);
-            turnManagerAccess.EndTurnMultiplayer();
+            if(playerScriptAccess.isThisPlayersTurn)
+            {
+                EndPlayersTurn();
+                handScriptAccess.AddCardsToHand(0);
+                fieldScriptAccess.FieldClearAndDealDamage(true);
+                Debug.Log(transform.parent.parent.name);
+                turnManagerAccess.EndTurnMultiplayer();
+               
+            }
         }
         else if(Input.GetKeyDown(KeyCode.R))
         {
