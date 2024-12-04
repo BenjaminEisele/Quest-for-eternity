@@ -19,12 +19,14 @@ public class PlayerScript : NetworkBehaviour
         }
         if (isServer)
         {
+            Debug.Log("I am the server");
             isThisPlayersTurn = true;
             isHost = true;
             EndTurnButton.SetActive(true);
         }
         else //(!isServer)
         {
+            Debug.Log("I am NOT the server");
             isThisPlayersTurn = false;
             isHost = false;
             EndTurnButton.SetActive(false);
