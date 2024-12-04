@@ -1,6 +1,6 @@
 using UnityEngine;
 using Mirror;
-//using UnityEditor.SearchService;
+
 public class PlayerScript : NetworkBehaviour
 {
     public GameObject EndTurnButton;
@@ -23,12 +23,12 @@ public class PlayerScript : NetworkBehaviour
         
         if (isServer)
         {
-            if (TurnManagerScript.Instance.IsPlayerATurn)
+            if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
                 if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
             }
 
-            if (TurnManagerScript.Instance.IsPlayerBTurn)
+            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
                 if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
             }
@@ -36,12 +36,12 @@ public class PlayerScript : NetworkBehaviour
 
         if (!isServer)
         {
-            if (TurnManagerScript.Instance.IsPlayerATurn)
+            if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
                 if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
             }
 
-            if (TurnManagerScript.Instance.IsPlayerBTurn)
+            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
                 if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
             }
@@ -58,7 +58,7 @@ public class PlayerScript : NetworkBehaviour
 
         else if (isServer)
         {
-            TurnManagerScript.Instance.EndTurn();
+            TurnManagerMultiplayer.Instance.EndTurn();
         }
 
     }
@@ -66,7 +66,7 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     public void CmdEndTurn()
     {
-        TurnManagerScript.Instance.EndTurn();
+        TurnManagerMultiplayer.Instance.EndTurn();
     }
 
 }

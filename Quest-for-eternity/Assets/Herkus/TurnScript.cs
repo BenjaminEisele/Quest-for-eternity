@@ -1,13 +1,13 @@
 using UnityEngine;
 using Mirror;
 
-public class TurnScript : NetworkBehaviour
+public class TurnScript : MonoBehaviour
 {
     public FieldScript fieldScriptAccess;
     public HandScript handScriptAccess;
 
     [SerializeField]
-    [SyncVar]
+    //[SyncVar]
     private bool isPlayersTurn;
 
     [SerializeField]
@@ -18,11 +18,12 @@ public class TurnScript : NetworkBehaviour
 
     private void Start()
     {
-        if (isServer) {isPlayersTurn = true;}
-        if (!isServer) {isPlayersTurn = false;}
+        //if (isServer) {isPlayersTurn = true;}
+        //if (!isServer) {isPlayersTurn = false;}
+        
         
         // UiScript.UpdateTurnInfo(0);
-       // ShouldStartPlayerTurn(true);
+       ShouldStartPlayerTurn(true);
     }
 
 
@@ -58,7 +59,7 @@ public class TurnScript : NetworkBehaviour
             }
         } 
         
-        EndTurn();
+        //EndTurn();
     }
 
     public void EndPlayersTurn()
@@ -83,7 +84,7 @@ public class TurnScript : NetworkBehaviour
         isPlayersTurn = true;
     }
 
-    public void EndTurn()
+    /*public void EndTurn()
     {
         if (!isServer)
         {
@@ -92,16 +93,16 @@ public class TurnScript : NetworkBehaviour
 
         else if (isServer)
         {
-            TurnManagerScript.Instance.EndTurn();
+            TurnManagerMultiplayer.Instance.EndTurn();
         }
 
-    }
+    }*/
 
     private void Update()
     {
-        if (isServer)
+        /*if (isServer)
         {
-            if (TurnManagerScript.Instance.IsPlayerATurn)
+            if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
                 isPlayersTurn = true;
             }
@@ -113,7 +114,7 @@ public class TurnScript : NetworkBehaviour
 
         if (!isServer)
         {
-            if (TurnManagerScript.Instance.IsPlayerBTurn)
+            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
                 isPlayersTurn = true;
             }
@@ -121,7 +122,7 @@ public class TurnScript : NetworkBehaviour
             {
                 isPlayersTurn = false;
             }
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -135,9 +136,9 @@ public class TurnScript : NetworkBehaviour
         }
     }
 
-    [Command]
+    /*[Command]
     public void CmdEndTurn()
     {
-        TurnManagerScript.Instance.EndTurn();
-    }
+        TurnManagerMultiplayer.Instance.EndTurn();
+    }*/
 }

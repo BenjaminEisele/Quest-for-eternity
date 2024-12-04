@@ -2,12 +2,12 @@ using System;
 using Mirror;
 using UnityEngine;
 
-public class TurnManagerScript : NetworkBehaviour
+public class TurnManagerMultiplayer : NetworkBehaviour
 {
     [SyncVar] public bool IsPlayerATurn = true;
     [SyncVar] public bool IsPlayerBTurn = false;
 
-    public static TurnManagerScript Instance;
+    public static TurnManagerMultiplayer Instance;
 
     private void Awake()
     {
