@@ -28,6 +28,5 @@ public class TurnManagerScript : NetworkBehaviour
             IsPlayerBTurn = false;
         }
     }
-
-    
+   
 }
