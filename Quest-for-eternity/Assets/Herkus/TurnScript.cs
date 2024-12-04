@@ -135,6 +135,7 @@ public class TurnScript : MonoBehaviour
             EndPlayersTurn();
             handScriptAccess.AddCardsToHand(0);
             fieldScriptAccess.FieldClearAndDealDamage(true);
+            Debug.Log(transform.gameObject.name);
             turnManagerAccess.EndTurnMultiplayer();
         }
         else if(Input.GetKeyDown(KeyCode.R))

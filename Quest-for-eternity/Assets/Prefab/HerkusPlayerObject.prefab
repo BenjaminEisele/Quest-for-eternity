@@ -2916,11 +2916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed983ed28af9ad544b04d6c82f5a2a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   fieldScriptAccess: {fileID: 7435887801007149820}
   handScriptAccess: {fileID: 7294800125378994488}
+  playerScriptAccess: {fileID: 0}
   isPlayersTurn: 0
   refereeScriptAccess: {fileID: 4614374326144678589}
   deckManagerAccess: {fileID: 3574353505568794366}
@@ -3101,6 +3099,7 @@ MonoBehaviour:
   playerAccess: {fileID: 4919152236708034924}
   enemyList: []
   turnScriptAccess: {fileID: 4732714154589054801}
+  chosenEnemyId: 0
 --- !u!1 &5313769794786005383
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,6 +3797,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eeae388f7a3fc744890989f2750ceb4f, type: 2}
   - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
+  enemyList: []
 --- !u!114 &3574353505568794366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5098,6 +5098,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 15
+  databaseAccess: {fileID: 0}
+  isEnemyAlive: 0
+  myMarker: {fileID: 0}
 --- !u!1 &8415059715291502602
 GameObject:
   m_ObjectHideFlags: 0
