@@ -17,20 +17,25 @@ public class PlayerScript : NetworkBehaviour
             turnManagerAccess = TurnManagerMultiplayer.Instance;
             turnManagerAccess.playerList.Add(this.gameObject);
         }
-        if (isServer)
+        if (isOwned)
         {
-            Debug.Log("I am the server");
-            isThisPlayersTurn = true;
-            isHost = true;
-            EndTurnButton.SetActive(true);
+            if (isServer)
+            {
+
+                Debug.Log("I am the server");
+                isThisPlayersTurn = true;
+                isHost = true;
+                EndTurnButton.SetActive(true);
+            }
+            else //(!isServer)
+            {
+                Debug.Log("I am NOT the server");
+                isThisPlayersTurn = false;
+                isHost = false;
+                EndTurnButton.SetActive(false);
+            }
         }
-        else //(!isServer)
-        {
-            Debug.Log("I am NOT the server");
-            isThisPlayersTurn = false;
-            isHost = false;
-            EndTurnButton.SetActive(false);
-        }
+        
 
 
     }
