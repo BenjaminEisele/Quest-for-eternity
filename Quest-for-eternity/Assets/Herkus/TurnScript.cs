@@ -1,4 +1,5 @@
 using UnityEngine;
+using Mirror;
 
 public class TurnScript : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class TurnScript : MonoBehaviour
     public HandScript handScriptAccess;
 
     [SerializeField]
+    //[SyncVar]
     private bool isPlayersTurn;
 
     [SerializeField]
@@ -16,10 +18,12 @@ public class TurnScript : MonoBehaviour
 
     private void Start()
     {
-        isPlayersTurn = true;
+        //if (isServer) {isPlayersTurn = true;}
+        //if (!isServer) {isPlayersTurn = false;}
+        
         
         // UiScript.UpdateTurnInfo(0);
-       // ShouldStartPlayerTurn(true);
+       ShouldStartPlayerTurn(true);
     }
 
 
@@ -55,6 +59,7 @@ public class TurnScript : MonoBehaviour
             }
         } 
         
+        //EndTurn();
     }
 
     public void EndPlayersTurn()
@@ -79,8 +84,46 @@ public class TurnScript : MonoBehaviour
         isPlayersTurn = true;
     }
 
+    /*public void EndTurn()
+    {
+        if (!isServer)
+        {
+            CmdEndTurn();
+        }
+
+        else if (isServer)
+        {
+            TurnManagerMultiplayer.Instance.EndTurn();
+        }
+
+    }*/
+
     private void Update()
     {
+        /*if (isServer)
+        {
+            if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
+            {
+                isPlayersTurn = true;
+            }
+            else
+            {
+                isPlayersTurn = false;
+            }
+        }
+
+        if (!isServer)
+        {
+            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
+            {
+                isPlayersTurn = true;
+            }
+            else
+            {
+                isPlayersTurn = false;
+            }
+        }*/
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             EndPlayersTurn();
@@ -92,4 +135,10 @@ public class TurnScript : MonoBehaviour
             RestartGame();
         }
     }
+
+    /*[Command]
+    public void CmdEndTurn()
+    {
+        TurnManagerMultiplayer.Instance.EndTurn();
+    }*/
 }
