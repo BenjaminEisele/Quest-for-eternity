@@ -22,6 +22,7 @@ public class TurnScript : MonoBehaviour
     private void Start()
     {
         turnManagerAccess = TurnManagerMultiplayer.Instance;
+        
         //Debug.Log(turnManagerAccess.name);
         //if (isServer) {isPlayersTurn = true;}
         //if (!isServer) {isPlayersTurn = false;}

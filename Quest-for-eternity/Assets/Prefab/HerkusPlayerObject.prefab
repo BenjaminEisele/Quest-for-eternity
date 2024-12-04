@@ -2918,7 +2918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldScriptAccess: {fileID: 7435887801007149820}
   handScriptAccess: {fileID: 7294800125378994488}
-  playerScriptAccess: {fileID: 0}
+  playerScriptAccess: {fileID: 4973786725427984824}
   isPlayersTurn: 0
   refereeScriptAccess: {fileID: 4614374326144678589}
   deckManagerAccess: {fileID: 3574353505568794366}
@@ -3257,6 +3257,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   EndTurnButton: {fileID: 3672668296970964836}
+  isHost: 0
+  isThisPlayersTurn: 0
 --- !u!1 &5487305731171432376
 GameObject:
   m_ObjectHideFlags: 0
