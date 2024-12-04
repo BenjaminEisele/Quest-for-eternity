@@ -17,14 +17,18 @@ public class TurnScript : MonoBehaviour
     [SerializeField]
     DeckManager deckManagerAccess;
 
+    TurnManagerMultiplayer turnManagerAccess;
+
     private void Start()
     {
+        turnManagerAccess = TurnManagerMultiplayer.Instance;
+        //Debug.Log(turnManagerAccess.name);
         //if (isServer) {isPlayersTurn = true;}
         //if (!isServer) {isPlayersTurn = false;}
-        
-        
+
+
         // UiScript.UpdateTurnInfo(0);
-       ShouldStartPlayerTurn(true);
+        ShouldStartPlayerTurn(true);
     }
 
 
@@ -65,6 +69,7 @@ public class TurnScript : MonoBehaviour
 
     public void EndPlayersTurn()
     {
+        //turnManagerMultiplayer.
         if(isPlayersTurn)
         {
             UiScript.UpdateTurnInfo(1);
@@ -130,6 +135,7 @@ public class TurnScript : MonoBehaviour
             EndPlayersTurn();
             handScriptAccess.AddCardsToHand(0);
             fieldScriptAccess.FieldClearAndDealDamage(true);
+            turnManagerAccess.EndTurnMultiplayer();
         }
         else if(Input.GetKeyDown(KeyCode.R))
         {

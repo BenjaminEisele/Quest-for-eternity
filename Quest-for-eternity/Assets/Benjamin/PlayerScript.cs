@@ -1,12 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using Mirror;
 
 public class PlayerScript : NetworkBehaviour
 {
     public GameObject EndTurnButton;
+    TurnManagerMultiplayer turnManagerAccess;
 
     public void Start()
     {
+
+        if (SceneManager.GetActiveScene().name != "Lobby")
+        {
+            turnManagerAccess = TurnManagerMultiplayer.Instance;
+            turnManagerAccess.playerList.Add(this.gameObject);
+        }
         if (isServer)
         {
             EndTurnButton.SetActive(true);
@@ -16,40 +25,37 @@ public class PlayerScript : NetworkBehaviour
         {
             EndTurnButton.SetActive(false);
         }
+
+
     }
 
-    public void Update()
+    public void TogglePlayerButtons()
     {
-        
         if (isServer)
         {
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
                 if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
             }
-
-            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
+            else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
                 if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
             }
         }
-
-        if (!isServer)
+        else if (!isServer)
         {
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
                 if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
             }
-
-            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
+            else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
                 if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
             }
         }
-        
-    }
 
-    public void EndTurn()
+    }
+    public void EndTurnPlayerScript()
     {
         if (!isServer)
         {
@@ -58,7 +64,7 @@ public class PlayerScript : NetworkBehaviour
 
         else if (isServer)
         {
-            TurnManagerMultiplayer.Instance.EndTurn();
+            TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
         }
 
     }
@@ -66,7 +72,7 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     public void CmdEndTurn()
     {
-        TurnManagerMultiplayer.Instance.EndTurn();
+        TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
     }
 
     public void TestDebug()

@@ -1,11 +1,14 @@
 using System;
 using Mirror;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TurnManagerMultiplayer : NetworkBehaviour
 {
     [SyncVar] public bool IsPlayerATurn = true;
     [SyncVar] public bool IsPlayerBTurn = false;
+
+    public List<GameObject> playerList;
 
     public static TurnManagerMultiplayer Instance;
 
@@ -13,9 +16,10 @@ public class TurnManagerMultiplayer : NetworkBehaviour
     {
         if (Instance == null) {Instance = this;}
     }
-   
-    public void EndTurn()
+    
+    public void EndTurnMultiplayer()
     {
+        Debug.Log("ACTIVATED");
         if (IsPlayerATurn)
         {
             IsPlayerATurn = false;
@@ -27,6 +31,10 @@ public class TurnManagerMultiplayer : NetworkBehaviour
             IsPlayerATurn = true;
             IsPlayerBTurn = false;
         }
+        foreach(GameObject playerObject in playerList)
+        {
+            playerObject.GetComponent<PlayerScript>().TogglePlayerButtons();
+        }
     }
-   
+
 }
