@@ -44,9 +44,10 @@ public class PlayerScript : NetworkBehaviour
 
     public void TogglePlayerButtons()
     {
-        Debug.Log("ACTIVATED");
+        Debug.Log("1");
         if (isHost)
         {
+            Debug.Log("5");
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
                 // if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
@@ -60,13 +61,16 @@ public class PlayerScript : NetworkBehaviour
         }
         else if (!isHost)
         {
+            Debug.Log("2");
             if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
+                Debug.Log("3");
                 //if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
                 EndTurnButton.SetActive(!EndTurnButton.activeSelf);
             }
             else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
+                Debug.Log("4");
                 //if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
                 EndTurnButton.SetActive(!EndTurnButton.activeSelf);
             }
