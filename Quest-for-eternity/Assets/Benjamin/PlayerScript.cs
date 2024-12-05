@@ -5,6 +5,7 @@ using Mirror;
 
 public class PlayerScript : NetworkBehaviour
 {
+    
     public GameObject EndTurnButton;
     TurnManagerMultiplayer turnManagerAccess;
     [SyncVar]
@@ -44,7 +45,7 @@ public class PlayerScript : NetworkBehaviour
     public void TogglePlayerButtons()
     {
         Debug.Log("ACTIVATED");
-        if (isServer)
+        if (isHost)
         {
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
@@ -55,7 +56,7 @@ public class PlayerScript : NetworkBehaviour
                 if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
             }
         }
-        else if (!isServer)
+        else if (!isHost)
         {
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
