@@ -5,7 +5,7 @@ using Mirror;
 
 public class PlayerScript : NetworkBehaviour
 {
-    [SyncVar]
+    //[SyncVar]
     public GameObject EndTurnButton;
     TurnManagerMultiplayer turnManagerAccess;
     [SyncVar]
