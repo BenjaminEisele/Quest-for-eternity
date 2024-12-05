@@ -7,7 +7,9 @@ public class PlayerScript : NetworkBehaviour
 {
     public GameObject EndTurnButton;
     TurnManagerMultiplayer turnManagerAccess;
+    [SyncVar]
     public bool isHost;
+    [SyncVar] 
     public bool isThisPlayersTurn;
     public void Start()
     {
@@ -21,7 +23,6 @@ public class PlayerScript : NetworkBehaviour
         {
             if (isServer)
             {
-
                 Debug.Log("I am the server");
                 isThisPlayersTurn = true;
                 isHost = true;

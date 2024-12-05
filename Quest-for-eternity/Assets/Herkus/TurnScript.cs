@@ -133,7 +133,7 @@ public class TurnScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(playerScriptAccess.isThisPlayersTurn)
+            if(playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isOwned)
             {
                 EndPlayersTurn();
                 handScriptAccess.AddCardsToHand(0);
