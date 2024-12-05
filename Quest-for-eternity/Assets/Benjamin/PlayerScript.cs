@@ -49,22 +49,26 @@ public class PlayerScript : NetworkBehaviour
         {
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
             {
-                if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
+                // if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
+                EndTurnButton.SetActive(!EndTurnButton.activeSelf);
             }
             else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
-                if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
+                // if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
+                EndTurnButton.SetActive(!EndTurnButton.activeSelf);
             }
         }
         else if (!isHost)
         {
-            if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
+            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
-                if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
+                //if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
+                EndTurnButton.SetActive(!EndTurnButton.activeSelf);
             }
             else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
-                if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
+                //if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
+                EndTurnButton.SetActive(!EndTurnButton.activeSelf);
             }
         }
 

@@ -21,10 +21,7 @@ public class TurnManagerMultiplayer : NetworkBehaviour
     
     public void EndTurnMultiplayer()
     {
-        foreach (GameObject playerObject in playerList)
-        {
-            playerObject.GetComponent<PlayerScript>().TogglePlayerButtons();
-        }
+       
         if (IsPlayerATurn)
         {
             IsPlayerATurn = false;
@@ -34,6 +31,10 @@ public class TurnManagerMultiplayer : NetworkBehaviour
         {
             IsPlayerATurn = true;
             IsPlayerBTurn = false;
+        }
+        foreach (GameObject playerObject in playerList)
+        {
+            playerObject.GetComponent<PlayerScript>().TogglePlayerButtons();
         }
         foreach (GameObject playerObject in playerList)
         {
