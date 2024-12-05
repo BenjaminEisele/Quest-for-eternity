@@ -21,7 +21,7 @@ public class TurnManagerMultiplayer : NetworkBehaviour
     
     public void EndTurnMultiplayer()
     {
-        Debug.Log("ACTIVATED");
+        
         if (IsPlayerATurn)
         {
             IsPlayerATurn = false;

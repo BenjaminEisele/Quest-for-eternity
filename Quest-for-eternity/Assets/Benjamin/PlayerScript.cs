@@ -43,6 +43,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void TogglePlayerButtons()
     {
+        Debug.Log("ACTIVATED");
         if (isServer)
         {
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
