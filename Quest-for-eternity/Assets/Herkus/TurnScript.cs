@@ -82,7 +82,7 @@ public class TurnScript : MonoBehaviour
         }
     }
 
-    private void RestartGame()
+    public void RestartGame()
     {
         fieldScriptAccess.FieldClearAndDealDamage(false);
         deckManagerAccess.ResetAllCardLists();

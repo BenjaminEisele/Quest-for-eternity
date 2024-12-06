@@ -16,12 +16,19 @@ public class RefereeScript : MonoBehaviour
 
     private bool isGameOver;
 
+    public GameObject restartGameButton;
+    public GameObject lostImage;
+    public GameObject winImage;
+
     [SerializeField]
     int chosenEnemyId;
     private void Start()
     {
         //enemyList.Add(targetEnemy);
         isGameOver = false;
+        restartGameButton.SetActive(false);
+        winImage.SetActive(false);
+        lostImage.SetActive(false);
         
         
         //ChooseNewEnemy(0);
@@ -77,12 +84,15 @@ public class RefereeScript : MonoBehaviour
         if(didPlayerWin)
         {
             winnerName = "The player";
+            winImage.SetActive(true);
         }
         else
         {
             winnerName = "The enemy";
+            lostImage.SetActive(true);
         }
-        UiScript.UpdateGameOverText($"Game over! {winnerName} is victorious!");
+        //UiScript.UpdateGameOverText($"Game over! {winnerName} is victorious!");
+        restartGameButton.SetActive(true);
     }
     public void RefereeReset()
     {
