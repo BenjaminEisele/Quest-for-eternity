@@ -94,6 +94,11 @@ public class RefereeScript : MonoBehaviour
         //UiScript.UpdateGameOverText($"Game over! {winnerName} is victorious!");
         restartGameButton.SetActive(true);
     }
+
+    public void StartNextWave()
+    {
+
+    }
     public void RefereeReset()
     {
         isGameOver = false;
@@ -137,7 +142,8 @@ public class RefereeScript : MonoBehaviour
             }
             if(areAllEnemiesDead)
             {
-                EndGame(true);
+                StartNextWave();
+               // EndGame(true);
             }
         }    
     }

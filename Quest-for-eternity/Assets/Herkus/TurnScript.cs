@@ -37,7 +37,7 @@ public class TurnScript : MonoBehaviour
         }
         
         
-        endTurnEvent += EndPlayersTurn;
+        endTurnEvent += TransferTurnToEnemy;
         turnManagerAccess = TurnManagerMultiplayer.Instance;
         //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
@@ -79,15 +79,11 @@ public class TurnScript : MonoBehaviour
         uiScriptAccess.ChangeEndTurnButtonStatus(playerTurnBool);
     }
 
-    public void EndPlayersTurn()
+    public void TransferTurnToEnemy()
     {
-        //turnManagerMultiplayer.
         if(isPlayersTurn)
         {
             UiScript.UpdateTurnInfo(1);
-            Debug.Log("added cards from turn script");
-            handScriptAccess.AddCardsToHand(0);
-            //handScriptAccess.AddCardsToHand(0);
             isPlayersTurn = false;
             refereeScriptAccess.StartEnemyCoroutines();
         }
@@ -126,22 +122,14 @@ public class TurnScript : MonoBehaviour
             {
                 if (isPlayersTurn)
                 {
-                    if (endTurnEvent != null)
-                    {
-                        endTurnEvent();
-                    }
-                    uiScriptAccess.ChangeEndTurnButtonStatus(false);
+                    CallEndTurnEvent();
                 }
             }
             else
             {
                 if (playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isOwned)
                 {
-                    if (endTurnEvent != null)
-                    {
-                        endTurnEvent();
-                    }
-                    uiScriptAccess.ChangeEndTurnButtonStatus(false);
+                    CallEndTurnEvent();
                     /*
                     EndPlayersTurn();
                     handScriptAccess.AddCardsToHand(0);
@@ -158,7 +146,15 @@ public class TurnScript : MonoBehaviour
             RestartGame();
         }
     }
-
+    
+    public void CallEndTurnEvent()
+    {
+        if (endTurnEvent != null)
+        {
+            endTurnEvent();
+        }
+        uiScriptAccess.ChangeEndTurnButtonStatus(false);
+    }
     /*[Command]
     public void CmdEndTurn()
     {

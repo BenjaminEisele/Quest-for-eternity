@@ -57,8 +57,7 @@ public class UiScript : MonoBehaviour
             }
             //!!!!!!!!!!!!!!!!!!!!!!
             uiTextArray[1].text = $"It is {turnInfoString} turn!";
-        //}
-        
+        //}   
     }
 
     public static void UpdateFieldDamageText(string inputString, bool isPlayerAttacking)

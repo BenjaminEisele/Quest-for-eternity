@@ -156,9 +156,11 @@ public class HandScript : MonoBehaviour
     private IEnumerator EndTurnDelayCoroutine()
     {
         yield return new WaitForSeconds(0.75f);
-        AddCardsToHand(0);
+        /*AddCardsToHand(0);
         turnScriptAccess.EndPlayersTurn();
-        fieldScriptAccess.FieldClearAndDealDamage(true);
+        fieldScriptAccess.FieldClearAndDealDamage(true);*/
+        //TurnScript.endTurnEvent();
+        turnScriptAccess.CallEndTurnEvent();
     }
     
     private void CardInstantiation()
