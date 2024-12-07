@@ -44,6 +44,7 @@ public class HandScript : MonoBehaviour
 
     private void Start()
     {
+        TurnScript.endTurnEvent += AddCardsEvent;
         isInQuickAttackMode = false;
         cardCount = 0;
         cardDebt = 0;
@@ -98,6 +99,10 @@ public class HandScript : MonoBehaviour
         }
     }
 
+    private void AddCardsEvent()
+    {
+        AddCardsToHand(0);
+    }
     public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
         if(inputCardType == 0)
@@ -260,14 +265,7 @@ public class HandScript : MonoBehaviour
                             cardDebt++;
                             cardCount++;
                         }
-                    }
-                    
-                    
-                    
-                    /* GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVector, Quaternion.identity);
-                     cardClone.SetActive(true);
-                     cardList[i] = cardClone;
-                     cardCount++; */
+                    }         
                    
                 }
 
@@ -324,7 +322,6 @@ public class HandScript : MonoBehaviour
                 }
             }
         }
-       // Debug.Log("EEEE");
     }
     private void GenerateCard(Vector3 cardPlacementVectorReference, int cardIndex)
     {
@@ -342,8 +339,6 @@ public class HandScript : MonoBehaviour
 
         if (deckManagerAccess.deckCardList.Count <= 0)
         {
-            //List<GameObject> listOfGameObjects = new List<GameObject>();
-            //GameObject[] arrayOfGameObjects = listOfGameObjects.ToArray();
             canInteract = false;
             //SetCardActivityStatus(false, 2);
             deckManagerAccess.ResetDeckBegin();
@@ -378,9 +373,5 @@ public class HandScript : MonoBehaviour
             cardDebt = 0;
             cardQueIndex = 0;
         }
-    }
-    private void TransferCardToHand()
-    {
-
     }
 }

@@ -14,7 +14,7 @@ public class PlayerScript : NetworkBehaviour
     public bool isThisPlayersTurn;
     public void Start()
     {
-
+        TurnScript.endTurnEvent += EndTurnPlayerScript;
         if (SceneManager.GetActiveScene().name != "Lobby")
         {
             turnManagerAccess = TurnManagerMultiplayer.Instance;
@@ -79,6 +79,7 @@ public class PlayerScript : NetworkBehaviour
     }
     public void EndTurnPlayerScript()
     {
+        Debug.Log("End Turn called");
         if (!isServer)
         {
             CmdEndTurn();   

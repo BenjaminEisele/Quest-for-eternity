@@ -43,11 +43,6 @@ public class CardScript : MonoBehaviour
     [HideInInspector]
     public bool isActionCard;
 
-    private void Awake()
-    {
-        
-    }
-    
     public void HandCardSetup(int myId)
     {
         isClickable = true;

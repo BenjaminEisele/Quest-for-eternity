@@ -12,11 +12,6 @@ public class EnemyScript : MonoBehaviour
     public bool isEnemyAlive;
     TextMeshPro enemyHealthText;
     public GameObject myMarker;
-    //public bool isAlive;
-    private void Awake()
-    {
-        //EnemySetUp();
-    }
 
     public void EnemySetUp()
     {
@@ -33,7 +28,6 @@ public class EnemyScript : MonoBehaviour
     public void ResetEnemy()
     {
         enemyHealth = savedEnemyHealth;
-        //enemyHealthText.text = enemyHealth.ToString();
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
@@ -43,13 +37,11 @@ public class EnemyScript : MonoBehaviour
         {
             enemyHealth = 0;
             Debug.Log("enemy is dead");
-            //enemyHealthText.text = enemyHealth.ToString();
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
         }
         else
         {
-            //enemyHealthText.text = enemyHealth.ToString();
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = true;
         }

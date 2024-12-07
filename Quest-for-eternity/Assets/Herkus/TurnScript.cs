@@ -6,7 +6,7 @@ public class TurnScript : MonoBehaviour
     public FieldScript fieldScriptAccess;
     public HandScript handScriptAccess;
     public PlayerScript playerScriptAccess;
-
+    public UiScript uiScriptAccess;
     [SerializeField]
     //[SyncVar]
     private bool isPlayersTurn;
@@ -19,17 +19,29 @@ public class TurnScript : MonoBehaviour
 
     TurnManagerMultiplayer turnManagerAccess;
 
+    public delegate void EndTurnAction();
+    public static event EndTurnAction endTurnEvent;
+
+    bool isSinglePlayer;
     private void Start()
     {
-        turnManagerAccess = TurnManagerMultiplayer.Instance;
+        PlayerScript myPlayerScript = GetComponentInChildren<PlayerScript>();
+        if(myPlayerScript != null)
+        {
+            playerScriptAccess = myPlayerScript;
+            isSinglePlayer = false;
+        }
+        else
+        {
+            isSinglePlayer = true;
+        }
         
-        //Debug.Log(turnManagerAccess.name);
-        //if (isServer) {isPlayersTurn = true;}
-        //if (!isServer) {isPlayersTurn = false;}
-
-
-        // UiScript.UpdateTurnInfo(0);
-        ShouldStartPlayerTurn(true);
+        
+        endTurnEvent += EndPlayersTurn;
+        turnManagerAccess = TurnManagerMultiplayer.Instance;
+        //ShouldStartPlayerTurn(true);
+        uiScriptAccess.ChangeEndTurnButtonStatus(true);
+        isPlayersTurn = true;
     }
 
 
@@ -63,9 +75,8 @@ public class TurnScript : MonoBehaviour
             {
                 UiScript.UpdateTurnInfo(1);
             }
-        } 
-        
-        //EndTurn();
+        }
+        uiScriptAccess.ChangeEndTurnButtonStatus(playerTurnBool);
     }
 
     public void EndPlayersTurn()
@@ -107,50 +118,40 @@ public class TurnScript : MonoBehaviour
 
     private void Update()
     {
-        /*if (isServer)
-        {
-            if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
-            {
-                isPlayersTurn = true;
-            }
-            else
-            {
-                isPlayersTurn = false;
-            }
-        }
 
-        if (!isServer)
-        {
-            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
-            {
-                isPlayersTurn = true;
-            }
-            else
-            {
-                isPlayersTurn = false;
-            }
-        }*/
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isOwned)
+            if(isSinglePlayer)
             {
-                EndPlayersTurn();
-                handScriptAccess.AddCardsToHand(0);
-                fieldScriptAccess.FieldClearAndDealDamage(true);
-                Debug.Log(transform.parent.parent.name);
-                playerScriptAccess.EndTurnPlayerScript();
-             /*   if(playerScriptAccess.isHost)
+                if (isPlayersTurn)
                 {
-                    turnManagerAccess.EndTurnMultiplayer();
+                    if (endTurnEvent != null)
+                    {
+                        endTurnEvent();
+                    }
+                    uiScriptAccess.ChangeEndTurnButtonStatus(false);
                 }
-                else
-                {
-                    playerScriptAccess.CmdEndTurn();
-                } */
-
-
             }
+            else
+            {
+                if (playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isOwned)
+                {
+                    if (endTurnEvent != null)
+                    {
+                        endTurnEvent();
+                    }
+                    uiScriptAccess.ChangeEndTurnButtonStatus(false);
+                    /*
+                    EndPlayersTurn();
+                    handScriptAccess.AddCardsToHand(0);
+                    fieldScriptAccess.FieldClearAndDealDamage(true);
+                    Debug.Log(transform.parent.parent.name);
+                    playerScriptAccess.EndTurnPlayerScript();
+                    */
+                }
+            }
+          
         }
         else if(Input.GetKeyDown(KeyCode.R))
         {

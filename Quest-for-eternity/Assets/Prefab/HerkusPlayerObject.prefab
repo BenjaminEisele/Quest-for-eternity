@@ -3099,6 +3099,9 @@ MonoBehaviour:
   playerAccess: {fileID: 4919152236708034924}
   enemyList: []
   turnScriptAccess: {fileID: 4732714154589054801}
+  restartGameButton: {fileID: 0}
+  lostImage: {fileID: 0}
+  winImage: {fileID: 0}
   chosenEnemyId: 0
 --- !u!1 &5313769794786005383
 GameObject:

@@ -20,6 +20,9 @@ public class UiScript : MonoBehaviour
     [SerializeField]
     public GameObject shuffleWindow;
 
+    [SerializeField]
+    public Button endTurnButton;
+
 
     private void Start()
     {
@@ -36,21 +39,26 @@ public class UiScript : MonoBehaviour
 
     public static void UpdateTurnInfo(int inputInfo)
     {
-        string turnInfoString;
-        if(inputInfo == 0)
-        {
-           // Debug.Log("GGGGGGGGGG");
-            turnInfoString = "your";
-            //turnInfoString = "the enemy's";
-        }
-        else
-        {
-           // EditorApplication.isPaused = true;  
-           // Debug.Log("RURRU");
-            turnInfoString = "the enemy's";
-        }
-        //!!!!!!!!!!!!!!!!!!!!!!
-        uiTextArray[1].text = $"It is {turnInfoString} turn!";
+        string turnInfoString = "";
+        Debug.Log(uiTextArray.Length);
+        //if(uiTextArray.Length > 0)
+        //{
+            if (inputInfo == 0)
+            {
+                // Debug.Log("GGGGGGGGGG");
+                turnInfoString = "your";
+                //turnInfoString = "the enemy's";
+            }
+            else
+            {
+                // EditorApplication.isPaused = true;  
+                // Debug.Log("RURRU");
+                turnInfoString = "the enemy's";
+            }
+            //!!!!!!!!!!!!!!!!!!!!!!
+            uiTextArray[1].text = $"It is {turnInfoString} turn!";
+        //}
+        
     }
 
     public static void UpdateFieldDamageText(string inputString, bool isPlayerAttacking)
@@ -67,13 +75,11 @@ public class UiScript : MonoBehaviour
         }
         uiTextArray[0].text = $"{attackerName}'s total damage: " + inputString;
     }
-
-    public static void UpdateActionWindow(string inputString)
+    
+    public void ChangeEndTurnButtonStatus(bool inputBool)
     {
-        //!!!!!!!!!!!!!!!!!!!!!!
-        //uiTextArray[1].text = inputString;
+        endTurnButton.interactable = inputBool;
     }
-
     public static void UpdateGameOverText(string inputString)
     {
         //!!!!!!!!!!!!!!!!!!!!!!

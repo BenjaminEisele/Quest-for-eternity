@@ -19,7 +19,6 @@ public class ActiveCardScript : MonoBehaviour
     private int activeCardId;
 
     bool isActionCard;
-    bool isAlreadyActivated;
 
     [HideInInspector]
     public bool shouldShowCard;
@@ -89,7 +88,6 @@ public class ActiveCardScript : MonoBehaviour
     public int ActiveCardSetup(int activeCardId)
     {
         shouldShowCard = true;
-        isAlreadyActivated = false;
         this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
        

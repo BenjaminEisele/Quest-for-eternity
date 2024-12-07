@@ -312,7 +312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &28887982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,6 +1066,7 @@ MonoBehaviour:
   fieldScriptAccess: {fileID: 1724832511}
   handScriptAccess: {fileID: 1542795159}
   playerScriptAccess: {fileID: 0}
+  uiScriptAccess: {fileID: 1222074725}
   isPlayersTurn: 0
   refereeScriptAccess: {fileID: 543248971}
   deckManagerAccess: {fileID: 1042591251}
@@ -3557,7 +3558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &980115710
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4177,6 +4178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shuffleWindow: {fileID: 1286918140}
+  endTurnButton: {fileID: 1766183744}
 --- !u!4 &1222074726
 Transform:
   m_ObjectHideFlags: 0
@@ -5031,7 +5033,7 @@ GameObject:
   - component: {fileID: 1710171873}
   - component: {fileID: 1710171872}
   m_Layer: 5
-  m_Name: Button
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5241,7 +5243,7 @@ GameObject:
   - component: {fileID: 1766183745}
   - component: {fileID: 1766183744}
   m_Layer: 5
-  m_Name: Button
+  m_Name: EndTurnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
