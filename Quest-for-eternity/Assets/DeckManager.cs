@@ -15,6 +15,8 @@ public class DeckManager : MonoBehaviour
 
     private void Start()
     {
+        RefereeScript.newWaveEvent += ResetAllCardLists;
+        TurnScript.restartGameEvent += ResetAllCardLists;
         uiScripAccess.ToggleShuffleWindow(false);
         ShuffleCards(deckCardList);
     }
@@ -22,6 +24,7 @@ public class DeckManager : MonoBehaviour
     {
         uiScripAccess.ToggleShuffleWindow(true);
     }
+
 
     public void ResetDeck(bool shouldShuffle)
     {

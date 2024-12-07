@@ -2026,6 +2026,7 @@ MonoBehaviour:
   playerAccess: {fileID: 1889118660}
   enemyList: []
   turnScriptAccess: {fileID: 317175596}
+  ennemyGeneratorAccess: {fileID: 741823585}
   restartGameButton: {fileID: 1710171871}
   lostImage: {fileID: 28887981}
   winImage: {fileID: 980115709}

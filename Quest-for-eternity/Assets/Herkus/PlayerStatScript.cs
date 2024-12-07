@@ -11,7 +11,7 @@ public class PlayerStatScript : MonoBehaviour
     TextMeshPro playerHealthText;
     private void Awake()
     {
-        playerHealth = 25;
+        playerHealth = 500;
         savedPlayerHealth = playerHealth;
         playerHealthText = GetComponentInChildren<TextMeshPro>();
         //playerHealthText.text = playerHealth.ToString();

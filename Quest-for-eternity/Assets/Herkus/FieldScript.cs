@@ -31,12 +31,17 @@ public class FieldScript : MonoBehaviour
 
     private void Start()
     {
-        TurnScript.endTurnEvent += FieldClearEvent;
+        TurnScript.endTurnEvent += FieldClearEventTrue;
+        TurnScript.restartGameEvent += FieldClearEventFalse;
         hitRateModifier = 0;
         activeCardSpawnPosition = spawnpoint.position;
     }
 
-    private void FieldClearEvent()
+    private void FieldClearEventTrue()
+    {
+        FieldClearAndDealDamage(true);
+    }
+    private void FieldClearEventFalse()
     {
         FieldClearAndDealDamage(true);
     }

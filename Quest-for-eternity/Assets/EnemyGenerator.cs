@@ -11,10 +11,10 @@ public class EnemyGenerator : MonoBehaviour
     public RefereeScript refereeScriptAccess;
     private void Start()
     {
-        GenerateEnemies(1);
+        //GenerateEnemies(1);
     }
 
-    private void GenerateEnemies(int howManyEnemies)
+    public void GenerateEnemies(int howManyEnemies)
     {
         Vector3 enemyPosition = spawnerPos.position;
         for (int i = 0; i < howManyEnemies; i++)
@@ -25,6 +25,6 @@ public class EnemyGenerator : MonoBehaviour
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
             enemyPosition += new Vector3(3, 0, 0);
         }
-        refereeScriptAccess.EnemyWaveSetup();
+        refereeScriptAccess.ResetChosenEnemy();
     }
 }

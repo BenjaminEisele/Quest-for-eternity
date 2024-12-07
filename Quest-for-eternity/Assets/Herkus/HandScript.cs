@@ -42,9 +42,12 @@ public class HandScript : MonoBehaviour
     bool isHitrateAffected;
     float savedHitrateDelta;
 
+    bool isFullRefill;
     private void Start()
     {
+        RefereeScript.newWaveEvent += HandReset;
         TurnScript.endTurnEvent += AddCardsEvent;
+        TurnScript.restartGameEvent += HandReset;
         isInQuickAttackMode = false;
         cardCount = 0;
         cardDebt = 0;
@@ -236,13 +239,11 @@ public class HandScript : MonoBehaviour
             refillCycleCount = cardList.Count + refillCount;
             isFullRefill = false;
         }
-
+        this.isFullRefill = isFullRefill;
         cardDebt = 0;
         cardQueIndex = 0;
         cardPlacementVector = new Vector3(1, 0, 0);
         
-
-
         if (isFullRefill)
         {
             for (int i = 0; i < cardList.Count; i++)
@@ -250,7 +251,7 @@ public class HandScript : MonoBehaviour
                 if (cardList[i] == null)
                 {
                    
-                    if (cardCount < cardLimit)
+                    if (cardCount + cardDebt < cardLimit)
                     {
                         if (deckManagerAccess.deckCardList.Count > 0)
                         {
@@ -265,7 +266,7 @@ public class HandScript : MonoBehaviour
 
                             Debug.Log("Card debt added");
                             cardDebt++;
-                            cardCount++;
+                           // cardCount++;
                         }
                     }         
                    
@@ -343,6 +344,7 @@ public class HandScript : MonoBehaviour
         {
             canInteract = false;
             //SetCardActivityStatus(false, 2);
+
             deckManagerAccess.ResetDeckBegin();
             
         }
@@ -368,8 +370,21 @@ public class HandScript : MonoBehaviour
             Debug.Log($"Card debt is {cardDebt}");
             foreach(CardQueueUnit queUnit in cardQueDataList)
             {
-                cardCount--;
-                GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
+                if(!isFullRefill)
+                {
+                   // cardCount--;
+                    GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
+                }
+                else
+                {
+                  //  cardCount--;
+                    GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
+                    if(cardCount >= cardLimit)
+                    {
+                        break;
+                    }
+                } 
+                
             }
             cardQueDataList.Clear();
             cardDebt = 0;

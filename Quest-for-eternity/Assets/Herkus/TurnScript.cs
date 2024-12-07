@@ -22,6 +22,9 @@ public class TurnScript : MonoBehaviour
     public delegate void EndTurnAction();
     public static event EndTurnAction endTurnEvent;
 
+    public delegate void RestartGameAction();
+    public static event RestartGameAction restartGameEvent;
+
     bool isSinglePlayer;
     private void Start()
     {
@@ -43,8 +46,6 @@ public class TurnScript : MonoBehaviour
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
     }
-
-
     
 
     public bool GetPlayerTurnBool()
@@ -143,10 +144,16 @@ public class TurnScript : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.R))
         {
-            RestartGame();
+            //RestartGame();
+            CallRestartGameEvent();
         }
     }
     
+    private void CallRestartGameEvent()
+    {
+        restartGameEvent();
+        isPlayersTurn = true;
+    }
     public void CallEndTurnEvent()
     {
         if (endTurnEvent != null)

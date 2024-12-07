@@ -14,6 +14,9 @@ public class RefereeScript : MonoBehaviour
     [SerializeField]
     TurnScript turnScriptAccess;
 
+    [SerializeField]
+    EnemyGenerator ennemyGeneratorAccess;
+
     private bool isGameOver;
 
     public GameObject restartGameButton;
@@ -22,8 +25,13 @@ public class RefereeScript : MonoBehaviour
 
     [SerializeField]
     int chosenEnemyId;
+
+    public delegate void NewWaveAction();
+    public static event NewWaveAction newWaveEvent;
     private void Start()
     {
+        TurnScript.restartGameEvent += RefereeReset;
+        ennemyGeneratorAccess.GenerateEnemies(1);
         //enemyList.Add(targetEnemy);
         isGameOver = false;
         restartGameButton.SetActive(false);
@@ -45,7 +53,7 @@ public class RefereeScript : MonoBehaviour
             ChooseNewEnemy(-1);
         }
     }
-    public void EnemyWaveSetup()
+    public void ResetChosenEnemy()
     {
         foreach(EnemyScript enemy in enemyList)
         {
@@ -95,17 +103,32 @@ public class RefereeScript : MonoBehaviour
         restartGameButton.SetActive(true);
     }
 
-    public void StartNextWave()
+    public void StartNextWave(bool shouldStartEvents)
     {
-
+        Debug.Log("new wave!");
+        foreach (EnemyScript enemy in enemyList)
+        {
+            Destroy(enemy.gameObject);
+        }
+        enemyList.Clear();
+        ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
+        ResetChosenEnemy();
+        if(shouldStartEvents)
+        {
+            if (newWaveEvent != null)
+            {
+                newWaveEvent();
+            }
+        }
     }
     public void RefereeReset()
     {
         isGameOver = false;
-        foreach (EnemyScript enemy in enemyList)
+        /*foreach (EnemyScript enemy in enemyList)
         {
             enemy.ResetEnemy();
-        }
+        } */
+        StartNextWave(false);
         playerAccess.ResetPlayer();
     }
     public bool GetIsGameOver()
@@ -142,7 +165,8 @@ public class RefereeScript : MonoBehaviour
             }
             if(areAllEnemiesDead)
             {
-                StartNextWave();
+                // for debugging purposes the value is false. But later on it should be switched back to TRUE
+                StartNextWave(false);
                // EndGame(true);
             }
         }    

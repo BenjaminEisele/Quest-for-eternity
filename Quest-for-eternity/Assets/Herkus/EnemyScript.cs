@@ -36,7 +36,7 @@ public class EnemyScript : MonoBehaviour
         if(enemyHealth <= 0)
         {
             enemyHealth = 0;
-            Debug.Log("enemy is dead");
+           // Debug.Log("enemy is dead");
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
         }
@@ -57,7 +57,7 @@ public class EnemyScript : MonoBehaviour
         if(isEnemyAlive)
         {
             myDamage = databaseAccess.enemyList[myId].GenerateAttack();
-            Debug.Log($"I dealt {myDamage} damage");
+           // Debug.Log($"I dealt {myDamage} damage");
         }
         else
         {

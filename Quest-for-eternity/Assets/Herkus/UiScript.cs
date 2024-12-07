@@ -40,7 +40,6 @@ public class UiScript : MonoBehaviour
     public static void UpdateTurnInfo(int inputInfo)
     {
         string turnInfoString = "";
-        Debug.Log(uiTextArray.Length);
         //if(uiTextArray.Length > 0)
         //{
             if (inputInfo == 0)
