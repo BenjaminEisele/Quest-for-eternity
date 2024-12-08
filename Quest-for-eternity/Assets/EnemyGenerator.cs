@@ -9,6 +9,7 @@ public class EnemyGenerator : MonoBehaviour
     public Transform spawnerPos;
 
     public RefereeScript refereeScriptAccess;
+
     private void Start()
     {
         //GenerateEnemies(1);

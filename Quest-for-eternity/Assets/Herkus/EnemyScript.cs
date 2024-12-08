@@ -1,14 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class EnemyScript : MonoBehaviour
+using Mirror;
+public class EnemyScript : NetworkBehaviour
 {
     //[Hide]
+    [SyncVar]
     public int enemyHealth;
     int savedEnemyHealth;
     int myId;
-    public Database databaseAccess;
+    //public Database databaseAccess;
 
+    [SyncVar]
     public bool isEnemyAlive;
     TextMeshPro enemyHealthText;
     public GameObject myMarker;
@@ -16,8 +19,8 @@ public class EnemyScript : MonoBehaviour
     public void EnemySetUp()
     {
         isEnemyAlive = true;
-        myId = Random.Range(0, databaseAccess.enemyList.Count);
-        this.enemyHealth = databaseAccess.enemyList[myId].enemyHealth;
+        myId = Random.Range(0, Database.instance.enemyList.Count);
+        this.enemyHealth = Database.instance.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
        // Debug.Log($"I am a {databaseAccess.enemyList[myId].enemyName}");
 
@@ -56,13 +59,13 @@ public class EnemyScript : MonoBehaviour
         int myDamage;
         if(isEnemyAlive)
         {
-            myDamage = databaseAccess.enemyList[myId].GenerateAttack();
+            myDamage = Database.instance.enemyList[myId].GenerateAttack();
            // Debug.Log($"I dealt {myDamage} damage");
         }
         else
         {
             myDamage = 0;
-            Debug.Log($"I can't attack because i am DEAD, my name is {databaseAccess.enemyList[myId].enemyName}");
+            Debug.Log($"I can't attack because i am DEAD, my name is {Database.instance.enemyList[myId].enemyName}");
         }
         
         return myDamage;

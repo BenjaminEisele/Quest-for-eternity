@@ -7,12 +7,12 @@ public class RefereeScript : MonoBehaviour
     [SerializeField]
     EnemyScript targetEnemy; //veliau noretusi padaryti, kad net nereiketu nieko tampyti per inspektoriu, kitaip sakant kad viskas po kapotu butu.
 
-    public PlayerStatScript playerAccess;
+    //public PlayerStatScript playerAccess;
 
     public List<EnemyScript> enemyList;
 
-    [SerializeField]
-    TurnScript turnScriptAccess;
+    //[SerializeField]
+    //TurnScript turnScriptAccess;
 
     [SerializeField]
     EnemyGenerator ennemyGeneratorAccess;
@@ -28,10 +28,18 @@ public class RefereeScript : MonoBehaviour
 
     public delegate void NewWaveAction();
     public static event NewWaveAction newWaveEvent;
+
+    public static RefereeScript instance;
+
+    private void Awake()
+    {
+        if (instance == null) { instance = this; }
+    }
+
     private void Start()
     {
         TurnScript.restartGameEvent += RefereeReset;
-        ennemyGeneratorAccess.GenerateEnemies(1);
+        ennemyGeneratorAccess.GenerateEnemies(3);
         //enemyList.Add(targetEnemy);
         isGameOver = false;
         restartGameButton.SetActive(false);
@@ -85,7 +93,7 @@ public class RefereeScript : MonoBehaviour
     }
     private void EndGame(bool didPlayerWin)
     {
-        turnScriptAccess.SetPlayerTurnBool(false);
+        TurnScript.instance.SetPlayerTurnBool(false);
         Debug.Log("game end");
         isGameOver = true;
         string winnerName;
@@ -129,7 +137,7 @@ public class RefereeScript : MonoBehaviour
             enemy.ResetEnemy();
         } */
         StartNextWave(false);
-        playerAccess.ResetPlayer();
+        PlayerStatScript.instance.ResetPlayer();
     }
     public bool GetIsGameOver()
     {
@@ -174,10 +182,10 @@ public class RefereeScript : MonoBehaviour
 
     public void dealDamageToPlayer(int inputDamage)
     {
-        if(playerAccess.TakeDamageAndCheckIfDead(inputDamage))
+        if(PlayerStatScript.instance.TakeDamageAndCheckIfDead(inputDamage))
         {
             //turnScriptAccess.isPlayersTurn = false;
-            turnScriptAccess.ShouldStartPlayerTurn(false);
+            TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
         //playerAccess.playerHealth -= inputDamage;
@@ -197,7 +205,7 @@ public class RefereeScript : MonoBehaviour
 
         
 
-        turnScriptAccess.ShouldStartPlayerTurn(true);
+        TurnScript.instance.ShouldStartPlayerTurn(true);
        // Debug.Log("attack over");
         //turnScriptAccess.ShouldStartPlayerTurn(true);
     }

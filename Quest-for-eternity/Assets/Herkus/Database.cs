@@ -8,4 +8,11 @@ public class Database : MonoBehaviour
     public List<BaseCard> cardList;
     public List<BaseEnemy> enemyList;
 
+    public static Database instance;
+
+    private void Awake()
+    {
+        if (instance == null) { instance = this; }
+    }
+
 }

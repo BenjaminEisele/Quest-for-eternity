@@ -12,8 +12,8 @@ public class FieldScript : MonoBehaviour
     GameObject baseActiveCard;
     [SerializeField]
     UiScript uiScriptAccess;
-    [SerializeField]
-    RefereeScript refereeScriptAccess;
+    //[SerializeField]
+    //RefereeScript refereeScriptAccess;
 
     //[HideInInspector]
     [SerializeField]
@@ -84,7 +84,7 @@ public class FieldScript : MonoBehaviour
             {
                 if (actionCardReference.DidActiveCardHit(hitRateModifier))
                 {
-                    refereeScriptAccess.dealDamageToEnemy(damagePoints);
+                    RefereeScript.instance.dealDamageToEnemy(damagePoints);
                 }
                 else
                 {
