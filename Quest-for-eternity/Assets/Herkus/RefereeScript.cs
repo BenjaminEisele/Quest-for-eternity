@@ -39,7 +39,7 @@ public class RefereeScript : MonoBehaviour
     private void Start()
     {
         TurnScript.restartGameEvent += RefereeReset;
-        ennemyGeneratorAccess.GenerateEnemies(3);
+        ennemyGeneratorAccess.GenerateEnemies(1);
         //enemyList.Add(targetEnemy);
         isGameOver = false;
         restartGameButton.SetActive(false);
