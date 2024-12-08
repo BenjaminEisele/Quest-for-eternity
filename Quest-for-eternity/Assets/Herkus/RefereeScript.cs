@@ -26,8 +26,14 @@ public class RefereeScript : MonoBehaviour
     [SerializeField]
     int chosenEnemyId;
 
+    [SerializeField]
+    ChooseNewCardScript chooseNewCardAccess;
+
     public delegate void NewWaveAction();
     public static event NewWaveAction newWaveEvent;
+
+    public delegate void TurnStartAction();
+    public static event TurnStartAction turnStartEvent;
     private void Start()
     {
         TurnScript.restartGameEvent += RefereeReset;
@@ -37,9 +43,7 @@ public class RefereeScript : MonoBehaviour
         restartGameButton.SetActive(false);
         winImage.SetActive(false);
         lostImage.SetActive(false);
-        
-        
-        //ChooseNewEnemy(0);
+       // turnStartEvent();
     }
     
     private void Update()
@@ -105,7 +109,7 @@ public class RefereeScript : MonoBehaviour
 
     public void StartNextWave(bool shouldStartEvents)
     {
-        Debug.Log("new wave!");
+        //Debug.Log("new wave!");
         foreach (EnemyScript enemy in enemyList)
         {
             Destroy(enemy.gameObject);
@@ -113,12 +117,20 @@ public class RefereeScript : MonoBehaviour
         enemyList.Clear();
         ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
         ResetChosenEnemy();
-        if(shouldStartEvents)
+        chooseNewCardAccess.DisplayCards();
+        if (shouldStartEvents)
         {
-            if (newWaveEvent != null)
-            {
-                newWaveEvent();
-            }
+            //CallNewWaveEvent();
+            
+        }
+
+    }
+
+    public void CallNewWaveEvent()
+    {
+        if (newWaveEvent != null)
+        {
+            newWaveEvent();
         }
     }
     public void RefereeReset()
@@ -167,7 +179,6 @@ public class RefereeScript : MonoBehaviour
             {
                 // for debugging purposes the value is false. But later on it should be switched back to TRUE
                 StartNextWave(false);
-               // EndGame(true);
             }
         }    
     }
@@ -193,10 +204,10 @@ public class RefereeScript : MonoBehaviour
             UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
             yield return new WaitForSeconds(0.75f);
         }
-        
 
-        
 
+
+        turnStartEvent();
         turnScriptAccess.ShouldStartPlayerTurn(true);
        // Debug.Log("attack over");
         //turnScriptAccess.ShouldStartPlayerTurn(true);

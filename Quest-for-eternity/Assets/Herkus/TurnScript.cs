@@ -9,7 +9,8 @@ public class TurnScript : MonoBehaviour
     public UiScript uiScriptAccess;
     [SerializeField]
     //[SyncVar]
-    private bool isPlayersTurn;
+    [HideInInspector]
+    public bool isPlayersTurn;
 
     [SerializeField]
     RefereeScript refereeScriptAccess;
@@ -57,11 +58,6 @@ public class TurnScript : MonoBehaviour
     {
         isPlayersTurn = inputBool;
     }
-   
-   /* public void StartPlayersTurn()
-    {
-        isPlayersTurn = true;
-    }*/
 
     public void ShouldStartPlayerTurn(bool playerTurnBool)
     {
