@@ -24,7 +24,6 @@ public class DisplayCardScript : MonoBehaviour
     
     void OnMouseOver()
     {
-        //Debug.Log("LALALA");
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             // Whatever you want it to do.

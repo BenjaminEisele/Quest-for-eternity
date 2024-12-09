@@ -24,7 +24,6 @@ public class HandScript : MonoBehaviour
 
     [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
     private List<CardScript> cardList;
-    //private List<GameObject> cardList;
 
     [SerializeField]
     int cardCount = 0;
@@ -45,8 +44,9 @@ public class HandScript : MonoBehaviour
     bool isFullRefill;
     private void Start()
     {
-        RefereeScript.turnStartEvent += HandStartTurnEvent;
+        RefereeScript.turnStartEvent += ActivateAllCardsEvent;
         RefereeScript.newWaveEvent += HandReset;
+        RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
         TurnScript.endTurnEvent += AddCardsEvent;
         TurnScript.restartGameEvent += HandReset;
         isInQuickAttackMode = false;
@@ -55,7 +55,7 @@ public class HandScript : MonoBehaviour
         cardQueIndex = 0;
         canInteract = true;
         CardInstantiation();
-        HandStartTurnEvent();
+        ActivateAllCardsEvent();
     }
 
     private void Update()
@@ -103,9 +103,14 @@ public class HandScript : MonoBehaviour
             }
         }
     }
-
-    private void HandStartTurnEvent()
+    private void DisableAllCardsEvent()
     {
+        SetCardActivityStatus(false, 2);
+    }
+    private void ActivateAllCardsEvent()
+    {
+        
+        Debug.Log("yo mama");
         SetCardActivityStatus(true, 2);
     }
     private void AddCardsEvent()

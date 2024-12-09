@@ -13,7 +13,8 @@ public class ChooseNewCardScript : MonoBehaviour
 
     private void Start()
     {
-       // DisplayCards();
+        // DisplayCards();
+        RefereeScript.preNewWaveEvent += DisplayCards;
     }
     public void DisplayCardsHidden(int inputId)
     {
@@ -25,7 +26,10 @@ public class ChooseNewCardScript : MonoBehaviour
         }
         displayCardList.Clear();
         databaseAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
+        //refereeScriptAccess.canTransferTurnToPlayer = true;
+        refereeScriptAccess.CallStartTurnEvent();
         refereeScriptAccess.StartNextWave(false);
+
     }
 
     

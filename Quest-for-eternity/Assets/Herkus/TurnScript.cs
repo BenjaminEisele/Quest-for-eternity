@@ -82,7 +82,7 @@ public class TurnScript : MonoBehaviour
         {
             UiScript.UpdateTurnInfo(1);
             isPlayersTurn = false;
-            refereeScriptAccess.StartEnemyCoroutines();
+            refereeScriptAccess.StartForeachEnemyCoroutine();
         }
     }
 
