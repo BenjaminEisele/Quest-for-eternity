@@ -1554,8 +1554,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.31516552, g: 0.735849, b: 0.40292993, a: 1}
+  m_Sprite: {fileID: -1852790845309276438, guid: 603699986ea802e46bcdf2e6939d5ec1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1575,7 +1575,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 19, y: 10, z: 1}
+  m_LocalScale: {x: 0.62896377, y: 0.5279879, z: 0.0005984499}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4345,6 +4345,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eeae388f7a3fc744890989f2750ceb4f, type: 2}
   - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
+  - {fileID: 11400000, guid: d0a856741f5ad354ebf4b42c9b36c730, type: 2}
   enemyList:
   - {fileID: 11400000, guid: 10a10243987f2c7459336b3ff8d4ac72, type: 2}
   - {fileID: 11400000, guid: 25278f8ba2c162d45889102ab1d1005f, type: 2}
@@ -7400,6 +7401,7 @@ MonoBehaviour:
   displayCardLocator: {fileID: 2038342133}
   databaseAccess: {fileID: 1042591249}
   displayCardList: []
+  refereeScriptAccess: {fileID: 543248971}
 --- !u!1 &2038342132
 GameObject:
   m_ObjectHideFlags: 0

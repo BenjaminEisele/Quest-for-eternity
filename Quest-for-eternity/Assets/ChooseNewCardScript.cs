@@ -8,18 +8,24 @@ public class ChooseNewCardScript : MonoBehaviour
     public Transform displayCardLocator;
     public Database databaseAccess;
     public List<GameObject> displayCardList;
+    [SerializeField]
+    RefereeScript refereeScriptAccess;
 
     private void Start()
     {
-        DisplayCards();
+       // DisplayCards();
     }
-    public void DisplayCardsHidden()
+    public void DisplayCardsHidden(int inputId)
     {
+        Debug.Log("hiding cards");
         foreach(GameObject displayCardObject in displayCardList)
         {
             Destroy(displayCardObject);
+            Debug.Log(displayCardObject.name);
         }
         displayCardList.Clear();
+        databaseAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
+        refereeScriptAccess.StartNextWave(false);
     }
 
     

@@ -24,7 +24,7 @@ public class DisplayCardScript : MonoBehaviour
     
     void OnMouseOver()
     {
-        Debug.Log("LALALA");
+        //Debug.Log("LALALA");
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             // Whatever you want it to do.
@@ -35,11 +35,11 @@ public class DisplayCardScript : MonoBehaviour
 
     private void CallDisplayCardsHidden()
     {
-        transform.root.GetComponent<ChooseNewCardScript>().DisplayCardsHidden();
+        transform.parent.GetComponent<ChooseNewCardScript>().DisplayCardsHidden(myCardId);
     }
     public void DisplayCardSetup(int myId)
     {
-        myCardId = myId;
+        myCardId = 9;//myId;
 
         myCardColor = databaseAccess.cardList[myCardId].cardColor;
         myCardName = databaseAccess.cardList[myCardId].cardName;

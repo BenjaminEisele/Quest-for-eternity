@@ -117,13 +117,11 @@ public class RefereeScript : MonoBehaviour
         enemyList.Clear();
         ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
         ResetChosenEnemy();
-        chooseNewCardAccess.DisplayCards();
+        
         if (shouldStartEvents)
         {
-            //CallNewWaveEvent();
-            
+            CallNewWaveEvent();   
         }
-
     }
 
     public void CallNewWaveEvent()
@@ -178,7 +176,8 @@ public class RefereeScript : MonoBehaviour
             if(areAllEnemiesDead)
             {
                 // for debugging purposes the value is false. But later on it should be switched back to TRUE
-                StartNextWave(false);
+                //StartNextWave(false);
+                chooseNewCardAccess.DisplayCards();
             }
         }    
     }
