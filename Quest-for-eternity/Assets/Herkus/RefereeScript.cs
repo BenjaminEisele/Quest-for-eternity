@@ -7,17 +7,19 @@ public class RefereeScript : MonoBehaviour
     [SerializeField]
     EnemyScript targetEnemy; //veliau noretusi padaryti, kad net nereiketu nieko tampyti per inspektoriu, kitaip sakant kad viskas po kapotu butu.
 
-    //public PlayerStatScript playerAccess;
+    public PlayerStatScript playerAccess;
 
     public List<EnemyScript> enemyList;
 
-    //[SerializeField]
-    //TurnScript turnScriptAccess;
+    [SerializeField]
+    TurnScript turnScriptAccess;
 
     [SerializeField]
     EnemyGenerator ennemyGeneratorAccess;
 
     private bool isGameOver;
+    bool areAllEnemiesDead;
+    private bool canTransferTurnToPlayer;
 
     public GameObject restartGameButton;
     public GameObject lostImage;
@@ -26,18 +28,21 @@ public class RefereeScript : MonoBehaviour
     [SerializeField]
     int chosenEnemyId;
 
+    [SerializeField]
+    ChooseNewCardScript chooseNewCardAccess;
+
+    public delegate void PreNewWaveAction();
+    public static event PreNewWaveAction preNewWaveEvent;
+
     public delegate void NewWaveAction();
     public static event NewWaveAction newWaveEvent;
 
-    public static RefereeScript instance;
-
-    private void Awake()
-    {
-        if (instance == null) { instance = this; }
-    }
-
+    public delegate void TurnStartAction();
+    public static event TurnStartAction turnStartEvent;
     private void Start()
     {
+        areAllEnemiesDead = false;
+        canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
         ennemyGeneratorAccess.GenerateEnemies(1);
         //enemyList.Add(targetEnemy);
@@ -45,9 +50,7 @@ public class RefereeScript : MonoBehaviour
         restartGameButton.SetActive(false);
         winImage.SetActive(false);
         lostImage.SetActive(false);
-        
-        
-        //ChooseNewEnemy(0);
+       // turnStartEvent();
     }
     
     private void Update()
@@ -93,7 +96,7 @@ public class RefereeScript : MonoBehaviour
     }
     private void EndGame(bool didPlayerWin)
     {
-        TurnScript.instance.SetPlayerTurnBool(false);
+        turnScriptAccess.SetPlayerTurnBool(false);
         Debug.Log("game end");
         isGameOver = true;
         string winnerName;
@@ -113,7 +116,8 @@ public class RefereeScript : MonoBehaviour
 
     public void StartNextWave(bool shouldStartEvents)
     {
-        Debug.Log("new wave!");
+        //Debug.Log("new wave!");
+        areAllEnemiesDead = false;
         foreach (EnemyScript enemy in enemyList)
         {
             Destroy(enemy.gameObject);
@@ -121,13 +125,35 @@ public class RefereeScript : MonoBehaviour
         enemyList.Clear();
         ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
         ResetChosenEnemy();
-        if(shouldStartEvents)
+        
+        if (shouldStartEvents)
         {
-            if (newWaveEvent != null)
-            {
-                newWaveEvent();
-            }
+            CallNewWaveEvent();   
         }
+    }
+    public void CallPreNewWaveEvent()
+    {
+        if (preNewWaveEvent != null)
+        {
+            preNewWaveEvent();
+        }
+    }
+    public void CallNewWaveEvent()
+    {
+        if (newWaveEvent != null)
+        {
+            newWaveEvent();
+        }
+    }
+
+    public void CallStartTurnEvent()
+    {
+        canTransferTurnToPlayer = true;
+        if (turnStartEvent != null)
+        {
+            turnStartEvent();
+        }
+        turnScriptAccess.ShouldStartPlayerTurn(true);
     }
     public void RefereeReset()
     {
@@ -137,17 +163,17 @@ public class RefereeScript : MonoBehaviour
             enemy.ResetEnemy();
         } */
         StartNextWave(false);
-        PlayerStatScript.instance.ResetPlayer();
+        playerAccess.ResetPlayer();
     }
     public bool GetIsGameOver()
     {
         return isGameOver;
     }
-    public void StartEnemyCoroutines()
+    public void StartForeachEnemyCoroutine()
     {
         if(!isGameOver)
         {
-            StartCoroutine(EnemyTurnCoroutine());
+            StartCoroutine(ForeachEnemyTurnCoroutine());
             /* foreach (EnemyScript enemy in enemyList)
              {
                  StartCoroutine(EnemyTurnCoroutine(enemy));
@@ -155,15 +181,12 @@ public class RefereeScript : MonoBehaviour
              turnScriptAccess.ShouldStartPlayerTurn(true);*/
             Debug.Log("zzoz");//ar galima sitoj vietoj padaryti kad visa logika eitu tik per turn script puse?
         }
-        
     }
     public void dealDamageToEnemy(int inputDamage)
     {
-        //targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
-        //targetEnemy = enemyList[0];
         if (!targetEnemy.TakeDamageAndCheckIfDead(inputDamage))
         {
-            bool areAllEnemiesDead = true;
+            areAllEnemiesDead = true;
             foreach (EnemyScript enemy in enemyList)
             {
                 if(enemy.enemyHealth > 0)
@@ -174,38 +197,45 @@ public class RefereeScript : MonoBehaviour
             if(areAllEnemiesDead)
             {
                 // for debugging purposes the value is false. But later on it should be switched back to TRUE
-                StartNextWave(false);
-               // EndGame(true);
+                //StartNextWave(false);
+                //chooseNewCardAccess.DisplayCards();
+                canTransferTurnToPlayer = false;
+                CallPreNewWaveEvent();
             }
         }    
     }
 
     public void dealDamageToPlayer(int inputDamage)
     {
-        if(PlayerStatScript.instance.TakeDamageAndCheckIfDead(inputDamage))
+        if(playerAccess.TakeDamageAndCheckIfDead(inputDamage))
         {
             //turnScriptAccess.isPlayersTurn = false;
-            TurnScript.instance.ShouldStartPlayerTurn(false);
+            turnScriptAccess.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
         //playerAccess.playerHealth -= inputDamage;
     }
-
-    private IEnumerator EnemyTurnCoroutine()//(EnemyScript enemy)
+    
+    private IEnumerator ForeachEnemyTurnCoroutine()
     {
         yield return new WaitForSeconds(0.25f);
-        foreach (EnemyScript enemy in enemyList)
+        if (!areAllEnemiesDead)
         {
-            int enemyDamage = enemy.GenerateAttack();
-            dealDamageToPlayer(enemyDamage);
-            UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
-            yield return new WaitForSeconds(0.75f);
+            foreach (EnemyScript enemy in enemyList)
+            {
+                int enemyDamage = enemy.GenerateAttack();
+                dealDamageToPlayer(enemyDamage);
+                UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
+                yield return new WaitForSeconds(0.75f);
+            }
         }
         
 
+        if(canTransferTurnToPlayer)
+        {
+            CallStartTurnEvent(); 
+        }
         
-
-        TurnScript.instance.ShouldStartPlayerTurn(true);
        // Debug.Log("attack over");
         //turnScriptAccess.ShouldStartPlayerTurn(true);
     }

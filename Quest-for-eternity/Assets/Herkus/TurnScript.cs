@@ -9,10 +9,11 @@ public class TurnScript : MonoBehaviour
     public UiScript uiScriptAccess;
     [SerializeField]
     //[SyncVar]
-    private bool isPlayersTurn;
+    [HideInInspector]
+    public bool isPlayersTurn;
 
-    //[SerializeField]
-    //RefereeScript refereeScriptAccess;
+    [SerializeField]
+    RefereeScript refereeScriptAccess;
 
     [SerializeField]
     DeckManager deckManagerAccess;
@@ -25,15 +26,7 @@ public class TurnScript : MonoBehaviour
     public delegate void RestartGameAction();
     public static event RestartGameAction restartGameEvent;
 
-    public static TurnScript instance;
-
     bool isSinglePlayer;
-
-    private void Awake()
-    {
-        if (instance == null) {instance = this;}
-    }
-
     private void Start()
     {
         PlayerScript myPlayerScript = GetComponentInChildren<PlayerScript>();
@@ -65,15 +58,10 @@ public class TurnScript : MonoBehaviour
     {
         isPlayersTurn = inputBool;
     }
-   
-   /* public void StartPlayersTurn()
-    {
-        isPlayersTurn = true;
-    }*/
 
     public void ShouldStartPlayerTurn(bool playerTurnBool)
     {
-        if(!RefereeScript.instance.GetIsGameOver())
+        if(!refereeScriptAccess.GetIsGameOver())
         {
             isPlayersTurn = playerTurnBool;
             if(playerTurnBool)
@@ -94,7 +82,7 @@ public class TurnScript : MonoBehaviour
         {
             UiScript.UpdateTurnInfo(1);
             isPlayersTurn = false;
-            RefereeScript.instance.StartEnemyCoroutines();
+            refereeScriptAccess.StartForeachEnemyCoroutine();
         }
     }
 
@@ -103,7 +91,7 @@ public class TurnScript : MonoBehaviour
         fieldScriptAccess.FieldClearAndDealDamage(false);
         deckManagerAccess.ResetAllCardLists();
         handScriptAccess.HandReset();
-        RefereeScript.instance.RefereeReset();
+        refereeScriptAccess.RefereeReset();
         isPlayersTurn = true;
     }
 

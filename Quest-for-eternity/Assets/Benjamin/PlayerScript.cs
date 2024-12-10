@@ -37,9 +37,6 @@ public class PlayerScript : NetworkBehaviour
                 EndTurnButton.SetActive(false);
             }
         }
-        
-
-
     }
 
     public void TogglePlayerButtons()

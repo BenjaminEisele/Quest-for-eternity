@@ -24,7 +24,6 @@ public class HandScript : MonoBehaviour
 
     [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
     private List<CardScript> cardList;
-    //private List<GameObject> cardList;
 
     [SerializeField]
     int cardCount = 0;
@@ -45,7 +44,9 @@ public class HandScript : MonoBehaviour
     bool isFullRefill;
     private void Start()
     {
+        RefereeScript.turnStartEvent += ActivateAllCardsEvent;
         RefereeScript.newWaveEvent += HandReset;
+        RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
         TurnScript.endTurnEvent += AddCardsEvent;
         TurnScript.restartGameEvent += HandReset;
         isInQuickAttackMode = false;
@@ -54,6 +55,7 @@ public class HandScript : MonoBehaviour
         cardQueIndex = 0;
         canInteract = true;
         CardInstantiation();
+        ActivateAllCardsEvent();
     }
 
     private void Update()
@@ -101,13 +103,24 @@ public class HandScript : MonoBehaviour
             }
         }
     }
-
+    private void DisableAllCardsEvent()
+    {
+        SetCardActivityStatus(false, 2);
+    }
+    private void ActivateAllCardsEvent()
+    {
+        
+        Debug.Log("yo mama");
+        SetCardActivityStatus(true, 2);
+    }
     private void AddCardsEvent()
     {
         AddCardsToHand(0);
+        
     }
     public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
+        //Debug.Log("Activity status changed");
         if(inputCardType == 0)
         {
             foreach (CardScript card in cardList)
@@ -144,7 +157,6 @@ public class HandScript : MonoBehaviour
                 }
             }
         }
-        
     }
 
     private IEnumerator QuickAttackModeCoroutine()
@@ -158,6 +170,7 @@ public class HandScript : MonoBehaviour
     }
     private IEnumerator EndTurnDelayCoroutine()
     {
+        SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
         /*AddCardsToHand(0);
         turnScriptAccess.EndPlayersTurn();
@@ -174,7 +187,6 @@ public class HandScript : MonoBehaviour
             GenerateCard(cardPlacementVector, -1);
             cardPlacementVector += new Vector3(2, 0, 0);
         }
-        
     }
 
     public void HitRateRestoriationMethod()
@@ -225,6 +237,7 @@ public class HandScript : MonoBehaviour
 
     public void AddCardsToHand(int refillCount)
     {
+
         //Refill count should be 0 if we want to fill the hand until it has 5 cards 
         int refillCycleCount;
         bool isFullRefill;
@@ -264,7 +277,7 @@ public class HandScript : MonoBehaviour
                             cardQueDataList[cardQueIndex].QueuedIndex = i;
                             cardQueIndex++;
 
-                            Debug.Log("Card debt added");
+                            //Debug.Log("Card debt added");
                             cardDebt++;
                            // cardCount++;
                         }
@@ -346,7 +359,7 @@ public class HandScript : MonoBehaviour
             //SetCardActivityStatus(false, 2);
 
             deckManagerAccess.ResetDeckBegin();
-            
+            SetCardActivityStatus(false, 2);
         }
        
 
@@ -359,12 +372,13 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponent<CardScript>();
         }
+        cardClone.GetComponent<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);       
     }
 
     public void DrawQueuedCards()
     {
-        
-        if(cardDebt > 0)
+        SetCardActivityStatus(true, 2);
+        if (cardDebt > 0)
         {
             //Debug.Log("reached this!");
             Debug.Log($"Card debt is {cardDebt}");
