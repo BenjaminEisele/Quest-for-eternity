@@ -2,14 +2,16 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Mirror;
 
-public class RefereeScript : MonoBehaviour
+public class RefereeScript : NetworkBehaviour
 {
     [SerializeField]
     EnemyScript targetEnemy; //veliau noretusi padaryti, kad net nereiketu nieko tampyti per inspektoriu, kitaip sakant kad viskas po kapotu butu.
 
     //public PlayerStatScript playerAccess;
 
+    [SyncVar]
     public List<EnemyScript> enemyList;
 
     //[SerializeField]
@@ -29,8 +31,8 @@ public class RefereeScript : MonoBehaviour
     [SerializeField]
     int chosenEnemyId;
 
-    [SerializeField]
-    ChooseNewCardScript chooseNewCardAccess;
+    //[SerializeField]
+    //ChooseNewCardScript chooseNewCardAccess;
 
     public delegate void PreNewWaveAction();
     public static event PreNewWaveAction preNewWaveEvent;
@@ -56,9 +58,9 @@ public class RefereeScript : MonoBehaviour
         ennemyGeneratorAccess.GenerateEnemies(1);
         //enemyList.Add(targetEnemy);
         isGameOver = false;
-        restartGameButton.SetActive(false);
-        winImage.SetActive(false);
-        lostImage.SetActive(false);
+        //restartGameButton.SetActive(false);
+        //winImage.SetActive(false);
+        //lostImage.SetActive(false);
        // turnStartEvent();
     }
     
@@ -108,15 +110,15 @@ public class RefereeScript : MonoBehaviour
         TurnScript.instance.SetPlayerTurnBool(false);
         Debug.Log("game end");
         isGameOver = true;
-        string winnerName;
+        //string winnerName;
         if(didPlayerWin)
         {
-            winnerName = "The player";
+            //winnerName = "The player";
             winImage.SetActive(true);
         }
         else
         {
-            winnerName = "The enemy";
+            //winnerName = "The enemy";
             lostImage.SetActive(true);
         }
         //UiScript.UpdateGameOverText($"Game over! {winnerName} is victorious!");

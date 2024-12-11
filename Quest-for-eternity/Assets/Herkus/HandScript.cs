@@ -20,6 +20,9 @@ public class HandScript : MonoBehaviour
     TurnScript turnScriptAccess;
 
     [SerializeField]
+    PlayerScript playerScriptAccess;
+
+    [SerializeField]
     DeckManager deckManagerAccess;
 
     [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
@@ -60,7 +63,7 @@ public class HandScript : MonoBehaviour
 
     private void Update()
     {
-        if(canInteract && turnScriptAccess.GetPlayerTurnBool())
+        if(canInteract && playerScriptAccess.isThisPlayersTurn)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {

@@ -12,6 +12,7 @@ public class PlayerScript : NetworkBehaviour
     public bool isHost;
     [SyncVar] 
     public bool isThisPlayersTurn;
+
     public void Start()
     {
         TurnScript.endTurnEvent += EndTurnPlayerScript;
@@ -46,14 +47,12 @@ public class PlayerScript : NetworkBehaviour
         {
             Debug.Log("5");
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
-            {
-                // if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
-                EndTurnButton.SetActive(!EndTurnButton.activeSelf);
+            {              
+                EndTurnButton.SetActive(true);
             }
             else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
-            {
-                // if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
-                EndTurnButton.SetActive(!EndTurnButton.activeSelf);
+            {                
+                EndTurnButton.SetActive(false);
             }
         }
         else if (!isHost)
@@ -61,15 +60,13 @@ public class PlayerScript : NetworkBehaviour
             Debug.Log("2");
             if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
-                Debug.Log("3");
-                //if (EndTurnButton.activeSelf == true) { EndTurnButton.SetActive(false); }
-                EndTurnButton.SetActive(!EndTurnButton.activeSelf);
+                Debug.Log("3");               
+                EndTurnButton.SetActive(true);
             }
             else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
-                Debug.Log("4");
-                //if (EndTurnButton.activeSelf == false) { EndTurnButton.SetActive(true); }
-                EndTurnButton.SetActive(!EndTurnButton.activeSelf);
+                Debug.Log("4");          
+                EndTurnButton.SetActive(false);
             }
         }
 

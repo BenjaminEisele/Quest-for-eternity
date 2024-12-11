@@ -8,8 +8,6 @@ public class TurnManagerMultiplayer : NetworkBehaviour
     [SyncVar] public bool IsPlayerATurn = true;
     [SyncVar] public bool IsPlayerBTurn = false;
 
-    
-
     public List<GameObject> playerList;
 
     public static TurnManagerMultiplayer Instance;

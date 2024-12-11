@@ -33,21 +33,11 @@ public class TurnScript : MonoBehaviour
         if(instance == null) {  instance = this; }
     }
 
-    bool isSinglePlayer;
+    //bool isSinglePlayer;
+
     private void Start()
     {
         PlayerScript myPlayerScript = GetComponentInChildren<PlayerScript>();
-        if(myPlayerScript != null)
-        {
-            playerScriptAccess = myPlayerScript;
-            isSinglePlayer = false;
-        }
-        else
-        {
-            isSinglePlayer = true;
-        }
-        
-        
         endTurnEvent += TransferTurnToEnemy;
         turnManagerAccess = TurnManagerMultiplayer.Instance;
         //ShouldStartPlayerTurn(true);
@@ -118,17 +108,13 @@ public class TurnScript : MonoBehaviour
 
     private void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(isSinglePlayer)
+            if (isPlayersTurn)
             {
-                if (isPlayersTurn)
-                {
-                    CallEndTurnEvent();
-                }
+                CallEndTurnEvent();
             }
+            
             else
             {
                 if (playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isOwned)
@@ -165,6 +151,7 @@ public class TurnScript : MonoBehaviour
         }
         uiScriptAccess.ChangeEndTurnButtonStatus(false);
     }
+    
     /*[Command]
     public void CmdEndTurn()
     {

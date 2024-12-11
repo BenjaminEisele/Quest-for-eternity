@@ -8,8 +8,15 @@ public class ChooseNewCardScript : MonoBehaviour
     public Transform displayCardLocator;
     public Database databaseAccess;
     public List<GameObject> displayCardList;
-    [SerializeField]
-    RefereeScript refereeScriptAccess;
+    //[SerializeField]
+    //RefereeScript refereeScriptAccess;
+
+    public static ChooseNewCardScript instance;
+
+    private void Awake()
+    {
+        if (instance == null) { instance = this; }
+    }
 
     private void Start()
     {
@@ -27,8 +34,8 @@ public class ChooseNewCardScript : MonoBehaviour
         displayCardList.Clear();
         databaseAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
         //refereeScriptAccess.canTransferTurnToPlayer = true;
-        refereeScriptAccess.CallStartTurnEvent();
-        refereeScriptAccess.StartNextWave(false);
+        RefereeScript.instance.CallStartTurnEvent();
+        RefereeScript.instance.StartNextWave(false);
 
     }
 
