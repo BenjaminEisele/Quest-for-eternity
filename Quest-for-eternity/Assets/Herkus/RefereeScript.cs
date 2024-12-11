@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using Mirror;
+using System.Linq;
 
 public class RefereeScript : NetworkBehaviour
 {
@@ -43,12 +44,14 @@ public class RefereeScript : NetworkBehaviour
     public delegate void TurnStartAction();
     public static event TurnStartAction turnStartEvent;
 
+    public GameObject[] card;
+
     public static RefereeScript instance;
 
     private void Awake()
     {
             if(instance == null) { instance = this; }
-    }
+    }     
 
     private void Start()
     {
@@ -61,7 +64,13 @@ public class RefereeScript : NetworkBehaviour
         //restartGameButton.SetActive(false);
         //winImage.SetActive(false);
         //lostImage.SetActive(false);
-       // turnStartEvent();
+        // turnStartEvent();
+        if (card == null)
+        {
+            card = GameObject.FindGameObjectsWithTag("Cards");
+            DeactivateCards(card);
+        }
+        
     }
     
     private void Update()
@@ -75,6 +84,25 @@ public class RefereeScript : NetworkBehaviour
             ChooseNewEnemy(-1);
         }
     }
+
+    public void DeactivateCards(GameObject[] cards)
+    {
+        if (isServer)
+        {
+            for (int i = 6; i < cards.Length; i++)
+            {
+                card[i].SetActive(false);
+            }
+        }
+        else
+        {
+            for (int i = 1; i < 6; i++)
+            {
+                card[i].SetActive(false);
+            }
+        } 
+    }
+
     public void ResetChosenEnemy()
     {
         foreach(EnemyScript enemy in enemyList)
