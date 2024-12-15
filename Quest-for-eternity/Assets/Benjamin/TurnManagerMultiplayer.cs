@@ -30,7 +30,7 @@ public class TurnManagerMultiplayer : NetworkBehaviour
             IsPlayerATurn = true;
             IsPlayerBTurn = false;
         }
-        foreach (GameObject playerObject in playerList)
+        foreach (GameObject playerObject in playerList) //call eventuall in Player Script Start
         {
             playerObject.GetComponent<PlayerScript>().TogglePlayerButtons();
         }
