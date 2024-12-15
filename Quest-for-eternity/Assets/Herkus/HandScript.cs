@@ -58,51 +58,45 @@ public class HandScript : MonoBehaviour
         ActivateAllCardsEvent();
     }
 
-    private void Update()
+    public void PlayCard()
     {
-        if(canInteract && turnScriptAccess.GetPlayerTurnBool())
+        if (canInteract && turnScriptAccess.GetPlayerTurnBool())
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                if (hit.transform.GetComponentInParent<CardScript>())
                 {
-                    if (hit.transform.GetComponentInParent<CardScript>())
+                    if (hit.transform.GetComponentInParent<CardScript>().isClickable)
                     {
-                        if (hit.transform.GetComponentInParent<CardScript>().isClickable)
+                        int clickedCardId = hit.transform.GetComponentInParent<CardScript>().myCardId;
+                        deckManagerAccess.handCardList.Remove(clickedCardId);
+                        deckManagerAccess.discardedCardList.Add(clickedCardId);
+                        if (fieldScriptAccess.SpawnActiveCard(clickedCardId))
                         {
-                            int clickedCardId = hit.transform.GetComponentInParent<CardScript>().myCardId;
-                            deckManagerAccess.handCardList.Remove(clickedCardId);
-                            deckManagerAccess.discardedCardList.Add(clickedCardId);
-                            if (fieldScriptAccess.SpawnActiveCard(clickedCardId))
+                            canInteract = false;
+                            if (isInQuickAttackMode)
                             {
-                                canInteract = false;
-                                if (isInQuickAttackMode)
-                                {
-                                    handScriptDelayCoroutine = StartCoroutine(QuickAttackModeCoroutine());
-                                }
-                                else
-                                {
-                                   // Debug.Log("end turn by card");
-                                    
-                                    handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
-                                    //turnScriptAccess.EndPlayersTurn();   
-                                }
+                                handScriptDelayCoroutine = StartCoroutine(QuickAttackModeCoroutine());
                             }
-                            //Debug.Log(hit.transform.parent.gameObject);
-                            Destroy(hit.transform.parent.gameObject);
-                            cardCount--;
+                            else
+                            {
+                                // Debug.Log("end turn by card");
+
+                                handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
+                                //turnScriptAccess.EndPlayersTurn();   
+                            }
                         }
+                        Debug.Log(hit.transform.gameObject);
+                        Destroy(hit.transform.gameObject);
+                        cardCount--;
                     }
                 }
             }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                AddCardsToHand(2);
-            }
-        }
+        }    
     }
+
     private void DisableAllCardsEvent()
     {
         SetCardActivityStatus(false, 2);

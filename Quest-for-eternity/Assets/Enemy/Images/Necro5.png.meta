@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Necro5_0: 1589563228549927359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
