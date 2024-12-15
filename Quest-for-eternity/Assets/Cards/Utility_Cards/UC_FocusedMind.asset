@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Focused Mind
   effectValue: 0
   cardColor: {r: 0.2627056, g: 0.4508331, b: 0.94716984, a: 1}
-  cardSprite: {fileID: 7061871058971094757, guid: 9fa46940d16614144a65e502a0d5b323, type: 3}
+  cardSprite: {fileID: 5688580090960809692, guid: 8616e16e4856d644587005832dd447c9, type: 3}
   cardDescription: Next ACT +1 DMG
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: ff9d198543958d047b1bbbf16fedcc6a, type: 2}

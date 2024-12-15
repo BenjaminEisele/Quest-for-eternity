@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Good Aim
   effectValue: 0
   cardColor: {r: 0.83729655, g: 0.21068704, b: 0.8792453, a: 1}
-  cardSprite: {fileID: 7813769622643507795, guid: 488b8d3500c96b44cadf3135d7802fc5, type: 3}
+  cardSprite: {fileID: -8285822730152157382, guid: 52c0d44c4b89c104f8a69c69df2dd853, type: 3}
   cardDescription: Next ACT +20% HR
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 06da1e4558a26be41afd54525ee61d55, type: 2}
