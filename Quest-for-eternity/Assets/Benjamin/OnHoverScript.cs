@@ -7,6 +7,9 @@ public class OnHoverScript : MonoBehaviour
     private Vector3 moveVector = new Vector3(0.0f, 2.0f, 1.0f);
     public GameObject description;
     MeshRenderer myMeshRenderer;
+    [SerializeField]
+    DragDrop dragDropAccess;
+
     private void Awake()
     {
         initialScale = transform.root.transform.localScale;
@@ -17,7 +20,7 @@ public class OnHoverScript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        IncreasScale(true);
+        if (!dragDropAccess.isDragging) IncreasScale(true);
     }
 
     private void OnMouseExit()
@@ -25,7 +28,7 @@ public class OnHoverScript : MonoBehaviour
         IncreasScale(false);
     }
 
-    private void IncreasScale(bool status)
+    public void IncreasScale(bool status)
     {
         Vector3 finalScale = initialScale;
         Vector3 finalPosition = initialPosition;

@@ -7,6 +7,11 @@ public class DragDrop : MonoBehaviour
     bool isInPlayingField;
     [SerializeField]
     HandScript handScriptAccess;
+    [SerializeField]
+    CardScript cardScriptAccess;
+    [SerializeField]
+    OnHoverScript onHoverScriptAccess;
+    public bool isDragging = false;
 
     private void Start()
     {
@@ -21,10 +26,13 @@ public class DragDrop : MonoBehaviour
     private void OnMouseDown()
     {
         mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
+        isDragging = true;
+        onHoverScriptAccess.IncreasScale(false);
     }
 
     private void OnMouseUp()
     {
+        isDragging = false;
         if (isInPlayingField)
         {
             handScriptAccess.PlayCard();
@@ -37,7 +45,8 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        if (!handScriptAccess.isInQuickAttackMode) {transform.position = GetMouseWorldPosition() + mousePositionOffset;}
+        else if (handScriptAccess.isInQuickAttackMode && cardScriptAccess.isActionCard) {transform.position = GetMouseWorldPosition() + mousePositionOffset;}       
     }
 
     private void OnTriggerEnter(Collider col)

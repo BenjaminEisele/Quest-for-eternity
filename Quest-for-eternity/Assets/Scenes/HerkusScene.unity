@@ -4679,6 +4679,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handScriptAccess: {fileID: 1542795159}
+  cardScriptAccess: {fileID: 952513908}
+  onHoverScriptAccess: {fileID: 952513910}
+  isDragging: 0
 --- !u!114 &952513910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4692,6 +4695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 513532948}
+  dragDropAccess: {fileID: 952513909}
 --- !u!65 &952513911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4811,6 +4815,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handScriptAccess: {fileID: 0}
+  cardScriptAccess: {fileID: 0}
+  onHoverScriptAccess: {fileID: 0}
+  isDragging: 0
 --- !u!114 &960015635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4824,6 +4831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 1384639586}
+  dragDropAccess: {fileID: 0}
 --- !u!1 &961028218
 GameObject:
   m_ObjectHideFlags: 0
