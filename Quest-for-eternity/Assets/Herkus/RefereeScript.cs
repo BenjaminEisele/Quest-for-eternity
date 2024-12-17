@@ -27,6 +27,7 @@ public class RefereeScript : MonoBehaviour
 
     [SerializeField]
     int chosenEnemyId;
+    int waveCount = 0;
 
     [SerializeField]
     ChooseNewCardScript chooseNewCardAccess;
@@ -133,10 +134,19 @@ public class RefereeScript : MonoBehaviour
     }
     public void CallPreNewWaveEvent()
     {
-        if (preNewWaveEvent != null)
+        if(waveCount < 2)
         {
-            preNewWaveEvent();
+            if (preNewWaveEvent != null)
+            {
+                preNewWaveEvent();
+                waveCount++;
+            }
         }
+        else
+        {
+            EndGame(true);
+        }
+       
     }
     public void CallNewWaveEvent()
     {

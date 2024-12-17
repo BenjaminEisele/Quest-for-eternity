@@ -36,6 +36,7 @@ public class HandScript : MonoBehaviour
 
     public bool isInQuickAttackMode;
 
+    int utilityCount;
     int cardDebt;
     public List<CardQueueUnit> cardQueDataList;
     int cardQueIndex;
@@ -98,6 +99,14 @@ public class HandScript : MonoBehaviour
 
                                 handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
                                 //turnScriptAccess.EndPlayersTurn();   
+                            }
+                        }
+                        else
+                        {
+                            utilityCount++;
+                            if(utilityCount > 2)
+                            {
+                                SetCardActivityStatus(false, 0);
                             }
                         }
                         Debug.Log(hit.transform.root.gameObject);
@@ -185,8 +194,8 @@ public class HandScript : MonoBehaviour
     }
     private void ActivateAllCardsEvent()
     {
-        
-        Debug.Log("yo mama");
+        utilityCount = 0;
+        //Debug.Log("yo mama");
         SetCardActivityStatus(true, 2);
     }
     private void AddCardsEvent()

@@ -29,7 +29,6 @@ public class ChooseNewCardScript : MonoBehaviour
         //refereeScriptAccess.canTransferTurnToPlayer = true;
         refereeScriptAccess.CallStartTurnEvent();
         refereeScriptAccess.StartNextWave(false);
-
     }
 
     
