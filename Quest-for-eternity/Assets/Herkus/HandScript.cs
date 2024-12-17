@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class HandScript : MonoBehaviour
 {
@@ -48,7 +49,9 @@ public class HandScript : MonoBehaviour
         RefereeScript.newWaveEvent += HandReset;
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
         TurnScript.endTurnEvent += AddCardsEvent;
+        TurnScript.endTurnEvent += RebuildCardListLite;
         TurnScript.restartGameEvent += HandReset;
+        TurnScript.restartGameEvent += RebuildCardListLite;
         isInQuickAttackMode = false;
         cardCount = 0;
         cardDebt = 0;
@@ -56,14 +59,23 @@ public class HandScript : MonoBehaviour
         canInteract = true;
         CardInstantiation();
         ActivateAllCardsEvent();
+        RebuildCardListLite();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            EditorApplication.isPaused = true;
+        }
     }
 
     public void PlayCard()
     {
         if (canInteract && turnScriptAccess.GetPlayerTurnBool())
         {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 if (hit.transform.GetComponentInParent<CardScript>())
@@ -88,13 +100,83 @@ public class HandScript : MonoBehaviour
                                 //turnScriptAccess.EndPlayersTurn();   
                             }
                         }
-                        Debug.Log(hit.transform.gameObject);
-                        Destroy(hit.transform.gameObject);
-                        cardCount--;
+                        Debug.Log(hit.transform.root.gameObject);
+                        // card gets removed from list
+                        //Destroy(hit.transform.gameObject);
+                        RebuildCardList(hit.transform.root.gameObject);
+                        
                     }
                 }
+                else
+                {
+                    Debug.Log("returned false inner");
+                }
             }
-        }    
+            else
+            {
+                Debug.Log("returned false outer");
+            }
+        }
+    }
+    private void RebuildCardListLite()
+    {
+        int interval = 90 / (cardCount + 1);
+        for (int k = 0; k < cardList.Count; k++)
+        {
+            if (cardList[k] != null)
+            {
+                float myRotValue = 45 - interval * (k + 1);
+                cardList[k].gameObject.transform.root.localEulerAngles = new Vector3(0, 0, myRotValue);
+                cardList[k].gameObject.GetComponent<DragDrop>().cardPosition = cardList[k].gameObject.transform.localPosition;
+            }
+        }
+    }
+    private void RebuildCardList(GameObject inputGameobject)
+    {
+        Debug.Log("destroying");
+        for(int i = 0; i < cardList.Count; i++)
+        {    
+            //if (inputGameobject.GetInstanceID() == cardList[i].GetInstanceID()) 
+            //if (cardList.Contains(inputGameobject))
+            if (GameObject.ReferenceEquals(inputGameobject.GetComponentInChildren<CardScript>().gameObject, cardList[i].gameObject))
+            {
+                Debug.Log(i);
+                Destroy(cardList[i].transform.root.gameObject);
+                cardCount--;
+                if(i < cardList.Count - 1)
+                {
+                    cardList[i] = cardList[i + 1];
+                }
+                else
+                {
+                    cardList[i] = null;
+                }
+               
+                for(int j = i; j < cardList.Count;j++)
+                {
+                    if(j < cardList.Count - 1)
+                    {
+                        cardList[j] = cardList[j + 1];
+                    }
+                    else if(j >= cardList.Count - 1)
+                    {
+                        cardList[j] = null;
+                    }
+                }
+                break;  
+            }
+        }
+        //Destroy(inputGameobject);
+        int interval = 90 / (cardCount + 1);
+        for (int k = 0; k < cardList.Count; k++)
+        {
+            if(cardList[k] != null)
+            {
+                float myRotValue = 45 - interval * (k + 1);
+                cardList[k].gameObject.transform.root.localEulerAngles = new Vector3(0, 0, myRotValue);
+                cardList[k].gameObject.GetComponent<DragDrop>().cardPosition = cardList[k].gameObject.transform.localPosition;
+            }
+        }
     }
 
     private void DisableAllCardsEvent()
@@ -191,7 +273,11 @@ public class HandScript : MonoBehaviour
     {
         foreach (CardScript card in cardList)
         {
-            card.RestroreOriginalHitrate();
+            if(card != null)
+            {
+                card.RestroreOriginalHitrate();
+            }
+            
         }
         ChangeAllVisualHitrates(true, 0);
     }
@@ -201,7 +287,10 @@ public class HandScript : MonoBehaviour
         savedHitrateDelta = effectValue;
         foreach (CardScript card in cardList)
         {
-           card.ChangeVisualCardHitrate(shouldRestoreOriginal, effectValue);
+          if(card != null)
+          {
+                card.ChangeVisualCardHitrate(shouldRestoreOriginal, effectValue);
+          }
         }
     }
 
@@ -335,16 +424,17 @@ public class HandScript : MonoBehaviour
     }
     private void GenerateCard(Vector3 cardPlacementVectorReference, int cardIndex)
     {
-        GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVectorReference, Quaternion.identity);
+        //GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVectorReference, Quaternion.identity);
+        GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position, Quaternion.identity);
         cardClone.SetActive(true);
 
-        cardClone.GetComponent<CardScript>().HandCardSetup(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
+        cardClone.GetComponentInChildren<CardScript>().HandCardSetup(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
         deckManagerAccess.handCardList.Add(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
         deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
 
         if(isHitrateAffected)
         {
-            cardClone.GetComponent<CardScript>().ChangeVisualCardHitrate(false, savedHitrateDelta);
+            cardClone.GetComponentInChildren<CardScript>().ChangeVisualCardHitrate(false, savedHitrateDelta);
         }
 
         if (deckManagerAccess.deckCardList.Count <= 0)
@@ -360,13 +450,13 @@ public class HandScript : MonoBehaviour
         cardCount++;
         if (cardIndex < 0)
         {
-            cardList.Add(cardClone.GetComponent<CardScript>());
+            cardList.Add(cardClone.GetComponentInChildren<CardScript>());
         }
         else
         {
-            cardList[cardIndex] = cardClone.GetComponent<CardScript>();
+            cardList[cardIndex] = cardClone.GetComponentInChildren<CardScript>();
         }
-        cardClone.GetComponent<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);       
+        cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);       
     }
 
     public void DrawQueuedCards()

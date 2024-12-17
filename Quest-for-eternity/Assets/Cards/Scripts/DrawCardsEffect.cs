@@ -6,7 +6,7 @@ public class DrawCardsEffect : EffectTemplate
 {
     public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
-        //Debug.Log("damage boost activated");
+        Debug.Log("card drawn");
         GameObject inputGameobject = value as GameObject;
 
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)

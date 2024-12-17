@@ -52,7 +52,7 @@ public class CardScript : MonoBehaviour
         myCardColor = databaseAccess.cardList[myCardId].cardColor;
         myCardName = databaseAccess.cardList[myCardId].cardName;
 
-
+        
 
         string cardTypeName;
         Utility utilityCardAccess = databaseAccess.cardList[myCardId] as Utility;
@@ -97,6 +97,8 @@ public class CardScript : MonoBehaviour
         {
             cardTextArray[4].gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
+
+        transform.name = myCardName;
     }
 
     public void RestroreOriginalHitrate()

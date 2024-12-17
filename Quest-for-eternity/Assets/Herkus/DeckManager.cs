@@ -50,10 +50,7 @@ public class DeckManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            ShuffleCards(discardedCardList);
-        }
+
     }
 
     private void ShuffleCards(List<int> inputList)

@@ -3,8 +3,9 @@ using UnityEngine;
 public class DragDrop : MonoBehaviour
 {
     Vector3 mousePositionOffset;
-    Vector3 cardPosition;
-    bool isInPlayingField;
+   // [HideInInspector]
+    public Vector3 cardPosition;
+    public bool isInPlayingField;
     [SerializeField]
     HandScript handScriptAccess;
     [SerializeField]
@@ -15,7 +16,7 @@ public class DragDrop : MonoBehaviour
 
     private void Start()
     {
-        cardPosition = transform.position;
+        cardPosition = transform.localPosition;
     }
 
     private Vector3 GetMouseWorldPosition()
@@ -39,14 +40,20 @@ public class DragDrop : MonoBehaviour
         }
         else
         {
-            transform.position = cardPosition;
+            transform.localPosition = cardPosition;
         }
     }
 
     private void OnMouseDrag()
     {
-        if (!handScriptAccess.isInQuickAttackMode) {transform.position = GetMouseWorldPosition() + mousePositionOffset;}
-        else if (handScriptAccess.isInQuickAttackMode && cardScriptAccess.isActionCard) {transform.position = GetMouseWorldPosition() + mousePositionOffset;}       
+        if (!handScriptAccess.isInQuickAttackMode)
+        {
+            transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        }
+        else if (handScriptAccess.isInQuickAttackMode && cardScriptAccess.isActionCard)
+        {
+            transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        }       
     }
 
     private void OnTriggerEnter(Collider col)

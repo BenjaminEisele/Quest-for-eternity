@@ -12,8 +12,10 @@ public class OnHoverScript : MonoBehaviour
 
     private void Awake()
     {
-        initialScale = transform.root.transform.localScale;
-        initialPosition = transform.root.transform.localPosition;
+        //initialScale = transform.root.transform.localScale;
+        //initialPosition = transform.root.transform.localPosition;
+        initialScale = transform.localScale;
+        //initialPosition = transform.localPosition;
         myMeshRenderer = description.GetComponent<MeshRenderer>();
         myMeshRenderer.enabled = false;
     }
@@ -37,8 +39,10 @@ public class OnHoverScript : MonoBehaviour
             finalScale = initialScale * 2f;
             finalPosition = initialPosition + moveVector;
         }
-        transform.root.transform.localScale = finalScale;
-        transform.root.transform.position = finalPosition;
+        //transform.root.transform.localScale = finalScale;
+       // transform.root.transform.position = finalPosition;
+        transform.localScale = finalScale;
+        //transform.localPosition = finalPosition;
         myMeshRenderer.enabled = status;
         //description.SetActive(status);
     }
