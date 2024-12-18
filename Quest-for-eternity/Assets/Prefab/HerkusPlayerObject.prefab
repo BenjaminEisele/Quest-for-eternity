@@ -2560,7 +2560,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4038626629900559169
@@ -2919,6 +2919,7 @@ MonoBehaviour:
   fieldScriptAccess: {fileID: 7435887801007149820}
   handScriptAccess: {fileID: 7294800125378994488}
   playerScriptAccess: {fileID: 4973786725427984824}
+  uiScriptAccess: {fileID: 0}
   isPlayersTurn: 0
   refereeScriptAccess: {fileID: 4614374326144678589}
   deckManagerAccess: {fileID: 3574353505568794366}
@@ -3001,6 +3002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shuffleWindow: {fileID: 2722861386945807744}
+  endTurnButton: {fileID: 0}
 --- !u!1 &4689748354884091169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,10 +3101,12 @@ MonoBehaviour:
   playerAccess: {fileID: 4919152236708034924}
   enemyList: []
   turnScriptAccess: {fileID: 4732714154589054801}
+  ennemyGeneratorAccess: {fileID: 0}
   restartGameButton: {fileID: 0}
   lostImage: {fileID: 0}
   winImage: {fileID: 0}
   chosenEnemyId: 0
+  chooseNewCardAccess: {fileID: 0}
 --- !u!1 &5313769794786005383
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,7 +3472,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5689447446116367280
@@ -3625,6 +3629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 4085092863646640096}
+  dragDropAccess: {fileID: 0}
 --- !u!1 &6070740170089956258
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,6 +5110,7 @@ MonoBehaviour:
   enemyHealth: 15
   databaseAccess: {fileID: 0}
   isEnemyAlive: 0
+  enemyNameText: {fileID: 0}
   myMarker: {fileID: 0}
 --- !u!1 &8415059715291502602
 GameObject:
@@ -5528,6 +5534,7 @@ MonoBehaviour:
   canInteract: 0
   isInQuickAttackMode: 0
   cardQueDataList: []
+  canPlayUtility: 0
 --- !u!1 &8842187893307181538
 GameObject:
   m_ObjectHideFlags: 0
