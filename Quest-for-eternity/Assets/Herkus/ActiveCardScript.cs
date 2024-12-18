@@ -91,8 +91,6 @@ public class ActiveCardScript : MonoBehaviour
         this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
        
-
-
         Action actionCardAccess = databaseAccess.cardList[activeCardId] as Action;
         if (actionCardAccess)
         {
@@ -117,7 +115,7 @@ public class ActiveCardScript : MonoBehaviour
             }
         }
 
-        GetComponentInChildren<SpriteRenderer>().color = databaseAccess.cardList[activeCardId].cardColor;
+        //GetComponentInChildren<SpriteRenderer>().color = databaseAccess.cardList[activeCardId].cardColor;
         activeCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[activeCardId].cardSprite;
         activeCardName = databaseAccess.cardList[activeCardId].cardName;
 

@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
 
     public bool isEnemyAlive;
     TextMeshPro enemyHealthText;
+    public TextMeshPro enemyNameText;
     public GameObject myMarker;
 
     public void EnemySetUp()
@@ -19,10 +20,13 @@ public class EnemyScript : MonoBehaviour
         myId = Random.Range(0, databaseAccess.enemyList.Count);
         this.enemyHealth = databaseAccess.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
-       // Debug.Log($"I am a {databaseAccess.enemyList[myId].enemyName}");
+        // Debug.Log($"I am a {databaseAccess.enemyList[myId].enemyName}");
 
-        
+
+        //Debug.Log(GetComponentInChildren<SpriteRenderer>().gameObject.name);
+        GetComponentInChildren<SpriteRenderer>().sprite = databaseAccess.enemyList[myId].enemySprite;
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
+        enemyNameText.text = databaseAccess.enemyList[myId].enemyName;
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }
     public void ResetEnemy()

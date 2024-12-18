@@ -48,14 +48,10 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (!handScriptAccess.isInQuickAttackMode)
+        if(cardScriptAccess.isClickable)
         {
             transform.position = GetMouseWorldPosition() + mousePositionOffset;
         }
-        else if (handScriptAccess.isInQuickAttackMode && cardScriptAccess.isActionCard)
-        {
-            transform.position = GetMouseWorldPosition() + mousePositionOffset;
-        }       
     }
 
     private void OnTriggerEnter(Collider col)

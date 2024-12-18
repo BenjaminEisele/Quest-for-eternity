@@ -15,3 +15,4 @@ MonoBehaviour:
   enemyName: Skeleton Head
   enemyHealth: 5
   enemyDamage: 5
+  enemySprite: {fileID: 3942963666889514385, guid: 984970f6997b7f948b6fad0a14d3e3bd, type: 3}

@@ -15,3 +15,4 @@ MonoBehaviour:
   enemyName: Zombie
   enemyHealth: 15
   enemyDamage: 2
+  enemySprite: {fileID: -4760419232084016343, guid: 9e4cbfdd9ece5734790562d1775c3c2a, type: 3}

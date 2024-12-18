@@ -23,7 +23,7 @@ public class EnemyGenerator : MonoBehaviour
             enemyClone.SetActive(true);
             enemyClone.GetComponent<EnemyScript>().EnemySetUp();
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
-            enemyPosition += new Vector3(3, 0, 0);
+            enemyPosition += new Vector3(4, 0, 0);
         }
         refereeScriptAccess.ResetChosenEnemy();
     }

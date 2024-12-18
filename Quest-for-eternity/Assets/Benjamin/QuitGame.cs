@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class QuitGame : MonoBehaviour
@@ -8,6 +7,11 @@ public class QuitGame : MonoBehaviour
     public void QuitGameFunction()
     {
         SceneManager.LoadSceneAsync("MainMenu");
-        PlayerPrefab.SetActive(false);
+
+        if(PlayerPrefab != null)
+        {
+            PlayerPrefab.SetActive(false);
+        }
+        
     }
 }

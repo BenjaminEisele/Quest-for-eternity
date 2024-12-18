@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 
 public class HandScript : MonoBehaviour
 {
@@ -41,6 +40,9 @@ public class HandScript : MonoBehaviour
     public List<CardQueueUnit> cardQueDataList;
     int cardQueIndex;
     bool isHitrateAffected;
+
+    [HideInInspector]
+    public bool canPlayUtility;
     float savedHitrateDelta;
 
     bool isFullRefill;
@@ -63,13 +65,6 @@ public class HandScript : MonoBehaviour
         RebuildCardListLite();
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            EditorApplication.isPaused = true;
-        }
-    }
 
     public void PlayCard()
     {
@@ -107,6 +102,7 @@ public class HandScript : MonoBehaviour
                             if(utilityCount > 2)
                             {
                                 SetCardActivityStatus(false, 0);
+                                canPlayUtility = false;
                             }
                         }
                         Debug.Log(hit.transform.root.gameObject);
@@ -195,6 +191,7 @@ public class HandScript : MonoBehaviour
     private void ActivateAllCardsEvent()
     {
         utilityCount = 0;
+        canPlayUtility = true;
         //Debug.Log("yo mama");
         SetCardActivityStatus(true, 2);
     }

@@ -10,7 +10,7 @@ public class BaseEnemy : ScriptableObject
     public string enemyName;
     public int enemyHealth;
     public int enemyDamage;
-
+    public Sprite enemySprite;
 
 
     public virtual int GenerateAttack()
