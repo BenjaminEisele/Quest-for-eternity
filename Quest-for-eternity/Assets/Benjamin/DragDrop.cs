@@ -17,6 +17,8 @@ public class DragDrop : MonoBehaviour
     private void Start()
     {
         cardPosition = transform.localPosition;
+        onHoverScriptAccess = GetComponent<OnHoverScript>();
+        cardScriptAccess = GetComponent<CardScript>();
     }
 
     private Vector3 GetMouseWorldPosition()

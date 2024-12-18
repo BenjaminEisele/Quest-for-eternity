@@ -49,7 +49,7 @@ public class CardScript : MonoBehaviour
         isClickable = true;
         myCardId = myId;
 
-        myCardColor = databaseAccess.cardList[myCardId].cardColor;
+        //myCardColor = databaseAccess.cardList[myCardId].cardColor;
         myCardName = databaseAccess.cardList[myCardId].cardName;
 
         
@@ -77,7 +77,7 @@ public class CardScript : MonoBehaviour
 
         
 
-        GetComponentInChildren<SpriteRenderer>().color = myCardColor;
+        //GetComponentInChildren<SpriteRenderer>().color = myCardColor;
         myCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[myCardId].cardSprite;
 
 

@@ -17,6 +17,7 @@ public class OnHoverScript : MonoBehaviour
         initialScale = transform.localScale;
         //initialPosition = transform.localPosition;
         myMeshRenderer = description.GetComponent<MeshRenderer>();
+        dragDropAccess = GetComponent<DragDrop>();
         myMeshRenderer.enabled = false;
     }
 

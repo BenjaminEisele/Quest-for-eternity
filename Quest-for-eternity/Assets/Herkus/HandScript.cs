@@ -493,6 +493,7 @@ public class HandScript : MonoBehaviour
                 } 
                 
             }
+            RebuildCardListLite();
             cardQueDataList.Clear();
             cardDebt = 0;
             cardQueIndex = 0;
