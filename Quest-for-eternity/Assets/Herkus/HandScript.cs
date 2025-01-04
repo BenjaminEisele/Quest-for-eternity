@@ -123,7 +123,6 @@ public class HandScript : MonoBehaviour
     private void AddCardsEvent()
     {
         AddCardsToHand(0);
-        
     }
     public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
