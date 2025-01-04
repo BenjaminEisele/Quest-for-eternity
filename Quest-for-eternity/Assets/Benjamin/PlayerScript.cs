@@ -95,7 +95,7 @@ public class PlayerScript : NetworkBehaviour
     {
         TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
         isThisPlayersTurn = !isThisPlayersTurn;
-        this.EndTurnButton.interactable = isThisPlayersTurn;
+        //this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
     }
 
@@ -104,7 +104,7 @@ public class PlayerScript : NetworkBehaviour
     {
         TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
         isThisPlayersTurn = !isThisPlayersTurn;
-        this.EndTurnButton.interactable = isThisPlayersTurn;
+        //this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
     }
 

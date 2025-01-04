@@ -145,10 +145,14 @@ public class TurnScript : MonoBehaviour
     }
     public void CallEndTurnEvent()
     {
-        if (endTurnEvent != null)
+        if (playerScriptAccess.isThisPlayersTurn)
         {
-            endTurnEvent();
+            if (endTurnEvent != null)
+            {
+                endTurnEvent();
+            }
         }
+        
         //uiScriptAccess.ChangeEndTurnButtonStatus(false);
     }
     
