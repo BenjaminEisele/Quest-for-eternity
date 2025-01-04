@@ -2922,7 +2922,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  EndTurnButton: {fileID: 3672668296970964836}
+  EndTurnButton: {fileID: 19784037207635476}
   isHost: 0
   isThisPlayersTurn: 0
 --- !u!1 &5487305731171432376

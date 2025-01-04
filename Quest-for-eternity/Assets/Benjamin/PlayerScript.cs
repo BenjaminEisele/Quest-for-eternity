@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Mirror;
+using UnityEngine.UI;
 
 public class PlayerScript : NetworkBehaviour
 {
-    //[SyncVar]
-    public GameObject EndTurnButton;
+    public Button EndTurnButton;
     TurnManagerMultiplayer turnManagerAccess;
     [SyncVar]
     public bool isHost;
@@ -28,14 +28,14 @@ public class PlayerScript : NetworkBehaviour
                 Debug.Log("I am the server");
                 isThisPlayersTurn = true;
                 isHost = true;
-                EndTurnButton.SetActive(true);
+                EndTurnButton.interactable = true;
             }
             else //(!isServer)
             {
                 Debug.Log("I am NOT the server");
                 isThisPlayersTurn = false;
                 isHost = false;
-                EndTurnButton.SetActive(false);
+                EndTurnButton.interactable = false;
             }
         }
     }
@@ -47,12 +47,12 @@ public class PlayerScript : NetworkBehaviour
         {
             Debug.Log("5");
             if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
-            {              
-                EndTurnButton.SetActive(true);
+            {
+                EndTurnButton.interactable = true;
             }
             else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {                
-                EndTurnButton.SetActive(false);
+                EndTurnButton.interactable = false;
             }
         }
         else if (!isHost)
@@ -61,12 +61,12 @@ public class PlayerScript : NetworkBehaviour
             if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
                 Debug.Log("3");               
-                EndTurnButton.SetActive(true);
+                EndTurnButton.interactable = true;
             }
             else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
             {
                 Debug.Log("4");          
-                EndTurnButton.SetActive(false);
+                EndTurnButton.interactable = false;
             }
         }
 
@@ -76,7 +76,7 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log("End Turn called");
         if (!isServer)
         {
-            CmdEndTurn();   
+            RpcEndTurn();   
         }
 
         else if (isServer)
@@ -89,15 +89,17 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     public void CmdEndTurn()
     {
-        //TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
+        TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
         isThisPlayersTurn = !isThisPlayersTurn;
+        EndTurnButton.interactable = isThisPlayersTurn;
     }
 
     [ClientRpc]
     public void RpcEndTurn()
     {
-        //TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
+        TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
         isThisPlayersTurn = !isThisPlayersTurn;
+        EndTurnButton.interactable = isThisPlayersTurn;
     }
 
 }
