@@ -81,7 +81,6 @@ public class PlayerScript : NetworkBehaviour
 
         else if (isServer)
         {
-            TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
             RpcEndTurn();
         }
 
@@ -90,14 +89,15 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     public void CmdEndTurn()
     {
-        TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
+        //TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
+        isThisPlayersTurn = !isThisPlayersTurn;
     }
 
     [ClientRpc]
     public void RpcEndTurn()
     {
         //TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
-        Debug.Log("Ich bin ein RPC");
+        isThisPlayersTurn = !isThisPlayersTurn;
     }
 
 }
