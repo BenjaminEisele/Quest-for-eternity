@@ -8,9 +8,6 @@ using UnityEngine.Events;
 
 public class CardScript : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerScript playerScriptAccess;
-
     private Color myCardColor;
 
     [SerializeField]
@@ -125,13 +122,9 @@ public class CardScript : MonoBehaviour
         }
     }
     public void SetCardActiveStatus(bool desiredStatus)
-    {
-        if (playerScriptAccess.isThisPlayersTurn)
-        {
-            isClickable = desiredStatus;
-            myCardOutline.SetActive(desiredStatus);
-        }
-        
+    {   
+        isClickable = desiredStatus;
+        myCardOutline.SetActive(desiredStatus);   
     }
     private string CalculateString(int cardTypeInput)
     {

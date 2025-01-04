@@ -114,7 +114,10 @@ public class HandScript : MonoBehaviour
     {
         
         Debug.Log("yo mama");
-        SetCardActivityStatus(true, 2);
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            SetCardActivityStatus(true, 2);
+        }
     }
     private void AddCardsEvent()
     {
