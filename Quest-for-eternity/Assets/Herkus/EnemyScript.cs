@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Mirror;
+
 public class EnemyScript : NetworkBehaviour
 {
     //[Hide]

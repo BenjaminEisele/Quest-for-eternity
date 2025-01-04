@@ -60,7 +60,6 @@ public class TurnScript : MonoBehaviour
     {
         if(!RefereeScript.instance.GetIsGameOver())
         {
-            //isPlayersTurn = playerTurnBool;
             playerScriptAccess.EndTurnPlayerScript();
             if(playerTurnBool)
             {
