@@ -82,6 +82,7 @@ public class PlayerScript : NetworkBehaviour
         else if (isServer)
         {
             TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
+            RpcEndTurn();
         }
 
     }
@@ -92,9 +93,11 @@ public class PlayerScript : NetworkBehaviour
         TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
     }
 
-    public void TestDebug()
+    [ClientRpc]
+    public void RpcEndTurn()
     {
-        Debug.Log("HAjfhöjfahljd");
+        //TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
+        Debug.Log("Ich bin ein RPC");
     }
 
 }
