@@ -89,14 +89,14 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isServer)
         {
-            for (int i = 5; i < cards.Length; i++)
+            for (int i = 7; i < cards.Length; i++)
             {
                 card[i].SetActive(false);
             }
         }
         else
         {
-            for (int i = 1; i < 5; i++)
+            for (int i = 1; i < 7; i++)
             {
                 card[i].SetActive(false);
             }
