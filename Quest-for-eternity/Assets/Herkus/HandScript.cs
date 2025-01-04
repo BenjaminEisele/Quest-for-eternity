@@ -63,6 +63,7 @@ public class HandScript : MonoBehaviour
 
     private void Update()
     {
+        
         if(canInteract && playerScriptAccess.isThisPlayersTurn)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -110,7 +111,7 @@ public class HandScript : MonoBehaviour
     {
         SetCardActivityStatus(false, 2);
     }
-    private void ActivateAllCardsEvent()
+    public void ActivateAllCardsEvent()
     {
         
         Debug.Log("yo mama");

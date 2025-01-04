@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerScript : NetworkBehaviour
 {
+    [SerializeField]
+    private HandScript handScriptAccess;
     public Button EndTurnButton;
     TurnManagerMultiplayer turnManagerAccess;
     [SyncVar]
@@ -94,6 +96,7 @@ public class PlayerScript : NetworkBehaviour
         TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
+        handScriptAccess.ActivateAllCardsEvent();
         //RpcEndTurn();
     }
 
@@ -103,6 +106,7 @@ public class PlayerScript : NetworkBehaviour
         TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
+        handScriptAccess.ActivateAllCardsEvent();
     }
 
 }
