@@ -88,13 +88,13 @@ public class PlayerScript : NetworkBehaviour
 
     }
     
-    [Command]
+    [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        /*TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
+        TurnManagerMultiplayer.Instance.EndTurnMultiplayer();
         isThisPlayersTurn = !isThisPlayersTurn;
-        this.EndTurnButton.interactable = isThisPlayersTurn;*/
-        RpcEndTurn();
+        this.EndTurnButton.interactable = isThisPlayersTurn;
+        //RpcEndTurn();
     }
 
     [ClientRpc]
