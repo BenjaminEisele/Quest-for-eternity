@@ -61,7 +61,7 @@ public class TurnScript : MonoBehaviour
         if(!RefereeScript.instance.GetIsGameOver())
         {
             //isPlayersTurn = playerTurnBool;
-            turnManagerAccess.EndTurnMultiplayer();
+            playerScriptAccess.EndTurnPlayerScript();
             if(playerTurnBool)
             {
                 UiScript.UpdateTurnInfo(0);
