@@ -46,6 +46,8 @@ public class RefereeScript : NetworkBehaviour
 
     public GameObject[] card;
 
+    public GameObject[] button;
+
     public static RefereeScript instance;
 
     private void Awake()
@@ -71,6 +73,12 @@ public class RefereeScript : NetworkBehaviour
             DeactivateCards(card);
         }
         
+        if (button == null)
+        {
+            button = GameObject.FindGameObjectsWithTag("EndTurnButton");
+            DeactivateButton(button);
+        }
+
     }
     
     private void Update()
@@ -82,6 +90,18 @@ public class RefereeScript : NetworkBehaviour
         else if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
             ChooseNewEnemy(-1);
+        }
+    }
+
+    public void DeactivateButton(GameObject[] button)
+    {
+        if (isServer)
+        {
+            button[1].SetActive(false);
+        }
+        else
+        {
+            button[0].SetActive(false);
         }
     }
 
