@@ -1685,6 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e1b9ed199caf4b8b760b9b6f5d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScriptAccess: {fileID: 4973786725427984824}
   databaseAccess: {fileID: 2302835000923192685}
   cardTextArray: []
   myCardId: 0
