@@ -76,7 +76,9 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log("End Turn called");
         if (!isServer)
         {
-            RpcEndTurn();   
+            CmdEndTurn();
+            isThisPlayersTurn = !isThisPlayersTurn;
+            EndTurnButton.interactable = isThisPlayersTurn;
         }
 
         else if (isServer)
