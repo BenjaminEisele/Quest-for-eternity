@@ -378,13 +378,16 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponent<CardScript>();
         }
-        cardClone.GetComponent<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);       
+
+        Debug.Log("Generate");
+        cardClone.GetComponent<CardScript>().SetCardActiveStatus(playerScriptAccess.isThisPlayersTurn);       
     }
 
     public void DrawQueuedCards()
     {
         if (playerScriptAccess.isThisPlayersTurn) 
         {
+            Debug.Log("Draw Queued Card");
             SetCardActivityStatus(true, 2);
         }
 
@@ -401,7 +404,7 @@ public class HandScript : MonoBehaviour
                 }
                 else
                 {
-                  //  cardCount--;
+                  //  cardCount--; 
                     GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
                     if(cardCount >= cardLimit)
                     {
