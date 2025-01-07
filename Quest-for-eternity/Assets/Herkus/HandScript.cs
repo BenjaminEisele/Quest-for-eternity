@@ -243,7 +243,6 @@ public class HandScript : MonoBehaviour
 
     public void AddCardsToHand(int refillCount)
     {
-
         //Refill count should be 0 if we want to fill the hand until it has 5 cards 
         int refillCycleCount;
         bool isFullRefill;
@@ -380,14 +379,13 @@ public class HandScript : MonoBehaviour
         }
 
         Debug.Log("Generate");
-        cardClone.GetComponent<CardScript>().SetCardActiveStatus(playerScriptAccess.isThisPlayersTurn);       
+        cardClone.GetComponent<CardScript>().SetCardActiveStatus(false);       
     }
 
     public void DrawQueuedCards()
     {
         if (playerScriptAccess.isThisPlayersTurn) 
         {
-            Debug.Log("Draw Queued Card");
             SetCardActivityStatus(true, 2);
         }
 

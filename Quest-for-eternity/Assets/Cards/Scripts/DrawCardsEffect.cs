@@ -11,6 +11,7 @@ public class DrawCardsEffect : EffectTemplate
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.AddCardsToHand((int)effectValue);
+            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.ActivateAllCardsEvent();
         }
     }
 }
