@@ -107,7 +107,7 @@ public class HandScript : MonoBehaviour
             }
         }
     }
-    private void DisableAllCardsEvent()
+    public void DisableAllCardsEvent()
     {
         SetCardActivityStatus(false, 2);
     }

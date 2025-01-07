@@ -45,8 +45,8 @@ public class RefereeScript : NetworkBehaviour
     public static event TurnStartAction turnStartEvent;
 
     public GameObject[] card;
-
     public GameObject[] button;
+    public GameObject[] mainCamera;
 
     public static RefereeScript instance;
 
@@ -79,6 +79,12 @@ public class RefereeScript : NetworkBehaviour
             DeactivateButton(button);
         }
 
+        if (mainCamera == null)
+        {
+            mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
+            DeactivateCamera(mainCamera);
+        }
+
     }
     
     private void Update()
@@ -93,7 +99,19 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    public void DeactivateButton(GameObject[] button)
+    private void DeactivateCamera(GameObject[] camera)
+    {
+        if (isServer)
+        {
+            camera[1].SetActive(false);
+        }
+        else
+        {
+            camera[0].SetActive(false);
+        }
+    }
+
+    private void DeactivateButton(GameObject[] button)
     {
         if (isServer)
         {
@@ -105,7 +123,7 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    public void DeactivateCards(GameObject[] cards)
+    private void DeactivateCards(GameObject[] cards)
     {
         if (isServer)
         {

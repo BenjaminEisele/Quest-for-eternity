@@ -30,14 +30,14 @@ public class PlayerScript : NetworkBehaviour
                 Debug.Log("I am the server");
                 isThisPlayersTurn = true;
                 isHost = true;
-                this.EndTurnButton.interactable = true;
+                EndTurnButton.interactable = true;
             }
             else //(!isServer)
             {
                 Debug.Log("I am NOT the server");
                 isThisPlayersTurn = false;
                 isHost = false;
-                this.EndTurnButton.interactable = false;
+                EndTurnButton.interactable = false;
             }
         }
     }
@@ -76,6 +76,9 @@ public class PlayerScript : NetworkBehaviour
     public void EndTurnPlayerScript()
     {
         Debug.Log("End Turn called");
+
+        handScriptAccess.DisableAllCardsEvent();
+
         if (!isServer)
         {
             CmdEndTurn();
