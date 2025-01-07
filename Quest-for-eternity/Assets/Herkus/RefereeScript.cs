@@ -57,10 +57,8 @@ public class RefereeScript : NetworkBehaviour
     {
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
-        TurnScript.restartGameEvent += RefereeReset;
-        Debug.Log("Test 1");
+        TurnScript.restartGameEvent += RefereeReset;   
         ennemyGeneratorAccess.GenerateEnemies(1);
-        Debug.Log("Test 2");
         //enemyList.Add(targetEnemy);
         isGameOver = false;
         //restartGameButton.SetActive(false);
@@ -69,21 +67,18 @@ public class RefereeScript : NetworkBehaviour
         // turnStartEvent();
         if (card != null)
         {
-            Debug.Log("Card");
             card = GameObject.FindGameObjectsWithTag("Cards");
             DeactivateCards(card);
         }
         
         if (button != null)
         {
-            Debug.Log("Button");
             button = GameObject.FindGameObjectsWithTag("EndTurnButton");
             DeactivateButton(button);
         }
 
         if (mainCamera != null)
         {
-            Debug.Log("MainCamera");
             mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
             DeactivateCamera(mainCamera);
         }
