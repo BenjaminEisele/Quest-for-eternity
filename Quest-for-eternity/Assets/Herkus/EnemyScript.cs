@@ -22,11 +22,7 @@ public class EnemyScript : NetworkBehaviour
     public void EnemySetUp()
     {
         isEnemyAlive = true;
-        if (isServer)
-        {
-            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
-        }
-        
+        myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
        
