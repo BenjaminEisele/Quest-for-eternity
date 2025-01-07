@@ -11,8 +11,10 @@ public class EnemyScript : NetworkBehaviour
     [SyncVar]
     public bool isEnemyAlive;
 
-    int savedEnemyHealth;
-    int myId;      
+    [SyncVar]
+    int myId;
+
+    int savedEnemyHealth;     
     TextMeshPro enemyHealthText;
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;

@@ -378,7 +378,6 @@ public class HandScript : MonoBehaviour
             cardList[cardIndex] = cardClone.GetComponent<CardScript>();
         }
 
-        Debug.Log("Generate");
         cardClone.GetComponent<CardScript>().SetCardActiveStatus(false);       
     }
 

@@ -1,6 +1,7 @@
 using UnityEngine;
+using Mirror;
 
-public class EnemyGenerator : MonoBehaviour
+public class EnemyGenerator : NetworkBehaviour
 {
 
     [SerializeField]
@@ -14,12 +15,12 @@ public class EnemyGenerator : MonoBehaviour
     {
         Vector3 enemyPosition = spawnerPos.position;
         for (int i = 0; i < howManyEnemies; i++)
-        {
+        {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
             enemyClone.SetActive(true);
             enemyClone.GetComponent<EnemyScript>().EnemySetUp();
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
-            enemyPosition += new Vector3(3, 0, 0);
+            enemyPosition += new Vector3(3, 0, 0);                        
         }
         refereeScriptAccess.ResetChosenEnemy();
     }
