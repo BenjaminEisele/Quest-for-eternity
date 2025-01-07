@@ -378,7 +378,7 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponent<CardScript>();
         }
-        cardClone.GetComponent<CardScript>().SetCardActiveStatus(playerScriptAccess.isThisPlayersTurn);       
+        cardClone.GetComponent<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);       
     }
 
     public void DrawQueuedCards()
