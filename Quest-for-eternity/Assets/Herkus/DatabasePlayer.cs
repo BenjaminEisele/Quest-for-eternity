@@ -6,5 +6,4 @@ public class DatabasePlayer : MonoBehaviour
 {
     public List<DataUnit> cardDatabase;
     public List<BaseCard> cardList;
-    public List<BaseEnemy> enemyList;
 }

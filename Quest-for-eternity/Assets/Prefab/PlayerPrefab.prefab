@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e1b9ed199caf4b8b760b9b6f5d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseAccess: {fileID: 2302835000923192685}
+  databasePlayerAccess: {fileID: 2302835000923192685}
   cardTextArray: []
   myCardId: 0
   myCardHitRate: 0
@@ -3337,7 +3337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc9c31fa3816ff4f85507c9988eaeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseAccess: {fileID: 2302835000923192685}
+  databasePlayerAccess: {fileID: 2302835000923192685}
   activeCardTextArray: []
   shouldShowCard: 0
   sceneObjectAccess: {fileID: 3130953299309847690}
@@ -4198,7 +4198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayCardReferenceGameobject: {fileID: 0}
   displayCardLocator: {fileID: 0}
-  databaseAccess: {fileID: 2302835000923192685}
+  databasePlayerAccess: {fileID: 2302835000923192685}
   displayCardList: []
 --- !u!1 &7431985287341580745
 GameObject:
