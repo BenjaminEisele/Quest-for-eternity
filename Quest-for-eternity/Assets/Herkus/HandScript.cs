@@ -378,12 +378,16 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponent<CardScript>();
         }
-        cardClone.GetComponent<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);       
+        cardClone.GetComponent<CardScript>().SetCardActiveStatus(playerScriptAccess.isThisPlayersTurn);       
     }
 
     public void DrawQueuedCards()
     {
-        SetCardActivityStatus(true, 2);
+        if (playerScriptAccess.isThisPlayersTurn) 
+        {
+            SetCardActivityStatus(true, 2);
+        }
+
         if (cardDebt > 0)
         {
             //Debug.Log("reached this!");
