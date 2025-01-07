@@ -12,7 +12,7 @@ public class EnemyScript : NetworkBehaviour
     public bool isEnemyAlive;
 
     [SyncVar]
-    int myId;
+    public int myId;
 
     int savedEnemyHealth;     
     TextMeshPro enemyHealthText;
@@ -22,7 +22,11 @@ public class EnemyScript : NetworkBehaviour
     public void EnemySetUp()
     {
         isEnemyAlive = true;
-        myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+        if (isServer)
+        {
+            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+        }
+        
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
        
