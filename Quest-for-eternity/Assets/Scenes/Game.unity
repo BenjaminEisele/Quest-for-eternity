@@ -265,6 +265,7 @@ MonoBehaviour:
   enemyHealth: 15
   isEnemyAlive: 0
   myMarker: {fileID: 107041906}
+  databaseMultiplayerAccess: {fileID: 1056335441}
 --- !u!65 &213358576
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -398,6 +399,9 @@ MonoBehaviour:
   lostImage: {fileID: 0}
   winImage: {fileID: 0}
   chosenEnemyId: 0
+  card: []
+  button: []
+  mainCamera: []
 --- !u!4 &345772143
 Transform:
   m_ObjectHideFlags: 0
@@ -542,6 +546,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1270768862}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1056335439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1056335440}
+  - component: {fileID: 1056335441}
+  m_Layer: 0
+  m_Name: DatabaseMultiplayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056335440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056335439}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06342591, y: 0.5104807, z: -36.24159}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1056335441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056335439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cb6016d094c774985bb365bed2698e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyList:
+  - {fileID: 11400000, guid: 10a10243987f2c7459336b3ff8d4ac72, type: 2}
+  - {fileID: 11400000, guid: 25278f8ba2c162d45889102ab1d1005f, type: 2}
+  - {fileID: 11400000, guid: d796c2b0ab6c48d458d690648b7a09a2, type: 2}
 --- !u!1 &1270768860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,3 +1102,4 @@ SceneRoots:
   - {fileID: 1354659208}
   - {fileID: 511833524}
   - {fileID: 1270768862}
+  - {fileID: 1056335440}

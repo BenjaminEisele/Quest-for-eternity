@@ -12,7 +12,6 @@ public class RefereeScript : NetworkBehaviour
 
     //public PlayerStatScript playerAccess;
 
-    [SyncVar]
     public List<EnemyScript> enemyList;
 
     //[SerializeField]

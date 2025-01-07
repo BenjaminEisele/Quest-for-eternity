@@ -7,19 +7,21 @@ public class EnemyScript : NetworkBehaviour
 {
     [SyncVar]
     public int enemyHealth;
-    int savedEnemyHealth;
-    int myId;
-    
+
     [SyncVar]
     public bool isEnemyAlive;
+
+    int savedEnemyHealth;
+    int myId;      
     TextMeshPro enemyHealthText;
     public GameObject myMarker;
+    public DatabaseMultiplayer databaseMultiplayerAccess;
 
     public void EnemySetUp()
     {
         isEnemyAlive = true;
-        myId = Random.Range(0, Database.instance.enemyList.Count);
-        this.enemyHealth = Database.instance.enemyList[myId].enemyHealth;
+        myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+        this.enemyHealth = databaseMultiplayerAccess.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
        
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
@@ -55,7 +57,7 @@ public class EnemyScript : NetworkBehaviour
         int myDamage;
         if(isEnemyAlive)
         {
-            myDamage = Database.instance.enemyList[myId].GenerateAttack();          
+            myDamage = databaseMultiplayerAccess.enemyList[myId].GenerateAttack();          
         }
         else
         {

@@ -3403,7 +3403,7 @@ GameObject:
   - component: {fileID: 2302835000923192685}
   - component: {fileID: 3574353505568794366}
   m_Layer: 0
-  m_Name: Database
+  m_Name: DatabasePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

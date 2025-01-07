@@ -8,7 +8,7 @@ public class ActiveCardScript : MonoBehaviour
     int activeCardDamage;
 
     [SerializeField]
-    Database databaseAccess;
+    DatabasePlayer databasePlayerAccess;
 
     TextMeshPro activeCardText;
     public TextMeshPro[] activeCardTextArray;
@@ -70,7 +70,7 @@ public class ActiveCardScript : MonoBehaviour
         if (!isActionCard)
         {
             //Debug.Log("activating");
-            Utility utilityCardAccess = databaseAccess.cardList[activeCardId] as Utility;
+            Utility utilityCardAccess = databasePlayerAccess.cardList[activeCardId] as Utility;
             if (utilityCardAccess)
             {
                 foreach(EffectUnit myEffectUnit in utilityCardAccess.effectUnitList)
@@ -93,7 +93,7 @@ public class ActiveCardScript : MonoBehaviour
        
 
 
-        Action actionCardAccess = databaseAccess.cardList[activeCardId] as Action;
+        Action actionCardAccess = databasePlayerAccess.cardList[activeCardId] as Action;
         if (actionCardAccess)
         {
             activeCardDamage = actionCardAccess.cardDamage;
@@ -106,7 +106,7 @@ public class ActiveCardScript : MonoBehaviour
             activeCardDamage = 0;
             isActionCard = false;
 
-            Utility utilityCardAccess = databaseAccess.cardList[activeCardId] as Utility;
+            Utility utilityCardAccess = databasePlayerAccess.cardList[activeCardId] as Utility;
             shouldShowCard = utilityCardAccess.isDisplayable;
             foreach (EffectUnit myEffectUnit in utilityCardAccess.effectUnitList)
             {
@@ -117,9 +117,9 @@ public class ActiveCardScript : MonoBehaviour
             }
         }
 
-        GetComponentInChildren<SpriteRenderer>().color = databaseAccess.cardList[activeCardId].cardColor;
-        activeCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[activeCardId].cardSprite;
-        activeCardName = databaseAccess.cardList[activeCardId].cardName;
+        GetComponentInChildren<SpriteRenderer>().color = databasePlayerAccess.cardList[activeCardId].cardColor;
+        activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;
+        activeCardName = databasePlayerAccess.cardList[activeCardId].cardName;
 
         activeCardTextArray[0].text = activeCardDamage.ToString();
         activeCardTextArray[1].text = activeCardName;

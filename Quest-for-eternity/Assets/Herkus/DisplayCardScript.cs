@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class DisplayCardScript : MonoBehaviour
 {
     private Color myCardColor;
-    public Database databaseAccess;
+    public DatabasePlayer databasePlayerAccess;
     public TextMeshPro[] cardTextArray;
 
     int myDamage;
@@ -40,13 +40,13 @@ public class DisplayCardScript : MonoBehaviour
     {
         myCardId = 9;//myId;
 
-        myCardColor = databaseAccess.cardList[myCardId].cardColor;
-        myCardName = databaseAccess.cardList[myCardId].cardName;
+        myCardColor = databasePlayerAccess.cardList[myCardId].cardColor;
+        myCardName = databasePlayerAccess.cardList[myCardId].cardName;
 
 
 
         string cardTypeName;
-        Utility utilityCardAccess = databaseAccess.cardList[myCardId] as Utility;
+        Utility utilityCardAccess = databasePlayerAccess.cardList[myCardId] as Utility;
         if (utilityCardAccess)
         {
             cardTypeName = "Utility";
@@ -54,7 +54,7 @@ public class DisplayCardScript : MonoBehaviour
         }
         else
         {
-            Action actionCardAccess = databaseAccess.cardList[myCardId] as Action;
+            Action actionCardAccess = databasePlayerAccess.cardList[myCardId] as Action;
             cardTypeName = "Action";
             myDamage = actionCardAccess.cardDamage;
             isActionCard = true;
@@ -63,7 +63,7 @@ public class DisplayCardScript : MonoBehaviour
         }
 
         GetComponentInChildren<SpriteRenderer>().color = myCardColor;
-        myCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[myCardId].cardSprite;
+        myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
 
 
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
@@ -71,7 +71,7 @@ public class DisplayCardScript : MonoBehaviour
         cardTextArray[0].text = myDamage.ToString();
         cardTextArray[1].text = cardTypeName;//CalculateString(cardType);
         cardTextArray[2].text = myCardName;
-        cardTextArray[3].text = databaseAccess.cardList[myCardId].cardDescription;
+        cardTextArray[3].text = databasePlayerAccess.cardList[myCardId].cardDescription;
         if (isActionCard)
         {
             hitRateString = myCardHitRate * 100 + " %";
