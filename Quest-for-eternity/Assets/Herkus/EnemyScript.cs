@@ -5,13 +5,11 @@ using Mirror;
 
 public class EnemyScript : NetworkBehaviour
 {
-    //[Hide]
     [SyncVar]
     public int enemyHealth;
     int savedEnemyHealth;
     int myId;
-    //public Database databaseAccess;
-
+    
     [SyncVar]
     public bool isEnemyAlive;
     TextMeshPro enemyHealthText;
@@ -23,9 +21,7 @@ public class EnemyScript : NetworkBehaviour
         myId = Random.Range(0, Database.instance.enemyList.Count);
         this.enemyHealth = Database.instance.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
-       // Debug.Log($"I am a {databaseAccess.enemyList[myId].enemyName}");
-
-        
+       
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }
@@ -39,8 +35,7 @@ public class EnemyScript : NetworkBehaviour
         enemyHealth -= inputDamage;
         if(enemyHealth <= 0)
         {
-            enemyHealth = 0;
-           // Debug.Log("enemy is dead");
+            enemyHealth = 0;          
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
         }
@@ -60,13 +55,11 @@ public class EnemyScript : NetworkBehaviour
         int myDamage;
         if(isEnemyAlive)
         {
-            myDamage = Database.instance.enemyList[myId].GenerateAttack();
-           // Debug.Log($"I dealt {myDamage} damage");
+            myDamage = Database.instance.enemyList[myId].GenerateAttack();          
         }
         else
         {
             myDamage = 0;
-            Debug.Log($"I can't attack because i am DEAD, my name is {Database.instance.enemyList[myId].enemyName}");
         }
         
         return myDamage;

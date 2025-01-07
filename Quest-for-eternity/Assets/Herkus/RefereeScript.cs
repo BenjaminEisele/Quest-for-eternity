@@ -29,8 +29,7 @@ public class RefereeScript : NetworkBehaviour
     public GameObject lostImage;
     public GameObject winImage;
 
-    [SerializeField]
-    int chosenEnemyId;
+    public int chosenEnemyId;
 
     //[SerializeField]
     //ChooseNewCardScript chooseNewCardAccess;

@@ -10,11 +10,6 @@ public class EnemyGenerator : MonoBehaviour
 
     public RefereeScript refereeScriptAccess;
 
-    private void Start()
-    {
-        //GenerateEnemies(1);
-    }
-
     public void GenerateEnemies(int howManyEnemies)
     {
         Vector3 enemyPosition = spawnerPos.position;
