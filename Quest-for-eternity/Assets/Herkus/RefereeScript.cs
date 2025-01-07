@@ -67,21 +67,21 @@ public class RefereeScript : NetworkBehaviour
         //winImage.SetActive(false);
         //lostImage.SetActive(false);
         // turnStartEvent();
-        if (card == null)
+        if (card != null)
         {
             Debug.Log("Card");
             card = GameObject.FindGameObjectsWithTag("Cards");
             DeactivateCards(card);
         }
         
-        if (button == null)
+        if (button != null)
         {
             Debug.Log("Button");
             button = GameObject.FindGameObjectsWithTag("EndTurnButton");
             DeactivateButton(button);
         }
 
-        if (mainCamera == null)
+        if (mainCamera != null)
         {
             Debug.Log("MainCamera");
             mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
