@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using Mirror;
 
@@ -19,22 +18,9 @@ public class EnemyScript : NetworkBehaviour
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
-    public int RandomNumber()
-    {
-        if (isServer)
-        {
-            Debug.Log("Test");
-            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
-        }
-
-        else { myId = 1; }
-        return myId;
-    }
-
-    public void EnemySetUp()
+    public void EnemySetUp(int myID)
     {
         isEnemyAlive = true;
-        myId = RandomNumber();
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
        

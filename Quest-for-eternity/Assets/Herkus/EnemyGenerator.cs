@@ -11,6 +11,27 @@ public class EnemyGenerator : NetworkBehaviour
 
     public RefereeScript refereeScriptAccess;
 
+    public DatabaseMultiplayer databaseMultiplayerAccess;
+
+    public int myId;
+
+    public void Start()
+    {
+        RandomNumber();
+        RpcSendNumber();
+    }
+
+    public void RandomNumber()
+    {
+        myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+    }
+
+    [ClientRpc]
+    private void RpcSendNumber()
+    {
+        myId = myId;
+    }
+
     public void GenerateEnemies(int howManyEnemies)
     {
         Vector3 enemyPosition = spawnerPos.position;
@@ -18,7 +39,7 @@ public class EnemyGenerator : NetworkBehaviour
         {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
             enemyClone.SetActive(true);
-            enemyClone.GetComponent<EnemyScript>().EnemySetUp();
+            enemyClone.GetComponent<EnemyScript>().EnemySetUp(myId);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
             enemyPosition += new Vector3(3, 0, 0);                        
         }
