@@ -264,6 +264,7 @@ MonoBehaviour:
   syncInterval: 0
   enemyHealth: 15
   isEnemyAlive: 0
+  myId: 0
   myMarker: {fileID: 107041906}
   databaseMultiplayerAccess: {fileID: 1056335441}
 --- !u!65 &213358576
@@ -641,11 +642,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 213358578}
   - {fileID: 2073747382}
   - {fileID: 2089008963}
   - {fileID: 345772143}
   - {fileID: 1042316374}
-  - {fileID: 213358578}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354659206
@@ -1061,6 +1062,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991f634ea4be8b44cab800858644ba9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   enemyReference: {fileID: 213358575}
   spawnerPos: {fileID: 2089008963}
   refereeScriptAccess: {fileID: 345772142}

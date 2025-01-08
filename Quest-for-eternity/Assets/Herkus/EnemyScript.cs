@@ -23,8 +23,11 @@ public class EnemyScript : NetworkBehaviour
     {
         if (isServer)
         {
-            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);  
+            Debug.Log("Test");
+            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
         }
+
+        else { myId = 1; }
         return myId;
     }
 
