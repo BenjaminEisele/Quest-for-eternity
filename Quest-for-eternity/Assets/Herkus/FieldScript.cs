@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using Mirror;
 
 public class FieldScript : MonoBehaviour
 {
@@ -85,6 +86,7 @@ public class FieldScript : MonoBehaviour
                 if (actionCardReference.DidActiveCardHit(hitRateModifier))
                 {
                     RefereeScript.instance.dealDamageToEnemy(damagePoints);
+                    PlayerScript.instance.damageThisRound = damagePoints;
                 }
                 else
                 {

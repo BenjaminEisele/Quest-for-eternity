@@ -10,10 +10,21 @@ public class PlayerScript : NetworkBehaviour
     private HandScript handScriptAccess;
     public Button EndTurnButton;
     TurnManagerMultiplayer turnManagerAccess;
+    EnemyScript enemyScriptAccess;
+
     [SyncVar]
     public bool isHost;
     [SyncVar] 
     public bool isThisPlayersTurn;
+
+    public static PlayerScript instance;
+
+    public int damageThisRound;
+
+    private void Awake()
+    {
+        if (instance == null) {instance = this;}
+    }
 
     public void Start()
     {
@@ -49,8 +60,6 @@ public class PlayerScript : NetworkBehaviour
         if (!isServer)
         {
             CmdEndTurn();
-            //isThisPlayersTurn = !isThisPlayersTurn;
-            //this.EndTurnButton.interactable = isThisPlayersTurn;
         }
 
         else if (isServer)
@@ -58,8 +67,15 @@ public class PlayerScript : NetworkBehaviour
             RpcEndTurn();
         }
 
+        damageThisRound = 0;
     }
-    
+
+    private void UpdateEnemyHealth()
+    {
+        for (int i = 0; i<10; i++) { }
+    }
+
+
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
@@ -67,6 +83,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
+        enemyScriptAccess.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
     [ClientRpc]
@@ -76,6 +93,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
+        enemyScriptAccess.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
 }
