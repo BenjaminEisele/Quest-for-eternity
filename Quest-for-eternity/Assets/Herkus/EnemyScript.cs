@@ -19,11 +19,13 @@ public class EnemyScript : NetworkBehaviour
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
     public void EnemySetUp(int myID)
-    {
+    {      
         isEnemyAlive = true;
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
-       
+        Debug.Log(databaseMultiplayerAccess.enemyList[myId].enemyHealth);
+        Debug.Log(myID);
+        Debug.Log("I am " + enemyHealth);
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }

@@ -13,11 +13,11 @@ public class EnemyGenerator : NetworkBehaviour
 
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
-    public int myId;
+    private int myId;
 
-    public void Start()
+    private void Start()
     {
-        RandomNumber();
+        //RandomNumber();
         //RpcSendNumber();
     }
 
@@ -25,7 +25,8 @@ public class EnemyGenerator : NetworkBehaviour
     {
         if (isServer)
         {
-            int myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+            myId = 1;
         }
     }
 
@@ -41,6 +42,7 @@ public class EnemyGenerator : NetworkBehaviour
         for (int i = 0; i < howManyEnemies; i++)
         {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
+
             enemyClone.SetActive(true);
             enemyClone.GetComponent<EnemyScript>().EnemySetUp(myId);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());

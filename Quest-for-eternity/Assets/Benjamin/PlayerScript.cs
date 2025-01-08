@@ -42,41 +42,8 @@ public class PlayerScript : NetworkBehaviour
         }
     }
 
-    public void TogglePlayerButtons()
-    {
-        Debug.Log("1");
-        if (isHost)
-        {
-            Debug.Log("5");
-            if (TurnManagerMultiplayer.Instance.IsPlayerATurn)
-            {
-                this.EndTurnButton.interactable = true;
-            }
-            else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
-            {                
-                this.EndTurnButton.interactable = false;
-            }
-        }
-        else if (!isHost)
-        {
-            Debug.Log("2");
-            if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
-            {
-                Debug.Log("3");               
-                this.EndTurnButton.interactable = true;
-            }
-            else //if (TurnManagerMultiplayer.Instance.IsPlayerBTurn)
-            {
-                Debug.Log("4");          
-                this.EndTurnButton.interactable = false;
-            }
-        }
-
-    }
     public void EndTurnPlayerScript()
-    {
-        Debug.Log("End Turn called");
-
+    {      
         handScriptAccess.DisableAllCardsEvent();
 
         if (!isServer)

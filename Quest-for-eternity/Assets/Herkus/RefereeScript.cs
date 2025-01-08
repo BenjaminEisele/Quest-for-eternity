@@ -55,7 +55,8 @@ public class RefereeScript : NetworkBehaviour
     {
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
-        TurnScript.restartGameEvent += RefereeReset;   
+        TurnScript.restartGameEvent += RefereeReset;
+        ennemyGeneratorAccess.RandomNumber();
         ennemyGeneratorAccess.GenerateEnemies(1);
         //enemyList.Add(targetEnemy);
         isGameOver = false;
@@ -66,6 +67,7 @@ public class RefereeScript : NetworkBehaviour
         if (card != null)
         {
             card = GameObject.FindGameObjectsWithTag("Cards");
+
             DeactivateCards(card);
         }
         
