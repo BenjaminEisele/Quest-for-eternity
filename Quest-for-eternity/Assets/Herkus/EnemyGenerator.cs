@@ -18,22 +18,28 @@ public class EnemyGenerator : NetworkBehaviour
     public void Start()
     {
         RandomNumber();
-        RpcSendNumber();
+        //RpcSendNumber();
     }
 
-    public void RandomNumber()
+    public int RandomNumber()
     {
         if (isServer)
         {
-            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
-        }    
+            int a = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+            myId = a;
+            return myId;
+        }
+        else
+        {
+            return myId;
+        }
     }
 
-    [ClientRpc]
+    /*[ClientRpc]
     private void RpcSendNumber()
     {
         myId = myId;
-    }
+    }*/
 
     public void GenerateEnemies(int howManyEnemies)
     {
