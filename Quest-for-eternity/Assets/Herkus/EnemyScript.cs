@@ -10,8 +10,7 @@ public class EnemyScript : NetworkBehaviour
     [SyncVar]
     public bool isEnemyAlive;
 
-    [SyncVar]
-    public int myId;
+    public int personalId;
 
     int savedEnemyHealth;     
     TextMeshPro enemyHealthText;
@@ -20,10 +19,11 @@ public class EnemyScript : NetworkBehaviour
 
     public void EnemySetUp(int myID)
     {      
+        personalId = myID;
         isEnemyAlive = true;
-        this.enemyHealth = databaseMultiplayerAccess.enemyList[myId].enemyHealth;
+        this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
         savedEnemyHealth = enemyHealth;
-        Debug.Log(databaseMultiplayerAccess.enemyList[myId].enemyHealth);
+        Debug.Log(databaseMultiplayerAccess.enemyList[myID].enemyHealth);
         Debug.Log(myID);
         Debug.Log("I am " + enemyHealth);
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
@@ -59,7 +59,7 @@ public class EnemyScript : NetworkBehaviour
         int myDamage;
         if(isEnemyAlive)
         {
-            myDamage = databaseMultiplayerAccess.enemyList[myId].GenerateAttack();          
+            myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();          
         }
         else
         {
