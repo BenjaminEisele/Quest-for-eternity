@@ -19,10 +19,19 @@ public class EnemyScript : NetworkBehaviour
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
+    public int RandomNumber()
+    {
+        if (isServer)
+        {
+            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);  
+        }
+        return myId;
+    }
+
     public void EnemySetUp()
     {
         isEnemyAlive = true;
-        myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+        myId = RandomNumber();
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myId].enemyHealth;
         savedEnemyHealth = enemyHealth;
        
