@@ -16,7 +16,7 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar] 
     public bool isThisPlayersTurn;
 
-    public int damageThisRound;
+    public int damageThisRound = 0;
 
     public void Start()
     {
@@ -69,7 +69,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        //EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
+        EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
     [ClientRpc]
@@ -79,7 +79,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        //EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
+        EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
 }
