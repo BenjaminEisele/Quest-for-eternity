@@ -23,7 +23,10 @@ public class EnemyGenerator : NetworkBehaviour
 
     public void RandomNumber()
     {
-        myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+        if (isServer)
+        {
+            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+        }    
     }
 
     [ClientRpc]
