@@ -2764,6 +2764,7 @@ MonoBehaviour:
   spawnpoint: {fileID: 7166985467206255765}
   baseActiveCard: {fileID: 6070740170089956258}
   uiScriptAccess: {fileID: 4474685207841023662}
+  playerScriptAccess: {fileID: 4973786725427984824}
   activeCardList: []
   hitRateModifier: 0
 --- !u!1 &5313769794786005383
@@ -2926,6 +2927,7 @@ MonoBehaviour:
   EndTurnButton: {fileID: 19784037207635476}
   isHost: 0
   isThisPlayersTurn: 0
+  damageThisRound: 0
 --- !u!1 &5487305731171432376
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,10 +3467,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eeae388f7a3fc744890989f2750ceb4f, type: 2}
   - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
-  enemyList:
-  - {fileID: 11400000, guid: 10a10243987f2c7459336b3ff8d4ac72, type: 2}
-  - {fileID: 11400000, guid: 25278f8ba2c162d45889102ab1d1005f, type: 2}
-  - {fileID: 11400000, guid: d796c2b0ab6c48d458d690648b7a09a2, type: 2}
 --- !u!114 &3574353505568794366
 MonoBehaviour:
   m_ObjectHideFlags: 0

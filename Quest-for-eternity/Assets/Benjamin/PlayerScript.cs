@@ -16,14 +16,7 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar] 
     public bool isThisPlayersTurn;
 
-    public static PlayerScript instance;
-
     public int damageThisRound;
-
-    private void Awake()
-    {
-        if (instance == null) {instance = this;}
-    }
 
     public void Start()
     {
@@ -69,12 +62,6 @@ public class PlayerScript : NetworkBehaviour
         damageThisRound = 0;
     }
 
-    private void UpdateEnemyHealth()
-    {
-        for (int i = 0; i<10; i++) { }
-    }
-
-
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
@@ -82,7 +69,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
+        //EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
     [ClientRpc]
@@ -92,7 +79,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
+        //EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
 }
