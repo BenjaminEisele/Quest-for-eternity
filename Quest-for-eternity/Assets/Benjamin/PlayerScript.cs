@@ -18,7 +18,9 @@ public class PlayerScript : NetworkBehaviour
     public int damageThisRound = 0;
 
     public void Start()
-    {       
+    {
+        Test.instance.SubtractHealth();
+
         TurnScript.endTurnEvent += EndTurnPlayerScript;
 
         if (isOwned)
@@ -44,17 +46,14 @@ public class PlayerScript : NetworkBehaviour
     {      
         handScriptAccess.DisableAllCardsEvent();
 
-        if (isClientOnly)
+        if (!isServer)
         {
             CmdEndTurn();
-            RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
-            Debug.Log("Attack1");
         }
 
         else if (isServer)
         {
             RpcEndTurn();
-            Debug.Log("Attack2");
         }
 
         damageThisRound = 0;
@@ -66,8 +65,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
-        Debug.Log("Attack3");
+        //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
     }
 
     [ClientRpc]
@@ -76,12 +74,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        Debug.Log("Attack4");
-        if (isClientOnly)
-        {
-            RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
-            Debug.Log("Attack5");
-        }       
+        //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;       
     }
 
 }

@@ -17,13 +17,6 @@ public class EnemyScript : NetworkBehaviour
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
-    public static  EnemyScript instance;
-
-    private void Awake()
-    {
-        if (instance == null) { instance = this;}   
-    }
-
     public void EnemySetUp(int myID)
     {      
         personalId = myID;
