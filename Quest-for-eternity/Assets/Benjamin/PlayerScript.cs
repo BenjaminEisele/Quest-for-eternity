@@ -10,6 +10,7 @@ public class PlayerScript : NetworkBehaviour
     private HandScript handScriptAccess;
     public Button EndTurnButton;
     TurnManagerMultiplayer turnManagerAccess;
+    public EnemyScript enemyScriptAccess;
 
     [SyncVar]
     public bool isHost;
@@ -69,7 +70,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
     [ClientRpc]
@@ -79,7 +80,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        EnemyScript.instance.TakeDamageAndCheckIfDead(damageThisRound);
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
 }
