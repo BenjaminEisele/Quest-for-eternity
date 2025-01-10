@@ -6,8 +6,6 @@ using Mirror;
 public class RefereeScript : NetworkBehaviour
 {
     public EnemyScript targetEnemy; //veliau noretusi padaryti, kad net nereiketu nieko tampyti per inspektoriu, kitaip sakant kad viskas po kapotu butu.
-    public EnemyScript targetEnemyHost;
-    public EnemyScript targetEnemyClient;
 
     //public PlayerStatScript playerAccess;
 
@@ -53,21 +51,7 @@ public class RefereeScript : NetworkBehaviour
     }     
 
     private void Start()
-    {
-        if (isServer)
-        {
-            targetEnemyHost = targetEnemy;
-        }
-        else
-        {
-            targetEnemyClient = targetEnemy;
-        }
-
-        if (targetEnemyHost.GetInstanceID() == targetEnemyClient.GetInstanceID())
-        {
-            Debug.Log("objects are the same instance");
-        }
-
+    {        
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
