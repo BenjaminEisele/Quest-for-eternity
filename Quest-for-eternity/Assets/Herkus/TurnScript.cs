@@ -18,8 +18,6 @@ public class TurnScript : MonoBehaviour
     [SerializeField]
     DeckManager deckManagerAccess;
 
-    TurnManagerMultiplayer turnManagerAccess;
-
     public delegate void EndTurnAction();
     public static event EndTurnAction endTurnEvent;
 
@@ -39,7 +37,6 @@ public class TurnScript : MonoBehaviour
     {
         PlayerScript myPlayerScript = GetComponentInChildren<PlayerScript>();
         endTurnEvent += TransferTurnToEnemy;
-        turnManagerAccess = TurnManagerMultiplayer.Instance;
         //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
