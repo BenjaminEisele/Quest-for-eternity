@@ -19,8 +19,6 @@ public class PlayerScript : NetworkBehaviour
 
     public void Start()
     {
-        Test.instance.SubtractHealth();
-
         TurnScript.endTurnEvent += EndTurnPlayerScript;
 
         if (isOwned)
@@ -65,6 +63,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
+        Test.instance.SubtractHealth();
         //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
     }
 
@@ -74,6 +73,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
+        Test.instance.SubtractHealth();
         //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;       
     }
 
