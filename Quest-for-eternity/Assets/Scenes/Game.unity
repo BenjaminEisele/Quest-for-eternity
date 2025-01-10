@@ -264,7 +264,7 @@ MonoBehaviour:
   syncInterval: 0
   enemyHealth: 15
   isEnemyAlive: 0
-  myId: 0
+  personalId: 0
   myMarker: {fileID: 107041906}
   databaseMultiplayerAccess: {fileID: 1056335441}
 --- !u!65 &213358576
@@ -1069,7 +1069,6 @@ MonoBehaviour:
   spawnerPos: {fileID: 2089008963}
   refereeScriptAccess: {fileID: 345772142}
   databaseMultiplayerAccess: {fileID: 1056335441}
-  myId: 0
 --- !u!1 &2089008962
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 using Mirror;
 using UnityEngine.UI;
 
@@ -20,7 +19,7 @@ public class PlayerScript : NetworkBehaviour
     public int damageThisRound = 0;
 
     public void Start()
-    {
+    {       
         TurnScript.endTurnEvent += EndTurnPlayerScript;
         if (SceneManager.GetActiveScene().name != "Lobby")
         {
@@ -80,7 +79,10 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+        if (isClientOnly)
+        {
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+        }       
     }
 
 }

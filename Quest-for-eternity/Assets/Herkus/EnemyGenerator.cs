@@ -16,12 +16,6 @@ public class EnemyGenerator : NetworkBehaviour
     [SyncVar]
     private int myId;
 
-    private void Start()
-    {
-        //RandomNumber();
-        //RpcSendNumber();
-    }
-
     public void RandomNumber()
     {
         if (isServer)
@@ -30,19 +24,12 @@ public class EnemyGenerator : NetworkBehaviour
         }           
     }
 
-    /*[ClientRpc]
-    private void RpcSendNumber()
-    {
-        myId = myId;
-    }*/
-
     public void GenerateEnemies(int howManyEnemies)
     {
         Vector3 enemyPosition = spawnerPos.position;
         for (int i = 0; i < howManyEnemies; i++)
         {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
-
             enemyClone.SetActive(true);
             enemyClone.GetComponent<EnemyScript>().EnemySetUp(myId);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
