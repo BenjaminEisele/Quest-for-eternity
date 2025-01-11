@@ -2925,6 +2925,7 @@ MonoBehaviour:
   syncInterval: 0
   handScriptAccess: {fileID: 7294800125378994488}
   EndTurnButton: {fileID: 19784037207635476}
+  enemyScriptAccess: {fileID: 0}
   isHost: 0
   isThisPlayersTurn: 0
   damageThisRound: 0

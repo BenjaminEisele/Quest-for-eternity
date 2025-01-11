@@ -71,6 +71,7 @@ public class TurnScript : MonoBehaviour
 
     public void TransferTurnToEnemy()
     {
+        Debug.Log("turn transfered");
         if(isPlayersTurn)
         {
             UiScript.UpdateTurnInfo(1);
