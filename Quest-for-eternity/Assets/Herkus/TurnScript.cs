@@ -39,10 +39,7 @@ public class TurnScript : MonoBehaviour
         //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
-        if(playerScriptAccess.isHost)
-        {
-            endTurnEvent += TransferTurnToEnemy;
-        }
+        endTurnEvent += TransferTurnToEnemy;
         
     }   
 
@@ -75,9 +72,10 @@ public class TurnScript : MonoBehaviour
 
     public void TransferTurnToEnemy()
     {
-        Debug.Log("turn transfered");
+        Debug.Log(playerScriptAccess.gameObject.transform.root.name);
         if(isPlayersTurn)
         {
+            
             UiScript.UpdateTurnInfo(1);
             isPlayersTurn = false;
             RefereeScript.instance.StartForeachEnemyCoroutine();
