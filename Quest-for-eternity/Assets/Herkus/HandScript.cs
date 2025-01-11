@@ -113,7 +113,6 @@ public class HandScript : MonoBehaviour
     }
     public void ActivateAllCardsEvent()
     {
-        
         Debug.Log("yo mama");
         if (playerScriptAccess.isThisPlayersTurn)
         {
