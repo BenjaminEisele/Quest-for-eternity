@@ -43,19 +43,25 @@ public class PlayerScript : NetworkBehaviour
     public void EndTurnPlayerScript()
     {
 
-        handScriptAccess.DisableAllCardsEvent();
-        Debug.Log("ABC");
-        if (!isServer)
-        {
-            CmdEndTurn();
-        }
+        
 
-        else if (isServer)
+        if(isThisPlayersTurn)
         {
-            RpcEndTurn();
-        }
+            handScriptAccess.DisableAllCardsEvent();
+            Debug.Log("ABC");
+            if (!isServer)
+            {
+                CmdEndTurn();
+            }
 
-        damageThisRound = 0;
+            else if (isServer)
+            {
+                RpcEndTurn();
+            }
+
+            damageThisRound = 0;
+        }
+        
     }
 
     [Command(requiresAuthority = false)]
