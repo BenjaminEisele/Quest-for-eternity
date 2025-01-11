@@ -39,7 +39,7 @@ public class TurnScript : MonoBehaviour
         //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
-        endTurnEvent += TransferTurnToEnemy;
+        //endTurnEvent += TransferTurnToEnemy;
         
     }   
 
@@ -148,16 +148,9 @@ public class TurnScript : MonoBehaviour
         {
             if (endTurnEvent != null)
             {
+                TransferTurnToEnemy();
                 endTurnEvent();
             }
         }
-        
-        //uiScriptAccess.ChangeEndTurnButtonStatus(false);
     }
-    
-    /*[Command]
-    public void CmdEndTurn()
-    {
-        TurnManagerMultiplayer.Instance.EndTurn();
-    }*/
 }
