@@ -39,7 +39,11 @@ public class TurnScript : MonoBehaviour
         //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
-        endTurnEvent += TransferTurnToEnemy;
+        if(playerScriptAccess.isHost)
+        {
+            endTurnEvent += TransferTurnToEnemy;
+        }
+        
     }   
 
     public bool GetPlayerTurnBool()
