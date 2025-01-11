@@ -113,7 +113,6 @@ public class TurnScript : MonoBehaviour
             {
                 CallEndTurnEvent();
             }
-            
             else
             {
                 if (playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isOwned)
@@ -144,6 +143,7 @@ public class TurnScript : MonoBehaviour
     }
     public void CallEndTurnEvent()
     {
+        Debug.Log("end turn event called");
         if (playerScriptAccess.isThisPlayersTurn)
         {
             if (endTurnEvent != null)
