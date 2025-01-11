@@ -50,8 +50,8 @@ public class HandScript : MonoBehaviour
         RefereeScript.turnStartEvent += ActivateAllCardsEvent;
         RefereeScript.newWaveEvent += HandReset;
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
-        TurnScript.endTurnEvent += AddCardsEvent;
         TurnScript.restartGameEvent += HandReset;
+        TurnScript.endTurnEvent += AddCardsEvent; 
         isInQuickAttackMode = false;
         cardCount = 0;
         cardDebt = 0;

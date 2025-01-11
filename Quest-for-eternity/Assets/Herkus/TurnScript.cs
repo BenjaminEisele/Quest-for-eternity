@@ -36,10 +36,13 @@ public class TurnScript : MonoBehaviour
     private void Start()
     {
         PlayerScript myPlayerScript = GetComponentInChildren<PlayerScript>();
-        endTurnEvent += TransferTurnToEnemy;
         //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
+        if (playerScriptAccess.isHost)
+        {
+            endTurnEvent += TransferTurnToEnemy;
+        }
     }
     
 
