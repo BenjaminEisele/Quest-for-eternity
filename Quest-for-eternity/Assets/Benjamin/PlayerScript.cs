@@ -42,26 +42,26 @@ public class PlayerScript : NetworkBehaviour
 
     public void EndTurnPlayerScript()
     {
-
-        
-
         if(isThisPlayersTurn)
         {
-            handScriptAccess.DisableAllCardsEvent();
-            Debug.Log("ABC");
-            if (!isServer)
-            {
-                CmdEndTurn();
-            }
+            Test.instance.SubtractHealth();
 
-            else if (isServer)
-            {
-                RpcEndTurn();
-            }
-
-            damageThisRound = 0;
         }
-        
+
+        handScriptAccess.DisableAllCardsEvent();
+        Debug.Log(gameObject.transform.root.name);
+        if (!isServer)
+        {
+            CmdEndTurn();
+        }
+
+        else if (isServer)
+        {
+            RpcEndTurn();
+        }
+
+        damageThisRound = 0;
+
     }
 
     [Command(requiresAuthority = false)]
@@ -70,7 +70,6 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();        
-        Test.instance.SubtractHealth();
         //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
     }
 
@@ -80,7 +79,6 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        Test.instance.SubtractHealth();
         //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;       
     }
 

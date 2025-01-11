@@ -59,12 +59,13 @@ public class TurnScript : MonoBehaviour
         {            
             if(playerTurnBool)
             {
+                //playerScriptAccess.EndTurnPlayerScript();
                 UiScript.UpdateTurnInfo(0);
             }
             else
             {
                 UiScript.UpdateTurnInfo(1);
-               // playerScriptAccess.EndTurnPlayerScript();
+                
 
             }
         }
@@ -75,7 +76,6 @@ public class TurnScript : MonoBehaviour
     {
         if(playerScriptAccess.isThisPlayersTurn)
         {
-            Debug.Log(playerScriptAccess.gameObject.transform.root.name);
             if (isPlayersTurn)
             {
 
