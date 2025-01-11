@@ -62,8 +62,7 @@ public class PlayerScript : NetworkBehaviour
     {
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
-        handScriptAccess.ActivateAllCardsEvent();
-        
+        handScriptAccess.ActivateAllCardsEvent();        
         Test.instance.SubtractHealth();
         //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
     }
