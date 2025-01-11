@@ -65,8 +65,6 @@ public class TurnScript : MonoBehaviour
             else
             {
                 UiScript.UpdateTurnInfo(1);
-                
-
             }
         }
         uiScriptAccess.ChangeEndTurnButtonStatus(playerTurnBool);
