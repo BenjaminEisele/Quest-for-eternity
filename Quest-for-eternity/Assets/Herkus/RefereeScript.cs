@@ -56,7 +56,7 @@ public class RefereeScript : NetworkBehaviour
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
         ennemyGeneratorAccess.RandomNumber();
-        //ennemyGeneratorAccess.GenerateEnemies(1);
+        ennemyGeneratorAccess.GenerateEnemies(1);
         //enemyList.Add(targetEnemy);
         isGameOver = false;
         //restartGameButton.SetActive(false);

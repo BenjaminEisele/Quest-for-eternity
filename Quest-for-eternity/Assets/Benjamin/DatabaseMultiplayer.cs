@@ -4,6 +4,4 @@ using UnityEngine;
 public class DatabaseMultiplayer : MonoBehaviour
 {
     public List<BaseEnemy> enemyList;
-
-    public List<GameObject> enemyPrefabList;
 }

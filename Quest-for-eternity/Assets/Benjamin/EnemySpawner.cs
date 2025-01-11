@@ -1,35 +1,25 @@
 using UnityEngine;
-using Mirror;
 
-public class EnemySpawner : NetworkBehaviour
+public class EnemySpawner : MonoBehaviour
 {
+    public GameObject enemyPrefab;
     public Transform spawnPosition;
+    private int howManyEnemies;
+    private int myId;
     public RefereeScript refereeScriptAccess;
-    public DatabaseMultiplayer databaseMultiplayerAccess;
-    [SyncVar]
-    public int enemyId;
 
     void Start()
     {
-        SpawnEnemy(2);        
-    }
+        //GameObject enemy = Instantiate(enemyPrefab, spawnPosition);
+        //spawnPosition.position += new Vector3(3, 0, 0);
 
-    public void RandomNumber()
-    {
-        if (isServer)
-        {
-            enemyId = Random.Range(0, databaseMultiplayerAccess.enemyPrefabList.Count);
-        }
-    }
 
-    private void SpawnEnemy(int howManyEnemies)
-    {
         Vector3 enemyPosition = spawnPosition.position;
         for (int i = 0; i < howManyEnemies; i++)
         {
-            RandomNumber();
-            GameObject enemyClone = Instantiate(databaseMultiplayerAccess.enemyPrefabList[enemyId], enemyPosition, Quaternion.identity);
+            GameObject enemyClone = Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
             enemyClone.SetActive(true);
+            enemyClone.GetComponent<EnemyScript>().EnemySetUp(myId);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
             enemyPosition += new Vector3(3, 0, 0);
         }
