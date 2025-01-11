@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 105996802948018900}
   - component: {fileID: 7123683377324386071}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: SkeletonHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,6 @@ MonoBehaviour:
   isEnemyAlive: 0
   personalId: 0
   myMarker: {fileID: 8880322799453455325}
-  databaseMultiplayerAccess: {fileID: 0}
 --- !u!114 &7123683377324386071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
-  _assetId: 1791715536
+  _assetId: 1841196491
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
@@ -253,7 +252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: aaa
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
