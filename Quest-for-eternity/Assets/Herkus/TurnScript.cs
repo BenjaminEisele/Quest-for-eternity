@@ -39,7 +39,7 @@ public class TurnScript : MonoBehaviour
         //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
-        //endTurnEvent += TransferTurnToEnemy;
+        endTurnEvent += TransferTurnToEnemy;
         
     }   
 
@@ -60,11 +60,12 @@ public class TurnScript : MonoBehaviour
             if(playerTurnBool)
             {
                 UiScript.UpdateTurnInfo(0);
-                playerScriptAccess.EndTurnPlayerScript();
             }
             else
             {
                 UiScript.UpdateTurnInfo(1);
+               // playerScriptAccess.EndTurnPlayerScript();
+
             }
         }
         uiScriptAccess.ChangeEndTurnButtonStatus(playerTurnBool);
@@ -72,14 +73,18 @@ public class TurnScript : MonoBehaviour
 
     public void TransferTurnToEnemy()
     {
-        Debug.Log(playerScriptAccess.gameObject.transform.root.name);
-        if(isPlayersTurn)
+        if(playerScriptAccess.isThisPlayersTurn)
         {
-            
-            UiScript.UpdateTurnInfo(1);
-            isPlayersTurn = false;
-            RefereeScript.instance.StartForeachEnemyCoroutine();
+            Debug.Log(playerScriptAccess.gameObject.transform.root.name);
+            if (isPlayersTurn)
+            {
+
+                UiScript.UpdateTurnInfo(1);
+                isPlayersTurn = false;
+                RefereeScript.instance.StartForeachEnemyCoroutine();
+            }
         }
+        
     }
 
     public void RestartGame()
@@ -148,7 +153,7 @@ public class TurnScript : MonoBehaviour
         {
             if (endTurnEvent != null)
             {
-                TransferTurnToEnemy();
+                //TransferTurnToEnemy();
                 endTurnEvent();
             }
         }
