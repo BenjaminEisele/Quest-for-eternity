@@ -68,6 +68,7 @@ public class PlayerScript : NetworkBehaviour
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
             Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
             //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
+            RefereeScript.instance.playerList[0].TestVoid();
         }
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
@@ -89,6 +90,12 @@ public class PlayerScript : NetworkBehaviour
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
         Debug.Log("we did this amount of damage:" +  damageThisRound);
+    }
+
+    public void TestVoid()
+    {
+        Debug.Log("hi!!!!!!!");
+        //takedamage
     }
 
 }
