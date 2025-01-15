@@ -5,7 +5,7 @@ using Mirror;
 
 public class RefereeScript : NetworkBehaviour
 {
-    [SyncVar] public EnemyScript targetEnemy; //veliau noretusi padaryti, kad net nereiketu nieko tampyti per inspektoriu, kitaip sakant kad viskas po kapotu butu.
+    public EnemyScript targetEnemy; //veliau noretusi padaryti, kad net nereiketu nieko tampyti per inspektoriu, kitaip sakant kad viskas po kapotu butu.
 
     //public PlayerStatScript playerAccess;
 
