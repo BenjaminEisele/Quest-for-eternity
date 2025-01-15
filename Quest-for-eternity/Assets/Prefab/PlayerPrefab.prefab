@@ -2926,8 +2926,10 @@ MonoBehaviour:
   handScriptAccess: {fileID: 7294800125378994488}
   EndTurnButton: {fileID: 19784037207635476}
   enemyScriptAccess: {fileID: 0}
+  fieldScriptAccess: {fileID: 7435887801007149820}
   isHost: 0
   isThisPlayersTurn: 0
+  damageThisRound: 0
 --- !u!1 &5487305731171432376
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class PlayerScript : NetworkBehaviour
     private HandScript handScriptAccess;
     public Button EndTurnButton;
     public EnemyScript enemyScriptAccess;
+    [SerializeField]
+    FieldScript fieldScriptAccess;
 
     [SyncVar]
     public bool isHost;
@@ -98,7 +100,8 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void TestVoid()
     {
-        RefereeScript.instance.playerList[1].GetComponent<FieldScript>().FieldClearAndDealDamage(true);
+        //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
+        fieldScriptAccess.FieldClearAndDealDamage(true);
         //RefereeScript.instance.dealDamageToEnemy(damageThisRound);
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
