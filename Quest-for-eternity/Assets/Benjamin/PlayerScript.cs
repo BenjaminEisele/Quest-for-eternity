@@ -67,7 +67,7 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+            RefereeScript.instance.targetEnemy.VoidTakeDamageAndCheckIfDead(damageThisRound);
             Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
             //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
@@ -83,7 +83,7 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+            RefereeScript.instance.targetEnemy.VoidTakeDamageAndCheckIfDead(damageThisRound);
             Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
             //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }

@@ -55,6 +55,23 @@ public class EnemyScript : NetworkBehaviour
         }
         return isEnemyAlive;
     }
+
+    public void VoidTakeDamageAndCheckIfDead(int inputDamage)
+    {
+        enemyHealth -= inputDamage;
+        if (enemyHealth <= 0)
+        {
+            enemyHealth = 0;
+            UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
+            isEnemyAlive = false;
+        }
+        else
+        {
+            UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
+            isEnemyAlive = true;
+        }
+    }
+
     public void ChangeSelectedStatus(bool inputBool)
     {
         myMarker.SetActive(inputBool);
