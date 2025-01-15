@@ -67,8 +67,9 @@ public class PlayerScript : NetworkBehaviour
          {
              Test.instance.SubtractHealth();
              RefereeScript.instance.playerList[0].TestVoid();
+            Debug.Log($"Total damage is : {damageThisRound}");
          }
-         isThisPlayersTurn = !isThisPlayersTurn;
+        isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
          handScriptAccess.ActivateAllCardsEvent();
 
@@ -84,6 +85,7 @@ public class PlayerScript : NetworkBehaviour
         {
             Test.instance.SubtractHealth();
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+            RefereeScript.instance.dealDamageToEnemy(damageThisRound);
             Debug.Log($"Total damage is : {damageThisRound}");
         }
         isThisPlayersTurn = !isThisPlayersTurn;
@@ -94,7 +96,8 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void TestVoid()
     {
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+        RefereeScript.instance.dealDamageToEnemy(damageThisRound);
+        //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
 }
