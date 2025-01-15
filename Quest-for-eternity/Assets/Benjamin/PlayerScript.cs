@@ -19,7 +19,8 @@ public class PlayerScript : NetworkBehaviour
 
     public void Start()
     {
-        Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
+        RefereeScript.instance.playerList.Add(this);
+        //Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
         TurnScript.endTurnEvent += EndTurnPlayerScript;
 
         if (isOwned)

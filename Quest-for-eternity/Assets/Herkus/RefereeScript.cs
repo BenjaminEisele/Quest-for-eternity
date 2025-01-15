@@ -43,6 +43,8 @@ public class RefereeScript : NetworkBehaviour
     public GameObject[] button;
     public GameObject[] mainCamera;
 
+    public List<PlayerScript> playerList;
+
     public static RefereeScript instance;
 
     private void Awake()
@@ -69,13 +71,11 @@ public class RefereeScript : NetworkBehaviour
 
             DeactivateCards(card);
         }
-        
         if (button != null)
         {
             button = GameObject.FindGameObjectsWithTag("EndTurnButton");
             DeactivateButton(button);
         }
-
         if (mainCamera != null)
         {
             mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
