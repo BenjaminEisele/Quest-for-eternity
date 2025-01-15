@@ -15,7 +15,7 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar] 
     public bool isThisPlayersTurn;
 
-    public int damageThisRound = 0;
+    private int damageThisRound = 3;
 
     public void Start()
     {
@@ -56,7 +56,7 @@ public class PlayerScript : NetworkBehaviour
             RpcEndTurn();
         }
 
-        damageThisRound = 0;
+        damageThisRound = 3;
 
     }
 
@@ -72,7 +72,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        Debug.Log("we did this amount of damage:" + damageThisRound)
+        Debug.Log("we did this amount of damage:" + damageThisRound);
     }
 
     [ClientRpc]
