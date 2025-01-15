@@ -87,6 +87,7 @@ public class PlayerScript : NetworkBehaviour
             Test.instance.SubtractHealth();
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
             RefereeScript.instance.dealDamageToEnemy(damageThisRound);
+            //RefereeScript.instance.playerList[1].GetComponent<FieldScript>().FieldClearAndDealDamage(true);
             Debug.Log($"Total damage is : {damageThisRound}");
         }
         isThisPlayersTurn = !isThisPlayersTurn;
@@ -97,7 +98,8 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void TestVoid()
     {
-        RefereeScript.instance.dealDamageToEnemy(damageThisRound);
+        RefereeScript.instance.playerList[1].GetComponent<FieldScript>().FieldClearAndDealDamage(true);
+        //RefereeScript.instance.dealDamageToEnemy(damageThisRound);
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
