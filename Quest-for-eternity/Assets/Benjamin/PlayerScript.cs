@@ -56,8 +56,8 @@ public class PlayerScript : NetworkBehaviour
         {
             RpcEndTurn();
         }
-        
-     //   damageThisRound = 3;
+        damageThisRound = 0;
+        //   damageThisRound = 3;
     }
 
     [Command(requiresAuthority = false)]
@@ -68,6 +68,7 @@ public class PlayerScript : NetworkBehaviour
              Test.instance.SubtractHealth();
              RefereeScript.instance.playerList[0].TestVoid();
             Debug.Log($"Total damage is : {damageThisRound}");
+            
          }
         isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
