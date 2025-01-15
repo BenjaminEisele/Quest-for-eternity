@@ -15,7 +15,7 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar] 
     public bool isThisPlayersTurn;
 
-    public int damageThisRound = 0;
+    [SyncVar] public int damageThisRound = 0;
 
     public void Start()
     {
@@ -94,7 +94,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void TestVoid()
     {
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
 }
