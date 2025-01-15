@@ -101,7 +101,7 @@ public class PlayerScript : NetworkBehaviour
     public void TestVoid()
     {
         //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
-        fieldScriptAccess.FieldClearAndDealDamage(true);
+        RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndDealDamage(true);
         //RefereeScript.instance.dealDamageToEnemy(damageThisRound);
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
