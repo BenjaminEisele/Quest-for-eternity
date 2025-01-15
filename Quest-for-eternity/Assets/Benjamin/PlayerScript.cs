@@ -66,7 +66,6 @@ public class PlayerScript : NetworkBehaviour
          if (isThisPlayersTurn)
          {
              Test.instance.SubtractHealth();
-             Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
              RefereeScript.instance.playerList[0].TestVoid();
          }
          isThisPlayersTurn = !isThisPlayersTurn;
@@ -85,7 +84,7 @@ public class PlayerScript : NetworkBehaviour
         {
             Test.instance.SubtractHealth();
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-            Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
+            Debug.Log($"Total damage is : {damageThisRound}");
         }
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
