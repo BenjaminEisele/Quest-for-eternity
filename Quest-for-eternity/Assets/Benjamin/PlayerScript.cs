@@ -71,7 +71,8 @@ public class PlayerScript : NetworkBehaviour
         }
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
-        handScriptAccess.ActivateAllCardsEvent();      
+        handScriptAccess.ActivateAllCardsEvent();
+        Debug.Log("we did this amount of damage:" + damageThisRound)
     }
 
     [ClientRpc]
@@ -86,6 +87,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
+        Debug.Log("we did this amount of damage:" +  damageThisRound);
     }
 
 }
