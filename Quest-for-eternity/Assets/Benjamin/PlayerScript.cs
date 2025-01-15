@@ -48,7 +48,6 @@ public class PlayerScript : NetworkBehaviour
         if (!isServer)
         {
             CmdEndTurn();
-            CallTakeDamage();
         }
 
         else if (isServer)
@@ -89,14 +88,6 @@ public class PlayerScript : NetworkBehaviour
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
         Debug.Log("we did this amount of damage:" +  damageThisRound);
-    }
-
-    public void CallTakeDamage()
-    {
-        if (isServer)
-        {
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-        }
     }
 
 }
