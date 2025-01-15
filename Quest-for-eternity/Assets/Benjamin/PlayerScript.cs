@@ -94,6 +94,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void TestVoid()
     {
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
         Debug.Log("hi!!!!!!!");
         //takedamage
     }
