@@ -59,11 +59,12 @@ public class TurnScript : MonoBehaviour
         {            
             if(playerTurnBool)
             {
-                //playerScriptAccess.EndTurnPlayerScript();
+                
                 UiScript.UpdateTurnInfo(0);
             }
             else
             {
+                playerScriptAccess.EndTurnPlayerScript();
                 UiScript.UpdateTurnInfo(1);
             }
         }
