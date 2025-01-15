@@ -83,7 +83,7 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+            //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
             Debug.Log($"Total damage is : {damageThisRound}");
         }
         isThisPlayersTurn = !isThisPlayersTurn;
@@ -94,7 +94,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void TestVoid()
     {
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
     }
 
 }
