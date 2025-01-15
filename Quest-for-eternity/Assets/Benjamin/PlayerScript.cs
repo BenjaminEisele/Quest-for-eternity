@@ -45,7 +45,7 @@ public class PlayerScript : NetworkBehaviour
     public void EndTurnPlayerScript()
     {
         handScriptAccess.DisableAllCardsEvent();
-        Debug.Log(gameObject.transform.root.name);
+        Debug.Log("HELLO");
 
         if (!isServer)
         {
