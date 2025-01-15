@@ -67,7 +67,7 @@ public class PlayerScript : NetworkBehaviour
         {
             Test.instance.SubtractHealth();
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-            
+           Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
             //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
         isThisPlayersTurn = !isThisPlayersTurn;
