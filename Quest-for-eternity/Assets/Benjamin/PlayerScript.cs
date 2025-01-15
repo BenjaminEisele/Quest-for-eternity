@@ -46,7 +46,9 @@ public class PlayerScript : NetworkBehaviour
     {
         handScriptAccess.DisableAllCardsEvent();
         Debug.Log(gameObject.transform.root.name);
-        if (!isServer)
+
+        RefereeScript.instance.playerList[0].RpcEndTurn();
+        /*if (!isServer)
         {
             CmdEndTurn();
         }
@@ -55,25 +57,29 @@ public class PlayerScript : NetworkBehaviour
         {
             RpcEndTurn();
         }
-
+        */
         damageThisRound = 3;
     }
 
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        if (isThisPlayersTurn)
-        {
-            Test.instance.SubtractHealth();
-            //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-            Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
-            //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
-            RefereeScript.instance.playerList[0].TestVoid();
-        }
-        isThisPlayersTurn = !isThisPlayersTurn;
-        this.EndTurnButton.interactable = isThisPlayersTurn;
-        handScriptAccess.ActivateAllCardsEvent();
-        Debug.Log("we did this amount of damage:" + damageThisRound);
+        /* if (isThisPlayersTurn)
+         {
+             Test.instance.SubtractHealth();
+             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+             Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
+             //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
+             RefereeScript.instance.playerList[0].TestVoid();
+         }
+         isThisPlayersTurn = !isThisPlayersTurn;
+         this.EndTurnButton.interactable = isThisPlayersTurn;
+         handScriptAccess.ActivateAllCardsEvent();
+         Debug.Log("we did this amount of damage:" + damageThisRound);
+
+         */
+        RefereeScript.instance.playerList[0].RpcEndTurn();
+
     }
 
     [ClientRpc]
