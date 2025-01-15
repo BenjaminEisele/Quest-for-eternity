@@ -66,8 +66,8 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            
-            RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+            //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
@@ -81,8 +81,8 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            
-            RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+            //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;

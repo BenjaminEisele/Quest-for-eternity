@@ -2928,7 +2928,6 @@ MonoBehaviour:
   enemyScriptAccess: {fileID: 0}
   isHost: 0
   isThisPlayersTurn: 0
-  damageThisRound: 0
 --- !u!1 &5487305731171432376
 GameObject:
   m_ObjectHideFlags: 0
