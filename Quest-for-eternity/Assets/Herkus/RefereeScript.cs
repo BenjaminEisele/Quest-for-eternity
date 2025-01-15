@@ -227,6 +227,10 @@ public class RefereeScript : NetworkBehaviour
         {
             turnStartEvent();
         }
+        else
+        {
+            Debug.Log("turn start event fail");
+        }
         TurnScript.instance.ShouldStartPlayerTurn(true);
     }
     public void RefereeReset()

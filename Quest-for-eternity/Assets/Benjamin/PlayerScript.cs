@@ -67,11 +67,12 @@ public class PlayerScript : NetworkBehaviour
         {
             Test.instance.SubtractHealth();
             
-            handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
+        handScriptAccess.ActivateAllCardsEvent();
+
         isThisPlayersTurn = !isThisPlayersTurn;
-        //this.EndTurnButton.interactable = isThisPlayersTurn;
+        this.EndTurnButton.interactable = isThisPlayersTurn;
     }
 
     [ClientRpc]
@@ -81,11 +82,12 @@ public class PlayerScript : NetworkBehaviour
         {
             Test.instance.SubtractHealth();
             
-            handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
+        handScriptAccess.ActivateAllCardsEvent();
+
         isThisPlayersTurn = !isThisPlayersTurn;
-        //this.EndTurnButton.interactable = isThisPlayersTurn;
+        this.EndTurnButton.interactable = isThisPlayersTurn;
     }
 
 }
