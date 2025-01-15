@@ -43,13 +43,12 @@ public class PlayerScript : NetworkBehaviour
 
     public void EndTurnPlayerScript()
     {
-        
-
         handScriptAccess.DisableAllCardsEvent();
         Debug.Log(gameObject.transform.root.name);
         if (!isServer)
         {
             CmdEndTurn();
+            CallTakeDamage();
         }
 
         else if (isServer)
@@ -58,7 +57,6 @@ public class PlayerScript : NetworkBehaviour
         }
 
         damageThisRound = 3;
-
     }
 
     [Command(requiresAuthority = false)]
@@ -67,7 +65,7 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+            //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
             Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
             //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
@@ -91,6 +89,14 @@ public class PlayerScript : NetworkBehaviour
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
         Debug.Log("we did this amount of damage:" +  damageThisRound);
+    }
+
+    public void CallTakeDamage()
+    {
+        if (isServer)
+        {
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+        }
     }
 
 }
