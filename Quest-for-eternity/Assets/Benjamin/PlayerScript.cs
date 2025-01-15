@@ -71,7 +71,7 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
         isThisPlayersTurn = !isThisPlayersTurn;
-        this.EndTurnButton.interactable = isThisPlayersTurn;
+        //this.EndTurnButton.interactable = isThisPlayersTurn;
     }
 
     [ClientRpc]
@@ -85,7 +85,7 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
         isThisPlayersTurn = !isThisPlayersTurn;
-        this.EndTurnButton.interactable = isThisPlayersTurn;
+        //this.EndTurnButton.interactable = isThisPlayersTurn;
     }
 
 }
