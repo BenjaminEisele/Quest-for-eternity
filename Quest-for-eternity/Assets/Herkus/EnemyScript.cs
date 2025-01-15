@@ -17,10 +17,7 @@ public class EnemyScript : NetworkBehaviour
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
-    public void Awake()
-    {
-        Debug.Log("Iam awake");
-    }
+    
 
     public void EnemySetUp(int myID)
     {      
@@ -28,9 +25,6 @@ public class EnemyScript : NetworkBehaviour
         isEnemyAlive = true;
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
         savedEnemyHealth = enemyHealth;
-        Debug.Log(databaseMultiplayerAccess.enemyList[myID].enemyHealth);
-        Debug.Log(myID);
-        Debug.Log("I am " + enemyHealth);
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }

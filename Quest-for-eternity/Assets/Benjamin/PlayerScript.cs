@@ -15,7 +15,7 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar] 
     public bool isThisPlayersTurn;
 
-    private int damageThisRound = 3;
+    public int damageThisRound = 0;
 
     public void Start()
     {
@@ -47,8 +47,7 @@ public class PlayerScript : NetworkBehaviour
         handScriptAccess.DisableAllCardsEvent();
         Debug.Log(gameObject.transform.root.name);
 
-        RefereeScript.instance.playerList[0].RpcEndTurn();
-        /*if (!isServer)
+        if (!isServer)
         {
             CmdEndTurn();
         }
@@ -57,28 +56,25 @@ public class PlayerScript : NetworkBehaviour
         {
             RpcEndTurn();
         }
-        */
-        damageThisRound = 3;
+        
+     //   damageThisRound = 3;
     }
 
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        /* if (isThisPlayersTurn)
+         if (isThisPlayersTurn)
          {
              Test.instance.SubtractHealth();
-             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
              Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
-             //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
              RefereeScript.instance.playerList[0].TestVoid();
          }
          isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
          handScriptAccess.ActivateAllCardsEvent();
-         Debug.Log("we did this amount of damage:" + damageThisRound);
 
-         */
-        RefereeScript.instance.playerList[0].RpcEndTurn();
+         
+        //RefereeScript.instance.playerList[0].RpcEndTurn();
 
     }
 
@@ -90,20 +86,16 @@ public class PlayerScript : NetworkBehaviour
             Test.instance.SubtractHealth();
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
             Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
-            //RefereeScript.instance.targetEnemy.enemyHealth -= damageThisRound;
         }
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
-        Debug.Log("we did this amount of damage:" +  damageThisRound);
     }
 
     [ClientRpc]
     public void TestVoid()
     {
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-        Debug.Log("hi!!!!!!!");
-        //takedamage
     }
 
 }
