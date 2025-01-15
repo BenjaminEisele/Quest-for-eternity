@@ -92,6 +92,7 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log("we did this amount of damage:" +  damageThisRound);
     }
 
+    [ClientRpc]
     public void TestVoid()
     {
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
