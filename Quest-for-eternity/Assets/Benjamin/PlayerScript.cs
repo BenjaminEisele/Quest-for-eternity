@@ -19,10 +19,11 @@ public class PlayerScript : NetworkBehaviour
 
     [SyncVar] public int damageThisRound = 0;
 
-    EnemyScript enemyReference;
+    
 
     public void Start()
     {
+        
         RefereeScript.instance.playerList.Add(this);
         //Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
         TurnScript.endTurnEvent += EndTurnPlayerScript;
@@ -38,7 +39,8 @@ public class PlayerScript : NetworkBehaviour
             }
             else //(!isServer)
             {
-               // Debug.Log("I am NOT the server");
+                RefereeScript.instance.enemyReference = RefereeScript.instance.targetEnemy;
+                // Debug.Log("I am NOT the server");
                 isThisPlayersTurn = false;
                 isHost = false;
                 EndTurnButton.interactable = false;
@@ -70,7 +72,7 @@ public class PlayerScript : NetworkBehaviour
          if (isThisPlayersTurn)
          {
              Test.instance.SubtractHealth();
-            enemyReference = RefereeScript.instance.targetEnemy;
+            RefereeScript.instance.enemyReference = RefereeScript.instance.targetEnemy;
             RefereeScript.instance.playerList[0].CallForClient();
             //RefereeScript.instance.playerList[0].DealDamageAsServer();
              Debug.Log($"Total damage is : {damageThisRound}");
@@ -110,10 +112,10 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log("hahahahah");
         //Debug.Log(RefereeScript.instance.playerList[1].gameObject.name);
         //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
-      //  if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
-       // {
-            //RefereeScript.instance.playerList[1].
-            enemyReference.TakeDamageAndCheckIfDead(3);
+        //  if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
+        // {
+        //RefereeScript.instance.playerList[1].
+        RefereeScript.instance.enemyReference.TakeDamageAndCheckIfDead(3);
        // }
       //  else
        // {

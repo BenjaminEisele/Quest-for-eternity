@@ -47,6 +47,8 @@ public class RefereeScript : NetworkBehaviour
 
     public static RefereeScript instance;
 
+    public EnemyScript enemyReference;
+
     private void Awake()
     {
             if(instance == null) { instance = this; }
