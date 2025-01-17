@@ -39,7 +39,6 @@ public class PlayerScript : NetworkBehaviour
             }
             else //(!isServer)
             {
-                RefereeScript.instance.enemyReference = RefereeScript.instance.targetEnemy;
                 // Debug.Log("I am NOT the server");
                 isThisPlayersTurn = false;
                 isHost = false;
