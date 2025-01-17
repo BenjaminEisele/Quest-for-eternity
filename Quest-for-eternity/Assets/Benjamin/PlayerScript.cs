@@ -103,8 +103,9 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void CallForClient(EnemyScript enemyReference, float inputDamage)
     {
+        Debug.Log(RefereeScript.instance.playerList[1].gameObject.name);
         //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
-        if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
+        /*if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
         {
             //RefereeScript.instance.playerList[1].
             enemyReference.TakeDamageAndCheckIfDead((int)inputDamage);
@@ -113,6 +114,7 @@ public class PlayerScript : NetworkBehaviour
         {
             Debug.Log("hit failed inside of player script");
         }
+        */
         //RefereeScript.instance.dealDamageToEnemy(damageThisRound);
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
