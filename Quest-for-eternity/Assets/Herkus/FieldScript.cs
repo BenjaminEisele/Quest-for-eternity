@@ -110,13 +110,13 @@ public class FieldScript : MonoBehaviour
     private void FieldClear()
     {
         // Debug.Log("Field clear");
-        foreach (GameObject activeCardMember in activeCardList)
+      /*  foreach (GameObject activeCardMember in activeCardList)
         {
             activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
             Destroy(activeCardMember);
         }
         activeCardList.Clear();
-        activeCardSpawnPosition = spawnpoint.position;
+        activeCardSpawnPosition = spawnpoint.position; */
     }
     public bool FieldHitCheck()
     {
@@ -153,7 +153,7 @@ public class FieldScript : MonoBehaviour
             damagePoints = 0;
             UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
             //Debug.Log($"Action card after{ actionCardReference.gameObject.name }");
-            //FieldClear();
+            FieldClear();
             return false;
         }
         
