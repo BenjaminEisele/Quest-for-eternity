@@ -31,14 +31,14 @@ public class PlayerScript : NetworkBehaviour
         {
             if (isServer)
             {
-                Debug.Log("I am the server");
+               // Debug.Log("I am the server");
                 isThisPlayersTurn = true;
                 isHost = true;
                 EndTurnButton.interactable = true;
             }
             else //(!isServer)
             {
-                Debug.Log("I am NOT the server");
+               // Debug.Log("I am NOT the server");
                 isThisPlayersTurn = false;
                 isHost = false;
                 EndTurnButton.interactable = false;

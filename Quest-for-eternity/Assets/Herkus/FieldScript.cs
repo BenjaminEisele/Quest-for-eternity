@@ -74,7 +74,7 @@ public class FieldScript : MonoBehaviour
 
     public void FieldClearAndDealDamage(bool doWeDealDamage)
     {
-        Debug.Log("Field clear");
+        //Debug.Log("Field clear");
         foreach(GameObject activeCardMember in activeCardList)
         {
             activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
@@ -103,7 +103,7 @@ public class FieldScript : MonoBehaviour
     }
     public bool FieldClearAndCheckIfHit()
     {
-        Debug.Log("Field clear");
+       // Debug.Log("Field clear");
         bool didWeHit;
         foreach (GameObject activeCardMember in activeCardList)
         {
