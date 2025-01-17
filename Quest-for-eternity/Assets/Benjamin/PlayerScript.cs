@@ -57,6 +57,7 @@ public class PlayerScript : NetworkBehaviour
             CmdEndTurn();
             if (fieldScriptAccess.FieldHitCheck())
             {
+                
                 CmdDealDamage();
             }
         }
@@ -87,6 +88,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isThisPlayersTurn)
         {
+            Test.instance.SubtractHealth();
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(2);
         }
            
