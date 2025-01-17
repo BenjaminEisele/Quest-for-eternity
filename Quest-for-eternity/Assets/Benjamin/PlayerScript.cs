@@ -72,6 +72,7 @@ public class PlayerScript : NetworkBehaviour
          {
              Test.instance.SubtractHealth();
             RefereeScript.instance.refereeHealth--;
+            RefereeScript.instance.SubtractHealth();
             //RefereeScript.instance.enemyReference = RefereeScript.instance.targetEnemy;
             RefereeScript.instance.playerList[0].CallForClient();
             //RefereeScript.instance.playerList[0].DealDamageAsServer();
@@ -93,7 +94,8 @@ public class PlayerScript : NetworkBehaviour
         {
             Test.instance.SubtractHealth();
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-            
+            RefereeScript.instance.refereeHealth--;
+            RefereeScript.instance.SubtractHealth();
 
             //RefereeScript.instance.dealDamageToEnemy(damageThisRound, RefereeScript.instance.targetEnemy);
 
