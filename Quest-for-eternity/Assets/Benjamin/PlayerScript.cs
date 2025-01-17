@@ -88,6 +88,10 @@ public class PlayerScript : NetworkBehaviour
         else if (isServer)
         {
             RpcEndTurn();
+            if (fieldScriptAccess.FieldHitCheck())
+            {
+                Debug.Log("ABC");
+            }
         }
         damageThisRound = 0;
         //   damageThisRound = 3;
@@ -111,7 +115,7 @@ public class PlayerScript : NetworkBehaviour
 
             RefereeScript.instance.playerList[0].DealDamageAsServer();
            
-        }
+         }
         isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
          handScriptAccess.ActivateAllCardsEvent();
