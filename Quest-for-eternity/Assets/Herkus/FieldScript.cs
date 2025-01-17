@@ -34,6 +34,7 @@ public class FieldScript : MonoBehaviour
 
     private void Start()
     {
+        playerScriptAccess.shouldDealDamage = false;
         TurnScript.endTurnEvent += FieldClearEventTrue;
         TurnScript.restartGameEvent += FieldClearEventFalse;
         hitRateModifier = 0;
@@ -117,14 +118,15 @@ public class FieldScript : MonoBehaviour
         activeCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
     }
-    public bool FieldClearAndCheckIfHit()
+    public bool FieldHitCheck()
     {
         bool didWeHit;
 
         if (actionCardReference != null)
         {
             didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
-           // Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
+            playerScriptAccess.shouldDealDamage = didWeHit;
+            // Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
             if (didWeHit)
             {
                 playerScriptAccess.damageThisRound = damagePoints;
@@ -150,11 +152,6 @@ public class FieldScript : MonoBehaviour
             hitRateModifier = 0;
             damagePoints = 0;
             UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-            foreach (GameObject activeCardMember in activeCardList)
-            {
-                activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
-                Destroy(activeCardMember);
-            }
             //Debug.Log($"Action card after{ actionCardReference.gameObject.name }");
             FieldClear();
             return false;

@@ -11,6 +11,7 @@ public class PlayerScript : NetworkBehaviour
     public EnemyScript enemyScriptAccess;
     [SerializeField]
     FieldScript fieldScriptAccess;
+    public bool shouldDealDamage;
 
     [SyncVar]
     public bool isHost;
@@ -78,6 +79,10 @@ public class PlayerScript : NetworkBehaviour
         if (!isServer)
         {
             CmdEndTurn();
+            if (fieldScriptAccess.FieldHitCheck())
+            {
+                Debug.Log("ABC");
+            }
         }
 
         else if (isServer)
@@ -105,14 +110,11 @@ public class PlayerScript : NetworkBehaviour
             //TestCmd();
 
             RefereeScript.instance.playerList[0].DealDamageAsServer();
-            if (fieldScriptAccess.FieldClearAndCheckIfHit())
-            {
-                Debug.Log("ABC");
-            }
+           
         }
         isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
-         handScriptAccess.ActivateAllCardsEvent();
+         //handScriptAccess.ActivateAllCardsEvent();
 
          
         //RefereeScript.instance.playerList[0].RpcEndTurn();
@@ -133,7 +135,7 @@ public class PlayerScript : NetworkBehaviour
         }
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
-        handScriptAccess.ActivateAllCardsEvent();
+       // handScriptAccess.ActivateAllCardsEvent();
     }
 
     [ClientRpc]
