@@ -79,14 +79,13 @@ public class FieldScript : MonoBehaviour
 
     public void FieldClearAndDealDamage(bool doWeDealDamage)
     {
-        //Debug.Log("Field clear");
-        foreach(GameObject activeCardMember in activeCardList)
-        {
-            activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
-            Destroy(activeCardMember);
-        }
-        activeCardList.Clear();
-        activeCardSpawnPosition = spawnpoint.position;
+        /*   foreach(GameObject activeCardMember in activeCardList)
+           {
+               activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
+               Destroy(activeCardMember);
+           }
+           activeCardList.Clear(); 
+           activeCardSpawnPosition = spawnpoint.position;*/
         if (doWeDealDamage)
         {
             if(actionCardReference != null)
