@@ -18,7 +18,7 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar] 
     public bool isThisPlayersTurn;
 
-    [SyncVar] public int damageThisRound = 0;
+    //[SyncVar] public int damageThisRound = 0;
 
     
 
@@ -70,7 +70,6 @@ public class PlayerScript : NetworkBehaviour
             }
             RpcEndTurn();
         }
-        damageThisRound = 0;
     }
 
     [Command(requiresAuthority = false)]
@@ -90,7 +89,8 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(2);
+            Debug.Log($"We have deal {RefereeScript.instance.damageThisRound} amount of damage");
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.damageThisRound);
         }
            
     }
@@ -117,6 +117,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer()
     {
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(2);      
+        Debug.Log($"We have deal {RefereeScript.instance.damageThisRound} amount of damage");
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.damageThisRound);      
     }
 }
