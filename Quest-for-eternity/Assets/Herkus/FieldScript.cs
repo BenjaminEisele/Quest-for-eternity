@@ -105,10 +105,10 @@ public class FieldScript : MonoBehaviour
         damagePoints = 0;
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true); */
     }
-    public bool FieldClearAndCheckIfHit()
+
+    private void FieldClear()
     {
-       // Debug.Log("Field clear");
-        bool didWeHit;
+        // Debug.Log("Field clear");
         foreach (GameObject activeCardMember in activeCardList)
         {
             activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
@@ -116,7 +116,10 @@ public class FieldScript : MonoBehaviour
         }
         activeCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
-
+    }
+    public bool FieldClearAndCheckIfHit()
+    {
+        bool didWeHit;
 
         if (actionCardReference != null)
         {
@@ -128,6 +131,7 @@ public class FieldScript : MonoBehaviour
                 hitRateModifier = 0;
                 damagePoints = 0;
                 UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                FieldClear();
                 return didWeHit;
             }
             else
@@ -136,9 +140,9 @@ public class FieldScript : MonoBehaviour
                 hitRateModifier = 0;
                 damagePoints = 0;
                 UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                FieldClear();
                 return false;
             }
-            
         }
         else
         {
@@ -152,6 +156,7 @@ public class FieldScript : MonoBehaviour
                 Destroy(activeCardMember);
             }
             //Debug.Log($"Action card after{ actionCardReference.gameObject.name }");
+            FieldClear();
             return false;
         }
         
