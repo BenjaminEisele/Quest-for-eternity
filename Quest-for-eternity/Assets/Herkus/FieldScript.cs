@@ -119,6 +119,7 @@ public class FieldScript : MonoBehaviour
         {
             didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
             Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
+
             foreach (GameObject activeCardMember in activeCardList)
             {
                 activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
@@ -149,7 +150,6 @@ public class FieldScript : MonoBehaviour
             hitRateModifier = 0;
             damagePoints = 0;
             UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-            Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
             foreach (GameObject activeCardMember in activeCardList)
             {
                 activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
