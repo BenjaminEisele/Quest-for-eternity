@@ -101,9 +101,9 @@ public class PlayerScript : NetworkBehaviour
          if (isThisPlayersTurn)
          {
              Test.instance.SubtractHealth();
-             TestCmd();
+            //TestCmd();
 
-
+            RefereeScript.instance.playerList[0].DealDamageAsServer();
          }
         isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
