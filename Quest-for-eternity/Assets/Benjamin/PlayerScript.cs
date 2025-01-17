@@ -74,7 +74,7 @@ public class PlayerScript : NetworkBehaviour
              Test.instance.SubtractHealth();
             RefereeScript.instance.enemyReference = RefereeScript.instance.targetEnemy;
             Debug.Log("Hello my name is "+ gameObject.transform.root.name);
-            RefereeScript.instance.playerList[0].CallForClient(gameObject.transform.root.gameObject);
+            RefereeScript.instance.playerList[0].CallForClient();
             //RefereeScript.instance.playerList[0].DealDamageAsServer();
              Debug.Log($"Total damage is : {damageThisRound}");
             
@@ -108,9 +108,9 @@ public class PlayerScript : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void CallForClient(GameObject inputGameObject)
+    public void CallForClient()
     {
-        Debug.Log($"Game object is: {inputGameObject.name}");
+        Debug.Log($"Game object is: ");
         //Debug.Log(RefereeScript.instance.playerList[1].gameObject.name);
         //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
         //  if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
