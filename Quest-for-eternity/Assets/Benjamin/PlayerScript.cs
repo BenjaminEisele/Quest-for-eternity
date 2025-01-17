@@ -61,7 +61,7 @@ public class PlayerScript : NetworkBehaviour
                 {
                     Debug.Log("else statement reached");
                     TestCmd();
-                    RefereeScript.instance.playerList[0].DealDamageAsServer();
+                    //RefereeScript.instance.playerList[0].DealDamageAsServer();
                 }
                 
             }
@@ -163,6 +163,7 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log("ABC");
         //Destroy(RefereeScript.instance.gameObject);
         // Destroy(RefereeScript.instance.targetEnemy.gameObject);
-        RefereeScript.instance.targetEnemy.enemyHealth--;
+        //RefereeScript.instance.targetEnemy.enemyHealth--;
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(2);
     }
 }
