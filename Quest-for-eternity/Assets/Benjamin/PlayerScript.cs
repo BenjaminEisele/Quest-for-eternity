@@ -50,10 +50,20 @@ public class PlayerScript : NetworkBehaviour
     {
         if(Input.GetKeyDown(KeyCode.O))
         {
+            
             if(isThisPlayersTurn)
             {
-                DealDamageAsServer();
+                if (isHost)
+                {
+                    DealDamageAsServer();
+                }
+                else
+                {
+                    RefereeScript.instance.playerList[0].DealDamageAsServer();
+                }
+                
             }
+            
             //Destroy(RefereeScript.instance.gameObject);
         }
     }
