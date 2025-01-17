@@ -137,6 +137,7 @@ public class PlayerScript : NetworkBehaviour
     public void DealDamageAsServer()
     {
         //Debug.Log("ABC");
-        Destroy(RefereeScript.instance.gameObject);
+        //Destroy(RefereeScript.instance.gameObject);
+        Destroy(RefereeScript.instance.targetEnemy.gameObject);
     }
 }
