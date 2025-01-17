@@ -60,6 +60,7 @@ public class PlayerScript : NetworkBehaviour
                 else
                 {
                     Debug.Log("else statement reached");
+                    TestCmd();
                     RefereeScript.instance.playerList[0].DealDamageAsServer();
                 }
                 
@@ -85,6 +86,14 @@ public class PlayerScript : NetworkBehaviour
         damageThisRound = 0;
         //   damageThisRound = 3;
     }
+
+    [Command(requiresAuthority = false)]
+
+    public void TestCmd()
+    {
+        RefereeScript.instance.playerList[0].DealDamageAsServer();
+    }
+
 
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
