@@ -110,52 +110,57 @@ public class FieldScript : MonoBehaviour
     private void FieldClear()
     {
         // Debug.Log("Field clear");
-      /*  foreach (GameObject activeCardMember in activeCardList)
+        foreach (GameObject activeCardMember in activeCardList)
         {
             activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
             Destroy(activeCardMember);
         }
         activeCardList.Clear();
-        activeCardSpawnPosition = spawnpoint.position; */
+        activeCardSpawnPosition = spawnpoint.position; 
     }
     public bool FieldHitCheck()
     {
         bool didWeHit;
-
-        if (actionCardReference != null)
+        if(playerScriptAccess.isThisPlayersTurn)
         {
-            didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
-            playerScriptAccess.shouldDealDamage = didWeHit;
-            // Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
-            if (didWeHit)
+            if (actionCardReference != null)
             {
-                playerScriptAccess.damageThisRound = damagePoints;
-                hitRateModifier = 0;
-                damagePoints = 0;
-                UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-                FieldClear();
-                return didWeHit;
+                didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
+                playerScriptAccess.shouldDealDamage = didWeHit;
+                // Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
+                if (didWeHit)
+                {
+                    Debug.Log("hit success");
+                    playerScriptAccess.damageThisRound = damagePoints;
+                    hitRateModifier = 0;
+                    damagePoints = 0;
+                    UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                    FieldClear();
+                    return didWeHit;
+                }
+                else
+                {
+                    Debug.Log("hit failed inside of field script");
+                    hitRateModifier = 0;
+                    damagePoints = 0;
+                    UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                    FieldClear();
+                    return false;
+                }
             }
             else
             {
-                Debug.Log("hit failed inside of field script");
+                Debug.Log("no reference found");
                 hitRateModifier = 0;
                 damagePoints = 0;
                 UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                //Debug.Log($"Action card after{ actionCardReference.gameObject.name }");
                 FieldClear();
                 return false;
             }
         }
-        else
-        {
-            Debug.Log("no reference found");
-            hitRateModifier = 0;
-            damagePoints = 0;
-            UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-            //Debug.Log($"Action card after{ actionCardReference.gameObject.name }");
-            FieldClear();
-            return false;
-        }
+        Debug.Log("not your turn!");
+        return false;
         
     }
 }

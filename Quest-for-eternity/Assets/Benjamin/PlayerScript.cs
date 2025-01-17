@@ -54,20 +54,21 @@ public class PlayerScript : NetworkBehaviour
 
         if (!isServer)
         {
-            CmdEndTurn();
+            
             if (fieldScriptAccess.FieldHitCheck())
-            {
-                
+            {    
                 CmdDealDamage();
             }
+            CmdEndTurn();
         }
         else if (isServer)
         {
-            RpcEndTurn();
+           
             if (fieldScriptAccess.FieldHitCheck())
             {
                 RpcDealDamage();
             }
+            RpcEndTurn();
         }
         damageThisRound = 0;
     }
