@@ -19,6 +19,8 @@ public class PlayerScript : NetworkBehaviour
 
     [SyncVar] public int damageThisRound = 0;
 
+    EnemyScript enemyReference;
+
     public void Start()
     {
         RefereeScript.instance.playerList.Add(this);
@@ -68,8 +70,9 @@ public class PlayerScript : NetworkBehaviour
          if (isThisPlayersTurn)
          {
              Test.instance.SubtractHealth();
-            //RefereeScript.instance.playerList[0].CallForClient(RefereeScript.instance.targetEnemy, damageThisRound);
-            RefereeScript.instance.playerList[0].DealDamageAsServer();
+            enemyReference = RefereeScript.instance.targetEnemy;
+            RefereeScript.instance.playerList[0].CallForClient();
+            //RefereeScript.instance.playerList[0].DealDamageAsServer();
              Debug.Log($"Total damage is : {damageThisRound}");
             
          }
@@ -102,21 +105,21 @@ public class PlayerScript : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void CallForClient(EnemyScript enemyReference, float inputDamage)
+    public void CallForClient()
     {
         Debug.Log("hahahahah");
         //Debug.Log(RefereeScript.instance.playerList[1].gameObject.name);
         //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
-        /*if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
+        if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
         {
             //RefereeScript.instance.playerList[1].
-            enemyReference.TakeDamageAndCheckIfDead((int)inputDamage);
+            enemyReference.TakeDamageAndCheckIfDead(3);
         }
         else
         {
             Debug.Log("hit failed inside of player script");
         }
-        */
+        
         //RefereeScript.instance.dealDamageToEnemy(damageThisRound);
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
