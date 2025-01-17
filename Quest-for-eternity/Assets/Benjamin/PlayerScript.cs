@@ -23,7 +23,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void Start()
     {
-        
+        Debug.Log("Referee ID:" + RefereeScript.instance.GetInstanceID());
         RefereeScript.instance.playerList.Add(this);
         //Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
         TurnScript.endTurnEvent += EndTurnPlayerScript;

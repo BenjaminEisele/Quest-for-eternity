@@ -17,7 +17,10 @@ public class EnemyScript : NetworkBehaviour
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
-    
+    private void Awake()
+    {
+        Debug.Log("Enemy ID:" + gameObject.GetInstanceID());
+    }
 
     public void EnemySetUp(int myID)
     {      
