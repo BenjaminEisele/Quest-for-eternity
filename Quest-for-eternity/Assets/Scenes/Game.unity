@@ -425,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 666113141002864249, guid: 1d2cd934503b5334bb4b912b64aa420f, type: 3}
   spawnPosition: {fileID: 1414642916}
+  refereeScriptAccess: {fileID: 0}
 --- !u!1 &345772141
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423fc57d9fb442d45b9efea3a1f741e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
+  syncDirection: 1
   syncMode: 0
   syncInterval: 0
   targetEnemy: {fileID: 213358575}
@@ -467,6 +468,8 @@ MonoBehaviour:
   card: []
   button: []
   mainCamera: []
+  playerList: []
+  enemyReference: {fileID: 0}
 --- !u!4 &345772143
 Transform:
   m_ObjectHideFlags: 0
