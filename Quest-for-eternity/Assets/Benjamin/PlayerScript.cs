@@ -72,6 +72,7 @@ public class PlayerScript : NetworkBehaviour
          if (isThisPlayersTurn)
          {
              Test.instance.SubtractHealth();
+            RefereeScript.instance.refereeHealth--;
             //RefereeScript.instance.enemyReference = RefereeScript.instance.targetEnemy;
             RefereeScript.instance.playerList[0].CallForClient();
             //RefereeScript.instance.playerList[0].DealDamageAsServer();

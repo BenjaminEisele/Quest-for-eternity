@@ -47,8 +47,12 @@ public class RefereeScript : NetworkBehaviour
 
     public static RefereeScript instance;
 
-    [SyncVar] public EnemyScript enemyReference;
+    [SyncVar] public int refereeHealth;
 
+    public void SubtractHealth()
+    {
+        refereeHealth -= 1;
+    }
     private void Awake()
     {
             if(instance == null) { instance = this; }
