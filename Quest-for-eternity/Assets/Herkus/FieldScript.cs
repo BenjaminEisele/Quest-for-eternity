@@ -135,6 +135,7 @@ public class FieldScript : MonoBehaviour
         }
         else
         {
+            Debug.Log("no reference found");
             hitRateModifier = 0;
             damagePoints = 0;
             UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
