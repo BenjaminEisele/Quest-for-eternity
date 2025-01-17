@@ -61,6 +61,7 @@ public class PlayerScript : NetworkBehaviour
                 {
                     Debug.Log("else statement reached");
                     TestCmd();
+                   
                     //RefereeScript.instance.playerList[0].DealDamageAsServer();
                 }
                 
@@ -104,7 +105,11 @@ public class PlayerScript : NetworkBehaviour
             //TestCmd();
 
             RefereeScript.instance.playerList[0].DealDamageAsServer();
-         }
+            if (fieldScriptAccess.FieldClearAndCheckIfHit())
+            {
+                Debug.Log("ABC");
+            }
+        }
         isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
          handScriptAccess.ActivateAllCardsEvent();
@@ -137,8 +142,7 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log("Game object is: ");
         //Debug.Log(RefereeScript.instance.playerList[1].gameObject.name);
         //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
-        //  if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
-        // {
+       
         //RefereeScript.instance.playerList[1].
         //RefereeScript.instance.enemyReference.TakeDamageAndCheckIfDead(3);
        // }
@@ -154,10 +158,11 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer()
     {
-        Debug.Log("ABC");
+        
         //Destroy(RefereeScript.instance.gameObject);
         // Destroy(RefereeScript.instance.targetEnemy.gameObject);
         //RefereeScript.instance.targetEnemy.enemyHealth--;
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(2);
+       
     }
 }
