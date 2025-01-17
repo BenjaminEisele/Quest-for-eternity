@@ -68,7 +68,8 @@ public class PlayerScript : NetworkBehaviour
          if (isThisPlayersTurn)
          {
              Test.instance.SubtractHealth();
-             RefereeScript.instance.playerList[0].CallForClient(RefereeScript.instance.targetEnemy, damageThisRound);
+            //RefereeScript.instance.playerList[0].CallForClient(RefereeScript.instance.targetEnemy, damageThisRound);
+            RefereeScript.instance.playerList[0].DealDamageAsServer();
              Debug.Log($"Total damage is : {damageThisRound}");
             
          }
@@ -123,6 +124,6 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer()
     {
-        
+        Debug.Log("ABC");
     }
 }
