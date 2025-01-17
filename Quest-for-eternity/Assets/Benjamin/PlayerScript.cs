@@ -46,7 +46,13 @@ public class PlayerScript : NetworkBehaviour
             }
         }
     }
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            DealDamageAsServer();
+        }
+    }
     public void EndTurnPlayerScript()
     {
         handScriptAccess.DisableAllCardsEvent();
@@ -130,6 +136,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer()
     {
-        Debug.Log("ABC");
+        //Debug.Log("ABC");
+        Destroy(RefereeScript.instance.gameObject);
     }
 }
