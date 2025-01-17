@@ -47,7 +47,7 @@ public class RefereeScript : NetworkBehaviour
 
     public static RefereeScript instance;
 
-    public EnemyScript enemyReference;
+    [SyncVar] public EnemyScript enemyReference;
 
     private void Awake()
     {
