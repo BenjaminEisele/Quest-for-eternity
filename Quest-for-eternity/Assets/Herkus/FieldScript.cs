@@ -27,7 +27,7 @@ public class FieldScript : MonoBehaviour
     [SerializeField] //kodel null refas pasidaro sita istrynus? alio??
     private List<GameObject> activeCardList;
 
-    ActiveCardScript actionCardReference;
+    public ActiveCardScript actionCardReference;
 
     [HideInInspector]
     public float hitRateModifier;
