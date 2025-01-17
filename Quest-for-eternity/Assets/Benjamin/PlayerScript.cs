@@ -68,8 +68,8 @@ public class PlayerScript : NetworkBehaviour
          if (isThisPlayersTurn)
          {
              Test.instance.SubtractHealth();
-             RefereeScript.instance.playerList[0].TestVoid();
-            Debug.Log($"Total damage is : {damageThisRound}");
+             RefereeScript.instance.playerList[0].CallForClient(RefereeScript.instance.targetEnemy, damageThisRound);
+             Debug.Log($"Total damage is : {damageThisRound}");
             
          }
         isThisPlayersTurn = !isThisPlayersTurn;
@@ -87,8 +87,11 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-            RefereeScript.instance.dealDamageToEnemy(damageThisRound);
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
+            
+
+            //RefereeScript.instance.dealDamageToEnemy(damageThisRound, RefereeScript.instance.targetEnemy);
+
             //RefereeScript.instance.playerList[1].GetComponent<FieldScript>().FieldClearAndDealDamage(true);
             Debug.Log($"Total damage is : {damageThisRound}");
         }
@@ -98,12 +101,25 @@ public class PlayerScript : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void TestVoid()
+    public void CallForClient(EnemyScript enemyReference, float inputDamage)
     {
         //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
-        RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndDealDamage(true);
+        if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
+        {
+            //RefereeScript.instance.playerList[1].
+            enemyReference.TakeDamageAndCheckIfDead((int)inputDamage);
+        }
+        else
+        {
+            Debug.Log("hit failed inside of player script");
+        }
         //RefereeScript.instance.dealDamageToEnemy(damageThisRound);
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
     }
 
+    [ClientRpc]
+    public void DealDamageAsServer()
+    {
+        
+    }
 }

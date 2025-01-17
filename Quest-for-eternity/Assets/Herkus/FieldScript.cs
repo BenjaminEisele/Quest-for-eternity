@@ -88,7 +88,7 @@ public class FieldScript : MonoBehaviour
             {
                 if (actionCardReference.DidActiveCardHit(hitRateModifier))
                 {
-                    RefereeScript.instance.dealDamageToEnemy(damagePoints);
+                    RefereeScript.instance.dealDamageToEnemy(damagePoints, RefereeScript.instance.targetEnemy);
                     playerScriptAccess.damageThisRound = damagePoints;
                 }
                 else
@@ -100,5 +100,46 @@ public class FieldScript : MonoBehaviour
         hitRateModifier = 0;
         damagePoints = 0;
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+    }
+    public bool FieldClearAndCheckIfHit()
+    {
+        Debug.Log("Field clear");
+        bool didWeHit;
+        foreach (GameObject activeCardMember in activeCardList)
+        {
+            activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
+            Destroy(activeCardMember);
+        }
+        activeCardList.Clear();
+        activeCardSpawnPosition = spawnpoint.position;
+        if (actionCardReference != null)
+        {
+            didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
+            if (didWeHit)
+            {
+                playerScriptAccess.damageThisRound = damagePoints;
+                hitRateModifier = 0;
+                damagePoints = 0;
+                UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                return didWeHit;
+            }
+            else
+            {
+                Debug.Log("hit failed inside of field script");
+                hitRateModifier = 0;
+                damagePoints = 0;
+                UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                return false;
+            }
+            
+        }
+        else
+        {
+            hitRateModifier = 0;
+            damagePoints = 0;
+            UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+            return false;
+        }
+        
     }
 }

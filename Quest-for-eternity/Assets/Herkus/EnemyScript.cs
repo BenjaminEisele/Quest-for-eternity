@@ -33,7 +33,7 @@ public class EnemyScript : NetworkBehaviour
         enemyHealth = savedEnemyHealth;
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }
-    public bool TakeDamageAndCheckIfDead(int inputDamage)
+    public void TakeDamageAndCheckIfDead(int inputDamage)
     {
         enemyHealth -= inputDamage;
         if(enemyHealth <= 0)
@@ -41,13 +41,13 @@ public class EnemyScript : NetworkBehaviour
             enemyHealth = 0;          
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
+            RefereeScript.instance.NewWaveCheck();
         }
         else
         {
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = true;
         }
-        return isEnemyAlive;
     }
     public void ChangeSelectedStatus(bool inputBool)
     {

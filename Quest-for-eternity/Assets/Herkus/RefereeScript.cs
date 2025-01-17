@@ -260,27 +260,29 @@ public class RefereeScript : NetworkBehaviour
             Debug.Log("zzoz");//ar galima sitoj vietoj padaryti kad visa logika eitu tik per turn script puse?
         }
     }
-    public void dealDamageToEnemy(int inputDamage)
+
+    public void NewWaveCheck()
     {
-        if (!targetEnemy.TakeDamageAndCheckIfDead(inputDamage))
+        areAllEnemiesDead = true;
+        foreach (EnemyScript enemy in enemyList)
         {
-            areAllEnemiesDead = true;
-            foreach (EnemyScript enemy in enemyList)
+            if (enemy.enemyHealth > 0)
             {
-                if(enemy.enemyHealth > 0)
-                {
-                    areAllEnemiesDead = false;
-                }
+                areAllEnemiesDead = false;
             }
-            if(areAllEnemiesDead)
-            {
-                // for debugging purposes the value is false. But later on it should be switched back to TRUE
-                //StartNextWave(false);
-                //chooseNewCardAccess.DisplayCards();
-                canTransferTurnToPlayer = false;
-                CallPreNewWaveEvent();
-            }
-        }    
+        }
+        if (areAllEnemiesDead)
+        {
+            // for debugging purposes the value is false. But later on it should be switched back to TRUE
+            //StartNextWave(false);
+            //chooseNewCardAccess.DisplayCards();
+            canTransferTurnToPlayer = false;
+            CallPreNewWaveEvent();
+        }
+    }
+    public void dealDamageToEnemy(int inputDamage, EnemyScript voidEnemyReference)
+    {
+        voidEnemyReference.TakeDamageAndCheckIfDead(inputDamage);
     }
 
     public void dealDamageToPlayer(int inputDamage)
