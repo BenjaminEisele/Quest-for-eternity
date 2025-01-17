@@ -47,128 +47,73 @@ public class PlayerScript : NetworkBehaviour
             }
         }
     }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            
-            if(isThisPlayersTurn)
-            {
-                if (isHost)
-                {
-                    DealDamageAsServer();
-                }
-                else
-                {
-                    Debug.Log("else statement reached");
-                    TestCmd();
-                   
-                    //RefereeScript.instance.playerList[0].DealDamageAsServer();
-                }
-                
-            }
-            
-            //Destroy(RefereeScript.instance.gameObject);
-        }
-    }
+
     public void EndTurnPlayerScript()
     {
         handScriptAccess.DisableAllCardsEvent();
-        Debug.Log("HELLO");
 
         if (!isServer)
         {
             CmdEndTurn();
             if (fieldScriptAccess.FieldHitCheck())
             {
-                Debug.Log("ABC");
+                CmdDealDamage();
             }
         }
-
         else if (isServer)
         {
             RpcEndTurn();
             if (fieldScriptAccess.FieldHitCheck())
             {
-                Debug.Log("ABC");
+                RpcDealDamage();
             }
         }
         damageThisRound = 0;
-        //   damageThisRound = 3;
     }
 
     [Command(requiresAuthority = false)]
-
-    public void TestCmd()
+    public void CmdDealDamage()
     {
-        RefereeScript.instance.playerList[0].DealDamageAsServer();
-    }
+        //RefereeScript.instance.playerList[0].DealDamageAsServer();
+        if (isThisPlayersTurn)
+        {
+            Test.instance.SubtractHealth();
+            RefereeScript.instance.playerList[0].DealDamageAsServer();
 
+        }
+    }
+    [ClientRpc]
+    public void RpcDealDamage()
+    {
+        if (isThisPlayersTurn)
+        {
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(2);
+        }
+           
+    }
 
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
-    {
-         if (isThisPlayersTurn)
-         {
-             Test.instance.SubtractHealth();
-            //TestCmd();
-
-            RefereeScript.instance.playerList[0].DealDamageAsServer();
-           
-         }
-        isThisPlayersTurn = !isThisPlayersTurn;
+    { 
+         isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
          handScriptAccess.ActivateAllCardsEvent();
-
-         
-        //RefereeScript.instance.playerList[0].RpcEndTurn();
 
     }
 
     [ClientRpc]
     public void RpcEndTurn()
     {
-        if (isThisPlayersTurn)
-        {
-            Test.instance.SubtractHealth();
-            //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-            DealDamageAsServer();
-
-            //RefereeScript.instance.playerList[1].GetComponent<FieldScript>().FieldClearAndDealDamage(true);
-            Debug.Log($"Total damage is : {damageThisRound}");
-        }
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
     }
 
-    [ClientRpc]
-    public void CallForClient()
-    {
-        Debug.Log("Game object is: ");
-        //Debug.Log(RefereeScript.instance.playerList[1].gameObject.name);
-        //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
-       
-        //RefereeScript.instance.playerList[1].
-        //RefereeScript.instance.enemyReference.TakeDamageAndCheckIfDead(3);
-       // }
-      //  else
-       // {
-      //      Debug.Log("hit failed inside of player script");
-       // }
-        
-        //RefereeScript.instance.dealDamageToEnemy(damageThisRound);
-        //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(damageThisRound);
-    }
+   
 
     [ClientRpc]
     public void DealDamageAsServer()
     {
-        
-        //Destroy(RefereeScript.instance.gameObject);
-        // Destroy(RefereeScript.instance.targetEnemy.gameObject);
-        //RefereeScript.instance.targetEnemy.enemyHealth--;
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(2);
-       
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(2);      
     }
 }
