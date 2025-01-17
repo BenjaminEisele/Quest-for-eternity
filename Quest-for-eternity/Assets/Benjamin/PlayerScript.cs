@@ -103,7 +103,8 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void CallForClient(EnemyScript enemyReference, float inputDamage)
     {
-        Debug.Log(RefereeScript.instance.playerList[1].gameObject.name);
+        Debug.Log("hahahahah");
+        //Debug.Log(RefereeScript.instance.playerList[1].gameObject.name);
         //RefereeScript.instance.playerList[1].transform.parent.GetComponentInChildren<FieldScript>().FieldClearAndDealDamage(true);
         /*if (RefereeScript.instance.playerList[1].fieldScriptAccess.FieldClearAndCheckIfHit())
         {
