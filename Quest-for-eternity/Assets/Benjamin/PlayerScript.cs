@@ -59,6 +59,7 @@ public class PlayerScript : NetworkBehaviour
                 }
                 else
                 {
+                    Debug.Log("else statement reached");
                     RefereeScript.instance.playerList[0].DealDamageAsServer();
                 }
                 
@@ -150,7 +151,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer()
     {
-        //Debug.Log("ABC");
+        Debug.Log("ABC");
         //Destroy(RefereeScript.instance.gameObject);
         // Destroy(RefereeScript.instance.targetEnemy.gameObject);
         RefereeScript.instance.targetEnemy.enemyHealth--;
