@@ -73,10 +73,8 @@ public class PlayerScript : NetworkBehaviour
          {
              Test.instance.SubtractHealth();
             RefereeScript.instance.enemyReference = RefereeScript.instance.targetEnemy;
-            Debug.Log("Hello my name is "+ gameObject.transform.root.name);
             RefereeScript.instance.playerList[0].CallForClient();
             //RefereeScript.instance.playerList[0].DealDamageAsServer();
-             Debug.Log($"Total damage is : {damageThisRound}");
             
          }
         isThisPlayersTurn = !isThisPlayersTurn;
