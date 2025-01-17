@@ -258,11 +258,7 @@ public class RefereeScript : NetworkBehaviour
         if(!isGameOver)
         {
             StartCoroutine(ForeachEnemyTurnCoroutine());
-            /* foreach (EnemyScript enemy in enemyList)
-             {
-                 StartCoroutine(EnemyTurnCoroutine(enemy));
-             } 
-             turnScriptAccess.ShouldStartPlayerTurn(true);*/
+
             Debug.Log("zzoz");//ar galima sitoj vietoj padaryti kad visa logika eitu tik per turn script puse?
         }
     }
@@ -279,9 +275,6 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-            // for debugging purposes the value is false. But later on it should be switched back to TRUE
-            //StartNextWave(false);
-            //chooseNewCardAccess.DisplayCards();
             canTransferTurnToPlayer = false;
             CallPreNewWaveEvent();
         }
@@ -299,7 +292,6 @@ public class RefereeScript : NetworkBehaviour
             TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
-        //playerAccess.playerHealth -= inputDamage;
     }
     
     private IEnumerator ForeachEnemyTurnCoroutine()
@@ -315,14 +307,9 @@ public class RefereeScript : NetworkBehaviour
                 yield return new WaitForSeconds(0.75f);
             }
         }
-        
-
         if(canTransferTurnToPlayer)
         {
             CallStartTurnEvent(); 
         }
-        
-       // Debug.Log("attack over");
-        //turnScriptAccess.ShouldStartPlayerTurn(true);
     }
 }

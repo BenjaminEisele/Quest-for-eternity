@@ -153,7 +153,7 @@ public class FieldScript : MonoBehaviour
             damagePoints = 0;
             UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
             //Debug.Log($"Action card after{ actionCardReference.gameObject.name }");
-            FieldClear();
+            //FieldClear();
             return false;
         }
         
