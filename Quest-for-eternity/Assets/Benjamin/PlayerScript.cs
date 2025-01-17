@@ -50,7 +50,8 @@ public class PlayerScript : NetworkBehaviour
     {
         if(Input.GetKeyDown(KeyCode.O))
         {
-            DealDamageAsServer();
+            //DealDamageAsServer();
+            Destroy(RefereeScript.instance.gameObject);
         }
     }
     public void EndTurnPlayerScript()
@@ -138,6 +139,7 @@ public class PlayerScript : NetworkBehaviour
     {
         //Debug.Log("ABC");
         //Destroy(RefereeScript.instance.gameObject);
-        Destroy(RefereeScript.instance.targetEnemy.gameObject);
+        // Destroy(RefereeScript.instance.targetEnemy.gameObject);
+        //RefereeScript.instance.targetEnemy.enemyHealth--;
     }
 }
