@@ -22,6 +22,8 @@ public class FieldScript : MonoBehaviour
     [SerializeField]
     public static int damagePoints = 0;
 
+    public int damagePointsLiquid = 0;
+
     private Vector3 activeCardSpawnPosition;
 
     [SerializeField] //kodel null refas pasidaro sita istrynus? alio??
@@ -121,7 +123,8 @@ public class FieldScript : MonoBehaviour
     public bool FieldHitCheck()
     {
         bool didWeHit;
-        if(playerScriptAccess.isThisPlayersTurn)
+        damagePointsLiquid = damagePoints;
+        if (playerScriptAccess.isThisPlayersTurn)
         {
             if (actionCardReference != null)
             {
