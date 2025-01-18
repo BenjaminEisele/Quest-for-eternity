@@ -95,8 +95,8 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void TestRpc()
     {
-       // RefereeScript.instance.playerList[1].damageThisRound = RefereeScript.instance.playerList[1].fieldScriptAccess.damagePointsLiquid;
-        RefereeScript.instance.playerList[1].damageThisRound = RefereeScript.instance.playerList[1].fieldScriptAccess.testInt;
+        RefereeScript.instance.playerList[1].damageThisRound = RefereeScript.instance.playerList[1].fieldScriptAccess.damagePointsLiquid;
+        //RefereeScript.instance.playerList[1].damageThisRound = RefereeScript.instance.playerList[1].fieldScriptAccess.testInt;
     }
 
     [Command(requiresAuthority = false)]
