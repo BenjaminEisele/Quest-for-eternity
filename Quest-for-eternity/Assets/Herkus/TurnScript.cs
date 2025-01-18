@@ -12,13 +12,11 @@ public class TurnScript : MonoBehaviour
     [HideInInspector]
     public bool isPlayersTurn;
 
-    [SerializeField]
-    RefereeScript refereeScriptAccess;
+    //[SerializeField]
+    //RefereeScript refereeScriptAccess;
 
     [SerializeField]
     DeckManager deckManagerAccess;
-
-    TurnManagerMultiplayer turnManagerAccess;
 
     public delegate void EndTurnAction();
     public static event EndTurnAction endTurnEvent;
@@ -26,28 +24,24 @@ public class TurnScript : MonoBehaviour
     public delegate void RestartGameAction();
     public static event RestartGameAction restartGameEvent;
 
-    bool isSinglePlayer;
+    public static TurnScript instance;
+
+    private void Awake()
+    {
+        if(instance == null) {  instance = this; }
+    }
+
+    //bool isSinglePlayer;
+
     private void Start()
     {
         PlayerScript myPlayerScript = GetComponentInChildren<PlayerScript>();
-        if(myPlayerScript != null)
-        {
-            playerScriptAccess = myPlayerScript;
-            isSinglePlayer = false;
-        }
-        else
-        {
-            isSinglePlayer = true;
-        }
-        
-        
-        endTurnEvent += TransferTurnToEnemy;
-        turnManagerAccess = TurnManagerMultiplayer.Instance;
         //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
-    }
-    
+        endTurnEvent += TransferTurnToEnemy;
+        
+    }   
 
     public bool GetPlayerTurnBool()
     {
@@ -61,15 +55,16 @@ public class TurnScript : MonoBehaviour
 
     public void ShouldStartPlayerTurn(bool playerTurnBool)
     {
-        if(!refereeScriptAccess.GetIsGameOver())
-        {
-            isPlayersTurn = playerTurnBool;
+        if(!RefereeScript.instance.GetIsGameOver())
+        {            
             if(playerTurnBool)
             {
+                
                 UiScript.UpdateTurnInfo(0);
             }
             else
             {
+                playerScriptAccess.EndTurnPlayerScript();
                 UiScript.UpdateTurnInfo(1);
             }
         }
@@ -78,12 +73,17 @@ public class TurnScript : MonoBehaviour
 
     public void TransferTurnToEnemy()
     {
-        if(isPlayersTurn)
+        if(playerScriptAccess.isThisPlayersTurn)
         {
-            UiScript.UpdateTurnInfo(1);
-            isPlayersTurn = false;
-            refereeScriptAccess.StartForeachEnemyCoroutine();
+            if (isPlayersTurn)
+            {
+
+                UiScript.UpdateTurnInfo(1);
+                isPlayersTurn = false;
+                RefereeScript.instance.StartForeachEnemyCoroutine();
+            }
         }
+        
     }
 
     public void RestartGame()
@@ -91,7 +91,7 @@ public class TurnScript : MonoBehaviour
         fieldScriptAccess.FieldClearAndDealDamage(false);
         deckManagerAccess.ResetAllCardLists();
         handScriptAccess.HandReset();
-        refereeScriptAccess.RefereeReset();
+        RefereeScript.instance.RefereeReset();
         isPlayersTurn = true;
     }
 
@@ -111,16 +111,11 @@ public class TurnScript : MonoBehaviour
 
     private void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(isSinglePlayer)
+            if (isPlayersTurn)
             {
-                if (isPlayersTurn)
-                {
-                    CallEndTurnEvent();
-                }
+                CallEndTurnEvent();
             }
             else
             {
@@ -152,15 +147,14 @@ public class TurnScript : MonoBehaviour
     }
     public void CallEndTurnEvent()
     {
-        if (endTurnEvent != null)
+       // Debug.Log("end turn event called");
+        if (playerScriptAccess.isThisPlayersTurn)
         {
-            endTurnEvent();
+            if (endTurnEvent != null)
+            {
+                //TransferTurnToEnemy();
+                endTurnEvent();
+            }
         }
-        uiScriptAccess.ChangeEndTurnButtonStatus(false);
     }
-    /*[Command]
-    public void CmdEndTurn()
-    {
-        TurnManagerMultiplayer.Instance.EndTurn();
-    }*/
 }

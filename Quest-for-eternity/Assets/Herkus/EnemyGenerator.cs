@@ -1,6 +1,7 @@
 using UnityEngine;
+using Mirror;
 
-public class EnemyGenerator : MonoBehaviour
+public class EnemyGenerator : NetworkBehaviour
 {
 
     [SerializeField]
@@ -9,21 +10,34 @@ public class EnemyGenerator : MonoBehaviour
     public Transform spawnerPos;
 
     public RefereeScript refereeScriptAccess;
-    private void Start()
+
+    public DatabaseMultiplayer databaseMultiplayerAccess;
+
+    [SyncVar]
+    private int myId;
+
+    public void RandomNumber()
     {
-        //GenerateEnemies(1);
+        if (isServer)
+        {
+            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+        }           
     }
 
     public void GenerateEnemies(int howManyEnemies)
     {
         Vector3 enemyPosition = spawnerPos.position;
         for (int i = 0; i < howManyEnemies; i++)
-        {
+        {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
             enemyClone.SetActive(true);
-            enemyClone.GetComponent<EnemyScript>().EnemySetUp();
+            enemyClone.GetComponent<EnemyScript>().EnemySetUp(myId);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
+<<<<<<< HEAD
             enemyPosition += new Vector3(4, 0, 0);
+=======
+            enemyPosition += new Vector3(4, 0, 0);                     
+>>>>>>> Multiplayer
         }
         refereeScriptAccess.ResetChosenEnemy();
     }

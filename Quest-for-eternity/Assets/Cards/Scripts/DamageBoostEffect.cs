@@ -9,6 +9,7 @@ public class DamageBoostEffect : EffectTemplate
         //Debug.Log("damage boost activated");
 
         FieldScript.damagePoints += (int)effectValue;
+        
         /*if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
            

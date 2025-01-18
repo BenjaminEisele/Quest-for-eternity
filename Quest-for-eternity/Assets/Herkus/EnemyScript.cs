@@ -1,55 +1,67 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-public class EnemyScript : MonoBehaviour
-{
-    //[Hide]
-    public int enemyHealth;
-    int savedEnemyHealth;
-    int myId;
-    public Database databaseAccess;
+using Mirror;
 
+public class EnemyScript : NetworkBehaviour
+{
+    [SyncVar]
+    public int enemyHealth;
+
+    [SyncVar]
     public bool isEnemyAlive;
+
+    public int personalId;
+
+    int savedEnemyHealth;     
     TextMeshPro enemyHealthText;
     public TextMeshPro enemyNameText;
     public GameObject myMarker;
+    public DatabaseMultiplayer databaseMultiplayerAccess;
 
-    public void EnemySetUp()
-    {
+
+    public void EnemySetUp(int myID)
+    {      
+        personalId = myID;
         isEnemyAlive = true;
-        myId = Random.Range(0, databaseAccess.enemyList.Count);
-        this.enemyHealth = databaseAccess.enemyList[myId].enemyHealth;
+        this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
         savedEnemyHealth = enemyHealth;
+<<<<<<< HEAD
         // Debug.Log($"I am a {databaseAccess.enemyList[myId].enemyName}");
 
 
         //Debug.Log(GetComponentInChildren<SpriteRenderer>().gameObject.name);
         GetComponentInChildren<SpriteRenderer>().sprite = databaseAccess.enemyList[myId].enemySprite;
+=======
+>>>>>>> Multiplayer
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         enemyNameText.text = databaseAccess.enemyList[myId].enemyName;
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
+
+        
+        //GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
+        enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;
+        
     }
     public void ResetEnemy()
     {
         enemyHealth = savedEnemyHealth;
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
     }
-    public bool TakeDamageAndCheckIfDead(int inputDamage)
+    public void TakeDamageAndCheckIfDead(int inputDamage)
     {
         enemyHealth -= inputDamage;
         if(enemyHealth <= 0)
         {
-            enemyHealth = 0;
-           // Debug.Log("enemy is dead");
+            enemyHealth = 0;          
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
+            RefereeScript.instance.NewWaveCheck();
         }
         else
         {
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = true;
         }
-        return isEnemyAlive;
     }
     public void ChangeSelectedStatus(bool inputBool)
     {
@@ -60,13 +72,11 @@ public class EnemyScript : MonoBehaviour
         int myDamage;
         if(isEnemyAlive)
         {
-            myDamage = databaseAccess.enemyList[myId].GenerateAttack();
-           // Debug.Log($"I dealt {myDamage} damage");
+            myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();          
         }
         else
         {
             myDamage = 0;
-            Debug.Log($"I can't attack because i am DEAD, my name is {databaseAccess.enemyList[myId].enemyName}");
         }
         
         return myDamage;
