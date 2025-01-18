@@ -53,7 +53,7 @@ public class PlayerScript : NetworkBehaviour
         {
             if(isThisPlayersTurn)
             {
-                TestRpc();
+                TestCmd();
                 Debug.Log($"player 0 has dealt {RefereeScript.instance.playerList[0].damageThisRound} point(s) of damage");
                 Debug.Log($"player 1 has dealt {RefereeScript.instance.playerList[1].damageThisRound} point(s) of damage");
             }
