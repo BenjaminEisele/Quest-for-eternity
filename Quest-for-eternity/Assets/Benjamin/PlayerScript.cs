@@ -47,6 +47,8 @@ public class PlayerScript : NetworkBehaviour
         }
     }
 
+    
+    
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.O))
@@ -68,9 +70,8 @@ public class PlayerScript : NetworkBehaviour
         {
             if (fieldScriptAccess.FieldHitCheck())
             {
-                
-
-                CmdDealDamage();
+                damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                CmdDealDamage(damageThisRound);
             }
             CmdEndTurn();
         }
@@ -100,13 +101,12 @@ public class PlayerScript : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
-    public void CmdDealDamage()
+    public void CmdDealDamage(int inputDamage)
     {
         if (isThisPlayersTurn)
         {
-            damageThisRound = fieldScriptAccess.damagePointsLiquid;
             Test.instance.SubtractHealth();
-            RefereeScript.instance.playerList[0].DealDamageAsServer();
+            RefereeScript.instance.playerList[0].DealDamageAsServer(inputDamage);
         }
     }
     [ClientRpc]
@@ -140,9 +140,10 @@ public class PlayerScript : NetworkBehaviour
    
 
     [ClientRpc]
-    public void DealDamageAsServer()
+    public void DealDamageAsServer(int inputDamage2)
     {
         Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);      
+        //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
     }
 }
