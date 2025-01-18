@@ -89,7 +89,7 @@ public class PlayerScript : NetworkBehaviour
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
-            Debug.Log($"We have dealt {damageThisRound} amount of damage");
+            Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
         }
            
@@ -116,7 +116,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer()
     {
-        Debug.Log($"We have dealt {damageThisRound} amount of damage");
+        Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);      
     }
 }
