@@ -43,6 +43,10 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
     }
 
+    public void AddToLiquidPoints(int inputInt)
+    {
+        damagePointsLiquid += inputInt;
+    }
     private void FieldClearEventTrue()
     {
         FieldClearAndDealDamage(true);
@@ -57,7 +61,7 @@ public class FieldScript : MonoBehaviour
 
         int gog = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
         damagePoints += gog;
-
+        damagePointsLiquid += gog;
         if(activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
             activeCardSpawnPosition += new Vector3(2, 0, 0);
@@ -134,7 +138,7 @@ public class FieldScript : MonoBehaviour
         
         if (playerScriptAccess.isThisPlayersTurn)
         {
-            damagePointsLiquid = damagePoints;
+            //damagePointsLiquid = damagePoints;
             FieldEffectActivation();
             if (actionCardReference != null)
             {
