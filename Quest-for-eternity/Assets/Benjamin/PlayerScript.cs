@@ -48,20 +48,7 @@ public class PlayerScript : NetworkBehaviour
     }
 
     
-    
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            if(isThisPlayersTurn)
-            {
-                TestCmd();
-                Debug.Log($"player 0 has dealt {RefereeScript.instance.playerList[0].damageThisRound} point(s) of damage");
-                Debug.Log($"player 1 has dealt {RefereeScript.instance.playerList[1].damageThisRound} point(s) of damage");
-            }
-            
-        }
-    }
+   
     public void EndTurnPlayerScript()
     {
         handScriptAccess.DisableAllCardsEvent();
@@ -72,6 +59,7 @@ public class PlayerScript : NetworkBehaviour
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 CmdDealDamage(damageThisRound);
+                damageThisRound = 0;
             }
             CmdEndTurn();
         }
@@ -87,17 +75,6 @@ public class PlayerScript : NetworkBehaviour
             Invoke("RpcEndTurn", 0.07f);
             //RpcEndTurn();
         }
-    }
-    [Command(requiresAuthority = false)]
-    public void TestCmd()
-    {
-        TestRpc();
-    }
-    [ClientRpc]
-    public void TestRpc()
-    {
-        RefereeScript.instance.playerList[1].damageThisRound = RefereeScript.instance.playerList[1].fieldScriptAccess.damagePointsLiquid;
-        //RefereeScript.instance.playerList[1].damageThisRound = RefereeScript.instance.playerList[1].fieldScriptAccess.testInt;
     }
 
     [Command(requiresAuthority = false)]
@@ -145,5 +122,6 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
+        
     }
 }
