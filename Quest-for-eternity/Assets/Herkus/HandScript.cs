@@ -25,9 +25,6 @@ public class HandScript : MonoBehaviour
     [SerializeField]
     DeckManager deckManagerAccess;
 
-    [SerializeField]
-    PlayerScript playerScriptAccess;
-
     [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
     private List<CardScript> cardList;
 

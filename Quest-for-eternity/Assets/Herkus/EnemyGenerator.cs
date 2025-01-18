@@ -11,7 +11,7 @@ public class EnemyGenerator : NetworkBehaviour
 
     public RefereeScript refereeScriptAccess;
 
-    public DatabaseMultiplayer databaseMultiplayerAccess;
+    //public DatabaseMultiplayer databaseMultiplayerAccess;
 
     [SyncVar]
     private int myId;
@@ -20,7 +20,7 @@ public class EnemyGenerator : NetworkBehaviour
     {
         if (isServer)
         {
-            myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
         }           
     }
 
@@ -33,11 +33,7 @@ public class EnemyGenerator : NetworkBehaviour
             enemyClone.SetActive(true);
             enemyClone.GetComponent<EnemyScript>().EnemySetUp(myId);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
-<<<<<<< HEAD
-            enemyPosition += new Vector3(4, 0, 0);
-=======
-            enemyPosition += new Vector3(4, 0, 0);                     
->>>>>>> Multiplayer
+            enemyPosition += new Vector3(4, 0, 0);                  
         }
         refereeScriptAccess.ResetChosenEnemy();
     }
