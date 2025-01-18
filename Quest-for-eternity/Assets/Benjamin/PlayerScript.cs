@@ -59,7 +59,7 @@ public class PlayerScript : NetworkBehaviour
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 CmdDealDamage(damageThisRound);
-                damageThisRound = 0;
+               
             }
             CmdEndTurn();
         }
@@ -102,8 +102,9 @@ public class PlayerScript : NetworkBehaviour
 
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
-    { 
-         isThisPlayersTurn = !isThisPlayersTurn;
+    {
+        damageThisRound = 0;
+        isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
          handScriptAccess.ActivateAllCardsEvent();
     }
