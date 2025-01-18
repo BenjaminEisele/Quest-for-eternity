@@ -22,6 +22,9 @@ public class HandScript : MonoBehaviour
     [SerializeField]
     DeckManager deckManagerAccess;
 
+    [SerializeField]
+    PlayerScript playerScriptAccess;
+
     [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
     private List<CardScript> cardList;
 
@@ -68,7 +71,7 @@ public class HandScript : MonoBehaviour
 
     public void PlayCard()
     {
-        if (canInteract && turnScriptAccess.GetPlayerTurnBool())
+        if (canInteract && playerScriptAccess.isThisPlayersTurn)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -190,10 +193,13 @@ public class HandScript : MonoBehaviour
     }
     private void ActivateAllCardsEvent()
     {
-        utilityCount = 0;
-        canPlayUtility = true;
-        //Debug.Log("yo mama");
-        SetCardActivityStatus(true, 2);
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            utilityCount = 0;
+            canPlayUtility = true;
+            //Debug.Log("yo mama");
+            SetCardActivityStatus(true, 2);
+        }  
     }
     private void AddCardsEvent()
     {
@@ -467,7 +473,11 @@ public class HandScript : MonoBehaviour
 
     public void DrawQueuedCards()
     {
-        SetCardActivityStatus(true, 2);
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            SetCardActivityStatus(true, 2);
+        }
+        
         if (cardDebt > 0)
         {
             //Debug.Log("reached this!");
