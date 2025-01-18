@@ -59,7 +59,7 @@ public class PlayerScript : NetworkBehaviour
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 CmdDealDamage(damageThisRound);
-                damageThisRound = 0;
+               
             }
             CmdEndTurn();
         }
@@ -75,6 +75,7 @@ public class PlayerScript : NetworkBehaviour
             Invoke("RpcEndTurn", 0.07f);
             //RpcEndTurn();
         }
+        damageThisRound = 0;
     }
 
     [Command(requiresAuthority = false)]
