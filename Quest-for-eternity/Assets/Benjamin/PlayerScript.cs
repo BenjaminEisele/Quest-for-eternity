@@ -20,7 +20,8 @@ public class PlayerScript : NetworkBehaviour
 
     //[SyncVar] public int damageThisRound = 0;
 
-    
+    [SyncVar] public int damageThisRound;
+
 
     public void Start()
     {
@@ -57,7 +58,7 @@ public class PlayerScript : NetworkBehaviour
            
             if (fieldScriptAccess.FieldHitCheck())
             {
-                RefereeScript.instance.damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 CmdDealDamage();
             }
             CmdEndTurn();
@@ -67,7 +68,7 @@ public class PlayerScript : NetworkBehaviour
            
             if (fieldScriptAccess.FieldHitCheck())
             {
-                RefereeScript.instance.damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 RpcDealDamage();
             }
             RpcEndTurn();
@@ -90,10 +91,9 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isThisPlayersTurn)
         {
-
             Test.instance.SubtractHealth();
-            Debug.Log($"We have deal {RefereeScript.instance.damageThisRound} amount of damage");
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.damageThisRound);
+            Debug.Log($"We have dealt {damageThisRound} amount of damage");
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
         }
            
     }
@@ -121,7 +121,7 @@ public class PlayerScript : NetworkBehaviour
     public void DealDamageAsServer()
     {
         
-        Debug.Log($"We have deal {RefereeScript.instance.damageThisRound} amount of damage");
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.damageThisRound);      
+        Debug.Log($"We have dealt {damageThisRound} amount of damage");
+        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);      
     }
 }

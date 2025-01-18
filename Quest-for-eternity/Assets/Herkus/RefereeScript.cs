@@ -47,7 +47,6 @@ public class RefereeScript : NetworkBehaviour
 
     public static RefereeScript instance;
 
-    [SyncVar] public int damageThisRound;
 
 
     private void Awake()
