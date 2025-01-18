@@ -26,6 +26,7 @@ public class RefereeScript : NetworkBehaviour
     public GameObject winImage;
 
     public int chosenEnemyId;
+    int waveCount = 0;
 
     //[SerializeField]
     //ChooseNewCardScript chooseNewCardAccess;
@@ -209,10 +210,18 @@ public class RefereeScript : NetworkBehaviour
     }
     public void CallPreNewWaveEvent()
     {
-        if (preNewWaveEvent != null)
+        if (waveCount < 2)
         {
-            preNewWaveEvent();
+            if (preNewWaveEvent != null)
+            {
+                preNewWaveEvent();
+                waveCount++;
+            }
         }
+        else
+        {
+            EndGame(true);
+        }       
     }
     public void CallNewWaveEvent()
     {
@@ -275,10 +284,7 @@ public class RefereeScript : NetworkBehaviour
             CallPreNewWaveEvent();
         }
     }
-    public void dealDamageToEnemy(int inputDamage, EnemyScript voidEnemyReference)
-    {
-        voidEnemyReference.TakeDamageAndCheckIfDead(inputDamage);
-    }
+
 
     public void dealDamageToPlayer(int inputDamage)
     {

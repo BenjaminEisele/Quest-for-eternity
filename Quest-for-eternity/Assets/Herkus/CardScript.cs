@@ -48,7 +48,7 @@ public class CardScript : MonoBehaviour
         isClickable = true;
         myCardId = myId;
 
-        myCardColor = databasePlayerAccess.cardList[myCardId].cardColor;
+        //myCardColor = databasePlayerAccess.cardList[myCardId].cardColor;
         myCardName = databasePlayerAccess.cardList[myCardId].cardName;
 
 
@@ -76,7 +76,7 @@ public class CardScript : MonoBehaviour
 
         
 
-        GetComponentInChildren<SpriteRenderer>().color = myCardColor;
+        //GetComponentInChildren<SpriteRenderer>().color = myCardColor;
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
 
 
@@ -96,6 +96,8 @@ public class CardScript : MonoBehaviour
         {
             cardTextArray[4].gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
+
+        transform.name = myCardName;
     }
 
     public void RestroreOriginalHitrate()

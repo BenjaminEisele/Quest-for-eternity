@@ -117,7 +117,7 @@ public class ActiveCardScript : MonoBehaviour
             }
         }
 
-        GetComponentInChildren<SpriteRenderer>().color = databasePlayerAccess.cardList[activeCardId].cardColor;
+        //GetComponentInChildren<SpriteRenderer>().color = databasePlayerAccess.cardList[activeCardId].cardColor;
         activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;
         activeCardName = databasePlayerAccess.cardList[activeCardId].cardName;
 

@@ -14,6 +14,7 @@ public class EnemyScript : NetworkBehaviour
 
     int savedEnemyHealth;     
     TextMeshPro enemyHealthText;
+    public TextMeshPro enemyNameText;
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
@@ -26,6 +27,11 @@ public class EnemyScript : NetworkBehaviour
         savedEnemyHealth = enemyHealth;
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
+
+        
+        //GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
+        enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;
+        
     }
     public void ResetEnemy()
     {
