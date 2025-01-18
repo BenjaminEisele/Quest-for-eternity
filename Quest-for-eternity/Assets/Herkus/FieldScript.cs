@@ -45,10 +45,6 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
     }
 
-    public void AddToLiquidPoints(int inputInt)
-    {
-        damagePointsLiquid += inputInt;
-    }
     private void FieldClearEventTrue()
     {
         FieldClearAndDealDamage(true);
@@ -140,7 +136,7 @@ public class FieldScript : MonoBehaviour
         
         if (playerScriptAccess.isThisPlayersTurn)
         {
-            //damagePointsLiquid = damagePoints;
+            damagePointsLiquid = damagePoints;
             FieldEffectActivation();
             if (actionCardReference != null)
             {
