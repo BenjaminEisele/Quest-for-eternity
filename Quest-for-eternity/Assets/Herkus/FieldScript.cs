@@ -144,7 +144,7 @@ public class FieldScript : MonoBehaviour
                 if (didWeHit)
                 {
                     Debug.Log("hit success");
-                    playerScriptAccess.damageThisRound = damagePoints;
+                   // playerScriptAccess.damageThisRound = damagePoints;
                     hitRateModifier = 0;
                     damagePoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);

@@ -56,7 +56,6 @@ public class PlayerScript : NetworkBehaviour
            
             if (fieldScriptAccess.FieldHitCheck())
             {
-                damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 CmdDealDamage();
             }
             CmdEndTurn();
@@ -78,9 +77,9 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isThisPlayersTurn)
         {
+            damageThisRound = fieldScriptAccess.damagePointsLiquid;
             Test.instance.SubtractHealth();
             RefereeScript.instance.playerList[0].DealDamageAsServer();
-
         }
     }
     [ClientRpc]
