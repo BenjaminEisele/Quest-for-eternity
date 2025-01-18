@@ -76,9 +76,11 @@ public class PlayerScript : NetworkBehaviour
             if (fieldScriptAccess.FieldHitCheck())
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                RpcDealDamage();
+                Invoke("RpcDealDamage", 0.1f);
+                //RpcDealDamage();
             }
-            RpcEndTurn();
+            Invoke("RpcEndTurn", 0.11f);
+            //RpcEndTurn();
         }
     }
 
