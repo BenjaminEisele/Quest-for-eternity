@@ -34,6 +34,8 @@ public class FieldScript : MonoBehaviour
     [HideInInspector]
     public float hitRateModifier;
 
+    public int testInt = 6;
+
     private void Start()
     {
         playerScriptAccess.shouldDealDamage = false;

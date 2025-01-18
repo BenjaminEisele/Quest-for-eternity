@@ -51,8 +51,13 @@ public class PlayerScript : NetworkBehaviour
     {
         if(Input.GetKeyDown(KeyCode.O))
         {
-            Debug.Log($"player 0 has dealt {RefereeScript.instance.playerList[0].damageThisRound} point(s) of damage");
-            Debug.Log($"player 1 has dealt {RefereeScript.instance.playerList[1].damageThisRound} point(s) of damage");
+            if(isThisPlayersTurn)
+            {
+                TestRpc();
+                Debug.Log($"player 0 has dealt {RefereeScript.instance.playerList[0].damageThisRound} point(s) of damage");
+                Debug.Log($"player 1 has dealt {RefereeScript.instance.playerList[1].damageThisRound} point(s) of damage");
+            }
+            
         }
     }
     public void EndTurnPlayerScript()
@@ -61,7 +66,6 @@ public class PlayerScript : NetworkBehaviour
 
         if (!isServer)
         {
-           
             if (fieldScriptAccess.FieldHitCheck())
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
@@ -76,12 +80,23 @@ public class PlayerScript : NetworkBehaviour
             if (fieldScriptAccess.FieldHitCheck())
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                Invoke("RpcDealDamage", 0.1f);
+                Invoke("RpcDealDamage", 0.05f);
                 //RpcDealDamage();
             }
-            Invoke("RpcEndTurn", 0.11f);
+            Invoke("RpcEndTurn", 0.07f);
             //RpcEndTurn();
         }
+    }
+    [Command(requiresAuthority = false)]
+    public void TestCmd()
+    {
+        TestRpc();
+    }
+    [ClientRpc]
+    public void TestRpc()
+    {
+       // RefereeScript.instance.playerList[1].damageThisRound = RefereeScript.instance.playerList[1].fieldScriptAccess.damagePointsLiquid;
+        RefereeScript.instance.playerList[1].damageThisRound = RefereeScript.instance.playerList[1].fieldScriptAccess.testInt;
     }
 
     [Command(requiresAuthority = false)]
