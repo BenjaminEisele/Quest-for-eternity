@@ -6,10 +6,17 @@ public class ChooseNewCardScript : MonoBehaviour
 {
     public GameObject displayCardReferenceGameobject;
     public Transform displayCardLocator;
-    public Database databaseAccess;
+    public DatabasePlayer databasePlayerAccess;
     public List<GameObject> displayCardList;
-    [SerializeField]
-    RefereeScript refereeScriptAccess;
+    //[SerializeField]
+    //RefereeScript refereeScriptAccess;
+
+    public static ChooseNewCardScript instance;
+
+    private void Awake()
+    {
+        if (instance == null) { instance = this; }
+    }
 
     private void Start()
     {
@@ -25,10 +32,16 @@ public class ChooseNewCardScript : MonoBehaviour
             Debug.Log(displayCardObject.name);
         }
         displayCardList.Clear();
-        databaseAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
+        databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
         //refereeScriptAccess.canTransferTurnToPlayer = true;
+<<<<<<< HEAD
         refereeScriptAccess.CallStartTurnEvent();
         refereeScriptAccess.StartNextWave(false);
+=======
+        RefereeScript.instance.CallStartTurnEvent();
+        RefereeScript.instance.StartNextWave(false);
+
+>>>>>>> Multiplayer
     }
 
     
@@ -38,7 +51,7 @@ public class ChooseNewCardScript : MonoBehaviour
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < 3; i++)
         {
-            int inputId = Random.Range(0, databaseAccess.cardList.Count);
+            int inputId = Random.Range(0, databasePlayerAccess.cardList.Count);
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);
             displayCard.GetComponent<DisplayCardScript>().DisplayCardSetup(inputId);
             newDisplayCardLocation += new Vector3(2.5f, 0, 0);

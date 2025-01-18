@@ -5,13 +5,13 @@ using UnityEngine;
 public class DrawCardsEffect : EffectTemplate
 {
     public override void UseEffect<T>(int targetId, float effectValue, T value)
-    {
-        Debug.Log("card drawn");
+    {       
         GameObject inputGameobject = value as GameObject;
 
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.AddCardsToHand((int)effectValue);
+            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.ActivateAllCardsEvent();
         }
     }
 }

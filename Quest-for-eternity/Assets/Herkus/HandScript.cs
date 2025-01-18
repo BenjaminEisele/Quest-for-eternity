@@ -20,7 +20,13 @@ public class HandScript : MonoBehaviour
     TurnScript turnScriptAccess;
 
     [SerializeField]
+    PlayerScript playerScriptAccess;
+
+    [SerializeField]
     DeckManager deckManagerAccess;
+
+    [SerializeField]
+    PlayerScript playerScriptAccess;
 
     [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
     private List<CardScript> cardList;
@@ -51,10 +57,15 @@ public class HandScript : MonoBehaviour
         RefereeScript.turnStartEvent += ActivateAllCardsEvent;
         RefereeScript.newWaveEvent += HandReset;
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
+<<<<<<< HEAD
         TurnScript.endTurnEvent += AddCardsEvent;
         TurnScript.endTurnEvent += RebuildCardListLite;
         TurnScript.restartGameEvent += HandReset;
         TurnScript.restartGameEvent += RebuildCardListLite;
+=======
+        TurnScript.restartGameEvent += HandReset;
+        TurnScript.endTurnEvent += AddCardsEvent; 
+>>>>>>> Multiplayer
         isInQuickAttackMode = false;
         cardCount = 0;
         cardDebt = 0;
@@ -68,7 +79,12 @@ public class HandScript : MonoBehaviour
 
     public void PlayCard()
     {
-        if (canInteract && turnScriptAccess.GetPlayerTurnBool())
+<<<<<<< HEAD
+        if (canInteract && playerScriptAccess.isThisPlayersTurn)
+=======
+        
+        if(canInteract && playerScriptAccess.isThisPlayersTurn)
+>>>>>>> Multiplayer
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -123,6 +139,7 @@ public class HandScript : MonoBehaviour
             }
         }
     }
+<<<<<<< HEAD
     private void RebuildCardListLite()
     {
         int interval = 90 / (cardCount + 1);
@@ -185,20 +202,33 @@ public class HandScript : MonoBehaviour
     }
 
     private void DisableAllCardsEvent()
+=======
+    public void DisableAllCardsEvent()
+>>>>>>> Multiplayer
     {
         SetCardActivityStatus(false, 2);
     }
-    private void ActivateAllCardsEvent()
+    public void ActivateAllCardsEvent()
     {
-        utilityCount = 0;
-        canPlayUtility = true;
-        //Debug.Log("yo mama");
-        SetCardActivityStatus(true, 2);
+<<<<<<< HEAD
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            utilityCount = 0;
+            canPlayUtility = true;
+            //Debug.Log("yo mama");
+            SetCardActivityStatus(true, 2);
+        }   
+=======
+        Debug.Log("yo mama");
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            SetCardActivityStatus(true, 2);
+        }
+>>>>>>> Multiplayer
     }
     private void AddCardsEvent()
     {
         AddCardsToHand(0);
-        
     }
     public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
@@ -326,7 +356,6 @@ public class HandScript : MonoBehaviour
 
     public void AddCardsToHand(int refillCount)
     {
-
         //Refill count should be 0 if we want to fill the hand until it has 5 cards 
         int refillCycleCount;
         bool isFullRefill;
@@ -462,12 +491,28 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponentInChildren<CardScript>();
         }
+<<<<<<< HEAD
         cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);       
+=======
+
+        cardClone.GetComponent<CardScript>().SetCardActiveStatus(false);       
+>>>>>>> Multiplayer
     }
 
     public void DrawQueuedCards()
     {
-        SetCardActivityStatus(true, 2);
+<<<<<<< HEAD
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            SetCardActivityStatus(true, 2);
+        }        
+=======
+        if (playerScriptAccess.isThisPlayersTurn) 
+        {
+            SetCardActivityStatus(true, 2);
+        }
+
+>>>>>>> Multiplayer
         if (cardDebt > 0)
         {
             //Debug.Log("reached this!");
@@ -481,7 +526,7 @@ public class HandScript : MonoBehaviour
                 }
                 else
                 {
-                  //  cardCount--;
+                  //  cardCount--; 
                     GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
                     if(cardCount >= cardLimit)
                     {
