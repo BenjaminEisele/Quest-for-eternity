@@ -63,7 +63,7 @@ public class FieldScript : MonoBehaviour
 
         int gog = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
         damagePoints += gog;
-        damagePointsLiquid += gog;
+        //damagePointsLiquid += gog;
         if(activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
             activeCardSpawnPosition += new Vector3(2, 0, 0);
