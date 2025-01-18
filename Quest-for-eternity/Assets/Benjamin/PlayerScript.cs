@@ -25,9 +25,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void Start()
     {
-        Debug.Log("Referee ID:" + RefereeScript.instance.GetInstanceID());
         RefereeScript.instance.playerList.Add(this);
-        //Debug.Log(RefereeScript.instance.targetEnemy.gameObject.GetInstanceID());
         TurnScript.endTurnEvent += EndTurnPlayerScript;
 
         if (isOwned)
@@ -78,7 +76,6 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdDealDamage()
     {
-        //RefereeScript.instance.playerList[0].DealDamageAsServer();
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
@@ -104,7 +101,6 @@ public class PlayerScript : NetworkBehaviour
          isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
          handScriptAccess.ActivateAllCardsEvent();
-
     }
 
     [ClientRpc]
@@ -120,7 +116,6 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer()
     {
-        
         Debug.Log($"We have dealt {damageThisRound} amount of damage");
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);      
     }

@@ -109,12 +109,20 @@ public class FieldScript : MonoBehaviour
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true); */
     }
 
-    private void FieldClear()
+    private void FieldEffectActivation()
     {
-        // Debug.Log("Field clear");
         foreach (GameObject activeCardMember in activeCardList)
         {
             activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
+        }
+    }
+
+
+    private void FieldClear()
+    {
+        foreach (GameObject activeCardMember in activeCardList)
+        {
+            //activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
             Destroy(activeCardMember);
         }
         activeCardList.Clear();
@@ -123,9 +131,11 @@ public class FieldScript : MonoBehaviour
     public bool FieldHitCheck()
     {
         bool didWeHit;
-        damagePointsLiquid = damagePoints;
+        
         if (playerScriptAccess.isThisPlayersTurn)
         {
+            damagePointsLiquid = damagePoints;
+            FieldEffectActivation();
             if (actionCardReference != null)
             {
                 didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
