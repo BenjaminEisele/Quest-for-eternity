@@ -2765,7 +2765,9 @@ MonoBehaviour:
   baseActiveCard: {fileID: 6070740170089956258}
   uiScriptAccess: {fileID: 4474685207841023662}
   playerScriptAccess: {fileID: 4973786725427984824}
+  damagePointsLiquid: 0
   activeCardList: []
+  actionCardReference: {fileID: 0}
   hitRateModifier: 0
 --- !u!1 &5313769794786005383
 GameObject:
@@ -2927,6 +2929,7 @@ MonoBehaviour:
   EndTurnButton: {fileID: 19784037207635476}
   enemyScriptAccess: {fileID: 0}
   fieldScriptAccess: {fileID: 7435887801007149820}
+  shouldDealDamage: 0
   isHost: 0
   isThisPlayersTurn: 0
   damageThisRound: 0

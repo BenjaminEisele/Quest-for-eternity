@@ -47,6 +47,14 @@ public class PlayerScript : NetworkBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            Debug.Log($"player 0 has dealt {RefereeScript.instance.playerList[0].damageThisRound} point(s) of damage");
+            Debug.Log($"player 1 has dealt {RefereeScript.instance.playerList[1].damageThisRound} point(s) of damage");
+        }
+    }
     public void EndTurnPlayerScript()
     {
         handScriptAccess.DisableAllCardsEvent();
@@ -56,6 +64,8 @@ public class PlayerScript : NetworkBehaviour
            
             if (fieldScriptAccess.FieldHitCheck())
             {
+                damageThisRound = fieldScriptAccess.damagePointsLiquid;
+
                 CmdDealDamage();
             }
             CmdEndTurn();
@@ -77,7 +87,6 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isThisPlayersTurn)
         {
-            damageThisRound = fieldScriptAccess.damagePointsLiquid;
             Test.instance.SubtractHealth();
             RefereeScript.instance.playerList[0].DealDamageAsServer();
         }
