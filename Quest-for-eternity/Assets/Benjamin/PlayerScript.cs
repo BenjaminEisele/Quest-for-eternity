@@ -61,6 +61,7 @@ public class PlayerScript : NetworkBehaviour
                 CmdDealDamage(damageThisRound);
                
             }
+            
             CmdEndTurn();
         }
         else if (isServer)
@@ -69,13 +70,13 @@ public class PlayerScript : NetworkBehaviour
             if (fieldScriptAccess.FieldHitCheck())
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                Invoke("RpcDealDamage", 0.05f);
-                //RpcDealDamage();
+                //Invoke("RpcDealDamage", 0.05f);
+                RpcDealDamage(damageThisRound);
             }
-            Invoke("RpcEndTurn", 0.07f);
-            //RpcEndTurn();
+            //Invoke("RpcEndTurn", 0.07f);
+            RpcEndTurn();
         }
-        
+        damageThisRound = 0;
     }
 
     [Command(requiresAuthority = false)]
@@ -88,14 +89,17 @@ public class PlayerScript : NetworkBehaviour
         }
     }
     [ClientRpc]
-    public void RpcDealDamage()
+    public void RpcDealDamage(int inputDamage)
     {
         if (isThisPlayersTurn)
         {
             Test.instance.SubtractHealth();
             Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
+            //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
+            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
             
+
+
         }
            
     }
@@ -103,7 +107,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        damageThisRound = 0;
+        
         isThisPlayersTurn = !isThisPlayersTurn;
          this.EndTurnButton.interactable = isThisPlayersTurn;
          handScriptAccess.ActivateAllCardsEvent();
