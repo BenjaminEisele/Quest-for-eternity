@@ -59,7 +59,7 @@ public class PlayerScript : NetworkBehaviour
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 CmdDealDamage(damageThisRound);
-               
+                damageThisRound = 0;
             }
             CmdEndTurn();
         }
@@ -75,7 +75,7 @@ public class PlayerScript : NetworkBehaviour
             Invoke("RpcEndTurn", 0.07f);
             //RpcEndTurn();
         }
-        damageThisRound = 0;
+        
     }
 
     [Command(requiresAuthority = false)]
@@ -95,6 +95,7 @@ public class PlayerScript : NetworkBehaviour
             Test.instance.SubtractHealth();
             Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
+            damageThisRound = 0;
         }
            
     }
