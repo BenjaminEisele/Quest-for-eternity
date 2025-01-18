@@ -95,7 +95,7 @@ public class PlayerScript : NetworkBehaviour
             Test.instance.SubtractHealth();
             Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
-            damageThisRound = 0;
+            
         }
            
     }
@@ -111,6 +111,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurn()
     {
+        damageThisRound = 0;
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
