@@ -14,10 +14,6 @@ public class ChooseNewCardScript : MonoBehaviour
 
     private void Awake()
     {
-        for(int i = 0; i < 5; i++)
-        {
-            Debug.Log($"Random number is: {Random.Range(0,10)}");
-        }
         if (instance == null) { instance = this; }
     }
 

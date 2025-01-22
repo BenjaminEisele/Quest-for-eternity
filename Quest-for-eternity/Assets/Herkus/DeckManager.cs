@@ -83,6 +83,8 @@ public class DeckManager : MonoBehaviour
                 {
                     switchableA = Random.Range(0, lenght);
                     switchableB = Random.Range(0, lenght);
+                    Debug.Log(switchableA);
+                    Debug.Log(switchableB);
                 }
 
                 temp = inputList[switchableA];
