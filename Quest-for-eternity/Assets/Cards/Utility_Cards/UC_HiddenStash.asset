@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Hidden Stash
   effectValue: 0
   cardColor: {r: 0.26274505, g: 0.75700086, b: 0.9490196, a: 1}
-  cardSprite: {fileID: -3406280044133940646, guid: a82b7f89fd43b114bb0a6e6e8f06005f, type: 3}
+  cardSprite: {fileID: -4370300735306341811, guid: 554eb13b187082b4ea94fb80d4bd29e0, type: 3}
   cardDescription: Draw 2 cards
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: d3b292b7632f1a940a3a4bf3c4f551a2, type: 2}

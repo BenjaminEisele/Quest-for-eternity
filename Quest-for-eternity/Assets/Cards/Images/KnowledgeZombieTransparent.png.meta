@@ -1,0 +1,617 @@
+fileFormatVersion: 2
+guid: 58ff4ca0d74ec0b41ad518b2b2773ba9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5666843842003452390
+    second: KnowledgeZombieTransparent_0
+  - first:
+      213: -7875410170200168745
+    second: KnowledgeZombieTransparent_1
+  - first:
+      213: -5962428406195211302
+    second: KnowledgeZombieTransparent_2
+  - first:
+      213: -6626165531583497529
+    second: KnowledgeZombieTransparent_3
+  - first:
+      213: 5015875606415869641
+    second: KnowledgeZombieTransparent_4
+  - first:
+      213: 3617731112022053782
+    second: KnowledgeZombieTransparent_5
+  - first:
+      213: -7862650599381912488
+    second: KnowledgeZombieTransparent_6
+  - first:
+      213: 7740759118324884697
+    second: KnowledgeZombieTransparent_7
+  - first:
+      213: 4293861533552896741
+    second: KnowledgeZombieTransparent_8
+  - first:
+      213: 1900692797021898451
+    second: KnowledgeZombieTransparent_9
+  - first:
+      213: -1418219600598296992
+    second: KnowledgeZombieTransparent_10
+  - first:
+      213: -1175664606672297803
+    second: KnowledgeZombieTransparent_11
+  - first:
+      213: 1129323707612021282
+    second: KnowledgeZombieTransparent_12
+  - first:
+      213: -3202209837214208840
+    second: KnowledgeZombieTransparent_13
+  - first:
+      213: 3628285317907395084
+    second: KnowledgeZombieTransparent_14
+  - first:
+      213: 477173058423428402
+    second: KnowledgeZombieTransparent_15
+  - first:
+      213: 9095850065764598103
+    second: KnowledgeZombieTransparent_16
+  - first:
+      213: 8820511246559201323
+    second: KnowledgeZombieTransparent_17
+  - first:
+      213: 7243285770842879080
+    second: KnowledgeZombieTransparent_18
+  - first:
+      213: 5449002157820337810
+    second: KnowledgeZombieTransparent_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3701
+        width: 1211
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1c938337ca4ae40800000000000000
+      internalID: 5666843842003452390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_1
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 4339
+        width: 97
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d668b80d2ce4b290800000000000000
+      internalID: -7875410170200168745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_2
+      rect:
+        serializedVersion: 2
+        x: 1816
+        y: 4395
+        width: 102
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad3390274f2314da0800000000000000
+      internalID: -5962428406195211302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_3
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 4396
+        width: 99
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ca37035e812b04a0800000000000000
+      internalID: -6626165531583497529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_4
+      rect:
+        serializedVersion: 2
+        x: 2425
+        y: 4446
+        width: 34
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c607fde948fb9540800000000000000
+      internalID: 5015875606415869641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_5
+      rect:
+        serializedVersion: 2
+        x: 2679
+        y: 4407
+        width: 80
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69314f06743c43230800000000000000
+      internalID: 3617731112022053782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_6
+      rect:
+        serializedVersion: 2
+        x: 2956
+        y: 4361
+        width: 114
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85434de10f042e290800000000000000
+      internalID: -7862650599381912488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_7
+      rect:
+        serializedVersion: 2
+        x: 3236
+        y: 3871
+        width: 1019
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4ee93e763bc6b60800000000000000
+      internalID: 7740759118324884697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_8
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 4235
+        width: 95
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ea622e905cd69b30800000000000000
+      internalID: 4293861533552896741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_9
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 4279
+        width: 130
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d642a1570e906a10800000000000000
+      internalID: 1900692797021898451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_10
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 4181
+        width: 111
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06697dc89c8715ce0800000000000000
+      internalID: -1418219600598296992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_11
+      rect:
+        serializedVersion: 2
+        x: 2236
+        y: 4189
+        width: 118
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b06c48e4433fafe0800000000000000
+      internalID: -1175664606672297803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3303
+        width: 1328
+        height: 905
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22244acbde92caf00800000000000000
+      internalID: 1129323707612021282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1585
+        width: 4255
+        height: 2583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bce59c7e177f83d0800000000000000
+      internalID: -3202209837214208840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_14
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 4135
+        width: 105
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02b2ade5424a5230800000000000000
+      internalID: 3628285317907395084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_15
+      rect:
+        serializedVersion: 2
+        x: 2599
+        y: 4159
+        width: 107
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23517b35e524f9600800000000000000
+      internalID: 477173058423428402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_16
+      rect:
+        serializedVersion: 2
+        x: 2921
+        y: 4111
+        width: 99
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751cc146173fa3e70800000000000000
+      internalID: 9095850065764598103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 943
+        width: 4255
+        height: 1177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b28cf74ee30c86a70800000000000000
+      internalID: 8820511246559201323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4255
+        height: 1153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8643bb13802558460800000000000000
+      internalID: 7243285770842879080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeZombieTransparent_19
+      rect:
+        serializedVersion: 2
+        x: 3424
+        y: 882
+        width: 831
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ed73da79ebe9b40800000000000000
+      internalID: 5449002157820337810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
