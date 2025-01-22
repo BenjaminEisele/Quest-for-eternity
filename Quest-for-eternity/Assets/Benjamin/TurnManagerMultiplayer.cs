@@ -34,7 +34,7 @@ public class TurnManagerMultiplayer : NetworkBehaviour
         }
         foreach (GameObject playerObject in playerList)
         {
-            playerObject.GetComponent<PlayerScript>().TogglePlayerButtons();
+
         }
         foreach (GameObject playerObject in playerList)
         {
