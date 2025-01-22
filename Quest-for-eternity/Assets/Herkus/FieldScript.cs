@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using Mirror;
 
 public class FieldScript : MonoBehaviour
 {
@@ -13,22 +14,29 @@ public class FieldScript : MonoBehaviour
     [SerializeField]
     UiScript uiScriptAccess;
 
+    public PlayerScript playerScriptAccess;
+    //[SerializeField]
+    //RefereeScript refereeScriptAccess;
+
     //[HideInInspector]
     [SerializeField]
     public static int damagePoints = 0;
+
+    public int damagePointsLiquid = 0;
 
     private Vector3 activeCardSpawnPosition;
 
     [SerializeField] //kodel null refas pasidaro sita istrynus? alio??
     private List<GameObject> activeCardList;
 
-    ActiveCardScript actionCardReference;
+    public ActiveCardScript actionCardReference;
 
     [HideInInspector]
     public float hitRateModifier;
 
     private void Start()
     {
+        playerScriptAccess.shouldDealDamage = false;
         TurnScript.endTurnEvent += FieldClearEventTrue;
         TurnScript.restartGameEvent += FieldClearEventFalse;
         hitRateModifier = 0;
@@ -49,8 +57,8 @@ public class FieldScript : MonoBehaviour
 
         int gog = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
         damagePoints += gog;
-
-        if(activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
+        //damagePointsLiquid += gog;
+        if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
             activeCardSpawnPosition += new Vector3(2, 0, 0);
             activeCardInstance.SetActive(true);
@@ -59,9 +67,14 @@ public class FieldScript : MonoBehaviour
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
 
         bool isSpawningActionCard = activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType();
-        if(isSpawningActionCard)
+        if (isSpawningActionCard)
         {
             actionCardReference = activeCardInstance.GetComponent<ActiveCardScript>();
+            Debug.Log("Card is action type. here is the object name" + actionCardReference.gameObject.name);
+        }
+        else
+        {
+            Debug.Log("Bool is false");
         }
 
         return isSpawningActionCard;
@@ -69,20 +82,21 @@ public class FieldScript : MonoBehaviour
 
     public void FieldClearAndDealDamage(bool doWeDealDamage)
     {
-        foreach(GameObject activeCardMember in activeCardList)
-        {
-            activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
-            Destroy(activeCardMember);
-        }
-        activeCardList.Clear();
-        activeCardSpawnPosition = spawnpoint.position;
+        /*   foreach(GameObject activeCardMember in activeCardList)
+           {
+               activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
+               Destroy(activeCardMember);
+           }
+           activeCardList.Clear(); 
+           activeCardSpawnPosition = spawnpoint.position;
         if (doWeDealDamage)
         {
             if(actionCardReference != null)
             {
                 if (actionCardReference.DidActiveCardHit(hitRateModifier))
                 {
-                   // refereeScriptAccess.dealDamageToEnemy(damagePoints);
+                    //RefereeScript.instance.dealDamageToEnemy(damagePoints, RefereeScript.instance.targetEnemy);
+                    playerScriptAccess.damageThisRound = damagePoints;
                 }
                 else
                 {
@@ -92,6 +106,74 @@ public class FieldScript : MonoBehaviour
         }
         hitRateModifier = 0;
         damagePoints = 0;
-        UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+        UiScript.UpdateFieldDamageText(damagePoints.ToString(), true); */
+    }
+
+    private void FieldEffectActivation()
+    {
+        foreach (GameObject activeCardMember in activeCardList)
+        {
+            activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
+        }
+    }
+
+
+    private void FieldClear()
+    {
+        foreach (GameObject activeCardMember in activeCardList)
+        {
+            //activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
+            Destroy(activeCardMember);
+        }
+        activeCardList.Clear();
+        activeCardSpawnPosition = spawnpoint.position;
+    }
+    public bool FieldHitCheck()
+    {
+        bool didWeHit;
+
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            damagePointsLiquid = damagePoints;
+            FieldEffectActivation();
+            if (actionCardReference != null)
+            {
+                didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
+                playerScriptAccess.shouldDealDamage = didWeHit;
+                // Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
+                if (didWeHit)
+                {
+                    Debug.Log("hit success");
+                    // playerScriptAccess.damageThisRound = damagePoints;
+                    hitRateModifier = 0;
+                    damagePoints = 0;
+                    UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                    FieldClear();
+                    return didWeHit;
+                }
+                else
+                {
+                    Debug.Log("hit failed inside of field script");
+                    hitRateModifier = 0;
+                    damagePoints = 0;
+                    UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                    FieldClear();
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.Log("no reference found");
+                hitRateModifier = 0;
+                damagePoints = 0;
+                UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
+                //Debug.Log($"Action card after{ actionCardReference.gameObject.name }");
+                FieldClear();
+                return false;
+            }
+        }
+        Debug.Log("not your turn!");
+        return false;
+
     }
 }
