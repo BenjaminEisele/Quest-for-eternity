@@ -154,7 +154,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     private void RpcPlayCardForOtherPlayer(int cardID)
     {
-        if (isHost)
+        if (isClientOnly)
         {
             fieldScriptAccess.SpawnActiveCard(cardID);
         }
