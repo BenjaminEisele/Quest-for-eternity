@@ -5583,7 +5583,10 @@ MonoBehaviour:
   spawnpoint: {fileID: 3190224930268895390}
   baseActiveCard: {fileID: 3143705838561018988}
   uiScriptAccess: {fileID: 8797810155221267089}
+  playerScriptAccess: {fileID: 1214735220539923461}
+  damagePointsLiquid: 0
   activeCardList: []
+  actionCardReference: {fileID: 0}
   hitRateModifier: 0
 --- !u!1 &4814885059660197006
 GameObject:
@@ -7925,9 +7928,14 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  handScriptAccess: {fileID: 4716527281068523202}
   EndTurnButton: {fileID: 3238542833831202524}
+  enemyScriptAccess: {fileID: 0}
+  fieldScriptAccess: {fileID: 5498560621881706503}
+  shouldDealDamage: 0
   isHost: 0
   isThisPlayersTurn: 0
+  damageThisRound: 0
 --- !u!1 &6419282960436208635
 GameObject:
   m_ObjectHideFlags: 0
