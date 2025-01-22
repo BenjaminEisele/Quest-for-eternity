@@ -18,7 +18,7 @@ public class DeckManager : MonoBehaviour
         RefereeScript.newWaveEvent += ResetAllCardLists;
         TurnScript.restartGameEvent += ResetAllCardLists;
         uiScripAccess.ToggleShuffleWindow(false);
-        ShuffleCards(deckCardList);
+        //ShuffleCards(deckCardList);
     }
     public void ResetDeckBegin()
     {
@@ -53,7 +53,7 @@ public class DeckManager : MonoBehaviour
 
     }
 
-    private void ShuffleCards(List<int> inputList)
+    public void ShuffleCards(List<int> inputList)
     {
        // List<int> output = new List<int>();
         //Random rng = new Random();
@@ -83,8 +83,6 @@ public class DeckManager : MonoBehaviour
                 {
                     switchableA = Random.Range(0, lenght);
                     switchableB = Random.Range(0, lenght);
-                    Debug.Log(switchableA);
-                    Debug.Log(switchableB);
                 }
 
                 temp = inputList[switchableA];

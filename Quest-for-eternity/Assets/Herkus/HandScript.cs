@@ -63,6 +63,7 @@ public class HandScript : MonoBehaviour
         cardDebt = 0;
         cardQueIndex = 0;
         canInteract = true;
+        deckManagerAccess.ShuffleCards(deckManagerAccess.deckCardList);
         CardInstantiation();
         ActivateAllCardsEvent();
         RebuildCardListLite();
