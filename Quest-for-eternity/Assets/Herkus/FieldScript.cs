@@ -25,9 +25,8 @@ public class FieldScript : MonoBehaviour
     public int damagePointsLiquid = 0;
 
     private Vector3 activeCardSpawnPosition;
-
-    [SerializeField] //kodel null refas pasidaro sita istrynus? alio??
-    private List<GameObject> activeCardList;
+ //kodel null refas pasidaro sita istrynus? alio??
+    public List<GameObject> activeCardList;
 
     public ActiveCardScript actionCardReference;
 

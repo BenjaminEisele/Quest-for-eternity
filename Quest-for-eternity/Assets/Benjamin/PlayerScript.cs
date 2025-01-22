@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Mirror;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class PlayerScript : NetworkBehaviour
 {
@@ -148,13 +149,14 @@ public class PlayerScript : NetworkBehaviour
     private void CmdPlayCardForOtherPlayer(int cardID)
     {
         fieldScriptAccess.SpawnActiveCard(cardID);
-        Debug.Log($"I played {cardID} for you");
     }
 
     [ClientRpc]
     private void RpcPlayCardForOtherPlayer(int cardID)
     {
-        fieldScriptAccess.SpawnActiveCard(cardID);
-        Debug.Log($"I played {cardID} for you");
+        if (isHost)
+        {
+            fieldScriptAccess.SpawnActiveCard(cardID);
+        }
     }
 }

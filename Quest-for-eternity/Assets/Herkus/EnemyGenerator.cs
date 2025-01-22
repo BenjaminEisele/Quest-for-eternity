@@ -11,7 +11,7 @@ public class EnemyGenerator : NetworkBehaviour
 
     public RefereeScript refereeScriptAccess;
 
-    //public DatabaseMultiplayer databaseMultiplayerAccess;
+    public DatabaseMultiplayer databaseMultiplayerAccess;
 
     [SyncVar]
     private int myId;
@@ -20,7 +20,7 @@ public class EnemyGenerator : NetworkBehaviour
     {
         if (isServer)
         {
-            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+           myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
         }           
     }
 

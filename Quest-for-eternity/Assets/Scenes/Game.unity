@@ -169,6 +169,7 @@ MonoBehaviour:
   enemyReference: {fileID: 1748148563}
   spawnerPos: {fileID: 1834375437}
   refereeScriptAccess: {fileID: 569160454}
+  databaseMultiplayerAccess: {fileID: 371547816}
 --- !u!1 &307855674
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +530,10 @@ MonoBehaviour:
   card: []
   button: []
   mainCamera: []
+  playerHealth: []
   playerList: []
+  hostId: 0
+  clientId: 0
 --- !u!1 &1086650097
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Awake()
     {
-            if(instance == null) { instance = this; }
+        instance = this;
     }     
     public void IdSetup()
     {
