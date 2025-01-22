@@ -93,8 +93,6 @@ public class HandScript : MonoBehaviour
                             }
                             else
                             {
-                                // Debug.Log("end turn by card");
-
                                 handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
                                 //turnScriptAccess.EndPlayersTurn();   
                             }
@@ -111,8 +109,7 @@ public class HandScript : MonoBehaviour
                         Debug.Log(hit.transform.root.gameObject);
                         // card gets removed from list
                         //Destroy(hit.transform.gameObject);
-                        RebuildCardList(hit.transform.root.gameObject);
-                        
+                        RebuildCardList(hit.transform.root.gameObject);    
                     }
                 }
                 else
@@ -174,7 +171,6 @@ public class HandScript : MonoBehaviour
                 break;  
             }
         }
-        //Destroy(inputGameobject);
         int interval = 90 / (cardCount + 1);
         for (int k = 0; k < cardList.Count; k++)
         {
@@ -380,6 +376,7 @@ public class HandScript : MonoBehaviour
 
                 cardPlacementVector += new Vector3(2, 0, 0);
             }
+            DisableAllCardsEvent();
         }
         else
         {

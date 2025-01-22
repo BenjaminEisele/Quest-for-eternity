@@ -51,7 +51,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void EndTurnPlayerScript()
     {
-        handScriptAccess.DisableAllCardsEvent();
+        //handScriptAccess.DisableAllCardsEvent();
 
         if (!isServer)
         {
@@ -101,7 +101,6 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
