@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8efc953effc0f464ca4994f700a808a7, type: 3}
-  m_Name: AC_MorbBlast
+  m_Name: AC_HammerCrush
   m_EditorClassIdentifier: 
-  cardName: Primal strike
+  cardName: Hammer Crush
   effectValue: 0
-  cardColor: {r: 0.068629384, g: 0.7132075, b: 0.21671669, a: 1}
-  cardSprite: {fileID: -3406280044133940646, guid: a82b7f89fd43b114bb0a6e6e8f06005f, type: 3}
-  cardDescription: 
-  cardDamage: 6
-  cardHitRate: 0.8
+  cardColor: {r: 0, g: 0, b: 0, a: 0}
+  cardSprite: {fileID: 0}
+  cardDescription: Deals 1 DMG to all enemies
+  cardDamage: 1
+  cardHitRate: 0.6
