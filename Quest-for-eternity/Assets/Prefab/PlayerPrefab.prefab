@@ -7929,7 +7929,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   handScriptAccess: {fileID: 4716527281068523202}
-  EndTurnButton: {fileID: 3238542833831202524}
+  EndTurnButton: {fileID: 4485664734557763521}
   enemyScriptAccess: {fileID: 0}
   fieldScriptAccess: {fileID: 5498560621881706503}
   shouldDealDamage: 0
