@@ -2943,16 +2943,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423fc57d9fb442d45b9efea3a1f741e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   targetEnemy: {fileID: 759136206}
-  playerAccess: {fileID: 1889118660}
   enemyList: []
-  turnScriptAccess: {fileID: 317175596}
   ennemyGeneratorAccess: {fileID: 741823585}
   restartGameButton: {fileID: 1710171871}
   lostImage: {fileID: 28887981}
   winImage: {fileID: 980115709}
   chosenEnemyId: 0
-  chooseNewCardAccess: {fileID: 1981073686}
+  card: []
+  button: []
+  mainCamera: []
+  playerList: []
 --- !u!4 &543248972
 Transform:
   m_ObjectHideFlags: 0
@@ -3377,7 +3381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc9c31fa3816ff4f85507c9988eaeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseAccess: {fileID: 1042591249}
+  databasePlayerAccess: {fileID: 0}
   activeCardTextArray: []
   shouldShowCard: 0
   sceneObjectAccess: {fileID: 961028219}
@@ -3782,6 +3786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991f634ea4be8b44cab800858644ba9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   enemyReference: {fileID: 759136206}
   spawnerPos: {fileID: 1847546632}
   refereeScriptAccess: {fileID: 543248971}
@@ -4064,11 +4071,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3f1ee84648325479e37fb067522a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   enemyHealth: 15
-  databaseAccess: {fileID: 1042591249}
   isEnemyAlive: 0
+  personalId: 0
   enemyNameText: {fileID: 2036716379}
   myMarker: {fileID: 1100219450}
+  databaseMultiplayerAccess: {fileID: 0}
 --- !u!65 &759136207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5272,7 +5283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e1b9ed199caf4b8b760b9b6f5d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseAccess: {fileID: 1042591249}
+  databasePlayerAccess: {fileID: 0}
   cardTextArray: []
   myCardId: 0
   myCardHitRate: 0
@@ -5366,7 +5377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e1b9ed199caf4b8b760b9b6f5d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseAccess: {fileID: 1042591249}
+  databasePlayerAccess: {fileID: 0}
   cardTextArray: []
   myCardId: 0
   myCardHitRate: 0
@@ -5826,10 +5837,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
   - {fileID: 11400000, guid: d0a856741f5ad354ebf4b42c9b36c730, type: 2}
-  enemyList:
-  - {fileID: 11400000, guid: 10a10243987f2c7459336b3ff8d4ac72, type: 2}
-  - {fileID: 11400000, guid: 25278f8ba2c162d45889102ab1d1005f, type: 2}
-  - {fileID: 11400000, guid: d796c2b0ab6c48d458d690648b7a09a2, type: 2}
 --- !u!4 &1042591250
 Transform:
   m_ObjectHideFlags: 0
@@ -6188,7 +6195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e1b9ed199caf4b8b760b9b6f5d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseAccess: {fileID: 1042591249}
+  databasePlayerAccess: {fileID: 0}
   cardTextArray: []
   myCardId: 0
   myCardHitRate: 0
@@ -6729,7 +6736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fb9a205e9c1564ca5dd0681460a137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseAccess: {fileID: 1042591249}
+  databasePlayerAccess: {fileID: 0}
   cardTextArray: []
   myCardHitRate: 0
   myCardImage: {fileID: 1501827708}
@@ -8136,7 +8143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc9c31fa3816ff4f85507c9988eaeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseAccess: {fileID: 1042591249}
+  databasePlayerAccess: {fileID: 0}
   activeCardTextArray: []
   shouldShowCard: 0
   sceneObjectAccess: {fileID: 961028219}
@@ -8194,6 +8201,7 @@ MonoBehaviour:
   cardLimit: 5
   fieldScriptAccess: {fileID: 1724832511}
   turnScriptAccess: {fileID: 317175596}
+  playerScriptAccess: {fileID: 0}
   deckManagerAccess: {fileID: 1042591251}
   cardList: []
   cardCount: 0
@@ -10649,9 +10657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayCardReferenceGameobject: {fileID: 1251388298}
   displayCardLocator: {fileID: 2038342133}
-  databaseAccess: {fileID: 1042591249}
+  databasePlayerAccess: {fileID: 0}
   displayCardList: []
-  refereeScriptAccess: {fileID: 543248971}
 --- !u!1 &2036716377
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,8 +12,6 @@ public class FieldScript : MonoBehaviour
     GameObject baseActiveCard;
     [SerializeField]
     UiScript uiScriptAccess;
-    [SerializeField]
-    RefereeScript refereeScriptAccess;
 
     //[HideInInspector]
     [SerializeField]
