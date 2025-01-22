@@ -7856,6 +7856,7 @@ MonoBehaviour:
   isHost: 0
   isThisPlayersTurn: 0
   damageThisRound: 0
+  myPlayerListId: 0
 --- !u!1 &6419282960436208635
 GameObject:
   m_ObjectHideFlags: 0

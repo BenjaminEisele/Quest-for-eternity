@@ -209,19 +209,22 @@ public class RefereeScript : NetworkBehaviour
     }
     public void CallPreNewWaveEvent()
     {
-        
-        if (waveCount < 2)
+        if (isServer)
         {
-            if (preNewWaveEvent != null)
+            if (waveCount < 2)
             {
-                preNewWaveEvent();
-                waveCount++;
+                if (preNewWaveEvent != null)
+                {
+                    preNewWaveEvent();
+                    waveCount++;
+                }
+            }
+            else
+            {
+                EndGame(true);
             }
         }
-        else
-        {
-            EndGame(true);
-        }
+        
        
     }
     public void CallNewWaveEvent()
