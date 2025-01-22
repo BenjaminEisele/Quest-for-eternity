@@ -14,6 +14,10 @@ public class ChooseNewCardScript : MonoBehaviour
 
     private void Awake()
     {
+        for(int i = 0; i < 5; i++)
+        {
+            Debug.Log($"Random number is: {Random.Range(0,10)}");
+        }
         if (instance == null) { instance = this; }
     }
 
@@ -45,6 +49,7 @@ public class ChooseNewCardScript : MonoBehaviour
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < 3; i++)
         {
+            
             int inputId = Random.Range(0, databasePlayerAccess.cardList.Count);
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);
             displayCard.GetComponent<DisplayCardScript>().DisplayCardSetup(inputId);
