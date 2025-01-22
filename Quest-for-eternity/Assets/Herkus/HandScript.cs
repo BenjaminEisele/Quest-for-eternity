@@ -146,7 +146,6 @@ public class HandScript : MonoBehaviour
             //if (cardList.Contains(inputGameobject))
             if (GameObject.ReferenceEquals(inputGameobject.GetComponentInChildren<CardScript>().gameObject, cardList[i].gameObject))
             {
-                Debug.Log(i);
                 Destroy(cardList[i].transform.root.gameObject);
                 cardCount--;
                 if(i < cardList.Count - 1)

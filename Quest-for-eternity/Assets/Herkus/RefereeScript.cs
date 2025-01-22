@@ -229,18 +229,25 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isServer)
         {
-            if (waveCount < 2)
+            for(int i = 0; i < 2; i++)
             {
-                if (preNewWaveEvent != null)
-                {
-                    preNewWaveEvent();
-                    waveCount++;
-                }
+               if(playerList[i].isHost)
+               {
+                    if (waveCount < 2)
+                    {
+                        if (preNewWaveEvent != null)
+                        {
+                            preNewWaveEvent();
+                            waveCount++;
+                        }
+                    }
+                    else
+                    {
+                        EndGame(true);
+                    }
+               }
             }
-            else
-            {
-                EndGame(true);
-            }
+            
         }
         
        

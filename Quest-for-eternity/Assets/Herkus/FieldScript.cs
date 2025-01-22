@@ -72,10 +72,6 @@ public class FieldScript : MonoBehaviour
             actionCardReference = activeCardInstance.GetComponent<ActiveCardScript>();
             Debug.Log("Card is action type. here is the object name" + actionCardReference.gameObject.name);
         }
-        else
-        {
-            Debug.Log("Bool is false");
-        }
 
         return isSpawningActionCard;
     }
