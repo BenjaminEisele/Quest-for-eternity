@@ -48,7 +48,7 @@ public class PlayerScript : NetworkBehaviour
                 isThisPlayersTurn = false;
                 isHost = false;
                 EndTurnButton.interactable = false;
-                RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
+                RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
             }
         }
     }
