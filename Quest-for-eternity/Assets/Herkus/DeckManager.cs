@@ -48,11 +48,6 @@ public class DeckManager : MonoBehaviour
         ShuffleCards(deckCardList);
     }
 
-    private void Update()
-    {
-
-    }
-
     public void ShuffleCards(List<int> inputList)
     {
        // List<int> output = new List<int>();

@@ -48,6 +48,8 @@ public class HandScript : MonoBehaviour
     public bool canPlayUtility;
     float savedHitrateDelta;
 
+    public int UtlCardsPlayedForOtherPlayer;
+
     bool isFullRefill;
     private void Start()
     {
@@ -67,6 +69,7 @@ public class HandScript : MonoBehaviour
         CardInstantiation();
         ActivateAllCardsEvent();
         RebuildCardListLite();
+        UtlCardsPlayedForOtherPlayer = 0;
     }
 
 
@@ -85,6 +88,7 @@ public class HandScript : MonoBehaviour
                         int clickedCardId = hit.transform.GetComponentInParent<CardScript>().myCardId;
                         deckManagerAccess.handCardList.Remove(clickedCardId);
                         deckManagerAccess.discardedCardList.Add(clickedCardId);
+
                         if (fieldScriptAccess.SpawnActiveCard(clickedCardId))
                         {
                             canInteract = false;
@@ -500,4 +504,26 @@ public class HandScript : MonoBehaviour
             cardQueIndex = 0;
         }
     }
+
+    public void SendCardsOver()
+    {
+        if (canInteract && playerScriptAccess.isThisPlayersTurn)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {    
+                if (hit.transform.GetComponentInParent<CardScript>().isClickable)
+                {
+                    UtlCardsPlayedForOtherPlayer++;
+                    int clickedCardId = hit.transform.GetComponentInParent<CardScript>().myCardId;
+                    playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
+                    deckManagerAccess.handCardList.Remove(clickedCardId);
+                    deckManagerAccess.discardedCardList.Add(clickedCardId);
+                    RebuildCardList(hit.transform.root.gameObject);
+                }             
+            }
+        }
+    }
+
 }

@@ -82,6 +82,7 @@ public class PlayerScript : NetworkBehaviour
             //Invoke("RpcEndTurn", 0.07f);
             RpcEndTurn();
         }
+        handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
     }
 
     [Command(requiresAuthority = false)]
@@ -130,5 +131,36 @@ public class PlayerScript : NetworkBehaviour
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
 
+    }
+
+    public void PlayCardForOtherPlayer(int cardID)
+    {
+        if (isServer)
+        {
+            RpcPlayCardForOtherPlayer(cardID);
+        }
+
+        else if (!isServer)
+        {
+            CmdPlayCardForOtherPlayer(cardID);
+        }
+    }
+
+    [Command]
+    private void CmdPlayCardForOtherPlayer(int cardID)
+    {
+        if (!isThisPlayersTurn)
+        {
+            fieldScriptAccess.SpawnActiveCard(cardID);
+        }
+    }
+
+    [ClientRpc]
+    private void RpcPlayCardForOtherPlayer(int cardID)
+    {
+        if (!isThisPlayersTurn)
+        {
+            fieldScriptAccess.SpawnActiveCard(cardID);
+        }       
     }
 }

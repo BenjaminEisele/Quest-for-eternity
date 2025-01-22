@@ -5,13 +5,15 @@ public class DragDrop : MonoBehaviour
     Vector3 mousePositionOffset;
    // [HideInInspector]
     public Vector3 cardPosition;
-    public bool isInPlayingField;
+    private bool isInPlayingField;
+    private bool isInSendCardsOverField;
     [SerializeField]
     HandScript handScriptAccess;
     [SerializeField]
     CardScript cardScriptAccess;
     [SerializeField]
     OnHoverScript onHoverScriptAccess;
+
     public bool isDragging = false;
 
     private void Start()
@@ -40,6 +42,29 @@ public class DragDrop : MonoBehaviour
         {
             handScriptAccess.PlayCard();
         }
+
+        if (isInSendCardsOverField)
+        {
+            if (!transform.GetComponentInParent<CardScript>().isActionCard)
+            {
+                if (handScriptAccess.UtlCardsPlayedForOtherPlayer < 3)
+                {
+                    handScriptAccess.SendCardsOver();
+                }
+
+                else
+                {
+                    transform.localPosition = cardPosition;
+                }
+                    
+            }
+
+            else
+            {
+                transform.localPosition = cardPosition;
+            }
+        }
+
         else
         {
             transform.localPosition = cardPosition;
@@ -60,6 +85,11 @@ public class DragDrop : MonoBehaviour
         {
             isInPlayingField = true;
         }
+
+        if (col.gameObject.name == "SendCardsOverField")
+        {
+            isInSendCardsOverField = true;
+        }
     }
 
     private void OnTriggerExit(Collider col)
@@ -67,6 +97,11 @@ public class DragDrop : MonoBehaviour
         if (col.gameObject.name == "PlayingField")
         {
             isInPlayingField = false;
+        }
+
+        if (col.gameObject.name == "SendCardsOverField")
+        {
+            isInSendCardsOverField = false;
         }
     }
 }
