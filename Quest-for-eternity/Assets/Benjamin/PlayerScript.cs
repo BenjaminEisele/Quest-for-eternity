@@ -76,10 +76,8 @@ public class PlayerScript : NetworkBehaviour
             if (fieldScriptAccess.FieldHitCheck())
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                //Invoke("RpcDealDamage", 0.05f);
                 RpcDealDamage(damageThisRound);
             }
-            //Invoke("RpcEndTurn", 0.07f);
             RpcEndTurn();
         }
         handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
@@ -152,7 +150,14 @@ public class PlayerScript : NetworkBehaviour
         if (!isThisPlayersTurn)
         {
             fieldScriptAccess.SpawnActiveCard(cardID);
+            Debug.Log($"I played {cardID} for you");
         }
+
+        else
+        {
+            Debug.Log("Should Not be reached cmd");
+        }
+        
     }
 
     [ClientRpc]
@@ -161,6 +166,12 @@ public class PlayerScript : NetworkBehaviour
         if (!isThisPlayersTurn)
         {
             fieldScriptAccess.SpawnActiveCard(cardID);
-        }       
+            Debug.Log($"I played {cardID} for you");
+        }
+
+        else
+        {
+            Debug.Log("Should Not be reached rpc");
+        }
     }
 }
