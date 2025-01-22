@@ -4415,7 +4415,7 @@ GameObject:
   - component: {fileID: 676415838479033597}
   m_Layer: 0
   m_Name: PlayerText
-  m_TagString: Untagged
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

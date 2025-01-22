@@ -38,6 +38,7 @@ public class RefereeScript : NetworkBehaviour
     public GameObject[] card;
     public GameObject[] button;
     public GameObject[] mainCamera;
+    public GameObject[] playerHealth;
 
     public List<PlayerScript> playerList;
 
@@ -83,6 +84,11 @@ public class RefereeScript : NetworkBehaviour
             mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
             DeactivateCamera(mainCamera);
         }
+        if (playerHealth != null)
+        {
+            playerHealth = GameObject.FindGameObjectsWithTag("Health");
+            DeactivateHealth(playerHealth);
+        }
 
     }
     
@@ -95,6 +101,18 @@ public class RefereeScript : NetworkBehaviour
         else if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
             ChooseNewEnemy(-1);
+        }
+    }
+
+    private void DeactivateHealth(GameObject[] health)
+    {
+        if (isServer)
+        {
+            health[1].SetActive(false);
+        }
+        else
+        {
+            health[0].SetActive(false);
         }
     }
 

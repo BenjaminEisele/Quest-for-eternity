@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cards
   - EndTurnButton
+  - Health
   layers:
   - Default
   - TransparentFX
