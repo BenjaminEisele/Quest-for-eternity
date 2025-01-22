@@ -9,8 +9,12 @@ public class PlayerStatScript : MonoBehaviour
     public int playerHealthOffset;
 
     TextMeshPro playerHealthText;
+
+    public static PlayerStatScript instance;
     private void Awake()
     {
+        instance = this;
+
         playerHealth = 500;
         savedPlayerHealth = playerHealth;
         playerHealthText = GetComponentInChildren<TextMeshPro>();

@@ -27,6 +27,14 @@ public class TurnScript : MonoBehaviour
     public static event RestartGameAction restartGameEvent;
 
     bool isSinglePlayer;
+
+    public static TurnScript instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         PlayerScript myPlayerScript = GetComponentInChildren<PlayerScript>();

@@ -8,8 +8,7 @@ public class ChooseNewCardScript : MonoBehaviour
     public Transform displayCardLocator;
     public DatabasePlayer databasePlayerAccess;
     public List<GameObject> displayCardList;
-    //[SerializeField]
-    //RefereeScript refereeScriptAccess;
+
 
     public static ChooseNewCardScript instance;
 
@@ -33,15 +32,10 @@ public class ChooseNewCardScript : MonoBehaviour
         }
         displayCardList.Clear();
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
-        //refereeScriptAccess.canTransferTurnToPlayer = true;
-<<<<<<< HEAD
-        refereeScriptAccess.CallStartTurnEvent();
-        refereeScriptAccess.StartNextWave(false);
-=======
+
         RefereeScript.instance.CallStartTurnEvent();
         RefereeScript.instance.StartNextWave(false);
 
->>>>>>> Multiplayer
     }
 
     

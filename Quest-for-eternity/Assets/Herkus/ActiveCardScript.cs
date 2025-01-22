@@ -4,7 +4,6 @@ using TMPro;
 
 public class ActiveCardScript : MonoBehaviour
 {
-    //Color activeCardColor;
     int activeCardDamage;
 
     [SerializeField]
@@ -91,13 +90,7 @@ public class ActiveCardScript : MonoBehaviour
         this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
        
-<<<<<<< HEAD
-        Action actionCardAccess = databaseAccess.cardList[activeCardId] as Action;
-=======
-
-
         Action actionCardAccess = databasePlayerAccess.cardList[activeCardId] as Action;
->>>>>>> Multiplayer
         if (actionCardAccess)
         {
             activeCardDamage = actionCardAccess.cardDamage;
@@ -121,15 +114,8 @@ public class ActiveCardScript : MonoBehaviour
             }
         }
 
-<<<<<<< HEAD
-        //GetComponentInChildren<SpriteRenderer>().color = databaseAccess.cardList[activeCardId].cardColor;
-        activeCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[activeCardId].cardSprite;
-        activeCardName = databaseAccess.cardList[activeCardId].cardName;
-=======
-        //GetComponentInChildren<SpriteRenderer>().color = databasePlayerAccess.cardList[activeCardId].cardColor;
         activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;
         activeCardName = databasePlayerAccess.cardList[activeCardId].cardName;
->>>>>>> Multiplayer
 
         activeCardTextArray[0].text = activeCardDamage.ToString();
         activeCardTextArray[1].text = activeCardName;

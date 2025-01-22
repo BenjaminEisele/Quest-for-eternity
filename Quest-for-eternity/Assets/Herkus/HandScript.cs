@@ -54,15 +54,10 @@ public class HandScript : MonoBehaviour
         RefereeScript.turnStartEvent += ActivateAllCardsEvent;
         RefereeScript.newWaveEvent += HandReset;
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
-<<<<<<< HEAD
         TurnScript.endTurnEvent += AddCardsEvent;
         TurnScript.endTurnEvent += RebuildCardListLite;
         TurnScript.restartGameEvent += HandReset;
         TurnScript.restartGameEvent += RebuildCardListLite;
-=======
-        TurnScript.restartGameEvent += HandReset;
-        TurnScript.endTurnEvent += AddCardsEvent; 
->>>>>>> Multiplayer
         isInQuickAttackMode = false;
         cardCount = 0;
         cardDebt = 0;
@@ -76,12 +71,7 @@ public class HandScript : MonoBehaviour
 
     public void PlayCard()
     {
-<<<<<<< HEAD
-        if (canInteract && playerScriptAccess.isThisPlayersTurn)
-=======
-        
         if(canInteract && playerScriptAccess.isThisPlayersTurn)
->>>>>>> Multiplayer
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -136,7 +126,6 @@ public class HandScript : MonoBehaviour
             }
         }
     }
-<<<<<<< HEAD
     private void RebuildCardListLite()
     {
         int interval = 90 / (cardCount + 1);
@@ -198,16 +187,12 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    private void DisableAllCardsEvent()
-=======
     public void DisableAllCardsEvent()
->>>>>>> Multiplayer
     {
         SetCardActivityStatus(false, 2);
     }
     public void ActivateAllCardsEvent()
     {
-<<<<<<< HEAD
         if (playerScriptAccess.isThisPlayersTurn)
         {
             utilityCount = 0;
@@ -215,13 +200,6 @@ public class HandScript : MonoBehaviour
             //Debug.Log("yo mama");
             SetCardActivityStatus(true, 2);
         }   
-=======
-        Debug.Log("yo mama");
-        if (playerScriptAccess.isThisPlayersTurn)
-        {
-            SetCardActivityStatus(true, 2);
-        }
->>>>>>> Multiplayer
     }
     private void AddCardsEvent()
     {
@@ -488,28 +466,15 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponentInChildren<CardScript>();
         }
-<<<<<<< HEAD
-        cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);       
-=======
-
-        cardClone.GetComponent<CardScript>().SetCardActiveStatus(false);       
->>>>>>> Multiplayer
+        cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);      
     }
 
     public void DrawQueuedCards()
     {
-<<<<<<< HEAD
         if (playerScriptAccess.isThisPlayersTurn)
         {
             SetCardActivityStatus(true, 2);
         }        
-=======
-        if (playerScriptAccess.isThisPlayersTurn) 
-        {
-            SetCardActivityStatus(true, 2);
-        }
-
->>>>>>> Multiplayer
         if (cardDebt > 0)
         {
             //Debug.Log("reached this!");

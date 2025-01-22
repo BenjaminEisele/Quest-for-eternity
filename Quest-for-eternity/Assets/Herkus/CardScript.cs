@@ -48,22 +48,12 @@ public class CardScript : MonoBehaviour
     {
         isClickable = true;
         myCardId = myId;
-
-<<<<<<< HEAD
-        //myCardColor = databaseAccess.cardList[myCardId].cardColor;
-        myCardName = databaseAccess.cardList[myCardId].cardName;
-=======
-        //myCardColor = databasePlayerAccess.cardList[myCardId].cardColor;
-        myCardName = databasePlayerAccess.cardList[myCardId].cardName;
->>>>>>> Multiplayer
-
-        
+        myCardName = databasePlayerAccess.cardList[myCardId].cardName;     
 
         string cardTypeName;
         Utility utilityCardAccess = databasePlayerAccess.cardList[myCardId] as Utility;
         if (utilityCardAccess)
         {
-            //utilityCardAccess.effectList[0].UseEffect<string>(123, "asdf");
             myDamage = 0;
             cardTypeName = "Utility";
             isActionCard = false;
@@ -77,23 +67,14 @@ public class CardScript : MonoBehaviour
             myCardHitRate = actionCardAccess.cardHitRate;
             savedCardHitRate = myCardHitRate;
         }
-
-
-
-        
-
-        //GetComponentInChildren<SpriteRenderer>().color = myCardColor;
-<<<<<<< HEAD
-        myCardImage.GetComponent<SpriteRenderer>().sprite = databaseAccess.cardList[myCardId].cardSprite;
-=======
+     
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
->>>>>>> Multiplayer
 
 
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
 
         cardTextArray[0].text = myDamage.ToString();
-        cardTextArray[1].text = cardTypeName;//CalculateString(cardType);
+        cardTextArray[1].text = cardTypeName;
         cardTextArray[2].text = myCardName;
         cardTextArray[3].text = databasePlayerAccess.cardList[myCardId].cardDescription;
         if(isActionCard)

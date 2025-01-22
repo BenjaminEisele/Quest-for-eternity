@@ -5,14 +5,9 @@ using Mirror;
 
 public class RefereeScript : NetworkBehaviour
 {
-    public EnemyScript targetEnemy; //veliau noretusi padaryti, kad net nereiketu nieko tampyti per inspektoriu, kitaip sakant kad viskas po kapotu butu.
-
-    //public PlayerStatScript playerAccess;
+    public EnemyScript targetEnemy; 
 
     public List<EnemyScript> enemyList;
-
-    //[SerializeField]
-    //TurnScript turnScriptAccess;
 
     [SerializeField]
     EnemyGenerator ennemyGeneratorAccess;
@@ -25,12 +20,7 @@ public class RefereeScript : NetworkBehaviour
     public GameObject lostImage;
     public GameObject winImage;
 
-<<<<<<< HEAD
-    [SerializeField]
-    int chosenEnemyId;
-=======
     public int chosenEnemyId;
->>>>>>> Multiplayer
     int waveCount = 0;
 
     //[SerializeField]
@@ -215,11 +205,7 @@ public class RefereeScript : NetworkBehaviour
     }
     public void CallPreNewWaveEvent()
     {
-<<<<<<< HEAD
-        if(waveCount < 2)
-=======
         if (waveCount < 2)
->>>>>>> Multiplayer
         {
             if (preNewWaveEvent != null)
             {
@@ -230,12 +216,8 @@ public class RefereeScript : NetworkBehaviour
         else
         {
             EndGame(true);
-<<<<<<< HEAD
         }
        
-=======
-        }       
->>>>>>> Multiplayer
     }
     public void CallNewWaveEvent()
     {

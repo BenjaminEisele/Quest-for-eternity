@@ -84,7 +84,7 @@ public class FieldScript : MonoBehaviour
             {
                 if (actionCardReference.DidActiveCardHit(hitRateModifier))
                 {
-                    refereeScriptAccess.dealDamageToEnemy(damagePoints);
+                   // refereeScriptAccess.dealDamageToEnemy(damagePoints);
                 }
                 else
                 {

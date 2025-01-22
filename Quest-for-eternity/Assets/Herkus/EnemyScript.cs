@@ -25,21 +25,14 @@ public class EnemyScript : NetworkBehaviour
         isEnemyAlive = true;
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
         savedEnemyHealth = enemyHealth;
-<<<<<<< HEAD
-        // Debug.Log($"I am a {databaseAccess.enemyList[myId].enemyName}");
 
+        GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
 
-        //Debug.Log(GetComponentInChildren<SpriteRenderer>().gameObject.name);
-        GetComponentInChildren<SpriteRenderer>().sprite = databaseAccess.enemyList[myId].enemySprite;
-=======
->>>>>>> Multiplayer
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
-        enemyNameText.text = databaseAccess.enemyList[myId].enemyName;
+        enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
 
-        
-        //GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
-        enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;
+      
         
     }
     public void ResetEnemy()
