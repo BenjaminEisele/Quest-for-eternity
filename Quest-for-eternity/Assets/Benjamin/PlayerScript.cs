@@ -22,10 +22,14 @@ public class PlayerScript : NetworkBehaviour
 
     [SyncVar] public int damageThisRound;
 
+    public int myPlayerListId;
+
 
     public void Start()
     {
         RefereeScript.instance.playerList.Add(this);
+
+
         TurnScript.endTurnEvent += EndTurnPlayerScript;
 
         if (isOwned)
@@ -36,6 +40,7 @@ public class PlayerScript : NetworkBehaviour
                 isThisPlayersTurn = true;
                 isHost = true;
                 EndTurnButton.interactable = true;
+                RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
             }
             else //(!isServer)
             {
@@ -43,6 +48,7 @@ public class PlayerScript : NetworkBehaviour
                 isThisPlayersTurn = false;
                 isHost = false;
                 EndTurnButton.interactable = false;
+                RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
             }
         }
     }

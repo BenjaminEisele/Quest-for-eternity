@@ -43,13 +43,17 @@ public class RefereeScript : NetworkBehaviour
 
     public static RefereeScript instance;
 
-
+    public int hostId;
+    public int clientId;
 
     private void Awake()
     {
             if(instance == null) { instance = this; }
     }     
-
+    public void IdSetup()
+    {
+       // hostId = 
+    }
     private void Start()
     {        
         areAllEnemiesDead = false;
@@ -205,6 +209,7 @@ public class RefereeScript : NetworkBehaviour
     }
     public void CallPreNewWaveEvent()
     {
+        
         if (waveCount < 2)
         {
             if (preNewWaveEvent != null)
