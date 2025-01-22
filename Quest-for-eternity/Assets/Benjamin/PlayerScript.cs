@@ -147,31 +147,14 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     private void CmdPlayCardForOtherPlayer(int cardID)
     {
-        if (!isThisPlayersTurn)
-        {
-            fieldScriptAccess.SpawnActiveCard(cardID);
-            Debug.Log($"I played {cardID} for you");
-        }
-
-        else
-        {
-            Debug.Log("Should Not be reached cmd");
-        }
-        
+        fieldScriptAccess.SpawnActiveCard(cardID);
+        Debug.Log($"I played {cardID} for you");
     }
 
     [ClientRpc]
     private void RpcPlayCardForOtherPlayer(int cardID)
     {
-        if (!isThisPlayersTurn)
-        {
-            fieldScriptAccess.SpawnActiveCard(cardID);
-            Debug.Log($"I played {cardID} for you");
-        }
-
-        else
-        {
-            Debug.Log("Should Not be reached rpc");
-        }
+        fieldScriptAccess.SpawnActiveCard(cardID);
+        Debug.Log($"I played {cardID} for you");
     }
 }
