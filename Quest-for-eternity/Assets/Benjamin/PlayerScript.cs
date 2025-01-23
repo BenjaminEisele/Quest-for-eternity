@@ -76,7 +76,11 @@ public class PlayerScript : NetworkBehaviour
     public void CallNewCardsAsServer()
     {
         Debug.Log("Card hopefully added");
-        RefereeScript.instance.playerList[1].gameObject.transform.parent.GetComponentInChildren<ChooseNewCardScript>().DisplayCards();
+        if(isClientOnly)
+        {
+            RefereeScript.instance.playerList[1].gameObject.transform.parent.GetComponentInChildren<ChooseNewCardScript>().DisplayCards();
+        }
+        
     }
 
 
