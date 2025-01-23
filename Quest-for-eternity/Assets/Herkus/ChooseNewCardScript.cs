@@ -44,14 +44,18 @@ public class ChooseNewCardScript : MonoBehaviour
     {
         foreach (GameObject displayCardObject in displayCardList)
         {
-            if(displayCardObject.GetComponent<DisplayCardScript>().myCardId == destroyableCardId)
+            if(displayCardObject != null)
             {
-                displayCardCount--;
-                Destroy(displayCardObject);
-                Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
-                break;
+                if (displayCardObject.GetComponent<DisplayCardScript>().myCardId == destroyableCardId)
+                {
+                    displayCardCount--;
+                    Destroy(displayCardObject);
+                    Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
+                    break;
+                }
+
             }
-            
+
         }
     }
     public void DisplayCardsHidden()
