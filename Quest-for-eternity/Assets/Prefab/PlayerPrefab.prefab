@@ -1622,6 +1622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   databasePlayerAccess: {fileID: 4730537138289088088}
   cardTextArray: []
+  myCardId: 0
   myCardHitRate: 0
   myCardImage: {fileID: 754769993535659440}
   isActionCard: 0
@@ -7938,6 +7939,7 @@ MonoBehaviour:
   isThisPlayersTurn: 0
   damageThisRound: 0
   myPlayerListId: 0
+  chooseNewCardAccess: {fileID: 1577412184725532746}
 --- !u!1 &6419282960436208635
 GameObject:
   m_ObjectHideFlags: 0

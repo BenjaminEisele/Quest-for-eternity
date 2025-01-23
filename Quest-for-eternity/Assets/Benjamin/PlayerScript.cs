@@ -109,7 +109,7 @@ public class PlayerScript : NetworkBehaviour
     public void DestroyCardAsServer()
     {
        Debug.Log("Card hopefully destroyed");
-        chooseNewCardAccess.FindAndDestroyCard(9);
+       RefereeScript.instance.playerList[1].chooseNewCardAccess.FindAndDestroyCard(9);
     }
     public void EndTurnPlayerScript()
     {
