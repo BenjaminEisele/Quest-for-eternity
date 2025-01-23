@@ -61,8 +61,8 @@ public class PlayerScript : NetworkBehaviour
         {
             if(!isHost)
             {
-                CmdAddNewCard();
-               // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
+                //CmdAddNewCard();
+                gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
             }
            // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
         }
