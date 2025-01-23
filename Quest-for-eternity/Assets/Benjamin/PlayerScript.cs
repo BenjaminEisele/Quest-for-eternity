@@ -59,15 +59,25 @@ public class PlayerScript : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            if(!isHost)
+            if(isHost)
             {
+                RefereeScript.instance.CallPreNewWaveEvent();
                 //CmdAddNewCard();
-                gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
+                // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
             }
            // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
-        }
+        } 
        // databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
+
     }
+
+    [ClientRpc]
+    public void CallNewCardsAsServer()
+    {
+        Debug.Log("Card hopefully added");
+        RefereeScript.instance.playerList[1].gameObject.transform.parent.GetComponentInChildren<ChooseNewCardScript>().DisplayCards();
+    }
+
 
     [Command(requiresAuthority = false)]
     private void CmdAddNewCard()
