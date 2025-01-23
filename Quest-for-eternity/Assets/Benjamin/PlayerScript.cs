@@ -62,6 +62,7 @@ public class PlayerScript : NetworkBehaviour
             if(!isHost)
             {
                 CmdAddNewCard();
+               // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
             }
            // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
         }
@@ -77,7 +78,7 @@ public class PlayerScript : NetworkBehaviour
     public void AddCardAsServer()
     {
        Debug.Log("Card hopefully added");
-       RefereeScript.instance.playerList[1].GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
+       RefereeScript.instance.playerList[1].gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
     }
     public void EndTurnPlayerScript()
     {
