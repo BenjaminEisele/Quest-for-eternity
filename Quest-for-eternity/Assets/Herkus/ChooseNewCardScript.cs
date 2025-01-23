@@ -39,6 +39,21 @@ public class ChooseNewCardScript : MonoBehaviour
             DisplayCardsHidden();
         }
     }
+
+    public void FindAndDestroyCard(int destroyableCardId)
+    {
+        foreach (GameObject displayCardObject in displayCardList)
+        {
+            if(displayCardObject.GetComponent<DisplayCardScript>().myCardId == destroyableCardId)
+            {
+                displayCardCount--;
+                Destroy(displayCardObject);
+                Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
+                break;
+            }
+            
+        }
+    }
     public void DisplayCardsHidden()
     {
      //   Debug.Log("hiding cards");

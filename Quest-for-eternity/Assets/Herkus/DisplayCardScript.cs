@@ -9,7 +9,8 @@ public class DisplayCardScript : MonoBehaviour
     public TextMeshPro[] cardTextArray;
 
     int myDamage;
-    int myCardId;
+    [HideInInspector]
+    public int myCardId;
     public float myCardHitRate;
     
     string hitRateString;
@@ -29,7 +30,9 @@ public class DisplayCardScript : MonoBehaviour
             // Whatever you want it to do.
             // quality comment
             //Debug.Log("CLICKED ON DISPLAY CARD");
-            CallDisplayCardsHidden();
+            // CallDisplayCardsHidden();
+            transform.parent.GetComponent<ChooseNewCardScript>().ChooseOneCard(gameObject, myCardId);
+            transform.parent.GetComponent<ChooseNewCardScript>().playerScriptAccess.BeginDisplayCardSynchronization();
         }
     }
 

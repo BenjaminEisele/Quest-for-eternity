@@ -25,6 +25,9 @@ public class PlayerScript : NetworkBehaviour
 
     public int myPlayerListId;
 
+    [SerializeField]
+    ChooseNewCardScript chooseNewCardAccess;
+
 
     public void Start()
     {
@@ -71,6 +74,17 @@ public class PlayerScript : NetworkBehaviour
        // databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
 
     }
+    public void BeginDisplayCardSynchronization()
+    {
+        if (!isServer)
+        {
+            CmdSyncrhonizeCardDestruction();
+        }
+        else if (isServer)
+        {
+            DestroyCardAsServer();
+        }
+    }
 
     [ClientRpc]
     public void CallNewCardsAsServer()
@@ -78,22 +92,24 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log("Card hopefully added");
         if(isClientOnly)
         {
-            RefereeScript.instance.playerList[1].gameObject.transform.parent.GetComponentInChildren<ChooseNewCardScript>().DisplayCards();
+            RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
         }
         
     }
 
 
     [Command(requiresAuthority = false)]
-    private void CmdAddNewCard()
+    private void CmdSyncrhonizeCardDestruction()
     {
-        RefereeScript.instance.playerList[0].AddCardAsServer();
+        //RefereeScript.instance.playerList[0].DestroyCardAsServer();
+        chooseNewCardAccess.FindAndDestroyCard(9);
     }
+
     [ClientRpc]
-    public void AddCardAsServer()
+    public void DestroyCardAsServer()
     {
-       Debug.Log("Card hopefully added");
-       RefereeScript.instance.playerList[1].gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
+       Debug.Log("Card hopefully destroyed");
+        chooseNewCardAccess.FindAndDestroyCard(9);
     }
     public void EndTurnPlayerScript()
     {
