@@ -237,6 +237,7 @@ public class RefereeScript : NetworkBehaviour
                     {
                         if (preNewWaveEvent != null)
                         {
+                            Debug.Log("pre new wave event called");
                             preNewWaveEvent();
                             waveCount++;
                         }
