@@ -8,6 +8,7 @@ public class ChooseNewCardScript : MonoBehaviour
     public Transform displayCardLocator;
     public DatabasePlayer databasePlayerAccess;
     public List<GameObject> displayCardList;
+    public PlayerScript playerScriptAccess;
 
 
     public static ChooseNewCardScript instance;
@@ -20,7 +21,10 @@ public class ChooseNewCardScript : MonoBehaviour
     private void Start()
     {
         // DisplayCards();
-        RefereeScript.preNewWaveEvent += DisplayCards;
+        if(playerScriptAccess.isHost)
+        {
+            RefereeScript.preNewWaveEvent += DisplayCards;
+        }
     }
     public void DisplayCardsHidden(int inputId)
     {
