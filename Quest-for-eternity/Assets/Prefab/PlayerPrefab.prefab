@@ -2390,6 +2390,7 @@ MonoBehaviour:
   displayCardLocator: {fileID: 5549960803085507556}
   databasePlayerAccess: {fileID: 4730537138289088088}
   displayCardList: []
+  playerScriptAccess: {fileID: 1214735220539923461}
 --- !u!1 &2564683301363056097
 GameObject:
   m_ObjectHideFlags: 0

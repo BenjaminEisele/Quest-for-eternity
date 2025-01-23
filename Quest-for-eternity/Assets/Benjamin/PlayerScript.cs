@@ -55,7 +55,30 @@ public class PlayerScript : NetworkBehaviour
     }
 
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if(!isHost)
+            {
+                CmdAddNewCard();
+            }
+           // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
+        }
+       // databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
+    }
 
+    [Command(requiresAuthority = false)]
+    private void CmdAddNewCard()
+    {
+        RefereeScript.instance.playerList[0].AddCardAsServer();
+    }
+    [ClientRpc]
+    public void AddCardAsServer()
+    {
+       Debug.Log("Card hopefully added");
+       RefereeScript.instance.playerList[1].GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
+    }
     public void EndTurnPlayerScript()
     {
         //handScriptAccess.DisableAllCardsEvent();
