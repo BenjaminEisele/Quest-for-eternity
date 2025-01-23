@@ -13,6 +13,8 @@ public class ChooseNewCardScript : MonoBehaviour
 
     public static ChooseNewCardScript instance;
 
+    int displayCardCount = 0;
+
     private void Awake()
     {
         instance = this;
@@ -26,16 +28,27 @@ public class ChooseNewCardScript : MonoBehaviour
             RefereeScript.preNewWaveEvent += DisplayCards;
         }
     }
-    public void DisplayCardsHidden(int inputId)
+
+    public void ChooseOneCard(GameObject selfObject, int inputId)
     {
-        Debug.Log("hiding cards");
-        foreach(GameObject displayCardObject in displayCardList)
-        {
-            Destroy(displayCardObject);
-            Debug.Log(displayCardObject.name);
-        }
-        displayCardList.Clear();
+        displayCardCount--;
+        Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
+        if(displayCardCount <= 0)
+        {
+            DisplayCardsHidden();
+        }
+    }
+    public void DisplayCardsHidden()
+    {
+     //   Debug.Log("hiding cards");
+      //  foreach(GameObject displayCardObject in displayCardList)
+      //  {
+          //  Destroy(displayCardObject);
+           // Debug.Log(displayCardObject.name);
+     //   }
+        displayCardList.Clear();
+        //databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
 
         RefereeScript.instance.CallStartTurnEvent();
         RefereeScript.instance.StartNextWave(false);
@@ -47,8 +60,9 @@ public class ChooseNewCardScript : MonoBehaviour
     {
         Debug.Log("display activated");
         Vector3 newDisplayCardLocation = displayCardLocator.position;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
+            displayCardCount++;
             int inputId = Random.Range(0, databasePlayerAccess.cardList.Count);
             Debug.Log($"my input id is {inputId}");
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);

@@ -27,6 +27,7 @@ public class DisplayCardScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             // Whatever you want it to do.
+            // quality comment
             //Debug.Log("CLICKED ON DISPLAY CARD");
             CallDisplayCardsHidden();
         }
@@ -34,11 +35,12 @@ public class DisplayCardScript : MonoBehaviour
 
     private void CallDisplayCardsHidden()
     {
-        transform.parent.GetComponent<ChooseNewCardScript>().DisplayCardsHidden(myCardId);
+        //transform.parent.GetComponent<ChooseNewCardScript>().DisplayCardsHidden(myCardId);
+        transform.parent.GetComponent<ChooseNewCardScript>().ChooseOneCard(gameObject, myCardId);
     }
     public void DisplayCardSetup(int myId)
     {
-        myCardId = 9;//myId;
+        myCardId = 9;// myId;
 
         myCardColor = databasePlayerAccess.cardList[myCardId].cardColor;
         myCardName = databasePlayerAccess.cardList[myCardId].cardName;
