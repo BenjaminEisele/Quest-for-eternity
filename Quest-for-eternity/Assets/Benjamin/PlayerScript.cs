@@ -63,6 +63,7 @@ public class PlayerScript : NetworkBehaviour
             {
                 RefereeScript.instance.CallPreNewWaveEvent();
                 //CmdAddNewCard();
+                CallNewCardsAsServer();
                 // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
             }
            // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
