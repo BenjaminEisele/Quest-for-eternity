@@ -13,6 +13,9 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     HandScript handScriptAccess;
 
+    [SerializeField]
+    PlayerScript playerScriptAccess;
+
     private void Start()
     {
         RefereeScript.newWaveEvent += ResetAllCardLists;
@@ -36,7 +39,10 @@ public class DeckManager : MonoBehaviour
         discardedCardList.Clear();
         uiScripAccess.ToggleShuffleWindow(false);
         handScriptAccess.DrawQueuedCards();
-        handScriptAccess.canInteract = true;
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            handScriptAccess.canInteract = true;
+        }
     }
 
     public void ResetAllCardLists()

@@ -54,7 +54,7 @@ public class LobbyController : MonoBehaviour
     {
         if (LocalPlayerController.Ready)
         {
-            ReadyButtonText.text = "Unready";
+            ReadyButtonText.text = "Not ready";
         }
 
         else
