@@ -101,8 +101,8 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdSyncrhonizeCardDestruction()
     {
-        //RefereeScript.instance.playerList[0].DestroyCardAsServer();
-        chooseNewCardAccess.FindAndDestroyCard(9);
+        RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(9);
+        //chooseNewCardAccess.FindAndDestroyCard(9);
     }
 
     [ClientRpc]
