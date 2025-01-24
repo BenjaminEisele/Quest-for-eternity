@@ -74,17 +74,21 @@ public class PlayerScript : NetworkBehaviour
 
     public void BeginPreNewWaveCall()
     {
-        isThisPlayersTurnToChoose = true;
-        if (isServer)
+        if(isThisPlayersTurn)
         {
-            Debug.Log("pre new wave called as the server");
-            RefereeScript.instance.CallPreNewWaveEvent();
-            CallNewCardsAsServer();
+            isThisPlayersTurnToChoose = true;
+            if (isServer)
+            {
+                Debug.Log("pre new wave called as the server");
+                RefereeScript.instance.CallPreNewWaveEvent();
+                CallNewCardsAsServer();
+            }
+            else if (!isServer)
+            {
+                CmdPreNewWaveCall();
+            }
         }
-        else if(!isServer)
-        {
-            CmdPreNewWaveCall();
-        }
+       
     }
     [Command(requiresAuthority = false)]
     private void CmdPreNewWaveCall()
