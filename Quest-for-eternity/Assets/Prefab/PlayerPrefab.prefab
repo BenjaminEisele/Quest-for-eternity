@@ -7938,6 +7938,7 @@ MonoBehaviour:
   shouldDealDamage: 0
   isHost: 0
   isThisPlayersTurn: 0
+  isThisPlayersTurnToChoose: 0
   damageThisRound: 0
   myPlayerListId: 0
   chooseNewCardAccess: {fileID: 1577412184725532746}

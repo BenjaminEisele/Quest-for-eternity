@@ -111,7 +111,7 @@ public class HandScript : MonoBehaviour
                                 canPlayUtility = false;
                             }
                         }
-                        Debug.Log(hit.transform.root.gameObject);
+                       // Debug.Log(hit.transform.root.gameObject);
                         // card gets removed from list
                         //Destroy(hit.transform.gameObject);
                         RebuildCardList(hit.transform.root.gameObject);    
@@ -143,7 +143,7 @@ public class HandScript : MonoBehaviour
     }
     private void RebuildCardList(GameObject inputGameobject)
     {
-        Debug.Log("destroying");
+       // Debug.Log("destroying");
         for(int i = 0; i < cardList.Count; i++)
         {    
             //if (inputGameobject.GetInstanceID() == cardList[i].GetInstanceID()) 

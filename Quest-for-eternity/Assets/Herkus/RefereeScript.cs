@@ -301,6 +301,7 @@ public class RefereeScript : NetworkBehaviour
 
     public void NewWaveCheck()
     {
+        Debug.Log("New Wave check activated");
         areAllEnemiesDead = true;
         foreach (EnemyScript enemy in enemyList)
         {

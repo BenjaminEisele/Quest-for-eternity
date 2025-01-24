@@ -183,7 +183,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isThisPlayersTurn)
         {
-            Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
+            //Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
         }

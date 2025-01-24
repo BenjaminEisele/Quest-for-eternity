@@ -138,7 +138,7 @@ public class FieldScript : MonoBehaviour
                 // Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
                 if (didWeHit)
                 {
-                    Debug.Log("hit success");
+                   // Debug.Log("hit success");
                     // playerScriptAccess.damageThisRound = damagePoints;
                     hitRateModifier = 0;
                     damagePoints = 0;
@@ -167,7 +167,7 @@ public class FieldScript : MonoBehaviour
                 return false;
             }
         }
-        Debug.Log("not your turn!");
+        //Debug.Log("not your turn!");
         return false;
 
     }
