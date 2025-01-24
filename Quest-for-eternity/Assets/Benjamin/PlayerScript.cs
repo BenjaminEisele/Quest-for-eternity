@@ -74,8 +74,6 @@ public class PlayerScript : NetworkBehaviour
 
     public void BeginPreNewWaveCall()
     {
-        if(isThisPlayersTurn)
-        {
             isThisPlayersTurnToChoose = true;
             if (isServer)
             {
@@ -87,8 +85,6 @@ public class PlayerScript : NetworkBehaviour
             {
                 CmdPreNewWaveCall();
             }
-        }
-       
     }
     [Command(requiresAuthority = false)]
     private void CmdPreNewWaveCall()
