@@ -51,6 +51,7 @@ public class ChooseNewCardScript : MonoBehaviour
                     displayCardCount--;
                     Destroy(displayCardObject);
                     Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
+                    playerScriptAccess.isThisPlayersTurnToChoose = true;
                     break;
                 }
             }

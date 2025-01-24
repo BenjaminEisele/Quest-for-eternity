@@ -73,6 +73,7 @@ public class PlayerScript : NetworkBehaviour
     }
     public void BeginDisplayCardSynchronization()
     {
+        isThisPlayersTurnToChoose = false;
         if (!isServer)
         {
             CmdSyncrhonizeCardDestruction();
@@ -106,6 +107,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DestroyCardAsServer()
     {
+       
        Debug.Log("Card hopefully destroyed");
        RefereeScript.instance.playerList[1].chooseNewCardAccess.FindAndDestroyCard(9);
     }
