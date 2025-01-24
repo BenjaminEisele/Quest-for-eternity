@@ -71,6 +71,29 @@ public class PlayerScript : NetworkBehaviour
             }
         } 
     }
+
+    public void BeginPreNewWaveCall()
+    {
+        isThisPlayersTurnToChoose = true;
+        if (isServer)
+        {
+            Debug.Log("pre new wave called as the server");
+            RefereeScript.instance.CallPreNewWaveEvent();
+            CallNewCardsAsServer();
+        }
+        else if(!isServer)
+        {
+            CmdPreNewWaveCall();
+        }
+    }
+    [Command(requiresAuthority = false)]
+    private void CmdPreNewWaveCall()
+    {
+        Debug.Log("Called cmd pre new wave");
+        RefereeScript.instance.CallPreNewWaveEvent();
+        CallNewCardsAsServer();
+    }
+
     public void BeginDisplayCardSynchronization()
     {
         isThisPlayersTurnToChoose = false;

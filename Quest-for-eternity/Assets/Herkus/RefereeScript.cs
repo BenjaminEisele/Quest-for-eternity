@@ -310,8 +310,17 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
+            if(playerList[0].isThisPlayersTurn)
+            {
+                playerList[0].BeginPreNewWaveCall();
+            }
+            else
+            {
+                playerList[1].BeginPreNewWaveCall();
+            }
+            
             canTransferTurnToPlayer = false;
-            CallPreNewWaveEvent();
+            //CallPreNewWaveEvent();
         }
     }
 
