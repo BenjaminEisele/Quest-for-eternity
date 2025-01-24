@@ -313,6 +313,7 @@ public class RefereeScript : NetworkBehaviour
             if(playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
+                Debug.Log("this should not get executed");
             }
             else
             {
