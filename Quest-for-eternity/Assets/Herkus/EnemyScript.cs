@@ -48,7 +48,8 @@ public class EnemyScript : NetworkBehaviour
             enemyHealth = 0;          
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
-            Debug.Log(isServer);
+            bool myBool = isServer;
+            Debug.Log(myBool);
             RefereeScript.instance.NewWaveCheck(false);
         }
         else

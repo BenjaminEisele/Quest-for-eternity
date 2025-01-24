@@ -47,15 +47,12 @@ public class RefereeScript : NetworkBehaviour
 
     public int hostId;
     public int clientId;
-
+    
     private void Awake()
     {
         instance = this;
     }     
-    public void IdSetup()
-    {
-       // hostId = 
-    }
+    
     private void Start()
     {        
         areAllEnemiesDead = false;
