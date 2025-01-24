@@ -148,6 +148,7 @@ public class PlayerScript : NetworkBehaviour
             }
             if(RefereeScript.instance.canTransferTurnToPlayer)
             {
+                Debug.Log("Ending Turn Now");
                 CmdEndTurn();
             }
             

@@ -50,7 +50,7 @@ public class ChooseNewCardScript : MonoBehaviour
                 {
                     displayCardCount--;
                     Destroy(displayCardObject);
-                    Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
+                    //Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
                     playerScriptAccess.isThisPlayersTurnToChoose = true;
                     break;
                 }
@@ -85,7 +85,7 @@ public class ChooseNewCardScript : MonoBehaviour
         {
             displayCardCount++;
             int inputId = Random.Range(0, databasePlayerAccess.cardList.Count);
-            Debug.Log($"my input id is {inputId}");
+            //Debug.Log($"my input id is {inputId}");
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);
             displayCard.GetComponent<DisplayCardScript>().DisplayCardSetup(inputId);
             newDisplayCardLocation += new Vector3(2.5f, 0, 0);
