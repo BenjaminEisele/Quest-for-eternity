@@ -146,8 +146,11 @@ public class PlayerScript : NetworkBehaviour
                 CmdDealDamage(damageThisRound);
 
             }
-
-            CmdEndTurn();
+            if(RefereeScript.instance.canTransferTurnToPlayer)
+            {
+                CmdEndTurn();
+            }
+            
         }
         else if (isServer)
         {
@@ -157,7 +160,11 @@ public class PlayerScript : NetworkBehaviour
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 RpcDealDamage(damageThisRound);
             }
-            RpcEndTurn();
+            if (RefereeScript.instance.canTransferTurnToPlayer)
+            {
+                RpcEndTurn();
+            }
+                
         }
         handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
     }

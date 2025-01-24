@@ -14,7 +14,8 @@ public class RefereeScript : NetworkBehaviour
 
     private bool isGameOver;
     bool areAllEnemiesDead;
-    private bool canTransferTurnToPlayer;
+    [HideInInspector] [SyncVar]
+    public bool canTransferTurnToPlayer;
 
     public GameObject restartGameButton;
     public GameObject lostImage;
@@ -310,7 +311,8 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-            if(playerList[0].isThisPlayersTurn)
+            canTransferTurnToPlayer = false;
+            if (playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
                 Debug.Log("this should not get executed");
@@ -320,7 +322,7 @@ public class RefereeScript : NetworkBehaviour
                 playerList[1].BeginPreNewWaveCall();
             }
             
-            canTransferTurnToPlayer = false;
+            
             //CallPreNewWaveEvent();
         }
     }
