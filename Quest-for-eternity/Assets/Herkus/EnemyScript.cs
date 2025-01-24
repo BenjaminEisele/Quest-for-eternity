@@ -20,7 +20,9 @@ public class EnemyScript : NetworkBehaviour
 
 
     public void EnemySetUp(int myID)
-    {      
+    {
+        bool myBool = isServer;
+        Debug.Log(myBool);
         personalId = myID;
         isEnemyAlive = true;
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
@@ -48,8 +50,8 @@ public class EnemyScript : NetworkBehaviour
             enemyHealth = 0;          
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
-            bool myBool = isClientOnly;
-            Debug.Log(myBool);
+            //bool myBool = isClientOnly;
+           // Debug.Log(myBool);
             RefereeScript.instance.NewWaveCheck(false);
         }
         else
