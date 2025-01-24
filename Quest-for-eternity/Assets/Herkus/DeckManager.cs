@@ -39,10 +39,7 @@ public class DeckManager : MonoBehaviour
         discardedCardList.Clear();
         uiScripAccess.ToggleShuffleWindow(false);
         handScriptAccess.DrawQueuedCards();
-        if (playerScriptAccess.isThisPlayersTurn)
-        {
-            handScriptAccess.canInteract = true;
-        }
+        handScriptAccess.canInteract = true;
     }
 
     public void ResetAllCardLists()
