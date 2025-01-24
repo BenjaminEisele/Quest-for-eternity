@@ -53,9 +53,7 @@ public class ChooseNewCardScript : MonoBehaviour
                     Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
                     break;
                 }
-
             }
-
         }
     }
     public void DisplayCardsHidden()
@@ -69,6 +67,9 @@ public class ChooseNewCardScript : MonoBehaviour
         displayCardList.Clear();
         //databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
 
+
+        // !!!!! Maybe we need to make it so that only the server/host calls a new wave. We need to make it so that the enemies are always synchronised.
+        // maybe this is not a bug at all actually
         RefereeScript.instance.CallStartTurnEvent();
         RefereeScript.instance.StartNextWave(false);
 

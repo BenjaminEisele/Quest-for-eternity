@@ -19,7 +19,8 @@ public class PlayerScript : NetworkBehaviour
     [SyncVar]
     public bool isThisPlayersTurn;
 
-    //[SyncVar] public int damageThisRound = 0;
+    [SyncVar]
+    public bool isThisPlayersTurnToChoose;
 
     [SyncVar] public int damageThisRound;
 
@@ -32,7 +33,7 @@ public class PlayerScript : NetworkBehaviour
     public void Start()
     {
         RefereeScript.instance.playerList.Add(this);
-
+        isThisPlayersTurnToChoose = true;
 
         TurnScript.endTurnEvent += EndTurnPlayerScript;
 
@@ -64,15 +65,11 @@ public class PlayerScript : NetworkBehaviour
         {
             if(isHost)
             {
+                isThisPlayersTurnToChoose = true;
                 RefereeScript.instance.CallPreNewWaveEvent();
-                //CmdAddNewCard();
                 CallNewCardsAsServer();
-                // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
             }
-           // gameObject.transform.parent.GetComponentInChildren<DeckManager>().discardedCardList.Add(9);
         } 
-       // databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
-
     }
     public void BeginDisplayCardSynchronization()
     {
@@ -93,6 +90,7 @@ public class PlayerScript : NetworkBehaviour
         if(isClientOnly)
         {
             RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
+            RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
         }
         
     }
