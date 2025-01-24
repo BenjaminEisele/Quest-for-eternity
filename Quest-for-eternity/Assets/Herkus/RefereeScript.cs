@@ -299,7 +299,7 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    public void NewWaveCheck()
+    public void NewWaveCheck(bool inputBool)
     {
         Debug.Log("New Wave check activated");
         areAllEnemiesDead = true;
@@ -313,7 +313,7 @@ public class RefereeScript : NetworkBehaviour
         if (areAllEnemiesDead)
         {
             canTransferTurnToPlayer = false;
-            if (playerList[0].isThisPlayersTurn)
+            if (inputBool)
             {
                 playerList[0].BeginPreNewWaveCall();
                 Debug.Log("this should not get executed");
