@@ -14,7 +14,7 @@ public class RefereeScript : NetworkBehaviour
 
     private bool isGameOver;
     bool areAllEnemiesDead;
-    [HideInInspector] [SyncVar]
+    [SyncVar]
     public bool canTransferTurnToPlayer;
 
     public GameObject restartGameButton;

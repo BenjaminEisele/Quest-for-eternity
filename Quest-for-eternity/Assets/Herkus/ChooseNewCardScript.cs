@@ -79,7 +79,7 @@ public class ChooseNewCardScript : MonoBehaviour
     
     public void DisplayCards()
     {
-        Debug.Log("display activated");
+       // Debug.Log("display activated");
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < 4; i++)
         {

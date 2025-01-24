@@ -110,7 +110,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void CallNewCardsAsServer()
     {
-        Debug.Log("Card hopefully added");
+        //Debug.Log("Card hopefully added");
         if(isClientOnly)
         {
             RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
@@ -212,7 +212,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer(int inputDamage2)
     {
-        Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
+        //Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
 
