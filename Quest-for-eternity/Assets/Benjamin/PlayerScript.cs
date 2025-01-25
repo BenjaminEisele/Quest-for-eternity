@@ -74,6 +74,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void BeginPreNewWaveCall()
     {
+        Debug.Log(transform.root.gameObject.name);
         if(isThisPlayersTurn)
         {
             isThisPlayersTurnToChoose = true;
