@@ -74,7 +74,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void BeginPreNewWaveCall()
     {
-        if(!isThisPlayersTurn)
+        if(isThisPlayersTurn)
         {
             isThisPlayersTurnToChoose = true;
             if (isServer)
