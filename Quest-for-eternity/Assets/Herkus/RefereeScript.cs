@@ -311,13 +311,14 @@ public class RefereeScript : NetworkBehaviour
         if (areAllEnemiesDead)
         {
             canTransferTurnToPlayer = false;
-            if (isServer)
+            if (playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
                 Debug.Log("this should not get executed");
             }
             else
             {
+                Debug.Log("This line needs to appear in the console");
                 playerList[1].BeginPreNewWaveCall();
             }
             
