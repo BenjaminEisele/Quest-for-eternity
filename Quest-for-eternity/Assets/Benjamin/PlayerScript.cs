@@ -148,7 +148,7 @@ public class PlayerScript : NetworkBehaviour
             }
             if(RefereeScript.instance.canTransferTurnToPlayer)
             {
-                Debug.Log("Ending Turn Now");
+                Debug.Log("Ending Turn CMD");
                 CmdEndTurn();
             }
             
@@ -163,6 +163,7 @@ public class PlayerScript : NetworkBehaviour
             }
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
+                Debug.Log("Ending Turn RPC");
                 RpcEndTurn();
             }
                 

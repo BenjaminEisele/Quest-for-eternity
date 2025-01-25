@@ -236,7 +236,7 @@ public class RefereeScript : NetworkBehaviour
                     {
                         if (preNewWaveEvent != null)
                         {
-                            Debug.Log("pre new wave event called");
+                            //Debug.Log("pre new wave event called");
                             preNewWaveEvent();
                             waveCount++;
                         }
@@ -310,6 +310,7 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
+            Debug.Log("checking whose turn it is");
             canTransferTurnToPlayer = false;
             if (playerList[0].isThisPlayersTurn)
             {
