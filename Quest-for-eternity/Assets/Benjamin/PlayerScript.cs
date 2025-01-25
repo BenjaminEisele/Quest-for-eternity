@@ -84,7 +84,7 @@ public class PlayerScript : NetworkBehaviour
                 RefereeScript.instance.CallPreNewWaveEvent();
                 CallNewCardsAsServer();
             }
-            else if (isClientOnly)
+            else if (!isServer)
             {
                 CmdPreNewWaveCall();
             }

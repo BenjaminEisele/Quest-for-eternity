@@ -313,7 +313,7 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-            Debug.Log("checking whose turn it is");
+            Debug.Log($"should be false. is it false? {isServersTurn}");
             canTransferTurnToPlayer = false;
             if (isServersTurn)
             {
@@ -324,9 +324,7 @@ public class RefereeScript : NetworkBehaviour
             {
                 Debug.Log("This line needs to appear in the console");
                 playerList[1].BeginPreNewWaveCall();
-            }
-            
-            
+            }   
             //CallPreNewWaveEvent();
         }
     }
