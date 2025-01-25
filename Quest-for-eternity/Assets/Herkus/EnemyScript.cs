@@ -21,8 +21,8 @@ public class EnemyScript : NetworkBehaviour
 
     public void EnemySetUp(int myID)
     {
-        bool myBool = isServer;
-        Debug.Log(myBool);
+        bool myBool = isClientOnly;
+        Debug.Log(isClientOnly);
         personalId = myID;
         isEnemyAlive = true;
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
