@@ -17,6 +17,9 @@ public class RefereeScript : NetworkBehaviour
     [SyncVar]
     public bool canTransferTurnToPlayer;
 
+    [SyncVar]
+    public bool isServersTurn;
+
     public GameObject restartGameButton;
     public GameObject lostImage;
     public GameObject winImage;
@@ -312,7 +315,7 @@ public class RefereeScript : NetworkBehaviour
         {
             Debug.Log("checking whose turn it is");
             canTransferTurnToPlayer = false;
-            if (playerList[0].isThisPlayersTurn)
+            if (isServersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
                 Debug.Log("this should not get executed");

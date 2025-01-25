@@ -197,6 +197,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
+        RefereeScript.instance.isServersTurn = true;
     }
 
     [ClientRpc]
@@ -206,6 +207,7 @@ public class PlayerScript : NetworkBehaviour
         isThisPlayersTurn = !isThisPlayersTurn;
         this.EndTurnButton.interactable = isThisPlayersTurn;
         handScriptAccess.ActivateAllCardsEvent();
+        RefereeScript.instance.isServersTurn = false;
     }
 
 
