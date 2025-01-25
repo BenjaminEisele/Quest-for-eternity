@@ -54,7 +54,8 @@ public class RefereeScript : NetworkBehaviour
     }     
     
     private void Start()
-    {        
+    {
+        Debug.Log(isServer + " is server?");
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
@@ -310,7 +311,7 @@ public class RefereeScript : NetworkBehaviour
         if (areAllEnemiesDead)
         {
             canTransferTurnToPlayer = false;
-            if (inputBool)
+            if (isServer)
             {
                 playerList[0].BeginPreNewWaveCall();
                 Debug.Log("this should not get executed");
