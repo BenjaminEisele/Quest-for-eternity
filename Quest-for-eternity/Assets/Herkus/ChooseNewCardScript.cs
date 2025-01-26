@@ -59,18 +59,11 @@ public class ChooseNewCardScript : MonoBehaviour
     }
     public void DisplayCardsHidden()
     {
-     //   Debug.Log("hiding cards");
-      //  foreach(GameObject displayCardObject in displayCardList)
-      //  {
-          //  Destroy(displayCardObject);
-           // Debug.Log(displayCardObject.name);
-     //   }
+
         displayCardList.Clear();
-        //databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
+        RefereeScript.instance.canTransferTurnToPlayer = true;
+        playerScriptAccess.EndTurnPlayerScript();
 
-
-        // !!!!! Maybe we need to make it so that only the server/host calls a new wave. We need to make it so that the enemies are always synchronised.
-        // maybe this is not a bug at all actually
         RefereeScript.instance.CallStartTurnEvent();
         RefereeScript.instance.StartNextWave(false);
 
