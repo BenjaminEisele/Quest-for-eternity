@@ -95,7 +95,7 @@ public class PlayerScript : NetworkBehaviour
     {
         Debug.Log("Called cmd pre new wave");
         RefereeScript.instance.CallPreNewWaveEvent();
-        CallNewCardsAsServer();
+        //CallNewCardsAsServer();
     }
 
     public void BeginDisplayCardSynchronization()
