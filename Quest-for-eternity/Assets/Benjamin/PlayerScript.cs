@@ -80,6 +80,7 @@ public class PlayerScript : NetworkBehaviour
         {
             if (isHost && isServer)
             {
+                Debug.Log("server sets the bools");
                 RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
                 RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
                 RefereeScript.instance.CallPreNewWaveEvent();
@@ -87,6 +88,7 @@ public class PlayerScript : NetworkBehaviour
             }
             else if (isClientOnly)
             {
+                Debug.Log("client sets the bools");
                 RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = false;
                 RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = true;
                 CmdPreNewWaveCall();
@@ -150,7 +152,6 @@ public class PlayerScript : NetworkBehaviour
     public void EndTurnPlayerScript()
     {
         //handScriptAccess.DisableAllCardsEvent();
-        Debug.Log("End turn called");
         if (!isServer)
         {
             if (fieldScriptAccess.FieldHitCheck())
@@ -201,7 +202,6 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        Debug.Log("Cmd end turn called");
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
             isThisPlayersTurn = !isThisPlayersTurn;
@@ -214,7 +214,6 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurn()
     {
-        Debug.Log("Rpc end turn called");
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
             damageThisRound = 0;
