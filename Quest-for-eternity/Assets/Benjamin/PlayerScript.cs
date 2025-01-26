@@ -77,7 +77,18 @@ public class PlayerScript : NetworkBehaviour
     {
         Debug.Log(transform.root.gameObject.name);
         if(isThisPlayersTurn)
-        { 
+        {
+            DatabasePlayer databasePlayerAccess = GetComponentInChildren<DatabasePlayer>();
+
+            if (databasePlayerAccess != null)
+            {
+                RefereeScript.instance.RandomNumberSetUp(databasePlayerAccess.cardList.Count);
+            }
+            else
+            {
+                Debug.Log("databasePlayerAccess was null!");
+            }
+
             if (isHost && isServer)
             {
                 RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;

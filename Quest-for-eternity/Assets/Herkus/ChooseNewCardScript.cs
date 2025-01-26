@@ -79,10 +79,7 @@ public class ChooseNewCardScript : MonoBehaviour
     
     public void DisplayCards()
     {
-        if(playerScriptAccess.isHost)
-        {
-            RefereeScript.instance.RandomNumberSetUp(databasePlayerAccess.cardList.Count);
-        }
+       
        // Debug.Log("display activated");
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < 4; i++)
