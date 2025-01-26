@@ -153,7 +153,8 @@ public class PlayerScript : NetworkBehaviour
             if(RefereeScript.instance.canTransferTurnToPlayer)
             {
                 Debug.Log("Ending Turn CMD");
-                CmdEndTurn();
+                Invoke("CmdEndTurn", 0.1f);
+                //CmdEndTurn();
             }
             
         }
@@ -168,7 +169,8 @@ public class PlayerScript : NetworkBehaviour
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
                 Debug.Log("Ending Turn RPC");
-                RpcEndTurn();
+                Invoke("RpcEndTurn", 0.1f);
+               // RpcEndTurn();
             }
                 
         }
@@ -191,7 +193,6 @@ public class PlayerScript : NetworkBehaviour
             //Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
-            RefereeScript.instance.NewWaveCheck();
         }
 
     }
@@ -223,7 +224,6 @@ public class PlayerScript : NetworkBehaviour
         //Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
-        RefereeScript.instance.NewWaveCheck();
     }
 
     public void PlayCardForOtherPlayer(int cardID)
