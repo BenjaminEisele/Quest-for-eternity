@@ -44,7 +44,7 @@ public class DisplayCardScript : MonoBehaviour
     }
     public void DisplayCardSetup(int myId)
     {
-        myCardId = 9;// myId;
+        myCardId = myId;
 
         myCardColor = databasePlayerAccess.cardList[myCardId].cardColor;
         myCardName = databasePlayerAccess.cardList[myCardId].cardName;

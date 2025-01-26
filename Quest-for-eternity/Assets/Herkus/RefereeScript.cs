@@ -50,7 +50,10 @@ public class RefereeScript : NetworkBehaviour
 
     public int hostId;
     public int clientId;
-    
+
+    int[] randomNumbers = new int[4];
+
+
     private void Awake()
     {
         instance = this;
@@ -300,6 +303,18 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
+    public void RandomNumberSetUp(int maximumValue)
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            randomNumbers[i] = Random.Range(0, maximumValue);
+        }
+    }
+
+    public int GetRandomNumber(int inputIndex)
+    {
+        return randomNumbers[inputIndex];
+    }
     public void NewWaveCheck()
     {
         Debug.Log("New Wave check activated");

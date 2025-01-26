@@ -79,13 +79,18 @@ public class ChooseNewCardScript : MonoBehaviour
     
     public void DisplayCards()
     {
+        if(playerScriptAccess.isHost)
+        {
+            RefereeScript.instance.RandomNumberSetUp(databasePlayerAccess.cardList.Count);
+        }
        // Debug.Log("display activated");
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < 4; i++)
         {
             displayCardCount++;
-            int inputId = Random.Range(0, databasePlayerAccess.cardList.Count);
-            //Debug.Log($"my input id is {inputId}");
+            //int inputId = Random.Range(0, databasePlayerAccess.cardList.Count);
+            int inputId = RefereeScript.instance.GetRandomNumber(i);
+            Debug.Log($"my input id is {inputId}");
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);
             displayCard.GetComponent<DisplayCardScript>().DisplayCardSetup(inputId);
             newDisplayCardLocation += new Vector3(2.5f, 0, 0);
