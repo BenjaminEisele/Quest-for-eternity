@@ -81,7 +81,7 @@ public class PlayerScript : NetworkBehaviour
             if (isServer)
             {
                 Debug.Log("pre new wave called as the server");
-                RefereeScript.instance.CallPreNewWaveEvent();
+                //RefereeScript.instance.CallPreNewWaveEvent();
                 CallNewCardsAsServer();
             }
             else if (!isServer)
@@ -94,8 +94,8 @@ public class PlayerScript : NetworkBehaviour
     private void CmdPreNewWaveCall()
     {
         Debug.Log("Called cmd pre new wave");
-        RefereeScript.instance.CallPreNewWaveEvent();
-        //CallNewCardsAsServer();
+        //RefereeScript.instance.CallPreNewWaveEvent();
+        CallNewCardsAsServer();
     }
 
     public void BeginDisplayCardSynchronization()
@@ -114,8 +114,9 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void CallNewCardsAsServer()
     {
+        RefereeScript.instance.CallPreNewWaveEvent();
         //Debug.Log("Card hopefully added");
-        if(isClientOnly)
+        if (isClientOnly)
         {
             RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
             RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
