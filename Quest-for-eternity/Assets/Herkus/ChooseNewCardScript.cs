@@ -63,7 +63,6 @@ public class ChooseNewCardScript : MonoBehaviour
     }
     public void DisplayCardsHidden()
     {
-        Debug.Log("should execute end turn player");
         displayCardList.Clear();
         RefereeScript.instance.canTransferTurnToPlayer = true;
         playerScriptAccess.EndTurnPlayerScript();

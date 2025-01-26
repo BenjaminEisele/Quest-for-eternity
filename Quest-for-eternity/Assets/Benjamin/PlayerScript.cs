@@ -146,10 +146,11 @@ public class PlayerScript : NetworkBehaviour
        Debug.Log("Card hopefully destroyed");
        RefereeScript.instance.playerList[1].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
+
     public void EndTurnPlayerScript()
     {
         //handScriptAccess.DisableAllCardsEvent();
-
+        Debug.Log("End turn called");
         if (!isServer)
         {
             if (fieldScriptAccess.FieldHitCheck())
@@ -200,6 +201,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
+        Debug.Log("Cmd end turn called");
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
             isThisPlayersTurn = !isThisPlayersTurn;
@@ -212,6 +214,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurn()
     {
+        Debug.Log("Rpc end turn called");
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
             damageThisRound = 0;
