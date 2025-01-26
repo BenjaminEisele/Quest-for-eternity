@@ -34,10 +34,10 @@ public class ChooseNewCardScript : MonoBehaviour
         displayCardCount--;
         Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
-        if(displayCardCount <= 0)
+        /*if(displayCardCount <= 0)
         {
             DisplayCardsHidden();
-        }
+        } */
     }
 
     public void FindAndDestroyCard(int destroyableCardId)
@@ -52,6 +52,10 @@ public class ChooseNewCardScript : MonoBehaviour
                     Destroy(displayCardObject);
                     //Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
                     playerScriptAccess.isThisPlayersTurnToChoose = true;
+                    if (displayCardCount <= 0)
+                    {
+                        DisplayCardsHidden();
+                    }
                     break;
                 }
             }
