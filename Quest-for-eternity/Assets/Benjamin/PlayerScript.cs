@@ -78,7 +78,7 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log(transform.root.gameObject.name);
         if(isThisPlayersTurn)
         {
-            DatabasePlayer databasePlayerAccess = GetComponentInChildren<DatabasePlayer>();
+            DatabasePlayer databasePlayerAccess = transform.root.GetComponentInChildren<DatabasePlayer>();
 
             if (databasePlayerAccess != null)
             {
