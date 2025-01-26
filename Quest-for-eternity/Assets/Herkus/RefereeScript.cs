@@ -62,12 +62,14 @@ public class RefereeScript : NetworkBehaviour
     
     private void Start()
     {
+        RandomizeChooseCardsSetUp();
         Debug.Log(isServer + " is server?");
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
         ennemyGeneratorAccess.RandomNumber();
         ennemyGeneratorAccess.GenerateEnemies(1);
+        newWaveEvent += RandomizeChooseCardsSetUp;
         //enemyList.Add(targetEnemy);
         isGameOver = false;
         //restartGameButton.SetActive(false);
@@ -329,18 +331,7 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-            if(isServer)
-            {
-                DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
-                if (databasePlayerAccess != null)
-                {
-                    RandomNumberSetUp(databasePlayerAccess.cardList.Count);
-                }
-                else
-                {
-                    Debug.Log("databasePlayerAccess was null!");
-                }
-            }
+            
             
 
             Debug.Log($"should be false. is it false? {playerList[0].isThisPlayersTurn}");
@@ -359,7 +350,21 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-
+    private void RandomizeChooseCardsSetUp()
+    {
+        if (isServer)
+        {
+            DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
+            if (databasePlayerAccess != null)
+            {
+                RandomNumberSetUp(databasePlayerAccess.cardList.Count);
+            }
+            else
+            {
+                Debug.Log("databasePlayerAccess was null!");
+            }
+        }
+    }
     public void dealDamageToPlayer(int inputDamage)
     {
         if(PlayerStatScript.instance.TakeDamageAndCheckIfDead(inputDamage))
