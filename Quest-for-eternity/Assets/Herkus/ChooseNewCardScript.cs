@@ -64,7 +64,7 @@ public class ChooseNewCardScript : MonoBehaviour
     public void DisplayCardsHidden()
     {
         displayCardList.Clear();
-        RefereeScript.instance.canTransferTurnToPlayer = true;
+        //RefereeScript.instance.canTransferTurnToPlayer = true;
         //playerScriptAccess.EndTurnPlayerScript();
 
         RefereeScript.instance.CallEndTurnForBothPlayers();
