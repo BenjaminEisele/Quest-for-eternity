@@ -89,8 +89,6 @@ public class PlayerScript : NetworkBehaviour
             else if (isClientOnly)
             {
                 Debug.Log("client sets the bools");
-                RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = false;
-                RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = true;
                 CmdPreNewWaveCall();
             }
         }
@@ -100,6 +98,9 @@ public class PlayerScript : NetworkBehaviour
     {
         if(!isHost)
         {
+            RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = false;
+            RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = true;
+
             RefereeScript.instance.CallPreNewWaveEvent();
             CallNewCardsAsServer();
         }
