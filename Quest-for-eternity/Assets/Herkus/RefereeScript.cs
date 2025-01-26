@@ -59,10 +59,6 @@ public class RefereeScript : NetworkBehaviour
     private void Start()
     {
         Debug.Log(isServer + " is server?");
-        if(isServer)
-        {
-            isServersTurn = true;
-        }
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
