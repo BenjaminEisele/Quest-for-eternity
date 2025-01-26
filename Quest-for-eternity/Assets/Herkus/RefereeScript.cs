@@ -313,7 +313,7 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-            Debug.Log($"should be false. is it false? {isServersTurn}");
+            Debug.Log($"should be false. is it false? {playerList[0].isThisPlayersTurn)}");
             canTransferTurnToPlayer = false;
             if (playerList[0].isThisPlayersTurn)
             {
