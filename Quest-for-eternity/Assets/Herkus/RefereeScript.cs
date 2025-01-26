@@ -315,7 +315,7 @@ public class RefereeScript : NetworkBehaviour
         {
             Debug.Log($"should be false. is it false? {isServersTurn}");
             canTransferTurnToPlayer = false;
-            if (isServersTurn)
+            if (playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
                 Debug.Log("this should not get executed");
