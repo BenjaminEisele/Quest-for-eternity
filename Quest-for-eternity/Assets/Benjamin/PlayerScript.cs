@@ -114,13 +114,13 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void CallNewCardsAsServer()
     {
-        RefereeScript.instance.CallPreNewWaveEvent();
+        //RefereeScript.instance.CallPreNewWaveEvent();
         //Debug.Log("Card hopefully added");
-        /*if (isClientOnly)
+        if (isClientOnly)
         {
             RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
             RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
-        } */
+        } 
         
     }
 
