@@ -140,6 +140,8 @@ public class PlayerScript : NetworkBehaviour
     }
     public void EndTurnPlayerScript()
     {
+        //handScriptAccess.DisableAllCardsEvent();
+
         if (!isServer)
         {
             if (fieldScriptAccess.FieldHitCheck())
@@ -148,11 +150,12 @@ public class PlayerScript : NetworkBehaviour
                 CmdDealDamage(damageThisRound);
 
             }
-         /*   if(RefereeScript.instance.canTransferTurnToPlayer)
+            if(RefereeScript.instance.canTransferTurnToPlayer)
             {
                 Debug.Log("Ending Turn CMD");
                 CmdEndTurn();
-            }        */  
+            }
+            
         }
         else if (isServer)
         {
@@ -162,31 +165,12 @@ public class PlayerScript : NetworkBehaviour
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 RpcDealDamage(damageThisRound);
             }
-         /*   if (RefereeScript.instance.canTransferTurnToPlayer)
-            {
-                Debug.Log("Ending Turn RPC");
-                RpcEndTurn();
-            }       */         
-        }
-        //handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
-    }
-    public void EndTurnCall()
-    {
-        if (!isServer)
-        {
-            if (RefereeScript.instance.canTransferTurnToPlayer)
-            {
-                Debug.Log("Ending Turn CMD");
-                CmdEndTurn();
-            }
-        }
-        else if (isServer)
-        {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
                 Debug.Log("Ending Turn RPC");
                 RpcEndTurn();
             }
+                
         }
         handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
     }

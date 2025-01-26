@@ -304,7 +304,6 @@ public class RefereeScript : NetworkBehaviour
     {
         Debug.Log("New Wave check activated");
         areAllEnemiesDead = true;
-        int turnId = 0;
         foreach (EnemyScript enemy in enemyList)
         {
             if (enemy.enemyHealth > 0)
@@ -328,15 +327,6 @@ public class RefereeScript : NetworkBehaviour
             }   
             //CallPreNewWaveEvent();
         }
-        if (isServersTurn)
-        {
-            turnId = 0;
-        }
-        else
-        {
-            turnId = 1;
-        }
-        playerList[turnId].EndTurnCall();
     }
 
 
