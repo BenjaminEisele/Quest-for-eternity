@@ -77,8 +77,7 @@ public class PlayerScript : NetworkBehaviour
     {
         Debug.Log(transform.root.gameObject.name);
         if(isThisPlayersTurn)
-        {
-            
+        { 
             if (isHost && isServer)
             {
                 RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
@@ -128,7 +127,7 @@ public class PlayerScript : NetworkBehaviour
         if (isClientOnly)
         {
             RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
-            RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
+            //RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
         } 
         
     }
