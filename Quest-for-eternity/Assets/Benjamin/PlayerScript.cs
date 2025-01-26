@@ -78,19 +78,11 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log(transform.root.gameObject.name);
         if(isThisPlayersTurn)
         {
-            DatabasePlayer databasePlayerAccess = transform.root.GetComponentInChildren<DatabasePlayer>();
 
-            if (databasePlayerAccess != null)
-            {
-                RefereeScript.instance.RandomNumberSetUp(databasePlayerAccess.cardList.Count);
-            }
-            else
-            {
-                Debug.Log("databasePlayerAccess was null!");
-            }
 
             if (isHost && isServer)
             {
+
                 RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
                 RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
                 Debug.Log("pre new wave called as the server");

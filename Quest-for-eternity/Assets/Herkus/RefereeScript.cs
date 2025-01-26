@@ -51,6 +51,7 @@ public class RefereeScript : NetworkBehaviour
     public int hostId;
     public int clientId;
 
+    [SyncVar]
     int[] randomNumbers = new int[4];
 
 
@@ -328,6 +329,17 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
+
+            DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
+            if (databasePlayerAccess != null)
+            {
+                RandomNumberSetUp(databasePlayerAccess.cardList.Count);
+            }
+            else
+            {
+                Debug.Log("databasePlayerAccess was null!");
+            }
+
             Debug.Log($"should be false. is it false? {playerList[0].isThisPlayersTurn}");
             canTransferTurnToPlayer = false;
             if (playerList[0].isThisPlayersTurn)
