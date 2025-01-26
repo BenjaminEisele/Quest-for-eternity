@@ -63,7 +63,6 @@ public class RefereeScript : NetworkBehaviour
     private void Start()
     {
         RandomizeChooseCardsSetUp();
-        Debug.Log(isServer + " is server?");
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
@@ -330,20 +329,15 @@ public class RefereeScript : NetworkBehaviour
             }
         }
         if (areAllEnemiesDead)
-        {
-            
-            
+        {  
 
-            Debug.Log($"should be false. is it false? {playerList[0].isThisPlayersTurn}");
             canTransferTurnToPlayer = false;
             if (playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
-                Debug.Log("this should not get executed");
             }
             else
             {
-                Debug.Log("This line needs to appear in the console");
                 playerList[1].BeginPreNewWaveCall();
             }   
             //CallPreNewWaveEvent();

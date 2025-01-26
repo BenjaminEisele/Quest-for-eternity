@@ -82,7 +82,6 @@ public class PlayerScript : NetworkBehaviour
             {
                 RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
                 RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
-                Debug.Log("pre new wave called as the server");
                 RefereeScript.instance.CallPreNewWaveEvent();
                 CallNewCardsAsServer();
             }
@@ -99,7 +98,6 @@ public class PlayerScript : NetworkBehaviour
     {
         if(!isHost)
         {
-            Debug.Log("CMD CALLED. MY NAME IS: " + transform.root.gameObject.name);
             RefereeScript.instance.CallPreNewWaveEvent();
             CallNewCardsAsServer();
         }
@@ -160,7 +158,6 @@ public class PlayerScript : NetworkBehaviour
                 CmdDealDamage(damageThisRound);
 
             }
-            Debug.Log("Ending Turn CMD");
             Invoke("CmdEndTurn", 0.1f);
                 //CmdEndTurn();                       
         }
@@ -172,7 +169,6 @@ public class PlayerScript : NetworkBehaviour
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 RpcDealDamage(damageThisRound);
             }           
-            Debug.Log("Ending Turn RPC");
             Invoke("RpcEndTurn", 0.1f);
                // RpcEndTurn();            
         }
