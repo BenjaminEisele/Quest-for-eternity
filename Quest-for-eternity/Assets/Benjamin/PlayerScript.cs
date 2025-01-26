@@ -94,7 +94,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdPreNewWaveCall()
     {
-        Debug.Log("Called cmd pre new wave");
+        Debug.Log("CMD CALLED. MY NAME IS: " + transform.root.gameObject.name);
         //RefereeScript.instance.CallPreNewWaveEvent();
         CallNewCardsAsServer();
     }
