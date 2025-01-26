@@ -300,7 +300,7 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    public void NewWaveCheck(bool inputBool)
+    public void NewWaveCheck()
     {
         Debug.Log("New Wave check activated");
         areAllEnemiesDead = true;

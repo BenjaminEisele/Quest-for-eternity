@@ -191,6 +191,7 @@ public class PlayerScript : NetworkBehaviour
             //Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
             RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
+            RefereeScript.instance.NewWaveCheck();
         }
 
     }
@@ -222,7 +223,7 @@ public class PlayerScript : NetworkBehaviour
         //Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
         RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
-
+        RefereeScript.instance.NewWaveCheck();
     }
 
     public void PlayCardForOtherPlayer(int cardID)
