@@ -22,11 +22,12 @@ public class DisplayCardScript : MonoBehaviour
     [HideInInspector]
     public bool isActionCard;
 
-    PlayerScript playerScriptAccess;
+    [HideInInspector]
+    public PlayerScript playerScriptAccess;
 
     private void Awake()
     {
-        playerScriptAccess = GetComponentInParent<ChooseNewCardScript>().playerScriptAccess;
+        //playerScriptAccess = GetComponentInParent<ChooseNewCardScript>().playerScriptAccess;
     }
     void OnMouseOver()
     {

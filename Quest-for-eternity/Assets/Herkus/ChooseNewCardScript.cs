@@ -92,6 +92,7 @@ public class ChooseNewCardScript : MonoBehaviour
             int inputId = RefereeScript.instance.GetRandomNumber(i);
             Debug.Log($"my input id is {inputId}");
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);
+            displayCard.GetComponent<DisplayCardScript>().playerScriptAccess = this.playerScriptAccess;
             displayCard.GetComponent<DisplayCardScript>().DisplayCardSetup(inputId);
             newDisplayCardLocation += new Vector3(2.5f, 0, 0);
             displayCardList.Add(displayCard);
