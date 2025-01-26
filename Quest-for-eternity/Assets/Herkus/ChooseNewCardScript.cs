@@ -65,8 +65,9 @@ public class ChooseNewCardScript : MonoBehaviour
     {
         displayCardList.Clear();
         RefereeScript.instance.canTransferTurnToPlayer = true;
-        playerScriptAccess.EndTurnPlayerScript();
+        //playerScriptAccess.EndTurnPlayerScript();
 
+        RefereeScript.instance.CallEndTurnForBothPlayers();
         RefereeScript.instance.CallStartTurnEvent();
         RefereeScript.instance.StartNextWave(false);
 

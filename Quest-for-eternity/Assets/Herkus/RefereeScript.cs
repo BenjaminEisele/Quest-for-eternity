@@ -59,6 +59,14 @@ public class RefereeScript : NetworkBehaviour
     {
         instance = this;
     }     
+
+    public void CallEndTurnForBothPlayers()
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            playerList[i].EndTurnPlayerScript();
+        }
+    }
     
     private void Start()
     {
