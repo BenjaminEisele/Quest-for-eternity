@@ -78,11 +78,8 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log(transform.root.gameObject.name);
         if(isThisPlayersTurn)
         {
-
-
             if (isHost && isServer)
             {
-
                 RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
                 RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
                 Debug.Log("pre new wave called as the server");
@@ -109,16 +106,17 @@ public class PlayerScript : NetworkBehaviour
        
     }
 
-    public void BeginDisplayCardSynchronization()
+    public void BeginDisplayCardSynchronization(int inputId)
     {
+        Debug.Log("synchronization called");
         isThisPlayersTurnToChoose = false;
         if (!isServer)
         {
-            CmdSyncrhonizeCardDestruction();
+            CmdSyncrhonizeCardDestruction(inputId);
         }
         else if (isServer)
         {
-            DestroyCardAsServer();
+            DestroyCardAsServer(inputId);
         }
     }
 
@@ -137,18 +135,18 @@ public class PlayerScript : NetworkBehaviour
 
 
     [Command(requiresAuthority = false)]
-    private void CmdSyncrhonizeCardDestruction()
+    private void CmdSyncrhonizeCardDestruction(int inputId)
     {
-        RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(9);
+        RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
         //chooseNewCardAccess.FindAndDestroyCard(9);
     }
 
     [ClientRpc]
-    public void DestroyCardAsServer()
+    public void DestroyCardAsServer(int inputId)
     {
        
        Debug.Log("Card hopefully destroyed");
-       RefereeScript.instance.playerList[1].chooseNewCardAccess.FindAndDestroyCard(9);
+       RefereeScript.instance.playerList[1].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
     public void EndTurnPlayerScript()
     {
