@@ -150,13 +150,9 @@ public class PlayerScript : NetworkBehaviour
                 CmdDealDamage(damageThisRound);
 
             }
-            if(RefereeScript.instance.canTransferTurnToPlayer)
-            {
-                Debug.Log("Ending Turn CMD");
-                Invoke("CmdEndTurn", 0.1f);
-                //CmdEndTurn();
-            }
-            
+            Debug.Log("Ending Turn CMD");
+            Invoke("CmdEndTurn", 0.1f);
+                //CmdEndTurn();                       
         }
         else if (isServer)
         {
@@ -165,17 +161,15 @@ public class PlayerScript : NetworkBehaviour
             {
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 RpcDealDamage(damageThisRound);
-            }
-            if (RefereeScript.instance.canTransferTurnToPlayer)
-            {
-                Debug.Log("Ending Turn RPC");
-                Invoke("RpcEndTurn", 0.1f);
-               // RpcEndTurn();
-            }
-                
+            }           
+            Debug.Log("Ending Turn RPC");
+            Invoke("RpcEndTurn", 0.1f);
+               // RpcEndTurn();            
         }
         handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
     }
+
+
 
     [Command(requiresAuthority = false)]
     public void CmdDealDamage(int inputDamage)
@@ -200,20 +194,26 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        isThisPlayersTurn = !isThisPlayersTurn;
-        this.EndTurnButton.interactable = isThisPlayersTurn;
-        handScriptAccess.ActivateAllCardsEvent();
-        RefereeScript.instance.isServersTurn = true;
+        if (RefereeScript.instance.canTransferTurnToPlayer)
+        {
+            isThisPlayersTurn = !isThisPlayersTurn;
+            this.EndTurnButton.interactable = isThisPlayersTurn;
+            handScriptAccess.ActivateAllCardsEvent();
+            RefereeScript.instance.isServersTurn = true;
+        }       
     }
 
     [ClientRpc]
     public void RpcEndTurn()
     {
-        damageThisRound = 0;
-        isThisPlayersTurn = !isThisPlayersTurn;
-        this.EndTurnButton.interactable = isThisPlayersTurn;
-        handScriptAccess.ActivateAllCardsEvent();
-        RefereeScript.instance.isServersTurn = false;
+        if (RefereeScript.instance.canTransferTurnToPlayer)
+        {
+            damageThisRound = 0;
+            isThisPlayersTurn = !isThisPlayersTurn;
+            this.EndTurnButton.interactable = isThisPlayersTurn;
+            handScriptAccess.ActivateAllCardsEvent();
+            RefereeScript.instance.isServersTurn = false;
+        }       
     }
 
 
