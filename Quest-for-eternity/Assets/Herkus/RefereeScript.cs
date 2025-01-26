@@ -329,16 +329,19 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-
-            DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
-            if (databasePlayerAccess != null)
+            if(isServer)
             {
-                RandomNumberSetUp(databasePlayerAccess.cardList.Count);
+                DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
+                if (databasePlayerAccess != null)
+                {
+                    RandomNumberSetUp(databasePlayerAccess.cardList.Count);
+                }
+                else
+                {
+                    Debug.Log("databasePlayerAccess was null!");
+                }
             }
-            else
-            {
-                Debug.Log("databasePlayerAccess was null!");
-            }
+            
 
             Debug.Log($"should be false. is it false? {playerList[0].isThisPlayersTurn}");
             canTransferTurnToPlayer = false;
