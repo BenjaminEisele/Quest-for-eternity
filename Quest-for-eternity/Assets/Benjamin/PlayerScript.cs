@@ -33,7 +33,7 @@ public class PlayerScript : NetworkBehaviour
     public void Start()
     {
         RefereeScript.instance.playerList.Add(this);
-        isThisPlayersTurnToChoose = true;
+        //isThisPlayersTurnToChoose = true;
 
         TurnScript.endTurnEvent += EndTurnPlayerScript;
 
@@ -78,15 +78,19 @@ public class PlayerScript : NetworkBehaviour
         Debug.Log(transform.root.gameObject.name);
         if(isThisPlayersTurn)
         {
-            isThisPlayersTurnToChoose = true;
+            
             if (isHost && isServer)
             {
+                RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
+                RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
                 Debug.Log("pre new wave called as the server");
                 RefereeScript.instance.CallPreNewWaveEvent();
                 CallNewCardsAsServer();
             }
             else if (isClientOnly)
             {
+                RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = false;
+                RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = true;
                 CmdPreNewWaveCall();
             }
         }

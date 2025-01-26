@@ -22,15 +22,16 @@ public class DisplayCardScript : MonoBehaviour
     [HideInInspector]
     public bool isActionCard;
 
-    
+    PlayerScript playerScriptAccess;
+
+    private void Awake()
+    {
+        playerScriptAccess = GetComponentInParent<ChooseNewCardScript>().playerScriptAccess;
+    }
     void OnMouseOver()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerScriptAccess.isThisPlayersTurnToChoose)
         {
-            // Whatever you want it to do.
-            // quality comment
-            //Debug.Log("CLICKED ON DISPLAY CARD");
-            // CallDisplayCardsHidden();
             transform.parent.GetComponent<ChooseNewCardScript>().ChooseOneCard(gameObject, myCardId);
             transform.parent.GetComponent<ChooseNewCardScript>().playerScriptAccess.BeginDisplayCardSynchronization();
         }
