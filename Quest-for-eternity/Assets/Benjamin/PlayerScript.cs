@@ -97,7 +97,7 @@ public class PlayerScript : NetworkBehaviour
         if(!isHost)
         {
             Debug.Log("CMD CALLED. MY NAME IS: " + transform.root.gameObject.name);
-            //RefereeScript.instance.CallPreNewWaveEvent();
+            RefereeScript.instance.CallPreNewWaveEvent();
             CallNewCardsAsServer();
         }
        
