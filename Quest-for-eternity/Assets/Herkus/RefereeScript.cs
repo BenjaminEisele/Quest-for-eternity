@@ -146,7 +146,8 @@ public class RefereeScript : NetworkBehaviour
 
         if(Input.GetKeyDown(KeyCode.O))
         {
-            CallEndTurnForBothPlayers();
+            // CallEndTurnForBothPlayers();
+            playerList[0].GetComponentInChildren<TurnScript>().CallEndTurnEvent();
         }
     }
 
