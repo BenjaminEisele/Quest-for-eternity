@@ -122,8 +122,8 @@ public class PlayerScript : NetworkBehaviour
             DestroyCardAsServer(inputId);
         }
     }
+    
     [Command(requiresAuthority = false)]
-
     public void DisplayCardsCallNest()
     {
       RefereeScript.instance.playerList[0].DisplayCardsCall();
@@ -131,7 +131,10 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DisplayCardsCall()
     {
-        transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+        if (isClientOnly)
+        {
+            transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+        }
     }
 
     [ClientRpc]

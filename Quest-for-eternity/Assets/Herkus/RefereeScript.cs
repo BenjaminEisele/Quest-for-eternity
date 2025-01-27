@@ -76,10 +76,7 @@ public class RefereeScript : NetworkBehaviour
     [Command]
     public void CmdCallEndTurnForBothPlayers()
     {
-        if (isClientOnly)
-        {
-            playerList[0].EndTurnPlayerScript();
-        }
+        playerList[0].EndTurnPlayerScript();
         //RefereeScript.instance.playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
     }
 
