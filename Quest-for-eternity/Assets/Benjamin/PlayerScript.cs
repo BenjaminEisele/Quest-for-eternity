@@ -75,6 +75,28 @@ public class PlayerScript : NetworkBehaviour
         } */
     }
 
+    public void CallEndTurnForBothPlayers()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+            RefereeScript.instance.playerList[i].EndTurnPlayerScript();
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdCallEndTurnForBothPlayers()
+    {
+        /*for (int i = 0; i < 2; i++)
+        {
+
+            playerList[i].EndTurnPlayerScript();
+        }*/
+        //RpcEndTurnCall();
+        //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+        CallEndTurnForBothPlayers();
+    }
+
     public void BeginPreNewWaveCall()
     {
         Debug.Log(transform.root.gameObject.name);
