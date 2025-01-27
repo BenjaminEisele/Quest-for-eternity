@@ -152,9 +152,6 @@ public class PlayerScript : NetworkBehaviour
 
     public void EndTurnPlayerScript()
     {
-       
-        if(isThisPlayersTurn)
-        {
             handScriptAccess.DisableAllCardsEvent();
             Debug.Log("ending turn");
             if (!isServer)
@@ -180,8 +177,6 @@ public class PlayerScript : NetworkBehaviour
                 // RpcEndTurn();            
             }
             handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
-        }
-        
     }
 
 

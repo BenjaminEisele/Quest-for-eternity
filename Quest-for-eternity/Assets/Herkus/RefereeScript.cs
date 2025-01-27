@@ -88,11 +88,11 @@ public class RefereeScript : NetworkBehaviour
     }
     private void EndTurnLogic()
     {
-        for (int i = 0; i < 2; i++)
+        /*for (int i = 0; i < 2; i++)
         {
             playerList[i].EndTurnPlayerScript();
-        } 
-
+        } */
+        playerList[0].EndTurnPlayerScript();
     }
     private void Start()
     {
