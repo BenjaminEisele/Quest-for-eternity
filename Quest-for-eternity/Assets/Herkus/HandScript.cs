@@ -203,7 +203,9 @@ public class HandScript : MonoBehaviour
     {
         if (playerScriptAccess.isThisPlayersTurn)
         {
-            canPlayUtility = true;
+
+            isInQuickAttackMode = false;
+                canPlayUtility = true;
             //Debug.Log("yo mama");
             SetCardActivityStatus(true, 2);
         }
