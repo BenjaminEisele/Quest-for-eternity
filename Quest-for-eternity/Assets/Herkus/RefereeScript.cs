@@ -72,13 +72,13 @@ public class RefereeScript : NetworkBehaviour
             playerList[i].EndTurnPlayerScript();
 
         }*/
-        if(isServerOnly)
+        if(isClientOnly)
         {
-            RpcEndTurnCall();
+            CmdEndTurnCall();
         }
         else
         {
-            CmdEndTurnCall();
+            RpcEndTurnCall();
         }
     }
 
