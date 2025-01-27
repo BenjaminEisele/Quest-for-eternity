@@ -432,6 +432,7 @@ public class HandScript : MonoBehaviour
                 }
             }
         }
+        RebuildCardListLite();
     }
     private void GenerateCard(Vector3 cardPlacementVectorReference, int cardIndex)
     {
