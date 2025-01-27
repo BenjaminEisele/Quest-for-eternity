@@ -128,7 +128,7 @@ public class HandScript : MonoBehaviour
             }
         }
     }
-    private void RebuildCardListLite()
+    public void RebuildCardListLite()
     {
         int interval = 90 / (cardCount + 1);
         for (int k = 0; k < cardList.Count; k++)
@@ -432,7 +432,6 @@ public class HandScript : MonoBehaviour
                 }
             }
         }
-        RebuildCardListLite();
     }
     private void GenerateCard(Vector3 cardPlacementVectorReference, int cardIndex)
     {
