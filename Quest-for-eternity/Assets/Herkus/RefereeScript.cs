@@ -372,14 +372,24 @@ public class RefereeScript : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void dealDamageToPlayer(int inputDamage)
+    public void RpcDealDamageToPlayer(int inputDamage)
+    {
+        DealDamageLogic(inputDamage);
+    }
+    [Command(requiresAuthority = false)]
+    public void CmdDealDamageToPlayer(int inputDamage)
+    {
+        DealDamageLogic(inputDamage);
+    }
+
+    public void DealDamageLogic(int inputDamage)
     {
         if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
-        if(targetPlayerId + 1 > 1)
+        if (targetPlayerId + 1 > 1)
         {
             targetPlayerId = 0;
         }
@@ -388,7 +398,6 @@ public class RefereeScript : NetworkBehaviour
             targetPlayerId++;
         }
     }
-    
     private IEnumerator ForeachEnemyTurnCoroutine()
     {
         yield return new WaitForSeconds(0.25f);
@@ -397,7 +406,15 @@ public class RefereeScript : NetworkBehaviour
             foreach (EnemyScript enemy in enemyList)
             {
                 int enemyDamage = enemy.GenerateAttack();
-                dealDamageToPlayer(enemyDamage);
+                if(isClientOnly)
+                {
+                    CmdDealDamageToPlayer(enemyDamage);
+                }
+                else
+                {
+                    RpcDealDamageToPlayer(enemyDamage);
+                }
+                
                 UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 yield return new WaitForSeconds(0.75f);
             }
