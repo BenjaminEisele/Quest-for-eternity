@@ -131,7 +131,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DisplayCardsCall()
     {
-        if (isClientOnly)
+        if (!isServer)
         {
             transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
         }
