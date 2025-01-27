@@ -73,7 +73,7 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    [Command]
+    [Command(requiresAuthority = false)]
     public void CmdCallEndTurnForBothPlayers()
     {
         playerList[0].EndTurnPlayerScript();
