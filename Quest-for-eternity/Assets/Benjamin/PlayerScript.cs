@@ -131,7 +131,10 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DisplayCardsCall()
     {
-        transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+        if (isClientOnly)
+        {
+            transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+        }
     }
 
     [ClientRpc]
@@ -174,7 +177,7 @@ public class PlayerScript : NetworkBehaviour
     {
             handScriptAccess.DisableAllCardsEvent();
             Debug.Log("my name is: " + transform.root.gameObject.name);
-            if (isClientOnly)
+            if (!isServer)
             {
                 if (fieldScriptAccess.FieldHitCheck())
                 {
