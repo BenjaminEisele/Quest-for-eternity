@@ -61,6 +61,7 @@ public class ChooseNewCardScript : MonoBehaviour
             }
         }
     }
+
     public void DisplayCardsHidden()
     {
         displayCardList.Clear();

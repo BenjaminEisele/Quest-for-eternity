@@ -205,7 +205,7 @@ public class HandScript : MonoBehaviour
         {
 
             isInQuickAttackMode = false;
-                canPlayUtility = true;
+            canPlayUtility = true;
             //Debug.Log("yo mama");
             SetCardActivityStatus(true, 2);
         }
