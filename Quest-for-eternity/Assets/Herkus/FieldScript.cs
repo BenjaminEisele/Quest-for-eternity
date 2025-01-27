@@ -15,17 +15,14 @@ public class FieldScript : MonoBehaviour
     UiScript uiScriptAccess;
 
     public PlayerScript playerScriptAccess;
-    //[SerializeField]
-    //RefereeScript refereeScriptAccess;
 
-    //[HideInInspector]
+
     [SerializeField]
     public static int damagePoints = 0;
 
     public int damagePointsLiquid = 0;
 
     private Vector3 activeCardSpawnPosition;
- //kodel null refas pasidaro sita istrynus? alio??
     public List<GameObject> activeCardList;
 
     public ActiveCardScript actionCardReference;
@@ -56,7 +53,6 @@ public class FieldScript : MonoBehaviour
 
         int gog = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
         damagePoints += gog;
-        //damagePointsLiquid += gog;
         if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
             activeCardSpawnPosition += new Vector3(2, 0, 0);
