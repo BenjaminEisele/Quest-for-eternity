@@ -226,48 +226,63 @@ public class RefereeScript : NetworkBehaviour
         restartGameButton.SetActive(true);
     }
 
-    public void StartNextWave(bool shouldStartEvents)
+
+    public void StartNextWaveInitalize()
+    {
+        if(isClientOnly)
+        {
+            CmdStartNextWave();
+        }
+        else
+        {
+            RpcStartNextWave(true);
+        }
+    }
+    [ClientRpc]
+    public void RpcStartNextWave(bool shouldStartEvents)
+    {
+        StartNextWaveLogic();
+    }
+    [Command(requiresAuthority = false)]
+    private void CmdStartNextWave()
+    {
+        StartNextWaveLogic();
+    }
+    private void StartNextWaveLogic()
     {
         //Debug.Log("new wave!");
         areAllEnemiesDead = false;
         foreach (EnemyScript enemy in enemyList)
         {
-           // enemy.gameObject.SetActive(false);
+            // enemy.gameObject.SetActive(false);
             Destroy(enemy.gameObject);
         }
         enemyList.Clear();
         //ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
-       // ResetChosenEnemy();
-        
+        // ResetChosenEnemy();
+
         //if (shouldStartEvents)
         //{
-          //  CallNewWaveEvent();   
+        //  CallNewWaveEvent();   
         //}
     }
     public void CallPreNewWaveEvent()
     {
         if (isServer)
         {
-           // for(int i = 0; i < 2; i++)
-           // {
-               //if(playerList[i].isHost)
-             //  {
-                    if (waveCount < 2)
-                    {
-                        if (preNewWaveEvent != null)
-                        {
-                            //Debug.Log("pre new wave event called");
-                            preNewWaveEvent();
-                            waveCount++;
-                        }
+               if (waveCount < 2)
+               {
+                   if (preNewWaveEvent != null)
+                   {
+                       //Debug.Log("pre new wave event called");
+                       preNewWaveEvent();
+                       waveCount++;
                     }
-                    else
-                    {
-                        EndGame(true);
-                    }
-            //   }
-           // }
-            
+               }
+               else
+               {
+                   EndGame(true);
+               }         
         }
         
        
@@ -300,7 +315,7 @@ public class RefereeScript : NetworkBehaviour
         {
             enemy.ResetEnemy();
         } */
-        StartNextWave(false);
+        StartNextWaveInitalize();
         PlayerStatScript.instance.ResetPlayer();
     }
     public bool GetIsGameOver()

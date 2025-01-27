@@ -69,7 +69,7 @@ public class ChooseNewCardScript : MonoBehaviour
 
         RefereeScript.instance.CallEndTurnForBothPlayers();
         RefereeScript.instance.CallStartTurnEvent();
-        RefereeScript.instance.StartNextWave(false);
+        RefereeScript.instance.StartNextWaveInitalize();
 
     }
 
