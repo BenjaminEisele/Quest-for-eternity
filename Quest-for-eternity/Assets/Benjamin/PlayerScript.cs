@@ -226,6 +226,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
+            Debug.Log("CMD end turn");
             isThisPlayersTurn = !isThisPlayersTurn;
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
@@ -238,6 +239,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
+            Debug.Log("RPC end turn");
             damageThisRound = 0;
             isThisPlayersTurn = !isThisPlayersTurn;
             this.EndTurnButton.interactable = isThisPlayersTurn;
