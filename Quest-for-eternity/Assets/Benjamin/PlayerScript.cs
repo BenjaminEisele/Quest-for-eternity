@@ -124,7 +124,7 @@ public class PlayerScript : NetworkBehaviour
     }
     [Command(requiresAuthority = false)]
 
-    /*public void DisplayCardsCallNest()
+    public void DisplayCardsCallNest()
     {
       RefereeScript.instance.playerList[0].DisplayCardsCall();
     }
@@ -132,7 +132,7 @@ public class PlayerScript : NetworkBehaviour
     public void DisplayCardsCall()
     {
         transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
-    }*/
+    }
 
     [ClientRpc]
     public void CallNewCardsAsServer()
@@ -227,7 +227,6 @@ public class PlayerScript : NetworkBehaviour
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
             isThisPlayersTurn = !isThisPlayersTurn;
-            Debug.Log("cmd players turn changed");
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = true;
@@ -241,7 +240,6 @@ public class PlayerScript : NetworkBehaviour
         {
             damageThisRound = 0;
             isThisPlayersTurn = !isThisPlayersTurn;
-            Debug.Log("Rpc players turn changed");
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = false;
