@@ -124,6 +124,12 @@ public class PlayerScript : NetworkBehaviour
     }
 
     [ClientRpc]
+    public void DisplayCardsCall()
+    {
+        transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+    }
+
+    [ClientRpc]
     public void CallNewCardsAsServer()
     {
         //RefereeScript.instance.CallPreNewWaveEvent();
