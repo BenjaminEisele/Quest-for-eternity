@@ -126,7 +126,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void DisplayCardsCallNest()
     {
-       DisplayCardsCall();
+      RefereeScript.instance.playerList[0].DisplayCardsCall();
     }
     [ClientRpc]
     public void DisplayCardsCall()
