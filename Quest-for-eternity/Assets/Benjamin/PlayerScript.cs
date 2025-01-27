@@ -61,16 +61,16 @@ public class PlayerScript : NetworkBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+     /*   if (Input.GetKeyDown(KeyCode.O))
         {
             if(isHost)
             {
                 /*isThisPlayersTurnToChoose = true;
                 RefereeScript.instance.CallPreNewWaveEvent();
-                CallNewCardsAsServer();*/
+                CallNewCardsAsServer();
                 BeginPreNewWaveCall();
             }
-        } 
+        } */
     }
 
     public void BeginPreNewWaveCall()

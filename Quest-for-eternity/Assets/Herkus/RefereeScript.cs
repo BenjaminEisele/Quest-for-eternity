@@ -63,6 +63,7 @@ public class RefereeScript : NetworkBehaviour
         instance = this;
     }     
 
+
     public void CallEndTurnForBothPlayers()
     {
         if(isClientOnly)
@@ -78,14 +79,7 @@ public class RefereeScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurnCall()
     {
-        if(!isClientOnly)
-        {
-            playerList[0].EndTurnPlayerScript();
-        }
-        else
-        {
-            playerList[1].EndTurnPlayerScript();
-        }
+        EndTurnLogic();
     }
     [Command(requiresAuthority = false)]
     private void CmdEndTurnCall()
@@ -94,10 +88,10 @@ public class RefereeScript : NetworkBehaviour
     }
     private void EndTurnLogic()
     {
-       /* for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++)
         {
             playerList[i].EndTurnPlayerScript();
-        } */
+        } 
 
     }
     private void Start()
@@ -148,6 +142,11 @@ public class RefereeScript : NetworkBehaviour
         else if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
             ChooseNewEnemy(-1);
+        }
+
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            CallEndTurnForBothPlayers();
         }
     }
 
