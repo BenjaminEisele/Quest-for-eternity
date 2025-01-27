@@ -232,7 +232,8 @@ public class RefereeScript : NetworkBehaviour
         areAllEnemiesDead = false;
         foreach (EnemyScript enemy in enemyList)
         {
-            Destroy(enemy.gameObject);
+            enemy.gameObject.SetActive(false);
+           // Destroy(enemy.gameObject);
         }
         enemyList.Clear();
         //ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
