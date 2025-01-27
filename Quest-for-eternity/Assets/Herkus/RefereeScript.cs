@@ -76,15 +76,18 @@ public class RefereeScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdCallEndTurnForBothPlayers()
     {
-        playerList[0].EndTurnPlayerScript();
+        RpcEndTurnCall();
         //RefereeScript.instance.playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
     }
 
     [ClientRpc]
     public void RpcEndTurnCall()
     {
-        EndTurnLogic();
+        playerList[0].EndTurnPlayerScript();
     }
+
+
+
     [Command(requiresAuthority = false)]
     private void CmdEndTurnCall()
     {
@@ -96,8 +99,11 @@ public class RefereeScript : NetworkBehaviour
         {
             playerList[i].EndTurnPlayerScript();
         } */
-        playerList[0].EndTurnPlayerScript();
+        
     }
+
+
+
     private void Start()
     {
         RandomizeChooseCardsSetUp();
