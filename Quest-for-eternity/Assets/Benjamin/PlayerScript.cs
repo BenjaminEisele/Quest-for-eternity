@@ -182,7 +182,7 @@ public class PlayerScript : NetworkBehaviour
                     CmdDealDamage(damageThisRound);
 
                 }
-                Invoke("CmdEndTurn", 0.1f);
+                Invoke("CmdEndTurn", 1f);
                 //CmdEndTurn();                       
             }
             else if (isServer)
@@ -193,7 +193,7 @@ public class PlayerScript : NetworkBehaviour
                     damageThisRound = fieldScriptAccess.damagePointsLiquid;
                     RpcDealDamage(damageThisRound);
                 }
-                Invoke("RpcEndTurn", 0.1f);
+                Invoke("RpcEndTurn", 1f);
                 // RpcEndTurn();            
             }
             handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
