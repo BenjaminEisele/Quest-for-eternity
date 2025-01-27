@@ -64,7 +64,17 @@ public class ChooseNewCardScript : MonoBehaviour
                     if (displayCardCount <= 0)
                     {
                         Debug.Log("called inside");
-                        DisplayCardsHidden();
+                        if(!playerScriptAccess.isHost)
+                        {
+                            Debug.Log("called super inside");
+
+                            RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+                        }
+                        else
+                        {
+                            DisplayCardsHidden();
+                        }
+                        
                     }
                     break;
                 }
@@ -74,6 +84,8 @@ public class ChooseNewCardScript : MonoBehaviour
 
     public void DisplayCardsHidden()
     {
+        Debug.Log("hello. my name is : " + transform.root.gameObject.name);
+
         displayCardList.Clear();
         //RefereeScript.instance.canTransferTurnToPlayer = true;
         //playerScriptAccess.EndTurnPlayerScript();
