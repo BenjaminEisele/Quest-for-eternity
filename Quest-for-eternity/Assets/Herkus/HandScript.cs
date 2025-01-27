@@ -203,7 +203,6 @@ public class HandScript : MonoBehaviour
     {
         if (playerScriptAccess.isThisPlayersTurn)
         {
-            utilityCount = 0;
             canPlayUtility = true;
             //Debug.Log("yo mama");
             SetCardActivityStatus(true, 2);
@@ -213,6 +212,8 @@ public class HandScript : MonoBehaviour
     private void AddCardsEvent()
     {
         AddCardsToHand(0);
+        utilityCount = 0;
+
     }
     public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
