@@ -38,7 +38,7 @@ public class HandScript : MonoBehaviour
 
     public bool isInQuickAttackMode;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int utilityCount;
     int cardDebt;
     public List<CardQueueUnit> cardQueDataList;
