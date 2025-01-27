@@ -64,17 +64,14 @@ public class ChooseNewCardScript : MonoBehaviour
                     if (displayCardCount <= 0)
                     {
                         Debug.Log("called inside");
-                        if(!playerScriptAccess.isHost)
-                        {
-                            Debug.Log("called super inside");
 
-                            //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
-                            RefereeScript.instance.playerList[0].DisplayCardsCallNest();
-                        }
-                        else
-                        {
-                            DisplayCardsHidden();
-                        }
+                        Debug.Log("called super inside");
+
+                        //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+
+
+                        DisplayCardsHidden();
+
                         
                     }
                     break;
