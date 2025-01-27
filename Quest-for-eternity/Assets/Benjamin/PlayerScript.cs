@@ -227,7 +227,6 @@ public class PlayerScript : NetworkBehaviour
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
             isThisPlayersTurn = !isThisPlayersTurn;
-            Debug.Log("cmd players turn changed");
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = true;
@@ -241,7 +240,6 @@ public class PlayerScript : NetworkBehaviour
         {
             damageThisRound = 0;
             isThisPlayersTurn = !isThisPlayersTurn;
-            Debug.Log("Rpc players turn changed");
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = false;
