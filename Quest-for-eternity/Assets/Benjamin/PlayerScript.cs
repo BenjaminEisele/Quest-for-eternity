@@ -152,31 +152,36 @@ public class PlayerScript : NetworkBehaviour
 
     public void EndTurnPlayerScript()
     {
-        handScriptAccess.DisableAllCardsEvent();
-        Debug.Log("ending turn");
-        if (!isServer)
+       
+        if(isThisPlayersTurn)
         {
-            if (fieldScriptAccess.FieldHitCheck())
+            handScriptAccess.DisableAllCardsEvent();
+            Debug.Log("ending turn");
+            if (!isServer)
             {
-                damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                CmdDealDamage(damageThisRound);
+                if (fieldScriptAccess.FieldHitCheck())
+                {
+                    damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                    CmdDealDamage(damageThisRound);
 
-            }
-            Invoke("CmdEndTurn", 0.1f);
+                }
+                Invoke("CmdEndTurn", 0.1f);
                 //CmdEndTurn();                       
-        }
-        else if (isServer)
-        {
-
-            if (fieldScriptAccess.FieldHitCheck())
+            }
+            else if (isServer)
             {
-                damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                RpcDealDamage(damageThisRound);
-            }           
-            Invoke("RpcEndTurn", 0.1f);
-               // RpcEndTurn();            
+
+                if (fieldScriptAccess.FieldHitCheck())
+                {
+                    damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                    RpcDealDamage(damageThisRound);
+                }
+                Invoke("RpcEndTurn", 0.1f);
+                // RpcEndTurn();            
+            }
+            handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
         }
-        handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
+        
     }
 
 
