@@ -122,7 +122,12 @@ public class PlayerScript : NetworkBehaviour
             DestroyCardAsServer(inputId);
         }
     }
+    [Command(requiresAuthority = false)]
 
+    public void DisplayCardsCallNest()
+    {
+       DisplayCardsCall();
+    }
     [ClientRpc]
     public void DisplayCardsCall()
     {

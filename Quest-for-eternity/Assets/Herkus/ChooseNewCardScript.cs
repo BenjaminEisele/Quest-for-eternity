@@ -69,7 +69,7 @@ public class ChooseNewCardScript : MonoBehaviour
                             Debug.Log("called super inside");
 
                             //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
-                            RefereeScript.instance.playerList[0].DisplayCardsCall();
+                            RefereeScript.instance.playerList[0].DisplayCardsCallNest();
                         }
                         else
                         {
