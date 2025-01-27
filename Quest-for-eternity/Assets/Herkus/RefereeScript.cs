@@ -144,11 +144,6 @@ public class RefereeScript : NetworkBehaviour
             ChooseNewEnemy(-1);
         }
 
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            // CallEndTurnForBothPlayers();
-            playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        }
     }
 
     private void DeactivateHealth(GameObject[] health)

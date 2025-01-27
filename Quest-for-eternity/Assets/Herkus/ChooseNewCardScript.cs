@@ -29,6 +29,20 @@ public class ChooseNewCardScript : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            if (GetComponentInParent<PlayerScript>().isHost)
+            {
+                RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+            }
+            else
+            {
+                RefereeScript.instance.playerList[1].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+            }
+        }
+    }
     public void ChooseOneCard(GameObject selfObject, int inputId)
     {
         displayCardCount--;
@@ -70,7 +84,14 @@ public class ChooseNewCardScript : MonoBehaviour
 
         RefereeScript.instance.CallEndTurnForBothPlayers();
         RefereeScript.instance.CallStartTurnEvent();
-        RefereeScript.instance.StartNextWaveInitalize();
+        if(GetComponentInParent<PlayerScript>().isHost)
+        {
+            RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+        }
+        else
+        {
+            RefereeScript.instance.playerList[1].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+        }
 
     }
 
