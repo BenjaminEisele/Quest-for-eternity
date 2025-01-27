@@ -157,6 +157,7 @@ public class TurnScript : MonoBehaviour
     }
     public void CallEndTurnEvent()
     {
+        Debug.Log("end turn event called");
         if (playerScriptAccess.isThisPlayersTurn)
         {
             if (endTurnEvent != null)
