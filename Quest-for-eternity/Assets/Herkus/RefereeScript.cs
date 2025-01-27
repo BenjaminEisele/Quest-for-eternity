@@ -65,12 +65,33 @@ public class RefereeScript : NetworkBehaviour
 
     public void CallEndTurnForBothPlayers()
     {
-        for(int i = 0; i < 2; i++)
+        if(isClientOnly)
+        {
+            CmdEndTurnCall();
+        }
+        else
+        {
+            RpcEndTurnCall();
+        }
+    }
+
+    [ClientRpc]
+    public void RpcEndTurnCall()
+    {
+        EndTurnLogic();
+    }
+    [Command(requiresAuthority = false)]
+    private void CmdEndTurnCall()
+    {
+        RpcEndTurnCall();
+    }
+    private void EndTurnLogic()
+    {
+        for (int i = 0; i < 2; i++)
         {
             playerList[i].EndTurnPlayerScript();
         }
     }
-    
     private void Start()
     {
         RandomizeChooseCardsSetUp();
