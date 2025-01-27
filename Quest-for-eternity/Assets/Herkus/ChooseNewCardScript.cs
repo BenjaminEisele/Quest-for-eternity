@@ -13,7 +13,7 @@ public class ChooseNewCardScript : MonoBehaviour
 
     public static ChooseNewCardScript instance;
 
-    int displayCardCount = 0;
+    public int displayCardCount = 0;
 
     private void Awake()
     {
