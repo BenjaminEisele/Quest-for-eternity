@@ -35,7 +35,7 @@ public class PlayerScript : NetworkBehaviour
         RefereeScript.instance.playerList.Add(this);
         //isThisPlayersTurnToChoose = true;
 
-        TurnScript.endTurnEvent += EndTurnPlayerScript;
+
 
         if (isOwned)
         {
@@ -44,6 +44,7 @@ public class PlayerScript : NetworkBehaviour
                 // Debug.Log("I am the server");
                 isThisPlayersTurn = true;
                 isHost = true;
+
                 EndTurnButton.interactable = true;
                 RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
             }
@@ -55,6 +56,10 @@ public class PlayerScript : NetworkBehaviour
                 EndTurnButton.interactable = false;
                 RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
             }
+        }
+        if(isHost || isClientOnly)
+        {
+            TurnScript.endTurnEvent += EndTurnPlayerScript;
         }
     }
 
