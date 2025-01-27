@@ -98,9 +98,9 @@ public class ChooseNewCardScript : MonoBehaviour
         RefereeScript.instance.CallStartTurnEvent();
 
 
-
+        transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
         //playerScriptAccess.EndTurnPlayerScript();
-        RefereeScript.instance.CallEndTurnForBothPlayers();
+        //RefereeScript.instance.CallEndTurnForBothPlayers();
         //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
         /*if (transform.root.GetComponentInChildren<PlayerScript>().isHost)
         {
