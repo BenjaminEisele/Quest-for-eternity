@@ -83,11 +83,12 @@ public class RefereeScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurnCall()
     {
-        for (int i = 0; i < 2; i++)
+        /*for (int i = 0; i < 2; i++)
         {
-            //RefereeScript.instance.playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-            playerList[i].EndTurnPlayerScript();
-        }
+            
+            //playerList[i].EndTurnPlayerScript();
+        }*/
+        RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
     }
 
 
