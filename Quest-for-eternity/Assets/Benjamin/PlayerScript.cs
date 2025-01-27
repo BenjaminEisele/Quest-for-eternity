@@ -140,7 +140,8 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdSyncrhonizeCardDestruction(int inputId)
     {
-        RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
+       // RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
+        DestroyCardAsClient(inputId);
         //chooseNewCardAccess.FindAndDestroyCard(9);
     }
 
@@ -151,7 +152,13 @@ public class PlayerScript : NetworkBehaviour
        Debug.Log("Card hopefully destroyed");
        RefereeScript.instance.playerList[1].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
+    [ClientRpc]
+    public void DestroyCardAsClient(int inputId)
+    {
 
+        Debug.Log("Card hopefully destroyed");
+        RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
+    }
     public void EndTurnPlayerScript()
     {
             handScriptAccess.DisableAllCardsEvent();
