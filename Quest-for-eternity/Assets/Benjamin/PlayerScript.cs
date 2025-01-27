@@ -133,7 +133,8 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+            RefereeScript.instance.playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+            //transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
         }
     }
 
