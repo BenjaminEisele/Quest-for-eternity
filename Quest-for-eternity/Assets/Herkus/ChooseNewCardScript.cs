@@ -60,8 +60,10 @@ public class ChooseNewCardScript : MonoBehaviour
                     Destroy(displayCardObject);
                     //Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
                     playerScriptAccess.isThisPlayersTurnToChoose = true;
+                    Debug.Log("called outside");
                     if (displayCardCount <= 0)
                     {
+                        Debug.Log("called inside");
                         DisplayCardsHidden();
                     }
                     break;
