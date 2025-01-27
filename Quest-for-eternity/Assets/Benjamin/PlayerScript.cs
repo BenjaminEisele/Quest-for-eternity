@@ -124,7 +124,7 @@ public class PlayerScript : NetworkBehaviour
     }
     [Command(requiresAuthority = false)]
 
-    /*public void DisplayCardsCallNest()
+    public void DisplayCardsCallNest()
     {
       RefereeScript.instance.playerList[0].DisplayCardsCall();
     }
@@ -132,7 +132,7 @@ public class PlayerScript : NetworkBehaviour
     public void DisplayCardsCall()
     {
         transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
-    }*/
+    }
 
     [ClientRpc]
     public void CallNewCardsAsServer()
