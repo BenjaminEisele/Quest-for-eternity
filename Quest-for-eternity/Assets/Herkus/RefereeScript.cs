@@ -68,7 +68,7 @@ public class RefereeScript : NetworkBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            //RefereeScript.instance.playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+            //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
             playerList[i].EndTurnPlayerScript();
         }
     }
@@ -76,13 +76,14 @@ public class RefereeScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdCallEndTurnForBothPlayers()
     {
-        for (int i = 0; i < 2; i++)
+        /*for (int i = 0; i < 2; i++)
         {
 
             playerList[i].EndTurnPlayerScript();
-        }
+        }*/
         //RpcEndTurnCall();
-        //RefereeScript.instance.playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+        //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+        CallEndTurnForBothPlayers();
     }
 
     [ClientRpc]
