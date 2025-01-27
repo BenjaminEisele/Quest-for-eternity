@@ -7990,6 +7990,7 @@ MonoBehaviour:
   playerStatReference: {fileID: 4610176470035123379}
   fieldScriptReference: {fileID: 5498560621881706503}
   handScriptReference: {fileID: 4716527281068523202}
+  playerScriptAccess: {fileID: 1214735220539923461}
 --- !u!1 &6673016693832918745
 GameObject:
   m_ObjectHideFlags: 0
