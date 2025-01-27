@@ -83,7 +83,7 @@ public class RefereeScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurnCall()
     {
-        playerList[0].EndTurnPlayerScript();
+        playerList[1].EndTurnPlayerScript();
     }
 
 
