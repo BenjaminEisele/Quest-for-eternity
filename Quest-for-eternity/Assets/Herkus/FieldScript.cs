@@ -71,7 +71,7 @@ public class FieldScript : MonoBehaviour
         else
         {
             transform.root.GetComponentInChildren<HandScript>().utilityCount++;
-            transform.root.GetComponentInChildren<HandScript>().ShouldWeDisableCards();
+            //transform.root.GetComponentInChildren<HandScript>().ShouldWeDisableCards();
         }
 
         return isSpawningActionCard;

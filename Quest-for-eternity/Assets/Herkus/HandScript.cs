@@ -55,6 +55,7 @@ public class HandScript : MonoBehaviour
     private void Start()
     {
         RefereeScript.turnStartEvent += ActivateAllCardsEvent;
+        //RefereeScript.turnStartEvent += ShouldWeDisableCards();
         RefereeScript.newWaveEvent += HandReset;
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
         TurnScript.endTurnEvent += AddCardsEvent;
@@ -130,6 +131,7 @@ public class HandScript : MonoBehaviour
     {
         if (utilityCount > 2)
         {
+            Debug.Log("should disable everything now!");
             SetCardActivityStatus(false, 0);
             canPlayUtility = false;
         }
@@ -205,7 +207,8 @@ public class HandScript : MonoBehaviour
             canPlayUtility = true;
             //Debug.Log("yo mama");
             SetCardActivityStatus(true, 2);
-        }   
+        }
+        ShouldWeDisableCards();
     }
     private void AddCardsEvent()
     {
