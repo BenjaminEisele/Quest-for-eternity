@@ -235,13 +235,13 @@ public class RefereeScript : NetworkBehaviour
             Destroy(enemy.gameObject);
         }
         enemyList.Clear();
-        ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
-        ResetChosenEnemy();
+        //ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
+       // ResetChosenEnemy();
         
-        if (shouldStartEvents)
-        {
-            CallNewWaveEvent();   
-        }
+        //if (shouldStartEvents)
+        //{
+          //  CallNewWaveEvent();   
+        //}
     }
     public void CallPreNewWaveEvent()
     {

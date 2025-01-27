@@ -30,7 +30,6 @@ public class EnemyGenerator : NetworkBehaviour
         for (int i = 0; i < howManyEnemies; i++)
         {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
-            enemyClone.AddComponent<NetworkIdentity>();
             enemyClone.SetActive(true);
             enemyClone.GetComponent<EnemyScript>().EnemySetUp(myId);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
