@@ -33,7 +33,8 @@ public class ChooseNewCardScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.O))
         {
-            RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+            playerScriptAccess.EndTurnPlayerScript();
+            //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
         }
     } 
     public void ChooseOneCard(GameObject selfObject, int inputId)
