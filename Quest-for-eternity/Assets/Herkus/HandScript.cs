@@ -38,7 +38,8 @@ public class HandScript : MonoBehaviour
 
     public bool isInQuickAttackMode;
 
-    int utilityCount;
+    [HideInInspector]
+    public int utilityCount;
     int cardDebt;
     public List<CardQueueUnit> cardQueDataList;
     int cardQueIndex;
@@ -104,12 +105,8 @@ public class HandScript : MonoBehaviour
                         }
                         else
                         {
-                            utilityCount++;
-                            if(utilityCount > 2)
-                            {
-                                SetCardActivityStatus(false, 0);
-                                canPlayUtility = false;
-                            }
+                            //utilityCount++;
+                            ShouldWeDisableCards();
                         }
                        // Debug.Log(hit.transform.root.gameObject);
                         // card gets removed from list
@@ -126,6 +123,15 @@ public class HandScript : MonoBehaviour
             {
                 Debug.Log("returned false outer");
             }
+        }
+    }
+
+    public void ShouldWeDisableCards()
+    {
+        if (utilityCount > 2)
+        {
+            SetCardActivityStatus(false, 0);
+            canPlayUtility = false;
         }
     }
     public void RebuildCardListLite()

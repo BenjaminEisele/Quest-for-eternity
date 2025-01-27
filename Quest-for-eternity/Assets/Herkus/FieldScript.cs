@@ -49,6 +49,7 @@ public class FieldScript : MonoBehaviour
     }
     public bool SpawnActiveCard(int cardId)
     {
+        
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
 
         int gog = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
@@ -66,6 +67,11 @@ public class FieldScript : MonoBehaviour
         {
             actionCardReference = activeCardInstance.GetComponent<ActiveCardScript>();
             Debug.Log("Card is action type. here is the object name" + actionCardReference.gameObject.name);
+        }
+        else
+        {
+            transform.root.GetComponentInChildren<HandScript>().utilityCount++;
+            transform.root.GetComponentInChildren<HandScript>().ShouldWeDisableCards();
         }
 
         return isSpawningActionCard;
