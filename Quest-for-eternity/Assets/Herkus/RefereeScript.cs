@@ -246,7 +246,7 @@ public class RefereeScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdStartNextWave()
     {
-        StartNextWaveLogic();
+        RpcStartNextWave(true);
     }
     private void StartNextWaveLogic()
     {
