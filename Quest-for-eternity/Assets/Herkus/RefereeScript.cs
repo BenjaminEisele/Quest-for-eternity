@@ -27,6 +27,9 @@ public class RefereeScript : NetworkBehaviour
     public int chosenEnemyId;
     int waveCount = 0;
 
+    [SyncVar]
+    int targetPlayerId = 1;
+
     //[SerializeField]
     //ChooseNewCardScript chooseNewCardAccess;
 
@@ -369,12 +372,25 @@ public class RefereeScript : NetworkBehaviour
     }
     public void dealDamageToPlayer(int inputDamage)
     {
-        if(PlayerStatScript.instance.TakeDamageAndCheckIfDead(inputDamage))
+        if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage))
         {
-            //turnScriptAccess.isPlayersTurn = false;
             TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
+        if(targetPlayerId + 1 > 1)
+        {
+            targetPlayerId = 0;
+        }
+        else
+        {
+            targetPlayerId++;
+        }
+       /* if(PlayerStatScript.instance.TakeDamageAndCheckIfDead(inputDamage))
+        {
+            //turnScriptAccess.isPlayersTurn = false;
+            
+        } */
+
     }
     
     private IEnumerator ForeachEnemyTurnCoroutine()
