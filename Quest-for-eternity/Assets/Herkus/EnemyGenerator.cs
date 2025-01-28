@@ -26,10 +26,11 @@ public class EnemyGenerator : NetworkBehaviour
         //{
             for(int i = 0; i < howMany; i++)
             {
-            Debug.Log($"generating id: {enemyIdArray[i]}");
+            
                 // enemyIdList.Add(Random.Range(0, databaseMultiplayerAccess.enemyList.Count));
                 enemyIdArray[i] = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
-            }
+                Debug.Log($"generating id: {enemyIdArray[i]}");
+        }
            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
       //  }           
     }
