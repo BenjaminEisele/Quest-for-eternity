@@ -127,7 +127,7 @@ public class RefereeScript : NetworkBehaviour
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
         //ennemyGeneratorAccess.RandomNumber(1);
-        ennemyGeneratorAccess.GenerateEnemies(2);
+        ennemyGeneratorAccess.GenerateEnemies(1);
         //newWaveEvent += RandomizeChooseCardsSetUp;
 
         //enemyList.Add(targetEnemy);
