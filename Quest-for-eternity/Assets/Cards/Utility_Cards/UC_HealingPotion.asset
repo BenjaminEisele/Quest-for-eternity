@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Healing Potion
   effectValue: 0
   cardColor: {r: 0.26274505, g: 0.9490196, b: 0.38005644, a: 1}
-  cardSprite: {fileID: 8302151553829124127, guid: 18dabd66ef4019d4599b6a5ba55aa3eb, type: 3}
+  cardSprite: {fileID: -728488644960612398, guid: 4fba185cd7cb22e4fa7534ede66161a0, type: 3}
   cardDescription: Heals 2 HP
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 6ce8ae20ce86e394a857a28aa91a5199, type: 2}

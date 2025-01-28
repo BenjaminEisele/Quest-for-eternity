@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Deceptive Manouvre
   effectValue: 0
   cardColor: {r: 0.26274505, g: 0.32103032, b: 0.9490196, a: 1}
-  cardSprite: {fileID: -3829449729105163688, guid: 73889571cb2164d44b78382d71444df5, type: 3}
+  cardSprite: {fileID: 7564942753427990250, guid: 34e82abd8d5b4854cb281627b73d75a5, type: 3}
   cardDescription: Next ACT -30%, It will not end your turn
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 5f2fd925b56b24247aa37f50c810bd20, type: 2}
