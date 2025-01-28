@@ -25,6 +25,7 @@ public class RefereeScript : NetworkBehaviour
     public GameObject winImage;
 
     public int chosenEnemyId;
+    [SyncVar]
     public int waveCount = 0;
 
     [SyncVar]
