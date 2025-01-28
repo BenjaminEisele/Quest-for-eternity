@@ -1,6 +1,6 @@
 using UnityEngine;
 using Mirror;
-
+using System.Collections.Generic;
 public class EnemyGenerator : NetworkBehaviour
 {
 
@@ -16,11 +16,18 @@ public class EnemyGenerator : NetworkBehaviour
     [SyncVar]
     private int myId;
 
-    public void RandomNumber()
+    [SyncVar]
+    public List<int> enemyIdList;
+    public void RandomNumber(int howMany)
     {
+        enemyIdList.Clear();
         if (isServer)
         {
-           myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+            for(int i = 0; i < howMany; i++)
+            {
+                enemyIdList[i] = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+            }
+           //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
         }           
     }
 
@@ -31,7 +38,7 @@ public class EnemyGenerator : NetworkBehaviour
         {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
             enemyClone.SetActive(true);
-            enemyClone.GetComponent<EnemyScript>().EnemySetUp(myId);
+            enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
             enemyPosition += new Vector3(4, 0, 0);                  
         }

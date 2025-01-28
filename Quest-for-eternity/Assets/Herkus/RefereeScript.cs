@@ -125,7 +125,7 @@ public class RefereeScript : NetworkBehaviour
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
-        ennemyGeneratorAccess.RandomNumber();
+        ennemyGeneratorAccess.RandomNumber(1);
         ennemyGeneratorAccess.GenerateEnemies(1);
         newWaveEvent += RandomizeChooseCardsSetUp;
         //enemyList.Add(targetEnemy);
@@ -384,7 +384,9 @@ public class RefereeScript : NetworkBehaviour
 
     public void RandomNumberSetUp(int maximumValue)
     {
-        randomEnemyCount = Random.Range(1, 3);
+        randomEnemyCount = Random.Range(1, 4);
+        ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
+        
         for (int i = 0; i < 4; i++)
         {
             randomNumbers[i] = Random.Range(0, maximumValue);
