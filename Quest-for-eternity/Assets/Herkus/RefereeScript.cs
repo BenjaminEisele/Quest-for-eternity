@@ -25,7 +25,7 @@ public class RefereeScript : NetworkBehaviour
     public GameObject winImage;
 
     public int chosenEnemyId;
-    int waveCount = 0;
+    public int waveCount = 0;
 
     [SyncVar]
     int targetPlayerId = 1;
@@ -311,10 +311,12 @@ public class RefereeScript : NetworkBehaviour
         enemyList.Clear();
         if(waveCount == 2)
         {
-            ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount, true);
+            Debug.Log("Spawning necromancer");
+            ennemyGeneratorAccess.GenerateEnemies(1, true);
         }
         else
         {
+            Debug.Log("Spawning regular enemies");
             ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount, false);
         }
         
