@@ -14,7 +14,7 @@ public class EnemyGenerator : NetworkBehaviour
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
     [SyncVar]
-    private int myId;
+    public int myId;
 
     [SyncVar]
     public int[] enemyIdArray = new int[3];
