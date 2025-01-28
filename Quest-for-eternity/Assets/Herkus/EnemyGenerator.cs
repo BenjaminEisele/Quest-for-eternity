@@ -58,7 +58,15 @@ public class EnemyGenerator : NetworkBehaviour
             //}
            // else
             //{
+            if(i == 0)
+            {
+                enemyClone.GetComponent<EnemyScript>().EnemySetUp(firstId);
+            }
+            else
+            {
                 enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
+            }
+                
                 //enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
             //}
             Debug.Log($"spawning enemy with id: {enemyIdList[i]}");
