@@ -85,7 +85,6 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdCallEndTurnForBothPlayers()
     {
-        EndTurnPlayerScript();
         /*for (int i = 0; i < 2; i++)
         {
 
@@ -93,7 +92,7 @@ public class PlayerScript : NetworkBehaviour
         }*/
         //RpcEndTurnCall();
         //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        //CallEndTurnForBothPlayers();
+        CallEndTurnForBothPlayers();
     }
 
     public void BeginPreNewWaveCall()
