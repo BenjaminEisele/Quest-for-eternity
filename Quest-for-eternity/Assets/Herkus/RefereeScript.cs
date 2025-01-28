@@ -64,7 +64,9 @@ public class RefereeScript : NetworkBehaviour
 
     private void Awake()
     {
+
         instance = this;
+        RandomNumbersSetUpRoot();
     }
   
 
@@ -123,7 +125,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
-        RandomNumbersSetUpRoot();
+        
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
