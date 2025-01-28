@@ -170,8 +170,9 @@ public class PlayerScript : NetworkBehaviour
             {
                 if (fieldScriptAccess.FieldHitCheck())
                 {
+                    int target = RefereeScript.instance.chosenEnemyId;
                     damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                    CmdDealDamage(damageThisRound);
+                    CmdDealDamage(damageThisRound, target);
 
                 }
                 Invoke("CmdEndTurn", 0.1f);
@@ -182,8 +183,9 @@ public class PlayerScript : NetworkBehaviour
 
                 if (fieldScriptAccess.FieldHitCheck())
                 {
+                    int target = RefereeScript.instance.chosenEnemyId;
                     damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                    RpcDealDamage(damageThisRound);
+                    RpcDealDamage(damageThisRound, target);
                 }
                 Invoke("RpcEndTurn", 0.1f);
                 // RpcEndTurn();            
@@ -194,24 +196,33 @@ public class PlayerScript : NetworkBehaviour
 
 
     [Command(requiresAuthority = false)]
-    public void CmdDealDamage(int inputDamage)
+    public void CmdDealDamage(int inputDamage, int target)
     {
         if (isThisPlayersTurn)
         {
-            RefereeScript.instance.playerList[0].DealDamageAsServer(inputDamage);
+            RefereeScript.instance.playerList[0].DealDamageAsServer(inputDamage, target);
         }
     }
     [ClientRpc]
-    public void RpcDealDamage(int inputDamage)
+    public void RpcDealDamage(int inputDamage, int target)
     {
         if (isThisPlayersTurn)
         {
             //Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
-            RefereeScript.instance.enemyList[RefereeScript.instance.chosenEnemyId].TakeDamageAndCheckIfDead(inputDamage);
+            RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage);
         }
 
+    }
+
+    [ClientRpc]
+    public void DealDamageAsServer(int inputDamage2, int target)
+    {
+        //Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
+        //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
+        //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
+        RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
     }
 
     [Command(requiresAuthority = false)]
@@ -241,16 +252,6 @@ public class PlayerScript : NetworkBehaviour
         }       
     }
 
-
-
-    [ClientRpc]
-    public void DealDamageAsServer(int inputDamage2)
-    {
-        //Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
-        //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
-        //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
-        RefereeScript.instance.enemyList[RefereeScript.instance.chosenEnemyId].TakeDamageAndCheckIfDead(inputDamage2);
-    }
 
     public void PlayCardForOtherPlayer(int cardID)
     {
