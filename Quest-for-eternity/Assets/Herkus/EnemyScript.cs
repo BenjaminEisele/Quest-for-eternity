@@ -18,7 +18,7 @@ public class EnemyScript : NetworkBehaviour
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
-    bool isBoss;
+    public bool isBoss;
     public int specialAttackCounter;
 
     public void EnemySetUp(int myID)
@@ -71,7 +71,12 @@ public class EnemyScript : NetworkBehaviour
     public int GenerateAttack()
     {
         int myDamage;
-        if(specialAttackCounter < 3)
+        if(isBoss && specialAttackCounter < 3)
+        {
+            RefereeScript.instance.ennemyGeneratorAccess.GenerateEnemies(1, true);
+            myDamage = 0;
+        }
+        else
         {
             if (isEnemyAlive)
             {
@@ -82,11 +87,7 @@ public class EnemyScript : NetworkBehaviour
                 myDamage = 0;
             }
         }
-        else
-        {
-            RefereeScript.instance.ennemyGeneratorAccess.GenerateEnemies(1, true);
-            myDamage = 0;
-        }
+        
 
         specialAttackCounter++;
         return myDamage;
