@@ -23,6 +23,7 @@ public class EnemyGenerator : NetworkBehaviour
         //enemyIdList.Clear();
         //if (isServer)
         //{
+        myId = 65;
         Debug.Log("Random Number beginning reached");
             for(int i = 0; i < howMany; i++)
             {
