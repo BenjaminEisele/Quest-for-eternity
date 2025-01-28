@@ -92,7 +92,7 @@ public class ChooseNewCardScript : MonoBehaviour
         //playerScriptAccess.EndTurnPlayerScript();
 
         //RefereeScript.instance.CallEndTurnForBothPlayers();
-        RefereeScript.instance.CallStartTurnEvent();
+        //RefereeScript.instance.CallStartTurnEvent();
         if (playerScriptAccess.isHost)
         {
             RefereeScript.instance.CallEndTurnForBothPlayers();
