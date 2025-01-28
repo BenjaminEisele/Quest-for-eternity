@@ -66,6 +66,7 @@ public class RefereeScript : NetworkBehaviour
     
     public void CallEndTurnForBothPlayers()
     {
+        canTransferTurnToPlayer = true;
         for (int i = 0; i < 2; i++)
         {
             //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
@@ -83,6 +84,7 @@ public class RefereeScript : NetworkBehaviour
         }*/
         //RpcEndTurnCall();
         //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
+        canTransferTurnToPlayer = true;
         CallEndTurnForBothPlayers();
     }
 
@@ -342,7 +344,7 @@ public class RefereeScript : NetworkBehaviour
 
     public void CallStartTurnEvent()
     {
-        canTransferTurnToPlayer = true;
+        //canTransferTurnToPlayer = true;
         Debug.Log("can transfer turn should be true it is: " + canTransferTurnToPlayer);
         if (turnStartEvent != null)
         {
