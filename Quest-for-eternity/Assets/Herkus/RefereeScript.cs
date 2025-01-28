@@ -170,13 +170,7 @@ public class RefereeScript : NetworkBehaviour
         {
             ChooseNewEnemy(-1);
         }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            ennemyGeneratorAccess.RandomNumber(3);
-            //ennemyGeneratorAccess.TestVoid();
-            //RandomizeChooseCardsSetUp();
-            //ennemyGeneratorAccess.enemyIdArray[0] = 6000;
-        }
+
     }
 
     private void DeactivateHealth(GameObject[] health)
@@ -399,6 +393,7 @@ public class RefereeScript : NetworkBehaviour
         if (isServer)
         {
             randomEnemyCount = Random.Range(1, 4);
+            Debug.Log("Random amount: " + randomEnemyCount);
             ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
             
             for (int i = 0; i < 4; i++)
