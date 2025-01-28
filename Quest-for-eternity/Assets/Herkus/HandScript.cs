@@ -54,7 +54,7 @@ public class HandScript : MonoBehaviour
     bool isFullRefill;
     private void Start()
     {
-        //RefereeScript.turnStartEvent += ActivateAllCardsEvent;
+        RefereeScript.turnStartEvent += ActivateAllCardsEvent;
         //RefereeScript.turnStartEvent += ShouldWeDisableCards();
         RefereeScript.newWaveEvent += HandReset;
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
