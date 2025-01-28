@@ -312,7 +312,7 @@ public class RefereeScript : NetworkBehaviour
 
         if (shouldStartEvents)
         {
-          CallNewWaveEvent();   
+       //   CallNewWaveEvent();   
         }
     }
     public void CallPreNewWaveEvent()

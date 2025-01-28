@@ -56,7 +56,7 @@ public class HandScript : MonoBehaviour
     {
         RefereeScript.turnStartEvent += ActivateAllCardsEvent;
         //RefereeScript.turnStartEvent += ShouldWeDisableCards();
-        RefereeScript.newWaveEvent += HandReset;
+        //RefereeScript.newWaveEvent += HandReset;
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
         TurnScript.endTurnEvent += AddCardsEvent;
         TurnScript.endTurnEvent += RebuildCardListLite;
