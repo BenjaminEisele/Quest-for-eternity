@@ -170,6 +170,7 @@ MonoBehaviour:
   spawnerPos: {fileID: 1834375437}
   refereeScriptAccess: {fileID: 569160454}
   databaseMultiplayerAccess: {fileID: 371547816}
+  myId: 0
 --- !u!1 &307855674
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +380,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d796c2b0ab6c48d458d690648b7a09a2, type: 2}
   - {fileID: 11400000, guid: 10a10243987f2c7459336b3ff8d4ac72, type: 2}
   - {fileID: 11400000, guid: 25278f8ba2c162d45889102ab1d1005f, type: 2}
+  - {fileID: 11400000, guid: 74d7b18455c5a5b4c8a51be7445742c2, type: 2}
 --- !u!4 &371547817
 Transform:
   m_ObjectHideFlags: 0
@@ -524,6 +526,7 @@ MonoBehaviour:
   enemyList: []
   ennemyGeneratorAccess: {fileID: 118785381}
   canTransferTurnToPlayer: 0
+  isServersTurn: 0
   restartGameButton: {fileID: 0}
   lostImage: {fileID: 0}
   winImage: {fileID: 0}
@@ -535,6 +538,7 @@ MonoBehaviour:
   playerList: []
   hostId: 0
   clientId: 0
+  randomEnemyCount: 0
 --- !u!1 &1086650097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1020,7 @@ MonoBehaviour:
   enemyNameText: {fileID: 307855676}
   myMarker: {fileID: 1149146452}
   databaseMultiplayerAccess: {fileID: 371547816}
+  specialAttackCounter: 0
 --- !u!65 &1748148564
 BoxCollider:
   m_ObjectHideFlags: 0
