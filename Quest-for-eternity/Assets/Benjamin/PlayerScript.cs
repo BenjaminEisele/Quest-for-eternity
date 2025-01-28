@@ -75,11 +75,18 @@ public class PlayerScript : NetworkBehaviour
         } */
     }
 
-    [ClientRpc]
     public void CallEndTurnForBothPlayers()
     {
             //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-            EndTurnPlayerScript();   
+            EndTurnPlayerScript();
+        if (isServer)
+        {
+            RpcEndTurn();
+        }
+        else
+        {
+            CmdEndTurn();
+        }
     }
 
     [Command(requiresAuthority = false)]
