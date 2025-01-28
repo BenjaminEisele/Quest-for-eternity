@@ -310,7 +310,7 @@ public class RefereeScript : NetworkBehaviour
             Destroy(enemy.gameObject);
         }
         enemyList.Clear();
-        if(waveCount == 2)
+        if(waveCount == 3)
         {
             Debug.Log("Spawning necromancer");
             ennemyGeneratorAccess.GenerateEnemies(1, true);
