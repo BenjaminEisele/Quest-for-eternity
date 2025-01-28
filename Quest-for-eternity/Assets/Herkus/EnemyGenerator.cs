@@ -17,18 +17,20 @@ public class EnemyGenerator : NetworkBehaviour
     private int myId;
 
     [SyncVar]
-    public List<int> enemyIdList;
+    //public List<int> enemyIdList;
+    int[] enemyIdArray = new int[3];
     public void RandomNumber(int howMany)
     {
-        enemyIdList.Clear();
-      //  if (isServer)
-       // {
+        //enemyIdList.Clear();
+        //if (isServer)
+        //{
             for(int i = 0; i < howMany; i++)
             {
-                enemyIdList.Add(Random.Range(0, databaseMultiplayerAccess.enemyList.Count));
+                // enemyIdList.Add(Random.Range(0, databaseMultiplayerAccess.enemyList.Count));
+                enemyIdArray[i] = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
             }
            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
-        //}           
+      //  }           
     }
 
     public void GenerateEnemies(int howManyEnemies)
@@ -38,7 +40,7 @@ public class EnemyGenerator : NetworkBehaviour
         {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
             enemyClone.SetActive(true);
-            enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
+            enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdArray[i]);
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
             enemyPosition += new Vector3(4, 0, 0);                  
         }
