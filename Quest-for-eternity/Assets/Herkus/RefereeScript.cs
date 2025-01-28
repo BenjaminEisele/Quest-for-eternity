@@ -392,7 +392,7 @@ public class RefereeScript : NetworkBehaviour
         displayCardIdList.Clear();
         if (isServer)
         {
-            randomEnemyCount = Random.Range(1, 4);
+            randomEnemyCount = Random.Range(2, 4);
             Debug.Log("Random amount: " + randomEnemyCount);
             ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
             
