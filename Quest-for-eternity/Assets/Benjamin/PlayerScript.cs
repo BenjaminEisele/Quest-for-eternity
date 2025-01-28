@@ -208,7 +208,8 @@ public class PlayerScript : NetworkBehaviour
         {
             //Debug.Log($"We have dealt {RefereeScript.instance.playerList[0].damageThisRound} amount of damage");
             //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[0].damageThisRound);
-            RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
+            //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage);
+            RefereeScript.instance.enemyList[RefereeScript.instance.chosenEnemyId].TakeDamageAndCheckIfDead(inputDamage);
         }
 
     }
@@ -247,7 +248,8 @@ public class PlayerScript : NetworkBehaviour
     {
         //Debug.Log($"We have dealt {RefereeScript.instance.playerList[1].damageThisRound} amount of damage");
         //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(RefereeScript.instance.playerList[1].damageThisRound);
-        RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
+        //RefereeScript.instance.targetEnemy.TakeDamageAndCheckIfDead(inputDamage2);
+        RefereeScript.instance.enemyList[RefereeScript.instance.chosenEnemyId].TakeDamageAndCheckIfDead(inputDamage2);
     }
 
     public void PlayCardForOtherPlayer(int cardID)

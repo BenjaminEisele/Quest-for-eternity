@@ -16,8 +16,6 @@ public class EnemyGenerator : NetworkBehaviour
     [SyncVar]
     public int myId;
 
-    [SyncVar]
-    public int[] enemyIdArray = new int[3];
 
 
     public readonly SyncList<int> enemyIdList = new SyncList<int>();
@@ -32,8 +30,6 @@ public class EnemyGenerator : NetworkBehaviour
             {
             
                 enemyIdList.Add(Random.Range(0, databaseMultiplayerAccess.enemyList.Count));
-                //enemyIdArray[i] = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
-                Debug.Log($"generating id: {enemyIdArray[i]}");
             }
            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
       //  }           
@@ -42,7 +38,6 @@ public class EnemyGenerator : NetworkBehaviour
     {
         //namesList.Add("HELLO");
          myId = 65;
-        enemyIdArray[0] = 65;
     }
     public void GenerateEnemies(int howManyEnemies)
     {
