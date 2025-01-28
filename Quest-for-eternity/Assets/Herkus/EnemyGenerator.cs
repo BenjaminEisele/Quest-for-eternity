@@ -21,14 +21,14 @@ public class EnemyGenerator : NetworkBehaviour
     public void RandomNumber(int howMany)
     {
         enemyIdList.Clear();
-        if (isServer)
-        {
+      //  if (isServer)
+       // {
             for(int i = 0; i < howMany; i++)
             {
                 enemyIdList.Add(Random.Range(0, databaseMultiplayerAccess.enemyList.Count));
             }
            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
-        }           
+        //}           
     }
 
     public void GenerateEnemies(int howManyEnemies)
