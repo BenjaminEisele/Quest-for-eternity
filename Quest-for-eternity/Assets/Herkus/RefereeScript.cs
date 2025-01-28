@@ -121,13 +121,14 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
-        RandomizeChooseCardsSetUp();
+        RandomNumbersSetUpRoot();
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
         //ennemyGeneratorAccess.RandomNumber(1);
         ennemyGeneratorAccess.GenerateEnemies(1);
-        newWaveEvent += RandomizeChooseCardsSetUp;
+        //newWaveEvent += RandomizeChooseCardsSetUp;
+
         //enemyList.Add(targetEnemy);
         isGameOver = false;
         //restartGameButton.SetActive(false);
@@ -390,14 +391,12 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    public void RandomNumberSetUp(int maximumValue)
+    public void RandomNumberGeneration(int maximumValue)
     {
         Debug.Log("Set up beginning reached");
         if(isServer)
         {
-            Debug.Log("I am the server. randomizing numbers");
             randomEnemyCount = Random.Range(1, 4);
-            Debug.Log("set enemy count to: " + randomEnemyCount);
             ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
             
             for (int i = 0; i < 4; i++)
@@ -444,14 +443,14 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    private void RandomizeChooseCardsSetUp()
+    public void RandomNumbersSetUpRoot()
     {    
         DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
         if(isServer)
         {
             if (databasePlayerAccess != null)
             {
-                RandomNumberSetUp(databasePlayerAccess.cardList.Count);
+                RandomNumberGeneration(databasePlayerAccess.cardList.Count);
             }
             else
             {

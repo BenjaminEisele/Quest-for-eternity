@@ -57,5 +57,7 @@ public class EnemyGenerator : NetworkBehaviour
             enemyPosition += new Vector3(4, 0, 0);                  
         }
         refereeScriptAccess.ResetChosenEnemy();
+        RefereeScript.instance.RandomNumbersSetUpRoot();
+
     }
 }
