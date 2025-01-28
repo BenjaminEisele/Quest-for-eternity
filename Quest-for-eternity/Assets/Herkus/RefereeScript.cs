@@ -123,7 +123,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
-        RandomNumbersSetUpRoot();
+        //RandomNumbersSetUpRoot();
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
