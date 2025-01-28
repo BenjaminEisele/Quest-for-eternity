@@ -58,6 +58,7 @@ public class RefereeScript : NetworkBehaviour
     int[] randomNumbers = new int[4];
     [SyncVar]
     public int randomEnemyCount = 0;
+    public readonly SyncList<int> displayCardIdList = new SyncList<int>();
 
 
     private void Awake()
@@ -394,14 +395,16 @@ public class RefereeScript : NetworkBehaviour
     public void RandomNumberGeneration(int maximumValue)
     {
         Debug.Log("Set up beginning reached");
-        if(isServer)
+        displayCardIdList.Clear();
+        if (isServer)
         {
             randomEnemyCount = Random.Range(1, 4);
             ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
             
             for (int i = 0; i < 4; i++)
             {
-                randomNumbers[i] = Random.Range(0, maximumValue);
+                //randomNumbers[i] = Random.Range(0, maximumValue);
+                displayCardIdList.Add(Random.Range(0, maximumValue));
             }
         }
         else
@@ -413,7 +416,7 @@ public class RefereeScript : NetworkBehaviour
 
     public int GetRandomNumber(int inputIndex)
     {
-        return randomNumbers[inputIndex];
+        return displayCardIdList[inputIndex];
     }
     public void NewWaveCheck()
     {

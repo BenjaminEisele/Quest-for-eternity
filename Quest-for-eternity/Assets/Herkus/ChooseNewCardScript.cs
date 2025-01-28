@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
 public class ChooseNewCardScript : MonoBehaviour
 {
     public GameObject displayCardReferenceGameobject;
@@ -14,6 +13,8 @@ public class ChooseNewCardScript : MonoBehaviour
     public static ChooseNewCardScript instance;
 
     public int displayCardCount = 0;
+
+
 
     private void Awake()
     {
