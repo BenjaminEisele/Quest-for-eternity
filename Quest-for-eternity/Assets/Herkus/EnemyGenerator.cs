@@ -51,8 +51,8 @@ public class EnemyGenerator : NetworkBehaviour
         {           
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
             enemyClone.SetActive(true);
-            enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdArray[i]);
-            Debug.Log($"spawning enemy with id: {enemyIdArray[i]}");
+            enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
+            Debug.Log($"spawning enemy with id: {enemyIdList[i]}");
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
             enemyPosition += new Vector3(4, 0, 0);                  
         }
