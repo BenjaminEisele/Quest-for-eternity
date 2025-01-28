@@ -101,7 +101,7 @@ public class ChooseNewCardScript : MonoBehaviour
         {
             RefereeScript.instance.CmdCallEndTurnForBothPlayers();
         }
-        
+        RefereeScript.instance.StartNextWaveInitalize();
 
 
         //transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();

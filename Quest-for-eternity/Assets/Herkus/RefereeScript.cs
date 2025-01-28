@@ -405,7 +405,7 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-            StartNextWaveInitalize();
+            
 
             canTransferTurnToPlayer = false;
             if (playerList[0].isThisPlayersTurn)
