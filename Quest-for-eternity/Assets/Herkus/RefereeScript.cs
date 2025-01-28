@@ -125,7 +125,7 @@ public class RefereeScript : NetworkBehaviour
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
-        ennemyGeneratorAccess.RandomNumber(1);
+        //ennemyGeneratorAccess.RandomNumber(1);
         ennemyGeneratorAccess.GenerateEnemies(1);
         newWaveEvent += RandomizeChooseCardsSetUp;
         //enemyList.Add(targetEnemy);
@@ -435,9 +435,7 @@ public class RefereeScript : NetworkBehaviour
     }
 
     private void RandomizeChooseCardsSetUp()
-    {
-        if (isServer)
-        {
+    {    
             DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
             if (databasePlayerAccess != null)
             {
@@ -447,7 +445,7 @@ public class RefereeScript : NetworkBehaviour
             {
                 Debug.Log("databasePlayerAccess was null!");
             }
-        }
+   
     }
 
     [ClientRpc]
