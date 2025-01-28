@@ -57,7 +57,7 @@ public class RefereeScript : NetworkBehaviour
     [SyncVar]
     int[] randomNumbers = new int[4];
     [SyncVar]
-    int randomEnemyCount = 0;
+    public int randomEnemyCount = 0;
 
 
     private void Awake()
@@ -312,6 +312,7 @@ public class RefereeScript : NetworkBehaviour
 
         if (shouldStartEvents)
         {
+            Debug.Log("new wave method beginning reached");
           CallNewWaveEvent();   
         }
     }
@@ -340,6 +341,7 @@ public class RefereeScript : NetworkBehaviour
     {
         if (newWaveEvent != null)
         {
+            Debug.Log("calling new wave event");
             newWaveEvent();
         }
     }
