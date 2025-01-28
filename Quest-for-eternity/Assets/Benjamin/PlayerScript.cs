@@ -75,7 +75,6 @@ public class PlayerScript : NetworkBehaviour
         } */
     }
 
-    [ClientRpc]
     public void CallEndTurnForBothPlayers()
     {
             //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
