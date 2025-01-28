@@ -47,7 +47,7 @@ Material:
     - _Exposure: 1.3
     - _SunDisk: 2
     - _SunSize: 0.04
-    - _SunSizeConvergence: 2.93
+    - _SunSizeConvergence: 5
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
