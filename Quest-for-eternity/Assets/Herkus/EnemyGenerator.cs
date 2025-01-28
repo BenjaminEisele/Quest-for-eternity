@@ -18,6 +18,9 @@ public class EnemyGenerator : NetworkBehaviour
 
     [SyncVar]
     public int[] enemyIdArray = new int[3];
+
+
+    public readonly SyncList<string> namesList = new SyncList<string>();
     public void RandomNumber(int howMany)
     {
         //enemyIdList.Clear();
@@ -37,6 +40,7 @@ public class EnemyGenerator : NetworkBehaviour
     }
     public void TestVoid()
     {
+        namesList.Add("HELLO");
          myId = 65;
         enemyIdArray[0] = 65;
     }
