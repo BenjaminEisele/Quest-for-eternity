@@ -77,8 +77,11 @@ public class PlayerScript : NetworkBehaviour
 
     public void CallEndTurnForBothPlayers()
     {
+        for (int i = 0; i < 2; i++)
+        {
             //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-            EndTurnPlayerScript();   
+            RefereeScript.instance.playerList[i].EndTurnPlayerScript();
+        }
     }
 
     [Command(requiresAuthority = false)]
