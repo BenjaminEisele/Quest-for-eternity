@@ -56,6 +56,8 @@ public class RefereeScript : NetworkBehaviour
 
     [SyncVar]
     int[] randomNumbers = new int[4];
+    [SyncVar]
+    int randomEnemyCount = 0;
 
 
     private void Awake()
@@ -305,8 +307,8 @@ public class RefereeScript : NetworkBehaviour
             Destroy(enemy.gameObject);
         }
         enemyList.Clear();
-        //ennemyGeneratorAccess.GenerateEnemies(Random.Range(1, 3));
-        // ResetChosenEnemy();
+        ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount);
+        ResetChosenEnemy();
 
         //if (shouldStartEvents)
         //{
@@ -382,7 +384,8 @@ public class RefereeScript : NetworkBehaviour
 
     public void RandomNumberSetUp(int maximumValue)
     {
-        for(int i = 0; i < 4; i++)
+        randomEnemyCount = Random.Range(1, 3);
+        for (int i = 0; i < 4; i++)
         {
             randomNumbers[i] = Random.Range(0, maximumValue);
         }
