@@ -54,18 +54,21 @@ public class EnemyGenerator : NetworkBehaviour
             //if(forceSkeletonSpawning)
             //{
 
-                //enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
+            //enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
             //}
-           // else
+            // else
             //{
-            if(i == 0)
+            if (refereeScriptAccess.waveCount == 0)
             {
-                enemyClone.GetComponent<EnemyScript>().EnemySetUp(firstId);
+                enemyClone.GetComponent<EnemyScript>().EnemySetUp(0);
+
             }
             else
             {
                 enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
+
             }
+
                 
                 //enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
             //}
