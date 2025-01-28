@@ -23,7 +23,7 @@ public class EnemyGenerator : NetworkBehaviour
         //enemyIdList.Clear();
         //if (isServer)
         //{
-        myId = 65;
+      
         Debug.Log("Random Number beginning reached");
             for(int i = 0; i < howMany; i++)
             {
@@ -35,7 +35,10 @@ public class EnemyGenerator : NetworkBehaviour
            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
       //  }           
     }
-
+    public void TestVoid()
+    {
+        myId = 65;
+    }
     public void GenerateEnemies(int howManyEnemies)
     {
         Vector3 enemyPosition = spawnerPos.position;
