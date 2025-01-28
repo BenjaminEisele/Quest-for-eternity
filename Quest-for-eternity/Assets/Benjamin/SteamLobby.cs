@@ -20,7 +20,7 @@ public class SteamLobby : MonoBehaviour
     private void Start()
     {
         if (!SteamManager.Initialized) { return; }
-        if (instance == null) {instance = this;}
+        instance = this;
 
         manager = GetComponent<CustomNetworkManager>();
 
