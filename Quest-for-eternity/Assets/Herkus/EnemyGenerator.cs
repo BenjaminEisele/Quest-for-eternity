@@ -29,7 +29,7 @@ public class EnemyGenerator : NetworkBehaviour
             for(int i = 0; i < howMany; i++)
             {
             
-                enemyIdList.Add(Random.Range(0, databaseMultiplayerAccess.enemyList.Count));
+                enemyIdList.Add(Random.Range(0, 3));
             }
            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
       //  }           
