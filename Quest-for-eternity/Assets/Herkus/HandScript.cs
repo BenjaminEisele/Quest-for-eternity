@@ -83,6 +83,7 @@ public class HandScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
+                Debug.Log("raycast works");
                 if (hit.transform.GetComponentInParent<CardScript>())
                 {
                     if (hit.transform.GetComponentInParent<CardScript>().isClickable)
@@ -122,7 +123,7 @@ public class HandScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("returned false outer");
+                Debug.Log("raycast doesnt work");
             }
         }
     }

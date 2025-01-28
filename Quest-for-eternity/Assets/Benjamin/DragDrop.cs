@@ -33,6 +33,7 @@ public class DragDrop : MonoBehaviour
         mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
         isDragging = true;
         onHoverScriptAccess.IncreasScale(false);
+        Debug.Log("Clicked!");
     }
 
     private void OnMouseUp()
