@@ -609,7 +609,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      KnowledgeZombieTransparent_0: 5666843842003452390
+      KnowledgeZombieTransparent_1: -7875410170200168745
+      KnowledgeZombieTransparent_10: -1418219600598296992
+      KnowledgeZombieTransparent_11: -1175664606672297803
+      KnowledgeZombieTransparent_12: 1129323707612021282
+      KnowledgeZombieTransparent_13: -3202209837214208840
+      KnowledgeZombieTransparent_14: 3628285317907395084
+      KnowledgeZombieTransparent_15: 477173058423428402
+      KnowledgeZombieTransparent_16: 9095850065764598103
+      KnowledgeZombieTransparent_17: 8820511246559201323
+      KnowledgeZombieTransparent_18: 7243285770842879080
+      KnowledgeZombieTransparent_19: 5449002157820337810
+      KnowledgeZombieTransparent_2: -5962428406195211302
+      KnowledgeZombieTransparent_3: -6626165531583497529
+      KnowledgeZombieTransparent_4: 5015875606415869641
+      KnowledgeZombieTransparent_5: 3617731112022053782
+      KnowledgeZombieTransparent_6: -7862650599381912488
+      KnowledgeZombieTransparent_7: 7740759118324884697
+      KnowledgeZombieTransparent_8: 4293861533552896741
+      KnowledgeZombieTransparent_9: 1900692797021898451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

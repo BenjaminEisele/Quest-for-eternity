@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Hammer Crush
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 4602299762311917183, guid: 2b88c478d7d9c6742927971294f92d23, type: 3}
+  cardSprite: {fileID: 6464067893089759980, guid: 9c6a3c929f0c88d4dbdcf509731ffb16, type: 3}
   cardDescription: Deals 1 DMG to all enemies
   cardDamage: 1
   cardHitRate: 0.6

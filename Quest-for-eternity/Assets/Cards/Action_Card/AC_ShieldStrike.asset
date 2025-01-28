@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Shield Strike
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: -5515017798610295933, guid: f8a80809da7e9bf4cbc914a9aa2ba071, type: 3}
   cardDescription: Temporary HP (Armor) +2
   cardDamage: 1
   cardHitRate: 1

@@ -609,7 +609,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      KnowledgeSkeletonTransparent_0: -5573193802400841360
+      KnowledgeSkeletonTransparent_1: -8839331919217530439
+      KnowledgeSkeletonTransparent_10: 1541394893999670053
+      KnowledgeSkeletonTransparent_11: -3311468057888721201
+      KnowledgeSkeletonTransparent_12: 9204734668555626072
+      KnowledgeSkeletonTransparent_13: 466195279531961218
+      KnowledgeSkeletonTransparent_14: 7027312722494614465
+      KnowledgeSkeletonTransparent_15: -4396207957846293411
+      KnowledgeSkeletonTransparent_16: -7835992169965060383
+      KnowledgeSkeletonTransparent_17: 3473692822066702711
+      KnowledgeSkeletonTransparent_18: -313532458567034393
+      KnowledgeSkeletonTransparent_19: 932612391098325234
+      KnowledgeSkeletonTransparent_2: 7604042262715710914
+      KnowledgeSkeletonTransparent_3: 1031870306294004889
+      KnowledgeSkeletonTransparent_4: 9022287482290172734
+      KnowledgeSkeletonTransparent_5: -6170263530803158428
+      KnowledgeSkeletonTransparent_6: -4876793498904539897
+      KnowledgeSkeletonTransparent_7: -1861876394484077601
+      KnowledgeSkeletonTransparent_8: -6158526673687907872
+      KnowledgeSkeletonTransparent_9: -6616648495272784419
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

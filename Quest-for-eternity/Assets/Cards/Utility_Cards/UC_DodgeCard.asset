@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Dodge
   effectValue: 0
-  cardColor: {r: 0.7660377, g: 0.7434902, b: 0.25871834, a: 1}
-  cardSprite: {fileID: 7663145228914611965, guid: 17205c49fb1c74c44b8b0a0325ece211, type: 3}
+  cardColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  cardSprite: {fileID: -5672869595778636664, guid: 9df91074f8b457a4daec4cc62bc37123, type: 3}
   cardDescription: -1 DMG when get attacked
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 7a210e74a20f51d499c6c91acb1446d2, type: 2}
