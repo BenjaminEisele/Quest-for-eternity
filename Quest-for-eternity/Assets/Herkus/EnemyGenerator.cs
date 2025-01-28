@@ -20,10 +20,10 @@ public class EnemyGenerator : NetworkBehaviour
     public int[] enemyIdArray = new int[3];
 
 
-    public readonly SyncList<string> namesList = new SyncList<string>();
+    public readonly SyncList<int> enemyIdList = new SyncList<int>();
     public void RandomNumber(int howMany)
     {
-        //enemyIdList.Clear();
+        enemyIdList.Clear();
         //if (isServer)
         //{
       
@@ -31,16 +31,16 @@ public class EnemyGenerator : NetworkBehaviour
             for(int i = 0; i < howMany; i++)
             {
             
-                // enemyIdList.Add(Random.Range(0, databaseMultiplayerAccess.enemyList.Count));
-                enemyIdArray[i] = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
+                enemyIdList.Add(Random.Range(0, databaseMultiplayerAccess.enemyList.Count));
+                //enemyIdArray[i] = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
                 Debug.Log($"generating id: {enemyIdArray[i]}");
-        }
+            }
            //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
       //  }           
     }
     public void TestVoid()
     {
-        namesList.Add("HELLO");
+        //namesList.Add("HELLO");
          myId = 65;
         enemyIdArray[0] = 65;
     }
