@@ -37,7 +37,8 @@ public class EnemyGenerator : NetworkBehaviour
     }
     public void TestVoid()
     {
-        myId = 65;
+         myId = 65;
+        enemyIdArray[0] = 65;
     }
     public void GenerateEnemies(int howManyEnemies)
     {
