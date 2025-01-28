@@ -309,7 +309,15 @@ public class RefereeScript : NetworkBehaviour
             Destroy(enemy.gameObject);
         }
         enemyList.Clear();
-        ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount, false);
+        if(waveCount == 2)
+        {
+            ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount, true);
+        }
+        else
+        {
+            ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount, false);
+        }
+        
         //ResetChosenEnemy();
 
         if (shouldStartEvents)
@@ -322,14 +330,14 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isServer)
         {
-               if (waveCount < 2)
+               if (waveCount < 3)
                {
                    if (preNewWaveEvent != null)
                    {
                        //Debug.Log("pre new wave event called");
                        preNewWaveEvent();
                        waveCount++;
-                    }
+                   }
                }
                else
                {

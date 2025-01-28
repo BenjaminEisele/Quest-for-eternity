@@ -48,12 +48,12 @@ public class EnemyGenerator : NetworkBehaviour
             enemyClone.SetActive(true);
             if(forceSkeletonSpawning)
             {
-                enemyClone.GetComponent<EnemyScript>().EnemySetUp(1);
+                enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
             }
             else
             {
-                //enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
-                enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
+                enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
+                //enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
             }
             Debug.Log($"spawning enemy with id: {enemyIdList[i]}");
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
