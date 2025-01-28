@@ -57,8 +57,7 @@ public class PlayerScript : NetworkBehaviour
                 RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
             }
         }
-        //TurnScript.endTurnEvent += EndTurnPlayerScript;
-        RefereeScript.turnStartEvent += EndTurnPlayerScript;
+        TurnScript.endTurnEvent += EndTurnPlayerScript;
     }
 
 
