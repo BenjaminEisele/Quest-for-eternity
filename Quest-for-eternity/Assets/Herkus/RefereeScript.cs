@@ -437,6 +437,8 @@ public class RefereeScript : NetworkBehaviour
     private void RandomizeChooseCardsSetUp()
     {    
             DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
+        if(isServer)
+        {
             if (databasePlayerAccess != null)
             {
                 RandomNumberSetUp(databasePlayerAccess.cardList.Count);
@@ -444,7 +446,9 @@ public class RefereeScript : NetworkBehaviour
             else
             {
                 Debug.Log("databasePlayerAccess was null!");
+
             }
+        }
    
     }
 
