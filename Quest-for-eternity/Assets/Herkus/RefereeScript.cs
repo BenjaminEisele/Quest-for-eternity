@@ -507,6 +507,7 @@ public class RefereeScript : NetworkBehaviour
             foreach (EnemyScript enemy in enemyList)
             {
                 int enemyDamage = enemy.GenerateAttack();
+                Debug.Log("My name is " + enemy.enemyNameText + " I dealt " + enemyDamage + " Damage");
                 if(isClientOnly)
                 {
                     CmdDealDamageToPlayer(enemyDamage);
