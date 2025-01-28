@@ -77,16 +77,15 @@ public class PlayerScript : NetworkBehaviour
 
     public void CallEndTurnForBothPlayers()
     {
-        //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        RefereeScript.instance.canTransferTurnToPlayer = true;
+            //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
         EndTurnPlayerScript();
         if (isServer)
         {
-            RpcEndTurn();
+            Invoke("RpcEndTurn", 0.5f);
         }
         else
         {
-            CmdEndTurn();
+            Invoke("CmdEndTurn", 0.5f);
         }
     }
 
