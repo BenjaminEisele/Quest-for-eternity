@@ -290,14 +290,14 @@ public class RefereeScript : NetworkBehaviour
     [ClientRpc]
     public void RpcStartNextWave(bool shouldStartEvents)
     {
-        StartNextWaveLogic();
+        StartNextWaveLogic(shouldStartEvents);
     }
     [Command(requiresAuthority = false)]
     private void CmdStartNextWave()
     {
         RpcStartNextWave(true);
     }
-    private void StartNextWaveLogic()
+    private void StartNextWaveLogic(bool shouldStartEvents)
     {
         //Debug.Log("new wave!");
         areAllEnemiesDead = false;
@@ -310,10 +310,10 @@ public class RefereeScript : NetworkBehaviour
         ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount);
         //ResetChosenEnemy();
 
-        //if (shouldStartEvents)
-       // {
+        if (shouldStartEvents)
+        {
           CallNewWaveEvent();   
-       // }
+        }
     }
     public void CallPreNewWaveEvent()
     {
@@ -384,13 +384,22 @@ public class RefereeScript : NetworkBehaviour
 
     public void RandomNumberSetUp(int maximumValue)
     {
-        randomEnemyCount = Random.Range(1, 4);
-        ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
-        
-        for (int i = 0; i < 4; i++)
+        if(isServer)
         {
-            randomNumbers[i] = Random.Range(0, maximumValue);
+            Debug.Log("I am the server. randomizing numbers");
+            randomEnemyCount = Random.Range(1, 4);
+            ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
+
+            for (int i = 0; i < 4; i++)
+            {
+                randomNumbers[i] = Random.Range(0, maximumValue);
+            }
         }
+        else
+        {
+            Debug.Log("I was not the server and i couldnt execute the method");
+        }
+        
     }
 
     public int GetRandomNumber(int inputIndex)
