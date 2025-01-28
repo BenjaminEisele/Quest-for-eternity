@@ -308,7 +308,7 @@ public class RefereeScript : NetworkBehaviour
         }
         enemyList.Clear();
         ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount);
-        ResetChosenEnemy();
+        //ResetChosenEnemy();
 
         //if (shouldStartEvents)
         //{
