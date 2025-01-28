@@ -17,13 +17,13 @@ public class EnemyGenerator : NetworkBehaviour
     private int myId;
 
     [SyncVar]
-    //public List<int> enemyIdList;
     public int[] enemyIdArray = new int[3];
     public void RandomNumber(int howMany)
     {
         //enemyIdList.Clear();
         //if (isServer)
         //{
+        Debug.Log("Random Number beginning reached");
             for(int i = 0; i < howMany; i++)
             {
             

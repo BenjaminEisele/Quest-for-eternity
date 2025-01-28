@@ -395,8 +395,8 @@ public class RefereeScript : NetworkBehaviour
             Debug.Log("I am the server. randomizing numbers");
             randomEnemyCount = Random.Range(1, 4);
             Debug.Log("set enemy count to: " + randomEnemyCount);
-            ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
-
+            //ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
+            ennemyGeneratorAccess.enemyIdArray[0] = 6000;
             for (int i = 0; i < 4; i++)
             {
                 randomNumbers[i] = Random.Range(0, maximumValue);
