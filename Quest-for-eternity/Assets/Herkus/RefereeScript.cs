@@ -343,6 +343,7 @@ public class RefereeScript : NetworkBehaviour
     public void CallStartTurnEvent()
     {
         canTransferTurnToPlayer = true;
+        Debug.Log("can transfer turn should be true it is: " + canTransferTurnToPlayer);
         if (turnStartEvent != null)
         {
             turnStartEvent();
