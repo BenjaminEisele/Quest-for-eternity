@@ -170,7 +170,7 @@ public class RefereeScript : NetworkBehaviour
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            RandomizeChooseCardsSetUp();
+            //RandomizeChooseCardsSetUp();
             ennemyGeneratorAccess.enemyIdArray[0] = 6000;
         }
     }
