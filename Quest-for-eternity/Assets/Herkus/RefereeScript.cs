@@ -311,9 +311,9 @@ public class RefereeScript : NetworkBehaviour
         //ResetChosenEnemy();
 
         //if (shouldStartEvents)
-        //{
-        //  CallNewWaveEvent();   
-        //}
+       // {
+          CallNewWaveEvent();   
+       // }
     }
     public void CallPreNewWaveEvent()
     {
