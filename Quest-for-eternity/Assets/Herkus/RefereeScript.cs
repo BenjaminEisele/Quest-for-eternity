@@ -171,6 +171,7 @@ public class RefereeScript : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             RandomizeChooseCardsSetUp();
+            ennemyGeneratorAccess.enemyIdArray[0] = 6000;
         }
     }
 
@@ -395,8 +396,8 @@ public class RefereeScript : NetworkBehaviour
             Debug.Log("I am the server. randomizing numbers");
             randomEnemyCount = Random.Range(1, 4);
             Debug.Log("set enemy count to: " + randomEnemyCount);
-            //ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
-            ennemyGeneratorAccess.enemyIdArray[0] = 6000;
+            ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
+            
             for (int i = 0; i < 4; i++)
             {
                 randomNumbers[i] = Random.Range(0, maximumValue);
