@@ -29,14 +29,7 @@ public class ChooseNewCardScript : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            playerScriptAccess.EndTurnPlayerScript();
-            //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        }
-    } 
+
     public void ChooseOneCard(GameObject selfObject, int inputId)
     {
         displayCardCount--;

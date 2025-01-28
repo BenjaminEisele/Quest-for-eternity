@@ -64,8 +64,8 @@ public class RefereeScript : NetworkBehaviour
     {
         instance = this;
     }
+  
 
-    
     public void CallEndTurnForBothPlayers()
     {
         canTransferTurnToPlayer = true;
@@ -168,7 +168,10 @@ public class RefereeScript : NetworkBehaviour
         {
             ChooseNewEnemy(-1);
         }
-
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            RandomizeChooseCardsSetUp();
+        }
     }
 
     private void DeactivateHealth(GameObject[] health)
@@ -313,7 +316,7 @@ public class RefereeScript : NetworkBehaviour
         if (shouldStartEvents)
         {
             Debug.Log("new wave method beginning reached");
-          CallNewWaveEvent();   
+            CallNewWaveEvent();   
         }
     }
     public void CallPreNewWaveEvent()
