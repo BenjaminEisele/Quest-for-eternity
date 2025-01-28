@@ -11,7 +11,7 @@ public class BaseEnemy : ScriptableObject
     public int enemyHealth;
     public int enemyDamage;
     public Sprite enemySprite;
-
+    public bool isBoss;
 
     public virtual int GenerateAttack()
     {

@@ -18,15 +18,20 @@ public class EnemyScript : NetworkBehaviour
     public GameObject myMarker;
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
+    bool isBoss;
+    public int specialAttackCounter;
 
     public void EnemySetUp(int myID)
     {
-       // bool myBool = isClientOnly;
+        specialAttackCounter = 0;
+        // bool myBool = isClientOnly;
         //Debug.Log(isClientOnly);
         personalId = myID;
         isEnemyAlive = true;
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
         savedEnemyHealth = enemyHealth;
+        this.isBoss = databaseMultiplayerAccess.enemyList[myID].isBoss;
+
 
         GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
 
@@ -66,15 +71,24 @@ public class EnemyScript : NetworkBehaviour
     public int GenerateAttack()
     {
         int myDamage;
-        if(isEnemyAlive)
+        if(specialAttackCounter < 3)
         {
-            myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();          
+            if (isEnemyAlive)
+            {
+                myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
+            }
+            else
+            {
+                myDamage = 0;
+            }
         }
         else
         {
+            RefereeScript.instance.ennemyGeneratorAccess.GenerateEnemies(1, true);
             myDamage = 0;
         }
-        
+
+        specialAttackCounter++;
         return myDamage;
     }
 }

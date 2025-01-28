@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DeceptiveManouver_0: 7564942753427990250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

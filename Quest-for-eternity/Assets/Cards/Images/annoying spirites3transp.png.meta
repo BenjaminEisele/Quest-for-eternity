@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      annoying spirites3transp_0: 6225983093349463321
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

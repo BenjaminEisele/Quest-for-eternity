@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      manadraintrans2_0: 4956553131626260091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

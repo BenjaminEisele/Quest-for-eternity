@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Armor Repair Kit_0: 8788316349479306362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

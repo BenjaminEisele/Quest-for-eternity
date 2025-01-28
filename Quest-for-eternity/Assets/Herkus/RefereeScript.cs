@@ -9,8 +9,8 @@ public class RefereeScript : NetworkBehaviour
 
     public List<EnemyScript> enemyList;
 
-    [SerializeField]
-    EnemyGenerator ennemyGeneratorAccess;
+    //[SerializeField]
+    public EnemyGenerator ennemyGeneratorAccess;
 
     private bool isGameOver;
     bool areAllEnemiesDead;
@@ -127,7 +127,7 @@ public class RefereeScript : NetworkBehaviour
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;
         //ennemyGeneratorAccess.RandomNumber(1);
-        ennemyGeneratorAccess.GenerateEnemies(1);
+        ennemyGeneratorAccess.GenerateEnemies(1, false);
         //newWaveEvent += RandomizeChooseCardsSetUp;
 
         //enemyList.Add(targetEnemy);
@@ -309,7 +309,7 @@ public class RefereeScript : NetworkBehaviour
             Destroy(enemy.gameObject);
         }
         enemyList.Clear();
-        ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount);
+        ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount, false);
         //ResetChosenEnemy();
 
         if (shouldStartEvents)
