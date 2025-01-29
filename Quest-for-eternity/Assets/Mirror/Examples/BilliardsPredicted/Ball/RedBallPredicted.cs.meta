@@ -1,14 +1,5 @@
 fileFormatVersion: 2
 guid: 3c3384f4b0aaa417abfc3335d2d873c0
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
   productId: 129321
@@ -16,3 +7,12 @@ AssetOrigin:
   packageVersion: 93.0.1
   assetPath: Assets/Mirror/Examples/BilliardsPredicted/Ball/RedBallPredicted.cs
   uploadId: 698109
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 1100
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
