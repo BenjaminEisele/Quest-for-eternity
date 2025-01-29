@@ -48,7 +48,7 @@ public class RefereeScript : NetworkBehaviour
     public GameObject[] mainCamera;
     public GameObject[] playerHealth;
 
-    public List<PlayerScript> playerList;
+    public List<int> playerList;
 
     public static RefereeScript instance;
 
