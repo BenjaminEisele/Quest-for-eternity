@@ -23,8 +23,6 @@ public class EnemyGenerator : NetworkBehaviour
     public void RandomNumber(int howMany)
     {
         enemyIdList.Clear();
-        //if (isServer)
-        //{
         int input;
         Debug.Log("Random Number beginning reached");
             for(int i = 0; i < howMany; i++)
@@ -35,10 +33,9 @@ public class EnemyGenerator : NetworkBehaviour
                    firstId = input;
                 }    
                 enemyIdList.Add(input);
-            }
-           //myId = Random.Range(0, databaseMultiplayerAccess.enemyList.Count);
-      //  }           
+            }        
     }
+
     public void TestVoid()
     {
         //namesList.Add("HELLO");
@@ -72,7 +69,7 @@ public class EnemyGenerator : NetworkBehaviour
                 
                 //enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
             //}
-            Debug.Log($"spawning enemy with id: {enemyIdList[i]}");
+            //Debug.Log($"spawning enemy with id: {enemyIdList[i]}");
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
             enemyPosition += new Vector3(4, 0, 0);                  
         }

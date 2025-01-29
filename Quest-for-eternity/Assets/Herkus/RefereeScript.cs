@@ -68,7 +68,46 @@ public class RefereeScript : NetworkBehaviour
         instance = this;
         
     }
-  
+
+    private void Start()
+    {
+        RandomNumbersSetUpRoot();
+        areAllEnemiesDead = false;
+        canTransferTurnToPlayer = true;
+        TurnScript.restartGameEvent += RefereeReset;       
+        ennemyGeneratorAccess.GenerateEnemies(1, false);       
+        isGameOver = false;
+        
+        if (card != null)
+        {
+            card = GameObject.FindGameObjectsWithTag("Cards");
+
+            DeactivateCards(card);
+        }
+        if (button != null)
+        {
+            button = GameObject.FindGameObjectsWithTag("EndTurnButton");
+            DeactivateButton(button);
+        }
+        if (mainCamera != null)
+        {
+            mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
+            DeactivateCamera(mainCamera);
+        }
+        if (playerHealth != null)
+        {
+            playerHealth = GameObject.FindGameObjectsWithTag("Health");
+            DeactivateHealth(playerHealth);
+        }
+        //ennemyGeneratorAccess.RandomNumber(1);
+        //newWaveEvent += RandomizeChooseCardsSetUp;
+        //enemyList.Add(targetEnemy);
+        //restartGameButton.SetActive(false);
+        //winImage.SetActive(false);
+        //lostImage.SetActive(false);
+        // turnStartEvent();
+    }
+
 
     public void CallEndTurnForBothPlayers()
     {
@@ -123,45 +162,7 @@ public class RefereeScript : NetworkBehaviour
 
 
 
-    private void Start()
-    {
-        RandomNumbersSetUpRoot();
-        areAllEnemiesDead = false;
-        canTransferTurnToPlayer = true;
-        TurnScript.restartGameEvent += RefereeReset;
-        //ennemyGeneratorAccess.RandomNumber(1);
-        ennemyGeneratorAccess.GenerateEnemies(1, false);
-        //newWaveEvent += RandomizeChooseCardsSetUp;
-
-        //enemyList.Add(targetEnemy);
-        isGameOver = false;
-        //restartGameButton.SetActive(false);
-        //winImage.SetActive(false);
-        //lostImage.SetActive(false);
-        // turnStartEvent();
-        if (card != null)
-        {
-            card = GameObject.FindGameObjectsWithTag("Cards");
-
-            DeactivateCards(card);
-        }
-        if (button != null)
-        {
-            button = GameObject.FindGameObjectsWithTag("EndTurnButton");
-            DeactivateButton(button);
-        }
-        if (mainCamera != null)
-        {
-            mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
-            DeactivateCamera(mainCamera);
-        }
-        if (playerHealth != null)
-        {
-            playerHealth = GameObject.FindGameObjectsWithTag("Health");
-            DeactivateHealth(playerHealth);
-        }
-
-    }
+    
     
     private void Update()
     {
@@ -401,25 +402,16 @@ public class RefereeScript : NetworkBehaviour
 
     public void RandomNumberGeneration(int maximumValue)
     {
-        Debug.Log("Set up beginning reached");
         displayCardIdList.Clear();
         if (isServer)
         {
             randomEnemyCount = Random.Range(2, 4);
-            Debug.Log("Random amount: " + randomEnemyCount);
-            ennemyGeneratorAccess.RandomNumber(randomEnemyCount);
-            
+            ennemyGeneratorAccess.RandomNumber(randomEnemyCount);           
             for (int i = 0; i < 4; i++)
             {
-                //randomNumbers[i] = Random.Range(0, maximumValue);
                 displayCardIdList.Add(Random.Range(0, maximumValue));
             }
-        }
-        else
-        {
-            Debug.Log("I was not the server and i couldnt execute the method");
-        }
-        
+        }        
     }
 
     public int GetRandomNumber(int inputIndex)
