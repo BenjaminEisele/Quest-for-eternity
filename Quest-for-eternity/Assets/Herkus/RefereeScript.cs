@@ -116,7 +116,7 @@ public class RefereeScript : NetworkBehaviour
         for (int i = 0; i < 2; i++)
         {
             //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-            //playerList[i].EndTurnPlayerScript();
+            playerList[i].EndTurnPlayerScript();
         }
     }
 
@@ -140,7 +140,7 @@ public class RefereeScript : NetworkBehaviour
         for (int i = 0; i < 2; i++)
         {
             
-            //playerList[i].EndTurnPlayerScript();
+            playerList[i].EndTurnPlayerScript();
         }
         //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
     }
@@ -435,23 +435,22 @@ public class RefereeScript : NetworkBehaviour
             
 
             canTransferTurnToPlayer = false;
-            //if (playerList[0].isThisPlayersTurn)
-            //{
-              //  playerList[0].BeginPreNewWaveCall();
-            //}
-            //else
-            //{
-              //  playerList[1].BeginPreNewWaveCall();
-            //}   
+            if (playerList[0].isThisPlayersTurn)
+            {
+                playerList[0].BeginPreNewWaveCall();
+            }
+            else
+            {
+                playerList[1].BeginPreNewWaveCall();
+            }   
             //CallPreNewWaveEvent();
         }
     }
 
     public void RandomNumbersSetUpRoot()
-    {
-        Debug.Log(playerList[0]);
-        //DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
-        /*if(isServer)
+    {    
+        DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
+        if(isServer)
         {
             if (databasePlayerAccess != null)
             {
@@ -462,7 +461,7 @@ public class RefereeScript : NetworkBehaviour
                 Debug.Log("databasePlayerAccess was null!");
 
             }
-        }*/
+        }
    
     }
 
@@ -479,11 +478,11 @@ public class RefereeScript : NetworkBehaviour
 
     public void DealDamageLogic(int inputDamage)
     {
-        /*if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage))
+        if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
-        }*/
+        }
         if (targetPlayerId + 1 > 1)
         {
             targetPlayerId = 0;
