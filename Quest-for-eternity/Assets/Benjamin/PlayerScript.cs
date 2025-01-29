@@ -1,8 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Mirror;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class PlayerScript : NetworkBehaviour
 {
