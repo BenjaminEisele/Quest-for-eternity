@@ -31,40 +31,11 @@ public class PlayerScript : NetworkBehaviour
     public void Start()
     {
         Debug.Log("PlayerScriptStart");
-        //RefereeScript.instance.playerList.Add(this);
-        //isThisPlayersTurnToChoose = true;
-        Invoke("StartReferee", 1f);
-
-
-        /*if (isOwned)
-        {
-            if (isServer)
-            {
-                // Debug.Log("I am the server");
-                isThisPlayersTurn = true;
-                isHost = true;
-
-                EndTurnButton.interactable = true;
-                RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
-            }
-            else //(!isServer)
-            {
-                // Debug.Log("I am NOT the server");
-                isThisPlayersTurn = false;
-                isHost = false;
-                EndTurnButton.interactable = false;
-                RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
-            }
-        }*/
-        TurnScript.endTurnEvent += EndTurnPlayerScript;
-
-
-    }
-
-    private void StartReferee()
-    {
         RefereeScript.instance.playerList.Add(this);
-        RefereeScript.instance.StartReferee();
+        //isThisPlayersTurnToChoose = true;
+
+
+
         if (isOwned)
         {
             if (isServer)
@@ -85,7 +56,10 @@ public class PlayerScript : NetworkBehaviour
                 RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
             }
         }
+        TurnScript.endTurnEvent += EndTurnPlayerScript;
     }
+
+
    
 
     public void BeginPreNewWaveCall()

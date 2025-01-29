@@ -69,7 +69,7 @@ public class RefereeScript : NetworkBehaviour
         
     }
 
-    public void StartReferee()
+    private void Start()
     {
         Debug.Log("Referee Start");
         RandomNumbersSetUpRoot();
