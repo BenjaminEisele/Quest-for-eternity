@@ -31,7 +31,7 @@ public class PlayerScript : NetworkBehaviour
     public void Start()
     {
         Debug.Log("PlayerScriptStart");
-        RefereeScript.instance.playerList.Add(1);
+        RefereeScript.instance.playerList.Add(this);
         //isThisPlayersTurnToChoose = true;
 
 
