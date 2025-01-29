@@ -71,6 +71,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
+        Debug.Log("Referee Start");
         RandomNumbersSetUpRoot();
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
