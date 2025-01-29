@@ -70,8 +70,8 @@ public class PlayerScript : NetworkBehaviour
             if (isHost && isServer)
             {
                 Debug.Log("server sets the bools");
-                RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
-                RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
+                //RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
+                //RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
                 RefereeScript.instance.CallPreNewWaveEvent();
                 CallNewCardsAsServer();
             }
@@ -87,8 +87,8 @@ public class PlayerScript : NetworkBehaviour
     {
         if(!isHost)
         {
-            RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = false;
-            RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = true;
+            //RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = false;
+            //RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = true;
 
             RefereeScript.instance.CallPreNewWaveEvent();
             CallNewCardsAsServer();
@@ -113,14 +113,14 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void DisplayCardsCallNest()
     {
-      RefereeScript.instance.playerList[0].DisplayCardsCall();
+      //RefereeScript.instance.playerList[0].DisplayCardsCall();
     }
     [ClientRpc]
     public void DisplayCardsCall()
     {
         if (isClientOnly)
         {
-            RefereeScript.instance.playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
+            //RefereeScript.instance.playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
             //transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
         }
     }
@@ -132,7 +132,7 @@ public class PlayerScript : NetworkBehaviour
         //Debug.Log("Card hopefully added");
         if (isClientOnly)
         {
-            RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
+            //RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
             //RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
         } 
         
@@ -152,14 +152,14 @@ public class PlayerScript : NetworkBehaviour
     {
        
        Debug.Log("Card hopefully destroyed");
-       RefereeScript.instance.playerList[1].chooseNewCardAccess.FindAndDestroyCard(inputId);
+       //RefereeScript.instance.playerList[1].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
     [ClientRpc]
     public void DestroyCardAsClient(int inputId)
     {
 
         Debug.Log("Card hopefully destroyed");
-        RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
+        //RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
     public void EndTurnPlayerScript()
     {
@@ -199,7 +199,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isThisPlayersTurn)
         {
-            RefereeScript.instance.playerList[0].DealDamageAsServer(inputDamage, target);
+            //RefereeScript.instance.playerList[0].DealDamageAsServer(inputDamage, target);
         }
     }
     [ClientRpc]
@@ -268,7 +268,7 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     private void CmdPlayCardForOtherPlayer(int cardID)
     {
-       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID);
+       //RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID);
     }
 
     [ClientRpc]
@@ -276,7 +276,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID);
+            //RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID);
         }
     }
 }
