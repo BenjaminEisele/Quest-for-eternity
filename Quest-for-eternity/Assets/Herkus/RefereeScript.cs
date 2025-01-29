@@ -64,13 +64,14 @@ public class RefereeScript : NetworkBehaviour
 
     private void Awake()
     {
-        Debug.Log("Referee Start");
+
         instance = this;
         
     }
 
     public void StartReferee()
     {
+        Debug.Log("Referee Start");
         RandomNumbersSetUpRoot();
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
