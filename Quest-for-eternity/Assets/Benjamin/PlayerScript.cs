@@ -63,6 +63,7 @@ public class PlayerScript : NetworkBehaviour
 
     private void StartReferee()
     {
+        Debug.Log("RefereeStart function");
         RefereeScript.instance.playerList.Add(this);
         RefereeScript.instance.StartReferee();
         if (isOwned)
