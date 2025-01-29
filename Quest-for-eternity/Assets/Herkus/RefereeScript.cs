@@ -64,7 +64,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Awake()
     {
-
+        Debug.Log("Referee Awake");
         instance = this;
         
     }
