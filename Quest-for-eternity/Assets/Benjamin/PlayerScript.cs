@@ -32,9 +32,9 @@ public class PlayerScript : NetworkBehaviour
 
     public void Start()
     {
-        //RefereeScript.instance.playerList.Add(this);
+        RefereeScript.instance.playerList.Add(this);
         //isThisPlayersTurnToChoose = true;
-        Invoke("AddYourselfToList", 0.1f);
+
 
 
         if (isOwned)
@@ -60,10 +60,7 @@ public class PlayerScript : NetworkBehaviour
         TurnScript.endTurnEvent += EndTurnPlayerScript;
     }
 
-    private void AddYourselfToList()
-    {
-        RefereeScript.instance.playerList.Add(this);
-    }
+
    
 
     public void BeginPreNewWaveCall()
