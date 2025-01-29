@@ -63,32 +63,29 @@ public class PlayerScript : NetworkBehaviour
 
     private void StartReferee()
     {
-        if (isHost)
+        Debug.Log("RefereeStart function");
+        RefereeScript.instance.playerList.Add(this);
+        RefereeScript.instance.StartReferee();
+        if (isOwned)
         {
-            Debug.Log("RefereeStart function");
-            RefereeScript.instance.playerList.Add(this);
-            RefereeScript.instance.StartReferee();
-            if (isOwned)
+            if (isServer)
             {
-                if (isServer)
-                {
-                    // Debug.Log("I am the server");
-                    isThisPlayersTurn = true;
-                    isHost = true;
+                // Debug.Log("I am the server");
+                isThisPlayersTurn = true;
+                isHost = true;
 
-                    EndTurnButton.interactable = true;
-                    RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
-                }
-                else //(!isServer)
-                {
-                    // Debug.Log("I am NOT the server");
-                    isThisPlayersTurn = false;
-                    isHost = false;
-                    EndTurnButton.interactable = false;
-                    RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
-                }
+                EndTurnButton.interactable = true;
+                RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
             }
-        }    
+            else //(!isServer)
+            {
+                // Debug.Log("I am NOT the server");
+                isThisPlayersTurn = false;
+                isHost = false;
+                EndTurnButton.interactable = false;
+                RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
+            }
+        }
     }
    
 
