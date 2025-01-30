@@ -190,7 +190,7 @@ public class RefereeScript : NetworkBehaviour
         foreach (GameObject Script in Scripts)
         {
             Debug.Log("add players");
-            playerList.Add(transform.GetComponent<PlayerScript>());
+            playerList.Add(Script.GetComponent<PlayerScript>());
         }
         Debug.Log("generate numbers");
         RandomNumbersSetUpRoot();
