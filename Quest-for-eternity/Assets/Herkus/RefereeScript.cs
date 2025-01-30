@@ -83,7 +83,7 @@ public class RefereeScript : NetworkBehaviour
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;       
-        ennemyGeneratorAccess.GenerateEnemies(1, false);       
+               
         isGameOver = false;
         
         if (card != null)
@@ -192,6 +192,7 @@ public class RefereeScript : NetworkBehaviour
             playerList.Add(transform.GetComponent<PlayerScript>());
         }
         RandomNumbersSetUpRoot();
+        ennemyGeneratorAccess.GenerateEnemies(1, false);
     }
 
     private void DeactivateHealth(GameObject[] health)
