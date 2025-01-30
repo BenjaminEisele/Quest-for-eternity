@@ -7897,7 +7897,7 @@ GameObject:
   - component: {fileID: 8824635427251087858}
   - component: {fileID: 1214735220539923461}
   m_Layer: 0
-  m_Name: PlayerScript
+  m_Name: PlayerScriptObject
   m_TagString: PlayerScript
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

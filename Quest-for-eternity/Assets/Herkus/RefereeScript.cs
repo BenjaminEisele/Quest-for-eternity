@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
-using Unity.VisualScripting;
 
 public class RefereeScript : NetworkBehaviour
 {
@@ -75,7 +74,7 @@ public class RefereeScript : NetworkBehaviour
         if (playerScripts == null)
         {
             Debug.Log("playerScripts not null");
-            playerScripts = GameObject.FindGameObjectsWithTag("PlayerScript");
+            playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
 
             SetPlayerList(playerScripts);
         }
