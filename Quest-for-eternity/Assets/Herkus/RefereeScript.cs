@@ -79,7 +79,7 @@ public class RefereeScript : NetworkBehaviour
             SetPlayerList(playerScripts);
         }
         Debug.Log("Referee Start");       
-        RandomNumbersSetUpRoot();
+        
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         TurnScript.restartGameEvent += RefereeReset;       
@@ -191,6 +191,7 @@ public class RefereeScript : NetworkBehaviour
         {
             playerList.Add(transform.GetComponent<PlayerScript>());
         }
+        RandomNumbersSetUpRoot();
     }
 
     private void DeactivateHealth(GameObject[] health)
