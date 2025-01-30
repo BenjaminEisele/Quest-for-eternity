@@ -27,39 +27,49 @@ public class PlayerScript : NetworkBehaviour
     [SerializeField]
     ChooseNewCardScript chooseNewCardAccess;
 
+    bool shouldCheck = false;
 
-    public void Start()
+    public void Update()
     {
         Debug.Log("PlayerScriptStart");
         Debug.Log(Time.frameCount);
         //RefereeScript.instance.playerList.Add(this);
         //isThisPlayersTurnToChoose = true;
-        Invoke("CustomStart", 1f);       
+        if (shouldCheck)
+        {
+            if (RefereeScript.instance != null)
+            {
+                if (isOwned)
+                {
+                    if (isServer)
+                    {
+                        // Debug.Log("I am the server");
+                        isThisPlayersTurn = true;
+                        isHost = true;
+
+                        EndTurnButton.interactable = true;
+                        RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
+                    }
+                    else //(!isServer)
+                    {
+                        // Debug.Log("I am NOT the server");
+                        isThisPlayersTurn = false;
+                        isHost = false;
+                        EndTurnButton.interactable = false;
+                        RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
+                    }
+                }
+                TurnScript.endTurnEvent += EndTurnPlayerScript;
+                shouldCheck = true;
+            }           
+        }
     }
+
+
 
     private void CustomStart()
     {
-        if (isOwned)
-        {
-            if (isServer)
-            {
-                // Debug.Log("I am the server");
-                isThisPlayersTurn = true;
-                isHost = true;
-
-                EndTurnButton.interactable = true;
-                RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
-            }
-            else //(!isServer)
-            {
-                // Debug.Log("I am NOT the server");
-                isThisPlayersTurn = false;
-                isHost = false;
-                EndTurnButton.interactable = false;
-                RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
-            }
-        }
-        TurnScript.endTurnEvent += EndTurnPlayerScript;
+        
     }
 
 
