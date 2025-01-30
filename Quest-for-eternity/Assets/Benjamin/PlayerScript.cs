@@ -27,12 +27,11 @@ public class PlayerScript : NetworkBehaviour
     [SerializeField]
     ChooseNewCardScript chooseNewCardAccess;
 
-    bool shouldCheck = false;
+    public bool shouldCheck = true;
 
     public void Update()
     {
-        Debug.Log("PlayerScriptStart");
-        Debug.Log(Time.frameCount);
+        //Debug.Log(Time.frameCount);
         //RefereeScript.instance.playerList.Add(this);
         //isThisPlayersTurnToChoose = true;
         if (shouldCheck)
@@ -43,16 +42,17 @@ public class PlayerScript : NetworkBehaviour
                 {
                     if (isServer)
                     {
-                        // Debug.Log("I am the server");
+                        //Debug.Log("I am the server");
                         isThisPlayersTurn = true;
                         isHost = true;
 
                         EndTurnButton.interactable = true;
                         RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
+                        handScriptAccess.ActivateAllCardsEvent();
                     }
                     else //(!isServer)
                     {
-                        // Debug.Log("I am NOT the server");
+                        //Debug.Log("I am NOT the server");
                         isThisPlayersTurn = false;
                         isHost = false;
                         EndTurnButton.interactable = false;
@@ -60,7 +60,7 @@ public class PlayerScript : NetworkBehaviour
                     }
                 }
                 TurnScript.endTurnEvent += EndTurnPlayerScript;
-                shouldCheck = true;
+                shouldCheck = false;
             }           
         }
     }
