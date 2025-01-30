@@ -67,17 +67,17 @@ public class RefereeScript : NetworkBehaviour
     private void Awake()
     {
         Debug.Log("Referee Awake");
-        instance = this;
+        instance = this;        
+    }
+
+    private void Start()
+    {
         if (playerScripts != null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScript");
 
             SetPlayerList(playerScripts);
         }
-    }
-
-    private void Start()
-    {
         Debug.Log("Referee Start");       
         RandomNumbersSetUpRoot();
         areAllEnemiesDead = false;
