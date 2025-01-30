@@ -67,17 +67,18 @@ public class RefereeScript : NetworkBehaviour
     {
         Debug.Log("Referee Awake");
         instance = this;
+        
+    }
+
+    private void Start()
+    {
+        Debug.Log("Referee Start");
         if (playerScripts != null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScript");
 
             SetPlayerList(playerScripts);
         }
-    }
-
-    private void Start()
-    {
-        Debug.Log("Referee Start");
         RandomNumbersSetUpRoot();
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
@@ -188,7 +189,7 @@ public class RefereeScript : NetworkBehaviour
     {
         for (int i= 0; i < 2; i++)
         {
-            playerList[i] = transform.GetComponentInChildren<PlayerScript>();
+            playerList[i] = transform.GetComponent<PlayerScript>();
         }
     }
 
