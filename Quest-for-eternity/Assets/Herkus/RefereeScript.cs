@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using Unity.VisualScripting;
 
 public class RefereeScript : NetworkBehaviour
 {
@@ -67,18 +68,17 @@ public class RefereeScript : NetworkBehaviour
     {
         Debug.Log("Referee Awake");
         instance = this;
-        
-    }
-
-    private void Start()
-    {
-        Debug.Log("Referee Start");
         if (playerScripts != null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScript");
 
             SetPlayerList(playerScripts);
         }
+    }
+
+    private void Start()
+    {
+        Debug.Log("Referee Start");       
         RandomNumbersSetUpRoot();
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
@@ -187,9 +187,9 @@ public class RefereeScript : NetworkBehaviour
 
     private void SetPlayerList(GameObject[] Scripts)
     {
-        for (int i= 0; i < 2; i++)
+        foreach (GameObject Script in Scripts)
         {
-            playerList[i] = transform.GetComponent<PlayerScript>();
+            playerList.Add(transform.GetComponent<PlayerScript>());
         }
     }
 
