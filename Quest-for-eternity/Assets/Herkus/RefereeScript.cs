@@ -195,7 +195,7 @@ public class RefereeScript : NetworkBehaviour
         }
         Debug.Log("generate numbers");
         RandomNumbersSetUpRoot();
-        ennemyGeneratorAccess.GenerateEnemies(1, false);
+        ennemyGeneratorAccess.GenerateEnemies(1);
     }
 
     private void DeactivateHealth(GameObject[] health)
@@ -337,12 +337,12 @@ public class RefereeScript : NetworkBehaviour
         if(waveCount == 3)
         {
             Debug.Log("Spawning necromancer");
-            ennemyGeneratorAccess.GenerateEnemies(1, true);
+            ennemyGeneratorAccess.GenerateEnemies(1);
         }
         else
         {
             Debug.Log("Spawning regular enemies");
-            ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount, false);
+            ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount);
         }
         
         //ResetChosenEnemy();
@@ -503,7 +503,7 @@ public class RefereeScript : NetworkBehaviour
             TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
-        if (targetPlayerId + 1 > 1)
+        if (targetPlayerId == 1)
         {
             targetPlayerId = 0;
         }

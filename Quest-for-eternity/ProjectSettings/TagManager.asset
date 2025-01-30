@@ -8,7 +8,6 @@ TagManager:
   - EndTurnButton
   - Health
   - PlayerScriptTag
-  - PlayerScript
   layers:
   - Default
   - TransparentFX

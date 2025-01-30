@@ -170,7 +170,6 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DestroyCardAsClient(int inputId)
     {
-
         Debug.Log("Card hopefully destroyed");
         RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
