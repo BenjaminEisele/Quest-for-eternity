@@ -47,6 +47,7 @@ public class RefereeScript : NetworkBehaviour
     public GameObject[] button;
     public GameObject[] mainCamera;
     public GameObject[] playerHealth;
+    public GameObject[] playerScripts;
 
     public List<PlayerScript> playerList;
 
@@ -66,7 +67,12 @@ public class RefereeScript : NetworkBehaviour
     {
         Debug.Log("Referee Awake");
         instance = this;
-        
+        if (playerScripts != null)
+        {
+            playerScripts = GameObject.FindGameObjectsWithTag("PlayerScript");
+
+            SetPlayerList(playerScripts);
+        }
     }
 
     private void Start()
@@ -176,6 +182,14 @@ public class RefereeScript : NetworkBehaviour
             ChooseNewEnemy(-1);
         }
 
+    }
+
+    private void SetPlayerList(GameObject[] Scripts)
+    {
+        for (int i= 0; i < 2; i++)
+        {
+            playerList[i] = transform.GetComponentInChildren<PlayerScript>();
+        }
     }
 
     private void DeactivateHealth(GameObject[] health)
