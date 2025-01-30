@@ -31,11 +31,14 @@ public class PlayerScript : NetworkBehaviour
     public void Start()
     {
         Debug.Log("PlayerScriptStart");
+        Debug.Log(Time.frameCount);
         //RefereeScript.instance.playerList.Add(this);
         //isThisPlayersTurnToChoose = true;
+        Invoke("CustomStart", 1f);       
+    }
 
-
-
+    private void CustomStart()
+    {
         if (isOwned)
         {
             if (isServer)

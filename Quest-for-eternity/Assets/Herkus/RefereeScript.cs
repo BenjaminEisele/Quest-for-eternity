@@ -66,6 +66,7 @@ public class RefereeScript : NetworkBehaviour
     private void Awake()
     {
         Debug.Log("Referee Awake");
+        Debug.Log(Time.frameCount);
         instance = this;        
     }
 
