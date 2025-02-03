@@ -24,7 +24,7 @@ public class ChooseNewCardScript : MonoBehaviour
     private void Start()
     {
         // DisplayCards();
-        Invoke("PreNewWaveEventSubscription", 3f);
+        Invoke("PreNewWaveEventSubscription", 1f);
     }
 
     private void PreNewWaveEventSubscription()
