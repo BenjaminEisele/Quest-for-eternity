@@ -74,7 +74,7 @@ public class RefereeScript : NetworkBehaviour
     {
         foreach (GameObject test in playerScripts)
         {
-            Debug.Log(test.name);
+            Debug.Log(test.name + "black magic");
         }
         if (playerScripts != null)
         {
@@ -94,22 +94,25 @@ public class RefereeScript : NetworkBehaviour
         if (card != null)
         {
             card = GameObject.FindGameObjectsWithTag("Cards");
-
+            Debug.Log("test cards");
             DeactivateCards(card);
         }
         if (button != null)
         {
             button = GameObject.FindGameObjectsWithTag("EndTurnButton");
+            Debug.Log("test buttons");
             DeactivateButton(button);
         }
         if (mainCamera != null)
         {
             mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
+            Debug.Log("test cameras");
             DeactivateCamera(mainCamera);
         }
         if (playerHealth != null)
         {
             playerHealth = GameObject.FindGameObjectsWithTag("Health");
+            Debug.Log("test health");
             DeactivateHealth(playerHealth);
         }
         //ennemyGeneratorAccess.RandomNumber(1);
