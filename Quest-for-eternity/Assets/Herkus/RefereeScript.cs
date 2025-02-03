@@ -43,11 +43,11 @@ public class RefereeScript : NetworkBehaviour
     public delegate void TurnStartAction();
     public static event TurnStartAction turnStartEvent;
 
-    private GameObject[] card;
-    private GameObject[] button;
-    private GameObject[] mainCamera;
-    private GameObject[] playerHealth;
-    private GameObject[] playerScripts;
+    public GameObject[] card;
+    public GameObject[] button;
+    public GameObject[] mainCamera;
+    public GameObject[] playerHealth;
+    public GameObject[] playerScripts;
 
     public List<PlayerScript> playerList;
 
