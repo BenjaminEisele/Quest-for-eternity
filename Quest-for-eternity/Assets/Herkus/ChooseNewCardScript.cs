@@ -3,27 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 public class ChooseNewCardScript : MonoBehaviour
 {
-    public GameObject displayCardReferenceGameobject;
-    public Transform displayCardLocator;
-    public DatabasePlayer databasePlayerAccess;
-    public List<GameObject> displayCardList;
+    [SerializeField]
+    private GameObject displayCardReferenceGameobject;
+    [SerializeField]
+    private Transform displayCardLocator;
+    [SerializeField]
+    private DatabasePlayer databasePlayerAccess;
     public PlayerScript playerScriptAccess;
+    public List<GameObject> displayCardList;
+    
 
 
-    public static ChooseNewCardScript instance;
+    private int displayCardCount = 0;
 
-    public int displayCardCount = 0;
-
-
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     private void Start()
     {
-        // DisplayCards();
         Invoke("PreNewWaveEventSubscription", 1f);
     }
 
@@ -31,7 +26,6 @@ public class ChooseNewCardScript : MonoBehaviour
     {
         if (playerScriptAccess.isHost)
         {
-            Debug.Log("Subscribe to my Youtube Channel");
             RefereeScript.preNewWaveEvent += DisplayCards;
         }
     }
@@ -41,10 +35,6 @@ public class ChooseNewCardScript : MonoBehaviour
         displayCardCount--;
         Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
-        /*if(displayCardCount <= 0)
-        {
-            DisplayCardsHidden();
-        } */
     }
 
     public void FindAndDestroyCard(int destroyableCardId)
@@ -57,41 +47,26 @@ public class ChooseNewCardScript : MonoBehaviour
                 {
                     displayCardCount--;
                     Destroy(displayCardObject);
-                    //Debug.Log($"I destroyed card with the ID {displayCardObject.name}");
                     playerScriptAccess.isThisPlayersTurnToChoose = true;
-                    Debug.Log("called outside");
                     if (displayCardCount <= 0)
                     {
-                        Debug.Log("called inside");
                         if(!playerScriptAccess.isHost)
                         {
-                            Debug.Log("called super inside");
-
-                            //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().DisplayCardsHidden();
                             RefereeScript.instance.playerList[0].DisplayCardsCallNest();
                         }
                         else
                         {
                             DisplayCardsHidden();
                         }
-                        
                     }
                     break;
                 }
             }
         }
     }
-
     public void DisplayCardsHidden()
     {
-        Debug.Log("hello. my name is : " + transform.root.gameObject.name);
-
         displayCardList.Clear();
-        //RefereeScript.instance.canTransferTurnToPlayer = true;
-        //playerScriptAccess.EndTurnPlayerScript();
-
-        //RefereeScript.instance.CallEndTurnForBothPlayers();
-        //RefereeScript.instance.CallStartTurnEvent();
         if (playerScriptAccess.isHost)
         {
             RefereeScript.instance.CallEndTurnForBothPlayers();
@@ -101,35 +76,15 @@ public class ChooseNewCardScript : MonoBehaviour
             RefereeScript.instance.CmdCallEndTurnForBothPlayers();
         }
         RefereeScript.instance.StartNextWaveInitalize();
-
-
-        //transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        //playerScriptAccess.EndTurnPlayerScript();
-
-        //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        /*if (transform.root.GetComponentInChildren<PlayerScript>().isHost)
-        {
-            transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        }
-        else
-        {
-            transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        }*/
-
     }
 
-
     public void DisplayCards()
-    {
-       
-        Debug.Log("display activated");
+    {   
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < 4; i++)
         {
             displayCardCount++;
-            //int inputId = Random.Range(0, databasePlayerAccess.cardList.Count);
             int inputId = RefereeScript.instance.GetRandomNumber(i);
-            Debug.Log($"my input id is {inputId}");
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);
             displayCard.GetComponent<DisplayCardScript>().playerScriptAccess = this.playerScriptAccess;
             displayCard.GetComponent<DisplayCardScript>().DisplayCardSetup(inputId);

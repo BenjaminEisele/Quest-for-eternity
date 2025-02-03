@@ -8,34 +8,30 @@ using DG.Tweening;
 
 
 public class CardScript : MonoBehaviour
-{
-
-    [SerializeField]
-    DatabasePlayer databasePlayerAccess;
-
-    private TextMeshPro[] cardTextArray;
+{ 
     public int myCardId;
-
     int myDamage;
     private float myCardHitRate;
     private float savedCardHitRate;
 
     string myCardName;
+    string hitRateString;
 
     [SerializeField]
     GameObject myCardImage;
-
-
     [SerializeField]
     GameObject myCardOutline;
+    [SerializeField]
+    DatabasePlayer databasePlayerAccess;
+
 
     [HideInInspector]
     public bool isClickable;
-
-    string hitRateString;
-
     [HideInInspector]
     public bool isActionCard;
+
+
+    private TextMeshPro[] cardTextArray;
 
     public void HandCardSetup(int myId)
     {
@@ -105,16 +101,5 @@ public class CardScript : MonoBehaviour
     {   
         isClickable = desiredStatus;
         myCardOutline.SetActive(desiredStatus);   
-    }
-    private string CalculateString(int cardTypeInput)
-    {
-        if(cardTypeInput == 0)
-        {
-            return "Utility";
-        }
-        else
-        {
-            return "Action";
-        }
     }
 }
