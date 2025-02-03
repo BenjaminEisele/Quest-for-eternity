@@ -65,16 +65,6 @@ public class PlayerScript : NetworkBehaviour
         }
     }
 
-
-
-    private void CustomStart()
-    {
-        
-    }
-
-
-   
-
     public void BeginPreNewWaveCall()
     {
         Debug.Log(transform.root.gameObject.name);
@@ -128,6 +118,7 @@ public class PlayerScript : NetworkBehaviour
     {
       RefereeScript.instance.playerList[0].DisplayCardsCall();
     }
+
     [ClientRpc]
     public void DisplayCardsCall()
     {
@@ -147,8 +138,7 @@ public class PlayerScript : NetworkBehaviour
         {
             RefereeScript.instance.playerList[1].chooseNewCardAccess.DisplayCards();
             //RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
-        } 
-        
+        }        
     }
 
 
