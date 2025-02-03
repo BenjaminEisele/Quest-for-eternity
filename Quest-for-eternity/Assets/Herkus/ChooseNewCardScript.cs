@@ -24,12 +24,16 @@ public class ChooseNewCardScript : MonoBehaviour
     private void Start()
     {
         // DisplayCards();
-        if(playerScriptAccess.isHost)
+        Invoke("PreNewWaveEventSubscription()", 3f);
+    }
+
+    private void PreNewWaveEventSubscription()
+    {
+        if (playerScriptAccess.isHost)
         {
             RefereeScript.preNewWaveEvent += DisplayCards;
         }
     }
-
 
     public void ChooseOneCard(GameObject selfObject, int inputId)
     {
