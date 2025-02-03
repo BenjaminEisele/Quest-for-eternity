@@ -72,10 +72,6 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
-        foreach (GameObject test in playerScripts)
-        {
-            Debug.Log(test.name + "black magic");
-        }
         if (playerScripts != null)
         {
             Debug.Log("playerScripts not null");
