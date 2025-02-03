@@ -65,6 +65,7 @@ public class RefereeScript : NetworkBehaviour
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
 
     public List<PlayerScript> allComponents = new List<PlayerScript>();
+    public List<GameObject> rootObjectsInScene = new List<GameObject>();
 
     private void Awake()
     {
@@ -87,8 +88,8 @@ public class RefereeScript : NetworkBehaviour
             }
         } */
         //playerScripts = null;
-        List<GameObject> rootObjectsInScene = new List<GameObject>();
-        Scene scene = SceneManager.GetActiveScene();
+        
+        /*Scene scene = SceneManager.GetActiveScene();
         scene.GetRootGameObjects(rootObjectsInScene);
 
         for (int i = 0; i < rootObjectsInScene.Count; i++)
@@ -98,7 +99,7 @@ public class RefereeScript : NetworkBehaviour
                 allComponents.Add(rootObjectsInScene[i].GetComponentInChildren<PlayerScript>(true));
             }
 
-        }
+        }*/
 
         if (playerScripts == null)
         {
