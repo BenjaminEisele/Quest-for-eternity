@@ -48,9 +48,11 @@ public class EnemyGenerator : NetworkBehaviour
         {   
             //This is the problem
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
+            Debug.Log("Instantiat Enemy");
             enemyClone.SetActive(true);
             if (refereeScriptAccess.waveCount == 0)
             {
+                Debug.Log("Wave Count 0");
                 enemyClone.GetComponent<EnemyScript>().EnemySetUp(0);
             }
             else
@@ -58,6 +60,7 @@ public class EnemyGenerator : NetworkBehaviour
                 enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
             }
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
+            Debug.Log(enemyClone.name);
             enemyPosition += new Vector3(4, 0, 0);                  
         }
         refereeScriptAccess.ResetChosenEnemy();
