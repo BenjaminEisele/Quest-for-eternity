@@ -16,7 +16,8 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 0}
-  cardDescription: 'Play 2 ACT cards. '
+  cardDescription: Combine the damage of two action cards (take the higher hit rate
+    from the two cards you play)
   effectUnitList:
   - myEffect: {fileID: 0}
     effectValue: 2

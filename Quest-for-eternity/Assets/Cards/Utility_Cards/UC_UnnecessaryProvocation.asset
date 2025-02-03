@@ -16,7 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 0}
-  cardDescription: Next time your ally is attacked, you get DMG instead of him
+  cardDescription: Get down mr president (take damage for your ally)
   effectUnitList:
   - myEffect: {fileID: 0}
     effectValue: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 0}
-  cardDescription: Makes enemy exposed. If your ally's ACT is successful +2 DMG
+  cardDescription: Boost ally damage by 2 points
   effectUnitList:
   - myEffect: {fileID: 0}
     effectValue: 2

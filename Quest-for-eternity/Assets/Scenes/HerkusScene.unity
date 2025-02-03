@@ -1683,7 +1683,6 @@ MonoBehaviour:
   playerScriptAccess: {fileID: 0}
   uiScriptAccess: {fileID: 1222074725}
   isPlayersTurn: 0
-  refereeScriptAccess: {fileID: 543248971}
   deckManagerAccess: {fileID: 1042591251}
 --- !u!4 &317175597
 Transform:
@@ -2949,14 +2948,18 @@ MonoBehaviour:
   targetEnemy: {fileID: 759136206}
   enemyList: []
   ennemyGeneratorAccess: {fileID: 741823585}
+  areAllEnemiesDead: 0
+  canTransferTurnToPlayer: 0
+  isServersTurn: 0
   restartGameButton: {fileID: 1710171871}
   lostImage: {fileID: 28887981}
   winImage: {fileID: 980115709}
   chosenEnemyId: 0
-  card: []
-  button: []
-  mainCamera: []
+  waveCount: 0
   playerList: []
+  hostId: 0
+  clientId: 0
+  randomEnemyCount: 0
 --- !u!4 &543248972
 Transform:
   m_ObjectHideFlags: 0
@@ -3381,10 +3384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc9c31fa3816ff4f85507c9988eaeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databasePlayerAccess: {fileID: 0}
-  activeCardTextArray: []
   shouldShowCard: 0
   sceneObjectAccess: {fileID: 961028219}
+  databasePlayerAccess: {fileID: 0}
   activeCardImage: {fileID: 1382023749}
 --- !u!4 &672730302
 Transform:
@@ -3792,6 +3794,8 @@ MonoBehaviour:
   enemyReference: {fileID: 759136206}
   spawnerPos: {fileID: 1847546632}
   refereeScriptAccess: {fileID: 543248971}
+  databaseMultiplayerAccess: {fileID: 0}
+  myId: 0
 --- !u!4 &741823586
 Transform:
   m_ObjectHideFlags: 0
@@ -4080,6 +4084,8 @@ MonoBehaviour:
   enemyNameText: {fileID: 2036716379}
   myMarker: {fileID: 1100219450}
   databaseMultiplayerAccess: {fileID: 0}
+  isBoss: 0
+  specialAttackCounter: 0
 --- !u!65 &759136207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5284,10 +5290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databasePlayerAccess: {fileID: 0}
-  cardTextArray: []
   myCardId: 0
-  myCardHitRate: 0
-  savedCardHitRate: 0
   myCardImage: {fileID: 282018012}
   myCardOutline: {fileID: 1830970631}
   isClickable: 0
@@ -5305,7 +5308,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPosition: {x: 0, y: 0, z: 0}
-  isInPlayingField: 0
   handScriptAccess: {fileID: 1542795159}
   cardScriptAccess: {fileID: 952513908}
   onHoverScriptAccess: {fileID: 952513910}
@@ -5378,10 +5380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databasePlayerAccess: {fileID: 0}
-  cardTextArray: []
   myCardId: 0
-  myCardHitRate: 0
-  savedCardHitRate: 0
   myCardImage: {fileID: 328439139}
   myCardOutline: {fileID: 1501739140}
   isClickable: 0
@@ -5443,7 +5442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPosition: {x: 0, y: 0, z: 0}
-  isInPlayingField: 0
   handScriptAccess: {fileID: 1542795159}
   cardScriptAccess: {fileID: 0}
   onHoverScriptAccess: {fileID: 0}
@@ -5494,6 +5492,7 @@ MonoBehaviour:
   playerStatReference: {fileID: 1889118660}
   fieldScriptReference: {fileID: 1724832511}
   handScriptReference: {fileID: 1542795159}
+  playerScriptAccess: {fileID: 0}
 --- !u!4 &961028220
 Transform:
   m_ObjectHideFlags: 0
@@ -5869,6 +5868,7 @@ MonoBehaviour:
   discardedCardList: 
   uiScripAccess: {fileID: 1222074725}
   handScriptAccess: {fileID: 1542795159}
+  playerScriptAccess: {fileID: 0}
 --- !u!1 &1100219450
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,7 +6143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPosition: {x: 0, y: 0, z: 0}
-  isInPlayingField: 0
   handScriptAccess: {fileID: 1542795159}
   cardScriptAccess: {fileID: 1146901914}
   onHoverScriptAccess: {fileID: 1146901912}
@@ -6196,10 +6195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databasePlayerAccess: {fileID: 0}
-  cardTextArray: []
   myCardId: 0
-  myCardHitRate: 0
-  savedCardHitRate: 0
   myCardImage: {fileID: 1767417731}
   myCardOutline: {fileID: 2068544728}
   isClickable: 0
@@ -6738,9 +6734,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   databasePlayerAccess: {fileID: 0}
   cardTextArray: []
+  myCardId: 0
   myCardHitRate: 0
   myCardImage: {fileID: 1501827708}
   isActionCard: 0
+  playerScriptAccess: {fileID: 0}
 --- !u!65 &1251388302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8143,10 +8141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc9c31fa3816ff4f85507c9988eaeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databasePlayerAccess: {fileID: 0}
-  activeCardTextArray: []
   shouldShowCard: 0
   sceneObjectAccess: {fileID: 961028219}
+  databasePlayerAccess: {fileID: 0}
   activeCardImage: {fileID: 883545635}
 --- !u!4 &1535370627
 Transform:
@@ -8207,8 +8204,10 @@ MonoBehaviour:
   cardCount: 0
   canInteract: 0
   isInQuickAttackMode: 0
+  utilityCount: 0
   cardQueDataList: []
   canPlayUtility: 0
+  UtlCardsPlayedForOtherPlayer: 0
 --- !u!4 &1542795160
 Transform:
   m_ObjectHideFlags: 0
@@ -9202,8 +9201,10 @@ MonoBehaviour:
   spawnpoint: {fileID: 1233946835}
   baseActiveCard: {fileID: 672730300}
   uiScriptAccess: {fileID: 0}
-  refereeScriptAccess: {fileID: 543248971}
+  playerScriptAccess: {fileID: 0}
+  damagePointsLiquid: 0
   activeCardList: []
+  actionCardReference: {fileID: 0}
   hitRateModifier: 0
 --- !u!4 &1724832512
 Transform:
@@ -10659,6 +10660,8 @@ MonoBehaviour:
   displayCardLocator: {fileID: 2038342133}
   databasePlayerAccess: {fileID: 0}
   displayCardList: []
+  playerScriptAccess: {fileID: 0}
+  displayCardCount: 0
 --- !u!1 &2036716377
 GameObject:
   m_ObjectHideFlags: 0
