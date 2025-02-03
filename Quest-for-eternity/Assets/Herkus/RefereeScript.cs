@@ -72,7 +72,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
-        if (playerScripts != null)
+        /*if (playerScripts != null)
         {
             Debug.Log(playerScripts.Length);
             foreach (GameObject script in playerScripts)
@@ -82,7 +82,7 @@ public class RefereeScript : NetworkBehaviour
                     Destroy(script);
                 }
             }
-        }       
+        } */      
         //playerScripts = null;
 
 
