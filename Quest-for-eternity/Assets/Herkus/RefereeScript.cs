@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class RefereeScript : NetworkBehaviour
 {
@@ -62,6 +64,7 @@ public class RefereeScript : NetworkBehaviour
     public int randomEnemyCount = 0;
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
 
+    public List<PlayerScript> allComponents = new List<PlayerScript>();
 
     private void Awake()
     {
@@ -82,9 +85,20 @@ public class RefereeScript : NetworkBehaviour
                     Destroy(script);
                 }
             }
-        } */      
+        } */
         //playerScripts = null;
+        List<GameObject> rootObjectsInScene = new List<GameObject>();
+        Scene scene = SceneManager.GetActiveScene();
+        scene.GetRootGameObjects(rootObjectsInScene);
 
+        for (int i = 0; i < rootObjectsInScene.Count; i++)
+        {
+            if (rootObjectsInScene[i].GetComponentInChildren<PlayerScript>() != null)
+            {
+                allComponents.Add(rootObjectsInScene[i].GetComponentInChildren<PlayerScript>(true));
+            }
+
+        }
 
         if (playerScripts == null)
         {
