@@ -31,6 +31,7 @@ public class ChooseNewCardScript : MonoBehaviour
     {
         if (playerScriptAccess.isHost)
         {
+            Debug.Log("Subscribe to my Youtube Channel");
             RefereeScript.preNewWaveEvent += DisplayCards;
         }
     }
@@ -121,7 +122,7 @@ public class ChooseNewCardScript : MonoBehaviour
     public void DisplayCards()
     {
        
-       // Debug.Log("display activated");
+        Debug.Log("display activated");
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < 4; i++)
         {
