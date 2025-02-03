@@ -43,11 +43,11 @@ public class RefereeScript : NetworkBehaviour
     public delegate void TurnStartAction();
     public static event TurnStartAction turnStartEvent;
 
-    public GameObject[] card;
-    public GameObject[] button;
-    public GameObject[] mainCamera;
-    public GameObject[] playerHealth;
-    public GameObject[] playerScripts;
+    private GameObject[] card;
+    private GameObject[] button;
+    private GameObject[] mainCamera;
+    private GameObject[] playerHealth;
+    private GameObject[] playerScripts;
 
     public List<PlayerScript> playerList;
 
@@ -101,25 +101,25 @@ public class RefereeScript : NetworkBehaviour
                
         isGameOver = false;
         
-        if (card != null)
+        if (card == null)
         {
             card = GameObject.FindGameObjectsWithTag("Cards");
             Debug.Log("test cards");
             DeactivateCards(card);
         }
-        if (button != null)
+        if (button == null)
         {
             button = GameObject.FindGameObjectsWithTag("EndTurnButton");
             Debug.Log("test buttons");
             DeactivateButton(button);
         }
-        if (mainCamera != null)
+        if (mainCamera == null)
         {
             mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
             Debug.Log("test cameras");
             DeactivateCamera(mainCamera);
         }
-        if (playerHealth != null)
+        if (playerHealth == null)
         {
             playerHealth = GameObject.FindGameObjectsWithTag("Health");
             Debug.Log("test health");
