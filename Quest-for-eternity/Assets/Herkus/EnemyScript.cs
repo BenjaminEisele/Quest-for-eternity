@@ -5,44 +5,42 @@ using Mirror;
 public class EnemyScript : NetworkBehaviour
 {
     [SyncVar]
+    public int specialAttackCounter;
+    [SyncVar]
     public int enemyHealth;
+    public int personalId;
+    int savedEnemyHealth;
+
 
     [SyncVar]
     public bool isEnemyAlive;
-
-    public int personalId;
-
-    int savedEnemyHealth;     
-    TextMeshPro enemyHealthText;
-    public TextMeshPro enemyNameText;
-    public GameObject myMarker;
-    public DatabaseMultiplayer databaseMultiplayerAccess;
-
     public bool isBoss;
 
-    [SyncVar]
-    public int specialAttackCounter;
+
+    TextMeshPro enemyHealthText;
+    [SerializeField]
+    TextMeshPro enemyNameText;
+    [SerializeField]
+    GameObject myMarker;
+    [SerializeField]
+    DatabaseMultiplayer databaseMultiplayerAccess;
+
+    
+
+    
 
     public void EnemySetUp(int myID)
     {
         specialAttackCounter = 0;
-        // bool myBool = isClientOnly;
-        //Debug.Log(isClientOnly);
         personalId = myID;
         isEnemyAlive = true;
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
         savedEnemyHealth = enemyHealth;
         this.isBoss = databaseMultiplayerAccess.enemyList[myID].isBoss;
-
-
         GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
-
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;
-        UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
-
-      
-        
+        UiScript.UpdateFighterText(enemyHealthText, enemyHealth);  
     }
     public void ResetEnemy()
     {
@@ -58,7 +56,6 @@ public class EnemyScript : NetworkBehaviour
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
             RefereeScript.instance.NewWaveCheck();
-
         }
         else
         {
@@ -72,18 +69,16 @@ public class EnemyScript : NetworkBehaviour
     }
     public int GenerateAttack()
     {
-        int myDamage;
-
-            if (isEnemyAlive)
-            {
-                myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
-            }
-            else
-            {
-                myDamage = 0;
-            }
-
-        specialAttackCounter++;
-        return myDamage;
+       int myDamage;
+       if (isEnemyAlive)
+       {
+           myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
+       }
+       else
+       {
+           myDamage = 0;
+       }
+       specialAttackCounter++;
+       return myDamage;
     }
 }

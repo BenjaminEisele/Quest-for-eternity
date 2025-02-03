@@ -12,48 +12,29 @@ public class FieldScript : MonoBehaviour
     [SerializeField]
     GameObject baseActiveCard;
     [SerializeField]
-    UiScript uiScriptAccess;
+    PlayerScript playerScriptAccess;
+    ActiveCardScript actionCardReference;
 
-    public PlayerScript playerScriptAccess;
-
-
-    [SerializeField]
     public static int damagePoints = 0;
-
     public int damagePointsLiquid = 0;
-
-    private Vector3 activeCardSpawnPosition;
-    public List<GameObject> activeCardList;
-
-    public ActiveCardScript actionCardReference;
-
     [HideInInspector]
     public float hitRateModifier;
+    Vector3 activeCardSpawnPosition;
 
+    public List<GameObject> activeCardList;
+   
     private void Start()
     {
         playerScriptAccess.shouldDealDamage = false;
-        TurnScript.endTurnEvent += FieldClearEventTrue;
-        TurnScript.restartGameEvent += FieldClearEventFalse;
         hitRateModifier = 0;
         activeCardSpawnPosition = spawnpoint.position;
     }
 
-    private void FieldClearEventTrue()
-    {
-        FieldClearAndDealDamage(true);
-    }
-    private void FieldClearEventFalse()
-    {
-        FieldClearAndDealDamage(true);
-    }
     public bool SpawnActiveCard(int cardId)
-    {
-        
+    {  
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
-
-        int gog = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
-        damagePoints += gog;
+        int damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
+        damagePoints += damagePointsFromActiveCard;
         if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
             activeCardSpawnPosition += new Vector3(2, 0, 0);
@@ -61,49 +42,16 @@ public class FieldScript : MonoBehaviour
             activeCardList.Add(activeCardInstance);
         }
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-
         bool isSpawningActionCard = activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType();
         if (isSpawningActionCard)
         {
             actionCardReference = activeCardInstance.GetComponent<ActiveCardScript>();
-            Debug.Log("Card is action type. here is the object name" + actionCardReference.gameObject.name);
         }
         else
         {
             transform.root.GetComponentInChildren<HandScript>().utilityCount++;
-            //transform.root.GetComponentInChildren<HandScript>().ShouldWeDisableCards();
         }
-
         return isSpawningActionCard;
-    }
-
-    public void FieldClearAndDealDamage(bool doWeDealDamage)
-    {
-        /*   foreach(GameObject activeCardMember in activeCardList)
-           {
-               activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
-               Destroy(activeCardMember);
-           }
-           activeCardList.Clear(); 
-           activeCardSpawnPosition = spawnpoint.position;
-        if (doWeDealDamage)
-        {
-            if(actionCardReference != null)
-            {
-                if (actionCardReference.DidActiveCardHit(hitRateModifier))
-                {
-                    //RefereeScript.instance.dealDamageToEnemy(damagePoints, RefereeScript.instance.targetEnemy);
-                    playerScriptAccess.damageThisRound = damagePoints;
-                }
-                else
-                {
-                    Debug.Log("hit failed");
-                }
-            } 
-        }
-        hitRateModifier = 0;
-        damagePoints = 0;
-        UiScript.UpdateFieldDamageText(damagePoints.ToString(), true); */
     }
 
     private void FieldEffectActivation()
@@ -114,12 +62,10 @@ public class FieldScript : MonoBehaviour
         }
     }
 
-
     private void FieldClear()
     {
         foreach (GameObject activeCardMember in activeCardList)
         {
-            //activeCardMember.GetComponent<ActiveCardScript>().ActivateMyEffect();
             Destroy(activeCardMember);
         }
         activeCardList.Clear();
@@ -137,11 +83,8 @@ public class FieldScript : MonoBehaviour
             {
                 didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
                 playerScriptAccess.shouldDealDamage = didWeHit;
-                // Debug.Log($"Action card before{ actionCardReference.gameObject.name }");
                 if (didWeHit)
                 {
-                   // Debug.Log("hit success");
-                    // playerScriptAccess.damageThisRound = damagePoints;
                     hitRateModifier = 0;
                     damagePoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
@@ -150,7 +93,6 @@ public class FieldScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("hit failed inside of field script");
                     hitRateModifier = 0;
                     damagePoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
@@ -160,17 +102,13 @@ public class FieldScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("no reference found");
                 hitRateModifier = 0;
                 damagePoints = 0;
                 UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-                //Debug.Log($"Action card after{ actionCardReference.gameObject.name }");
                 FieldClear();
                 return false;
             }
         }
-        //Debug.Log("not your turn!");
         return false;
-
     }
 }

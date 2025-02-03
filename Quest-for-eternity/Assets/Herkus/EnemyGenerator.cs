@@ -7,14 +7,11 @@ public class EnemyGenerator : NetworkBehaviour
     [SerializeField]
     EnemyScript enemyReference;
 
-    public Transform spawnerPos;
+    [SerializeField]
+    Transform spawnerPos;
 
-    public RefereeScript refereeScriptAccess;
-
-    public DatabaseMultiplayer databaseMultiplayerAccess;
-
-    [SyncVar]
-    public int myId;
+    [SerializeField]
+    RefereeScript refereeScriptAccess;
 
     int firstId;
 
@@ -24,7 +21,6 @@ public class EnemyGenerator : NetworkBehaviour
     {
         enemyIdList.Clear();
         int input;
-        Debug.Log("Random Number beginning reached");
             for(int i = 0; i < howMany; i++)
             {
                 input = Random.Range(0, 3);
@@ -36,23 +32,15 @@ public class EnemyGenerator : NetworkBehaviour
             }        
     }
 
-    public void TestVoid()
-    {
-        //namesList.Add("HELLO");
-         myId = 65;
-    }
     public void GenerateEnemies(int howManyEnemies)
     {
         Vector3 enemyPosition = spawnerPos.position;
         for (int i = 0; i < howManyEnemies; i++)
         {   
-            //This is the problem
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
-            Debug.Log("Instantiat Enemy");
             enemyClone.SetActive(true);
             if (refereeScriptAccess.waveCount == 0)
             {
-                Debug.Log("Wave Count 0");
                 enemyClone.GetComponent<EnemyScript>().EnemySetUp(0);
             }
             else
@@ -60,7 +48,6 @@ public class EnemyGenerator : NetworkBehaviour
                 enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
             }
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
-            Debug.Log(enemyClone.name);
             enemyPosition += new Vector3(4, 0, 0);                  
         }
         refereeScriptAccess.ResetChosenEnemy();

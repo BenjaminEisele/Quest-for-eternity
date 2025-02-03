@@ -90,7 +90,6 @@ public class TurnScript : MonoBehaviour
 
     public void RestartGame()
     {
-        fieldScriptAccess.FieldClearAndDealDamage(false);
         deckManagerAccess.ResetAllCardLists();
         handScriptAccess.HandReset();
         RefereeScript.instance.RefereeReset();

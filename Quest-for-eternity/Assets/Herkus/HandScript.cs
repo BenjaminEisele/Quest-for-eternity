@@ -10,7 +10,6 @@ public class HandScript : MonoBehaviour
     [SerializeField]
     Transform cardSpawnLocator;
 
-    [SerializeField]
     int cardLimit;
 
     [SerializeField]
@@ -25,7 +24,7 @@ public class HandScript : MonoBehaviour
     [SerializeField]
     DeckManager deckManagerAccess;
 
-    [SerializeField] // kodel sitas veikia tik su serializefield arba padarant list'a public?
+    [SerializeField] 
     private List<CardScript> cardList;
 
     [SerializeField]
@@ -34,12 +33,13 @@ public class HandScript : MonoBehaviour
     Vector3 cardPlacementVector;
     Coroutine handScriptDelayCoroutine;
 
+    [HideInInspector]
     public bool canInteract;
 
+    [HideInInspector]
     public bool isInQuickAttackMode;
 
-    //[HideInInspector]
-    public int utilityCount;
+    public int utilityCount; // HIDE IN INSPECTOR AFTER WE FIXED THE UTILITY COUNT BUG
     int cardDebt;
     public List<CardQueueUnit> cardQueDataList;
     int cardQueIndex;
@@ -54,9 +54,8 @@ public class HandScript : MonoBehaviour
     bool isFullRefill;
     private void Start()
     {
+        cardLimit = 5;
         RefereeScript.turnStartEvent += ActivateAllCardsEvent;
-        //RefereeScript.turnStartEvent += ShouldWeDisableCards();
-        //RefereeScript.newWaveEvent += HandReset;
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
         TurnScript.endTurnEvent += AddCardsEvent;
         TurnScript.endTurnEvent += RebuildCardListLite;
@@ -101,41 +100,20 @@ public class HandScript : MonoBehaviour
                             else
                             {
                                 handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
-                                //turnScriptAccess.EndPlayersTurn();   
                             }
                         }
                         else
                         {
-                            //utilityCount++;
                             ShouldWeDisableCards();
                         }
-                       // Debug.Log(hit.transform.root.gameObject);
-                        // card gets removed from list
-                        //Destroy(hit.transform.gameObject);
                         RebuildCardList(hit.transform.root.gameObject);    
                     }
                 }
-                else
-                {
-                    Debug.Log("returned false inner");
-                }
-            }
-            else
-            {
-                Debug.Log("returned false outer");
             }
         }
     }
 
-    public void ShouldWeDisableCards()
-    {
-        if (utilityCount > 2)
-        {
-            Debug.Log("should disable everything now!");
-            SetCardActivityStatus(false, 0);
-            canPlayUtility = false;
-        }
-    }
+   
     public void RebuildCardListLite()
     {
         int interval = 90 / (cardCount + 1);
@@ -151,11 +129,8 @@ public class HandScript : MonoBehaviour
     }
     private void RebuildCardList(GameObject inputGameobject)
     {
-       // Debug.Log("destroying");
         for(int i = 0; i < cardList.Count; i++)
         {    
-            //if (inputGameobject.GetInstanceID() == cardList[i].GetInstanceID()) 
-            //if (cardList.Contains(inputGameobject))
             if (GameObject.ReferenceEquals(inputGameobject.GetComponentInChildren<CardScript>().gameObject, cardList[i].gameObject))
             {
                 Destroy(cardList[i].transform.root.gameObject);
@@ -194,7 +169,47 @@ public class HandScript : MonoBehaviour
             }
         }
     }
+    public void HitRateRestoriationMethod()
+    {
+        RestoreAllOriginalHitrates();
+    }
+    private void RestoreAllOriginalHitrates()
+    {
+        foreach (CardScript card in cardList)
+        {
+            if (card != null)
+            {
+                card.RestroreOriginalHitrate();
+            }
 
+        }
+        ChangeAllVisualHitrates(true, 0);
+    }
+    public void ChangeAllVisualHitrates(bool shouldRestoreOriginal, float effectValue)
+    {
+        isHitrateAffected = !shouldRestoreOriginal;
+        savedHitrateDelta = effectValue;
+        foreach (CardScript card in cardList)
+        {
+            if (card != null)
+            {
+                card.ChangeVisualCardHitrate(shouldRestoreOriginal, effectValue);
+            }
+        }
+    }
+    public void ShouldWeDisableCards()
+    {
+        if (utilityCount > 2)
+        {
+            SetCardActivityStatus(false, 0);
+            canPlayUtility = false;
+        }
+    }
+    private void AddCardsEvent()
+    {
+        AddCardsToHand(0);
+        utilityCount = 0;
+    }
     public void DisableAllCardsEvent()
     {
         SetCardActivityStatus(false, 2);
@@ -203,23 +218,14 @@ public class HandScript : MonoBehaviour
     {
         if (playerScriptAccess.isThisPlayersTurn)
         {
-
             isInQuickAttackMode = false;
             canPlayUtility = true;
-            //Debug.Log("yo mama");
             SetCardActivityStatus(true, 2);
         }
         ShouldWeDisableCards();
-    }
-    private void AddCardsEvent()
-    {
-        AddCardsToHand(0);
-        utilityCount = 0;
-
-    }
+    }   
     public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
-        //Debug.Log("Activity status changed");
         if(inputCardType == 0)
         {
             foreach (CardScript card in cardList)
@@ -261,7 +267,6 @@ public class HandScript : MonoBehaviour
     private IEnumerator QuickAttackModeCoroutine()
     {
         yield return new WaitForSeconds(0.75f);
-        fieldScriptAccess.FieldClearAndDealDamage(true);
         isInQuickAttackMode = false;
         SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();
@@ -271,10 +276,6 @@ public class HandScript : MonoBehaviour
     {
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
-        /*AddCardsToHand(0);
-        turnScriptAccess.EndPlayersTurn();
-        fieldScriptAccess.FieldClearAndDealDamage(true);*/
-        //TurnScript.endTurnEvent();
         turnScriptAccess.CallEndTurnEvent();
     }
     
@@ -288,62 +289,8 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    public void HitRateRestoriationMethod()
-    {
-        RestoreAllOriginalHitrates();
-    }
-    private void RestoreAllOriginalHitrates()
-    {
-        foreach (CardScript card in cardList)
-        {
-            if(card != null)
-            {
-                card.RestroreOriginalHitrate();
-            }
-            
-        }
-        ChangeAllVisualHitrates(true, 0);
-    }
-    public void ChangeAllVisualHitrates(bool shouldRestoreOriginal, float effectValue)
-    {
-        isHitrateAffected = !shouldRestoreOriginal;
-        savedHitrateDelta = effectValue;
-        foreach (CardScript card in cardList)
-        {
-          if(card != null)
-          {
-                card.ChangeVisualCardHitrate(shouldRestoreOriginal, effectValue);
-          }
-        }
-    }
-
-    public void HandReset()
-    {
-        foreach(CardScript card in cardList)
-        {
-            if(card != null)
-            {
-                Destroy(card.gameObject);
-            }
-            
-        }
-        if(handScriptDelayCoroutine != null)
-        {
-            StopCoroutine(handScriptDelayCoroutine);
-        }
-       
-        cardList.Clear();
-        cardCount = 0;
-        cardDebt = 0;
-        cardQueIndex = 0;
-        CardInstantiation();
-        canInteract = true;
-        isInQuickAttackMode = false;
-    }
-
     public void AddCardsToHand(int refillCount)
     {
-        //Refill count should be 0 if we want to fill the hand until it has 5 cards 
         int refillCycleCount;
         bool isFullRefill;
         if(refillCount <= 0)
@@ -361,7 +308,6 @@ public class HandScript : MonoBehaviour
         cardDebt = 0;
         cardQueIndex = 0;
         cardPlacementVector = new Vector3(1, 0, 0);
-        
         if (isFullRefill)
         {
             for (int i = 0; i < cardList.Count; i++)
@@ -381,15 +327,10 @@ public class HandScript : MonoBehaviour
                             cardQueDataList[cardQueIndex].QueuedVector = cardPlacementVector;
                             cardQueDataList[cardQueIndex].QueuedIndex = i;
                             cardQueIndex++;
-
-                            //Debug.Log("Card debt added");
                             cardDebt++;
-                           // cardCount++;
                         }
-                    }         
-                   
+                    }                   
                 }
-
                 cardPlacementVector += new Vector3(2, 0, 0);
             }
             DisableAllCardsEvent();
@@ -412,20 +353,16 @@ public class HandScript : MonoBehaviour
                         cardQueDataList[cardQueIndex].QueuedIndex = i;
                         cardQueIndex++;
                         cardCount++;
-                        Debug.Log("Card debt added");
                         cardDebt++;
                     }
                     refillCount--;
                 }
-
                 cardPlacementVector += new Vector3(2, 0, 0);
             }
             if(refillCount > 0)
             {
                 for (int i = 0; i < refillCount; i++)
                 {
-                    
-
                     if (deckManagerAccess.deckCardList.Count > 0)
                     {
                         GenerateCard(cardPlacementVector, -1);
@@ -436,8 +373,6 @@ public class HandScript : MonoBehaviour
                         cardQueDataList[cardQueIndex].QueuedVector = cardPlacementVector;
                         cardQueDataList[cardQueIndex].QueuedIndex = i;
                         cardQueIndex++;
-
-                        Debug.Log("Card debt added");
                         cardDebt++;
                     }
                     cardPlacementVector += new Vector3(2, 0, 0);
@@ -447,29 +382,21 @@ public class HandScript : MonoBehaviour
     }
     private void GenerateCard(Vector3 cardPlacementVectorReference, int cardIndex)
     {
-        //GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position + cardPlacementVectorReference, Quaternion.identity);
         GameObject cardClone = Instantiate(baseCard, cardSpawnLocator.position, Quaternion.identity);
         cardClone.SetActive(true);
-
         cardClone.GetComponentInChildren<CardScript>().HandCardSetup(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
         deckManagerAccess.handCardList.Add(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
         deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
-
         if(isHitrateAffected)
         {
             cardClone.GetComponentInChildren<CardScript>().ChangeVisualCardHitrate(false, savedHitrateDelta);
         }
-
         if (deckManagerAccess.deckCardList.Count <= 0)
         {
             canInteract = false;
-            //SetCardActivityStatus(false, 2);
-
             deckManagerAccess.ResetDeckBegin();
             SetCardActivityStatus(false, 2);
         }
-       
-
         cardCount++;
         if (cardIndex < 0)
         {
@@ -490,18 +417,14 @@ public class HandScript : MonoBehaviour
         }        
         if (cardDebt > 0)
         {
-            //Debug.Log("reached this!");
-            Debug.Log($"Card debt is {cardDebt}");
             foreach(CardQueueUnit queUnit in cardQueDataList)
             {
                 if(!isFullRefill)
                 {
-                   // cardCount--;
                     GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
                 }
                 else
                 {
-                  //  cardCount--; 
                     GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
                     if(cardCount >= cardLimit)
                     {
@@ -536,6 +459,27 @@ public class HandScript : MonoBehaviour
                 }             
             }
         }
+    }
+    public void HandReset()
+    {
+        foreach (CardScript card in cardList)
+        {
+            if (card != null)
+            {
+                Destroy(card.gameObject);
+            }
+        }
+        if (handScriptDelayCoroutine != null)
+        {
+            StopCoroutine(handScriptDelayCoroutine);
+        }
+        cardList.Clear();
+        cardCount = 0;
+        cardDebt = 0;
+        cardQueIndex = 0;
+        CardInstantiation();
+        canInteract = true;
+        isInQuickAttackMode = false;
     }
 
 }

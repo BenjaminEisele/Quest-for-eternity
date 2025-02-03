@@ -11,7 +11,6 @@ public class DefenceEffect : EffectTemplate
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             inputGameobject.GetComponent<SceneObjectDatabase>().playerStatReference.playerHealthOffset += (int)effectValue;
-           // inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.ChangeAllVisualHitrates(true, 0);
         }
     }
 }
