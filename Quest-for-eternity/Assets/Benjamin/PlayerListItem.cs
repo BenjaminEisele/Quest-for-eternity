@@ -8,10 +8,9 @@ public class PlayerListItem : MonoBehaviour
     public int ConecctionID;
     public ulong PlayerSteamID;
     private bool AvatarRecieved;
-
-    public Text PlayerNameText;
-    public Text PlayerReadyText;
-    public RawImage PlayerIcon;
+    private Text PlayerNameText;
+    private Text PlayerReadyText;
+    private RawImage PlayerIcon;
     public bool Ready;
     
 

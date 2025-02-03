@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerObjectController : NetworkBehaviour
 {
-    //Player Data
     [SyncVar] public int ConnectionID;
     [SyncVar] public int PlayerIDNumber;
     [SyncVar] public ulong PlayerSteamID;
@@ -24,7 +23,6 @@ public class PlayerObjectController : NetworkBehaviour
             {
                 return manager;
             }
-
             return manager = CustomNetworkManager.singleton as CustomNetworkManager;
         }
     }
@@ -40,7 +38,6 @@ public class PlayerObjectController : NetworkBehaviour
         {
             this.Ready = newValue;
         }
-
         if (isClient)
         {
             LobbyController.Instance.UpdatePlayerList();
@@ -53,7 +50,6 @@ public class PlayerObjectController : NetworkBehaviour
         {
             this.PlayerName = NewValue;
         }
-
         if (isClient)
         {
             LobbyController.Instance.UpdatePlayerList();

@@ -1,7 +1,6 @@
 using UnityEngine;
 using Mirror;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -21,19 +20,6 @@ public class PlayerController : NetworkBehaviour
                 //For every Player & only once
                 PlayerModel.SetActive(true);
             } 
-            
-            if (isOwned)
-            {
-                //Every Tick
-                //Call actual Game functions
-            }
         }
     }
-
-    public void SetPosition()
-    {
-        //set spawnpositions of cameras
-        transform.position = new Vector2(0,0);      
-    }
-
 }

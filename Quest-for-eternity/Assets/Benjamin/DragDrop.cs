@@ -3,7 +3,7 @@ using UnityEngine;
 public class DragDrop : MonoBehaviour
 {
     Vector3 mousePositionOffset;
-   // [HideInInspector]
+    [HideInInspector]
     public Vector3 cardPosition;
     private bool isInPlayingField;
     private bool isInSendCardsOverField;
@@ -13,7 +13,7 @@ public class DragDrop : MonoBehaviour
     CardScript cardScriptAccess;
     [SerializeField]
     OnHoverScript onHoverScriptAccess;
-
+    [HideInInspector]
     public bool isDragging = false;
 
     private void Start()
@@ -42,7 +42,6 @@ public class DragDrop : MonoBehaviour
         {
             handScriptAccess.PlayCard();
         }
-
         if (isInSendCardsOverField)
         {
             if (!transform.GetComponentInParent<CardScript>().isActionCard)
@@ -51,20 +50,16 @@ public class DragDrop : MonoBehaviour
                 {
                     handScriptAccess.SendCardsOver();
                 }
-
                 else
                 {
                     transform.localPosition = cardPosition;
-                }
-                    
+                }                    
             }
-
             else
             {
                 transform.localPosition = cardPosition;
             }
         }
-
         else
         {
             transform.localPosition = cardPosition;
@@ -85,7 +80,6 @@ public class DragDrop : MonoBehaviour
         {
             isInPlayingField = true;
         }
-
         if (col.gameObject.name == "SendCardsOverField")
         {
             isInSendCardsOverField = true;
