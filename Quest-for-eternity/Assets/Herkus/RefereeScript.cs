@@ -43,11 +43,11 @@ public class RefereeScript : NetworkBehaviour
     public delegate void TurnStartAction();
     public static event TurnStartAction turnStartEvent;
 
-    public GameObject[] card;
-    public GameObject[] button;
-    public GameObject[] mainCamera;
-    public GameObject[] playerHealth;
-    public GameObject[] playerScripts;
+    private GameObject[] card;
+    private GameObject[] button;
+    private GameObject[] mainCamera;
+    private GameObject[] playerHealth;
+    private GameObject[] playerScripts;
 
     public List<PlayerScript> playerList;
 
@@ -73,6 +73,20 @@ public class RefereeScript : NetworkBehaviour
     private void Start()
     {
         if (playerScripts != null)
+        {
+            Debug.Log(playerScripts.Length);
+            foreach (GameObject script in playerScripts)
+            {
+                if (script != null)
+                {
+                    Destroy(script);
+                }
+            }
+        }       
+        //playerScripts = null;
+
+
+        if (playerScripts == null)
         {
             Debug.Log("playerScripts not null");
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
