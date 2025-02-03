@@ -9,19 +9,16 @@ using DG.Tweening;
 
 public class CardScript : MonoBehaviour
 {
-    private Color myCardColor;
 
     [SerializeField]
     DatabasePlayer databasePlayerAccess;
 
-    public TextMeshPro[] cardTextArray;
+    private TextMeshPro[] cardTextArray;
     public int myCardId;
 
     int myDamage;
-    public float myCardHitRate;
-    public float savedCardHitRate;
-
-    Vector2 cardHitFraction;
+    private float myCardHitRate;
+    private float savedCardHitRate;
 
     string myCardName;
 
@@ -36,10 +33,6 @@ public class CardScript : MonoBehaviour
     public bool isClickable;
 
     string hitRateString;
-    //[HideInInspector]
-    //public int cardType;
-    //0 - utility
-    //1 - action
 
     [HideInInspector]
     public bool isActionCard;
@@ -49,7 +42,6 @@ public class CardScript : MonoBehaviour
         isClickable = true;
         myCardId = myId;
         myCardName = databasePlayerAccess.cardList[myCardId].cardName;     
-
         string cardTypeName;
         Utility utilityCardAccess = databasePlayerAccess.cardList[myCardId] as Utility;
         if (utilityCardAccess)
@@ -67,12 +59,8 @@ public class CardScript : MonoBehaviour
             myCardHitRate = actionCardAccess.cardHitRate;
             savedCardHitRate = myCardHitRate;
         }
-     
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
-
-
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
-
         cardTextArray[0].text = myDamage.ToString();
         cardTextArray[1].text = cardTypeName;
         cardTextArray[2].text = myCardName;
@@ -87,7 +75,6 @@ public class CardScript : MonoBehaviour
         {
             cardTextArray[4].gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
-
         transform.name = myCardName;
     }
 

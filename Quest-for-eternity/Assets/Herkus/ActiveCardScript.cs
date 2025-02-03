@@ -5,32 +5,22 @@ using TMPro;
 public class ActiveCardScript : MonoBehaviour
 {
     int activeCardDamage;
-
-    [SerializeField]
-    DatabasePlayer databasePlayerAccess;
-
-    TextMeshPro activeCardText;
-    public TextMeshPro[] activeCardTextArray;
-
+    private int activeCardId;
+    float activeCardHitRate;
     private string activeCardName;
 
-    private int activeCardType;
-    private int activeCardId;
-
     bool isActionCard;
-
     [HideInInspector]
     public bool shouldShowCard;
 
-    float activeCardHitRate;
+    private TextMeshPro[] activeCardTextArray;
 
     [SerializeField]
     SceneObjectDatabase sceneObjectAccess;
-
+    [SerializeField]
+    DatabasePlayer databasePlayerAccess;
     [SerializeField]
     GameObject activeCardImage;
-
-
     public bool CheckIfCardHasActionType()
     {
         return isActionCard;
@@ -48,15 +38,11 @@ public class ActiveCardScript : MonoBehaviour
         {
             int diceRoll = Random.Range(1, 21);
             if (diceRoll <= successChanceInteger)
-            {
-               
-                return true;
-                
+            {             
+                return true;                
             }
             else
             {
-               // Debug.Log("Success rate: " + successChanceInteger);
-              //  Debug.Log("dice: " + diceRoll);
                 return false;
             }
         }
@@ -64,11 +50,9 @@ public class ActiveCardScript : MonoBehaviour
     }
 
     public void ActivateMyEffect()
-    {
-        
+    {      
         if (!isActionCard)
         {
-            //Debug.Log("activating");
             Utility utilityCardAccess = databasePlayerAccess.cardList[activeCardId] as Utility;
             if (utilityCardAccess)
             {
@@ -77,10 +61,8 @@ public class ActiveCardScript : MonoBehaviour
                     if (!myEffectUnit.shouldActivateNow)
                     {
                         myEffectUnit.myEffect.UseEffect<GameObject>(0, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
-                       // Debug.Log("activating 2");
                     }      
                 }
-                // utilityCardAccess.effectUnitList[0].myEffect.UseEffect<string>(utilityCardAccess.effectUnitList[0].effectValue, "asdf");
             }
         } 
     }
@@ -89,7 +71,6 @@ public class ActiveCardScript : MonoBehaviour
         shouldShowCard = true;
         this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
-       
         Action actionCardAccess = databasePlayerAccess.cardList[activeCardId] as Action;
         if (actionCardAccess)
         {
@@ -113,17 +94,11 @@ public class ActiveCardScript : MonoBehaviour
                 }
             }
         }
-
         activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;
         activeCardName = databasePlayerAccess.cardList[activeCardId].cardName;
 
         activeCardTextArray[0].text = activeCardDamage.ToString();
         activeCardTextArray[1].text = activeCardName;
-
-        /* activeCardText = GetComponentInChildren<TextMeshPro>();
-         activeCardText.text = activeCardDamage.ToString();
-        */
-
         return activeCardDamage;
     }
 }

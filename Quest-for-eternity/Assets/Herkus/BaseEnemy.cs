@@ -17,8 +17,4 @@ public class BaseEnemy : ScriptableObject
     {
         return enemyDamage;
     }
-    /*public virtual void CallAttack<T>(int targetId, float effectValue, T value)
-    {
-        Debug.Log("I dun it!");
-    } */
 }
