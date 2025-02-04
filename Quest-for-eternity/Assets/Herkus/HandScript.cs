@@ -202,7 +202,7 @@ public class HandScript : MonoBehaviour
     }
     public void ShouldWeDisableCards()
     {
-        if (utilityCount > 2 && utlCardsPlayedForOtherPlayer > 2)
+        if (utilityCount > 5 && utlCardsPlayedForOtherPlayer > 2)
         {
             SetCardActivityStatus(false, 0);
             canPlayUtility = false;
@@ -373,8 +373,7 @@ public class HandScript : MonoBehaviour
                 {
                     if(deckManagerAccess.deckCardList.Count > 0)
                     {
-                        GenerateCard(cardPlacementVector, i);
-                        
+                        GenerateCard(cardPlacementVector, i);                       
                     }
                     else
                     {
@@ -382,7 +381,7 @@ public class HandScript : MonoBehaviour
                         cardQueDataList[cardQueIndex].QueuedVector = cardPlacementVector;
                         cardQueDataList[cardQueIndex].QueuedIndex = i;
                         cardQueIndex++;
-                        cardCount++;
+                        //cardCount++;
                         cardDebt++;
                     }
                     refillCount--;
@@ -439,8 +438,26 @@ public class HandScript : MonoBehaviour
         cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);      
     }
 
+    private int CalculateCardIndex()
+    {
+        int returnIndex = 0;
+        foreach(CardScript card in cardList)
+        {
+            if(card != null)
+            {
+                returnIndex++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        Debug.Log($"my index is {returnIndex}");
+        return returnIndex;
+    } 
     public void DrawQueuedCards()
     {
+        Debug.Log($"card debt is : {cardDebt}");
         if (playerScriptAccess.isThisPlayersTurn)
         {
             SetCardActivityStatus(true, 2);
@@ -451,12 +468,14 @@ public class HandScript : MonoBehaviour
             {
                 if(!isFullRefill)
                 {
-                    GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
+                    GenerateCard(new Vector3(0,0,0), CalculateCardIndex());
+                    //GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
                 }
                 else
                 {
-                    GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
-                    if(cardCount >= cardLimit)
+                    GenerateCard(new Vector3(0, 0, 0), CalculateCardIndex());
+                    //GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
+                    if (cardCount >= cardLimit)
                     {
                         break;
                     }

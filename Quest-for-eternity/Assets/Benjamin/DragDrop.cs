@@ -42,7 +42,7 @@ public class DragDrop : MonoBehaviour
         {
             if (!transform.GetComponentInParent<CardScript>().isActionCard)
             {
-                if (handScriptAccess.utilityCount < 3)
+                if (handScriptAccess.utilityCount < 5)
                 {
                     handScriptAccess.PlayCard();
                 }
