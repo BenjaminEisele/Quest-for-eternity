@@ -62,7 +62,7 @@ public class PlayerScript : NetworkBehaviour
         handScriptAccess.DisableAllCardsEvent();
         if (!isServer)
         {
-            if (fieldScriptAccess.FieldHitCheck())
+            if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
@@ -74,7 +74,7 @@ public class PlayerScript : NetworkBehaviour
         else if (isServer)
         {
 
-            if (fieldScriptAccess.FieldHitCheck())
+            if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;

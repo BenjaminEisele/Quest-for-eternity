@@ -274,6 +274,7 @@ public class HandScript : MonoBehaviour
     private IEnumerator QuickAttackModeCoroutine()
     {
         yield return new WaitForSeconds(0.75f);
+        fieldScriptAccess.CheckIfHitAndShouldClearField(false);
         isInQuickAttackMode = false;
         SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();

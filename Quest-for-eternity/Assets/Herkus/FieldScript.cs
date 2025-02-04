@@ -18,6 +18,7 @@ public class FieldScript : MonoBehaviour
     Vector3 activeCardSpawnPosition;
 
     public List<GameObject> activeCardList;
+
    
     private void Start()
     {
@@ -67,7 +68,7 @@ public class FieldScript : MonoBehaviour
         activeCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
     }
-    public bool FieldHitCheck()
+    public bool CheckIfHitAndShouldClearField(bool inputBool)
     {
         bool didWeHit;
 
@@ -84,7 +85,10 @@ public class FieldScript : MonoBehaviour
                     hitRateModifier = 0;
                     damagePoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-                    FieldClear();
+                    if(inputBool)
+                    {
+                        FieldClear();
+                    }
                     return didWeHit;
                 }
                 else
@@ -92,7 +96,10 @@ public class FieldScript : MonoBehaviour
                     hitRateModifier = 0;
                     damagePoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-                    FieldClear();
+                    if (inputBool)
+                    {
+                        FieldClear();
+                    }
                     return false;
                 }
             }
@@ -101,7 +108,10 @@ public class FieldScript : MonoBehaviour
                 hitRateModifier = 0;
                 damagePoints = 0;
                 UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
-                FieldClear();
+                if (inputBool)
+                {
+                    FieldClear();
+                }
                 return false;
             }
         }

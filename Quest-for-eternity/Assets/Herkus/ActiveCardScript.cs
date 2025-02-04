@@ -10,6 +10,7 @@ public class ActiveCardScript : MonoBehaviour
     private string activeCardName;
 
     bool isActionCard;
+    bool alreadyActivated;
     [HideInInspector]
     public bool shouldShowCard;
 
@@ -50,7 +51,7 @@ public class ActiveCardScript : MonoBehaviour
     }
 
     public void ActivateMyEffect()
-    {      
+    {
         if (!isActionCard)
         {
             Utility utilityCardAccess = databasePlayerAccess.cardList[activeCardId] as Utility;
@@ -69,6 +70,7 @@ public class ActiveCardScript : MonoBehaviour
     public int ActiveCardSetup(int activeCardId)
     {
         shouldShowCard = true;
+        //alreadyActivated = false;
         this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
         Action actionCardAccess = databasePlayerAccess.cardList[activeCardId] as Action;
@@ -76,8 +78,7 @@ public class ActiveCardScript : MonoBehaviour
         {
             activeCardDamage = actionCardAccess.cardDamage;
             activeCardHitRate = actionCardAccess.cardHitRate;
-            isActionCard = true;
-            
+            isActionCard = true;          
         }
         else
         {
@@ -91,6 +92,7 @@ public class ActiveCardScript : MonoBehaviour
                 if(myEffectUnit.shouldActivateNow)
                 {
                     myEffectUnit.myEffect.UseEffect<GameObject>(0, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                    //alreadyActivated = true;
                 }
             }
         }
