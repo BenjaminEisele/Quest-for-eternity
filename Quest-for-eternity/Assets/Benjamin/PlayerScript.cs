@@ -47,7 +47,8 @@ public class PlayerScript : NetworkBehaviour
                         EndTurnButton.interactable = false;
                     }
                 }
-                TurnScript.endTurnEvent += EndTurnPlayerScript;
+                RefereeScript.turnStartEvent += EndTurnPlayerScript;
+                //TurnScript.endTurnEvent += EndTurnPlayerScript;
                 shouldCheck = false;
             }           
         }
