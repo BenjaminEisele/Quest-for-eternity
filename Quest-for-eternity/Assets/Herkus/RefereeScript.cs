@@ -110,6 +110,11 @@ public class RefereeScript : NetworkBehaviour
             ChooseNewEnemy(-1);
         }
 
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            SwitchPlayerAttackId();
+        }
+
     }
 
     private void SetPlayerList(GameObject[] Scripts)
@@ -429,8 +434,7 @@ public class RefereeScript : NetworkBehaviour
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
-        }
-        
+        }       
     }
     
     private void SwitchPlayerAttackId()
