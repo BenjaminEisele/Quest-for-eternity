@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 
+
 public class RefereeScript : NetworkBehaviour
 {
     public List<EnemyScript> enemyList;
@@ -64,6 +65,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
+
         if (playerScripts == null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
@@ -401,6 +403,7 @@ public class RefereeScript : NetworkBehaviour
                 yield return new WaitForSeconds(0.75f);
                 debugCounter++;
             }
+            SwitchPlayerAttackId();
         }
         if (canTransferTurnToPlayer)
         {
@@ -427,6 +430,11 @@ public class RefereeScript : NetworkBehaviour
             TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
         }
+        
+    }
+    
+    private void SwitchPlayerAttackId()
+    {
         if (targetPlayerId == 1)
         {
             targetPlayerId = 0;
@@ -436,5 +444,4 @@ public class RefereeScript : NetworkBehaviour
             targetPlayerId++;
         }
     }
-    
 }
