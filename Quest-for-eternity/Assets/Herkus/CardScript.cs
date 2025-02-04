@@ -88,8 +88,7 @@ public class CardScript : MonoBehaviour
             else
             {
                 myCardHitRate += hitRateChange;
-                myCardHitRate = Mathf.Round(myCardHitRate);
-                hitRateString = myCardHitRate * 100 + " %";
+                hitRateString = Mathf.Round(myCardHitRate * 100) + " %";
                 cardTextArray[4].text = hitRateString;
             }
         }

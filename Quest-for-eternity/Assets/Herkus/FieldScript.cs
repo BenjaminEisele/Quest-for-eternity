@@ -13,7 +13,7 @@ public class FieldScript : MonoBehaviour
 
     public static int damagePoints = 0;
     public int damagePointsLiquid = 0;
-    //[HideInInspector]
+    [HideInInspector]
     public float hitRateModifier;
     Vector3 activeCardSpawnPosition;
 

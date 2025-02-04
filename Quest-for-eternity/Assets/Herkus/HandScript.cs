@@ -36,7 +36,7 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public bool canInteract;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool isInQuickAttackMode;
 
     [HideInInspector]
@@ -225,7 +225,6 @@ public class HandScript : MonoBehaviour
             {
                 canPlayUtility = false;
                 SetCardActivityStatus(true, 1);
-                //SetCardActivityStatus(false, 0);
             }
             else
             {
