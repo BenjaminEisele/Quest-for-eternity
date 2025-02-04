@@ -224,7 +224,8 @@ public class HandScript : MonoBehaviour
             if (isInQuickAttackMode && CountActionCards() > 0)
             {
                 canPlayUtility = false;
-                SetCardActivityStatus(false, 0);
+                SetCardActivityStatus(true, 1);
+                //SetCardActivityStatus(false, 0);
             }
             else
             {
