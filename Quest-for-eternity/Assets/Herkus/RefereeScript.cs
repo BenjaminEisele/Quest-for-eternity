@@ -204,6 +204,7 @@ public class RefereeScript : NetworkBehaviour
     {
         if (turnStartEvent != null)
         {
+            Debug.Log("start turn event called");
             turnStartEvent();
         }
         TurnScript.instance.ShouldStartPlayerTurn(true);
@@ -377,16 +378,19 @@ public class RefereeScript : NetworkBehaviour
         yield return new WaitForSeconds(0.25f);
         if (!areAllEnemiesDead)
         {
+            int debugCounter = 0;
             foreach (EnemyScript enemy in enemyList)
             {
                 int enemyDamage = enemy.GenerateAttack();
                 if (isClientOnly)
                 {
                     CmdDealDamageToPlayer(enemyDamage);
+                    Debug.Log($"Enemy number {debugCounter} attacked");
                 }
                 else
                 {
                     RpcDealDamageToPlayer(enemyDamage);
+                    Debug.Log($"Enemy number {debugCounter} attacked");
                 }
                 UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 yield return new WaitForSeconds(0.75f);
