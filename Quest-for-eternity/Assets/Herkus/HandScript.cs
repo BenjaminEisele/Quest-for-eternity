@@ -36,10 +36,11 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public bool canInteract;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool isInQuickAttackMode;
 
-    public int utilityCount; // HIDE IN INSPECTOR AFTER WE FIXED THE UTILITY COUNT BUG
+    [HideInInspector]
+    public int utilityCount;
     int cardDebt;
     public List<CardQueueUnit> cardQueDataList;
     int cardQueIndex;
@@ -49,6 +50,7 @@ public class HandScript : MonoBehaviour
     public bool canPlayUtility;
     float savedHitrateDelta;
 
+    [HideInInspector]
     public int utlCardsPlayedForOtherPlayer;
 
     bool isFullRefill;

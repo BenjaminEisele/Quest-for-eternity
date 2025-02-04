@@ -856,7 +856,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCard: {fileID: 878749362521664140}
   cardSpawnLocator: {fileID: 8123020633538326466}
-  cardLimit: 5
   fieldScriptAccess: {fileID: 5498560621881706503}
   turnScriptAccess: {fileID: 7221015898841572849}
   playerScriptAccess: {fileID: 1214735220539923461}
@@ -868,7 +867,7 @@ MonoBehaviour:
   utilityCount: 0
   cardQueDataList: []
   canPlayUtility: 0
-  UtlCardsPlayedForOtherPlayer: 0
+  utlCardsPlayedForOtherPlayer: 0
 --- !u!1 &540777929100373561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 00000000010000000200000003000000040000000500000006000000060000000700000008000000
+  deckCardList: 01000000010000000100000001000000030000000300000003000000060000000600000006000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -1278,13 +1277,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e1b9ed199caf4b8b760b9b6f5d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databasePlayerAccess: {fileID: 4730537138289088088}
-  cardTextArray: []
   myCardId: 0
-  myCardHitRate: 0
-  savedCardHitRate: 0
   myCardImage: {fileID: 8043477950220305303}
   myCardOutline: {fileID: 5871188572725344845}
+  databasePlayerAccess: {fileID: 4730537138289088088}
   isClickable: 0
   isActionCard: 0
 --- !u!65 &490237464670016282
@@ -1387,10 +1383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc9c31fa3816ff4f85507c9988eaeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databasePlayerAccess: {fileID: 4730537138289088088}
-  activeCardTextArray: []
   shouldShowCard: 0
   sceneObjectAccess: {fileID: 1929009939263703945}
+  databasePlayerAccess: {fileID: 4730537138289088088}
   activeCardImage: {fileID: 5963906656434628054}
 --- !u!1 &1268672163260200676
 GameObject:
@@ -1624,9 +1619,7 @@ MonoBehaviour:
   databasePlayerAccess: {fileID: 4730537138289088088}
   cardTextArray: []
   myCardId: 0
-  myCardHitRate: 0
   myCardImage: {fileID: 754769993535659440}
-  isActionCard: 0
   playerScriptAccess: {fileID: 0}
 --- !u!65 &6499140213140984146
 BoxCollider:
@@ -2085,13 +2078,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e1b9ed199caf4b8b760b9b6f5d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databasePlayerAccess: {fileID: 4730537138289088088}
-  cardTextArray: []
   myCardId: 0
-  myCardHitRate: 0
-  savedCardHitRate: 0
   myCardImage: {fileID: 8721363859836625388}
   myCardOutline: {fileID: 3416639486803673856}
+  databasePlayerAccess: {fileID: 4730537138289088088}
   isClickable: 0
   isActionCard: 0
 --- !u!114 &7189901953755365207
@@ -2392,9 +2382,8 @@ MonoBehaviour:
   displayCardReferenceGameobject: {fileID: 1318038394523368806}
   displayCardLocator: {fileID: 5549960803085507556}
   databasePlayerAccess: {fileID: 4730537138289088088}
-  displayCardList: []
   playerScriptAccess: {fileID: 1214735220539923461}
-  displayCardCount: 0
+  displayCardList: []
 --- !u!1 &2564683301363056097
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,10 +3354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc9c31fa3816ff4f85507c9988eaeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databasePlayerAccess: {fileID: 4730537138289088088}
-  activeCardTextArray: []
   shouldShowCard: 0
   sceneObjectAccess: {fileID: 1929009939263703945}
+  databasePlayerAccess: {fileID: 4730537138289088088}
   activeCardImage: {fileID: 6673016693832918745}
 --- !u!1 &3198231324387313845
 GameObject:
@@ -5588,12 +5576,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnpoint: {fileID: 3190224930268895390}
   baseActiveCard: {fileID: 3143705838561018988}
-  uiScriptAccess: {fileID: 8797810155221267089}
   playerScriptAccess: {fileID: 1214735220539923461}
   damagePointsLiquid: 0
-  activeCardList: []
-  actionCardReference: {fileID: 0}
   hitRateModifier: 0
+  activeCardList: []
 --- !u!1 &4814885059660197006
 GameObject:
   m_ObjectHideFlags: 0
@@ -6325,13 +6311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279e1b9ed199caf4b8b760b9b6f5d50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databasePlayerAccess: {fileID: 4730537138289088088}
-  cardTextArray: []
   myCardId: 0
-  myCardHitRate: 0
-  savedCardHitRate: 0
   myCardImage: {fileID: 8235814842616870430}
   myCardOutline: {fileID: 3438220697428623783}
+  databasePlayerAccess: {fileID: 4730537138289088088}
   isClickable: 0
   isActionCard: 0
 --- !u!65 &6678129084550282783
@@ -7942,7 +7925,6 @@ MonoBehaviour:
   isThisPlayersTurn: 0
   isThisPlayersTurnToChoose: 0
   damageThisRound: 0
-  myPlayerListId: 0
   chooseNewCardAccess: {fileID: 1577412184725532746}
 --- !u!1 &6419282960436208635
 GameObject:
