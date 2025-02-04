@@ -399,6 +399,7 @@ public class RefereeScript : NetworkBehaviour
                 }
                 UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 yield return new WaitForSeconds(0.75f);
+                debugCounter++;
             }
         }
         if (canTransferTurnToPlayer)
