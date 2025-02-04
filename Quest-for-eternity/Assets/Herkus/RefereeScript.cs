@@ -368,9 +368,13 @@ public class RefereeScript : NetworkBehaviour
     public void StartForeachEnemyCoroutine()
     {
         Debug.Log("starting coroutine");
-        if(!isGameOver)
+        Coroutine myCoroutine = null;
+        if (!isGameOver)
         {
-            StartCoroutine(ForeachEnemyTurnCoroutine());
+            if(myCoroutine == null)
+            {
+                myCoroutine = StartCoroutine(ForeachEnemyTurnCoroutine());
+            }   
         }
     }
     private IEnumerator ForeachEnemyTurnCoroutine()
