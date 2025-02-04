@@ -221,15 +221,37 @@ public class HandScript : MonoBehaviour
     {
         if (playerScriptAccess.isThisPlayersTurn)
         {
-            //isInQuickAttackMode = false;
-            canPlayUtility = true;
-            SetCardActivityStatus(true, 2);
+            if (isInQuickAttackMode && CountActionCards() > 0)
+            {
+                canPlayUtility = false;
+                SetCardActivityStatus(false, 0);
+            }
+            else
+            {
+                canPlayUtility = true;
+                SetCardActivityStatus(true, 2);
+            }
         }
         ShouldWeDisableCards();
     }
     public void ResetQuickAttackMode()
     {
         isInQuickAttackMode = false;
+    }
+    private int CountActionCards()
+    {
+        int actionCardCount = 0;
+        foreach (CardScript card in cardList)
+        {
+            if (card != null)
+            {
+                if (card.isActionCard)
+                {
+                    actionCardCount++;
+                }
+            }
+        }
+        return actionCardCount;
     }
     public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
