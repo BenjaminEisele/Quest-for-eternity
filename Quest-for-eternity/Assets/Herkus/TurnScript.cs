@@ -32,7 +32,7 @@ public class TurnScript : MonoBehaviour
 
     private void Start()
     {
-        PlayerScript myPlayerScript = GetComponentInChildren<PlayerScript>();
+        PlayerScript myPlayerScript = transform.root.GetComponentInChildren<PlayerScript>();
         if(myPlayerScript != null)
         {
             playerScriptAccess = myPlayerScript;
