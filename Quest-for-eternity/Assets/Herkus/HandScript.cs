@@ -49,7 +49,7 @@ public class HandScript : MonoBehaviour
     public bool canPlayUtility;
     float savedHitrateDelta;
 
-    public int UtlCardsPlayedForOtherPlayer;
+    public int utlCardsPlayedForOtherPlayer;
 
     bool isFullRefill;
     private void Start()
@@ -70,7 +70,7 @@ public class HandScript : MonoBehaviour
         CardInstantiation();
         ActivateAllCardsEvent();
         RebuildCardListLite();
-        UtlCardsPlayedForOtherPlayer = 0;
+        utlCardsPlayedForOtherPlayer = 0;
     }
 
 
@@ -199,7 +199,7 @@ public class HandScript : MonoBehaviour
     }
     public void ShouldWeDisableCards()
     {
-        if (utilityCount > 2)
+        if (utilityCount > 2 && utlCardsPlayedForOtherPlayer > 2)
         {
             SetCardActivityStatus(false, 0);
             canPlayUtility = false;
@@ -450,7 +450,7 @@ public class HandScript : MonoBehaviour
             {    
                 if (hit.transform.GetComponentInParent<CardScript>().isClickable)
                 {
-                    UtlCardsPlayedForOtherPlayer++;
+                    utlCardsPlayedForOtherPlayer++;
                     int clickedCardId = hit.transform.GetComponentInParent<CardScript>().myCardId;
                     playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
                     deckManagerAccess.handCardList.Remove(clickedCardId);

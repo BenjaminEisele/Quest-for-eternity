@@ -40,13 +40,27 @@ public class DragDrop : MonoBehaviour
         isDragging = false;
         if (isInPlayingField)
         {
-            handScriptAccess.PlayCard();
+            if (!transform.GetComponentInParent<CardScript>().isActionCard)
+            {
+                if (handScriptAccess.utilityCount < 3)
+                {
+                    handScriptAccess.PlayCard();
+                }
+                else
+                {
+                    transform.localPosition = cardPosition;
+                }
+            }
+            else
+            {
+                handScriptAccess.PlayCard();
+            }
         }
         if (isInSendCardsOverField)
         {
             if (!transform.GetComponentInParent<CardScript>().isActionCard)
             {
-                if (handScriptAccess.UtlCardsPlayedForOtherPlayer < 3)
+                if (handScriptAccess.utlCardsPlayedForOtherPlayer < 3)
                 {
                     handScriptAccess.SendCardsOver();
                 }
