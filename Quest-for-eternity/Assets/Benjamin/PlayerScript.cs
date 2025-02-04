@@ -8,6 +8,8 @@ public class PlayerScript : NetworkBehaviour
     HandScript handScriptAccess;
     [SerializeField]
     private Button EndTurnButton;
+    //[SerializeField]
+    //TurnScript turnScriptAccess;
     [SerializeField]
     FieldScript fieldScriptAccess;
     public bool shouldDealDamage;
@@ -23,6 +25,7 @@ public class PlayerScript : NetworkBehaviour
     [SerializeField]
     ChooseNewCardScript chooseNewCardAccess;
     private bool shouldCheck = true;
+    bool shouldDealDamageSingle;
 
     public void Update()
     {
@@ -54,6 +57,10 @@ public class PlayerScript : NetworkBehaviour
         }
     }
 
+    public void EndTurnSubscription()
+    {
+        TurnScript.endTurnEvent += EndTurnPlayerScript;
+    }
     public void EndTurnPlayerScript()
     {
         handScriptAccess.DisableAllCardsEvent();
@@ -73,13 +80,17 @@ public class PlayerScript : NetworkBehaviour
 
             if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
             {
-                int target = RefereeScript.instance.chosenEnemyId;
-                damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                RpcDealDamage(damageThisRound, target);
+                if(shouldDealDamageSingle)
+                {
+                    int target = RefereeScript.instance.chosenEnemyId;
+                    damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                    RpcDealDamage(damageThisRound, target);
+                }      
             }
             Invoke("RpcEndTurn", 0.1f);
         }
         handScriptAccess.utlCardsPlayedForOtherPlayer = 0;
+        shouldDealDamageSingle = true;
     }
     
     [Command(requiresAuthority = false)]
@@ -156,20 +167,34 @@ public class PlayerScript : NetworkBehaviour
     public void BeginPreNewWaveCall()
     {
         Debug.Log(transform.root.gameObject.name);
-        if(isThisPlayersTurn)
+        if(!RefereeScript.instance.singlePlayerMode)
         {
-            if (isHost && isServer)
+            if (isThisPlayersTurn)
             {
-                RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
-                RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
-                RefereeScript.instance.CallPreNewWaveEvent();
-                CallNewCardsAsServer();
-            }
-            else if (isClientOnly)
-            {
-                CmdPreNewWaveCall();
+                if (isHost && isServer)
+                {
+                    RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
+                    RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
+                    RefereeScript.instance.CallPreNewWaveEvent();
+                    CallNewCardsAsServer();
+                }
+                else if (isClientOnly)
+                {
+                    CmdPreNewWaveCall();
+                }
             }
         }
+        else
+        {
+            Debug.Log("Pre new wave");
+            RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
+            RefereeScript.instance.CallPreNewWaveEvent();
+            //turnScriptAccess.CallEndTurnEvent();
+            shouldDealDamageSingle = false;
+            EndTurnPlayerScript();
+            //CallNewCardsAsServer();
+        }
+        
     }
 
     [Command(requiresAuthority = false)]

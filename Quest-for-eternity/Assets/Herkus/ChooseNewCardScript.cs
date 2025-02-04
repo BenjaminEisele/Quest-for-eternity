@@ -35,6 +35,13 @@ public class ChooseNewCardScript : MonoBehaviour
         displayCardCount--;
         Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
+        if(RefereeScript.instance.singlePlayerMode)
+        {
+            if (displayCardCount <= 0)
+            {
+                DisplayCardsHidden();                
+            }
+        }
     }
 
     public void FindAndDestroyCard(int destroyableCardId)

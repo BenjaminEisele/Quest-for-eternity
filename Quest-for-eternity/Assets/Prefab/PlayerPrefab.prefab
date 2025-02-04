@@ -5057,6 +5057,7 @@ MonoBehaviour:
   syncInterval: 0
   handScriptAccess: {fileID: 4716527281068523202}
   EndTurnButton: {fileID: 4485664734557763521}
+  turnScriptAccess: {fileID: 7221015898841572849}
   fieldScriptAccess: {fileID: 5498560621881706503}
   shouldDealDamage: 0
   isHost: 0

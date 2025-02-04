@@ -28,7 +28,10 @@ public class DisplayCardScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerScriptAccess.isThisPlayersTurnToChoose)
         {
             transform.parent.GetComponent<ChooseNewCardScript>().ChooseOneCard(gameObject, myCardId);
-            transform.parent.GetComponent<ChooseNewCardScript>().playerScriptAccess.BeginDisplayCardSynchronization(myCardId);
+            if(!RefereeScript.instance.singlePlayerMode)
+            {
+                transform.parent.GetComponent<ChooseNewCardScript>().playerScriptAccess.BeginDisplayCardSynchronization(myCardId);
+            }         
         }
     }
     private void CallDisplayCardsHidden()

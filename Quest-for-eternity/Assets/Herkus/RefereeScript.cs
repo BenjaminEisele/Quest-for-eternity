@@ -10,6 +10,8 @@ public class RefereeScript : NetworkBehaviour
 
     public EnemyGenerator enemyGeneratorAccess;
 
+
+
     private bool isGameOver;
     private bool areAllEnemiesDead;
     [SyncVar]
@@ -49,6 +51,7 @@ public class RefereeScript : NetworkBehaviour
 
     public static RefereeScript instance;
 
+    public bool singlePlayerMode;
 
     [SyncVar]
     int[] randomNumbers = new int[4];
@@ -71,6 +74,36 @@ public class RefereeScript : NetworkBehaviour
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
             SetPlayerList(playerScripts);
         }
+        if(playerList.Count == 2)
+        {
+            singlePlayerMode = false;
+            if (card == null)
+            {
+                card = GameObject.FindGameObjectsWithTag("Cards");
+                DeactivateCards(card);
+            }
+            if (button == null)
+            {
+                button = GameObject.FindGameObjectsWithTag("EndTurnButton");
+                DeactivateButton(button);
+            }
+            if (mainCamera == null)
+            {
+                mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
+                DeactivateCamera(mainCamera);
+            }
+            if (playerHealth == null)
+            {
+                playerHealth = GameObject.FindGameObjectsWithTag("Health");
+                DeactivateHealth(playerHealth);
+            }
+        }
+        else
+        {
+            singlePlayerMode = true;
+            playerList[0].EndTurnSubscription();
+            targetPlayerId = 0;
+        }
         
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
@@ -78,26 +111,7 @@ public class RefereeScript : NetworkBehaviour
                
         isGameOver = false;
         
-        if (card == null)
-        {
-            card = GameObject.FindGameObjectsWithTag("Cards");
-            DeactivateCards(card);
-        }
-        if (button == null)
-        {
-            button = GameObject.FindGameObjectsWithTag("EndTurnButton");
-            DeactivateButton(button);
-        }
-        if (mainCamera == null)
-        {
-            mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
-            DeactivateCamera(mainCamera);
-        }
-        if (playerHealth == null)
-        {
-            playerHealth = GameObject.FindGameObjectsWithTag("Health");
-            DeactivateHealth(playerHealth);
-        }
+        
     }
     private void Update()
     {
@@ -220,10 +234,18 @@ public class RefereeScript : NetworkBehaviour
     public void CallEndTurnForBothPlayers()
     {
         canTransferTurnToPlayer = true;
-        for (int i = 0; i < 2; i++)
+        if(singlePlayerMode)
         {
-            playerList[i].EndTurnPlayerScript();
+            playerList[0].EndTurnPlayerScript();
         }
+        else
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                playerList[i].EndTurnPlayerScript();
+            }
+        }
+        
     }
 
     [Command(requiresAuthority = false)]
@@ -260,6 +282,7 @@ public class RefereeScript : NetworkBehaviour
     }
     public void NewWaveCheck()
     {
+        Debug.Log("checking new wave");
         areAllEnemiesDead = true;
         foreach (EnemyScript enemy in enemyList)
         {
@@ -270,8 +293,11 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-
-            canTransferTurnToPlayer = false;
+            if(!singlePlayerMode)
+            {
+                canTransferTurnToPlayer = false;
+            }
+            
             if (playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
@@ -375,8 +401,6 @@ public class RefereeScript : NetworkBehaviour
     }
     public void StartForeachEnemyCoroutine()
     {
-        Debug.Log("starting coroutine");
-        
         if (!isGameOver)
         {
             if(myCoroutine == null)
@@ -397,12 +421,10 @@ public class RefereeScript : NetworkBehaviour
                 if (isClientOnly)
                 {
                     CmdDealDamageToPlayer(enemyDamage);
-                    Debug.Log($"Enemy number {debugCounter} attacked");
                 }
                 else
                 {
                     RpcDealDamageToPlayer(enemyDamage);
-                    Debug.Log($"Enemy number {debugCounter} attacked");
                 }
                 UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 yield return new WaitForSeconds(0.75f);
@@ -451,26 +473,33 @@ public class RefereeScript : NetworkBehaviour
 
     private void SwitchPlayerAttackId()
     {
-        if (targetPlayerId == 1)
+        if(!singlePlayerMode)
         {
-            targetPlayerId = 0;
+            if (targetPlayerId == 1)
+            {
+                targetPlayerId = 0;
+            }
+            else
+            {
+                targetPlayerId++;
+            }
         }
-        else
-        {
-            targetPlayerId++;
-        }
+       
     }
 
     [Command(requiresAuthority = false)]
     private void CmdSwitchPlayerAttackId()
     {
-        if (targetPlayerId == 1)
+        if (!singlePlayerMode)
         {
-            targetPlayerId = 0;
-        }
-        else
-        {
-            targetPlayerId++;
+            if (targetPlayerId == 1)
+            {
+                targetPlayerId = 0;
+            }
+            else
+            {
+                targetPlayerId++;
+            }
         }
     }
 }
