@@ -55,6 +55,7 @@ public class RefereeScript : NetworkBehaviour
     public int randomEnemyCount = 0;
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
 
+    Coroutine myCoroutine = null;
 
     private void Awake()
     {
@@ -368,7 +369,7 @@ public class RefereeScript : NetworkBehaviour
     public void StartForeachEnemyCoroutine()
     {
         Debug.Log("starting coroutine");
-        Coroutine myCoroutine = null;
+        
         if (!isGameOver)
         {
             if(myCoroutine == null)
