@@ -405,6 +405,7 @@ public class RefereeScript : NetworkBehaviour
         {
             CallStartTurnEvent();
         }
+        myCoroutine = null;
     }
 
     [ClientRpc]
