@@ -38,6 +38,7 @@ public class ActiveCardScript : MonoBehaviour
         else
         {
             int diceRoll = Random.Range(1, 21);
+            Debug.Log($"Dice roll was: {diceRoll}, success chance was: {successChanceInteger}");
             if (diceRoll <= successChanceInteger)
             {             
                 return true;                
@@ -61,7 +62,7 @@ public class ActiveCardScript : MonoBehaviour
                 {
                     if (!myEffectUnit.shouldActivateNow)
                     {
-                        myEffectUnit.myEffect.UseEffect<GameObject>(0, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                        myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
                     }      
                 }
             }
@@ -91,7 +92,7 @@ public class ActiveCardScript : MonoBehaviour
             {
                 if(myEffectUnit.shouldActivateNow)
                 {
-                    myEffectUnit.myEffect.UseEffect<GameObject>(0, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                    myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
                     //alreadyActivated = true;
                 }
             }

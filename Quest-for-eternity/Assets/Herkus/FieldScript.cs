@@ -100,7 +100,9 @@ public class FieldScript : MonoBehaviour
                     {
                         FieldClear();
                     }
+                    Debug.Log("missed");
                     return false;
+
                 }
             }
             else
@@ -112,6 +114,8 @@ public class FieldScript : MonoBehaviour
                 {
                     FieldClear();
                 }
+                Debug.Log("no reference found");
+
                 return false;
             }
         }

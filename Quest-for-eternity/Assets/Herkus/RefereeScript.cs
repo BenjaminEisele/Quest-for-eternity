@@ -417,16 +417,23 @@ public class RefereeScript : NetworkBehaviour
             int debugCounter = 0;
             foreach (EnemyScript enemy in enemyList)
             {
-                int enemyDamage = enemy.GenerateAttack();
-                if (isClientOnly)
+                if(enemy.canAttack)
                 {
-                    CmdDealDamageToPlayer(enemyDamage);
+                    int enemyDamage = enemy.GenerateAttack();
+                    if (isClientOnly)
+                    {
+                        CmdDealDamageToPlayer(enemyDamage);
+                    }
+                    else
+                    {
+                        RpcDealDamageToPlayer(enemyDamage);
+                    }
+                    UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 }
                 else
                 {
-                    RpcDealDamageToPlayer(enemyDamage);
+                    enemy.canAttack = true;
                 }
-                UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 yield return new WaitForSeconds(0.75f);
                 debugCounter++;
             }

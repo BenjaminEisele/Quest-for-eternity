@@ -19,18 +19,20 @@ public class EnemyScript : NetworkBehaviour
 
     TextMeshPro enemyHealthText;
     [SerializeField]
-    TextMeshPro enemyNameText;
+    public TextMeshPro enemyNameText; // public temporarily
     [SerializeField]
     GameObject myMarker;
     [SerializeField]
     DatabaseMultiplayer databaseMultiplayerAccess;
 
+    public bool canAttack;
     
 
     
 
     public void EnemySetUp(int myID)
     {
+        canAttack = true;
         specialAttackCounter = 0;
         personalId = myID;
         isEnemyAlive = true;
