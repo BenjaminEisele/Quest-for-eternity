@@ -112,7 +112,7 @@ public class RefereeScript : NetworkBehaviour
 
         if(Input.GetKeyDown(KeyCode.O))
         {
-            SwitchPlayerAttackId();
+            SwitchPlayerAttackIdNest();
         }
 
     }
@@ -408,7 +408,7 @@ public class RefereeScript : NetworkBehaviour
                 yield return new WaitForSeconds(0.75f);
                 debugCounter++;
             }
-            SwitchPlayerAttackId();
+            SwitchPlayerAttackIdNest();
         }
         if (canTransferTurnToPlayer)
         {
@@ -437,7 +437,32 @@ public class RefereeScript : NetworkBehaviour
         }       
     }
     
+    private void SwitchPlayerAttackIdNest()
+    {
+        if (isServer)
+        {
+            SwitchPlayerAttackId();
+        }
+        else
+        {
+            CmdSwitchPlayerAttackId();
+        }
+    }
+
     private void SwitchPlayerAttackId()
+    {
+        if (targetPlayerId == 1)
+        {
+            targetPlayerId = 0;
+        }
+        else
+        {
+            targetPlayerId++;
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdSwitchPlayerAttackId()
     {
         if (targetPlayerId == 1)
         {
