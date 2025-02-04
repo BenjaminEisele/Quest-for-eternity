@@ -82,7 +82,7 @@ public class PlayerScript : NetworkBehaviour
             }
             Invoke("RpcEndTurn", 0.1f);
         }
-        handScriptAccess.UtlCardsPlayedForOtherPlayer = 0;
+        handScriptAccess.utlCardsPlayedForOtherPlayer = 0;
     }
 
     [Command(requiresAuthority = false)]

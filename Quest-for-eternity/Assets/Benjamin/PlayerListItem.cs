@@ -8,9 +8,9 @@ public class PlayerListItem : MonoBehaviour
     public int ConecctionID;
     public ulong PlayerSteamID;
     private bool AvatarRecieved;
-    private Text PlayerNameText;
-    private Text PlayerReadyText;
-    private RawImage PlayerIcon;
+    public Text PlayerNameText;
+    public Text PlayerReadyText;
+    public RawImage PlayerIcon;
     public bool Ready;
     
 
@@ -23,7 +23,7 @@ public class PlayerListItem : MonoBehaviour
 
     public void SetPlayerValues()
     {
-        PlayerNameText.text = PlayerName;
+        PlayerNameText.text = PlayerName; //here
         ChangeReadyStatus();
         if (!AvatarRecieved) { GetPlayerIcon(); }
     }

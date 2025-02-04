@@ -1,8 +1,5 @@
-using UnityEngine;
 using Mirror;
 using Steamworks;
-using UnityEngine.UI;
-using System.Globalization;
 using UnityEngine.SceneManagement;
 
 public class PlayerObjectController : NetworkBehaviour
