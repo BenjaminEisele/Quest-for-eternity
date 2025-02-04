@@ -28,7 +28,7 @@ public class RefereeScript : NetworkBehaviour
     public int waveCount = 0;
 
     [SyncVar]
-    int targetPlayerId = 1;
+    public int targetPlayerId = 1;
 
     public delegate void PreNewWaveAction();
     public static event PreNewWaveAction preNewWaveEvent;
