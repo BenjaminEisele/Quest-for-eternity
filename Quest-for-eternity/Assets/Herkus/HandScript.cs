@@ -61,6 +61,7 @@ public class HandScript : MonoBehaviour
         RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
         TurnScript.endTurnEvent += AddCardsEvent;
         TurnScript.endTurnEvent += RebuildCardListLite;
+        TurnScript.endTurnEvent += ResetQuickAttackMode;
         TurnScript.restartGameEvent += HandReset;
         TurnScript.restartGameEvent += RebuildCardListLite;
         isInQuickAttackMode = false;
@@ -220,12 +221,16 @@ public class HandScript : MonoBehaviour
     {
         if (playerScriptAccess.isThisPlayersTurn)
         {
-            isInQuickAttackMode = false;
+            //isInQuickAttackMode = false;
             canPlayUtility = true;
             SetCardActivityStatus(true, 2);
         }
         ShouldWeDisableCards();
-    }   
+    }
+    public void ResetQuickAttackMode()
+    {
+        isInQuickAttackMode = false;
+    }
     public void SetCardActivityStatus(bool desiredCardStatus, int inputCardType)
     {
         if(inputCardType == 0)
