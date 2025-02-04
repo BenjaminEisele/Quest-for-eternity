@@ -58,17 +58,17 @@ public class DisplayCardScript : MonoBehaviour
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
         cardTextArray[0].text = myDamage.ToString();
-        cardTextArray[1].text = cardTypeName;
-        cardTextArray[2].text = myCardName;
-        cardTextArray[3].text = databasePlayerAccess.cardList[myCardId].cardDescription;
+        //[1].text = cardTypeName;
+        cardTextArray[1].text = myCardName;
+        cardTextArray[2].text = databasePlayerAccess.cardList[myCardId].cardDescription;
         if (isActionCard)
         {
             hitRateString = myCardHitRate * 100 + " %";
-            cardTextArray[4].text = hitRateString;
+            cardTextArray[3].text = hitRateString;
         }
         else
         {
-            cardTextArray[4].gameObject.GetComponent<MeshRenderer>().enabled = false;
+            cardTextArray[3].gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
