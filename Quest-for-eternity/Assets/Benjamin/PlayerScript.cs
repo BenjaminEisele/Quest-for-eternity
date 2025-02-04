@@ -84,7 +84,7 @@ public class PlayerScript : NetworkBehaviour
         }
         handScriptAccess.utlCardsPlayedForOtherPlayer = 0;
     }
-
+    
     [Command(requiresAuthority = false)]
     public void CmdDealDamage(int inputDamage, int target)
     {
@@ -133,7 +133,29 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.isServersTurn = false;
         }
     }
+    public void DealDamagePlayerScript()
+    {
+        if (!isServer)
+        {
+            if (fieldScriptAccess.CheckIfHitAndShouldClearField(false))
+            {
+                int target = RefereeScript.instance.chosenEnemyId;
+                damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                CmdDealDamage(damageThisRound, target);
 
+            }
+        }
+        else if (isServer)
+        {
+
+            if (fieldScriptAccess.CheckIfHitAndShouldClearField(false))
+            {
+                int target = RefereeScript.instance.chosenEnemyId;
+                damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                RpcDealDamage(damageThisRound, target);
+            }
+        }
+    }
     public void BeginPreNewWaveCall()
     {
         Debug.Log(transform.root.gameObject.name);
