@@ -26,11 +26,8 @@ public class UiScript : MonoBehaviour
 
     private void Start()
     {
-        //fieldDamageText = GetComponentInChildren<TextMeshPro>();
-        //turnInfoText = GetComponentInChildren<TextMeshPro>();
         uiTextArray = GetComponentsInChildren<TextMeshPro>();
         UpdateTurnInfo(0);
-        //Debug.Log(uiTextArray[1].gameObject.name);
     }
     public static void UpdateFighterText(TextMeshPro changedText, int value)
     {
@@ -40,28 +37,20 @@ public class UiScript : MonoBehaviour
     public static void UpdateTurnInfo(int inputInfo)
     {
         string turnInfoString = "";
-        //if(uiTextArray.Length > 0)
-        //{
+
             if (inputInfo == 0)
             {
-                // Debug.Log("GGGGGGGGGG");
                 turnInfoString = "your";
-                //turnInfoString = "the enemy's";
             }
             else
             {
-                // EditorApplication.isPaused = true;  
-                // Debug.Log("RURRU");
                 turnInfoString = "the enemy's";
             }
-            //!!!!!!!!!!!!!!!!!!!!!!
             uiTextArray[1].text = $"It is {turnInfoString} turn!";
-        //}   
     }
 
     public static void UpdateFieldDamageText(string inputString, bool isPlayerAttacking)
     {
-        //!!!!!!!!!!!!!!!!!!!!!!
         string attackerName;
         if(isPlayerAttacking)
         {
@@ -80,7 +69,6 @@ public class UiScript : MonoBehaviour
     }
     public static void UpdateGameOverText(string inputString)
     {
-        //!!!!!!!!!!!!!!!!!!!!!!
         uiTextArray[2].text = inputString;
     }
     public void ToggleShuffleWindow(bool inputBool)

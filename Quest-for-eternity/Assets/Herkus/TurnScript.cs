@@ -3,12 +3,12 @@ using Mirror;
 
 public class TurnScript : MonoBehaviour
 {
-    public FieldScript fieldScriptAccess;
-    public HandScript handScriptAccess;
-    public PlayerScript playerScriptAccess;
-    public UiScript uiScriptAccess;
     [SerializeField]
-    //[SyncVar]
+    HandScript handScriptAccess;
+    PlayerScript playerScriptAccess;
+    [SerializeField]
+    UiScript uiScriptAccess;
+    [SerializeField]
     [HideInInspector]
     public bool isPlayersTurn;
 
@@ -42,20 +42,53 @@ public class TurnScript : MonoBehaviour
         {
             isSinglePlayer = true;
         }
-        
-        
         endTurnEvent += TransferTurnToEnemy;
-        //ShouldStartPlayerTurn(true);
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
     }
-    
-
-    public bool GetPlayerTurnBool()
+    private void Update()
     {
-        return isPlayersTurn;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isSinglePlayer)
+            {
+                if (isPlayersTurn)
+                {
+                    CallEndTurnEvent();
+                }
+            }
+            else
+            {
+                if (playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isOwned)
+                {
+                    CallEndTurnEvent();
+                }
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            CallRestartGameEvent();
+        }
     }
-
+    public void CallEndTurnEvent()
+    {
+        if (playerScriptAccess.isThisPlayersTurn)
+        {
+            if (endTurnEvent != null)
+            {
+                endTurnEvent();
+            }
+            uiScriptAccess.ChangeEndTurnButtonStatus(false);
+        }
+    }
+    private void CallRestartGameEvent()
+    {
+        if(restartGameEvent != null)
+        {
+            restartGameEvent();
+        }
+        isPlayersTurn = true;
+    }
     public void SetPlayerTurnBool(bool inputBool)
     {
         isPlayersTurn = inputBool;
@@ -94,78 +127,5 @@ public class TurnScript : MonoBehaviour
         handScriptAccess.HandReset();
         RefereeScript.instance.RefereeReset();
         isPlayersTurn = true;
-    }
-
-    /*public void EndTurn()
-    {
-        if (!isServer)
-        {
-            CmdEndTurn();
-        }
-
-        else if (isServer)
-        {
-            TurnManagerMultiplayer.Instance.EndTurn();
-        }
-
-    }*/
-
-    private void Update()
-    {
-
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if(isSinglePlayer)
-            {
-                if (isPlayersTurn)
-                {
-                    CallEndTurnEvent();
-                }
-            }
-            else
-            {
-                if (playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isOwned)
-                {
-                    CallEndTurnEvent();
-                    /*
-                    EndPlayersTurn();
-                    handScriptAccess.AddCardsToHand(0);
-                    fieldScriptAccess.FieldClearAndDealDamage(true);
-                    Debug.Log(transform.parent.parent.name);
-                    playerScriptAccess.EndTurnPlayerScript();
-                    */
-                }
-            }
-          
-        }
-        else if(Input.GetKeyDown(KeyCode.R))
-        {
-            //RestartGame();
-            CallRestartGameEvent();
-        }
-    }
-    
-    private void CallRestartGameEvent()
-    {
-        restartGameEvent();
-        isPlayersTurn = true;
-    }
-    public void CallEndTurnEvent()
-    {
-        Debug.Log("end turn event called");
-        if (playerScriptAccess.isThisPlayersTurn)
-        {
-            if (endTurnEvent != null)
-            {
-                endTurnEvent();
-            }
-            uiScriptAccess.ChangeEndTurnButtonStatus(false);
-        }        
-    }
-    /*[Command]
-    public void CmdEndTurn()
-    {
-        TurnManagerMultiplayer.Instance.EndTurn();
-    }*/
+    } 
 }

@@ -5,15 +5,12 @@ using Mirror;
 
 public class RefereeScript : NetworkBehaviour
 {
-    public EnemyScript targetEnemy; 
-
     public List<EnemyScript> enemyList;
 
-    //[SerializeField]
-    public EnemyGenerator ennemyGeneratorAccess;
+    public EnemyGenerator enemyGeneratorAccess;
 
     private bool isGameOver;
-    public bool areAllEnemiesDead;
+    private bool areAllEnemiesDead;
     [SyncVar]
     public bool canTransferTurnToPlayer;
 
@@ -24,15 +21,13 @@ public class RefereeScript : NetworkBehaviour
     public GameObject lostImage;
     public GameObject winImage;
 
+    [HideInInspector]
     public int chosenEnemyId;
     [SyncVar]
     public int waveCount = 0;
 
     [SyncVar]
     int targetPlayerId = 1;
-
-    //[SerializeField]
-    //ChooseNewCardScript chooseNewCardAccess;
 
     public delegate void PreNewWaveAction();
     public static event PreNewWaveAction preNewWaveEvent;
@@ -53,8 +48,6 @@ public class RefereeScript : NetworkBehaviour
 
     public static RefereeScript instance;
 
-    public int hostId;
-    public int clientId;
 
     [SyncVar]
     int[] randomNumbers = new int[4];
@@ -65,46 +58,16 @@ public class RefereeScript : NetworkBehaviour
 
     private void Awake()
     {
-        Debug.Log("Referee Awake");
-        Debug.Log(Time.frameCount);
         instance = this;        
     }
 
     private void Start()
     {
-        /*if (playerScripts != null)
-        {
-            Debug.Log(playerScripts.Length);
-            foreach (GameObject script in playerScripts)
-            {
-                if (script != null)
-                {
-                    Destroy(script);
-                }
-            }
-        } */
-        //playerScripts = null;
-        
-        /*Scene scene = SceneManager.GetActiveScene();
-        scene.GetRootGameObjects(rootObjectsInScene);
-
-        for (int i = 0; i < rootObjectsInScene.Count; i++)
-        {
-            if (rootObjectsInScene[i].GetComponentInChildren<PlayerScript>() != null)
-            {
-                allComponents.Add(rootObjectsInScene[i].GetComponentInChildren<PlayerScript>(true));
-            }
-
-        }*/
-
         if (playerScripts == null)
         {
-            Debug.Log("playerScripts not null");
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
-
             SetPlayerList(playerScripts);
         }
-        Debug.Log("Referee Start");       
         
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
@@ -115,99 +78,31 @@ public class RefereeScript : NetworkBehaviour
         if (card == null)
         {
             card = GameObject.FindGameObjectsWithTag("Cards");
-            Debug.Log("test cards");
             DeactivateCards(card);
         }
         if (button == null)
         {
             button = GameObject.FindGameObjectsWithTag("EndTurnButton");
-            Debug.Log("test buttons");
             DeactivateButton(button);
         }
         if (mainCamera == null)
         {
             mainCamera = GameObject.FindGameObjectsWithTag("MainCamera");
-            Debug.Log("test cameras");
             DeactivateCamera(mainCamera);
         }
         if (playerHealth == null)
         {
             playerHealth = GameObject.FindGameObjectsWithTag("Health");
-            Debug.Log("test health");
             DeactivateHealth(playerHealth);
         }
-        //ennemyGeneratorAccess.RandomNumber(1);
-        //newWaveEvent += RandomizeChooseCardsSetUp;
-        //enemyList.Add(targetEnemy);
-        //restartGameButton.SetActive(false);
-        //winImage.SetActive(false);
-        //lostImage.SetActive(false);
-        // turnStartEvent();
     }
-
-
-    public void CallEndTurnForBothPlayers()
-    {
-        canTransferTurnToPlayer = true;
-        for (int i = 0; i < 2; i++)
-        {
-            //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-            playerList[i].EndTurnPlayerScript();
-        }
-    }
-
-    [Command(requiresAuthority = false)]
-    public void CmdCallEndTurnForBothPlayers()
-    {
-        /*for (int i = 0; i < 2; i++)
-        {
-
-            playerList[i].EndTurnPlayerScript();
-        }*/
-        //RpcEndTurnCall();
-        //playerList[i].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-        canTransferTurnToPlayer = true;
-        CallEndTurnForBothPlayers();
-    }
-
-    [ClientRpc]
-    public void RpcEndTurnCall()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            
-            playerList[i].EndTurnPlayerScript();
-        }
-        //RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<TurnScript>().CallEndTurnEvent();
-    }
-
-
-
-    [Command(requiresAuthority = false)]
-    private void CmdEndTurnCall()
-    {
-        RpcEndTurnCall();
-    }
-    private void EndTurnLogic()
-    {
-        /*for (int i = 0; i < 2; i++)
-        {
-            playerList[i].EndTurnPlayerScript();
-        } */
-        
-    }
-
-
-
-    
-    
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             ChooseNewEnemy(1);
         }
-        else if(Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             ChooseNewEnemy(-1);
         }
@@ -218,14 +113,40 @@ public class RefereeScript : NetworkBehaviour
     {
         foreach (GameObject Script in Scripts)
         {
-            Debug.Log("add players");
             playerList.Add(Script.GetComponent<PlayerScript>());
         }
-        Debug.Log("generate numbers");
         RandomNumbersSetUpRoot();
-        ennemyGeneratorAccess.GenerateEnemies(1);
+        enemyGeneratorAccess.GenerateEnemies(1);
+    }
+    public void RandomNumbersSetUpRoot()
+    {
+        DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
+        if (isServer)
+        {
+            if (databasePlayerAccess != null)
+            {
+                RandomNumberGeneration(databasePlayerAccess.cardList.Count);
+            }
+        }
+    }
+    public void RandomNumberGeneration(int maximumValue)
+    {
+        displayCardIdList.Clear();
+        if (isServer)
+        {
+            randomEnemyCount = Random.Range(2, 4);
+            enemyGeneratorAccess.RandomNumber(randomEnemyCount);
+            for (int i = 0; i < 4; i++)
+            {
+                displayCardIdList.Add(Random.Range(0, maximumValue));
+            }
+        }
     }
 
+    public int GetRandomNumber(int inputIndex)
+    {
+        return displayCardIdList[inputIndex];
+    }
     private void DeactivateHealth(GameObject[] health)
     {
         if (isServer)
@@ -279,7 +200,29 @@ public class RefereeScript : NetworkBehaviour
             }
         } 
     }
+    public void CallStartTurnEvent()
+    {
+        if (turnStartEvent != null)
+        {
+            turnStartEvent();
+        }
+        TurnScript.instance.ShouldStartPlayerTurn(true);
+    }
+    public void CallEndTurnForBothPlayers()
+    {
+        canTransferTurnToPlayer = true;
+        for (int i = 0; i < 2; i++)
+        {
+            playerList[i].EndTurnPlayerScript();
+        }
+    }
 
+    [Command(requiresAuthority = false)]
+    public void CmdCallEndTurnForBothPlayers()
+    {
+        canTransferTurnToPlayer = true;
+        CallEndTurnForBothPlayers();
+    }
     public void ResetChosenEnemy()
     {
         foreach(EnemyScript enemy in enemyList)
@@ -287,7 +230,6 @@ public class RefereeScript : NetworkBehaviour
             enemy.ChangeSelectedStatus(false);
         }
         chosenEnemyId = 0;
-        targetEnemy = enemyList[chosenEnemyId];
         enemyList[chosenEnemyId].ChangeSelectedStatus(true);
     }
     private void ChooseNewEnemy(int inputDirection)
@@ -305,32 +247,71 @@ public class RefereeScript : NetworkBehaviour
         {
             chosenEnemyId = enemyList.Count - 1;
         }
-
-
-        targetEnemy = enemyList[chosenEnemyId];
         enemyList[chosenEnemyId].ChangeSelectedStatus(true);
+    }
+    public void NewWaveCheck()
+    {
+        areAllEnemiesDead = true;
+        foreach (EnemyScript enemy in enemyList)
+        {
+            if (enemy.enemyHealth > 0)
+            {
+                areAllEnemiesDead = false;
+            }
+        }
+        if (areAllEnemiesDead)
+        {
+
+            canTransferTurnToPlayer = false;
+            if (playerList[0].isThisPlayersTurn)
+            {
+                playerList[0].BeginPreNewWaveCall();
+            }
+            else
+            {
+                playerList[1].BeginPreNewWaveCall();
+            }
+        }
+    }
+    public void CallPreNewWaveEvent()
+    {
+        if (isServer)
+        {
+            if (waveCount < 3)
+            {
+                if (preNewWaveEvent != null)
+                {
+                    preNewWaveEvent();
+                    waveCount++;
+                }
+            }
+            else
+            {
+                EndGame(true);
+            }
+        }
     }
     private void EndGame(bool didPlayerWin)
     {
         TurnScript.instance.SetPlayerTurnBool(false);
-        Debug.Log("game end");
         isGameOver = true;
-        //string winnerName;
         if(didPlayerWin)
         {
-            //winnerName = "The player";
             winImage.SetActive(true);
         }
         else
         {
-            //winnerName = "The enemy";
             lostImage.SetActive(true);
         }
-        //UiScript.UpdateGameOverText($"Game over! {winnerName} is victorious!");
         restartGameButton.SetActive(true);
     }
-
-
+    public void CallNewWaveEvent()
+    {
+        if (newWaveEvent != null)
+        {
+            newWaveEvent();
+        }
+    }
     public void StartNextWaveInitalize()
     {
         if(isClientOnly)
@@ -354,86 +335,30 @@ public class RefereeScript : NetworkBehaviour
     }
     private void StartNextWaveLogic(bool shouldStartEvents)
     {
-        //Debug.Log("new wave!");
         areAllEnemiesDead = false;
         foreach (EnemyScript enemy in enemyList)
         {
-            // enemy.gameObject.SetActive(false);
             Destroy(enemy.gameObject);
         }
         enemyList.Clear();
         if(waveCount == 3)
         {
-            Debug.Log("Spawning necromancer");
-            ennemyGeneratorAccess.GenerateEnemies(1);
+            enemyGeneratorAccess.GenerateEnemies(1);
         }
         else
         {
-            Debug.Log("Spawning regular enemies");
-            ennemyGeneratorAccess.GenerateEnemies(randomEnemyCount);
+            enemyGeneratorAccess.GenerateEnemies(randomEnemyCount);
         }
-        
-        //ResetChosenEnemy();
-
         if (shouldStartEvents)
         {
-            Debug.Log("new wave method beginning reached");
             CallNewWaveEvent();   
         }
     }
-    public void CallPreNewWaveEvent()
-    {
-        if (isServer)
-        {
-               if (waveCount < 3)
-               {
-                   if (preNewWaveEvent != null)
-                   {
-                       //Debug.Log("pre new wave event called");
-                       preNewWaveEvent();
-                       waveCount++;
-                   }
-               }
-               else
-               {
-                   EndGame(true);
-               }         
-        }
-        
-       
-    }
-    public void CallNewWaveEvent()
-    {
-        if (newWaveEvent != null)
-        {
-            Debug.Log("calling new wave event");
-            newWaveEvent();
-        }
-    }
-
-    public void CallStartTurnEvent()
-    {
-        //canTransferTurnToPlayer = true;
-        Debug.Log("can transfer turn should be true it is: " + canTransferTurnToPlayer);
-        if (turnStartEvent != null)
-        {
-            turnStartEvent();
-        }
-        else
-        {
-            Debug.Log("turn start event fail");
-        }
-        TurnScript.instance.ShouldStartPlayerTurn(true);
-    }
+    
     public void RefereeReset()
     {
         isGameOver = false;
-        /*foreach (EnemyScript enemy in enemyList)
-        {
-            enemy.ResetEnemy();
-        } */
         StartNextWaveInitalize();
-        PlayerStatScript.instance.ResetPlayer();
     }
     public bool GetIsGameOver()
     {
@@ -444,73 +369,32 @@ public class RefereeScript : NetworkBehaviour
         if(!isGameOver)
         {
             StartCoroutine(ForeachEnemyTurnCoroutine());
-
-            Debug.Log("zzoz");//ar galima sitoj vietoj padaryti kad visa logika eitu tik per turn script puse?
         }
     }
-
-    public void RandomNumberGeneration(int maximumValue)
+    private IEnumerator ForeachEnemyTurnCoroutine()
     {
-        displayCardIdList.Clear();
-        if (isServer)
+        yield return new WaitForSeconds(0.25f);
+        if (!areAllEnemiesDead)
         {
-            randomEnemyCount = Random.Range(2, 4);
-            ennemyGeneratorAccess.RandomNumber(randomEnemyCount);           
-            for (int i = 0; i < 4; i++)
+            foreach (EnemyScript enemy in enemyList)
             {
-                displayCardIdList.Add(Random.Range(0, maximumValue));
-            }
-        }        
-    }
-
-    public int GetRandomNumber(int inputIndex)
-    {
-        return displayCardIdList[inputIndex];
-    }
-    public void NewWaveCheck()
-    {
-        Debug.Log("New Wave check activated");
-        areAllEnemiesDead = true;
-        foreach (EnemyScript enemy in enemyList)
-        {
-            if (enemy.enemyHealth > 0)
-            {
-                areAllEnemiesDead = false;
+                int enemyDamage = enemy.GenerateAttack();
+                if (isClientOnly)
+                {
+                    CmdDealDamageToPlayer(enemyDamage);
+                }
+                else
+                {
+                    RpcDealDamageToPlayer(enemyDamage);
+                }
+                UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
+                yield return new WaitForSeconds(0.75f);
             }
         }
-        if (areAllEnemiesDead)
+        if (canTransferTurnToPlayer)
         {
-            
-
-            canTransferTurnToPlayer = false;
-            if (playerList[0].isThisPlayersTurn)
-            {
-                playerList[0].BeginPreNewWaveCall();
-            }
-            else
-            {
-                playerList[1].BeginPreNewWaveCall();
-            }   
-            //CallPreNewWaveEvent();
+            CallStartTurnEvent();
         }
-    }
-
-    public void RandomNumbersSetUpRoot()
-    {    
-        DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
-        if(isServer)
-        {
-            if (databasePlayerAccess != null)
-            {
-                RandomNumberGeneration(databasePlayerAccess.cardList.Count);
-            }
-            else
-            {
-                Debug.Log("databasePlayerAccess was null!");
-
-            }
-        }
-   
     }
 
     [ClientRpc]
@@ -540,30 +424,5 @@ public class RefereeScript : NetworkBehaviour
             targetPlayerId++;
         }
     }
-    private IEnumerator ForeachEnemyTurnCoroutine()
-    {
-        yield return new WaitForSeconds(0.25f);
-        if (!areAllEnemiesDead)
-        {
-            foreach (EnemyScript enemy in enemyList)
-            {
-                int enemyDamage = enemy.GenerateAttack();
-                if(isClientOnly)
-                {
-                    CmdDealDamageToPlayer(enemyDamage);
-                }
-                else
-                {
-                    RpcDealDamageToPlayer(enemyDamage);
-                }
-                
-                UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
-                yield return new WaitForSeconds(0.75f);
-            }
-        }
-        if(canTransferTurnToPlayer)
-        {
-            CallStartTurnEvent(); 
-        }
-    }
+    
 }

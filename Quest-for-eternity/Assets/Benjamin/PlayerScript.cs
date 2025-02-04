@@ -40,7 +40,6 @@ public class PlayerScript : NetworkBehaviour
                         isHost = true;
 
                         EndTurnButton.interactable = true;
-                        RefereeScript.instance.hostId = RefereeScript.instance.playerList.Count - 1;
                         handScriptAccess.ActivateAllCardsEvent();
                     }
                     else 
@@ -48,7 +47,6 @@ public class PlayerScript : NetworkBehaviour
                         isThisPlayersTurn = false;
                         isHost = false;
                         EndTurnButton.interactable = false;
-                        RefereeScript.instance.clientId = RefereeScript.instance.playerList.Count - 1;
                     }
                 }
                 TurnScript.endTurnEvent += EndTurnPlayerScript;

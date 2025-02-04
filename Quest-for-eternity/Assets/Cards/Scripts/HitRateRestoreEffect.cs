@@ -9,8 +9,6 @@ public class HitRateRestoreEffect : EffectTemplate
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
-            //inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SetUtilityCardStatus(false);
-            //inputGameobject.GetComponent<SceneObjectDatabase>().fieldScriptReference.hitRateModifier += effectValue;
             inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.ChangeAllVisualHitrates(true, 0);
         }
     }
