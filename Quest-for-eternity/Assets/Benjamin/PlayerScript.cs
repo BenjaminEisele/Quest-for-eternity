@@ -9,8 +9,6 @@ public class PlayerScript : NetworkBehaviour
     [SerializeField]
     private Button EndTurnButton;
     [SerializeField]
-    EnemyScript enemyScriptAccess;
-    [SerializeField]
     FieldScript fieldScriptAccess;
     public bool shouldDealDamage;
     [SyncVar]
