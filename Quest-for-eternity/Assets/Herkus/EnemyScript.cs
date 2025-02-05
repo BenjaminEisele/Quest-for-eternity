@@ -99,7 +99,7 @@ public class EnemyScript : NetworkBehaviour
 
         if (isEnemyAlive)
         {
-            if (specialAttackCounter >= 2)
+            if (specialAttackCounter >= 2 && isBoss)
             {
                 EnemySpawnLogic();
                 //canAttack = false;
@@ -114,8 +114,12 @@ public class EnemyScript : NetworkBehaviour
         {
            myDamage = 0;
         }
-        specialAttackCounter++;
-        RefereeScript.instance.SpecialAttackCounterNest(false);
+        //specialAttackCounter++;
+        if(isBoss)
+        {
+            RefereeScript.instance.SpecialAttackCounterNest(false);
+        }
+        
         return myDamage;
     }
 

@@ -565,6 +565,7 @@ public class RefereeScript : NetworkBehaviour
     public void EnemyGenerationNest()
     {
         enemyGeneratorAccess.GenerateEnemies(1, true);
+        enemyList[0].specialAttackCounter++;
         if (isServer)
         {
             RpcGenerateEnemy();
