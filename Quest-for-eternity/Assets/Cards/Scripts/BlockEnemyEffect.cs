@@ -11,7 +11,11 @@ public class BlockEnemyEffect : EffectTemplate
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             Debug.Log($"{RefereeScript.instance.enemyList[targetId].enemyNameText.text} is blocked");
-            RefereeScript.instance.enemyList[targetId].canAttack = false;
+            foreach(EnemyScript enemy in RefereeScript.instance.enemyList)
+            {
+                enemy.canAttack = false;
+            }
+            //RefereeScript.instance.enemyList[targetId].canAttack = false;
             /*SceneObjectDatabase sceneObjectDatabaseAccess = inputGameobject.GetComponent<SceneObjectDatabase>();
             // sceneObjectDatabaseAccess.playerStatReference.playerHealth += (int)effectValue;
             sceneObjectDatabaseAccess.playerStatReference.ChangePlayerHealth((int)effectValue);
