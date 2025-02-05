@@ -444,10 +444,6 @@ public class RefereeScript : NetworkBehaviour
         }
         if (canTransferTurnToPlayer)
         {
-            foreach(PlayerScript player in playerList)
-            {
-                player.isPlayersTurnLocal = !player.isPlayersTurnLocal;
-            }
             CallStartTurnEvent();
         }
         myCoroutine = null;
