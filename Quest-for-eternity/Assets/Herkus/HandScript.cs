@@ -205,6 +205,7 @@ public class HandScript : MonoBehaviour
     {
         if (utilityCount > 5 && utlCardsPlayedForOtherPlayer > 2)
         {
+            Debug.Log("is this where the bug is!?");
             SetCardActivityStatus(false, 0);
             canPlayUtility = false;
         }
@@ -304,7 +305,7 @@ public class HandScript : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         playerScriptAccess.DealDamagePlayerScript();
         isInQuickAttackMode = false;
-        //SetCardActivityStatus(true, 0);
+        SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();
         canInteract = true;
     }
