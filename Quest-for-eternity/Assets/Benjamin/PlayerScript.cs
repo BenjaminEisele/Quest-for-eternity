@@ -207,10 +207,8 @@ public class PlayerScript : NetworkBehaviour
             Debug.Log("Pre new wave");
             RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
             RefereeScript.instance.CallPreNewWaveEvent();
-            //turnScriptAccess.CallEndTurnEvent();
             shouldDealDamageSingle = false;
             EndTurnPlayerScript();
-            //CallNewCardsAsServer();
         }
         
     }

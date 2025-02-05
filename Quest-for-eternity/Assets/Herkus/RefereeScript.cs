@@ -540,4 +540,38 @@ public class RefereeScript : NetworkBehaviour
     {
        enemyList[0].specialAttackCounter++;
     }
+
+    public void EnemyGenerationNest()
+    {
+        if (isServer)
+        {
+            RpcGenerateEnemy();
+        }
+        else
+        {
+            CmdGenerateEnemy();
+        }
+    }
+
+    [ClientRpc]
+    private void RpcGenerateEnemy()
+    {
+        if (isClientOnly)
+        {
+            enemyGeneratorAccess.GenerateEnemies(1, true);
+        }
+    }
+    [Command(requiresAuthority = false)]
+    private void CmdGenerateEnemy()
+    {
+        //RefereeScript.instance.playerList[0].
+        //RpcGenerateEnemy();
+        enemyGeneratorAccess.GenerateEnemies(1, true);
+
+    }
+    [ClientRpc]
+    public void SpawnEnemyAsServer(int inputDamage2, int target)
+    {
+        RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
+    }
 }

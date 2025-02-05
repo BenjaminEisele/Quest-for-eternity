@@ -81,6 +81,7 @@ public class EnemyScript : NetworkBehaviour
         if(RefereeScript.instance.enemyList.Count >= 2)
         {
             //heal enemy
+            RefereeScript.instance.EnemyGenerationNest();
         }
         else
         {
