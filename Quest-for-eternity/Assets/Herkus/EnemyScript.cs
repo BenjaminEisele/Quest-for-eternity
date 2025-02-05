@@ -109,34 +109,8 @@ public class EnemyScript : NetworkBehaviour
            myDamage = 0;
         }
         specialAttackCounter++;
-        SpecialAttackCounterNest();
+        RefereeScript.instance.SpecialAttackCounterNest();
         return myDamage;
     }
 
-    private void SpecialAttackCounterNest()
-    {
-        if (isServer)
-        {
-            RpcAttackCounter();
-        }
-        else 
-        {
-            CmdAttackCounter();
-        }
-    }
-
-    [ClientRpc]
-    private void RpcAttackCounter()
-    {
-        if (isClientOnly)
-        {
-            RefereeScript.instance.enemyList[0].specialAttackCounter++;
-        }
-    }
-
-    [Command]
-    private void CmdAttackCounter()
-    {
-        RefereeScript.instance.enemyList[0].specialAttackCounter++;
-    }
 }

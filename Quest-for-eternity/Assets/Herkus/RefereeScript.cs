@@ -513,4 +513,31 @@ public class RefereeScript : NetworkBehaviour
             }
         }
     }
+
+    public void SpecialAttackCounterNest()
+    {
+        if (isServer)
+        {
+            RpcAttackCounter();
+        }
+        else
+        {
+            CmdAttackCounter();
+        }
+    }
+
+    [ClientRpc]
+    private void RpcAttackCounter()
+    {
+        if (isClientOnly)
+        {
+            enemyList[0].specialAttackCounter++;
+        }
+    }
+
+    [Command]
+    private void CmdAttackCounter()
+    {
+            enemyList[0].specialAttackCounter++;
+    }
 }
