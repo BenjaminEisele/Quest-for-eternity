@@ -4663,7 +4663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc65039d4c58e44837574a473487eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
   playerHealthOffset: 0
 --- !u!1 &4040827880684808312
 GameObject:
@@ -5056,9 +5055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed983ed28af9ad544b04d6c82f5a2a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldScriptAccess: {fileID: 5498560621881706503}
   handScriptAccess: {fileID: 4716527281068523202}
-  playerScriptAccess: {fileID: 1214735220539923461}
   uiScriptAccess: {fileID: 8797810155221267089}
   isPlayersTurn: 0
   deckManagerAccess: {fileID: 7267443404813897993}
@@ -10938,5 +10935,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc65039d4c58e44837574a473487eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
   playerHealthOffset: 0

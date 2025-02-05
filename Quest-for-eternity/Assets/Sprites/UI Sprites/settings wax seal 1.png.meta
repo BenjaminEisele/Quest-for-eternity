@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 80f33abb44e2423498947148a7d5c626
+guid: 67a53625ed8ee7044b2d9470bc4629f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7737104240736329172
-    second: settings2_0
+      213: 2123769731335245183
+    second: settings wax seal 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: settings2_0
+      name: settings wax seal 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3840
-        height: 4712
+        x: 106
+        y: 45
+        width: 1725
+        height: 1676
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c222ebc9fa840a490800000000000000
-      internalID: -7737104240736329172
+      spriteID: f7dc6f48155297d10800000000000000
+      internalID: 2123769731335245183
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      settings2_0: -7737104240736329172
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
