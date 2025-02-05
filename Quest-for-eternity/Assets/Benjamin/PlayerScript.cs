@@ -74,7 +74,7 @@ public class PlayerScript : NetworkBehaviour
     }
     public void EndTurnPlayerScript()
     {
-        isPlayersTurnLocal = !isPlayersTurnLocal;
+        //isPlayersTurnLocal = !isPlayersTurnLocal;
         handScriptAccess.DisableAllCardsEvent();
         if (!isServer)
         {
