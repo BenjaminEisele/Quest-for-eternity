@@ -32,21 +32,33 @@ public class EnemyGenerator : NetworkBehaviour
             }        
     }
 
-    public void GenerateEnemies(int howManyEnemies)
+    public void GenerateEnemies(int howManyEnemies, bool shouldSpawnSkeleton)
     {
         Vector3 enemyPosition = spawnerPos.position;
         for (int i = 0; i < howManyEnemies; i++)
         {   
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
             enemyClone.SetActive(true);
-            if (refereeScriptAccess.waveCount == 0)
+            if(shouldSpawnSkeleton)
             {
                 enemyClone.GetComponent<EnemyScript>().EnemySetUp(0);
             }
             else
             {
-                enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
+                if (refereeScriptAccess.waveCount == 0)
+                {
+                    enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
+                }
+                else if (refereeScriptAccess.waveCount == 3)
+                {
+                    enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
+                }
+                else
+                {
+                    enemyClone.GetComponent<EnemyScript>().EnemySetUp(enemyIdList[i]);
+                }
             }
+            
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
             enemyPosition += new Vector3(4, 0, 0);                  
         }

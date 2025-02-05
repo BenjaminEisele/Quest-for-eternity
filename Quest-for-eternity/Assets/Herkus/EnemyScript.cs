@@ -24,6 +24,10 @@ public class EnemyScript : NetworkBehaviour
     GameObject myMarker;
     [SerializeField]
     DatabaseMultiplayer databaseMultiplayerAccess;
+    [SerializeField]
+    EnemyGenerator enemyGeneratorAccess;
+
+
 
     public bool canAttack;
     
@@ -70,13 +74,36 @@ public class EnemyScript : NetworkBehaviour
     {
         myMarker.SetActive(inputBool);
     }
+    private void EnemySpawnLogic()
+    {
+        specialAttackCounter = 0;
+        if(RefereeScript.instance.enemyList.Count >= 2)
+        {
+
+        }
+        else
+        {
+            enemyGeneratorAccess.GenerateEnemies(1, true);
+        }
+    }
     public int GenerateAttack()
     {
        int myDamage;
+       
+
        if (isEnemyAlive)
        {
-           myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
-       }
+            if (specialAttackCounter >= 2)
+            {
+                EnemySpawnLogic();
+                myDamage = 0;
+            }
+            else
+            {
+                myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
+
+            }
+        }
        else
        {
            myDamage = 0;

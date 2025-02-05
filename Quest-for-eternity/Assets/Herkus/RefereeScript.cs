@@ -141,7 +141,7 @@ public class RefereeScript : NetworkBehaviour
             playerList.Add(Script.GetComponent<PlayerScript>());
         }
         RandomNumbersSetUpRoot();
-        enemyGeneratorAccess.GenerateEnemies(1);
+        enemyGeneratorAccess.GenerateEnemies(1, false);
     }
     public void RandomNumbersSetUpRoot()
     {
@@ -159,7 +159,7 @@ public class RefereeScript : NetworkBehaviour
         displayCardIdList.Clear();
         if (isServer)
         {
-            randomEnemyCount = Random.Range(2, 4);
+            randomEnemyCount = Random.Range(2, 3);
             enemyGeneratorAccess.RandomNumber(randomEnemyCount);
             for (int i = 0; i < 4; i++)
             {
@@ -381,11 +381,11 @@ public class RefereeScript : NetworkBehaviour
         enemyList.Clear();
         if(waveCount == 3)
         {
-            enemyGeneratorAccess.GenerateEnemies(1);
+            enemyGeneratorAccess.GenerateEnemies(1, false);
         }
         else
         {
-            enemyGeneratorAccess.GenerateEnemies(randomEnemyCount);
+            enemyGeneratorAccess.GenerateEnemies(randomEnemyCount, false);
         }
         if (shouldStartEvents)
         {
