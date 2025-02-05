@@ -418,12 +418,13 @@ public class RefereeScript : NetworkBehaviour
         if (!areAllEnemiesDead)
         {
             int debugCounter = 0;
-            foreach (EnemyScript enemy in enemyList)
+            int loopCount = enemyList.Count;
+            for (int i = 0; i < loopCount; i++)
             {
-                if(enemy.canAttack)
+                if(enemyList[i].canAttack)
                 {   
                     //enemyList[0].specialAttackCounter++;
-                    int enemyDamage = enemy.GenerateAttack();
+                    int enemyDamage = enemyList[i].GenerateAttack();
                     if (isClientOnly)
                     {
                         CmdDealDamageToPlayer(enemyDamage);
@@ -436,7 +437,7 @@ public class RefereeScript : NetworkBehaviour
                 }
                 else
                 {
-                    enemy.canAttack = true;
+                    enemyList[i].canAttack = true;
                 }
                 yield return new WaitForSeconds(0.75f);
                 debugCounter++;
