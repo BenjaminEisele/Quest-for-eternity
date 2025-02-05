@@ -8,8 +8,7 @@ public class TurnScript : MonoBehaviour
     PlayerScript playerScriptAccess;
     [SerializeField]
     UiScript uiScriptAccess;
-    [SerializeField]
-    [HideInInspector]
+
     public bool isPlayersTurn;
 
     [SerializeField]
