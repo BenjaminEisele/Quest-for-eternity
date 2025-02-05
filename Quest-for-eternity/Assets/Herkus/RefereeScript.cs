@@ -535,9 +535,9 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    [Command]
+    [Command(requiresAuthority = false)]
     private void CmdAttackCounter()
     {
-            enemyList[0].specialAttackCounter++;
+       enemyList[0].specialAttackCounter++;
     }
 }
