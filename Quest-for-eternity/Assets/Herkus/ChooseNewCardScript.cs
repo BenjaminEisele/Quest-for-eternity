@@ -26,7 +26,7 @@ public class ChooseNewCardScript : MonoBehaviour
     {
         if (playerScriptAccess.isHost)
         {
-            RefereeScript.preNewWaveEvent += DisplayCards;
+            RefereeScript.instance.preNewWaveEvent += DisplayCards;
         }
     }
 

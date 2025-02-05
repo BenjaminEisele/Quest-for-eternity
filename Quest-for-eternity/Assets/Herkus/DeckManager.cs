@@ -16,10 +16,13 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     PlayerScript playerScriptAccess;
 
+    [SerializeField]
+    TurnScript turnScriptAccess;
+
     private void Start()
     {
-        RefereeScript.newWaveEvent += ResetAllCardLists;
-        TurnScript.restartGameEvent += ResetAllCardLists;
+        RefereeScript.instance.newWaveEvent += ResetAllCardLists;
+        turnScriptAccess.restartGameEvent += ResetAllCardLists;
         uiScripAccess.ToggleShuffleWindow(false);
     }
     public void ResetDeckBegin()

@@ -33,13 +33,13 @@ public class RefereeScript : NetworkBehaviour
     public int targetPlayerId = 1;
 
     public delegate void PreNewWaveAction();
-    public static event PreNewWaveAction preNewWaveEvent;
+    public event PreNewWaveAction preNewWaveEvent;
 
     public delegate void NewWaveAction();
-    public static event NewWaveAction newWaveEvent;
+    public event NewWaveAction newWaveEvent;
 
     public delegate void TurnStartAction();
-    public static event TurnStartAction turnStartEvent;
+    public event TurnStartAction turnStartEvent;
 
     private GameObject[] card;
     private GameObject[] button;
@@ -60,6 +60,9 @@ public class RefereeScript : NetworkBehaviour
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
 
     Coroutine myCoroutine = null;
+
+    //[SerializeField]
+    //TurnScript turnScriptAccess;
 
     private void Awake()
     {
@@ -107,7 +110,7 @@ public class RefereeScript : NetworkBehaviour
         
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
-        TurnScript.restartGameEvent += RefereeReset;       
+        //turnScriptAccess.restartGameEvent += RefereeReset;       
                
         isGameOver = false;
         

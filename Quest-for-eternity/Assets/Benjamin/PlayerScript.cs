@@ -53,9 +53,9 @@ public class PlayerScript : NetworkBehaviour
                         EndTurnButton.interactable = false;
                     }
                 }
-                RefereeScript.turnStartEvent += EndTurnPlayerScript;
-                RefereeScript.turnStartEvent += SetLocalPlayersTurnTrue;
-                TurnScript.endTurnEvent += SetLocalPlayersTurnFalse;// EndTurnPlayerScript;
+                RefereeScript.instance.turnStartEvent += EndTurnPlayerScript;
+                RefereeScript.instance.turnStartEvent += SetLocalPlayersTurnTrue;
+                turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;// EndTurnPlayerScript;
                 shouldCheck = false;
             }           
         }
@@ -70,7 +70,7 @@ public class PlayerScript : NetworkBehaviour
     }
     public void EndTurnSubscription()
     {
-        TurnScript.endTurnEvent += EndTurnPlayerScript;
+        turnScriptAccess.endTurnEvent += EndTurnPlayerScript;
     }
     public void EndTurnPlayerScript()
     {

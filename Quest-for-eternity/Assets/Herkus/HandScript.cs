@@ -57,13 +57,13 @@ public class HandScript : MonoBehaviour
     private void Start()
     {
         cardLimit = 5;
-        RefereeScript.turnStartEvent += ActivateAllCardsEvent;
-        RefereeScript.preNewWaveEvent += DisableAllCardsEvent;
-        TurnScript.endTurnEvent += AddCardsEvent;
-        TurnScript.endTurnEvent += RebuildCardListLite;
-        TurnScript.endTurnEvent += ResetQuickAttackMode;
-        TurnScript.restartGameEvent += HandReset;
-        TurnScript.restartGameEvent += RebuildCardListLite;
+        RefereeScript.instance.turnStartEvent += ActivateAllCardsEvent;
+        RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
+        turnScriptAccess.endTurnEvent += AddCardsEvent;
+        turnScriptAccess.endTurnEvent += RebuildCardListLite;
+        turnScriptAccess.endTurnEvent += ResetQuickAttackMode;
+        turnScriptAccess.restartGameEvent += HandReset;
+        turnScriptAccess.restartGameEvent += RebuildCardListLite;
         isInQuickAttackMode = false;
         cardCount = 0;
         cardDebt = 0;

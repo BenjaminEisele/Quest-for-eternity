@@ -532,6 +532,7 @@ MonoBehaviour:
   uiScripAccess: {fileID: 8797810155221267089}
   handScriptAccess: {fileID: 4716527281068523202}
   playerScriptAccess: {fileID: 1214735220539923461}
+  turnScriptAccess: {fileID: 7221015898841572849}
 --- !u!1 &754769993535659440
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,6 +5067,7 @@ MonoBehaviour:
   isThisPlayersTurnToChoose: 0
   damageThisRound: 0
   chooseNewCardAccess: {fileID: 1577412184725532746}
+  isPlayersTurnLocal: 0
 --- !u!1 &6419282960436208635
 GameObject:
   m_ObjectHideFlags: 0

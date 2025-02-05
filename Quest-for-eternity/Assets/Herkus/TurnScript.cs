@@ -15,10 +15,10 @@ public class TurnScript : MonoBehaviour
     DeckManager deckManagerAccess;
 
     public delegate void EndTurnAction();
-    public static event EndTurnAction endTurnEvent;
+    public event EndTurnAction endTurnEvent;
 
     public delegate void RestartGameAction();
-    public static event RestartGameAction restartGameEvent;
+    public event RestartGameAction restartGameEvent;
 
     bool isSinglePlayer;
 
