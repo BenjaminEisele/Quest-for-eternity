@@ -374,6 +374,7 @@ MonoBehaviour:
   canInteract: 0
   isInQuickAttackMode: 0
   utilityCount: 0
+  utilityLimit: 0
   cardQueDataList: []
   canPlayUtility: 0
   utlCardsPlayedForOtherPlayer: 0
@@ -514,6 +515,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
   - {fileID: 11400000, guid: dd29c7d0717b8f1448b54c63cbbe7e35, type: 2}
+  - {fileID: 11400000, guid: 38fdd239fa672074d9d07328072b1dfa, type: 2}
 --- !u!114 &7267443404813897993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 00000000010000000200000003000000040000000500000006000000060000000700000008000000
+  deckCardList: 050000000500000005000000080000000800000008000000050000000a0000000a0000000a000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}

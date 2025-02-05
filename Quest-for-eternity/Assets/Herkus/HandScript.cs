@@ -9,7 +9,6 @@ public class HandScript : MonoBehaviour
 
     [SerializeField]
     Transform cardSpawnLocator;
-
     int cardLimit;
 
     [SerializeField]
@@ -41,6 +40,7 @@ public class HandScript : MonoBehaviour
 
     [HideInInspector]
     public int utilityCount;
+    public int utilityLimit;
     int cardDebt;
     public List<CardQueueUnit> cardQueDataList;
     int cardQueIndex;
@@ -56,8 +56,10 @@ public class HandScript : MonoBehaviour
     bool isFullRefill;
     private void Start()
     {
+        utilityLimit = 3;
         cardLimit = 5;
         RefereeScript.instance.turnStartEvent += ActivateAllCardsEvent;
+        RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
         RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
         turnScriptAccess.endTurnEvent += AddCardsEvent;
         turnScriptAccess.endTurnEvent += RebuildCardListLite;
@@ -173,6 +175,11 @@ public class HandScript : MonoBehaviour
             }
         }
     }
+
+    private void NewTurnHandLogic()
+    {
+        utilityLimit = 3;
+    }
     public void HitRateRestoriationMethod()
     {
         RestoreAllOriginalHitrates();
@@ -185,7 +192,6 @@ public class HandScript : MonoBehaviour
             {
                 card.RestroreOriginalHitrate();
             }
-
         }
         ChangeAllVisualHitrates(true, 0);
     }
