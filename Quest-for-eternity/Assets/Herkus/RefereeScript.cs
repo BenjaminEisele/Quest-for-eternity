@@ -543,6 +543,7 @@ public class RefereeScript : NetworkBehaviour
 
     public void EnemyGenerationNest()
     {
+        enemyGeneratorAccess.GenerateEnemies(1, true);
         if (isServer)
         {
             RpcGenerateEnemy();

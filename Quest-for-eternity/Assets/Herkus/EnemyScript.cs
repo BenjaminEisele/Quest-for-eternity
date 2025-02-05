@@ -81,11 +81,13 @@ public class EnemyScript : NetworkBehaviour
         if(RefereeScript.instance.enemyList.Count >= 2)
         {
             //heal enemy
-            RefereeScript.instance.EnemyGenerationNest();
+            
         }
         else
         {
-            enemyGeneratorAccess.GenerateEnemies(1, true);
+            //RefereeScript.instance.generation
+            RefereeScript.instance.EnemyGenerationNest();
+            //enemyGeneratorAccess.GenerateEnemies(1, true);
         }
     }
     public int GenerateAttack()
