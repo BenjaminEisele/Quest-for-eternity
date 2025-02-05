@@ -8,8 +8,8 @@ public class PlayerScript : NetworkBehaviour
     HandScript handScriptAccess;
     [SerializeField]
     private Button EndTurnButton;
-    //[SerializeField]
-    //TurnScript turnScriptAccess;
+    [SerializeField]
+    TurnScript turnScriptAccess;
     [SerializeField]
     FieldScript fieldScriptAccess;
     public bool shouldDealDamage;
@@ -124,6 +124,7 @@ public class PlayerScript : NetworkBehaviour
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
             isThisPlayersTurn = !isThisPlayersTurn;
+            turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = true;
@@ -137,6 +138,7 @@ public class PlayerScript : NetworkBehaviour
         {
             damageThisRound = 0;
             isThisPlayersTurn = !isThisPlayersTurn;
+            turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = false;
