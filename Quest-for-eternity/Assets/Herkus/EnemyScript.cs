@@ -99,7 +99,7 @@ public class EnemyScript : NetworkBehaviour
 
         if (isEnemyAlive)
         {
-            if (specialAttackCounter >= 2 && isBoss)
+            if (specialAttackCounter >= 2)
             {
                 EnemySpawnLogic();
                 //canAttack = false;
