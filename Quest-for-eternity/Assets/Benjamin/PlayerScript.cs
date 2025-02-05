@@ -25,7 +25,7 @@ public class PlayerScript : NetworkBehaviour
     [SerializeField]
     ChooseNewCardScript chooseNewCardAccess;
     private bool shouldCheck = true;
-    bool shouldDealDamageSingle;
+    bool shouldDealDamageSingle = true;
 
     public void Update()
     {
@@ -161,6 +161,7 @@ public class PlayerScript : NetworkBehaviour
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                Debug.Log($"Damage is: {damageThisRound}");
                 RpcDealDamage(damageThisRound, target);
             }
         }
