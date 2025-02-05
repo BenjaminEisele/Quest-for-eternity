@@ -44,6 +44,7 @@ public class PlayerScript : NetworkBehaviour
 
                         EndTurnButton.interactable = true;
                         handScriptAccess.ActivateAllCardsEvent();
+                        SetLocalPlayersTurnTrue();
                     }
                     else 
                     {
