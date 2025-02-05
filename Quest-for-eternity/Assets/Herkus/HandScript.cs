@@ -222,6 +222,7 @@ public class HandScript : MonoBehaviour
     {
         if (playerScriptAccess.isThisPlayersTurn)
         {
+            playerScriptAccess.isPlayersTurnLocal = true;
             if (isInQuickAttackMode && CountActionCards() > 0)
             {
                 canPlayUtility = false;
@@ -341,7 +342,6 @@ public class HandScript : MonoBehaviour
         cardPlacementVector = new Vector3(1, 0, 0);
         if (isFullRefill)
         {
-            playerScriptAccess.isPlayersTurnLocal = true;
             for (int i = 0; i < cardList.Count; i++)
             {
                 if (cardList[i] == null)
