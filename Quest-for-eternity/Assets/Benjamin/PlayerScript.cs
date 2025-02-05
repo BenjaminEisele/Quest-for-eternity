@@ -62,7 +62,7 @@ public class PlayerScript : NetworkBehaviour
     }
     private void SetLocalPlayersTurnFalse()
     {
-        //isPlayersTurnLocal = false;
+        isPlayersTurnLocal = false;
     }
     private void SetLocalPlayersTurnTrue()
     {
