@@ -741,7 +741,9 @@ MonoBehaviour:
   winImage: {fileID: 899348210}
   chosenEnemyId: 0
   waveCount: 0
+  targetPlayerId: 1
   playerList: []
+  singlePlayerMode: 0
   randomEnemyCount: 0
 --- !u!1 &777718516
 GameObject:
@@ -1751,6 +1753,8 @@ MonoBehaviour:
   enemyNameText: {fileID: 307855676}
   myMarker: {fileID: 1149146452}
   databaseMultiplayerAccess: {fileID: 371547816}
+  enemyGeneratorAccess: {fileID: 118785381}
+  canAttack: 0
 --- !u!65 &1748148564
 BoxCollider:
   m_ObjectHideFlags: 0
