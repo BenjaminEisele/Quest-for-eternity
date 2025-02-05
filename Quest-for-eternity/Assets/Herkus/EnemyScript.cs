@@ -62,6 +62,8 @@ public class EnemyScript : NetworkBehaviour
             enemyHealth = 0;          
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
+            RefereeScript.instance.enemyList.Remove(this);
+            gameObject.SetActive(false);
             RefereeScript.instance.NewWaveCheck();
         }
         else
@@ -100,12 +102,12 @@ public class EnemyScript : NetworkBehaviour
             if (specialAttackCounter >= 2)
             {
                 EnemySpawnLogic();
+                //canAttack = false;
                 myDamage = 0;
             }
             else
             {
                 myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
-
             }
         }
         else

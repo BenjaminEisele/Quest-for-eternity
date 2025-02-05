@@ -7,6 +7,8 @@ using Mirror;
 public class RefereeScript : NetworkBehaviour
 {
     public List<EnemyScript> enemyList;
+    public List<EnemyScript> killedEnemyList;
+
 
     public EnemyGenerator enemyGeneratorAccess;
 
