@@ -79,7 +79,7 @@ public class EnemyScript : NetworkBehaviour
         specialAttackCounter = 0;
         if(RefereeScript.instance.enemyList.Count >= 2)
         {
-
+            //heal enemy
         }
         else
         {
@@ -91,8 +91,8 @@ public class EnemyScript : NetworkBehaviour
        int myDamage;
        
 
-       if (isEnemyAlive)
-       {
+        if (isEnemyAlive)
+        {
             if (specialAttackCounter >= 2)
             {
                 EnemySpawnLogic();
@@ -103,12 +103,40 @@ public class EnemyScript : NetworkBehaviour
                 myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
 
             }
-       }
-       else
-       {
+        }
+        else
+        {
            myDamage = 0;
-       }
-       specialAttackCounter++;
-       return myDamage;
+        }
+        specialAttackCounter++;
+        SpecialAttackCounterNest();
+        return myDamage;
+    }
+
+    private void SpecialAttackCounterNest()
+    {
+        if (isServer)
+        {
+            RpcAttackCounter();
+        }
+        else 
+        {
+            CmdAttackCounter();
+        }
+    }
+
+    [ClientRpc]
+    private void RpcAttackCounter()
+    {
+        if (isClientOnly)
+        {
+            RefereeScript.instance.enemyList[0].specialAttackCounter++;
+        }
+    }
+
+    [Command]
+    private void CmdAttackCounter()
+    {
+        RefereeScript.instance.enemyList[0].specialAttackCounter++;
     }
 }

@@ -422,7 +422,7 @@ public class RefereeScript : NetworkBehaviour
             {
                 if(enemy.canAttack)
                 {   
-                    enemyList[0].specialAttackCounter++;
+                    //enemyList[0].specialAttackCounter++;
                     int enemyDamage = enemy.GenerateAttack();
                     if (isClientOnly)
                     {
