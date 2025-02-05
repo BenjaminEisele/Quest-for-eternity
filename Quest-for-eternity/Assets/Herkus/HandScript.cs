@@ -458,7 +458,7 @@ public class HandScript : MonoBehaviour
     public void DrawQueuedCards()
     {
         Debug.Log($"card debt is : {cardDebt}");
-        if (playerScriptAccess.isThisPlayersTurn)
+        if (playerScriptAccess.isPlayersTurnLocal)
         {
             SetCardActivityStatus(true, 2);
         }        

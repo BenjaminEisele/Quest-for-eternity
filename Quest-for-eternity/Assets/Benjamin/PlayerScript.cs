@@ -27,6 +27,8 @@ public class PlayerScript : NetworkBehaviour
     private bool shouldCheck = true;
     bool shouldDealDamageSingle = true;
 
+    public bool isPlayersTurnLocal;
+
     public void Update()
     {
         if (shouldCheck)
@@ -51,12 +53,20 @@ public class PlayerScript : NetworkBehaviour
                     }
                 }
                 RefereeScript.turnStartEvent += EndTurnPlayerScript;
-                //TurnScript.endTurnEvent += EndTurnPlayerScript;
+                RefereeScript.turnStartEvent += SetLocalPlayersTurnTrue;
+                TurnScript.endTurnEvent += SetLocalPlayersTurnFalse;// EndTurnPlayerScript;
                 shouldCheck = false;
             }           
         }
     }
-
+    private void SetLocalPlayersTurnFalse()
+    {
+        isPlayersTurnLocal = false;
+    }
+    private void SetLocalPlayersTurnTrue()
+    {
+        isPlayersTurnLocal = true;
+    }
     public void EndTurnSubscription()
     {
         TurnScript.endTurnEvent += EndTurnPlayerScript;
