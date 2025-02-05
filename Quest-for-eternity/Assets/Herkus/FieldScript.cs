@@ -59,7 +59,7 @@ public class FieldScript : MonoBehaviour
         }
     }
 
-    private void FieldClear()
+    public void FieldClear()
     {
         foreach (GameObject activeCardMember in activeCardList)
         {

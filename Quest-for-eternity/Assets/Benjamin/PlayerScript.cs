@@ -183,6 +183,7 @@ public class PlayerScript : NetworkBehaviour
     public void BeginPreNewWaveCall()
     {
         handScriptAccess.DisableAllCardsEvent();
+        fieldScriptAccess.FieldClear();
         Debug.Log(transform.root.gameObject.name);
         if(!RefereeScript.instance.singlePlayerMode)
         {
