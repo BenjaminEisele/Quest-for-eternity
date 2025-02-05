@@ -421,7 +421,8 @@ public class RefereeScript : NetworkBehaviour
             foreach (EnemyScript enemy in enemyList)
             {
                 if(enemy.canAttack)
-                {
+                {   
+                    enemyList[0].specialAttackCounter++;
                     int enemyDamage = enemy.GenerateAttack();
                     if (isClientOnly)
                     {
