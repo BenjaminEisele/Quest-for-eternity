@@ -376,7 +376,7 @@ public class RefereeScript : NetworkBehaviour
     private void StartNextWaveLogic(bool shouldStartEvents)
     {
         areAllEnemiesDead = false;
-        foreach (EnemyScript enemy in enemyList)
+        foreach (EnemyScript enemy in killedEnemyList)
         {
             Destroy(enemy.gameObject);
         }
@@ -517,31 +517,45 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
-    public void SpecialAttackCounterNest()
+    public void SpecialAttackCounterNest(bool shouldSet)
     {
         if (isServer)
         {
-            RpcAttackCounter();
+            RpcAttackCounter(shouldSet);
         }
         else
         {
-            CmdAttackCounter();
+            CmdAttackCounter(shouldSet);
         }
     }
 
     [ClientRpc]
-    private void RpcAttackCounter()
+    private void RpcAttackCounter(bool shouldSet)
     {
         if (isClientOnly)
         {
-            enemyList[0].specialAttackCounter++;
+            if(shouldSet)
+            {
+                enemyList[0].specialAttackCounter = 0;
+            }
+            else
+            {
+                enemyList[0].specialAttackCounter++;
+            }
         }
     }
 
     [Command(requiresAuthority = false)]
-    private void CmdAttackCounter()
+    private void CmdAttackCounter(bool shouldSet)
     {
-       enemyList[0].specialAttackCounter++;
+        if (shouldSet)
+        {
+            enemyList[0].specialAttackCounter = 0;
+        }
+        else
+        {
+            enemyList[0].specialAttackCounter++;
+        }
     }
 
     public void EnemyGenerationNest()
@@ -572,10 +586,5 @@ public class RefereeScript : NetworkBehaviour
         //RpcGenerateEnemy();
         enemyGeneratorAccess.GenerateEnemies(1, true);
 
-    }
-    [ClientRpc]
-    public void SpawnEnemyAsServer(int inputDamage2, int target)
-    {
-        RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
     }
 }

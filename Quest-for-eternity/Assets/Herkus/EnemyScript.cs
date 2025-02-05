@@ -63,6 +63,7 @@ public class EnemyScript : NetworkBehaviour
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;
             RefereeScript.instance.enemyList.Remove(this);
+            RefereeScript.instance.killedEnemyList.Add(this);
             gameObject.SetActive(false);
             RefereeScript.instance.NewWaveCheck();
         }
@@ -79,11 +80,9 @@ public class EnemyScript : NetworkBehaviour
     private void EnemySpawnLogic()
     {
         Debug.Log("spawning enemy");
-        specialAttackCounter = 0;
         if(RefereeScript.instance.enemyList.Count >= 2)
         {
             //heal enemy
-            
         }
         else
         {
