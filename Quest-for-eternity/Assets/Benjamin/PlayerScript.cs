@@ -44,7 +44,7 @@ public class PlayerScript : NetworkBehaviour
 
                         EndTurnButton.interactable = true;
                         handScriptAccess.ActivateAllCardsEvent();
-                        SetLocalPlayersTurnTrue();
+                        isPlayersTurnLocal = true;
                     }
                     else 
                     {
@@ -62,11 +62,11 @@ public class PlayerScript : NetworkBehaviour
     }
     private void SetLocalPlayersTurnFalse()
     {
-        isPlayersTurnLocal = false;
+        //isPlayersTurnLocal = false;
     }
     private void SetLocalPlayersTurnTrue()
     {
-        isPlayersTurnLocal = true;
+        //isPlayersTurnLocal = true;
     }
     public void EndTurnSubscription()
     {
@@ -74,6 +74,7 @@ public class PlayerScript : NetworkBehaviour
     }
     public void EndTurnPlayerScript()
     {
+        isPlayersTurnLocal = !isPlayersTurnLocal;
         handScriptAccess.DisableAllCardsEvent();
         if (!isServer)
         {
