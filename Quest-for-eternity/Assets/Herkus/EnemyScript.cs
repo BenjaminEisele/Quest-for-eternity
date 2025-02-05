@@ -30,9 +30,15 @@ public class EnemyScript : NetworkBehaviour
 
 
     public bool canAttack;
-    
 
-    
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            specialAttackCounter++;
+        }
+    }
 
     public void EnemySetUp(int myID)
     {
@@ -103,7 +109,7 @@ public class EnemyScript : NetworkBehaviour
                 myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
 
             }
-        }
+       }
        else
        {
            myDamage = 0;
