@@ -80,7 +80,8 @@ public class EnemyScript : NetworkBehaviour
     private void EnemySpawnLogic()
     {
         Debug.Log("spawning enemy");
-        if(RefereeScript.instance.enemyList.Count >= 2)
+        RefereeScript.instance.SpecialAttackCounterNest(true);
+        if (RefereeScript.instance.enemyList.Count >= 2)
         {
             //heal enemy
         }
@@ -114,7 +115,7 @@ public class EnemyScript : NetworkBehaviour
            myDamage = 0;
         }
         specialAttackCounter++;
-        RefereeScript.instance.SpecialAttackCounterNest();
+        RefereeScript.instance.SpecialAttackCounterNest(false);
         return myDamage;
     }
 
