@@ -205,7 +205,6 @@ public class HandScript : MonoBehaviour
     {
         if (utilityCount > 5 && utlCardsPlayedForOtherPlayer > 2)
         {
-            Debug.Log("is this where the bug is!?");
             SetCardActivityStatus(false, 0);
             canPlayUtility = false;
         }
