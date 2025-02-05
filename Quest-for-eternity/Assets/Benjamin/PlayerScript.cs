@@ -84,6 +84,7 @@ public class PlayerScript : NetworkBehaviour
                 {
                     int target = RefereeScript.instance.chosenEnemyId;
                     damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                    Debug.Log($"Damage is: {damageThisRound}");
                     RpcDealDamage(damageThisRound, target);
                 }      
             }
