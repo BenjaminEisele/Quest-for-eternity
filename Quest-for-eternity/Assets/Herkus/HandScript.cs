@@ -304,7 +304,7 @@ public class HandScript : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         playerScriptAccess.DealDamagePlayerScript();
         isInQuickAttackMode = false;
-        SetCardActivityStatus(true, 0);
+        //SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();
         canInteract = true;
     }
