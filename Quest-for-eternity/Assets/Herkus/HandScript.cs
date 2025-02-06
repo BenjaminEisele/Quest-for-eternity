@@ -240,6 +240,7 @@ public class HandScript : MonoBehaviour
             {
                 canPlayUtility = true;
                 SetCardActivityStatus(true, 2);
+                RestoreAllOriginalHitrates();
             }
         }
         ShouldWeDisableCards();
