@@ -46,8 +46,8 @@ public class DeckManager : MonoBehaviour
     {
         deckCardList.AddRange(discardedCardList);
         discardedCardList.Clear();
-        deckCardList.AddRange(handCardList);
-        handCardList.Clear();
+        //deckCardList.AddRange(handCardList);
+        //handCardList.Clear();
         ShuffleCards(deckCardList);
     }
 
