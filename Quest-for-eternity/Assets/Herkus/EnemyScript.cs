@@ -26,9 +26,7 @@ public class EnemyScript : NetworkBehaviour
     DatabaseMultiplayer databaseMultiplayerAccess;
     [SerializeField]
     EnemyGenerator enemyGeneratorAccess;
-
-
-
+    
     public bool canAttack;
 
 

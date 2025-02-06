@@ -591,7 +591,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10a10243987f2c7459336b3ff8d4ac72, type: 2}
   - {fileID: 11400000, guid: 25278f8ba2c162d45889102ab1d1005f, type: 2}
   - {fileID: 11400000, guid: 74d7b18455c5a5b4c8a51be7445742c2, type: 2}
-  genericLootList: 
+  genericLootList: 030000000400000005000000060000000700000008000000
   updatedLootList: 
 --- !u!4 &371547817
 Transform:
@@ -748,6 +748,7 @@ MonoBehaviour:
   playerList: []
   singlePlayerMode: 0
   randomEnemyCount: 0
+  databaseMultiplayerAccess: {fileID: 371547816}
 --- !u!1 &777718516
 GameObject:
   m_ObjectHideFlags: 0

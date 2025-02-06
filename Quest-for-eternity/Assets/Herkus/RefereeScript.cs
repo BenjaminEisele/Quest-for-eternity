@@ -60,8 +60,11 @@ public class RefereeScript : NetworkBehaviour
     [SyncVar]
     public int randomEnemyCount = 0;
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
-
+    public List<int> lootIdList;
     Coroutine myCoroutine = null;
+
+    [SerializeField]
+    DatabaseMultiplayer databaseMultiplayerAccess;
 
     //[SerializeField]
     //TurnScript turnScriptAccess;
@@ -136,17 +139,20 @@ public class RefereeScript : NetworkBehaviour
         {
             playerList.Add(Script.GetComponent<PlayerScript>());
         }
+        //databaseMultiplayerAccess.updatedLootList.Add(databaseMultiplayerAccess.enemyList[0].lootCardId);
+
         RandomNumbersSetUpRoot();
         enemyGeneratorAccess.GenerateEnemies(1, false);
     }
     public void RandomNumbersSetUpRoot()
     {
+        databaseMultiplayerAccess.updatedLootList.AddRange(databaseMultiplayerAccess.genericLootList);
         DatabasePlayer databasePlayerAccess = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
         if (isServer)
         {
             if (databasePlayerAccess != null)
             {
-                RandomNumberGeneration(databasePlayerAccess.cardList.Count);
+                RandomNumberGeneration(databaseMultiplayerAccess.updatedLootList.Count);
             }
         }
     }
@@ -159,11 +165,30 @@ public class RefereeScript : NetworkBehaviour
             enemyGeneratorAccess.RandomNumber(randomEnemyCount);
             for (int i = 0; i < 4; i++)
             {
-                displayCardIdList.Add(Random.Range(0, maximumValue));
+                int randomValue = Random.Range(0, maximumValue);
+                while(!IsLootIdValid(randomValue))
+                {
+                    randomValue = Random.Range(0, maximumValue);
+                }
+                Debug.Log(databaseMultiplayerAccess.updatedLootList[randomValue]);
+                displayCardIdList.Add(databaseMultiplayerAccess.updatedLootList[randomValue]);
+                lootIdList.Add(randomValue);
             }
+            databaseMultiplayerAccess.updatedLootList.Clear();
+            lootIdList.Clear();
         }
     }
-
+    private bool IsLootIdValid(int inputId)
+    {
+        for(int i = 0; i < lootIdList.Count; i++)
+        {
+            if(inputId == lootIdList[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public int GetRandomNumber(int inputIndex)
     {
         return displayCardIdList[inputIndex];
