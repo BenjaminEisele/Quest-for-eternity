@@ -57,7 +57,12 @@ public class EnemyScript : NetworkBehaviour
     {
         Debug.Log("taking damage");
         enemyHealth -= inputDamage;
-        if(enemyHealth <= 0)
+        if (enemyHealth >= savedEnemyHealth)
+        {
+            enemyHealth = savedEnemyHealth;
+            UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
+        }
+        if (enemyHealth <= 0)
         {
             enemyHealth = 0;          
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);

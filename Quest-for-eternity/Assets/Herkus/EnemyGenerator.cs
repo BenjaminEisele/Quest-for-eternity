@@ -41,7 +41,7 @@ public class EnemyGenerator : NetworkBehaviour
             enemyClone.SetActive(true);
             if(shouldSpawnSkeleton)
             {
-                enemyClone.GetComponent<EnemyScript>().EnemySetUp(0);
+                enemyClone.GetComponent<EnemyScript>().EnemySetUp(1);
             }
             else
             {

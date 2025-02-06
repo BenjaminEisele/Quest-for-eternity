@@ -183,7 +183,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void HealEnemyPlayerScript()
     {
-        int damage = -2;
+        int damage = -3;
         int target = 1;
         if (isServer)
         {
