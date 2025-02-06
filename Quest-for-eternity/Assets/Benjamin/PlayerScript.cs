@@ -56,6 +56,7 @@ public class PlayerScript : NetworkBehaviour
                 RefereeScript.instance.turnStartEvent += EndTurnPlayerScript;
                 RefereeScript.instance.turnStartEvent += SetLocalPlayersTurnTrue;
                 turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;// EndTurnPlayerScript;
+                turnScriptAccess.endTurnEvent += DealDamageEventTrue;
                 shouldCheck = false;
             }           
         }
@@ -68,29 +69,31 @@ public class PlayerScript : NetworkBehaviour
     {
         //isPlayersTurnLocal = true;
     }
+    private void DealDamageEventTrue()
+    {
+        DealDamagePlayerScript(true);
+    }
     public void EndTurnSubscription()
     {
         turnScriptAccess.endTurnEvent += EndTurnPlayerScript;
     }
     public void EndTurnPlayerScript()
     {
-        //isPlayersTurnLocal = !isPlayersTurnLocal;
         handScriptAccess.DisableAllCardsEvent();
         if (!isServer)
         {
-            if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
+           /* if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 CmdDealDamage(damageThisRound, target);
 
-            }
+            } */
             Invoke("CmdEndTurn", 0.1f);
         }
         else if (isServer)
         {
-
-            if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
+          /*  if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
             {
                 if(shouldDealDamageSingle)
                 {
@@ -99,7 +102,7 @@ public class PlayerScript : NetworkBehaviour
                     Debug.Log($"Damage is: {damageThisRound}");
                     RpcDealDamage(damageThisRound, target);
                 }      
-            }
+            } */
             Invoke("RpcEndTurn", 0.1f);
         }
         handScriptAccess.utlCardsPlayedForOtherPlayer = 0;
@@ -156,22 +159,20 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.isServersTurn = false;
         }
     }
-    public void DealDamagePlayerScript()
+    public void DealDamagePlayerScript(bool inputBool)
     {
         if (!isServer)
         {
-            if (fieldScriptAccess.CheckIfHitAndShouldClearField(false))
+            if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 CmdDealDamage(damageThisRound, target);
-
             }
         }
         else if (isServer)
         {
-
-            if (fieldScriptAccess.CheckIfHitAndShouldClearField(false))
+            if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
