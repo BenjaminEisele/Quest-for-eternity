@@ -1,12 +1,14 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class DragDrop : MonoBehaviour
 {
     Vector3 mousePositionOffset;
     [HideInInspector]
     public Vector3 cardPosition;
-    private bool isInPlayingField;
-    private bool isInSendCardsOverField;
+    bool isInPlayingField;
+    bool isInSendCardsOverField;
+    bool isInDiscardField;
     [SerializeField]
     HandScript handScriptAccess;
     [SerializeField]
@@ -56,7 +58,7 @@ public class DragDrop : MonoBehaviour
                 handScriptAccess.PlayCard();
             }
         }
-        if (isInSendCardsOverField)
+        else if (isInSendCardsOverField)
         {
             if (!transform.GetComponentInParent<CardScript>().isActionCard)
             {
@@ -73,6 +75,10 @@ public class DragDrop : MonoBehaviour
             {
                 transform.localPosition = cardPosition;
             }
+        }
+        else if (isInDiscardField)
+        {
+            handScriptAccess.DiscardCard(transform);
         }
         else
         {
@@ -94,9 +100,13 @@ public class DragDrop : MonoBehaviour
         {
             isInPlayingField = true;
         }
-        if (col.gameObject.name == "SendCardsOverField")
+        else if (col.gameObject.name == "SendCardsOverField")
         {
             isInSendCardsOverField = true;
+        }
+        else if (col.gameObject.name == "DiscardCardField")
+        {
+            isInDiscardField = true;
         }
     }
 
@@ -107,9 +117,14 @@ public class DragDrop : MonoBehaviour
             isInPlayingField = false;
         }
 
-        if (col.gameObject.name == "SendCardsOverField")
+        else if (col.gameObject.name == "SendCardsOverField")
         {
             isInSendCardsOverField = false;
+        }
+
+        else if (col.gameObject.name == "DiscardCardField")
+        {
+            isInDiscardField = false;
         }
     }
 }

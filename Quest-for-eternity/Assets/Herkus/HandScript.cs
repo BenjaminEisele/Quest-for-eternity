@@ -543,4 +543,12 @@ public class HandScript : MonoBehaviour
         //isInQuickAttackMode = false;
     }
 
+    public void DiscardCard(Transform card)
+    {
+        int cardId = card.GetComponentInParent<CardScript>().myCardId;       
+        deckManagerAccess.handCardList.Remove(cardId);
+        deckManagerAccess.discardedCardList.Add(cardId);
+        RebuildCardList(card.transform.root.gameObject);
+    }
+
 }
