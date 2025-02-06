@@ -114,6 +114,7 @@ public class EnemyScript : NetworkBehaviour
         }
         if(isBoss)
         {
+            specialAttackCounter++;
             RefereeScript.instance.SpecialAttackCounterNest(false);
         }
         
