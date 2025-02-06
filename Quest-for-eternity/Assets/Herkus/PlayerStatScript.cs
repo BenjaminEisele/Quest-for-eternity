@@ -13,7 +13,7 @@ public class PlayerStatScript : MonoBehaviour
 
     private void Awake()
     {
-        playerHealth = 25;
+        playerHealth = 250; //for testing and debugging
         savedPlayerHealth = playerHealth;
         playerHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(playerHealthText, playerHealth);

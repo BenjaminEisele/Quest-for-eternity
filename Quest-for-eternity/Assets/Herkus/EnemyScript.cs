@@ -79,17 +79,16 @@ public class EnemyScript : NetworkBehaviour
     }
     private void EnemySpawnLogic()
     {
-        Debug.Log("spawning enemy");
         RefereeScript.instance.SpecialAttackCounterNest(true);
         if (RefereeScript.instance.enemyList.Count >= 2)
         {
+            Debug.Log($"{enemyNameText} healing enemy");
             //heal enemy
         }
         else
         {
-            //RefereeScript.instance.generation
+            Debug.Log($"{enemyNameText} spawning enemy");
             RefereeScript.instance.EnemyGenerationNest();
-            //enemyGeneratorAccess.GenerateEnemies(1, true);
         }
     }
     public int GenerateAttack()
@@ -99,10 +98,9 @@ public class EnemyScript : NetworkBehaviour
 
         if (isEnemyAlive)
         {
-            if (specialAttackCounter >= 2)
+            if (specialAttackCounter >= 1)
             {
                 EnemySpawnLogic();
-                //canAttack = false;
                 myDamage = 0;
             }
             else
@@ -114,7 +112,6 @@ public class EnemyScript : NetworkBehaviour
         {
            myDamage = 0;
         }
-        //specialAttackCounter++;
         if(isBoss)
         {
             RefereeScript.instance.SpecialAttackCounterNest(false);
