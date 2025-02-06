@@ -381,8 +381,12 @@ public class RefereeScript : NetworkBehaviour
         areAllEnemiesDead = false;
         foreach (EnemyScript enemy in killedEnemyList)
         {
-            Destroy(enemy.gameObject);
+            if(enemy != null)
+            {
+                Destroy(enemy.gameObject);
+            }
         }
+        killedEnemyList.Clear();
         enemyList.Clear();
         if(waveCount == 3)
         {
