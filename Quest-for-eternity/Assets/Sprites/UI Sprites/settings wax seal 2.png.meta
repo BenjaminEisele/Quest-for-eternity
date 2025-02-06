@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 41da8fd9d40e36544a9ffe90ea54c34c
+guid: a622fb090d514c143b8fd623cb3456b6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5752669458701522678
-    second: Door small_0
+      213: 5455802093363417485
+    second: settings wax seal 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door small_0
+      name: settings wax seal 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 739
-        height: 1074
+        x: 156
+        y: 136
+        width: 2525
+        height: 2453
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f6942cc46695df40800000000000000
-      internalID: 5752669458701522678
+      spriteID: d8152cb0917e6bb40800000000000000
+      internalID: 5455802093363417485
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Door small_0: 5752669458701522678
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

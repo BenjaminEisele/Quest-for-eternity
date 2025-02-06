@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Door Hovered_0: 2169243526425645442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
