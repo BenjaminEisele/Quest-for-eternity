@@ -51,7 +51,7 @@ public class EnemyGenerator : NetworkBehaviour
             {
                 if (refereeScriptAccess.waveCount == 0)
                 {
-                    enemyClone.GetComponent<EnemyScript>().EnemySetUp(3);
+                    enemyClone.GetComponent<EnemyScript>().EnemySetUp(0);
                 }
                 else if (refereeScriptAccess.waveCount == 3)
                 {
