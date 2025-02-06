@@ -71,6 +71,7 @@ public class EnemyScript : NetworkBehaviour
             RefereeScript.instance.killedEnemyList.Add(this);
             gameObject.SetActive(false);
             RefereeScript.instance.NewWaveCheck();
+            RefereeScript.instance.ResetChosenEnemy();
         }
         else
         {
