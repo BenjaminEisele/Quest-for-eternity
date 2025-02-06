@@ -106,6 +106,11 @@ public class EnemyScript : NetworkBehaviour
             }
             else
             {
+                if (isBoss)
+                {
+                    specialAttackCounter++;
+                    RefereeScript.instance.SpecialAttackCounterNest(false);
+                }
                 myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
             }
         }
@@ -113,12 +118,6 @@ public class EnemyScript : NetworkBehaviour
         {
            myDamage = 0;
         }
-        if(isBoss)
-        {
-            specialAttackCounter++;
-            RefereeScript.instance.SpecialAttackCounterNest(false);
-        }
-        
         return myDamage;
     }
 
