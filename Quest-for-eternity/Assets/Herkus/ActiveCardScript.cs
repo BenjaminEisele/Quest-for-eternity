@@ -71,7 +71,6 @@ public class ActiveCardScript : MonoBehaviour
     public int ActiveCardSetup(int activeCardId)
     {
         shouldShowCard = true;
-        //alreadyActivated = false;
         this.activeCardId = activeCardId;
         activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
         Action actionCardAccess = databasePlayerAccess.cardList[activeCardId] as Action;
@@ -93,7 +92,6 @@ public class ActiveCardScript : MonoBehaviour
                 if(myEffectUnit.shouldActivateNow)
                 {
                     myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
-                    //alreadyActivated = true;
                 }
             }
         }

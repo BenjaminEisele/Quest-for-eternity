@@ -66,9 +66,6 @@ public class RefereeScript : NetworkBehaviour
     [SerializeField]
     DatabaseMultiplayer databaseMultiplayerAccess;
 
-    //[SerializeField]
-    //TurnScript turnScriptAccess;
-
     private void Awake()
     {
         instance = this;        
@@ -163,6 +160,7 @@ public class RefereeScript : NetworkBehaviour
         {
             randomEnemyCount = Random.Range(2, 3);
             enemyGeneratorAccess.RandomNumber(randomEnemyCount);
+            //StartCoroutine(enemyGeneratorAccess.RandomNumber(randomEnemyCount));
             for (int i = 0; i < 4; i++)
             {
                 int randomValue = Random.Range(0, maximumValue);
@@ -170,7 +168,7 @@ public class RefereeScript : NetworkBehaviour
                 {
                     randomValue = Random.Range(0, maximumValue);
                 }
-                Debug.Log(databaseMultiplayerAccess.updatedLootList[randomValue]);
+                //Debug.Log(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 displayCardIdList.Add(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 lootIdList.Add(randomValue);
             }

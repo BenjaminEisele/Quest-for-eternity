@@ -7,4 +7,5 @@ public class DatabaseMultiplayer : MonoBehaviour
     public List<BaseEnemy> enemyList;
     public List<int> genericLootList;
     public List<int> updatedLootList;
+    
 }

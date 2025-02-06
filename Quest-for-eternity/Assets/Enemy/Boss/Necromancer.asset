@@ -17,3 +17,5 @@ MonoBehaviour:
   enemyDamage: 5
   enemySprite: {fileID: -6201857198974045655, guid: a1685fb8c5edbb3478451eed2f6cd383, type: 3}
   isBoss: 1
+  lootCardId: 0
+  difficultyValue: 20

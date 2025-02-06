@@ -27,6 +27,12 @@ public class HandScript : MonoBehaviour
     private List<CardScript> cardList;
 
     [SerializeField]
+    DatabasePlayer databasePlayerAccess;
+
+    [SerializeField]
+    SceneObjectDatabase sceneObjectAccess;
+
+    [SerializeField]
     int cardCount = 0;
 
     Vector3 cardPlacementVector;
@@ -45,7 +51,7 @@ public class HandScript : MonoBehaviour
     public List<CardQueueUnit> cardQueDataList;
     int cardQueIndex;
     bool isHitrateAffected;
-
+    
     [HideInInspector]
     public bool canPlayUtility;
     float savedHitrateDelta;
@@ -100,7 +106,7 @@ public class HandScript : MonoBehaviour
                         }
                         else
                         {
-                            handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
+                            handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine(clickedCardId));
                         }
                     }
                     else
@@ -307,13 +313,25 @@ public class HandScript : MonoBehaviour
         RestoreAllOriginalHitrates();
         canInteract = true;
     }
-    private IEnumerator EndTurnDelayCoroutine()
+    private IEnumerator EndTurnDelayCoroutine(int inputCardId)
     {
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
+        ActionCardEffectActivation(inputCardId);
         turnScriptAccess.CallEndTurnEvent();
     }
-    
+    private void ActionCardEffectActivation(int inputCardId)
+    {
+        Action actionCardAccess = databasePlayerAccess.cardList[inputCardId] as Action;
+        //shouldShowCard = utilityCardAccess.isDisplayable;
+        foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
+        {
+            if (myEffectUnit.shouldActivateNow)
+            {
+                myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+            }
+        }
+    }
     private void CardInstantiation()
     {
         Vector3 cardPlacementVector = new Vector3(1, 0, 0);

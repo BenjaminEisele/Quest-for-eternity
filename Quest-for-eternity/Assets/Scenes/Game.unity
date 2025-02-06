@@ -169,6 +169,9 @@ MonoBehaviour:
   enemyReference: {fileID: 1748148563}
   spawnerPos: {fileID: 1834375437}
   refereeScriptAccess: {fileID: 569160454}
+  databaseMultiplayerAccess: {fileID: 371547816}
+  difficultySumList: 030000000400000005000000070000000c000000
+  currentDifficultySum: 0
 --- !u!1 &212992845
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +751,7 @@ MonoBehaviour:
   playerList: []
   singlePlayerMode: 0
   randomEnemyCount: 0
+  lootIdList: 
   databaseMultiplayerAccess: {fileID: 371547816}
 --- !u!1 &777718516
 GameObject:

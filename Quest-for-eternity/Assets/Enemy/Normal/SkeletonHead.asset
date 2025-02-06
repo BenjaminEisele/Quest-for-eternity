@@ -18,3 +18,4 @@ MonoBehaviour:
   enemySprite: {fileID: 3942963666889514385, guid: 984970f6997b7f948b6fad0a14d3e3bd, type: 3}
   isBoss: 0
   lootCardId: 1
+  difficultyValue: 3

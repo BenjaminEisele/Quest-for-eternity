@@ -370,6 +370,8 @@ MonoBehaviour:
   playerScriptAccess: {fileID: 1214735220539923461}
   deckManagerAccess: {fileID: 7267443404813897993}
   cardList: []
+  databasePlayerAccess: {fileID: 4730537138289088088}
+  sceneObjectAccess: {fileID: 1929009939263703945}
   cardCount: 0
   canInteract: 0
   isInQuickAttackMode: 0
@@ -516,16 +518,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
   - {fileID: 11400000, guid: dd29c7d0717b8f1448b54c63cbbe7e35, type: 2}
   - {fileID: 11400000, guid: 38fdd239fa672074d9d07328072b1dfa, type: 2}
-  genericLootList:
-  - {fileID: 11400000, guid: fe02e729406b34147a59fd43e4d4c850, type: 2}
-  - {fileID: 11400000, guid: 2d2087be51df9dd49b5b1f2ae566baf5, type: 2}
-  - {fileID: 11400000, guid: 7aedfe28c065e494b854d876da68f7aa, type: 2}
-  - {fileID: 11400000, guid: eeae388f7a3fc744890989f2750ceb4f, type: 2}
-  - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
-  - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
-  - {fileID: 11400000, guid: dd29c7d0717b8f1448b54c63cbbe7e35, type: 2}
-  - {fileID: 11400000, guid: 38fdd239fa672074d9d07328072b1dfa, type: 2}
-  updatedLootList: []
+  - {fileID: 11400000, guid: 73d69793fd081234a91fe9845c183e5e, type: 2}
 --- !u!114 &7267443404813897993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 00000000010000000200000003000000040000000500000006000000060000000700000008000000
+  deckCardList: 0b0000000b0000000b00000003000000040000000500000006000000060000000700000008000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
