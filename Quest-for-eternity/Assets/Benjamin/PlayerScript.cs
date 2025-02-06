@@ -180,6 +180,21 @@ public class PlayerScript : NetworkBehaviour
             }
         }
     }
+
+    public void HealEnemyPlayerScript()
+    {
+        int damage = -2;
+        int target = 1;
+        if (isServer)
+        {
+            RpcDealDamage(damage, target);
+        }
+        else
+        {
+            CmdDealDamage(damage, target);
+        }
+    }
+
     public void BeginPreNewWaveCall()
     {
         handScriptAccess.DisableAllCardsEvent();

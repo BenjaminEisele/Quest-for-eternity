@@ -560,7 +560,6 @@ public class RefereeScript : NetworkBehaviour
     public void EnemyGenerationNest()
     {
         enemyGeneratorAccess.GenerateEnemies(1, true);
-        enemyList[0].specialAttackCounter++;
         if (isServer)
         {
             RpcGenerateEnemy();
@@ -582,9 +581,18 @@ public class RefereeScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdGenerateEnemy()
     {
-        //RefereeScript.instance.playerList[0].
-        //RpcGenerateEnemy();
         enemyGeneratorAccess.GenerateEnemies(1, true);
+    }
 
+    public void HealEnemyRefereeScript()
+    {
+        if (isServer)
+        {
+            playerList[0].HealEnemyPlayerScript();
+        }
+        else
+        {
+            playerList[1].HealEnemyPlayerScript();
+        }
     }
 }

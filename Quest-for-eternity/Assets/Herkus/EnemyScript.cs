@@ -84,7 +84,7 @@ public class EnemyScript : NetworkBehaviour
         if (RefereeScript.instance.enemyList.Count >= 2)
         {
             Debug.Log($"{personalId} healing enemy");
-            //heal enemy
+            RefereeScript.instance.HealEnemyRefereeScript();
         }
         else
         {
