@@ -516,6 +516,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
   - {fileID: 11400000, guid: dd29c7d0717b8f1448b54c63cbbe7e35, type: 2}
   - {fileID: 11400000, guid: 38fdd239fa672074d9d07328072b1dfa, type: 2}
+  genericLootList:
+  - {fileID: 11400000, guid: fe02e729406b34147a59fd43e4d4c850, type: 2}
+  - {fileID: 11400000, guid: 2d2087be51df9dd49b5b1f2ae566baf5, type: 2}
+  - {fileID: 11400000, guid: 7aedfe28c065e494b854d876da68f7aa, type: 2}
+  - {fileID: 11400000, guid: eeae388f7a3fc744890989f2750ceb4f, type: 2}
+  - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
+  - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
+  - {fileID: 11400000, guid: dd29c7d0717b8f1448b54c63cbbe7e35, type: 2}
+  - {fileID: 11400000, guid: 38fdd239fa672074d9d07328072b1dfa, type: 2}
+  updatedLootList: []
 --- !u!114 &7267443404813897993
 MonoBehaviour:
   m_ObjectHideFlags: 0

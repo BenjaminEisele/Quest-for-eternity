@@ -12,6 +12,7 @@ public class BaseEnemy : ScriptableObject
     public int enemyDamage;
     public Sprite enemySprite;
     public bool isBoss;
+    public int lootCardId;
 
     public virtual int GenerateAttack()
     {

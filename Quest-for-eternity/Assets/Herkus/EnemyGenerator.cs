@@ -23,6 +23,8 @@ public class EnemyGenerator : NetworkBehaviour
         int input;
             for(int i = 0; i < howMany; i++)
             {
+                //DatabaseMultiplayer databaseMultiplayer;
+                //databaseMultiplayer.enemyList[0].lootCardId
                 input = Random.Range(0, 3);
                 if(i == 0)
                 {

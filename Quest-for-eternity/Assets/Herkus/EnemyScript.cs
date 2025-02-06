@@ -46,7 +46,8 @@ public class EnemyScript : NetworkBehaviour
         GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;
-        UiScript.UpdateFighterText(enemyHealthText, enemyHealth);  
+        UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
+        databaseMultiplayerAccess.updatedLootList.Add(databaseMultiplayerAccess.enemyList[personalId].lootCardId);
     }
     public void ResetEnemy()
     {
