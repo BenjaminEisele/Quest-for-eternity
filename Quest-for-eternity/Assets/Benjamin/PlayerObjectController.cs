@@ -73,6 +73,7 @@ public class PlayerObjectController : NetworkBehaviour
     {
         CmdSetPlayerName(SteamFriends.GetPersonaName().ToString());
         gameObject.name = "LocalGamePlayer";
+        gameObject.GetComponentInChildren<PlayerScript>().isLocalGamePlayer = true;
         LobbyController.Instance.FindLocalPlayer();
         LobbyController.Instance.UpdateLobbyName();
     }

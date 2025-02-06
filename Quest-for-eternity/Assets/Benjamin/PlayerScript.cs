@@ -26,6 +26,7 @@ public class PlayerScript : NetworkBehaviour
     ChooseNewCardScript chooseNewCardAccess;
     private bool shouldCheck = true;
     bool shouldDealDamageSingle = true;
+    public bool isLocalGamePlayer = false;
 
     public bool isPlayersTurnLocal;
 
