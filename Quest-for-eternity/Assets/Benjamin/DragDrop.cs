@@ -46,7 +46,7 @@ public class DragDrop : MonoBehaviour
             {
                 if (handScriptAccess.utilityCount < handScriptAccess.utilityLimit)
                 {
-                    handScriptAccess.PlayCard();
+                    handScriptAccess.PlayCard(transform);
                 }
                 else
                 {
@@ -55,7 +55,7 @@ public class DragDrop : MonoBehaviour
             }
             else
             {
-                handScriptAccess.PlayCard();
+                handScriptAccess.PlayCard(transform);
             }
         }
         else if (isInSendCardsOverField)
@@ -64,7 +64,7 @@ public class DragDrop : MonoBehaviour
             {
                 if (handScriptAccess.utlCardsPlayedForOtherPlayer < 3)
                 {
-                    handScriptAccess.SendCardsOver();
+                    handScriptAccess.SendCardsOver(transform);
                 }
                 else
                 {

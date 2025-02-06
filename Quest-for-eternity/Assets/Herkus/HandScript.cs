@@ -79,43 +79,37 @@ public class HandScript : MonoBehaviour
     }
 
 
-    public void PlayCard()
+    public void PlayCard(Transform card)
     {
         if(canInteract && playerScriptAccess.isThisPlayersTurn)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {           
+            if (card.GetComponentInParent<CardScript>())
             {
-                if (hit.transform.GetComponentInParent<CardScript>())
+                if (card.GetComponentInParent<CardScript>().isClickable)
                 {
-                    if (hit.transform.GetComponentInParent<CardScript>().isClickable)
-                    {
-                        int clickedCardId = hit.transform.GetComponentInParent<CardScript>().myCardId;
-                        deckManagerAccess.handCardList.Remove(clickedCardId);
-                        deckManagerAccess.discardedCardList.Add(clickedCardId);
+                    int clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
+                    deckManagerAccess.handCardList.Remove(clickedCardId);
+                    deckManagerAccess.discardedCardList.Add(clickedCardId);
 
-                        if (fieldScriptAccess.SpawnActiveCard(clickedCardId))
+                    if (fieldScriptAccess.SpawnActiveCard(clickedCardId))
+                    {
+                        canInteract = false;
+                        if (isInQuickAttackMode)
                         {
-                            //fcvgjvj
-                            canInteract = false;
-                            if (isInQuickAttackMode)
-                            {
-                                handScriptDelayCoroutine = StartCoroutine(QuickAttackModeCoroutine());
-                            }
-                            else
-                            {
-                                handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
-                            }
+                            handScriptDelayCoroutine = StartCoroutine(QuickAttackModeCoroutine());
                         }
                         else
                         {
-                            ShouldWeDisableCards();
+                            handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine());
                         }
-                        RebuildCardList(hit.transform.root.gameObject);    
                     }
+                    else
+                    {
+                        ShouldWeDisableCards();
+                    }
+                    RebuildCardList(card.root.gameObject);    
                 }
-            }
+            }           
         }
     }
 
@@ -500,24 +494,19 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    public void SendCardsOver()
+    public void SendCardsOver(Transform card)
     {
         if (canInteract && playerScriptAccess.isThisPlayersTurn)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {    
-                if (hit.transform.GetComponentInParent<CardScript>().isClickable)
-                {
-                    utlCardsPlayedForOtherPlayer++;
-                    int clickedCardId = hit.transform.GetComponentInParent<CardScript>().myCardId;
-                    playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
-                    deckManagerAccess.handCardList.Remove(clickedCardId);
-                    deckManagerAccess.discardedCardList.Add(clickedCardId);
-                    RebuildCardList(hit.transform.root.gameObject);
-                }             
-            }
+            if (card.GetComponentInParent<CardScript>().isClickable)
+            {
+                utlCardsPlayedForOtherPlayer++;
+                int clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
+                playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
+                deckManagerAccess.handCardList.Remove(clickedCardId);
+                deckManagerAccess.discardedCardList.Add(clickedCardId);
+                RebuildCardList(card.root.gameObject);
+            }             
         }
     }
     public void HandReset()
@@ -548,7 +537,7 @@ public class HandScript : MonoBehaviour
         int cardId = card.GetComponentInParent<CardScript>().myCardId;       
         deckManagerAccess.handCardList.Remove(cardId);
         deckManagerAccess.discardedCardList.Add(cardId);
-        RebuildCardList(card.transform.root.gameObject);
+        RebuildCardList(card.root.gameObject);
     }
 
 }
