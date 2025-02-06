@@ -79,6 +79,7 @@ public class EnemyScript : NetworkBehaviour
     }
     private void EnemySpawnLogic()
     {
+        specialAttackCounter = 0;
         RefereeScript.instance.SpecialAttackCounterNest(true);
         if (RefereeScript.instance.enemyList.Count >= 2)
         {

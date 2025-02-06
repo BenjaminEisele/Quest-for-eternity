@@ -518,10 +518,6 @@ public class RefereeScript : NetworkBehaviour
 
     public void SpecialAttackCounterNest(bool shouldSet)
     {
-        if(shouldSet)
-        {
-            enemyList[0].specialAttackCounter = 0;
-        }
         if (isServer)
         {
             RpcAttackCounter(shouldSet);
