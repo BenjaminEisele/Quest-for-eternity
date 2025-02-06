@@ -233,13 +233,11 @@ public class HandScript : MonoBehaviour
             playerScriptAccess.isPlayersTurnLocal = true;
             if (isInQuickAttackMode && CountActionCards() > 0)
             {
-                Debug.Log("this should not get activated 1");
                 canPlayUtility = false;
                 SetCardActivityStatus(true, 1);
             }
             else
             {
-                Debug.Log("this should not get activated 2");
                 canPlayUtility = true;
                 SetCardActivityStatus(true, 2);
             }

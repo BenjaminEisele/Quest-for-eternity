@@ -231,7 +231,6 @@ public class RefereeScript : NetworkBehaviour
     {
         if (turnStartEvent != null)
         {
-            Debug.Log("start turn event called");
             turnStartEvent();
         }
         TurnScript.instance.ShouldStartPlayerTurn(true);

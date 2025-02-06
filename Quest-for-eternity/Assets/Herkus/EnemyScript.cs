@@ -82,12 +82,12 @@ public class EnemyScript : NetworkBehaviour
         RefereeScript.instance.SpecialAttackCounterNest(true);
         if (RefereeScript.instance.enemyList.Count >= 2)
         {
-            Debug.Log($"{enemyNameText} healing enemy");
+            Debug.Log($"{personalId} healing enemy");
             //heal enemy
         }
         else
         {
-            Debug.Log($"{enemyNameText} spawning enemy");
+            Debug.Log($"{personalId} spawning enemy");
             RefereeScript.instance.EnemyGenerationNest();
         }
     }
@@ -98,7 +98,7 @@ public class EnemyScript : NetworkBehaviour
 
         if (isEnemyAlive)
         {
-            if (specialAttackCounter >= 1)
+            if (specialAttackCounter >= 2)
             {
                 EnemySpawnLogic();
                 myDamage = 0;

@@ -115,7 +115,6 @@ public class FieldScript : MonoBehaviour
                 {
                     FieldClear();
                 }
-                Debug.Log("no reference found");
 
                 return false;
             }
