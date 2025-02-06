@@ -260,12 +260,16 @@ public class RefereeScript : NetworkBehaviour
     }
     public void ResetChosenEnemy()
     {
-        foreach(EnemyScript enemy in enemyList)
+        if(!areAllEnemiesDead)
         {
-            enemy.ChangeSelectedStatus(false);
+            foreach (EnemyScript enemy in enemyList)
+            {
+                enemy.ChangeSelectedStatus(false);
+            }
+            chosenEnemyId = 0;
+            enemyList[chosenEnemyId].ChangeSelectedStatus(true);
         }
-        chosenEnemyId = 0;
-        enemyList[chosenEnemyId].ChangeSelectedStatus(true);
+        
     }
     private void ChooseNewEnemy(int inputDirection)
     {
