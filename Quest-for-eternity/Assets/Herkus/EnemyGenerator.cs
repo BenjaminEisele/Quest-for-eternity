@@ -37,7 +37,7 @@ public class EnemyGenerator : NetworkBehaviour
         Vector3 enemyPosition = spawnerPos.position;
         if(shouldSpawnSkeleton)
         {
-            spawnerPos.position += new Vector3(5, 0, 0);
+            enemyPosition = spawnerPos.position + new Vector3(5, 0, 0);
         }
         for (int i = 0; i < howManyEnemies; i++)
         {   
