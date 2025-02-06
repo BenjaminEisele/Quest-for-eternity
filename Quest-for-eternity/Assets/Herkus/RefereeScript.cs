@@ -73,7 +73,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
-
+        preNewWaveEvent += SwitchPlayerAttackIdNest;
         if (playerScripts == null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
@@ -299,7 +299,7 @@ public class RefereeScript : NetworkBehaviour
             {
                 canTransferTurnToPlayer = false;
             }
-            SwitchPlayerAttackIdNest();
+            
 
             if (playerList[0].isThisPlayersTurn)
             {
