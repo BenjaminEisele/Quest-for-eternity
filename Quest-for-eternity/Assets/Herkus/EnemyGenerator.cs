@@ -35,6 +35,10 @@ public class EnemyGenerator : NetworkBehaviour
     public void GenerateEnemies(int howManyEnemies, bool shouldSpawnSkeleton)
     {
         Vector3 enemyPosition = spawnerPos.position;
+        if(shouldSpawnSkeleton)
+        {
+            spawnerPos.position += new Vector3(5, 0, 0);
+        }
         for (int i = 0; i < howManyEnemies; i++)
         {   
             GameObject enemyClone = Instantiate(enemyReference.gameObject, enemyPosition, Quaternion.identity);
@@ -60,7 +64,7 @@ public class EnemyGenerator : NetworkBehaviour
             }
             
             refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
-            enemyPosition += new Vector3(4, 0, 0);                  
+            enemyPosition += new Vector3(5, 0, 0);                  
         }
         refereeScriptAccess.ResetChosenEnemy();
         refereeScriptAccess.RandomNumbersSetUpRoot();

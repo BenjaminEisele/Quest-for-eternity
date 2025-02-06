@@ -415,7 +415,7 @@ public class RefereeScript : NetworkBehaviour
     }
     private IEnumerator ForeachEnemyTurnCoroutine()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1.5f);
         if (!areAllEnemiesDead)
         {
             int debugCounter = 0;
