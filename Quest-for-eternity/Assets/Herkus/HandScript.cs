@@ -538,6 +538,7 @@ public class HandScript : MonoBehaviour
         cardDebt = 0;
         cardQueIndex = 0;
         CardInstantiation();
+        RebuildCardListLite();
         //canInteract = true;
         //isInQuickAttackMode = false;
     }
