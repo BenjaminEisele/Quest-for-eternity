@@ -538,8 +538,8 @@ public class HandScript : MonoBehaviour
         cardDebt = 0;
         cardQueIndex = 0;
         CardInstantiation();
-        canInteract = true;
-        isInQuickAttackMode = false;
+        //canInteract = true;
+        //isInQuickAttackMode = false;
     }
 
 }
