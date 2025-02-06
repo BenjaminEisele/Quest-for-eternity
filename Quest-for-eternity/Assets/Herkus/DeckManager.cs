@@ -43,13 +43,16 @@ public class DeckManager : MonoBehaviour
     }
 
     public void ResetAllCardLists()
-    {
-        deckCardList.AddRange(discardedCardList);
-        discardedCardList.Clear();
-        deckCardList.AddRange(handCardList);
-        handCardList.Clear();
-        ShuffleCards(deckCardList);
-        handScriptAccess.HandReset();
+    {  
+        if(playerScriptAccess.isLocalGamePlayer)
+        {
+            deckCardList.AddRange(discardedCardList);
+            discardedCardList.Clear();
+            deckCardList.AddRange(handCardList);
+            handCardList.Clear();
+            ShuffleCards(deckCardList);
+            handScriptAccess.HandReset();
+        } 
     }
 
     public void ShuffleCards(List<int> inputList)

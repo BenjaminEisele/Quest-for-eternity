@@ -526,7 +526,7 @@ public class HandScript : MonoBehaviour
         {
             if (card != null)
             {
-                Destroy(card.gameObject);
+                Destroy(card.transform.root.gameObject);
             }
         }
         if (handScriptDelayCoroutine != null)
