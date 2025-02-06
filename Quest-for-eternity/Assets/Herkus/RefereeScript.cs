@@ -128,12 +128,6 @@ public class RefereeScript : NetworkBehaviour
         {
             ChooseNewEnemy(-1);
         }
-
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            SwitchPlayerAttackIdNest();
-        }
-
     }
 
     private void SetPlayerList(GameObject[] Scripts)
@@ -305,7 +299,8 @@ public class RefereeScript : NetworkBehaviour
             {
                 canTransferTurnToPlayer = false;
             }
-            
+            SwitchPlayerAttackIdNest();
+
             if (playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
