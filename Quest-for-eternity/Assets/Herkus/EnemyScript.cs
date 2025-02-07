@@ -28,6 +28,8 @@ public class EnemyScript : NetworkBehaviour
     EnemyGenerator enemyGeneratorAccess;
     
     public bool canAttack;
+    [HideInInspector]
+    public int myEnemyType;
 
 
     
@@ -41,6 +43,7 @@ public class EnemyScript : NetworkBehaviour
         this.enemyHealth = databaseMultiplayerAccess.enemyList[myID].enemyHealth;
         savedEnemyHealth = enemyHealth;
         this.isBoss = databaseMultiplayerAccess.enemyList[myID].isBoss;
+        myEnemyType = databaseMultiplayerAccess.enemyList[myID].enemyType;
         GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;

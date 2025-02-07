@@ -68,7 +68,7 @@ public class FieldScript : MonoBehaviour
         activeCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
     }
-    public bool CheckIfHitAndShouldClearField(bool inputBool)
+    public bool CheckIfHitAndShouldClearField(bool inputBool, bool shouldGuaranteeHit)
     {
         bool didWeHit;
 
@@ -78,7 +78,15 @@ public class FieldScript : MonoBehaviour
             FieldEffectActivation();
             if (actionCardReference != null)
             {
-                didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
+                if(!shouldGuaranteeHit)
+                {
+                    didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
+                }
+                else
+                {
+                    didWeHit = true;
+                }
+                
                 playerScriptAccess.shouldDealDamage = didWeHit;
                 if (didWeHit)
                 {

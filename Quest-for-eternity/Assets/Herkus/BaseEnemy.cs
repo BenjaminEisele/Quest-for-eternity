@@ -14,6 +14,7 @@ public class BaseEnemy : ScriptableObject
     public bool isBoss;
     public int lootCardId;
     public int difficultyValue;
+    public int enemyType;
 
     public virtual int GenerateAttack()
     {

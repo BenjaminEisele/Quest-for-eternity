@@ -45,28 +45,16 @@ public class EnemyGenerator : NetworkBehaviour
                 firstId = input;
             }
 
-
-            /*if(isEnoughSpaceLeft)
-            {
-                isEnoughSpaceLeft = IsEnoughSpaceLeft();
-            }
-            else
-            {
-                input = 0;
-            } */
             Debug.Log($"Id is: {input}");
             enemyIdList.Add(input);
             if (!IsEnoughSpaceLeft())
             {
-
                 for(int j = 0; j < howMany - i - 1; j++)
                 {
                     enemyIdList.Add(0);
                 }
                 break;
             }
-          
-
         }
         Debug.Log($"Just before resetting, the difficulty sum was: {currentDifficultySum}");
         currentDifficultySum = 0;

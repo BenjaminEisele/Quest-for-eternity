@@ -519,6 +519,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd29c7d0717b8f1448b54c63cbbe7e35, type: 2}
   - {fileID: 11400000, guid: 38fdd239fa672074d9d07328072b1dfa, type: 2}
   - {fileID: 11400000, guid: 73d69793fd081234a91fe9845c183e5e, type: 2}
+  - {fileID: 11400000, guid: a63ff43d89e32594281f5a78a6b26ffe, type: 2}
 --- !u!114 &7267443404813897993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 0b0000000b0000000b00000003000000040000000500000006000000060000000700000008000000
+  deckCardList: 000000000100000002000000030000000400000005000000060000000600000007000000080000000c0000000c0000000c000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -5156,6 +5157,7 @@ MonoBehaviour:
   chooseNewCardAccess: {fileID: 1577412184725532746}
   isLocalGamePlayer: 0
   isPlayersTurnLocal: 0
+  knowledgeIdList: 
 --- !u!1 &6419282960436208635
 GameObject:
   m_ObjectHideFlags: 0

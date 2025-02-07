@@ -19,3 +19,4 @@ MonoBehaviour:
   isBoss: 0
   lootCardId: 0
   difficultyValue: 1
+  enemyType: 1

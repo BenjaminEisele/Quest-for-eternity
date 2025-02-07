@@ -1,6 +1,8 @@
 using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerScript : NetworkBehaviour
 {
@@ -29,6 +31,8 @@ public class PlayerScript : NetworkBehaviour
     public bool isLocalGamePlayer = false;
 
     public bool isPlayersTurnLocal;
+
+    public List<int> knowledgeIdList;
 
     public void Update()
     {
@@ -108,6 +112,7 @@ public class PlayerScript : NetworkBehaviour
         }
         handScriptAccess.utlCardsPlayedForOtherPlayer = 0;
         shouldDealDamageSingle = true;
+        knowledgeIdList.Clear();
     }
     
     [Command(requiresAuthority = false)]
@@ -162,9 +167,19 @@ public class PlayerScript : NetworkBehaviour
     }
     public void DealDamagePlayerScript(bool inputBool)
     {
+        bool hasGuaranteedHit = false;
+        for(int i = 0; i < knowledgeIdList.Count; i++)
+        {
+            if (RefereeScript.instance.enemyList[RefereeScript.instance.chosenEnemyId].myEnemyType == knowledgeIdList[i])
+            {
+                hasGuaranteedHit = true;
+                Debug.Log("guaranteed hit");
+                break;
+            }
+        }       
         if (!isServer)
         {
-            if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool))
+            if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
@@ -173,7 +188,7 @@ public class PlayerScript : NetworkBehaviour
         }
         else if (isServer)
         {
-            if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool))
+            if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
@@ -181,6 +196,7 @@ public class PlayerScript : NetworkBehaviour
                 RpcDealDamage(damageThisRound, target);
             }
         }
+        
     }
 
     public void HealEnemyPlayerScript()
