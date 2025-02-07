@@ -84,7 +84,7 @@ public class HandScript : MonoBehaviour
 
     private void SubscriptionInvokeHand()
     {
-        RefereeScript.instance.turnStartEvent += ActivateAllCardsEvent;
+        //RefereeScript.instance.turnStartEvent += ActivateAllCardsEvent;
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
         RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
     }
