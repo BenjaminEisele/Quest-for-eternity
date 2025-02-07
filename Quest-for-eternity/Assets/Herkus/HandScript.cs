@@ -298,6 +298,10 @@ public class HandScript : MonoBehaviour
         }
         else if (inputCardType == 2)
         {
+            if(desiredCardStatus)
+            {
+                Debug.Log("activating all cards");
+            }
             foreach (CardScript card in cardList)
             {
                 if (card != null)
