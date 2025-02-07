@@ -88,7 +88,7 @@ public class ChooseNewCardScript : MonoBehaviour
     public void DisplayCards()
     {   
         Vector3 newDisplayCardLocation = displayCardLocator.position;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < RefereeScript.instance.lootCardCount; i++)
         {
             displayCardCount++;
             int inputId = RefereeScript.instance.GetRandomNumber(i);
@@ -98,5 +98,6 @@ public class ChooseNewCardScript : MonoBehaviour
             newDisplayCardLocation += new Vector3(1.5f, 0, 0);
             displayCardList.Add(displayCard);
         }
+        RefereeScript.instance.lootCardCount = 0;
     }
 }
