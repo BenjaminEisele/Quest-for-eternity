@@ -119,6 +119,7 @@ public class EnemyGenerator : NetworkBehaviour
                 }
 
                 refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
+                refereeScriptAccess.lootCardCount += enemyClone.GetComponent<EnemyScript>().myLootAmount;
                 enemyPosition += new Vector3(5, 0, 0);       
         }
         refereeScriptAccess.ResetChosenEnemy();

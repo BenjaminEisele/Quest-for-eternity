@@ -15,6 +15,7 @@ public class BaseEnemy : ScriptableObject
     public int lootCardId;
     public int difficultyValue;
     public int enemyType;
+    public int lootAmount;
 
     public virtual int GenerateAttack()
     {

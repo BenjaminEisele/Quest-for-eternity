@@ -594,7 +594,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10a10243987f2c7459336b3ff8d4ac72, type: 2}
   - {fileID: 11400000, guid: 25278f8ba2c162d45889102ab1d1005f, type: 2}
   - {fileID: 11400000, guid: 74d7b18455c5a5b4c8a51be7445742c2, type: 2}
-  genericLootList: 030000000400000005000000060000000700000008000000
+  genericLootList: 0300000004000000050000000600000007000000080000000b000000080000000b000000080000000b000000070000000700000008000000
   updatedLootList: 
 --- !u!4 &371547817
 Transform:
@@ -1763,6 +1763,8 @@ MonoBehaviour:
   databaseMultiplayerAccess: {fileID: 371547816}
   enemyGeneratorAccess: {fileID: 118785381}
   canAttack: 0
+  myEnemyType: 0
+  myLootAmount: 0
 --- !u!65 &1748148564
 BoxCollider:
   m_ObjectHideFlags: 0

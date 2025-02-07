@@ -63,6 +63,8 @@ public class RefereeScript : NetworkBehaviour
     public List<int> lootIdList;
     Coroutine myCoroutine = null;
 
+    public int lootCardCount;
+
     [SerializeField]
     DatabaseMultiplayer databaseMultiplayerAccess;
 
@@ -161,7 +163,7 @@ public class RefereeScript : NetworkBehaviour
             randomEnemyCount = Random.Range(2, 3);
             enemyGeneratorAccess.RandomNumber(randomEnemyCount);
             //StartCoroutine(enemyGeneratorAccess.RandomNumber(randomEnemyCount));
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 8; i++)
             {
                 int randomValue = Random.Range(0, maximumValue);
                 while(!IsLootIdValid(randomValue))

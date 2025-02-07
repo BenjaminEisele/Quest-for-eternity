@@ -95,7 +95,7 @@ public class ChooseNewCardScript : MonoBehaviour
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);
             displayCard.GetComponent<DisplayCardScript>().playerScriptAccess = this.playerScriptAccess;
             displayCard.GetComponent<DisplayCardScript>().DisplayCardSetup(inputId);
-            newDisplayCardLocation += new Vector3(2.5f, 0, 0);
+            newDisplayCardLocation += new Vector3(1.5f, 0, 0);
             displayCardList.Add(displayCard);
         }
     }
