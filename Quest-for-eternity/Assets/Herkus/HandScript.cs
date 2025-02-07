@@ -64,9 +64,7 @@ public class HandScript : MonoBehaviour
     {
         utilityLimit = 3;
         cardLimit = 5;
-        RefereeScript.instance.turnStartEvent += ActivateAllCardsEvent;
-        RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
-        RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
+        Invoke("SubscriptionInvokeHand", 1f);
         turnScriptAccess.endTurnEvent += AddCardsEvent;
         turnScriptAccess.endTurnEvent += RebuildCardListLite;
         turnScriptAccess.endTurnEvent += ResetQuickAttackMode;
@@ -84,6 +82,12 @@ public class HandScript : MonoBehaviour
         utlCardsPlayedForOtherPlayer = 0;
     }
 
+    private void SubscriptionInvokeHand()
+    {
+        RefereeScript.instance.turnStartEvent += ActivateAllCardsEvent;
+        RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
+        RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
+    }
 
     public void PlayCard(Transform card)
     {

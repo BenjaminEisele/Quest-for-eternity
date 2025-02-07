@@ -21,9 +21,14 @@ public class DeckManager : MonoBehaviour
 
     private void Start()
     {
-        RefereeScript.instance.newWaveEvent += ResetAllCardLists;
+        Invoke("SubscriptionInvokeDeck", 1f);
         turnScriptAccess.restartGameEvent += ResetAllCardLists;
         uiScripAccess.ToggleShuffleWindow(false);
+    }
+
+    private void SubscriptionInvokeDeck()
+    {
+        RefereeScript.instance.newWaveEvent += ResetAllCardLists;
     }
     public void ResetDeckBegin()
     {
