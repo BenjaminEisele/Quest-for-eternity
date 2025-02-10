@@ -69,7 +69,8 @@ public class PlayerScript : NetworkBehaviour
         }
         if(Input.GetKeyDown(KeyCode.O))
         {
-            EndTurnPlayerScript();
+            //EndTurnPlayerScript();
+            turnScriptAccess.CallEndTurnEvent();
         }
     }
     private void SetLocalPlayersTurnFalse()
