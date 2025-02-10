@@ -151,6 +151,10 @@ public class PlayerScript : NetworkBehaviour
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = true;
+            if (!isPlayerAlive)
+            {
+                turnScriptAccess.CallEndTurnEvent();
+            }
         }
     }
 
@@ -165,6 +169,10 @@ public class PlayerScript : NetworkBehaviour
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = false;
+            if (!isPlayerAlive)
+            {
+                turnScriptAccess.CallEndTurnEvent();
+            }
         }
     }
     public void DealDamagePlayerScript(bool inputBool)
