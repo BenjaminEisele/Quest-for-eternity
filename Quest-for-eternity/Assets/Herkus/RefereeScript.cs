@@ -278,14 +278,14 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            playerList[0].turnScriptAccess.CallEndTurnEvent();
+            playerList[1].turnScriptAccess.CallEndTurnEvent();
         }
     }
 
     [Command(requiresAuthority = false)]
     private void CmdCallEndTurnEventForPlayer()
     {
-        playerList[1].turnScriptAccess.CallEndTurnEvent();
+        playerList[0].turnScriptAccess.CallEndTurnEvent();
     }
     public void CallEndTurnForBothPlayers()
     {
