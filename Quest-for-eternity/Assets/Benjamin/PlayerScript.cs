@@ -1,7 +1,6 @@
 using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
-using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerScript : NetworkBehaviour
@@ -23,6 +22,8 @@ public class PlayerScript : NetworkBehaviour
     public bool isThisPlayersTurnToChoose;
     [SyncVar] 
     public int damageThisRound;
+    [SyncVar]
+    public bool isPlayerAlive;
     private int myPlayerListId;
     [SerializeField]
     ChooseNewCardScript chooseNewCardAccess;
@@ -63,6 +64,7 @@ public class PlayerScript : NetworkBehaviour
                 turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;// EndTurnPlayerScript;
                 turnScriptAccess.endTurnEvent += DealDamageEventTrue;
                 shouldCheck = false;
+                isPlayerAlive = true;
             }           
         }
     }

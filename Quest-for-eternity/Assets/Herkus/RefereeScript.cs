@@ -497,7 +497,8 @@ public class RefereeScript : NetworkBehaviour
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
             EndGame(false);
-        }       
+            playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerScript>().isPlayerAlive = false;
+        }
     }
     
     private void SwitchPlayerAttackIdNest()
