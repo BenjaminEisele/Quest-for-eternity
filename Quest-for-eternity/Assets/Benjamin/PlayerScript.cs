@@ -67,6 +67,10 @@ public class PlayerScript : NetworkBehaviour
                 isPlayerAlive = true;
             }           
         }
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            EndTurnPlayerScript();
+        }
     }
     private void SetLocalPlayersTurnFalse()
     {
