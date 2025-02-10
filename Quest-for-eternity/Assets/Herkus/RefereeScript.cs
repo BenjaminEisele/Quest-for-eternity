@@ -433,6 +433,7 @@ public class RefereeScript : NetworkBehaviour
     }
     public void StartForeachEnemyCoroutine()
     {
+
         if (!isGameOver)
         {
             if(myCoroutine == null)
@@ -443,6 +444,7 @@ public class RefereeScript : NetworkBehaviour
     }
     private IEnumerator ForeachEnemyTurnCoroutine()
     {
+        Debug.Log("Coroutine called");
         yield return new WaitForSeconds(1.5f);
         if (!areAllEnemiesDead)
         {
@@ -496,8 +498,11 @@ public class RefereeScript : NetworkBehaviour
         if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
-            EndGame(false);
-            playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerScript>().isPlayerAlive = false;
+            playerList[targetPlayerId].isPlayerAlive = false;
+            if (AreAllPlayersDead())
+            {
+                EndGame(false);
+            }
         }
     }
     
@@ -623,5 +628,18 @@ public class RefereeScript : NetworkBehaviour
         {
             playerList[1].HealEnemyPlayerScript();
         }
+    }
+
+    public bool AreAllPlayersDead()
+    {
+        bool areAllPlayersDead = true;
+        foreach (PlayerScript player in playerList)
+        {
+            if (player.isPlayerAlive)
+            {
+                areAllPlayersDead = false;
+            }
+        }
+        return areAllPlayersDead;
     }
 }

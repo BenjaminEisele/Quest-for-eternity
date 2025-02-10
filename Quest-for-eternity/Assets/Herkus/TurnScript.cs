@@ -77,7 +77,7 @@ public class TurnScript : MonoBehaviour
             {
                 endTurnEvent();
             }
-            uiScriptAccess.ChangeEndTurnButtonStatus(false);
+            //uiScriptAccess.ChangeEndTurnButtonStatus(false);
         }
     }
     private void CallRestartGameEvent()
