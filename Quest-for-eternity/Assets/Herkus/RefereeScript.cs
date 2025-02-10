@@ -444,17 +444,17 @@ public class RefereeScript : NetworkBehaviour
     }
     private IEnumerator ForeachEnemyTurnCoroutine()
     {
-        Debug.Log("Coroutine called");
         yield return new WaitForSeconds(1.5f);
+        Debug.Log("Coroutine called");
         if (!areAllEnemiesDead)
         {
             int debugCounter = 0;
             int loopCount = enemyList.Count;
             for (int i = 0; i < loopCount; i++)
             {
+                Debug.Log(debugCounter);
                 if(enemyList[i].canAttack)
                 {   
-                    //enemyList[0].specialAttackCounter++;
                     int enemyDamage = enemyList[i].GenerateAttack();
                     if (isClientOnly)
                     {
@@ -464,6 +464,7 @@ public class RefereeScript : NetworkBehaviour
                     {
                         RpcDealDamageToPlayer(enemyDamage);
                     }
+                    Debug.Log(enemyDamage);
                     UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 }
                 else

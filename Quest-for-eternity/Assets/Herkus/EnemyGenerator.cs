@@ -36,7 +36,6 @@ public class EnemyGenerator : NetworkBehaviour
             input = Random.Range(0, 3);
             while(!isValidEnemyDifficulty(input))
             {
-                Debug.Log("false");
                 input = Random.Range(0, 3);
             }
             currentDifficultySum += databaseMultiplayerAccess.enemyList[input].difficultyValue;
@@ -44,8 +43,6 @@ public class EnemyGenerator : NetworkBehaviour
             {
                 firstId = input;
             }
-
-            Debug.Log($"Id is: {input}");
             enemyIdList.Add(input);
             if (!IsEnoughSpaceLeft())
             {
@@ -56,19 +53,12 @@ public class EnemyGenerator : NetworkBehaviour
                 break;
             }
         }
-        Debug.Log($"Just before resetting, the difficulty sum was: {currentDifficultySum}");
         currentDifficultySum = 0;
     }
 
     private bool isValidEnemyDifficulty(int inputEnemyId)
     {
-        Debug.Log($"Sum is: {databaseMultiplayerAccess.enemyList[inputEnemyId].difficultyValue + currentDifficultySum}");
         int waveIndex = RefereeScript.instance.waveCount;
-       // if(waveIndex != 0)
-        //{
-        //    waveIndex--;
-      //  }
-        Debug.Log($"Comparing against: {difficultySumList[waveIndex]}");
         if (databaseMultiplayerAccess.enemyList[inputEnemyId].difficultyValue + currentDifficultySum > difficultySumList[waveIndex])
         {
             return false;
