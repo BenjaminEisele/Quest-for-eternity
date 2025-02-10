@@ -254,6 +254,7 @@ public class RefereeScript : NetworkBehaviour
         }
         if(isServer)
         {
+            Debug.Log("this shouldn't get executed in the beginning");
             if(!playerList[0].isPlayerAlive)
             {
                 playerList[0].turnScriptAccess.CallEndTurnEvent();
@@ -261,6 +262,7 @@ public class RefereeScript : NetworkBehaviour
         }
         else
         {
+            Debug.Log("this shouldn't get executed in the beginning 2");
             if (!playerList[1].isPlayerAlive)
             {
                 playerList[1].turnScriptAccess.CallEndTurnEvent();
