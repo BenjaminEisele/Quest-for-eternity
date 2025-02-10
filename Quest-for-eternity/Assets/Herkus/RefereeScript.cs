@@ -278,7 +278,7 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            playerList[1].turnScriptAccess.CallEndTurnEvent();
+            playerList[1].turnScriptAccess.CallEndTurnEvent(); //Look at this on Wednesday
         }
     }
 
