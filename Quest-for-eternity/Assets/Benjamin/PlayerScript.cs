@@ -153,6 +153,7 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.isServersTurn = true;
             if (!isPlayerAlive)
             {
+                Debug.Log("Iam called to many times Cmd");
                 turnScriptAccess.CallEndTurnEvent();
             }
         }
@@ -172,6 +173,7 @@ public class PlayerScript : NetworkBehaviour
             if (!isPlayerAlive)
             {
                 turnScriptAccess.CallEndTurnEvent();
+                Debug.Log("Iam called to many times Rpc");
             }
         }
     }
