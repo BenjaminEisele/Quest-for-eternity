@@ -252,6 +252,20 @@ public class RefereeScript : NetworkBehaviour
         {
             turnStartEvent();
         }
+        if(isServer)
+        {
+            if(!playerList[0].isPlayerAlive)
+            {
+                playerList[0].turnScriptAccess.CallEndTurnEvent();
+            }
+        }
+        else
+        {
+            if (!playerList[1].isPlayerAlive)
+            {
+                playerList[1].turnScriptAccess.CallEndTurnEvent();
+            }
+        }
         TurnScript.instance.ShouldStartPlayerTurn(true);
     }
     public void CallEndTurnForBothPlayers()

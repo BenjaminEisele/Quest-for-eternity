@@ -232,7 +232,7 @@ public class HandScript : MonoBehaviour
     }
     public void ActivateAllCardsEvent()
     {
-        if (playerScriptAccess.isThisPlayersTurn)
+        if (playerScriptAccess.isThisPlayersTurn && playerScriptAccess.isPlayerAlive)
         {
             playerScriptAccess.isPlayersTurnLocal = true;
             if (isInQuickAttackMode && CountActionCards() > 0)

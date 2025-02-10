@@ -9,8 +9,7 @@ public class PlayerScript : NetworkBehaviour
     HandScript handScriptAccess;
     [SerializeField]
     private Button EndTurnButton;
-    [SerializeField]
-    TurnScript turnScriptAccess;
+    public TurnScript turnScriptAccess;
     [SerializeField]
     FieldScript fieldScriptAccess;
     public bool shouldDealDamage;
