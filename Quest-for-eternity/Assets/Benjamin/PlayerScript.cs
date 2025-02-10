@@ -34,6 +34,11 @@ public class PlayerScript : NetworkBehaviour
 
     public List<int> knowledgeIdList;
 
+    private void Start()
+    {
+        isPlayerAlive = true;
+    }
+
     public void Update()
     {
         if (shouldCheck)
