@@ -255,22 +255,37 @@ public class RefereeScript : NetworkBehaviour
         if(isServer)
         {
             Debug.Log("this shouldn't get executed in the beginning");
-            if(!playerList[0].isPlayerAlive)
+            if(!playerList[1].isPlayerAlive)
             {
                 Debug.Log("I am DEAD!! I AM A COrPSE! 1");
-                playerList[0].turnScriptAccess.CallEndTurnEvent();
+                RpcCallEndTurnEventForPlayer();
             }
         }
         else
         {
             Debug.Log("this shouldn't get executed in the beginning 2");
-            if (!playerList[1].isPlayerAlive)
+            if (!playerList[0].isPlayerAlive)
             {
                 Debug.Log("I am DEAD!! I AM A COrPSE! 2");
-                playerList[1].turnScriptAccess.CallEndTurnEvent();
+                CmdCallEndTurnEventForPlayer();
             }
         }
         TurnScript.instance.ShouldStartPlayerTurn(true);
+    }
+
+    [ClientRpc]
+    private void RpcCallEndTurnEventForPlayer()
+    {
+        if (isClientOnly)
+        {
+            playerList[0].turnScriptAccess.CallEndTurnEvent();
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdCallEndTurnEventForPlayer()
+    {
+        playerList[1].turnScriptAccess.CallEndTurnEvent();
     }
     public void CallEndTurnForBothPlayers()
     {
