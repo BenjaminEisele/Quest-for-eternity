@@ -93,6 +93,7 @@ public class PlayerStatScript : NetworkBehaviour
     }
     public void UpdateFighterTextInvocation()
     {
+        Debug.Log("Setting health");
         if (playerHealth < savedPlayerHealth)
         {
             playerHealthText.color = Color.blue;
