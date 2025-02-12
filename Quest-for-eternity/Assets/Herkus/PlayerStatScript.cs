@@ -6,9 +6,16 @@ using Mirror;
 public class PlayerStatScript : NetworkBehaviour
 {
     public int playerHealthOffset;
-    [SyncVar]
-    public int playerHealth;
-    int savedPlayerHealth;
+    public int playerHealth
+    {
+        get { return playerHealth; }
+        set
+        {
+            UpdateFighterTextInvocation();
+        }
+    }
+         
+int savedPlayerHealth;
     //PlayerScript playerScriptAccess;
 
     TextMeshPro playerHealthText;
