@@ -82,15 +82,20 @@ public class PlayerStatScript : NetworkBehaviour
         {
             Debug.Log("setting to 0");
             playerHealth = 0;
-            UiScript.UpdateFighterText(playerHealthText, playerHealth);
+            Invoke("UpdateFighterTextInvocation", 0.1f);
+            //UiScript.UpdateFighterText(playerHealthText, playerHealth);
             return true;
         }
         else
         {
-            UiScript.UpdateFighterText(playerHealthText, playerHealth);
-
+            Invoke("UpdateFighterTextInvocation", 0.1f);
             return false;
         }
         
+    }
+    private void UpdateFighterTextInvocation()
+    {
+        UiScript.UpdateFighterText(playerHealthText, playerHealth);
+
     }
 }
