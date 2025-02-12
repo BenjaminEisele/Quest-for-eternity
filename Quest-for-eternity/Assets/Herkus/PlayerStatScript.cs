@@ -40,6 +40,7 @@ int savedPlayerHealth;
             }
             else
             {
+                Debug.Log(transform.gameObject.name);
                 RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
             }
         }
@@ -66,10 +67,8 @@ int savedPlayerHealth;
         Debug.Log("Method call 0");
         if (isClientOnly)
         {
-            Debug.Log("Method call 1");
             if (shouldCallCommand)
             {
-                Debug.Log("Method call 2");
                 CmdChangePlayerHealth(input);
                 //UpdateFighterTextInvocation();
                 //Invoke("UpdateFighterTextInvocation", 0.25f);
@@ -90,18 +89,19 @@ int savedPlayerHealth;
 
     public void ChangePlayerHealth(int desiredAmount)
     {
+        Debug.Log($"Desired amount is: {desiredAmount}");
         int changedValue = playerHealth + desiredAmount;
         playerHealth = changedValue;
         if(playerHealth < savedPlayerHealth)
         {
-            playerHealthText.color = Color.red;
+            //playerHealthText.color = Color.red;
         }
         else if(playerHealth >= savedPlayerHealth)
         {
-            playerHealthText.color = Color.white;
+            //playerHealthText.color = Color.white;
             playerHealth = savedPlayerHealth;
         }
-        UiScript.UpdateFighterText(playerHealthText, playerHealth);
+        //UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
@@ -131,7 +131,7 @@ int savedPlayerHealth;
     {
         if (playerHealthText != null)
         {
-            Debug.Log("Setting health");
+            Debug.Log($"Setting health to {playerHealth}");
             if (playerHealth < savedPlayerHealth)
             {
 

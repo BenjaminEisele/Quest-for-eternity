@@ -6611,7 +6611,6 @@ GameObject:
   - component: {fileID: 4659551547853495770}
   - component: {fileID: 2293781681389716076}
   - component: {fileID: 6294086634177729102}
-  - component: {fileID: 676415838479033597}
   m_Layer: 0
   m_Name: PlayerText
   m_TagString: Health
@@ -6777,23 +6776,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 2293781681389716076}
   m_maskType: 0
---- !u!114 &676415838479033597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3960346894270765613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70dc65039d4c58e44837574a473487eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  playerHealthOffset: 0
-  playerHealth: 0
 --- !u!1 &4040827880684808312
 GameObject:
   m_ObjectHideFlags: 0
