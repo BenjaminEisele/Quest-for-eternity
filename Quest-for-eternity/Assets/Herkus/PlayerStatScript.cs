@@ -17,7 +17,18 @@ int savedPlayerHealth;
 
     private void Awake()
     {
-        if(isClientOnly)
+        Invoke("SubscriptionInvoke", 0.1f);
+        //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
+        playerHealth = 25;
+        savedPlayerHealth = playerHealth;
+        playerHealthText = GetComponentInChildren<TextMeshPro>();
+        UiScript.UpdateFighterText(playerHealthText, playerHealth);
+        ResetPlayer();
+    }
+
+    private void SubscriptionInvoke()
+    {
+        if (isClientOnly)
         {
             RefereeScript.instance.newWaveEvent += ClientNewWaveHeal;
         }
@@ -25,12 +36,6 @@ int savedPlayerHealth;
         {
             RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
         }
-        //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
-        playerHealth = 25;
-        savedPlayerHealth = playerHealth;
-        playerHealthText = GetComponentInChildren<TextMeshPro>();
-        UiScript.UpdateFighterText(playerHealthText, playerHealth);
-        ResetPlayer();
     }
     public void ResetPlayer()
     {
