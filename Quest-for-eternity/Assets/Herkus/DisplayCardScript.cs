@@ -42,18 +42,15 @@ public class DisplayCardScript : MonoBehaviour
     {
         myCardId = myId;
         myCardName = databasePlayerAccess.cardList[myCardId].cardName;
-        string cardTypeName;
        
         Utility utilityCardAccess = databasePlayerAccess.cardList[myCardId] as Utility;
         if (utilityCardAccess)
         {
-            cardTypeName = "Utility";
             isActionCard = false;
         }
         else
         {
             Action actionCardAccess = databasePlayerAccess.cardList[myCardId] as Action;
-            cardTypeName = "Action";
             myDamage = actionCardAccess.cardDamage;
             isActionCard = true;
             myCardHitRate = actionCardAccess.cardHitRate;
@@ -61,7 +58,6 @@ public class DisplayCardScript : MonoBehaviour
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
         cardTextArray[0].text = myDamage.ToString();
-        //[1].text = cardTypeName;
         cardTextArray[1].text = myCardName;
         cardTextArray[2].text = databasePlayerAccess.cardList[myCardId].cardDescription;
         if (isActionCard)

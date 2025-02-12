@@ -258,7 +258,7 @@ public class RefereeScript : NetworkBehaviour
             if(!playerList[1].isPlayerAlive)
             {
                 Debug.Log("I am DEAD!! I AM A COrPSE! 1");
-                RpcCallEndTurnEventForPlayer();
+                Invoke("RpcCallEndTurnEventForPlayer", 0.1f);
             }
         }
         else
@@ -267,7 +267,7 @@ public class RefereeScript : NetworkBehaviour
             if (!playerList[0].isPlayerAlive)
             {
                 Debug.Log("I am DEAD!! I AM A COrPSE! 2");
-                CmdCallEndTurnEventForPlayer();
+                Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
             }
         }
         TurnScript.instance.ShouldStartPlayerTurn(true);
@@ -278,14 +278,14 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            Invoke("playerList[1].turnScriptAccess.CallEndTurnEvent", 0.1f); //Look at this on Wednesday
+            playerList[1].turnScriptAccess.CallEndTurnEvent(); //Look at this on Wednesday
         }
     }
 
     [Command(requiresAuthority = false)]
     private void CmdCallEndTurnEventForPlayer()
     {
-        Invoke("playerList[0].turnScriptAccess.CallEndTurnEvent", 0.1f);
+        playerList[0].turnScriptAccess.CallEndTurnEvent();
     }
     public void CallEndTurnForBothPlayers()
     {

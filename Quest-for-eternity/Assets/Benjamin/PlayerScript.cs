@@ -27,7 +27,6 @@ public class PlayerScript : NetworkBehaviour
     [SerializeField]
     ChooseNewCardScript chooseNewCardAccess;
     private bool shouldCheck = true;
-    bool shouldDealDamageSingle = true;
     public bool isLocalGamePlayer = false;
 
     public bool isPlayersTurnLocal;
@@ -65,7 +64,7 @@ public class PlayerScript : NetworkBehaviour
                 }
                 RefereeScript.instance.turnStartEvent += EndTurnPlayerScript;
                 RefereeScript.instance.turnStartEvent += SetLocalPlayersTurnTrue;
-                turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;// EndTurnPlayerScript;
+                turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;
                 turnScriptAccess.endTurnEvent += DealDamageEventTrue;
                 shouldCheck = false;
                 isPlayerAlive = true;
@@ -98,31 +97,13 @@ public class PlayerScript : NetworkBehaviour
         handScriptAccess.DisableAllCardsEvent();
         if (!isServer)
         {
-           /* if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
-            {
-                int target = RefereeScript.instance.chosenEnemyId;
-                damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                CmdDealDamage(damageThisRound, target);
-
-            } */
             Invoke("CmdEndTurn", 0.1f);
         }
         else if (isServer)
         {
-          /*  if (fieldScriptAccess.CheckIfHitAndShouldClearField(true))
-            {
-                if(shouldDealDamageSingle)
-                {
-                    int target = RefereeScript.instance.chosenEnemyId;
-                    damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                    Debug.Log($"Damage is: {damageThisRound}");
-                    RpcDealDamage(damageThisRound, target);
-                }      
-            } */
             Invoke("RpcEndTurn", 0.1f);
         }
         handScriptAccess.utlCardsPlayedForOtherPlayer = 0;
-        shouldDealDamageSingle = true;
         knowledgeIdList.Clear();
     }
     
@@ -160,11 +141,6 @@ public class PlayerScript : NetworkBehaviour
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = true;
-            if (!isPlayerAlive)
-            {
-                Debug.Log("Iam called to many times Cmd");
-                //turnScriptAccess.CallEndTurnEvent();
-            }
         }
     }
 
@@ -179,11 +155,6 @@ public class PlayerScript : NetworkBehaviour
             this.EndTurnButton.interactable = isThisPlayersTurn;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = false;
-            if (!isPlayerAlive)
-            {
-                //turnScriptAccess.CallEndTurnEvent();
-                Debug.Log("Iam called to many times Rpc");
-            }
         }
     }
     public void DealDamagePlayerScript(bool inputBool)
@@ -261,7 +232,6 @@ public class PlayerScript : NetworkBehaviour
             Debug.Log("Pre new wave");
             RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
             RefereeScript.instance.CallPreNewWaveEvent();
-            shouldDealDamageSingle = false;
             EndTurnPlayerScript();
         }
         
