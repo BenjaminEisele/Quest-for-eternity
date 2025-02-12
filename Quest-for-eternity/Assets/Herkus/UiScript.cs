@@ -15,7 +15,7 @@ public class UiScript : MonoBehaviour
     static TextMeshPro turnInfoText;
 
     [SerializeField]
-    static TextMeshPro[] uiTextArray;
+    static TextMeshProUGUI[] uiTextArray;
 
     [SerializeField]
     public GameObject shuffleWindow;
@@ -26,7 +26,7 @@ public class UiScript : MonoBehaviour
 
     private void Start()
     {
-        uiTextArray = GetComponentsInChildren<TextMeshPro>();
+        uiTextArray = GetComponentsInChildren<TextMeshProUGUI>();
         UpdateTurnInfo(0);
     }
     public static void UpdateFighterText(TextMeshPro changedText, int value)

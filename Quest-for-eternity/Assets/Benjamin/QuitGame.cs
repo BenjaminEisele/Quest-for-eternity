@@ -7,8 +7,9 @@ public class QuitGame : MonoBehaviour
     public void QuitGameFunction()
     {
         SceneManager.LoadSceneAsync("MainMenu");
+        Debug.Log("exit ingame " + PlayerPrefs.GetInt("fullscreen"));
 
-        if(PlayerPrefab != null)
+        if (PlayerPrefab != null)
         {
             PlayerPrefab.SetActive(false);
         }
