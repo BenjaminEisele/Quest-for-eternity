@@ -6,6 +6,7 @@ using Mirror;
 public class PlayerStatScript : NetworkBehaviour
 {
     public int playerHealthOffset;
+    //[SyncVar(hook = nameof(UpdateFighterTextInvocation))]
     [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
     public int playerHealth;
          
@@ -41,7 +42,7 @@ int savedPlayerHealth;
                 Debug.Log("Method call 2");
                 CmdChangePlayerHealth(input);
                 //UpdateFighterTextInvocation();
-                Invoke("UpdateFighterTextInvocation", 0.25f);
+                //Invoke("UpdateFighterTextInvocation", 0.25f);
             }
         }
         else
@@ -86,27 +87,32 @@ int savedPlayerHealth;
         {
             Debug.Log("setting to 0");
             playerHealth = 0;
-            Invoke("UpdateFighterTextInvocation", 0.1f);
+            //Invoke("UpdateFighterTextInvocation", 0.1f);
             //UiScript.UpdateFighterText(playerHealthText, playerHealth);
             return true;
         }
         else
         {
-            Invoke("UpdateFighterTextInvocation", 0.1f);
+            //Invoke("UpdateFighterTextInvocation", 0.1f);
             return false;
         }       
     }
-    public void UpdateFighterTextInvocation()
+    public void UpdateFighterTextInvocation(int oldInt, int newInt)
     {
-        Debug.Log("Setting health");
-        if (playerHealth < savedPlayerHealth)
+        if (playerHealthText != null)
         {
-            playerHealthText.color = Color.red;
+            Debug.Log("Setting health");
+            if (playerHealth < savedPlayerHealth)
+            {
+
+                playerHealthText.color = Color.red;
+            }
+            else
+            {
+                playerHealthText.color = Color.white;
+            }
+            UiScript.UpdateFighterText(playerHealthText, playerHealth);
         }
-        else
-        {
-            playerHealthText.color = Color.white;
-        }
-        UiScript.UpdateFighterText(playerHealthText, playerHealth);
+        
     }
 }
