@@ -41,6 +41,7 @@ public class PlayerStatScript : MonoBehaviour
             playerHealthText.color = Color.white;
             playerHealth = savedPlayerHealth;
         }
+        UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
