@@ -100,11 +100,11 @@ public class PlayerStatScript : NetworkBehaviour
         Debug.Log("Setting health");
         if (playerHealth < savedPlayerHealth)
         {
-            playerHealthText.color = Color.blue;
+            playerHealthText.color = Color.red;
         }
         else
         {
-            playerHealthText.color = Color.yellow;
+            playerHealthText.color = Color.white;
         }
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
