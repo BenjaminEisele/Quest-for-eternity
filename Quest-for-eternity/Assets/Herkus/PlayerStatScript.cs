@@ -6,7 +6,7 @@ using Mirror;
 public class PlayerStatScript : NetworkBehaviour
 {
     public int playerHealthOffset;
-    [SyncVar]
+    [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
     public int playerHealth;
          
 int savedPlayerHealth;
