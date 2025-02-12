@@ -34,7 +34,7 @@ public class PlayerStatScript : NetworkBehaviour
     {
         if(isClientOnly)
         {
-            CmdChangePlayerHealth(input);
+            //CmdChangePlayerHealth(input);
         }
         else
         {
