@@ -87,7 +87,7 @@ public class PlayerStatScript : NetworkBehaviour
         }
         else
         {
-            //UiScript.UpdateFighterText(playerHealthText, playerHealth);
+            UiScript.UpdateFighterText(playerHealthText, playerHealth);
 
             return false;
         }
