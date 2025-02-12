@@ -30,6 +30,24 @@ public class PlayerStatScript : NetworkBehaviour
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
 
+    public void ChangeHealthNest(int input)
+    {
+        if(isClientOnly)
+        {
+            CmdChangePlayerHealth(input);
+        }
+        else
+        {
+            ChangePlayerHealth(input);
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdChangePlayerHealth(int input)
+    {
+        ChangePlayerHealth(input);
+    }
+
     public void ChangePlayerHealth(int desiredAmount)
     {
         int changedValue = playerHealth + desiredAmount;
@@ -52,7 +70,8 @@ public class PlayerStatScript : NetworkBehaviour
         {
             inputDamage = 0;
         }
-        ChangePlayerHealth(-inputDamage);
+        ChangeHealthNest(-inputDamage);
+        //ChangePlayerHealth(-inputDamage);
         playerHealthOffset = 0;
         if (playerHealth <= 0)
         {
