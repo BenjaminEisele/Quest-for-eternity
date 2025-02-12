@@ -14,10 +14,14 @@ int savedPlayerHealth;
     //PlayerScript playerScriptAccess;
 
     TextMeshPro playerHealthText;
+    private void Start()
+    {
+        Invoke("SubscriptionInvoke", 1f);
+    }
 
     private void Awake()
     {
-        Invoke("SubscriptionInvoke", 0.1f);
+        
         //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
         playerHealth = 25;
         savedPlayerHealth = playerHealth;
