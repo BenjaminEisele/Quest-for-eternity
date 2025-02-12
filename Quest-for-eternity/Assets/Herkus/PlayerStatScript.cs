@@ -32,14 +32,18 @@ int savedPlayerHealth;
 
     private void SubscriptionInvoke()
     {
-        if (isClientOnly)
+        if(transform.root.GetComponentInChildren<PlayerScript>().isLocalGamePlayer)
         {
-            RefereeScript.instance.newWaveEvent += ClientNewWaveHeal;
+            if (isClientOnly)
+            {
+                RefereeScript.instance.newWaveEvent += ClientNewWaveHeal;
+            }
+            else
+            {
+                RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
+            }
         }
-        else
-        {
-            RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
-        }
+       
     }
     public void ResetPlayer()
     {
