@@ -93,7 +93,7 @@ public class PlayerStatScript : NetworkBehaviour
         }
         
     }
-    private void UpdateFighterTextInvocation()
+    public void UpdateFighterTextInvocation()
     {
         if (playerHealth < savedPlayerHealth)
         {
