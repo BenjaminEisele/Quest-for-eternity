@@ -311,7 +311,7 @@ public class HandScript : MonoBehaviour
     private IEnumerator QuickAttackModeCoroutine()
     {
         yield return new WaitForSeconds(0.75f);
-        playerScriptAccess.DealDamagePlayerScript(false);
+        playerScriptAccess.DealDamagePlayerScript(false, false, 0);
         isInQuickAttackMode = false;
         SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();

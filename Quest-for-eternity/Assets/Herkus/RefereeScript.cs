@@ -252,22 +252,25 @@ public class RefereeScript : NetworkBehaviour
         {
             turnStartEvent();
         }
-        if(isServer)
+        if(!singlePlayerMode)
         {
-            Debug.Log("this shouldn't get executed in the beginning");
-            if(!playerList[1].isPlayerAlive)
+            if (isServer)
             {
-                Debug.Log("I am DEAD!! I AM A COrPSE! 1");
-                Invoke("RpcCallEndTurnEventForPlayer", 0.1f);
+                Debug.Log("this shouldn't get executed in the beginning");
+                if (!playerList[1].isPlayerAlive)
+                {
+                    Debug.Log("I am DEAD!! I AM A COrPSE! 1");
+                    Invoke("RpcCallEndTurnEventForPlayer", 0.1f);
+                }
             }
-        }
-        else
-        {
-            Debug.Log("this shouldn't get executed in the beginning 2");
-            if (!playerList[0].isPlayerAlive)
+            else
             {
-                Debug.Log("I am DEAD!! I AM A COrPSE! 2");
-                Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
+                Debug.Log("this shouldn't get executed in the beginning 2");
+                if (!playerList[0].isPlayerAlive)
+                {
+                    Debug.Log("I am DEAD!! I AM A COrPSE! 2");
+                    Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
+                }
             }
         }
         TurnScript.instance.ShouldStartPlayerTurn(true);

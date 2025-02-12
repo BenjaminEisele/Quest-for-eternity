@@ -70,11 +70,6 @@ public class PlayerScript : NetworkBehaviour
                 isPlayerAlive = true;
             }           
         }
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            //EndTurnPlayerScript();
-            turnScriptAccess.CallEndTurnEvent();
-        }
     }
     private void SetLocalPlayersTurnFalse()
     {
@@ -86,7 +81,7 @@ public class PlayerScript : NetworkBehaviour
     }
     private void DealDamageEventTrue()
     {
-        DealDamagePlayerScript(true);
+        DealDamagePlayerScript(true, false, 0);
     }
     public void EndTurnSubscription()
     {
@@ -157,7 +152,7 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.isServersTurn = false;
         }
     }
-    public void DealDamagePlayerScript(bool inputBool)
+    public void DealDamagePlayerScript(bool inputBool, bool shouldDealAoE, int setDamage)
     {
         bool hasGuaranteedHit = false;
         for(int i = 0; i < knowledgeIdList.Count; i++)
@@ -168,14 +163,31 @@ public class PlayerScript : NetworkBehaviour
                 Debug.Log("guaranteed hit");
                 break;
             }
-        }       
+        }    
         if (!isServer)
         {
             if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                CmdDealDamage(damageThisRound, target);
+                if(shouldDealAoE)
+                {
+                    for(int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
+                    {
+                        if(target != j)
+                        {
+                            CmdDealDamage(setDamage, j);
+                        }
+                        else
+                        {
+                            CmdDealDamage(damageThisRound, target);
+                        }
+                    }
+                }
+                else
+                {
+                    CmdDealDamage(damageThisRound, target);
+                }
             }
         }
         else if (isServer)
@@ -185,7 +197,24 @@ public class PlayerScript : NetworkBehaviour
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 Debug.Log($"Damage is: {damageThisRound}");
-                RpcDealDamage(damageThisRound, target);
+                if (shouldDealAoE)
+                {
+                    for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
+                    {
+                        if (target != j)
+                        {
+                            RpcDealDamage(setDamage, j);
+                        }
+                        else
+                        {
+                            RpcDealDamage(damageThisRound, target);
+                        }
+                    }
+                }
+                else
+                {
+                    RpcDealDamage(damageThisRound, target);
+                }
             }
         }
         

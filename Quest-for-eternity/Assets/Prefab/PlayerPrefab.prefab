@@ -1355,6 +1355,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eeae388f7a3fc744890989f2750ceb4f, type: 2}
   - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
+  - {fileID: 11400000, guid: 9fcc29186b985da47b4b17faf7b87335, type: 2}
+  - {fileID: 11400000, guid: 73d69793fd081234a91fe9845c183e5e, type: 2}
 --- !u!114 &7267443404813897993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,7 +1369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 07000000070000000700000007000000070000000700000007000000070000000700000007000000
+  deckCardList: 010000000100000009000000010000000900000009000000070000000900000009000000070000000a0000000a0000000a000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -6787,7 +6789,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc65039d4c58e44837574a473487eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   playerHealthOffset: 0
+  playerHealth: 0
 --- !u!1 &4040827880684808312
 GameObject:
   m_ObjectHideFlags: 0
@@ -14041,4 +14047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc65039d4c58e44837574a473487eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   playerHealthOffset: 0
+  playerHealth: 0
