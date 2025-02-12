@@ -51,8 +51,8 @@ public class PlayerStatScript : NetworkBehaviour
     private void CmdChangePlayerHealth(int input)
     {
         ChangePlayerHealth(input);
-        // UpdateFighterTextInvocation();
-        Invoke("UpdateFighterTextInvocation", 0.1f);
+        UpdateFighterTextInvocation();
+        //Invoke("UpdateFighterTextInvocation", 0.1f);
     }
 
     public void ChangePlayerHealth(int desiredAmount)
