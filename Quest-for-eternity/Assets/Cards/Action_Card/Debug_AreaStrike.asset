@@ -17,7 +17,7 @@ MonoBehaviour:
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 0}
   cardDescription: Area attack
-  cardDamage: 3
+  cardDamage: 0
   cardHitRate: 1
   actionEffectUnitList:
   - myEffect: {fileID: 11400000, guid: a6b48f02f6d1d6840974db5ae277998d, type: 2}
