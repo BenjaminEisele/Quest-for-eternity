@@ -29,7 +29,6 @@ public class PlayerStatScript : NetworkBehaviour
         ChangePlayerHealth(savedPlayerHealth);
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
-
     public void ChangeHealthNest(int input, bool shouldCallCommand)
     {
         if(isClientOnly)
@@ -43,14 +42,14 @@ public class PlayerStatScript : NetworkBehaviour
         {
             ChangePlayerHealth(input);
         }
-
     }
 
     [Command(requiresAuthority = false)]
     private void CmdChangePlayerHealth(int input)
     {
         ChangePlayerHealth(input);
-        UpdateFighterTextInvocation();
+        // UpdateFighterTextInvocation();
+        Invoke("UpdateFighterTextInvocation", 0.1f);
     }
 
     public void ChangePlayerHealth(int desiredAmount)
@@ -90,8 +89,7 @@ public class PlayerStatScript : NetworkBehaviour
         {
             Invoke("UpdateFighterTextInvocation", 0.1f);
             return false;
-        }
-        
+        }       
     }
     public void UpdateFighterTextInvocation()
     {
@@ -102,7 +100,6 @@ public class PlayerStatScript : NetworkBehaviour
         else
         {
             playerHealthText.color = Color.yellow;
-
         }
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
