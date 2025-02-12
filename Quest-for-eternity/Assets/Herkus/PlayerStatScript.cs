@@ -50,7 +50,7 @@ public class PlayerStatScript : NetworkBehaviour
     private void CmdChangePlayerHealth(int input)
     {
         ChangePlayerHealth(input);
-
+        UpdateFighterTextInvocation();
     }
 
     public void ChangePlayerHealth(int desiredAmount)
