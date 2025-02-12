@@ -39,6 +39,8 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 Debug.Log("Method call 2");
                 CmdChangePlayerHealth(input);
+                UpdateFighterTextInvocation();
+                //Invoke("UpdateFighterTextInvocation", 0.1f);
             }
         }
         else
@@ -51,8 +53,7 @@ public class PlayerStatScript : NetworkBehaviour
     private void CmdChangePlayerHealth(int input)
     {
         ChangePlayerHealth(input);
-        UpdateFighterTextInvocation();
-        //Invoke("UpdateFighterTextInvocation", 0.1f);
+        
     }
 
     public void ChangePlayerHealth(int desiredAmount)
