@@ -1293,10 +1293,13 @@ MonoBehaviour:
   playerScriptAccess: {fileID: 1214735220539923461}
   deckManagerAccess: {fileID: 7267443404813897993}
   cardList: []
+  databasePlayerAccess: {fileID: 0}
+  sceneObjectAccess: {fileID: 0}
   cardCount: 0
   canInteract: 0
   isInQuickAttackMode: 0
   utilityCount: 0
+  utilityLimit: 0
   cardQueDataList: []
   canPlayUtility: 0
   utlCardsPlayedForOtherPlayer: 0
@@ -1722,6 +1725,7 @@ MonoBehaviour:
   uiScripAccess: {fileID: 8797810155221267089}
   handScriptAccess: {fileID: 4716527281068523202}
   playerScriptAccess: {fileID: 1214735220539923461}
+  turnScriptAccess: {fileID: 0}
 --- !u!1 &748997861930249668
 GameObject:
   m_ObjectHideFlags: 0
@@ -12720,14 +12724,18 @@ MonoBehaviour:
   syncInterval: 0
   handScriptAccess: {fileID: 4716527281068523202}
   EndTurnButton: {fileID: 4485664734557763521}
-  enemyScriptAccess: {fileID: 0}
+  turnScriptAccess: {fileID: 0}
   fieldScriptAccess: {fileID: 5498560621881706503}
   shouldDealDamage: 0
   isHost: 0
   isThisPlayersTurn: 0
   isThisPlayersTurnToChoose: 0
   damageThisRound: 0
+  isPlayerAlive: 0
   chooseNewCardAccess: {fileID: 1577412184725532746}
+  isLocalGamePlayer: 0
+  isPlayersTurnLocal: 0
+  knowledgeIdList: 
 --- !u!1 &6419282960436208635
 GameObject:
   m_ObjectHideFlags: 0

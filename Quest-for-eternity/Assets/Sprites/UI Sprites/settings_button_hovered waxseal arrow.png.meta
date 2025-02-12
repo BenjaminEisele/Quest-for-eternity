@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      settings_button_hovered waxseal arrow_0: 3733538863814943796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

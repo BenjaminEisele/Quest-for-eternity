@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_drink frame_0: -5317093507563155450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

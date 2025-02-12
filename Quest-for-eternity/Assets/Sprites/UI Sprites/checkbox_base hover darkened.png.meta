@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      checkbox_base hover darkened_0: -7207167171647823820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

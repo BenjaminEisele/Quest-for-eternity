@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      checkbox_knife dirty_0: -5876204712525440142
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
