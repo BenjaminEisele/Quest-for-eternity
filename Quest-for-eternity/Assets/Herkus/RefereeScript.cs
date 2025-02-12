@@ -533,6 +533,10 @@ public class RefereeScript : NetworkBehaviour
                 EndGame(false);
             }
         }
+        else
+        {
+            playerList[targetPlayerId].isPlayerAlive = true;
+        }
     }
     
     private void SwitchPlayerAttackIdNest()
