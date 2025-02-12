@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_drink filling beer green_0: -3393397488045569893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -634,7 +634,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_drink filling beer_0: -353187945555400001
+      slider_drink filling beer_1: -2580812640887919088
+      slider_drink filling beer_10: -4580152940314372551
+      slider_drink filling beer_11: -2398062250853943559
+      slider_drink filling beer_12: 6533872822565285792
+      slider_drink filling beer_13: 8693642141778242532
+      slider_drink filling beer_14: 5295004608462080116
+      slider_drink filling beer_15: -1308438160189427236
+      slider_drink filling beer_16: -7887015336599282121
+      slider_drink filling beer_17: 1359080506545252781
+      slider_drink filling beer_18: -6223697222873031945
+      slider_drink filling beer_19: 1956255014838126298
+      slider_drink filling beer_2: -5993129492598460885
+      slider_drink filling beer_20: 8101401736180111083
+      slider_drink filling beer_3: 8437711367285866986
+      slider_drink filling beer_4: -5060230317449808960
+      slider_drink filling beer_5: 6161083075748642411
+      slider_drink filling beer_6: -3546929825119055582
+      slider_drink filling beer_7: -4536130902239842461
+      slider_drink filling beer_8: -6288319033288613800
+      slider_drink filling beer_9: -758690399390018528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

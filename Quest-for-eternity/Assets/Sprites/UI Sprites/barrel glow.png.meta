@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      barrel glow_0: 785013000335709874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

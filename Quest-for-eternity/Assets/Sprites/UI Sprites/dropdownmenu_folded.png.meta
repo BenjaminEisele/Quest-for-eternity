@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dropdownmenu_folded_0: 2568359747051276976
+      dropdownmenu_folded_1: -1252424250628929365
+      dropdownmenu_folded_2: 3557731482935641924
+      dropdownmenu_folded_3: -5539769862509487473
+      dropdownmenu_folded_4: 7798509221787007345
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

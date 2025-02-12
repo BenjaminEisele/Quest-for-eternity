@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_drink handle foam_0: 3435296159452020820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
