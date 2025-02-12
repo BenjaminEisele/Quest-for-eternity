@@ -44,7 +44,7 @@ public class FieldScript : MonoBehaviour
         {
             actionCardReference = activeCardInstance.GetComponent<ActiveCardScript>();
         }
-        else
+        else if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
             transform.root.GetComponentInChildren<HandScript>().utilityCount++;
         }
