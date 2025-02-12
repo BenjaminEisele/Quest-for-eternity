@@ -458,6 +458,14 @@ public class RefereeScript : NetworkBehaviour
         }
     }
     
+    /*[ClientRpc]
+    private void RpcNewWaveHeal()
+    {
+        for(int i = 0; i < 2; i++)
+        {
+
+        }
+    }*/
     public void RefereeReset()
     {
         isGameOver = false;

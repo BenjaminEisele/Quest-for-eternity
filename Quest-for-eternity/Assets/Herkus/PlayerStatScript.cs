@@ -17,6 +17,14 @@ int savedPlayerHealth;
 
     private void Awake()
     {
+        if(isClientOnly)
+        {
+            RefereeScript.instance.newWaveEvent += ClientNewWaveHeal;
+        }
+        else
+        {
+            RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
+        }
         //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
         playerHealth = 25;
         savedPlayerHealth = playerHealth;
@@ -30,6 +38,15 @@ int savedPlayerHealth;
         playerHealth = savedPlayerHealth;
         ChangePlayerHealth(savedPlayerHealth);
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
+    }
+
+    private void ClientNewWaveHeal()
+    {
+        ChangeHealthNest(2, true);
+    }
+    private void HostNewWaveHeal()
+    {
+        ChangeHealthNest(2, false);
     }
     public void ChangeHealthNest(int input, bool shouldCallCommand)
     {
