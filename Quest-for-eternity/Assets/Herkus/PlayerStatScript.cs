@@ -95,6 +95,15 @@ public class PlayerStatScript : NetworkBehaviour
     }
     private void UpdateFighterTextInvocation()
     {
+        if (playerHealth < savedPlayerHealth)
+        {
+            playerHealthText.color = Color.red;
+        }
+        else
+        {
+            playerHealthText.color = Color.white;
+
+        }
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
 
     }
