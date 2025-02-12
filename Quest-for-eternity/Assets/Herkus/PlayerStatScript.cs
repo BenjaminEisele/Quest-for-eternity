@@ -39,8 +39,8 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 Debug.Log("Method call 2");
                 CmdChangePlayerHealth(input);
-                UpdateFighterTextInvocation();
-                //Invoke("UpdateFighterTextInvocation", 0.1f);
+                //UpdateFighterTextInvocation();
+                Invoke("UpdateFighterTextInvocation", 0.1f);
             }
         }
         else
