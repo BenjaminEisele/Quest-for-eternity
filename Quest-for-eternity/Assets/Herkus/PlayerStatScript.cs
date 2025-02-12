@@ -31,10 +31,13 @@ public class PlayerStatScript : NetworkBehaviour
     }
     public void ChangeHealthNest(int input, bool shouldCallCommand)
     {
-        if(isClientOnly)
+        Debug.Log("Method call 0");
+        if (isClientOnly)
         {
-            if(shouldCallCommand)
+            Debug.Log("Method call 1");
+            if (shouldCallCommand)
             {
+                Debug.Log("Method call 2");
                 CmdChangePlayerHealth(input);
             }
         }
