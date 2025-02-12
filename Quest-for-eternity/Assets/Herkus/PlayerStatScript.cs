@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Mirror;
 
-public class PlayerStatScript : MonoBehaviour
+public class PlayerStatScript : NetworkBehaviour
 {
     public int playerHealthOffset;
+    [SyncVar]
     public int playerHealth;
     int savedPlayerHealth;
     //PlayerScript playerScriptAccess;
