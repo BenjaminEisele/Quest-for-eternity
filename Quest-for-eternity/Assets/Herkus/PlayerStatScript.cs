@@ -5,14 +5,15 @@ using TMPro;
 public class PlayerStatScript : MonoBehaviour
 {
     public int playerHealthOffset;
-    private int playerHealth;
+    public int playerHealth;
     int savedPlayerHealth;
-    
+    //PlayerScript playerScriptAccess;
 
     TextMeshPro playerHealthText;
 
     private void Awake()
     {
+        //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
         playerHealth = 25; //for testing and debugging
         savedPlayerHealth = playerHealth;
         playerHealthText = GetComponentInChildren<TextMeshPro>();
@@ -40,7 +41,6 @@ public class PlayerStatScript : MonoBehaviour
             playerHealthText.color = Color.white;
             playerHealth = savedPlayerHealth;
         }
-        UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
@@ -53,11 +53,16 @@ public class PlayerStatScript : MonoBehaviour
         playerHealthOffset = 0;
         if (playerHealth <= 0)
         {
+            Debug.Log("setting to 0");
             playerHealth = 0;
+            UiScript.UpdateFighterText(playerHealthText, playerHealth);
+
             return true;
         }
         else
         {
+            UiScript.UpdateFighterText(playerHealthText, playerHealth);
+
             return false;
         }
         
