@@ -43,12 +43,14 @@ public class PlayerStatScript : NetworkBehaviour
         {
             ChangePlayerHealth(input);
         }
+
     }
 
     [Command(requiresAuthority = false)]
     private void CmdChangePlayerHealth(int input)
     {
         ChangePlayerHealth(input);
+
     }
 
     public void ChangePlayerHealth(int desiredAmount)
@@ -75,19 +77,17 @@ public class PlayerStatScript : NetworkBehaviour
         }
         Debug.Log("Player took damage");
         ChangeHealthNest(-inputDamage, false);
-        //ChangePlayerHealth(-inputDamage);
         playerHealthOffset = 0;
         if (playerHealth <= 0)
         {
             Debug.Log("setting to 0");
             playerHealth = 0;
             UiScript.UpdateFighterText(playerHealthText, playerHealth);
-
             return true;
         }
         else
         {
-            UiScript.UpdateFighterText(playerHealthText, playerHealth);
+            //UiScript.UpdateFighterText(playerHealthText, playerHealth);
 
             return false;
         }
