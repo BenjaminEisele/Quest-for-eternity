@@ -469,7 +469,6 @@ public class RefereeScript : NetworkBehaviour
     }
     public void StartForeachEnemyCoroutine()
     {
-
         if (!isGameOver)
         {
             if(myCoroutine == null)
@@ -480,6 +479,7 @@ public class RefereeScript : NetworkBehaviour
     }
     private IEnumerator ForeachEnemyTurnCoroutine()
     {
+        Debug.Log("Coroutine gets called");
         yield return new WaitForSeconds(1.5f);
         if (!areAllEnemiesDead)
         {
@@ -527,6 +527,7 @@ public class RefereeScript : NetworkBehaviour
 
     public void DealDamageLogic(int inputDamage)
     {
+        Debug.Log("Deal Damage Logic");
         if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);

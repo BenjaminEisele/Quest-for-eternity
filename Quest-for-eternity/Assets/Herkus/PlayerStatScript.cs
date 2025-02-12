@@ -16,7 +16,7 @@ public class PlayerStatScript : NetworkBehaviour
     private void Awake()
     {
         //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
-        playerHealth = 25; //for testing and debugging
+        playerHealth = 25;
         savedPlayerHealth = playerHealth;
         playerHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
@@ -70,6 +70,7 @@ public class PlayerStatScript : NetworkBehaviour
         {
             inputDamage = 0;
         }
+        Debug.Log("Player took damage");
         ChangeHealthNest(-inputDamage);
         //ChangePlayerHealth(-inputDamage);
         playerHealthOffset = 0;
