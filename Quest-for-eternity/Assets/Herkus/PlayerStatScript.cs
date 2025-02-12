@@ -30,11 +30,14 @@ public class PlayerStatScript : NetworkBehaviour
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
 
-    public void ChangeHealthNest(int input)
+    public void ChangeHealthNest(int input, bool shouldCallCommand)
     {
         if(isClientOnly)
         {
-            CmdChangePlayerHealth(input);
+            if(shouldCallCommand)
+            {
+                CmdChangePlayerHealth(input);
+            }
         }
         else
         {
@@ -71,7 +74,7 @@ public class PlayerStatScript : NetworkBehaviour
             inputDamage = 0;
         }
         Debug.Log("Player took damage");
-        ChangeHealthNest(-inputDamage);
+        ChangeHealthNest(-inputDamage, false);
         //ChangePlayerHealth(-inputDamage);
         playerHealthOffset = 0;
         if (playerHealth <= 0)

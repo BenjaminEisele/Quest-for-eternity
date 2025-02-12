@@ -13,7 +13,7 @@ public class HealingEffect : EffectTemplate
         {
             SceneObjectDatabase sceneObjectDatabaseAccess = inputGameobject.GetComponent<SceneObjectDatabase>();
             // sceneObjectDatabaseAccess.playerStatReference.playerHealth += (int)effectValue;
-            sceneObjectDatabaseAccess.playerStatReference.ChangeHealthNest((int)effectValue);
+            sceneObjectDatabaseAccess.playerStatReference.ChangeHealthNest((int)effectValue, true);
             //sceneObjectDatabaseAccess.playerStatReference.ChangePlayerHealth((int)effectValue);
             if(sceneObjectDatabaseAccess.playerStatReference.playerHealth > 0)
             {
