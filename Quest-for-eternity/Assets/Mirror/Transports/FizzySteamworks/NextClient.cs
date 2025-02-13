@@ -157,8 +157,7 @@ namespace Mirror.FizzySteam
 
         public void Disconnect()
         {
-            var networkManager = GameObject.Find("NetworkManager");
-            networkManager = null;
+            SteamMatchmaking.LeaveLobby(hostSteamID);
             cancelToken?.Cancel();
             Dispose();
 
