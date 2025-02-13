@@ -6,7 +6,6 @@ public class SoundFXManager : MonoBehaviour
     public static SoundFXManager instance;
 
     [SerializeField] private AudioSource soundObject;
-    [SerializeField] private AudioClip buttonSound;
 
     private void Awake()
     {
@@ -16,7 +15,7 @@ public class SoundFXManager : MonoBehaviour
         }   
     }
 
-    public void PlaySoundClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundClip(AudioClip audioClip, Transform spawnTransform, float volume, bool loop)
     {
         //Spawn Gameobject
         AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
@@ -27,6 +26,9 @@ public class SoundFXManager : MonoBehaviour
         //assgin volume
         audioSource.volume = volume;
 
+        //set if looped
+        audioSource.loop = loop;
+
         //play sound
         audioSource.Play();
 
@@ -35,10 +37,5 @@ public class SoundFXManager : MonoBehaviour
 
         //remove gameobject when done playing
         Destroy(audioSource.gameObject, clipLenght);
-    }
-
-    public void ClickSound()
-    {
-        instance.PlaySoundClip(buttonSound, transform, 1f);
     }
 }

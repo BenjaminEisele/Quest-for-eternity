@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 200766664}
   - component: {fileID: 200766663}
   - component: {fileID: 200766662}
+  - component: {fileID: 200766665}
   m_Layer: 5
   m_Name: QuitGameButton
   m_TagString: Untagged
@@ -533,8 +534,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336161}
-        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
         m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
@@ -583,6 +584,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200766660}
   m_CullTransparentMesh: 1
+--- !u!114 &200766665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200766660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &294523183
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +897,7 @@ GameObject:
   - component: {fileID: 390207375}
   - component: {fileID: 390207374}
   - component: {fileID: 390207373}
+  - component: {fileID: 390207376}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -954,8 +969,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881336161}
-        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
         m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
@@ -1004,6 +1019,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390207371}
   m_CullTransparentMesh: 1
+--- !u!114 &390207376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390207371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &397496388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,6 +1043,7 @@ GameObject:
   - component: {fileID: 397496389}
   - component: {fileID: 397496390}
   - component: {fileID: 397496391}
+  - component: {fileID: 397496392}
   m_Layer: 5
   m_Name: AmbienceSlider
   m_TagString: Untagged
@@ -1038,7 +1067,6 @@ RectTransform:
   - {fileID: 72543800}
   - {fileID: 103575908}
   - {fileID: 1274932910}
-  - {fileID: 1954173381}
   m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1109,6 +1137,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
+        m_MethodName: BubbleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &397496391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,6 +1164,19 @@ MonoBehaviour:
   slider: {fileID: 397496390}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: ambienceVol
+--- !u!114 &397496392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397496388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &503961662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,6 +1683,7 @@ GameObject:
   - component: {fileID: 546170534}
   - component: {fileID: 546170535}
   - component: {fileID: 546170536}
+  - component: {fileID: 546170537}
   m_Layer: 5
   m_Name: GeneralSlider
   m_TagString: Untagged
@@ -1653,7 +1707,6 @@ RectTransform:
   - {fileID: 1191568067}
   - {fileID: 609789680}
   - {fileID: 1939142053}
-  - {fileID: 582356175}
   m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1724,6 +1777,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
+        m_MethodName: BubbleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &546170536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1739,6 +1804,19 @@ MonoBehaviour:
   slider: {fileID: 546170535}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: masterVol
+--- !u!114 &546170537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546170533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &549490366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1830,7 @@ GameObject:
   - component: {fileID: 549490369}
   - component: {fileID: 549490367}
   - component: {fileID: 549490371}
+  - component: {fileID: 549490372}
   m_Layer: 5
   m_Name: GraphicDropdown
   m_TagString: Untagged
@@ -1853,7 +1932,6 @@ RectTransform:
   - {fileID: 1812582294}
   - {fileID: 1145797766}
   - {fileID: 684455250}
-  - {fileID: 1577536519}
   m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1913,6 +1991,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qualityDropdown: {fileID: 549490367}
   qualityIndexSave: 0
+--- !u!114 &549490372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549490366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &562274937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +2017,7 @@ GameObject:
   - component: {fileID: 562274940}
   - component: {fileID: 562274939}
   - component: {fileID: 562274942}
+  - component: {fileID: 562274943}
   m_Layer: 5
   m_Name: HostButton
   m_TagString: Untagged
@@ -2021,8 +2113,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336161}
-        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
         m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
@@ -2084,6 +2176,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descText: {fileID: 725286200}
+--- !u!114 &562274943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562274937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &576041952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,7 +2276,7 @@ GameObject:
   - component: {fileID: 582356177}
   - component: {fileID: 582356176}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GeneralText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2189,12 +2294,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 546170534}
+  m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0031738281, y: 149.30002}
-  m_SizeDelta: {x: 128.7467, y: -148.44751}
+  m_AnchoredPosition: {x: -678.0032, y: -190.70001}
+  m_SizeDelta: {x: -1443.2349, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582356176
 MonoBehaviour:
@@ -2584,7 +2689,7 @@ RectTransform:
   m_Father: {fileID: 2094889501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0.7563043}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2712,6 +2817,7 @@ GameObject:
   - component: {fileID: 682305701}
   - component: {fileID: 682305702}
   - component: {fileID: 682305703}
+  - component: {fileID: 682305704}
   m_Layer: 5
   m_Name: FulscreenToggle
   m_TagString: Untagged
@@ -2812,6 +2918,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 682305702}
+  toggleSound: {fileID: 8300000, guid: 38ded434607c1a7458714222012496ad, type: 3}
+--- !u!114 &682305704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682305700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &684455249
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,7 +3805,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 662237097}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.7563043
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3875,6 +3995,7 @@ GameObject:
   - component: {fileID: 881336160}
   - component: {fileID: 881336161}
   - component: {fileID: 881336162}
+  - component: {fileID: 881336163}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -3910,7 +4031,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 7512260821461713194, guid: a8ead3cc8474d914eb5eec6ac92b8881, type: 3}
-  buttonSound: {fileID: 8300000, guid: 8a9ce3728aede8248a8cad50c88bcde2, type: 3}
 --- !u!114 &881336162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3925,6 +4045,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundObject: {fileID: 7512260821461713194, guid: 2c490422b84ddbd4a8c699ee59721a61, type: 3}
   MainMenuMusic: {fileID: 8300000, guid: 19acfb0323892854fa92c6d2013d2d35, type: 3}
+--- !u!114 &881336163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881336158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33e67ef3ff9053469af353d1cf8643a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSound: {fileID: 8300000, guid: 1567a440f0895a748981df7fefe01895, type: 3}
+  sliderSound: {fileID: 8300000, guid: 955529886b05cab4c8efeba82acc3cf8, type: 3}
 --- !u!1 &886953251
 GameObject:
   m_ObjectHideFlags: 0
@@ -4154,6 +4288,7 @@ GameObject:
   - component: {fileID: 960693996}
   - component: {fileID: 960693995}
   - component: {fileID: 960693998}
+  - component: {fileID: 960693999}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -4273,8 +4408,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336161}
-        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
         m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
@@ -4336,6 +4471,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descText: {fileID: 311726641}
+--- !u!114 &960693999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960693993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &1001643810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4772,7 +4920,7 @@ GameObject:
   - component: {fileID: 1077469392}
   - component: {fileID: 1077469391}
   m_Layer: 5
-  m_Name: Text
+  m_Name: MusicText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4790,12 +4938,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1595230887}
+  m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0031738281, y: 149.30002}
-  m_SizeDelta: {x: 128.7467, y: -148.44751}
+  m_AnchoredPosition: {x: -231.00317, y: -190.70001}
+  m_SizeDelta: {x: -1443.2349, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077469391
 MonoBehaviour:
@@ -5002,12 +5150,18 @@ RectTransform:
   - {fileID: 2104707370}
   - {fileID: 1756669369}
   - {fileID: 1068428497}
+  - {fileID: 1577536519}
   - {fileID: 549490368}
   - {fileID: 1303515249}
+  - {fileID: 1325598585}
   - {fileID: 1958317914}
+  - {fileID: 582356175}
   - {fileID: 546170534}
+  - {fileID: 1077469390}
   - {fileID: 1595230887}
+  - {fileID: 1954173381}
   - {fileID: 397496389}
+  - {fileID: 1655315025}
   - {fileID: 1202546371}
   - {fileID: 90308298}
   - {fileID: 682305701}
@@ -5278,6 +5432,7 @@ GameObject:
   - component: {fileID: 1197029738}
   - component: {fileID: 1197029737}
   - component: {fileID: 1197029740}
+  - component: {fileID: 1197029741}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -5385,8 +5540,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336161}
-        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
         m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
@@ -5448,6 +5603,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descText: {fileID: 1182816807}
+--- !u!114 &1197029741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197029735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &1202546370
 GameObject:
   m_ObjectHideFlags: 0
@@ -5459,6 +5627,7 @@ GameObject:
   - component: {fileID: 1202546371}
   - component: {fileID: 1202546372}
   - component: {fileID: 1202546373}
+  - component: {fileID: 1202546374}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -5482,7 +5651,6 @@ RectTransform:
   - {fileID: 70742512}
   - {fileID: 1307799757}
   - {fileID: 2146468017}
-  - {fileID: 1655315025}
   m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5553,6 +5721,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
+        m_MethodName: BubbleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1202546373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5568,6 +5748,19 @@ MonoBehaviour:
   slider: {fileID: 1202546372}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: sfxVol
+--- !u!114 &1202546374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202546370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &1274932909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5730,6 +5923,7 @@ GameObject:
   - component: {fileID: 1303515252}
   - component: {fileID: 1303515251}
   - component: {fileID: 1303515250}
+  - component: {fileID: 1303515253}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -5860,8 +6054,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336161}
-        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
         m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
@@ -5910,6 +6104,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303515248}
   m_CullTransparentMesh: 1
+--- !u!114 &1303515253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303515248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &1304165462
 GameObject:
   m_ObjectHideFlags: 0
@@ -6094,7 +6301,7 @@ GameObject:
   - component: {fileID: 1325598587}
   - component: {fileID: 1325598586}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ResolutionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6112,12 +6319,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1958317914}
+  m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000045776367, y: 104}
-  m_SizeDelta: {x: 0.00009918213, y: -16.741615}
+  m_AnchoredPosition: {x: -561.00006, y: 399}
+  m_SizeDelta: {x: -1584.4598, y: -972.26166}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325598586
 MonoBehaviour:
@@ -6915,7 +7122,7 @@ GameObject:
   - component: {fileID: 1577536521}
   - component: {fileID: 1577536520}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GraphicsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6933,12 +7140,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 549490368}
+  m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.5515, y: 97.2}
-  m_SizeDelta: {x: 0.0001, y: -16.7416}
+  m_AnchoredPosition: {x: 2.5515747, y: 398.7}
+  m_SizeDelta: {x: -1584.4568, y: -972.25903}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1577536520
 MonoBehaviour:
@@ -7175,6 +7382,7 @@ GameObject:
   - component: {fileID: 1595230887}
   - component: {fileID: 1595230888}
   - component: {fileID: 1595230889}
+  - component: {fileID: 1595230890}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -7198,7 +7406,6 @@ RectTransform:
   - {fileID: 812688913}
   - {fileID: 540778701}
   - {fileID: 1401462188}
-  - {fileID: 1077469390}
   m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7269,6 +7476,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 881336163}
+        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
+        m_MethodName: BubbleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1595230889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7284,6 +7503,19 @@ MonoBehaviour:
   slider: {fileID: 1595230888}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: musicVol
+--- !u!114 &1595230890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595230886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &1655315024
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,7 +7528,7 @@ GameObject:
   - component: {fileID: 1655315027}
   - component: {fileID: 1655315026}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SFXText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7314,12 +7546,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1202546371}
+  m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0031738281, y: 149.30002}
-  m_SizeDelta: {x: 128.7467, y: -148.44751}
+  m_AnchoredPosition: {x: 667.9968, y: -190.70001}
+  m_SizeDelta: {x: -1443.2349, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1655315026
 MonoBehaviour:
@@ -8421,7 +8653,7 @@ GameObject:
   - component: {fileID: 1954173383}
   - component: {fileID: 1954173382}
   m_Layer: 5
-  m_Name: Text
+  m_Name: AmbienceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8439,12 +8671,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 397496389}
+  m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0031738281, y: 149.30002}
-  m_SizeDelta: {x: 128.7467, y: -148.44751}
+  m_AnchoredPosition: {x: 220.99683, y: -190.70001}
+  m_SizeDelta: {x: -1443.2349, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1954173382
 MonoBehaviour:
@@ -8558,6 +8790,7 @@ GameObject:
   - component: {fileID: 1958317916}
   - component: {fileID: 1958317915}
   - component: {fileID: 1958317918}
+  - component: {fileID: 1958317919}
   m_Layer: 5
   m_Name: ResolutionDropdown
   m_TagString: Untagged
@@ -8580,7 +8813,6 @@ RectTransform:
   - {fileID: 1304165463}
   - {fileID: 1750365362}
   - {fileID: 2027059952}
-  - {fileID: 1325598585}
   m_Father: {fileID: 1138168846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8718,6 +8950,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 1958317915}
+--- !u!114 &1958317919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958317913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
 --- !u!1 &2027059951
 GameObject:
   m_ObjectHideFlags: 0
