@@ -82,14 +82,20 @@ public class PlayerObjectController : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        Manager.GamePlayers.Add(this);
+        if (Manager != null)
+        {
+            Manager.GamePlayers.Add(this);
+        }   
         LobbyController.Instance.UpdateLobbyName();
         LobbyController.Instance.UpdatePlayerList();
     }
 
     public override void OnStopClient()
     {
-        Manager.GamePlayers.Remove(this);
+        if (Manager != null)
+        {
+            Manager.GamePlayers.Remove(this);
+        }
         LobbyController.Instance.UpdatePlayerList();
     }
 

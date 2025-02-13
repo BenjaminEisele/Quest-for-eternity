@@ -18,8 +18,7 @@ public class SteamLobby : MonoBehaviour
     {
         if (!SteamManager.Initialized) { return; }
         instance = this;
-        if (GetComponent<CustomNetworkManager>() != null)
-        { manager = GetComponent<CustomNetworkManager>(); }
+        manager = GetComponent<CustomNetworkManager>();
         LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
         LobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
@@ -33,7 +32,7 @@ public class SteamLobby : MonoBehaviour
     private void OnLobbyCreated(LobbyCreated_t callback)
     {
         if (callback.m_eResult != EResult.k_EResultOK) { return; }
-        manager.StartHost();
+        if (manager != null) { manager.StartHost(); }
         SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), HostAddressKey, SteamUser.GetSteamID().ToString());
         SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name", SteamFriends.GetPersonaName() + "'s Lobby");
     }
