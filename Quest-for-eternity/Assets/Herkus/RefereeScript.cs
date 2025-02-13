@@ -61,13 +61,13 @@ public class RefereeScript : NetworkBehaviour
     public int randomEnemyCount = 0;
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
     public List<int> lootIdList;
-    Coroutine myCoroutine = null;
+    public Coroutine myCoroutine = null;
 
     public int lootCardCount;
 
     [SerializeField]
     DatabaseMultiplayer databaseMultiplayerAccess;
-
+    
     private void Awake()
     {
         instance = this;        
@@ -357,8 +357,6 @@ public class RefereeScript : NetworkBehaviour
             {
                 canTransferTurnToPlayer = false;
             }
-            
-
             if (playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
@@ -432,6 +430,16 @@ public class RefereeScript : NetworkBehaviour
     private void StartNextWaveLogic(bool shouldStartEvents)
     {
         areAllEnemiesDead = false;
+        if(myCoroutine != null)
+        {
+            Debug.Log("Coroutine still running!");
+            StopCoroutine(myCoroutine);
+            if (canTransferTurnToPlayer)
+            {
+                CallStartTurnEvent();
+            }
+            myCoroutine = null;
+        }
         foreach (EnemyScript enemy in killedEnemyList)
         {
             if(enemy != null)
@@ -504,6 +512,7 @@ public class RefereeScript : NetworkBehaviour
                 yield return new WaitForSeconds(0.75f);
             }
             SwitchPlayerAttackIdNest();
+
         }
         if (canTransferTurnToPlayer)
         {

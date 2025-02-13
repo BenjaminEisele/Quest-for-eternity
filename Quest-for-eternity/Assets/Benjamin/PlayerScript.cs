@@ -30,12 +30,18 @@ public class PlayerScript : NetworkBehaviour
     public bool isLocalGamePlayer = false;
 
     public bool isPlayersTurnLocal;
+    public bool shouldHealByDamageAmount;
+    public int multiplier;
+    public int healingSum;
+
+    PlayerStatScript playerStatAccess;
 
     public List<int> knowledgeIdList;
 
     private void Start()
     {
         isPlayerAlive = true;
+        playerStatAccess = transform.root.GetComponentInChildren<PlayerStatScript>();
     }
 
     public void Update()
@@ -63,11 +69,13 @@ public class PlayerScript : NetworkBehaviour
                     }
                 }
                 RefereeScript.instance.turnStartEvent += EndTurnPlayerScript;
+                RefereeScript.instance.turnStartEvent += ResetHealingSum;
                 RefereeScript.instance.turnStartEvent += SetLocalPlayersTurnTrue;
                 turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;
                 turnScriptAccess.endTurnEvent += DealDamageEventTrue;
                 shouldCheck = false;
                 isPlayerAlive = true;
+                multiplier = 1;
             }           
         }
     }
@@ -89,6 +97,7 @@ public class PlayerScript : NetworkBehaviour
     }
     public void EndTurnPlayerScript()
     {
+        Debug.Log("ending turn");
         handScriptAccess.DisableAllCardsEvent();
         if (!isServer)
         {
@@ -118,6 +127,7 @@ public class PlayerScript : NetworkBehaviour
         {
             if (RefereeScript.instance.enemyList[target] != null)
             {
+                healingSum = inputDamage2;
                 RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
             }
         }
@@ -134,6 +144,7 @@ public class PlayerScript : NetworkBehaviour
                 Debug.Log($"target is: {target}");
                 if (RefereeScript.instance.enemyList[target] != null)
                 {
+                    healingSum = inputDamage;
                     RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage);
                 }
             }
@@ -175,26 +186,27 @@ public class PlayerScript : NetworkBehaviour
             if (RefereeScript.instance.enemyList[RefereeScript.instance.chosenEnemyId].myEnemyType == knowledgeIdList[i])
             {
                 hasGuaranteedHit = true;
-                Debug.Log("guaranteed hit");
                 break;
             }
-        }    
+        }
         if (!isServer)
         {
             if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
-                damageThisRound = fieldScriptAccess.damagePointsLiquid;
+                damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
                 if(shouldDealAoE)
                 {
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                     {                      
-                         CmdDealDamage(damageThisRound, j);            
+                         CmdDealDamage(damageThisRound, j);
+                        healingSum += damageThisRound;
                     }
                 }
                 else
                 {
                     CmdDealDamage(damageThisRound, target);
+                    healingSum += damageThisRound;
                 }
             }
             if(hammerEffect)
@@ -202,48 +214,65 @@ public class PlayerScript : NetworkBehaviour
                 for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                 {
                     CmdDealDamage(1, j);
+                    healingSum += 1;
                 }
             }
             if(activateDelayedEffecs)
             {
                 handScriptAccess.DelayedActionCardEffectActivation();
             }
-            
+            multiplier = 1;
+            if (shouldHealByDamageAmount)
+            {
+                playerStatAccess.ChangeHealthNest(healingSum, true);
+                shouldHealByDamageAmount = false;
+            }
         }
         else if (isServer)
         {
             if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit))
             {
                 int target = RefereeScript.instance.chosenEnemyId;
-                damageThisRound = fieldScriptAccess.damagePointsLiquid;
-                Debug.Log($"Damage is: {damageThisRound}");
+                damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
                 if (shouldDealAoE)
                 {
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                     {
                         RpcDealDamage(damageThisRound, j);
+                        healingSum += damageThisRound;
                     }
                 }
                 else
                 {
                     RpcDealDamage(damageThisRound, target);
+                    healingSum += damageThisRound;
                 }
             }
             if (hammerEffect)
             {
                 for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                 {
-                    RpcDealDamage(1, j);      
+                    RpcDealDamage(1, j);
+                    healingSum += 1;
                 }
             }
             if (activateDelayedEffecs)
             {
                 handScriptAccess.DelayedActionCardEffectActivation();
             }
-        }
-        
-    }
+            multiplier = 1;
+            if(shouldHealByDamageAmount)
+            {
+                playerStatAccess.ChangeHealthNest(healingSum, false);
+                shouldHealByDamageAmount = false;
+            }
 
+        }
+    }
+    private void ResetHealingSum()
+    {
+        healingSum = 0;
+    }
     public void HealEnemyPlayerScript()
     {
         int damage = -3;

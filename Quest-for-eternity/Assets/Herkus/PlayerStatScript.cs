@@ -13,24 +13,31 @@ public class PlayerStatScript : NetworkBehaviour
     public List<int> immunityIdList;
 
     TextMeshPro playerHealthText;
+    PlayerScript playerScriptAccess;
+
+    public int damageMultiplier;
+    public int healingMultiplier;
     private void Start()
     {
+        playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
         Invoke("SubscriptionInvoke", 1f);
     }
 
     private void Awake()
     {
         playerHealth = 25;
+        damageMultiplier = 1;
+        healingMultiplier = 1;
         savedPlayerHealth = playerHealth;
         playerHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
         ResetPlayer();
-        ClearListEvent();
+        PlayerStatNewTurnEvent();
     }
 
     private void SubscriptionInvoke()
     {
-        if(transform.root.GetComponentInChildren<PlayerScript>().isLocalGamePlayer)
+        if(playerScriptAccess.isLocalGamePlayer)
         {
             if (isClientOnly)
             {
@@ -40,12 +47,14 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
             }
-            RefereeScript.instance.turnStartEvent += ClearListEvent;
+            RefereeScript.instance.turnStartEvent += PlayerStatNewTurnEvent;
         }
     }
-    private void ClearListEvent()
+    private void PlayerStatNewTurnEvent()
     {
         immunityIdList.Clear();
+        damageMultiplier = 1;
+        healingMultiplier = 1;
     }
     public void ResetPlayer()
     {
@@ -81,13 +90,12 @@ public class PlayerStatScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdChangePlayerHealth(int input)
     {
-        ChangePlayerHealth(input);
-        
+        ChangePlayerHealth(input); 
     }
 
     public void ChangePlayerHealth(int desiredAmount)
     {
-        int changedValue = playerHealth + desiredAmount;
+        int changedValue = playerHealth + desiredAmount * healingMultiplier;
         playerHealth = changedValue;
         if(playerHealth >= savedPlayerHealth)
         {
@@ -103,7 +111,7 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 inputDamage = 0;
             }
-            ChangeHealthNest(-inputDamage, false);
+            ChangeHealthNest(-inputDamage * damageMultiplier, false);
             playerHealthOffset = 0;
         }
         if (playerHealth <= 0)

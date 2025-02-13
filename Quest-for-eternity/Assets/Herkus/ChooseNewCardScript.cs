@@ -82,11 +82,18 @@ public class ChooseNewCardScript : MonoBehaviour
         {
             RefereeScript.instance.CmdCallEndTurnForBothPlayers();
         }
+
         RefereeScript.instance.StartNextWaveInitalize();
     }
 
     public void DisplayCards()
-    {   
+    {
+       /* if(RefereeScript.instance.myCoroutine != null)
+        {
+            StopCoroutine(RefereeScript.instance.myCoroutine);
+            //RefereeScript.instance.myCoroutine = null;
+        } */
+        
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < RefereeScript.instance.lootCardCount; i++)
         {

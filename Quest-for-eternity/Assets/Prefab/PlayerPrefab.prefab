@@ -1360,6 +1360,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 73d69793fd081234a91fe9845c183e5e, type: 2}
   - {fileID: 11400000, guid: 16069bf7face5634987ac7b8cb36e5a8, type: 2}
   - {fileID: 11400000, guid: 830a664720bb24a4ab6907c562e5668b, type: 2}
+  - {fileID: 11400000, guid: d0f2598f013d59e42b1139d363fc5691, type: 2}
+  - {fileID: 11400000, guid: 81fdac3f00f5b3440892cfa03f16edc4, type: 2}
+  - {fileID: 11400000, guid: 96bdd0196a892f745bae147c1a086f0f, type: 2}
 --- !u!114 &7267443404813897993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,7 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 0c0000000c0000000c0000000c0000000c0000000a000000050000000a000000050000000b000000050000000b0000000b000000
+  deckCardList: 0f0000000f0000000f0000000f0000000f000000000000000900000009000000000000000a0000000a0000000a0000000a000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -10669,6 +10672,9 @@ MonoBehaviour:
   chooseNewCardAccess: {fileID: 1577412184725532746}
   isLocalGamePlayer: 0
   isPlayersTurnLocal: 0
+  shouldHealByDamageAmount: 0
+  multiplier: 0
+  healingSum: 0
   knowledgeIdList: 
 --- !u!1 &6419282960436208635
 GameObject:
@@ -14038,3 +14044,5 @@ MonoBehaviour:
   playerHealthOffset: 0
   playerHealth: 0
   immunityIdList: 
+  damageMultiplier: 0
+  healingMultiplier: 0
