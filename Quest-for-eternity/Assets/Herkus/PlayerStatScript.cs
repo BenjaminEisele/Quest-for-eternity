@@ -2,14 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Mirror;
+using System.Collections.Generic;
 
 public class PlayerStatScript : NetworkBehaviour
 {
     public int playerHealthOffset;
     [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
-    public int playerHealth;
-         
+    public int playerHealth;       
     int savedPlayerHealth;
+    public List<int> immunityIdList;
 
     TextMeshPro playerHealthText;
     private void Start()
@@ -24,6 +25,7 @@ public class PlayerStatScript : NetworkBehaviour
         playerHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
         ResetPlayer();
+        ClearListEvent();
     }
 
     private void SubscriptionInvoke()
@@ -38,7 +40,12 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
             }
+            RefereeScript.instance.turnStartEvent += ClearListEvent;
         }
+    }
+    private void ClearListEvent()
+    {
+        immunityIdList.Clear();
     }
     public void ResetPlayer()
     {
@@ -87,15 +94,18 @@ public class PlayerStatScript : NetworkBehaviour
             playerHealth = savedPlayerHealth;
         }
     }
-    public bool TakeDamageAndCheckIfDead(int inputDamage)
+    public bool TakeDamageAndCheckIfDead(int inputDamage, int inputType)
     {
-        inputDamage -= playerHealthOffset;
-        if(inputDamage <= 0)
+        if(!IsImmuneToAttack(inputType))
         {
-            inputDamage = 0;
+            inputDamage -= playerHealthOffset;
+            if (inputDamage <= 0)
+            {
+                inputDamage = 0;
+            }
+            ChangeHealthNest(-inputDamage, false);
+            playerHealthOffset = 0;
         }
-        ChangeHealthNest(-inputDamage, false);
-        playerHealthOffset = 0;
         if (playerHealth <= 0)
         {
             playerHealth = 0;
@@ -106,6 +116,17 @@ public class PlayerStatScript : NetworkBehaviour
         {
             return false;
         }       
+    }
+    private bool IsImmuneToAttack(int inputEnemyId)
+    {
+        for(int i = 0; i < immunityIdList.Count; i++)
+        {
+            if(inputEnemyId == immunityIdList[i])
+            {
+                return true;
+            }
+        }
+        return false;
     }
     public void UpdateFighterTextInvocation(int oldInt, int newInt)
     {

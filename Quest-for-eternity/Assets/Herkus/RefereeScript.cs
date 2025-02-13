@@ -454,15 +454,7 @@ public class RefereeScript : NetworkBehaviour
             CallNewWaveEvent();   
         }
     }
-    
-    /*[ClientRpc]
-    private void RpcNewWaveHeal()
-    {
-        for(int i = 0; i < 2; i++)
-        {
 
-        }
-    }*/
     public void RefereeReset()
     {
         isGameOver = false;
@@ -494,13 +486,14 @@ public class RefereeScript : NetworkBehaviour
                 if(enemyList[i].canAttack)
                 {   
                     int enemyDamage = enemyList[i].GenerateAttack();
+                    int enemyType = enemyList[i].myEnemyType;
                     if (isClientOnly)
                     {
-                        CmdDealDamageToPlayer(enemyDamage);
+                        CmdDealDamageToPlayer(enemyDamage, enemyType);
                     }
                     else
                     {
-                        RpcDealDamageToPlayer(enemyDamage);
+                        RpcDealDamageToPlayer(enemyDamage, enemyType);
                     }
                     UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 }
@@ -520,20 +513,20 @@ public class RefereeScript : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcDealDamageToPlayer(int inputDamage)
+    public void RpcDealDamageToPlayer(int inputDamage, int inputType)
     {
-        DealDamageLogic(inputDamage);
+        DealDamageLogic(inputDamage, inputType);
     }
     [Command(requiresAuthority = false)]
-    public void CmdDealDamageToPlayer(int inputDamage)
+    public void CmdDealDamageToPlayer(int inputDamage, int inputType)
     {
-        DealDamageLogic(inputDamage);
+        DealDamageLogic(inputDamage, inputType);
     }
 
-    public void DealDamageLogic(int inputDamage)
+    public void DealDamageLogic(int inputDamage, int inputType)
     {
         Debug.Log("Deal Damage Logic");
-        if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage))
+        if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage, inputType))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
             Debug.Log("setting to false");

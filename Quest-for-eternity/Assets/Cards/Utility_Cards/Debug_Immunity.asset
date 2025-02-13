@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
+  m_Name: Debug_Immunity
+  m_EditorClassIdentifier: 
+  cardName: Knowledge of zombies
+  effectValue: 0
+  cardColor: {r: 0, g: 0, b: 0, a: 0}
+  cardSprite: {fileID: -4760419232084016343, guid: 9e4cbfdd9ece5734790562d1775c3c2a, type: 3}
+  cardDescription: 
+  effectUnitList:
+  - myEffect: {fileID: 11400000, guid: a1a0141a3f76b724ca19c81ce97d3ccd, type: 2}
+    effectValue: 1
+    shouldActivateNow: 1
+  isDisplayable: 1
