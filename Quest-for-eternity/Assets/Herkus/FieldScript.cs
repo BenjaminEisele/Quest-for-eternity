@@ -97,7 +97,6 @@ public class FieldScript : MonoBehaviour
                     {
                         FieldClear();
                     }
-                    Debug.Log("hit!");
                     return didWeHit;
                 }
                 else
@@ -109,7 +108,6 @@ public class FieldScript : MonoBehaviour
                     {
                         FieldClear();
                     }
-                    Debug.Log("missed");
                     return false;
 
                 }

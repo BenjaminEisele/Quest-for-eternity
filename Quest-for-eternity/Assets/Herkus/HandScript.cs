@@ -60,6 +60,8 @@ public class HandScript : MonoBehaviour
     public int utlCardsPlayedForOtherPlayer;
 
     bool isFullRefill;
+
+    public int clickedCardId;
     private void Start()
     {
         utilityLimit = 3;
@@ -97,7 +99,7 @@ public class HandScript : MonoBehaviour
             {
                 if (card.GetComponentInParent<CardScript>().isClickable)
                 {
-                    int clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
+                    clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
                     deckManagerAccess.handCardList.Remove(clickedCardId);
                     deckManagerAccess.discardedCardList.Add(clickedCardId);
 
@@ -311,7 +313,7 @@ public class HandScript : MonoBehaviour
     private IEnumerator QuickAttackModeCoroutine()
     {
         yield return new WaitForSeconds(0.75f);
-        playerScriptAccess.DealDamagePlayerScript(false, false, 0);
+        playerScriptAccess.DealDamagePlayerScript(false, false, 0, false, true);
         isInQuickAttackMode = false;
         SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();
@@ -327,7 +329,6 @@ public class HandScript : MonoBehaviour
     private void ActionCardEffectActivation(int inputCardId)
     {
         Action actionCardAccess = databasePlayerAccess.cardList[inputCardId] as Action;
-        //shouldShowCard = utilityCardAccess.isDisplayable;
         foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
         {
             if (myEffectUnit.shouldActivateNow)
@@ -335,6 +336,21 @@ public class HandScript : MonoBehaviour
                 myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
             }
         }
+    }
+    public void DelayedActionCardEffectActivation()
+    {
+        if(clickedCardId != -1)
+        {
+            Action actionCardAccess = databasePlayerAccess.cardList[clickedCardId] as Action;
+            foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
+            {
+                if (!myEffectUnit.shouldActivateNow)
+                {
+                    myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                }
+            }
+            clickedCardId = -1;
+        } 
     }
     private void CardInstantiation()
     {

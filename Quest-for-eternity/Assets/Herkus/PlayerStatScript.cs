@@ -6,12 +6,10 @@ using Mirror;
 public class PlayerStatScript : NetworkBehaviour
 {
     public int playerHealthOffset;
-    //[SyncVar(hook = nameof(UpdateFighterTextInvocation))]
     [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
     public int playerHealth;
          
-int savedPlayerHealth;
-    //PlayerScript playerScriptAccess;
+    int savedPlayerHealth;
 
     TextMeshPro playerHealthText;
     private void Start()
@@ -21,8 +19,6 @@ int savedPlayerHealth;
 
     private void Awake()
     {
-        
-        //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
         playerHealth = 25;
         savedPlayerHealth = playerHealth;
         playerHealthText = GetComponentInChildren<TextMeshPro>();
@@ -40,11 +36,9 @@ int savedPlayerHealth;
             }
             else
             {
-                Debug.Log(transform.gameObject.name);
                 RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
             }
         }
-       
     }
     public void ResetPlayer()
     {
@@ -64,14 +58,11 @@ int savedPlayerHealth;
     }
     public void ChangeHealthNest(int input, bool shouldCallCommand)
     {
-        Debug.Log("Method call 0");
         if (isClientOnly)
         {
             if (shouldCallCommand)
             {
                 CmdChangePlayerHealth(input);
-                //UpdateFighterTextInvocation();
-                //Invoke("UpdateFighterTextInvocation", 0.25f);
             }
         }
         else
@@ -89,19 +80,12 @@ int savedPlayerHealth;
 
     public void ChangePlayerHealth(int desiredAmount)
     {
-        Debug.Log($"Desired amount is: {desiredAmount}");
         int changedValue = playerHealth + desiredAmount;
         playerHealth = changedValue;
-        if(playerHealth < savedPlayerHealth)
+        if(playerHealth >= savedPlayerHealth)
         {
-            //playerHealthText.color = Color.red;
-        }
-        else if(playerHealth >= savedPlayerHealth)
-        {
-            //playerHealthText.color = Color.white;
             playerHealth = savedPlayerHealth;
         }
-        //UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage)
     {
@@ -110,20 +94,16 @@ int savedPlayerHealth;
         {
             inputDamage = 0;
         }
-        Debug.Log("Player took damage");
         ChangeHealthNest(-inputDamage, false);
         playerHealthOffset = 0;
         if (playerHealth <= 0)
         {
-            Debug.Log("setting to 0");
             playerHealth = 0;
-            //Invoke("UpdateFighterTextInvocation", 0.1f);
-            //UiScript.UpdateFighterText(playerHealthText, playerHealth);
+
             return true;
         }
         else
         {
-            //Invoke("UpdateFighterTextInvocation", 0.1f);
             return false;
         }       
     }
@@ -131,7 +111,6 @@ int savedPlayerHealth;
     {
         if (playerHealthText != null)
         {
-            Debug.Log($"Setting health to {playerHealth}");
             if (playerHealth < savedPlayerHealth)
             {
 

@@ -81,7 +81,7 @@ public class PlayerScript : NetworkBehaviour
     }
     private void DealDamageEventTrue()
     {
-        DealDamagePlayerScript(true, false, 0);
+        DealDamagePlayerScript(true, false, 0, false, true);
     }
     public void EndTurnSubscription()
     {
@@ -114,7 +114,13 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void DealDamageAsServer(int inputDamage2, int target)
     {
-        RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
+        if (RefereeScript.instance.enemyList.Count > 0)
+        {
+            if (RefereeScript.instance.enemyList[target] != null)
+            {
+                RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
+            }
+        }
     }
 
     [ClientRpc]
@@ -122,7 +128,16 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isThisPlayersTurn)
         {
-            RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage);
+            
+            if(RefereeScript.instance.enemyList.Count > 0)
+            {
+                Debug.Log($"target is: {target}");
+                if (RefereeScript.instance.enemyList[target] != null)
+                {
+                    RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage);
+                }
+            }
+            
         }
     }
 
@@ -152,7 +167,7 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.isServersTurn = false;
         }
     }
-    public void DealDamagePlayerScript(bool inputBool, bool shouldDealAoE, int setDamage)
+    public void DealDamagePlayerScript(bool inputBool, bool shouldDealAoE, int setDamage, bool hammerEffect, bool activateDelayedEffecs)
     {
         bool hasGuaranteedHit = false;
         for(int i = 0; i < knowledgeIdList.Count; i++)
@@ -172,16 +187,9 @@ public class PlayerScript : NetworkBehaviour
                 damageThisRound = fieldScriptAccess.damagePointsLiquid;
                 if(shouldDealAoE)
                 {
-                    for(int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
-                    {
-                        if(target != j)
-                        {
-                            CmdDealDamage(setDamage, j);
-                        }
-                        else
-                        {
-                            CmdDealDamage(damageThisRound, target);
-                        }
+                    for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
+                    {                      
+                         CmdDealDamage(damageThisRound, j);            
                     }
                 }
                 else
@@ -189,6 +197,18 @@ public class PlayerScript : NetworkBehaviour
                     CmdDealDamage(damageThisRound, target);
                 }
             }
+            if(hammerEffect)
+            {
+                for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
+                {
+                    CmdDealDamage(1, j);
+                }
+            }
+            if(activateDelayedEffecs)
+            {
+                handScriptAccess.DelayedActionCardEffectActivation();
+            }
+            
         }
         else if (isServer)
         {
@@ -201,20 +221,24 @@ public class PlayerScript : NetworkBehaviour
                 {
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                     {
-                        if (target != j)
-                        {
-                            RpcDealDamage(setDamage, j);
-                        }
-                        else
-                        {
-                            RpcDealDamage(damageThisRound, target);
-                        }
+                        RpcDealDamage(damageThisRound, j);
                     }
                 }
                 else
                 {
                     RpcDealDamage(damageThisRound, target);
                 }
+            }
+            if (hammerEffect)
+            {
+                for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
+                {
+                    RpcDealDamage(1, j);      
+                }
+            }
+            if (activateDelayedEffecs)
+            {
+                handScriptAccess.DelayedActionCardEffectActivation();
             }
         }
         

@@ -1,8 +1,9 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AreaAttackEffect", menuName = "Effect/AreaAttackEffect")]
+
+[CreateAssetMenu(fileName = "HammerEffect", menuName = "Effect/HammerEffect")]
 [System.Serializable]
-public class AreaAttackEffect : EffectTemplate
+public class HammerEffect : EffectTemplate
 {
     public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
@@ -10,7 +11,7 @@ public class AreaAttackEffect : EffectTemplate
 
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
-            inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.DealDamagePlayerScript(false, true, (int)effectValue, false, true);
+            inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.DealDamagePlayerScript(false, false, (int)effectValue, true, false);
         }
     }
 }
