@@ -44,6 +44,9 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public bool isInQuickAttackMode;
 
+    public bool isInLongShotMode;
+
+    public bool isInMergeMode;
     [HideInInspector]
     public int utilityCount;
     public int utilityLimit;
@@ -73,6 +76,8 @@ public class HandScript : MonoBehaviour
         turnScriptAccess.restartGameEvent += HandReset;
         turnScriptAccess.restartGameEvent += RebuildCardListLite;
         isInQuickAttackMode = false;
+        isInMergeMode = false;
+        isInLongShotMode = false;
         cardCount = 0;
         cardDebt = 0;
         cardQueIndex = 0;
@@ -103,7 +108,11 @@ public class HandScript : MonoBehaviour
                     deckManagerAccess.handCardList.Remove(clickedCardId);
                     deckManagerAccess.discardedCardList.Add(clickedCardId);
 
-                    if (fieldScriptAccess.SpawnActiveCard(clickedCardId))
+                    if (isInMergeMode)
+                    {
+                        fieldScriptAccess.InputCardForMerging(clickedCardId);
+                    }                   
+                    else if (fieldScriptAccess.SpawnActiveCard(clickedCardId, false))
                     {
                         canInteract = false;
                         if (isInQuickAttackMode)
@@ -125,7 +134,12 @@ public class HandScript : MonoBehaviour
         }
     }
 
-   
+    public void MergedCardExecution(int inputCardId)
+    {
+        handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine(inputCardId));
+
+    }
+
     public void RebuildCardListLite()
     {
         int interval = 90 / (cardCount + 1);
@@ -241,6 +255,11 @@ public class HandScript : MonoBehaviour
             {
                 canPlayUtility = false;
                 SetCardActivityStatus(true, 1);
+            }
+            else if(isInLongShotMode)
+            {
+                SetCardActivityStatus(true, 0);
+                isInLongShotMode = false;
             }
             else
             {

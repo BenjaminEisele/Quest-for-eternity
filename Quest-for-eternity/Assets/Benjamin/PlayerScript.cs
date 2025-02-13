@@ -403,7 +403,7 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     private void CmdPlayCardForOtherPlayer(int cardID)
     {
-       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID);
+       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID, false);
     }
 
     [ClientRpc]
@@ -411,7 +411,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID);
+            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID, false);
         }
     }
 }

@@ -18,7 +18,7 @@ public class FieldScript : MonoBehaviour
     Vector3 activeCardSpawnPosition;
 
     public List<GameObject> activeCardList;
-
+    public List<int> mergeIdList;
    
     private void Start()
     {
@@ -27,10 +27,19 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
     }
 
-    public bool SpawnActiveCard(int cardId)
+    public bool SpawnActiveCard(int cardId, bool isMergeSetup)
     {  
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
-        int damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
+        int damagePointsFromActiveCard;
+        if (isMergeSetup)
+        {
+            damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetupMerged(mergeIdList[0], mergeIdList[1]);
+        }
+        else
+        {
+            damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
+        }
+        
         damagePoints += damagePointsFromActiveCard;
         if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
@@ -50,7 +59,16 @@ public class FieldScript : MonoBehaviour
         }
         return isSpawningActionCard;
     }
-
+    public void InputCardForMerging(int inputCardId)
+    {
+        mergeIdList.Add(inputCardId);
+        if(mergeIdList.Count >= 2)
+        {
+            SpawnActiveCard(0, true);
+            mergeIdList.Clear();
+        }
+        
+    }
     private void FieldEffectActivation()
     {
         foreach (GameObject activeCardMember in activeCardList)

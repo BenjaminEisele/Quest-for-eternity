@@ -946,6 +946,8 @@ MonoBehaviour:
   cardCount: 0
   canInteract: 0
   isInQuickAttackMode: 0
+  isInLongShotMode: 0
+  isInMergeMode: 0
   utilityCount: 0
   utilityLimit: 0
   cardQueDataList: []
@@ -1364,6 +1366,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 81fdac3f00f5b3440892cfa03f16edc4, type: 2}
   - {fileID: 11400000, guid: 96bdd0196a892f745bae147c1a086f0f, type: 2}
   - {fileID: 11400000, guid: 6ad094da6c5b81c45b6aa05a5da3cb64, type: 2}
+  - {fileID: 11400000, guid: 55f0d7d01daee304f98f8971aae25122, type: 2}
+  - {fileID: 11400000, guid: 81157ac6a8dcb3a469a3b64f5ebed0b4, type: 2}
 --- !u!114 &7267443404813897993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,7 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 10000000100000001000000010000000100000000600000006000000060000000600000006000000100000000a0000000a000000
+  deckCardList: 120000001200000012000000120000001200000002000000020000000100000001000000010000000a0000000a0000000a000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -8439,6 +8443,7 @@ MonoBehaviour:
   damagePointsLiquid: 0
   hitRateModifier: 0
   activeCardList: []
+  mergeIdList: 
 --- !u!1 &4919454135223005066
 GameObject:
   m_ObjectHideFlags: 0
