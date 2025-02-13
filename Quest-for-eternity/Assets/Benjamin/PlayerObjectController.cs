@@ -1,5 +1,7 @@
 using Mirror;
 using Steamworks;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerObjectController : NetworkBehaviour
@@ -111,15 +113,16 @@ public class PlayerObjectController : NetworkBehaviour
 
     public void Quit()
     {
+        SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
+        Destroy(GameObject.Find("NetworkManager"));
         manager.offlineScene = "";
         SceneManager.LoadScene("MainMenu");
-        SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
 
         if (isOwned)
         {
             if (isServer)
             {
-                manager.StopHost();
+                manager.StopHost();               
             }
             else
             {
