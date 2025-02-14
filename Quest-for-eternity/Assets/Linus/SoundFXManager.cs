@@ -7,6 +7,12 @@ public class SoundFXManager : MonoBehaviour
 
     [SerializeField] private AudioSource soundObject;
 
+    public AudioClip dropdownSound;
+    public AudioClip hoverSound;
+    public AudioClip buttonSound;
+    public AudioClip toggleSound;
+    public AudioClip sliderSound;
+
     private void Awake()
     {
         if (instance == null)
@@ -37,5 +43,30 @@ public class SoundFXManager : MonoBehaviour
 
         //remove gameobject when done playing
         Destroy(audioSource.gameObject, clipLenght);
+    }
+
+    public void ButtonSound()
+    {
+        instance.PlaySoundClip(buttonSound, transform, 1f, false);
+    }
+
+    public void SliderSound()
+    {
+        instance.PlaySoundClip(sliderSound, transform, 1f, false);
+    }
+
+    public void DropdownSound()
+    {
+        instance.PlaySoundClip(dropdownSound, transform, 1f, false);
+    }
+
+    public void ToggleSound()
+    {
+        instance.PlaySoundClip(toggleSound, transform, 1f, false);
+    }
+
+        public void HoverSound()
+    {
+        instance.PlaySoundClip(hoverSound, transform, 1f, false);
     }
 }

@@ -15,7 +15,7 @@ public class MusicManager : MonoBehaviour
             instance = this;
         }
 
-        instance.PlayMusic(MainMenuMusic, transform, 0.5f);
+        instance.PlayMusic(MainMenuMusic, transform, 0.05f);
     }
 
     public void PlayMusic(AudioClip audioClip, Transform spawnTransform, float volume)

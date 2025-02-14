@@ -534,9 +534,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 881336161}
+        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &294523183
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,9 +969,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 881336161}
+        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1031,7 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &397496388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,18 +1137,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: BubbleSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &397496391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,6 +1152,7 @@ MonoBehaviour:
   slider: {fileID: 397496390}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: ambienceVol
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &397496392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1176,7 +1165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &503961662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,18 +1766,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: BubbleSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &546170536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1804,6 +1781,7 @@ MonoBehaviour:
   slider: {fileID: 546170535}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: masterVol
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &546170537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1816,7 +1794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &549490366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,6 +1969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qualityDropdown: {fileID: 549490367}
   qualityIndexSave: 0
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &549490372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,7 +1982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &562274937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,9 +2092,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 881336161}
+        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2188,7 +2167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &576041952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,7 +2897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 682305702}
-  toggleSound: {fileID: 8300000, guid: 38ded434607c1a7458714222012496ad, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &682305704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2931,7 +2910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &684455249
 GameObject:
   m_ObjectHideFlags: 0
@@ -3995,7 +3974,6 @@ GameObject:
   - component: {fileID: 881336160}
   - component: {fileID: 881336161}
   - component: {fileID: 881336162}
-  - component: {fileID: 881336163}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -4031,6 +4009,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 7512260821461713194, guid: a8ead3cc8474d914eb5eec6ac92b8881, type: 3}
+  dropdownSound: {fileID: 8300000, guid: 7a2d0901a6a536d43b7770e5d72de218, type: 3}
+  hoverSound: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  buttonSound: {fileID: 8300000, guid: 1567a440f0895a748981df7fefe01895, type: 3}
+  toggleSound: {fileID: 8300000, guid: 38ded434607c1a7458714222012496ad, type: 3}
+  sliderSound: {fileID: 8300000, guid: 955529886b05cab4c8efeba82acc3cf8, type: 3}
 --- !u!114 &881336162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4044,21 +4027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 7512260821461713194, guid: 2c490422b84ddbd4a8c699ee59721a61, type: 3}
-  MainMenuMusic: {fileID: 8300000, guid: 19acfb0323892854fa92c6d2013d2d35, type: 3}
---- !u!114 &881336163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881336158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33e67ef3ff9053469af353d1cf8643a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonSound: {fileID: 8300000, guid: 1567a440f0895a748981df7fefe01895, type: 3}
-  sliderSound: {fileID: 8300000, guid: 955529886b05cab4c8efeba82acc3cf8, type: 3}
+  MainMenuMusic: {fileID: 8300000, guid: 106c185b489f3264fbcd8e4450c0d233, type: 3}
 --- !u!1 &886953251
 GameObject:
   m_ObjectHideFlags: 0
@@ -4408,9 +4377,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 881336161}
+        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4483,7 +4452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &1001643810
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,9 +5509,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 881336161}
+        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5615,7 +5584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &1202546370
 GameObject:
   m_ObjectHideFlags: 0
@@ -5721,18 +5690,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: BubbleSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1202546373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5748,6 +5705,7 @@ MonoBehaviour:
   slider: {fileID: 1202546372}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: sfxVol
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &1202546374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5760,7 +5718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &1274932909
 GameObject:
   m_ObjectHideFlags: 0
@@ -6030,33 +5988,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1703284396}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: PrintFullscreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 881336158}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: ClickSound
+      - m_Target: {fileID: 881336161}
+        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6116,7 +6050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &1304165462
 GameObject:
   m_ObjectHideFlags: 0
@@ -6836,6 +6770,7 @@ GameObject:
   - component: {fileID: 1442008637}
   - component: {fileID: 1442008636}
   - component: {fileID: 1442008635}
+  - component: {fileID: 1442008638}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -6945,7 +6880,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 881336161}
         m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
-        m_MethodName: ClickSound
+        m_MethodName: ButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6993,6 +6928,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442008633}
   m_CullTransparentMesh: 1
+--- !u!114 &1442008638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442008633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &1458925544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7476,18 +7424,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 881336163}
-        m_TargetAssemblyTypeName: SoundFXScript, Assembly-CSharp
-        m_MethodName: BubbleSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1595230889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7503,6 +7439,7 @@ MonoBehaviour:
   slider: {fileID: 1595230888}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: musicVol
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &1595230890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7515,7 +7452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &1655315024
 GameObject:
   m_ObjectHideFlags: 0
@@ -8950,6 +8887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 1958317915}
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &1958317919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8962,7 +8900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverClip: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
+  soundFXManager: {fileID: 881336161}
 --- !u!1 &2027059951
 GameObject:
   m_ObjectHideFlags: 0

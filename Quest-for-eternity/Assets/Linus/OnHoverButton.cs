@@ -3,10 +3,10 @@ using UnityEngine.EventSystems;
 
 public class OnButtonHover: MonoBehaviour, IPointerEnterHandler
 {
-    [SerializeField] AudioClip hoverClip;
+    [SerializeField] SoundFXManager soundFXManager;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        SoundFXManager.instance.PlaySoundClip(hoverClip, transform, 2f, false);
+        soundFXManager.HoverSound();
     }
 }

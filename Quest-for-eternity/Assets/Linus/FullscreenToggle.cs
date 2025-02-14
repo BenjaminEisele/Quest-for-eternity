@@ -11,7 +11,7 @@ using Mirror.BouncyCastle.Tsp;
 public class FullscreenToggle : MonoBehaviour
 {
     public Toggle fullscreenToggle;
-    [SerializeField] private AudioClip toggleSound;
+    [SerializeField] SoundFXManager soundFXManager;
 
     void Start()
     {
@@ -20,8 +20,8 @@ public class FullscreenToggle : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
+        soundFXManager.ToggleSound();
         Screen.fullScreen = isFullscreen;
         PlayerPrefs.SetInt("fullscreen", isFullscreen ? 1 : 0);
-        SoundFXManager.instance.PlaySoundClip(toggleSound, transform, 1f, false);
     }
 }
