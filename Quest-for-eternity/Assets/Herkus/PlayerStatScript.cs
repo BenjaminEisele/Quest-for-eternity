@@ -54,6 +54,7 @@ public class PlayerStatScript : NetworkBehaviour
                 RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
             }
             RefereeScript.instance.turnStartEvent += PlayerStatNewTurnEvent;
+            RefereeScript.instance.newWaveEvent += PlayerStatNewWaveEvent;
         }
     }
     private void PlayerStatNewTurnEvent()
@@ -61,6 +62,11 @@ public class PlayerStatScript : NetworkBehaviour
         immunityIdList.Clear();
         damageMultiplier = 1;
         healingMultiplier = 1;
+        
+    }
+    private void PlayerStatNewWaveEvent()
+    {
+        playerArmor = 0;
     }
     public void ResetPlayer()
     {
@@ -102,11 +108,32 @@ public class PlayerStatScript : NetworkBehaviour
     public void ChangePlayerHealth(int desiredHealth, int desiredArmor)
     {
         playerArmor += desiredArmor;
+        int damageDelta = 0;
+        if(desiredHealth < 0)
+        {
+            damageDelta = playerArmor + desiredHealth;
+            if(damageDelta < 0)
+            {
+                desiredHealth = damageDelta;
+            }
+            else
+            {
+                desiredHealth = 0;
+            }
+            
+            playerArmor = damageDelta;
+        }
+        
+
         int changedValue = playerHealth + desiredHealth * healingMultiplier;
         playerHealth = changedValue;
         if(playerHealth >= savedPlayerHealth)
         {
             playerHealth = savedPlayerHealth;
+        }
+        if (playerArmor < 0)
+        {
+            playerArmor = 0;
         }
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage, int inputType)
