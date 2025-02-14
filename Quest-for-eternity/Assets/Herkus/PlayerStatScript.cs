@@ -159,6 +159,7 @@ public class PlayerStatScript : NetworkBehaviour
             return false;
         }       
     }
+    
     private bool IsImmuneToAttack(int inputEnemyId)
     {
         for(int i = 0; i < immunityIdList.Count; i++)
@@ -169,6 +170,18 @@ public class PlayerStatScript : NetworkBehaviour
             }
         }
         return false;
+    }
+
+    public void CallMutation()
+    {
+        if(playerArmor > 0)
+        {
+            ChangeHealthNest(playerArmor, -playerArmor, true);
+        }
+        else
+        {
+            ChangeHealthNest(1, 0, true);
+        }
     }
     public void UpdateFighterTextInvocation(int oldInt, int newInt)
     {
