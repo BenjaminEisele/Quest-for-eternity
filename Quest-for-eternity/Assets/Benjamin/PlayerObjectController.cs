@@ -119,6 +119,7 @@ public class PlayerObjectController : NetworkBehaviour
 
     public void Quit()
     {
+        //zuerst für clients machen
         SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
         Destroy(GameObject.Find("NetworkManager"));
         manager.offlineScene = "";
