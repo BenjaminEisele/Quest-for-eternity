@@ -9,10 +9,7 @@ public class RefereeScript : NetworkBehaviour
     public List<EnemyScript> enemyList;
     public List<EnemyScript> killedEnemyList;
 
-
     public EnemyGenerator enemyGeneratorAccess;
-
-
 
     private bool isGameOver;
     private bool areAllEnemiesDead;
@@ -113,12 +110,8 @@ public class RefereeScript : NetworkBehaviour
         }
         
         areAllEnemiesDead = false;
-        canTransferTurnToPlayer = true;
-        //turnScriptAccess.restartGameEvent += RefereeReset;       
-               
-        isGameOver = false;
-        
-        
+        canTransferTurnToPlayer = true;                  
+        isGameOver = false;    
     }
     private void Update()
     {
@@ -138,8 +131,6 @@ public class RefereeScript : NetworkBehaviour
         {
             playerList.Add(Script.GetComponent<PlayerScript>());
         }
-        //databaseMultiplayerAccess.updatedLootList.Add(databaseMultiplayerAccess.enemyList[0].lootCardId);
-
         RandomNumbersSetUpRoot();
         enemyGeneratorAccess.GenerateEnemies(1, false);
     }
@@ -162,7 +153,6 @@ public class RefereeScript : NetworkBehaviour
         {
             randomEnemyCount = Random.Range(2, 3);
             enemyGeneratorAccess.RandomNumber(randomEnemyCount);
-            //StartCoroutine(enemyGeneratorAccess.RandomNumber(randomEnemyCount));
             for (int i = 0; i < 8; i++)
             {
                 int randomValue = Random.Range(0, maximumValue);
@@ -170,7 +160,6 @@ public class RefereeScript : NetworkBehaviour
                 {
                     randomValue = Random.Range(0, maximumValue);
                 }
-                //Debug.Log(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 displayCardIdList.Add(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 lootIdList.Add(randomValue);
             }
@@ -281,7 +270,7 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            playerList[1].turnScriptAccess.CallEndTurnEvent(); //Look at this on Wednesday
+            playerList[1].turnScriptAccess.CallEndTurnEvent();
         }
     }
 

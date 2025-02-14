@@ -81,7 +81,7 @@ public class EnemyGenerator : NetworkBehaviour
         Vector3 enemyPosition = spawnerPos.position;
         if(shouldSpawnSkeleton)
         {
-            enemyPosition = spawnerPos.position + new Vector3(5, 0, 0);
+            enemyPosition = spawnerPos.position + new Vector3(3.5f, 0, 0);
         }
         for (int i = 0; i < howManyEnemies; i++)
         {   
@@ -110,7 +110,7 @@ public class EnemyGenerator : NetworkBehaviour
 
                 refereeScriptAccess.enemyList.Add(enemyClone.GetComponent<EnemyScript>());
                 refereeScriptAccess.lootCardCount += enemyClone.GetComponent<EnemyScript>().myLootAmount;
-                enemyPosition += new Vector3(5, 0, 0);       
+                enemyPosition += new Vector3(3.5f, 0, 0);       
         }
         refereeScriptAccess.ResetChosenEnemy();
         refereeScriptAccess.RandomNumbersSetUpRoot();

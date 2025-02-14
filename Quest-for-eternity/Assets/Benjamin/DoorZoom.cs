@@ -8,7 +8,7 @@ public class DoorZoom : MonoBehaviour
     SteamLobby steamLobbyAccess;
     public void DoDoorZoom()
     {
-        Vector3 vec = new Vector3(2,2,2);
-        transform.DOScale(vec, 1f).OnComplete(steamLobbyAccess.HostLobby);
+        transform.DOScale(new Vector3(2, 2, 2), 1f);
+        steamLobbyAccess.HostLobby();
     }
 }
