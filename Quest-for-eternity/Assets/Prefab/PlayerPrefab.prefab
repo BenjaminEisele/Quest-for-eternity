@@ -1744,7 +1744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 804, y: 331}
+  m_AnchoredPosition: {x: 825, y: 470}
   m_SizeDelta: {x: 220, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4133983796204738281
@@ -2270,9 +2270,9 @@ Transform:
   m_GameObject: {fileID: 1318038394523368806}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.938421, y: 8.499077, z: 1.0501813}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -9.938421, y: 8.6298, z: 1.0501813}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5415300399141566514}
   - {fileID: 811732420934992103}
@@ -2966,9 +2966,9 @@ Transform:
   m_GameObject: {fileID: 1745666531273290743}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.11, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.00094032, y: 6.302, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2911973469299750894}
   - {fileID: 8488653862695054548}
@@ -5384,8 +5384,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -12.858421, y: 8.499077, z: 1.0501813}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6057357398139817902}
   - {fileID: 8905949175871687282}
@@ -7791,7 +7791,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 1397037131650155284, guid: 64ac89cd12611d647a68115729b26b08, type: 3}
+  m_Sprite: {fileID: 4208244166647485621, guid: f484a8e7ca020e4459bc63acfccc5f39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9320,9 +9320,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2831740175557007493}
-        m_TargetAssemblyTypeName: BackToMenuButton, Assembly-CSharp
-        m_MethodName: BackToMenu
+      - m_Target: {fileID: 1875461357145693974}
+        m_TargetAssemblyTypeName: PlayerObjectController, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13115,6 +13115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6351364109636546078}
   - component: {fileID: 552089170536995252}
+  - component: {fileID: 1134621269971015253}
   m_Layer: 0
   m_Name: CardImage
   m_TagString: Untagged
@@ -13196,6 +13197,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1134621269971015253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721363859836625388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &8814617301062071439
 GameObject:
   m_ObjectHideFlags: 0

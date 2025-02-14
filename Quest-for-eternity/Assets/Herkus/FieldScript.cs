@@ -43,7 +43,7 @@ public class FieldScript : MonoBehaviour
         damagePoints += damagePointsFromActiveCard;
         if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
-            activeCardSpawnPosition += new Vector3(2, 0, 0);
+            activeCardSpawnPosition += new Vector3(1.5f, 0, 0);
             activeCardInstance.SetActive(true);
             activeCardList.Add(activeCardInstance);
         }
