@@ -199,7 +199,7 @@ public class PlayerScript : NetworkBehaviour
                 {
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                     {                      
-                         CmdDealDamage(damageThisRound, j);
+                        CmdDealDamage(damageThisRound, j);
                         healingSum += damageThisRound;
                     }
                 }

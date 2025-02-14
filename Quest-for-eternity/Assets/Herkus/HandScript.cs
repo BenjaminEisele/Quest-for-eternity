@@ -47,7 +47,7 @@ public class HandScript : MonoBehaviour
     public bool isInLongShotMode;
 
     public bool isInMergeMode;
-    [HideInInspector]
+    //[HideInInspector]
     public int utilityCount;
     public int utilityLimit;
     int cardDebt;
@@ -62,8 +62,12 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public int utlCardsPlayedForOtherPlayer;
 
+    [SerializeField]
+    GameObject damageSliderObject;
+
     bool isFullRefill;
 
+    public bool isInDamageSliderMode;
     public int clickedCardId;
     private void Start()
     {
@@ -75,7 +79,9 @@ public class HandScript : MonoBehaviour
         turnScriptAccess.endTurnEvent += ResetQuickAttackMode;
         turnScriptAccess.restartGameEvent += HandReset;
         turnScriptAccess.restartGameEvent += RebuildCardListLite;
+        damageSliderObject.SetActive(false);
         isInQuickAttackMode = false;
+        isInDamageSliderMode = false;
         isInMergeMode = false;
         isInLongShotMode = false;
         cardCount = 0;
@@ -91,7 +97,6 @@ public class HandScript : MonoBehaviour
 
     private void SubscriptionInvokeHand()
     {
-        //RefereeScript.instance.turnStartEvent += ActivateAllCardsEvent;
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
         RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
     }
@@ -138,6 +143,11 @@ public class HandScript : MonoBehaviour
     {
         isInMergeMode = false;
         handScriptDelayCoroutine = StartCoroutine(MergedCoroutine(firstInput, secondInput));
+    }
+    public void CustomAttackExecution()
+    {
+        SetCardActivityStatus(false, 2);
+        damageSliderObject.SetActive(true);
     }
 
     public void RebuildCardListLite()
@@ -201,6 +211,7 @@ public class HandScript : MonoBehaviour
         utilityLimit = 3;
         fieldScriptAccess.mergeIdList.Clear();
         isInMergeMode = false;
+        isInDamageSliderMode = false;
     }
     public void HitRateRestoriationMethod()
     {
@@ -345,7 +356,15 @@ public class HandScript : MonoBehaviour
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
         ActionCardEffectActivation(inputCardId);
-        turnScriptAccess.CallEndTurnEvent();
+        if(!isInDamageSliderMode)
+        {
+            turnScriptAccess.CallEndTurnEvent();
+        }
+        else
+        {
+            damageSliderObject.SetActive(true);
+        }
+        
     }
 
     private IEnumerator MergedCoroutine(int firstId, int secondId)

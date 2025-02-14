@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
-  m_Name: GC_AimBoost
+  m_Name: GC_DamageBoost
   m_EditorClassIdentifier: 
-  cardName: Ghost card. Should not appear
+  cardName: 
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: -7034448406637311706, guid: e7c7b7f7f5b462040833440ee5f17fa0, type: 3}
+  cardSprite: {fileID: 0}
   cardDescription: 
   effectUnitList:
-  - myEffect: {fileID: 11400000, guid: fca7d4cc500cda54ea97a8444705420b, type: 2}
-    effectValue: 0
-    shouldActivateNow: 1
-  - myEffect: {fileID: 11400000, guid: fca7d4cc500cda54ea97a8444705420b, type: 2}
-    effectValue: 1
+  - myEffect: {fileID: 11400000, guid: ff9d198543958d047b1bbbf16fedcc6a, type: 2}
+    effectValue: 2
     shouldActivateNow: 1
   isDisplayable: 0

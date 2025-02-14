@@ -14,12 +14,16 @@ public class FieldScript : MonoBehaviour
     HandScript handscriptAccess;
 
     public static int damagePoints = 0;
+    public static int boostPoints = 0;
+
     public int damagePointsLiquid = 0;
     [HideInInspector]
     public float hitRateModifier;
     Vector3 activeCardSpawnPosition;
 
     public List<GameObject> activeCardList;
+    public List<GameObject> ghostCardList;
+
     public List<int> mergeIdList;
    
     private void Start()
@@ -48,6 +52,11 @@ public class FieldScript : MonoBehaviour
             activeCardSpawnPosition += new Vector3(1.5f, 0, 0);
             activeCardInstance.SetActive(true);
             activeCardList.Add(activeCardInstance);
+        }
+        else
+        {
+            ghostCardList.Add(activeCardInstance);
+            activeCardInstance.SetActive(false);
         }
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
         bool isSpawningActionCard = activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType();
@@ -86,7 +95,12 @@ public class FieldScript : MonoBehaviour
         {
             Destroy(activeCardMember);
         }
+        foreach (GameObject ghostCard in ghostCardList)
+        {
+            Destroy(ghostCard);
+        }
         activeCardList.Clear();
+        ghostCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
     }
     public bool CheckIfHitAndShouldClearField(bool inputBool, bool shouldGuaranteeHit)
@@ -95,7 +109,7 @@ public class FieldScript : MonoBehaviour
 
         if (playerScriptAccess.isThisPlayersTurn)
         {
-            damagePointsLiquid = damagePoints;
+            damagePointsLiquid = damagePoints + boostPoints;
             FieldEffectActivation();
             if (actionCardReference != null)
             {
@@ -113,6 +127,7 @@ public class FieldScript : MonoBehaviour
                 {
                     hitRateModifier = 0;
                     damagePoints = 0;
+                    boostPoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
                     if(inputBool)
                     {
@@ -124,6 +139,7 @@ public class FieldScript : MonoBehaviour
                 {
                     hitRateModifier = 0;
                     damagePoints = 0;
+                    boostPoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
                     if (inputBool)
                     {
@@ -137,6 +153,7 @@ public class FieldScript : MonoBehaviour
             {
                 hitRateModifier = 0;
                 damagePoints = 0;
+                boostPoints = 0;
                 UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
                 if (inputBool)
                 {
