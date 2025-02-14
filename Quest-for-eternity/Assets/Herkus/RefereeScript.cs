@@ -530,7 +530,6 @@ public class RefereeScript : NetworkBehaviour
         if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage, inputType))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
-            Debug.Log("setting to false");
             playerList[targetPlayerId].isPlayerAlive = false;
             if (AreAllPlayersDead())
             {

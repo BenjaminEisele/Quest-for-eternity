@@ -8,11 +8,16 @@ public class PlayerStatScript : NetworkBehaviour
 {
     public int playerHealthOffset;
     [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
-    public int playerHealth;       
+    public int playerHealth;
+    [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
+    public int playerArmor;
     int savedPlayerHealth;
     public List<int> immunityIdList;
 
+    [SerializeField]
     TextMeshPro playerHealthText;
+    [SerializeField]
+    TextMeshPro playerArmorText;
     PlayerScript playerScriptAccess;
 
     public int damageMultiplier;
@@ -26,10 +31,11 @@ public class PlayerStatScript : NetworkBehaviour
     private void Awake()
     {
         playerHealth = 25;
+        playerArmor = 0;
         damageMultiplier = 1;
         healingMultiplier = 1;
         savedPlayerHealth = playerHealth;
-        playerHealthText = GetComponentInChildren<TextMeshPro>();
+        //playerHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
         ResetPlayer();
         PlayerStatNewTurnEvent();
@@ -60,42 +66,43 @@ public class PlayerStatScript : NetworkBehaviour
     {
         playerHealthOffset = 0;
         playerHealth = savedPlayerHealth;
-        ChangePlayerHealth(savedPlayerHealth);
+        ChangePlayerHealth(savedPlayerHealth, 0);
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
 
     private void ClientNewWaveHeal()
     {
-        ChangeHealthNest(2, true);
+        ChangeHealthNest(2, 0, true);
     }
     private void HostNewWaveHeal()
     {
-        ChangeHealthNest(2, false);
+        ChangeHealthNest(2, 0, false);
     }
-    public void ChangeHealthNest(int input, bool shouldCallCommand)
+    public void ChangeHealthNest(int input, int armorInput,bool shouldCallCommand)
     {
         if (isClientOnly)
         {
             if (shouldCallCommand)
             {
-                CmdChangePlayerHealth(input);
+                CmdChangePlayerHealth(input, armorInput);
             }
         }
         else
         {
-            ChangePlayerHealth(input);
+            ChangePlayerHealth(input, armorInput);
         }
     }
 
     [Command(requiresAuthority = false)]
-    private void CmdChangePlayerHealth(int input)
+    private void CmdChangePlayerHealth(int input, int armorInput)
     {
-        ChangePlayerHealth(input); 
+        ChangePlayerHealth(input, armorInput); 
     }
 
-    public void ChangePlayerHealth(int desiredAmount)
+    public void ChangePlayerHealth(int desiredHealth, int desiredArmor)
     {
-        int changedValue = playerHealth + desiredAmount * healingMultiplier;
+        playerArmor += desiredArmor;
+        int changedValue = playerHealth + desiredHealth * healingMultiplier;
         playerHealth = changedValue;
         if(playerHealth >= savedPlayerHealth)
         {
@@ -111,7 +118,7 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 inputDamage = 0;
             }
-            ChangeHealthNest(-inputDamage * damageMultiplier, false);
+            ChangeHealthNest(-inputDamage * damageMultiplier, 0, false);
             playerHealthOffset = 0;
         }
         if (playerHealth <= 0)
@@ -142,7 +149,6 @@ public class PlayerStatScript : NetworkBehaviour
         {
             if (playerHealth < savedPlayerHealth)
             {
-
                 playerHealthText.color = Color.red;
             }
             else
@@ -151,6 +157,18 @@ public class PlayerStatScript : NetworkBehaviour
             }
             UiScript.UpdateFighterText(playerHealthText, playerHealth);
         }
-        
+        if(playerArmorText != null)
+        {
+            if(playerArmor > 0)
+            {
+                playerArmorText.color = Color.yellow;
+                playerArmorText.gameObject.SetActive(true);
+            }
+            else
+            {
+                playerArmorText.gameObject.SetActive(false);
+            }
+            UiScript.UpdateFighterText(playerArmorText, playerArmor);
+        }
     }
 }

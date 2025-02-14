@@ -224,7 +224,7 @@ public class PlayerScript : NetworkBehaviour
             multiplier = 1;
             if (shouldHealByDamageAmount)
             {
-                playerStatAccess.ChangeHealthNest(healingSum, true);
+                playerStatAccess.ChangeHealthNest(healingSum, 0, true);
                 shouldHealByDamageAmount = false;
             }
         }
@@ -263,7 +263,7 @@ public class PlayerScript : NetworkBehaviour
             multiplier = 1;
             if(shouldHealByDamageAmount)
             {
-                playerStatAccess.ChangeHealthNest(healingSum, false);
+                playerStatAccess.ChangeHealthNest(healingSum,0, false);
                 shouldHealByDamageAmount = false;
             }
 
