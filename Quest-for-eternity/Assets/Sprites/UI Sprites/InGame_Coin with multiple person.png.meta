@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_Coin with multiple person_0: 2053207887582067411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

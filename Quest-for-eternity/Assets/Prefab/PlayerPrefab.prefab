@@ -4268,7 +4268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 7512260821461713194, guid: a8ead3cc8474d914eb5eec6ac92b8881, type: 3}
-  buttonSound: {fileID: 8300000, guid: 8a9ce3728aede8248a8cad50c88bcde2, type: 3}
 --- !u!1 &2598165417822517435
 GameObject:
   m_ObjectHideFlags: 0
@@ -13575,6 +13574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 6415535125784032262}
+  toggleSound: {fileID: 0}
 --- !u!1 &8978295025209039151
 GameObject:
   m_ObjectHideFlags: 0

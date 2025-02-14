@@ -32,6 +32,7 @@ public class ChooseNewCardScript : MonoBehaviour
 
     public void ChooseOneCard(GameObject selfObject, int inputId)
     {
+        //select card sound
         displayCardCount--;
         Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
@@ -87,6 +88,7 @@ public class ChooseNewCardScript : MonoBehaviour
 
     public void DisplayCards()
     {   
+        //show loot cards sound
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < RefereeScript.instance.lootCardCount; i++)
         {

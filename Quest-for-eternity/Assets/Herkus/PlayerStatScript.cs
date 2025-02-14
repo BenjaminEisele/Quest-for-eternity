@@ -53,6 +53,7 @@ public class PlayerStatScript : MonoBehaviour
         playerHealthOffset = 0;
         if (playerHealth <= 0)
         {
+            // play enemy kills player sound
             playerHealth = 0;
             return true;
         }

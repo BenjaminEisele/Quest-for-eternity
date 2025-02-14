@@ -29,6 +29,7 @@ public class FieldScript : MonoBehaviour
 
     public bool SpawnActiveCard(int cardId)
     {  
+        // play card sound
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
         int damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
         damagePoints += damagePointsFromActiveCard;
@@ -90,6 +91,7 @@ public class FieldScript : MonoBehaviour
                 playerScriptAccess.shouldDealDamage = didWeHit;
                 if (didWeHit)
                 {
+                    // play hit sound
                     hitRateModifier = 0;
                     damagePoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
@@ -102,6 +104,7 @@ public class FieldScript : MonoBehaviour
                 }
                 else
                 {
+                    //play miss sound
                     hitRateModifier = 0;
                     damagePoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);

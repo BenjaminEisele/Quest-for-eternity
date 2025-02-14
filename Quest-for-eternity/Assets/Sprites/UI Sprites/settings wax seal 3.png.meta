@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      settings wax seal 3_0: 3021463464934357123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

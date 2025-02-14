@@ -38,6 +38,7 @@ public class DeckManager : MonoBehaviour
     {
         if(shouldShuffle)
         {
+            //shuffel sound 
             ShuffleCards(discardedCardList);
         }
         deckCardList.AddRange(discardedCardList);
