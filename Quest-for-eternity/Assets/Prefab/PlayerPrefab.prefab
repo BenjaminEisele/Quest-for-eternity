@@ -1380,7 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 00000000010000000200000003000000040000000500000006000000060000000700000008000000
+  deckCardList: 120000001200000012000000120000000a0000000a0000000a000000010000000100000001000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -8440,6 +8440,7 @@ MonoBehaviour:
   spawnpoint: {fileID: 3190224930268895390}
   baseActiveCard: {fileID: 3143705838561018988}
   playerScriptAccess: {fileID: 1214735220539923461}
+  handscriptAccess: {fileID: 4716527281068523202}
   damagePointsLiquid: 0
   hitRateModifier: 0
   activeCardList: []

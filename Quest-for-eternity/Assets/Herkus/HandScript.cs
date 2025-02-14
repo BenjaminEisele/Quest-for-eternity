@@ -134,10 +134,10 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    public void MergedCardExecution(int inputCardId)
+    public void MergedCardExecution(int firstInput, int secondInput)
     {
-        handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine(inputCardId));
-
+        isInMergeMode = false;
+        handScriptDelayCoroutine = StartCoroutine(MergedCoroutine(firstInput, secondInput));
     }
 
     public void RebuildCardListLite()
@@ -199,6 +199,8 @@ public class HandScript : MonoBehaviour
     private void NewTurnHandLogic()
     {
         utilityLimit = 3;
+        fieldScriptAccess.mergeIdList.Clear();
+        isInMergeMode = false;
     }
     public void HitRateRestoriationMethod()
     {
@@ -343,6 +345,15 @@ public class HandScript : MonoBehaviour
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
         ActionCardEffectActivation(inputCardId);
+        turnScriptAccess.CallEndTurnEvent();
+    }
+
+    private IEnumerator MergedCoroutine(int firstId, int secondId)
+    {
+        SetCardActivityStatus(false, 2);
+        yield return new WaitForSeconds(0.75f);
+        ActionCardEffectActivation(firstId);
+        ActionCardEffectActivation(secondId);
         turnScriptAccess.CallEndTurnEvent();
     }
     private void ActionCardEffectActivation(int inputCardId)

@@ -10,6 +10,8 @@ public class FieldScript : MonoBehaviour
     [SerializeField]
     PlayerScript playerScriptAccess;
     ActiveCardScript actionCardReference;
+    [SerializeField]
+    HandScript handscriptAccess;
 
     public static int damagePoints = 0;
     public int damagePointsLiquid = 0;
@@ -65,6 +67,7 @@ public class FieldScript : MonoBehaviour
         if(mergeIdList.Count >= 2)
         {
             SpawnActiveCard(0, true);
+            handscriptAccess.MergedCardExecution(mergeIdList[0], mergeIdList[1]);
             mergeIdList.Clear();
         }
         
