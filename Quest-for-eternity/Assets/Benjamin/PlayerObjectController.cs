@@ -127,20 +127,17 @@ public class PlayerObjectController : NetworkBehaviour
             RpcQuit();
             Debug.Log("Rpc Called");
         }
-        else
-        {
-            Invoke("Quit", 1f);
-            Debug.Log("Invoke");
-        } 
+        Invoke("Quit", 1f);
+        Debug.Log("Invoke");
     }
 
     [ClientRpc]
     private void RpcQuit()
     {
-       //if (isClientOnly)
-       //{
+       if (isClientOnly)
+       {
             Quit();
-       //}
+       }
     }
 
     private void Quit()
