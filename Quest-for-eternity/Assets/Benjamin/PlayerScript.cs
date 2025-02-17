@@ -201,7 +201,7 @@ public class PlayerScript : NetworkBehaviour
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                     {                      
                         CmdDealDamage(damageThisRound, j);
-                        if(isLocalGamePlayer)
+                        if(isThisPlayersTurn)
                         {
                             healingSum += damageThisRound;
                         }
@@ -211,7 +211,7 @@ public class PlayerScript : NetworkBehaviour
                 else
                 {
                     CmdDealDamage(damageThisRound, target);
-                    if (isLocalGamePlayer)
+                    if (isThisPlayersTurn)
                     {
                         healingSum = damageThisRound;
                     }
@@ -223,7 +223,7 @@ public class PlayerScript : NetworkBehaviour
                 for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                 {
                     CmdDealDamage(1, j);
-                    if (isLocalGamePlayer)
+                    if (isThisPlayersTurn)
                     {
                         healingSum += 1;
                     }
@@ -250,7 +250,7 @@ public class PlayerScript : NetworkBehaviour
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                     {
                         RpcDealDamage(damageThisRound, j);
-                        if (isLocalGamePlayer)
+                        if (isThisPlayersTurn)
                         {
                             healingSum += damageThisRound;
                         }
@@ -259,7 +259,7 @@ public class PlayerScript : NetworkBehaviour
                 else
                 {
                     RpcDealDamage(damageThisRound, target);
-                    if (isLocalGamePlayer)
+                    if (isThisPlayersTurn)
                     {
                         healingSum = damageThisRound;
                     }
@@ -271,7 +271,7 @@ public class PlayerScript : NetworkBehaviour
                 for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                 {
                     RpcDealDamage(1, j);
-                    if (isLocalGamePlayer)
+                    if (isThisPlayersTurn)
                     {
                         healingSum += 1;
                     }
