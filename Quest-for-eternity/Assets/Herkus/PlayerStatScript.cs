@@ -136,11 +136,11 @@ public class PlayerStatScript : NetworkBehaviour
             playerArmor = damageDelta;
         }
 
-        Debug.Log($"Healing multiplier: {multiplierInput}");
+        //Debug.Log($"Healing multiplier: {multiplierInput}");
 
         int changedValue = playerHealth + desiredHealth * multiplierInput;
 
-        Debug.Log($"changedValue: {changedValue}");
+        //Debug.Log($"changedValue: {changedValue}");
 
         playerHealth = changedValue;
         Debug.Log($"health set to: {playerHealth}, should be same as changed value");
