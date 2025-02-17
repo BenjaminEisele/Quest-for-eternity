@@ -18,10 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: -7034448406637311706, guid: e7c7b7f7f5b462040833440ee5f17fa0, type: 3}
   cardDescription: 
   effectUnitList:
-  - myEffect: {fileID: 11400000, guid: fca7d4cc500cda54ea97a8444705420b, type: 2}
-    effectValue: 0
-    shouldActivateNow: 1
-  - myEffect: {fileID: 11400000, guid: fca7d4cc500cda54ea97a8444705420b, type: 2}
+  - myEffect: {fileID: 11400000, guid: 3247c201504eaa645b4e282f9bf42b06, type: 2}
     effectValue: 1
     shouldActivateNow: 1
   isDisplayable: 0
