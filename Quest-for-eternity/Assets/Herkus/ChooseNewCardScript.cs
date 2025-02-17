@@ -32,6 +32,7 @@ public class ChooseNewCardScript : MonoBehaviour
 
     public void ChooseOneCard(GameObject selfObject, int inputId)
     {
+        //select card sound
         displayCardCount--;
         Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
@@ -82,18 +83,12 @@ public class ChooseNewCardScript : MonoBehaviour
         {
             RefereeScript.instance.CmdCallEndTurnForBothPlayers();
         }
-
         RefereeScript.instance.StartNextWaveInitalize();
     }
 
     public void DisplayCards()
-    {
-       /* if(RefereeScript.instance.myCoroutine != null)
-        {
-            StopCoroutine(RefereeScript.instance.myCoroutine);
-            //RefereeScript.instance.myCoroutine = null;
-        } */
-        
+    {   
+        //show loot cards sound
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < RefereeScript.instance.lootCardCount; i++)
         {
@@ -102,7 +97,7 @@ public class ChooseNewCardScript : MonoBehaviour
             GameObject displayCard = Instantiate(displayCardReferenceGameobject, newDisplayCardLocation, Quaternion.identity, transform);
             displayCard.GetComponent<DisplayCardScript>().playerScriptAccess = this.playerScriptAccess;
             displayCard.GetComponent<DisplayCardScript>().DisplayCardSetup(inputId);
-            newDisplayCardLocation += new Vector3(1.7f, 0, 0);
+            newDisplayCardLocation += new Vector3(1.5f, 0, 0);
             displayCardList.Add(displayCard);
         }
         RefereeScript.instance.lootCardCount = 0;

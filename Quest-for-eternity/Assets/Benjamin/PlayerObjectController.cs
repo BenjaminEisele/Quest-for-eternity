@@ -1,7 +1,5 @@
 using Mirror;
 using Steamworks;
-using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerObjectController : NetworkBehaviour
@@ -82,20 +80,14 @@ public class PlayerObjectController : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        if (Manager != null)
-        {
-            Manager.GamePlayers.Add(this);
-        }   
+        Manager.GamePlayers.Add(this);
         LobbyController.Instance.UpdateLobbyName();
         LobbyController.Instance.UpdatePlayerList();
     }
 
     public override void OnStopClient()
     {
-        if (Manager != null)
-        {
-            Manager.GamePlayers.Remove(this);
-        }
+        Manager.GamePlayers.Remove(this);
         LobbyController.Instance.UpdatePlayerList();
     }
 
@@ -119,16 +111,15 @@ public class PlayerObjectController : NetworkBehaviour
 
     public void Quit()
     {
-        SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
-        Destroy(GameObject.Find("NetworkManager"));
         manager.offlineScene = "";
         SceneManager.LoadScene("MainMenu");
+        SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
 
         if (isOwned)
         {
             if (isServer)
             {
-                manager.StopHost();               
+                manager.StopHost();
             }
             else
             {
@@ -136,4 +127,5 @@ public class PlayerObjectController : NetworkBehaviour
             }
         }
     }
+
 }

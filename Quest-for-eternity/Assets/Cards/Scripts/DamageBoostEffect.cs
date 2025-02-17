@@ -6,6 +6,12 @@ public class DamageBoostEffect : EffectTemplate
 {
     public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
-        FieldScript.boostPoints += (int)effectValue;
+        //Debug.Log("damage boost activated");
+
+        FieldScript.damagePoints += (int)effectValue;
+        /*if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
+        {
+           
+        }*/
     }
 }

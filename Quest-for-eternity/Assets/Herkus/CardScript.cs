@@ -59,7 +59,7 @@ public class CardScript : MonoBehaviour
         cardTextArray[3].text = databasePlayerAccess.cardList[myCardId].cardDescription;
         if(isActionCard)
         {
-            hitRateString = myCardHitRate * 100 + "%";
+            hitRateString = myCardHitRate * 100 + " %";
             cardTextArray[4].text = hitRateString;
             cardTextArray[4].text = hitRateString;
         }
@@ -82,13 +82,13 @@ public class CardScript : MonoBehaviour
             if (shouldRestoreOriginal)
             {
                 myCardHitRate = savedCardHitRate;
-                hitRateString = myCardHitRate * 100 + "%";
+                hitRateString = myCardHitRate * 100 + " %";
                 cardTextArray[4].text = hitRateString;
             }
             else
             {
                 myCardHitRate += hitRateChange;
-                hitRateString = Mathf.Round(myCardHitRate * 100) + "%";
+                hitRateString = Mathf.Round(myCardHitRate * 100) + " %";
                 cardTextArray[4].text = hitRateString;
             }
         }

@@ -20,13 +20,3 @@ MonoBehaviour:
     ACT cards until the end of your next turn
   cardDamage: 2
   cardHitRate: 0.3
-  actionEffectUnitList:
-  - myEffect: {fileID: 11400000, guid: 478c0df0faa4b50438d46bb1a11aa2a5, type: 2}
-    effectValue: 0
-    shouldActivateNow: 1
-  - myEffect: {fileID: 11400000, guid: a1a0141a3f76b724ca19c81ce97d3ccd, type: 2}
-    effectValue: 0
-    shouldActivateNow: 1
-  - myEffect: {fileID: 11400000, guid: a1a0141a3f76b724ca19c81ce97d3ccd, type: 2}
-    effectValue: 1
-    shouldActivateNow: 1
