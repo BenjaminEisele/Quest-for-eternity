@@ -69,6 +69,7 @@ public class PlayerStatScript : NetworkBehaviour
 
     public void ResetPlayerStatList()
     {
+        Debug.Log("cleared");
         immunityIdList.Clear();
     }
     private void PlayerStatNewWaveEvent()
