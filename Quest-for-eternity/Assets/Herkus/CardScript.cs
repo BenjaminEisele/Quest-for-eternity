@@ -73,9 +73,9 @@ public class CardScript : MonoBehaviour
     public void RestroreOriginalHitrate()
     {
         myCardHitRate = savedCardHitRate;
-        ChangeVisualCardHitrate(true, 0);
+        ChangeVisualCardHitrate(true, 0, false);
     }
-    public void ChangeVisualCardHitrate(bool shouldRestoreOriginal, float hitRateChange)
+    public void ChangeVisualCardHitrate(bool shouldRestoreOriginal, float hitRateChange, bool shouldAddToValue)
     {
         if(isActionCard)
         {
@@ -83,6 +83,12 @@ public class CardScript : MonoBehaviour
             {
                 myCardHitRate = savedCardHitRate;
                 hitRateString = myCardHitRate * 100 + "%";
+                cardTextArray[4].text = hitRateString;
+            }
+            else if(shouldAddToValue)
+            {
+                myCardHitRate = hitRateChange;
+                hitRateString = Mathf.Round(myCardHitRate * 100) + "%";
                 cardTextArray[4].text = hitRateString;
             }
             else

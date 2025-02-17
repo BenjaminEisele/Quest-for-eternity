@@ -1,15 +1,16 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HitRateRestoreEffect", menuName = "Effect/HitRateRestoreEffect")]
+
+[CreateAssetMenu(fileName = "LeadEffect", menuName = "Effect/LeadEffect")]
 [System.Serializable]
-public class HitRateRestoreEffect : EffectTemplate
+public class LeadEffect : EffectTemplate
 {
     public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
-            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.ChangeAllVisualHitrates(true, 0, false);
+            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SendCardsOver(new GameObject().transform, 21);
         }
     }
 }

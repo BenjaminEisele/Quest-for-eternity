@@ -64,7 +64,7 @@ public class DragDrop : MonoBehaviour
             {
                 if (handScriptAccess.utlCardsPlayedForOtherPlayer < 3)
                 {
-                    handScriptAccess.SendCardsOver(transform);
+                    handScriptAccess.SendCardsOver(transform, -1);
                 }
                 else
                 {

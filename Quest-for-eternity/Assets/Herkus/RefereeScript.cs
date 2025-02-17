@@ -525,7 +525,7 @@ public class RefereeScript : NetworkBehaviour
     [ClientRpc]
     public void RpcDealDamageToPlayer(int inputDamage, int inputType)
     {
-        if(isClientOnly)
+        if(isClientOnly ^ singlePlayerMode)
         {
             DealDamageLogic(inputDamage, inputType);
         }
@@ -555,8 +555,7 @@ public class RefereeScript : NetworkBehaviour
     }
     
     private void SwitchPlayerAttackIdNest()
-    {
-        
+    {     
         if (isServer)
         {
             SwitchPlayerAttackId();

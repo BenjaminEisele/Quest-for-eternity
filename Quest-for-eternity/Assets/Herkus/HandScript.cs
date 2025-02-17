@@ -226,9 +226,9 @@ public class HandScript : MonoBehaviour
                 card.RestroreOriginalHitrate();
             }
         }
-        ChangeAllVisualHitrates(true, 0);
+        ChangeAllVisualHitrates(true, 0, false);
     }
-    public void ChangeAllVisualHitrates(bool shouldRestoreOriginal, float effectValue)
+    public void ChangeAllVisualHitrates(bool shouldRestoreOriginal, float effectValue, bool shouldAddToValue)
     {
         isHitrateAffected = !shouldRestoreOriginal;
         savedHitrateDelta = effectValue;
@@ -236,7 +236,7 @@ public class HandScript : MonoBehaviour
         {
             if (card != null)
             {
-                card.ChangeVisualCardHitrate(shouldRestoreOriginal, effectValue);
+                card.ChangeVisualCardHitrate(shouldRestoreOriginal, effectValue, shouldAddToValue);
             }
         }
     }
@@ -527,7 +527,7 @@ public class HandScript : MonoBehaviour
         deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
         if(isHitrateAffected)
         {
-            cardClone.GetComponentInChildren<CardScript>().ChangeVisualCardHitrate(false, savedHitrateDelta);
+            cardClone.GetComponentInChildren<CardScript>().ChangeVisualCardHitrate(false, savedHitrateDelta, false);
         }
         if (deckManagerAccess.deckCardList.Count <= 0)
         {
@@ -598,18 +598,30 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    public void SendCardsOver(Transform card)
+    public void SendCardsOver(Transform card, int customInput)
     {
         if (canInteract && playerScriptAccess.isThisPlayersTurn)
         {
             if (card.GetComponentInParent<CardScript>().isClickable)
             {
-                utlCardsPlayedForOtherPlayer++;
-                int clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
+                int clickedCardId;
+                if (customInput == -1)
+                {
+                    utlCardsPlayedForOtherPlayer++;
+                    clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
+                }
+                else
+                {
+                    clickedCardId = customInput;
+                }
+                
                 playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
                 deckManagerAccess.handCardList.Remove(clickedCardId);
                 deckManagerAccess.discardedCardList.Add(clickedCardId);
-                RebuildCardList(card.root.gameObject);
+                if (customInput == -1)
+                {
+                    RebuildCardList(card.root.gameObject);
+                }
             }             
         }
     }

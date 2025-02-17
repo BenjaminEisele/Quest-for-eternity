@@ -1,8 +1,9 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HitRateEffect", menuName = "Effect/HitRateEffect")]
+
+[CreateAssetMenu(fileName = "HitRateSetEffect", menuName = "Effect/HitRateSetEffect")]
 [System.Serializable]
-public class HitRateEffect : EffectTemplate
+public class HitRateSetEffect : EffectTemplate
 {
     HandScript handScriptAccess;
     public override void UseEffect<T>(int targetId, float effectValue, T value)
@@ -10,9 +11,9 @@ public class HitRateEffect : EffectTemplate
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
-            inputGameobject.GetComponent<SceneObjectDatabase>().fieldScriptReference.hitRateModifier += effectValue;
+            inputGameobject.GetComponent<SceneObjectDatabase>().fieldScriptReference.hitRateModifier = effectValue;
             handScriptAccess = inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference;
-            handScriptAccess.ChangeAllVisualHitrates(false, effectValue, false);
+            handScriptAccess.ChangeAllVisualHitrates(false, effectValue, true);
         }
     }
 
