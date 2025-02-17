@@ -186,10 +186,12 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isServer)
         {
-            health[1].SetActive(false);
+            health[3].SetActive(false);
+            health[2].SetActive(false);
         }
         else
         {
+            health[1].SetActive(false);
             health[0].SetActive(false);
         }
     }
