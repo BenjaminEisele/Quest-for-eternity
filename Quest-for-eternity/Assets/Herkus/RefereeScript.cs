@@ -550,7 +550,7 @@ public class RefereeScript : NetworkBehaviour
     
     private void SwitchPlayerAttackIdNest()
     {
-        playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
+        
         if (isServer)
         {
             SwitchPlayerAttackId();
@@ -559,6 +559,7 @@ public class RefereeScript : NetworkBehaviour
         {
             CmdSwitchPlayerAttackId();
         }
+        playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
     }
 
     private void SwitchPlayerAttackId()
