@@ -103,6 +103,7 @@ public class PlayerStatScript : NetworkBehaviour
         }
         else
         {
+            Debug.Log($"server is changing health for {transform.root.gameObject.name}");
             ChangePlayerHealth(input, armorInput);
         }
     }
