@@ -507,7 +507,6 @@ public class RefereeScript : NetworkBehaviour
                 yield return new WaitForSeconds(0.75f);
             }
             SwitchPlayerAttackIdNest();
-
         }
         if (canTransferTurnToPlayer)
         {
@@ -564,8 +563,7 @@ public class RefereeScript : NetworkBehaviour
     private void SwitchPlayerAttackId()
     {
         if(!singlePlayerMode)
-        {
-            
+        {           
             if (targetPlayerId == 1)
             {
                 targetPlayerId = 0;

@@ -13,6 +13,7 @@ public class PlayerStatScript : NetworkBehaviour
     public int playerArmor;
     int savedPlayerHealth;
     public List<int> immunityIdList;
+    public int immunityCount;
 
     [SerializeField]
     TextMeshPro playerHealthText;
@@ -161,6 +162,11 @@ public class PlayerStatScript : NetworkBehaviour
         }
         else
         {
+            immunityCount--;
+            if(immunityCount <= 0)
+            {
+                immunityIdList.Clear();
+            }
             Debug.Log("immune to attack?");
         }
         if (playerHealth <= 0)
