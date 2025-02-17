@@ -9,10 +9,7 @@ public class RefereeScript : NetworkBehaviour
     public List<EnemyScript> enemyList;
     public List<EnemyScript> killedEnemyList;
 
-
     public EnemyGenerator enemyGeneratorAccess;
-
-
 
     private bool isGameOver;
     private bool areAllEnemiesDead;
@@ -61,13 +58,13 @@ public class RefereeScript : NetworkBehaviour
     public int randomEnemyCount = 0;
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
     public List<int> lootIdList;
-    Coroutine myCoroutine = null;
+    public Coroutine myCoroutine = null;
 
     public int lootCardCount;
 
     [SerializeField]
     DatabaseMultiplayer databaseMultiplayerAccess;
-
+    
     private void Awake()
     {
         instance = this;        
@@ -113,12 +110,8 @@ public class RefereeScript : NetworkBehaviour
         }
         
         areAllEnemiesDead = false;
-        canTransferTurnToPlayer = true;
-        //turnScriptAccess.restartGameEvent += RefereeReset;       
-               
-        isGameOver = false;
-        
-        
+        canTransferTurnToPlayer = true;                  
+        isGameOver = false;    
     }
     private void Update()
     {
@@ -138,8 +131,6 @@ public class RefereeScript : NetworkBehaviour
         {
             playerList.Add(Script.GetComponent<PlayerScript>());
         }
-        //databaseMultiplayerAccess.updatedLootList.Add(databaseMultiplayerAccess.enemyList[0].lootCardId);
-
         RandomNumbersSetUpRoot();
         enemyGeneratorAccess.GenerateEnemies(1, false);
     }
@@ -162,7 +153,6 @@ public class RefereeScript : NetworkBehaviour
         {
             randomEnemyCount = Random.Range(2, 3);
             enemyGeneratorAccess.RandomNumber(randomEnemyCount);
-            //StartCoroutine(enemyGeneratorAccess.RandomNumber(randomEnemyCount));
             for (int i = 0; i < 8; i++)
             {
                 int randomValue = Random.Range(0, maximumValue);
@@ -170,7 +160,6 @@ public class RefereeScript : NetworkBehaviour
                 {
                     randomValue = Random.Range(0, maximumValue);
                 }
-                //Debug.Log(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 displayCardIdList.Add(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 lootIdList.Add(randomValue);
             }
@@ -252,22 +241,25 @@ public class RefereeScript : NetworkBehaviour
         {
             turnStartEvent();
         }
-        if(isServer)
+        if(!singlePlayerMode)
         {
-            Debug.Log("this shouldn't get executed in the beginning");
-            if(!playerList[1].isPlayerAlive)
+            if (isServer)
             {
-                Debug.Log("I am DEAD!! I AM A COrPSE! 1");
-                Invoke("RpcCallEndTurnEventForPlayer", 0.1f);
+                Debug.Log("this shouldn't get executed in the beginning");
+                if (!playerList[1].isPlayerAlive)
+                {
+                    Debug.Log("I am DEAD!! I AM A COrPSE! 1");
+                    Invoke("RpcCallEndTurnEventForPlayer", 0.1f);
+                }
             }
-        }
-        else
-        {
-            Debug.Log("this shouldn't get executed in the beginning 2");
-            if (!playerList[0].isPlayerAlive)
+            else
             {
-                Debug.Log("I am DEAD!! I AM A COrPSE! 2");
-                Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
+                Debug.Log("this shouldn't get executed in the beginning 2");
+                if (!playerList[0].isPlayerAlive)
+                {
+                    Debug.Log("I am DEAD!! I AM A COrPSE! 2");
+                    Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
+                }
             }
         }
         TurnScript.instance.ShouldStartPlayerTurn(true);
@@ -278,7 +270,7 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            playerList[1].turnScriptAccess.CallEndTurnEvent(); //Look at this on Wednesday
+            playerList[1].turnScriptAccess.CallEndTurnEvent();
         }
     }
 
@@ -357,8 +349,6 @@ public class RefereeScript : NetworkBehaviour
             {
                 canTransferTurnToPlayer = false;
             }
-            
-
             if (playerList[0].isThisPlayersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
@@ -432,6 +422,16 @@ public class RefereeScript : NetworkBehaviour
     private void StartNextWaveLogic(bool shouldStartEvents)
     {
         areAllEnemiesDead = false;
+        if(myCoroutine != null)
+        {
+            Debug.Log("Coroutine still running!");
+            StopCoroutine(myCoroutine);
+            if (canTransferTurnToPlayer)
+            {
+                CallStartTurnEvent();
+            }
+            myCoroutine = null;
+        }
         foreach (EnemyScript enemy in killedEnemyList)
         {
             if(enemy != null)
@@ -454,7 +454,7 @@ public class RefereeScript : NetworkBehaviour
             CallNewWaveEvent();   
         }
     }
-    
+
     public void RefereeReset()
     {
         isGameOver = false;
@@ -466,7 +466,6 @@ public class RefereeScript : NetworkBehaviour
     }
     public void StartForeachEnemyCoroutine()
     {
-
         if (!isGameOver)
         {
             if(myCoroutine == null)
@@ -477,6 +476,7 @@ public class RefereeScript : NetworkBehaviour
     }
     private IEnumerator ForeachEnemyTurnCoroutine()
     {
+        Debug.Log("Coroutine gets called");
         yield return new WaitForSeconds(1.5f);
         if (!areAllEnemiesDead)
         {
@@ -486,13 +486,14 @@ public class RefereeScript : NetworkBehaviour
                 if(enemyList[i].canAttack)
                 {   
                     int enemyDamage = enemyList[i].GenerateAttack();
+                    int enemyType = enemyList[i].myEnemyType;
                     if (isClientOnly)
                     {
-                        CmdDealDamageToPlayer(enemyDamage);
+                        CmdDealDamageToPlayer(enemyDamage, enemyType);
                     }
                     else
                     {
-                        RpcDealDamageToPlayer(enemyDamage);
+                        RpcDealDamageToPlayer(enemyDamage, enemyType);
                     }
                     UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 }
@@ -503,6 +504,7 @@ public class RefereeScript : NetworkBehaviour
                 yield return new WaitForSeconds(0.75f);
             }
             SwitchPlayerAttackIdNest();
+
         }
         if (canTransferTurnToPlayer)
         {
@@ -512,19 +514,20 @@ public class RefereeScript : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcDealDamageToPlayer(int inputDamage)
+    public void RpcDealDamageToPlayer(int inputDamage, int inputType)
     {
-        DealDamageLogic(inputDamage);
+        DealDamageLogic(inputDamage, inputType);
     }
     [Command(requiresAuthority = false)]
-    public void CmdDealDamageToPlayer(int inputDamage)
+    public void CmdDealDamageToPlayer(int inputDamage, int inputType)
     {
-        DealDamageLogic(inputDamage);
+        DealDamageLogic(inputDamage, inputType);
     }
 
-    public void DealDamageLogic(int inputDamage)
+    public void DealDamageLogic(int inputDamage, int inputType)
     {
-        if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage))
+        Debug.Log("Deal Damage Logic");
+        if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage, inputType))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
             playerList[targetPlayerId].isPlayerAlive = false;
@@ -532,6 +535,10 @@ public class RefereeScript : NetworkBehaviour
             {
                 EndGame(false);
             }
+        }
+        else
+        {
+            playerList[targetPlayerId].isPlayerAlive = true;
         }
     }
     

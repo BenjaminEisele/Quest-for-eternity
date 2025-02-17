@@ -10,15 +10,21 @@ public class FieldScript : MonoBehaviour
     [SerializeField]
     PlayerScript playerScriptAccess;
     ActiveCardScript actionCardReference;
+    [SerializeField]
+    HandScript handscriptAccess;
 
     public static int damagePoints = 0;
+    public static int boostPoints = 0;
+
     public int damagePointsLiquid = 0;
     [HideInInspector]
     public float hitRateModifier;
     Vector3 activeCardSpawnPosition;
 
     public List<GameObject> activeCardList;
+    public List<GameObject> ghostCardList;
 
+    public List<int> mergeIdList;
    
     private void Start()
     {
@@ -27,17 +33,31 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
     }
 
-    public bool SpawnActiveCard(int cardId)
+    public bool SpawnActiveCard(int cardId, bool isMergeSetup)
     {  
         // play card sound
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
-        int damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
+        int damagePointsFromActiveCard;
+        if (isMergeSetup)
+        {
+            damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetupMerged(mergeIdList[0], mergeIdList[1]);
+        }
+        else
+        {
+            damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
+        }
+        
         damagePoints += damagePointsFromActiveCard;
         if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
-            activeCardSpawnPosition += new Vector3(2, 0, 0);
+            activeCardSpawnPosition += new Vector3(1.5f, 0, 0);
             activeCardInstance.SetActive(true);
             activeCardList.Add(activeCardInstance);
+        }
+        else
+        {
+            ghostCardList.Add(activeCardInstance);
+            activeCardInstance.SetActive(false);
         }
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
         bool isSpawningActionCard = activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType();
@@ -45,13 +65,23 @@ public class FieldScript : MonoBehaviour
         {
             actionCardReference = activeCardInstance.GetComponent<ActiveCardScript>();
         }
-        else
+        else if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
             transform.root.GetComponentInChildren<HandScript>().utilityCount++;
         }
         return isSpawningActionCard;
     }
-
+    public void InputCardForMerging(int inputCardId)
+    {
+        mergeIdList.Add(inputCardId);
+        if(mergeIdList.Count >= 2)
+        {
+            SpawnActiveCard(0, true);
+            handscriptAccess.MergedCardExecution(mergeIdList[0], mergeIdList[1]);
+            mergeIdList.Clear();
+        }
+        
+    }
     private void FieldEffectActivation()
     {
         foreach (GameObject activeCardMember in activeCardList)
@@ -66,7 +96,12 @@ public class FieldScript : MonoBehaviour
         {
             Destroy(activeCardMember);
         }
+        foreach (GameObject ghostCard in ghostCardList)
+        {
+            Destroy(ghostCard);
+        }
         activeCardList.Clear();
+        ghostCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
     }
     public bool CheckIfHitAndShouldClearField(bool inputBool, bool shouldGuaranteeHit)
@@ -75,7 +110,7 @@ public class FieldScript : MonoBehaviour
 
         if (playerScriptAccess.isThisPlayersTurn)
         {
-            damagePointsLiquid = damagePoints;
+            damagePointsLiquid = damagePoints + boostPoints;
             FieldEffectActivation();
             if (actionCardReference != null)
             {
@@ -94,12 +129,12 @@ public class FieldScript : MonoBehaviour
                     // play hit sound
                     hitRateModifier = 0;
                     damagePoints = 0;
+                    boostPoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
                     if(inputBool)
                     {
                         FieldClear();
                     }
-                    Debug.Log("hit!");
                     return didWeHit;
                 }
                 else
@@ -107,12 +142,12 @@ public class FieldScript : MonoBehaviour
                     //play miss sound
                     hitRateModifier = 0;
                     damagePoints = 0;
+                    boostPoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
                     if (inputBool)
                     {
                         FieldClear();
                     }
-                    Debug.Log("missed");
                     return false;
 
                 }
@@ -121,6 +156,7 @@ public class FieldScript : MonoBehaviour
             {
                 hitRateModifier = 0;
                 damagePoints = 0;
+                boostPoints = 0;
                 UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
                 if (inputBool)
                 {

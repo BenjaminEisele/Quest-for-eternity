@@ -102,4 +102,47 @@ public class ActiveCardScript : MonoBehaviour
         activeCardTextArray[1].text = activeCardName;
         return activeCardDamage;
     }
+    public int ActiveCardSetupMerged(int firstId, int secondId)
+    {
+        shouldShowCard = true;
+        this.activeCardId = firstId;
+        activeCardTextArray = GetComponentsInChildren<TextMeshPro>();
+        Action firstActionCardAccess = databasePlayerAccess.cardList[firstId] as Action;
+        Action secondActionCardAccess = databasePlayerAccess.cardList[secondId] as Action;
+
+        if (firstActionCardAccess)
+        {
+            activeCardDamage = firstActionCardAccess.cardDamage + secondActionCardAccess.cardDamage;
+            if(firstActionCardAccess.cardHitRate >= secondActionCardAccess.cardHitRate)
+            {
+                activeCardHitRate = firstActionCardAccess.cardHitRate;
+            }
+            else
+            {
+                activeCardHitRate = secondActionCardAccess.cardHitRate;
+            }
+            isActionCard = true;
+        }
+        else
+        {
+            activeCardDamage = 0;
+            isActionCard = false;
+
+            Utility utilityCardAccess = databasePlayerAccess.cardList[activeCardId] as Utility;
+            shouldShowCard = utilityCardAccess.isDisplayable;
+            foreach (EffectUnit myEffectUnit in utilityCardAccess.effectUnitList)
+            {
+                if (myEffectUnit.shouldActivateNow)
+                {
+                    myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                }
+            }
+        }
+        activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;
+        activeCardName = databasePlayerAccess.cardList[activeCardId].cardName;
+
+        activeCardTextArray[0].text = activeCardDamage.ToString();
+        activeCardTextArray[1].text = activeCardName;
+        return activeCardDamage;
+    }
 }

@@ -44,7 +44,10 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public bool isInQuickAttackMode;
 
-    [HideInInspector]
+    public bool isInLongShotMode;
+
+    public bool isInMergeMode;
+    //[HideInInspector]
     public int utilityCount;
     public int utilityLimit;
     int cardDebt;
@@ -59,7 +62,13 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public int utlCardsPlayedForOtherPlayer;
 
+    [SerializeField]
+    GameObject damageSliderObject;
+
     bool isFullRefill;
+
+    public bool isInDamageSliderMode;
+    public int clickedCardId;
     private void Start()
     {
         utilityLimit = 3;
@@ -70,7 +79,11 @@ public class HandScript : MonoBehaviour
         turnScriptAccess.endTurnEvent += ResetQuickAttackMode;
         turnScriptAccess.restartGameEvent += HandReset;
         turnScriptAccess.restartGameEvent += RebuildCardListLite;
+        damageSliderObject.SetActive(false);
         isInQuickAttackMode = false;
+        isInDamageSliderMode = false;
+        isInMergeMode = false;
+        isInLongShotMode = false;
         cardCount = 0;
         cardDebt = 0;
         cardQueIndex = 0;
@@ -84,7 +97,6 @@ public class HandScript : MonoBehaviour
 
     private void SubscriptionInvokeHand()
     {
-        //RefereeScript.instance.turnStartEvent += ActivateAllCardsEvent;
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
         RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
     }
@@ -97,11 +109,15 @@ public class HandScript : MonoBehaviour
             {
                 if (card.GetComponentInParent<CardScript>().isClickable)
                 {
-                    int clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
+                    clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
                     deckManagerAccess.handCardList.Remove(clickedCardId);
                     deckManagerAccess.discardedCardList.Add(clickedCardId);
 
-                    if (fieldScriptAccess.SpawnActiveCard(clickedCardId))
+                    if (isInMergeMode)
+                    {
+                        fieldScriptAccess.InputCardForMerging(clickedCardId);
+                    }                   
+                    else if (fieldScriptAccess.SpawnActiveCard(clickedCardId, false))
                     {
                         canInteract = false;
                         if (isInQuickAttackMode)
@@ -123,7 +139,17 @@ public class HandScript : MonoBehaviour
         }
     }
 
-   
+    public void MergedCardExecution(int firstInput, int secondInput)
+    {
+        isInMergeMode = false;
+        handScriptDelayCoroutine = StartCoroutine(MergedCoroutine(firstInput, secondInput));
+    }
+    public void CustomAttackExecution()
+    {
+        SetCardActivityStatus(false, 2);
+        damageSliderObject.SetActive(true);
+    }
+
     public void RebuildCardListLite()
     {
         int interval = 90 / (cardCount + 1);
@@ -183,6 +209,9 @@ public class HandScript : MonoBehaviour
     private void NewTurnHandLogic()
     {
         utilityLimit = 3;
+        fieldScriptAccess.mergeIdList.Clear();
+        isInMergeMode = false;
+        isInDamageSliderMode = false;
     }
     public void HitRateRestoriationMethod()
     {
@@ -239,6 +268,11 @@ public class HandScript : MonoBehaviour
             {
                 canPlayUtility = false;
                 SetCardActivityStatus(true, 1);
+            }
+            else if(isInLongShotMode)
+            {
+                SetCardActivityStatus(true, 0);
+                isInLongShotMode = false;
             }
             else
             {
@@ -311,7 +345,7 @@ public class HandScript : MonoBehaviour
     private IEnumerator QuickAttackModeCoroutine()
     {
         yield return new WaitForSeconds(0.75f);
-        playerScriptAccess.DealDamagePlayerScript(false);
+        playerScriptAccess.DealDamagePlayerScript(false, false, 0, false, true);
         isInQuickAttackMode = false;
         SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();
@@ -322,12 +356,28 @@ public class HandScript : MonoBehaviour
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
         ActionCardEffectActivation(inputCardId);
+        if(!isInDamageSliderMode)
+        {
+            turnScriptAccess.CallEndTurnEvent();
+        }
+        else
+        {
+            damageSliderObject.SetActive(true);
+        }
+        
+    }
+
+    private IEnumerator MergedCoroutine(int firstId, int secondId)
+    {
+        SetCardActivityStatus(false, 2);
+        yield return new WaitForSeconds(0.75f);
+        ActionCardEffectActivation(firstId);
+        ActionCardEffectActivation(secondId);
         turnScriptAccess.CallEndTurnEvent();
     }
     private void ActionCardEffectActivation(int inputCardId)
     {
         Action actionCardAccess = databasePlayerAccess.cardList[inputCardId] as Action;
-        //shouldShowCard = utilityCardAccess.isDisplayable;
         foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
         {
             if (myEffectUnit.shouldActivateNow)
@@ -335,6 +385,21 @@ public class HandScript : MonoBehaviour
                 myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
             }
         }
+    }
+    public void DelayedActionCardEffectActivation()
+    {
+        if(clickedCardId != -1)
+        {
+            Action actionCardAccess = databasePlayerAccess.cardList[clickedCardId] as Action;
+            foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
+            {
+                if (!myEffectUnit.shouldActivateNow)
+                {
+                    myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                }
+            }
+            clickedCardId = -1;
+        } 
     }
     private void CardInstantiation()
     {

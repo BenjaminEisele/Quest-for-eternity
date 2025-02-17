@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc953effc0f464ca4994f700a808a7, type: 3}
+  m_Name: Debug_Hammer
+  m_EditorClassIdentifier: 
+  cardName: Hammer strike
+  effectValue: 0
+  cardColor: {r: 0, g: 0, b: 0, a: 0}
+  cardSprite: {fileID: 4602299762311917183, guid: 2b88c478d7d9c6742927971294f92d23, type: 3}
+  cardDescription: 
+  cardDamage: 2
+  cardHitRate: 1
+  actionEffectUnitList:
+  - myEffect: {fileID: 11400000, guid: 7319e95d5396da54e892816e5972207d, type: 2}
+    effectValue: 1
+    shouldActivateNow: 0
