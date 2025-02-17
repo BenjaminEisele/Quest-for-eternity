@@ -558,6 +558,7 @@ public class RefereeScript : NetworkBehaviour
     {
         if(!singlePlayerMode)
         {
+            playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
             if (targetPlayerId == 1)
             {
                 targetPlayerId = 0;
@@ -575,6 +576,7 @@ public class RefereeScript : NetworkBehaviour
     {
         if (!singlePlayerMode)
         {
+            playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
             if (targetPlayerId == 1)
             {
                 targetPlayerId = 0;

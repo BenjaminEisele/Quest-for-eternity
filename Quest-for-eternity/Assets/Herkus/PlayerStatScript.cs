@@ -62,10 +62,14 @@ public class PlayerStatScript : NetworkBehaviour
     {
         if(playerScriptAccess.isThisPlayersTurn)
         {
-            immunityIdList.Clear();
             damageMultiplier = 1;
             healingMultiplier = 1;
         }
+    }
+
+    public void ResetPlayerStatList()
+    {
+        immunityIdList.Clear();
     }
     private void PlayerStatNewWaveEvent()
     {
