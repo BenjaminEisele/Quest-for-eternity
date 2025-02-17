@@ -22,7 +22,7 @@ public class DamageSliderScript : MonoBehaviour
     }
     private void OnEnable()
     {
-        Debug.Log("enabled");
+        //Debug.Log("enabled");
         myButton.enabled = true;
         mySlider.minValue = 1 + FieldScript.boostPoints;
         mySlider.maxValue = 5 + FieldScript.boostPoints;

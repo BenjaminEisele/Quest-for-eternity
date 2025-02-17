@@ -97,7 +97,7 @@ public class PlayerScript : NetworkBehaviour
     }
     public void EndTurnPlayerScript()
     {
-        Debug.Log("ending turn");
+        //Debug.Log("ending turn");
         handScriptAccess.DisableAllCardsEvent();
         if (!isServer)
         {

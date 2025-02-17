@@ -147,6 +147,7 @@ public class PlayerStatScript : NetworkBehaviour
     {
         if(!IsImmuneToAttack(inputType))
         {
+            Debug.Log("didnt play knowledge card");
             inputDamage -= playerHealthOffset;
             if (inputDamage <= 0)
             {
@@ -154,6 +155,10 @@ public class PlayerStatScript : NetworkBehaviour
             }
             ChangeHealthNest(-inputDamage * damageMultiplier, 0, false);
             playerHealthOffset = 0;
+        }
+        else
+        {
+            Debug.Log("immune to attack?");
         }
         if (playerHealth <= 0)
         {
