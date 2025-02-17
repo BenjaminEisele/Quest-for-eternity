@@ -184,7 +184,8 @@ public class RefereeScript : NetworkBehaviour
     }
     private void DeactivateHealth(GameObject[] health)
     {
-        Debug.Log(health.Length);
+        Debug.Log(health[0].gameObject.name);
+        Debug.Log(health[1].gameObject.name);
         /*if (isServer)
         {
             health[3].SetActive(false);
