@@ -573,7 +573,7 @@ public class RefereeScript : NetworkBehaviour
                 targetPlayerId++;
             }
         }
-        playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
+        //playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
     }
 
     [Command(requiresAuthority = false)]
@@ -590,7 +590,7 @@ public class RefereeScript : NetworkBehaviour
                 targetPlayerId++;
             }
         }
-        playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
+        //playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
 
     }
 
