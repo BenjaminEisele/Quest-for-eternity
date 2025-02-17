@@ -174,6 +174,7 @@ public class PlayerStatScript : NetworkBehaviour
     
     private bool IsImmuneToAttack(int inputEnemyId)
     {
+        Debug.Log($"immunity count: {immunityIdList.Count}");
         for(int i = 0; i < immunityIdList.Count; i++)
         {
             if(inputEnemyId == immunityIdList[i])
