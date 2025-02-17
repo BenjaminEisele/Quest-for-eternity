@@ -93,6 +93,7 @@ public class PlayerStatScript : NetworkBehaviour
     }
     public void ChangeHealthNest(int input, int armorInput,bool shouldCallCommand)
     {
+        Debug.Log($"Changed health, bool is: {shouldCallCommand}");
         if (isClientOnly)
         {
             if (shouldCallCommand)
