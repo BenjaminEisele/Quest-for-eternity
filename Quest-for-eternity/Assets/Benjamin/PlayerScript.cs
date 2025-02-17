@@ -213,7 +213,7 @@ public class PlayerScript : NetworkBehaviour
                     CmdDealDamage(damageThisRound, target);
                     if (isLocalGamePlayer)
                     {
-                        healingSum += damageThisRound;
+                        healingSum = damageThisRound;
                     }
                     Debug.Log($"Healing sum: {healingSum}");
                 }
@@ -261,7 +261,7 @@ public class PlayerScript : NetworkBehaviour
                     RpcDealDamage(damageThisRound, target);
                     if (isLocalGamePlayer)
                     {
-                        healingSum += damageThisRound;
+                        healingSum = damageThisRound;
                     }
                     Debug.Log($"Healing sum: {healingSum}");
                 }
