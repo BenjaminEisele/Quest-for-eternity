@@ -18,13 +18,14 @@ public class PlayerStatScript : NetworkBehaviour
     TextMeshPro playerHealthText;
     [SerializeField]
     TextMeshPro playerArmorText;
+    [SerializeField]
     PlayerScript playerScriptAccess;
 
     public int damageMultiplier;
     public int healingMultiplier;
     private void Start()
     {
-        playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
+        //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
         Invoke("SubscriptionInvoke", 1f);
     }
 

@@ -15117,5 +15117,6 @@ MonoBehaviour:
   immunityIdList: 
   playerHealthText: {fileID: 6294086634177729102}
   playerArmorText: {fileID: 4903870884063092263}
+  playerScriptAccess: {fileID: 1214735220539923461}
   damageMultiplier: 0
   healingMultiplier: 0
