@@ -28,19 +28,23 @@ public class VolumeSlider : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
     public void SetVolume (float volume)
     {
-        if (!gameOpening && firstChange)
-        {
-            soundFXManager.SliderSound();
-            firstChange = false;
-        }
         audioMixer.SetFloat(volumeVar, Mathf.Log10(volume) * 20f);
         PlayerPrefs.SetFloat(volumeVar, volume);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!gameOpening && firstChange)
+        {
+            soundFXManager.SliderSound();
+            firstChange = false;
+        }
     }
     public void OnPointerUp(PointerEventData eventData)
     {
+        if(!soundFXManager.latestSource.IsDestroyed())
+        {
+            soundFXManager.StopSliderSound();
+        }
         firstChange = true;
     }
 }

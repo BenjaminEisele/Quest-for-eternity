@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -13,6 +14,7 @@ public class SoundFXManager : MonoBehaviour
     public AudioClip buttonSound;
     public AudioClip toggleSound;
     public AudioClip sliderSound;
+    public AudioSource latestSource;
 
     private void Awake()
     {
@@ -26,6 +28,8 @@ public class SoundFXManager : MonoBehaviour
     {
         //Spawn Gameobject
         AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
+
+        latestSource = audioSource;
 
         //assign audio Clip
         audioSource.clip = audioClip;
@@ -54,6 +58,11 @@ public class SoundFXManager : MonoBehaviour
     public void SliderSound()
     {
         instance.PlaySoundClip(sliderSound, transform, 1f, true);
+    }
+
+    public void StopSliderSound ()
+    {
+        Destroy(latestSource.gameObject);
     }
 
     public void DropdownSound()
