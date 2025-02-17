@@ -184,7 +184,8 @@ public class RefereeScript : NetworkBehaviour
     }
     private void DeactivateHealth(GameObject[] health)
     {
-        if (isServer)
+        Debug.Log(health.Length);
+        /*if (isServer)
         {
             health[3].SetActive(false);
             health[2].SetActive(false);
@@ -193,7 +194,7 @@ public class RefereeScript : NetworkBehaviour
         {
             health[1].SetActive(false);
             health[0].SetActive(false);
-        }
+        } */
     }
 
     private void DeactivateCamera(GameObject[] camera)
