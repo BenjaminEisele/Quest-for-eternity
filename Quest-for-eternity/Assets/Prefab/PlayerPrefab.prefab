@@ -1423,7 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 0c0000000c0000000c0000000c0000000c0000000c0000000c00000007000000070000000700000007000000070000000700000007000000
+  deckCardList: 1300000013000000130000001300000013000000130000001300000013000000070000000700000007000000070000000700000007000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -15115,6 +15115,7 @@ MonoBehaviour:
   playerHealth: 0
   playerArmor: 0
   immunityIdList: 
+  immunityCount: 0
   playerHealthText: {fileID: 6294086634177729102}
   playerArmorText: {fileID: 4903870884063092263}
   playerScriptAccess: {fileID: 1214735220539923461}
