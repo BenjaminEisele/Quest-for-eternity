@@ -222,7 +222,6 @@ public class PlayerScript : NetworkBehaviour
             {
                 handScriptAccess.DelayedActionCardEffectActivation();
             }
-            multiplier = 1;
             if (shouldHealByDamageAmount)
             {
                 playerStatAccess.ChangeHealthNest(healingSum, 0, true);
@@ -261,7 +260,6 @@ public class PlayerScript : NetworkBehaviour
             {
                 handScriptAccess.DelayedActionCardEffectActivation();
             }
-            multiplier = 1;
             if(shouldHealByDamageAmount)
             {
                 playerStatAccess.ChangeHealthNest(healingSum,0, false);

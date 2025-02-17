@@ -198,7 +198,7 @@ public class PlayerStatScript : NetworkBehaviour
     {
         if(playerArmor > 0)
         {
-            ChangeHealthNest(playerArmor, -playerArmor, true);
+            ChangeHealthNest(playerArmor * 2, -playerArmor, true);
         }
         else
         {
