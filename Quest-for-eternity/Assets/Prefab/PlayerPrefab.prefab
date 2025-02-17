@@ -12129,7 +12129,7 @@ GameObject:
   - component: {fileID: 4903870884063092263}
   m_Layer: 0
   m_Name: ArmorText
-  m_TagString: Health
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
