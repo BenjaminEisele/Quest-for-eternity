@@ -8,10 +8,12 @@ using UnityEngine.Rendering;
 using System.Collections.Generic;
 using Mirror.BouncyCastle.Tsp;
 using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 
-public class VolumeSlider : MonoBehaviour
+public class VolumeSlider : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     private bool gameOpening = true;
+    private bool firstChange = true;
     public Slider slider;
     public AudioMixer audioMixer;
     public string volumeVar;
@@ -24,14 +26,21 @@ public class VolumeSlider : MonoBehaviour
         gameOpening = false;
     }
 
-
     public void SetVolume (float volume)
     {
-        if (!gameOpening)
+        if (!gameOpening && firstChange)
         {
             soundFXManager.SliderSound();
+            firstChange = false;
         }
         audioMixer.SetFloat(volumeVar, Mathf.Log10(volume) * 20f);
         PlayerPrefs.SetFloat(volumeVar, volume);
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        firstChange = true;
     }
 }

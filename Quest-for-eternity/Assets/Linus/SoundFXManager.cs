@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -52,7 +53,7 @@ public class SoundFXManager : MonoBehaviour
 
     public void SliderSound()
     {
-        instance.PlaySoundClip(sliderSound, transform, 1f, false);
+        instance.PlaySoundClip(sliderSound, transform, 1f, true);
     }
 
     public void DropdownSound()
