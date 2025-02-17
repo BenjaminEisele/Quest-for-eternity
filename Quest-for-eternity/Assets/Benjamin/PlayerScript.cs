@@ -215,6 +215,7 @@ public class PlayerScript : NetworkBehaviour
                     {
                         healingSum += damageThisRound;
                     }
+                    Debug.Log($"Healing sum: {healingSum}");
                 }
             }
             if(hammerEffect)
