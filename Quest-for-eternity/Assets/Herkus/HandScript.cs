@@ -602,27 +602,26 @@ public class HandScript : MonoBehaviour
     {
         if (canInteract && playerScriptAccess.isThisPlayersTurn)
         {
-            if (card.GetComponentInParent<CardScript>().isClickable)
+            int clickedCardId;
+            if (customInput == -1)
             {
-                int clickedCardId;
-                if (customInput == -1)
+                if (card.GetComponentInParent<CardScript>().isClickable)
                 {
                     utlCardsPlayedForOtherPlayer++;
                     clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
+
+                    playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
+                    deckManagerAccess.handCardList.Remove(clickedCardId);
+                    deckManagerAccess.discardedCardList.Add(clickedCardId);
+                    RebuildCardList(card.root.gameObject);               
                 }
-                else
-                {
-                    clickedCardId = customInput;
-                }
-                
+            }
+            else
+            {
+                clickedCardId = customInput;
                 playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
-                deckManagerAccess.handCardList.Remove(clickedCardId);
-                deckManagerAccess.discardedCardList.Add(clickedCardId);
-                if (customInput == -1)
-                {
-                    RebuildCardList(card.root.gameObject);
-                }
-            }             
+            }
+                        
         }
     }
     public void HandReset()
