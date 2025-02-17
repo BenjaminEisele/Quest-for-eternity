@@ -125,21 +125,27 @@ public class PlayerObjectController : NetworkBehaviour
         if (isServer)
         {
             RpcQuit();
+            Debug.Log("Rpc Called");
         }
         else
         {
-            Quit();
+            Invoke("Quit", 1f);
+            Debug.Log("Invoke");
         } 
     }
 
     [ClientRpc]
     private void RpcQuit()
     {
-        Quit();
+       //if (isClientOnly)
+       //{
+            Quit();
+       //}
     }
 
     private void Quit()
     {
+        Debug.Log("Actuall Quit");
         SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
         Destroy(GameObject.Find("NetworkManager"));
         manager.offlineScene = "";
