@@ -125,6 +125,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (RefereeScript.instance.enemyList.Count > 0)
         {
+            Debug.Log($"target is: {target}");
             if (RefereeScript.instance.enemyList[target] != null)
             {
                 healingSum = inputDamage2;

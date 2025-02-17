@@ -391,14 +391,17 @@ public class HandScript : MonoBehaviour
         if(clickedCardId != -1)
         {
             Action actionCardAccess = databasePlayerAccess.cardList[clickedCardId] as Action;
-            foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
+            if(actionCardAccess)
             {
-                if (!myEffectUnit.shouldActivateNow)
+                foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
                 {
-                    myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                    if (!myEffectUnit.shouldActivateNow)
+                    {
+                        myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                    }
                 }
+                clickedCardId = -1;
             }
-            clickedCardId = -1;
         } 
     }
     private void CardInstantiation()
