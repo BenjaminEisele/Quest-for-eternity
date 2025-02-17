@@ -201,13 +201,20 @@ public class PlayerScript : NetworkBehaviour
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                     {                      
                         CmdDealDamage(damageThisRound, j);
-                        healingSum += damageThisRound;
+                        if(isLocalGamePlayer)
+                        {
+                            healingSum += damageThisRound;
+                        }
+                        
                     }
                 }
                 else
                 {
                     CmdDealDamage(damageThisRound, target);
-                    healingSum += damageThisRound;
+                    if (isLocalGamePlayer)
+                    {
+                        healingSum += damageThisRound;
+                    }
                 }
             }
             if(hammerEffect)
@@ -215,7 +222,10 @@ public class PlayerScript : NetworkBehaviour
                 for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                 {
                     CmdDealDamage(1, j);
-                    healingSum += 1;
+                    if (isLocalGamePlayer)
+                    {
+                        healingSum += 1;
+                    }
                 }
             }
             if(activateDelayedEffecs)
@@ -239,13 +249,19 @@ public class PlayerScript : NetworkBehaviour
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                     {
                         RpcDealDamage(damageThisRound, j);
-                        healingSum += damageThisRound;
+                        if (isLocalGamePlayer)
+                        {
+                            healingSum += damageThisRound;
+                        }
                     }
                 }
                 else
                 {
                     RpcDealDamage(damageThisRound, target);
-                    healingSum += damageThisRound;
+                    if (isLocalGamePlayer)
+                    {
+                        healingSum += damageThisRound;
+                    }
                     Debug.Log($"Healing sum: {healingSum}");
                 }
             }
@@ -254,7 +270,10 @@ public class PlayerScript : NetworkBehaviour
                 for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                 {
                     RpcDealDamage(1, j);
-                    healingSum += 1;
+                    if (isLocalGamePlayer)
+                    {
+                        healingSum += 1;
+                    }
                 }
             }
             if (activateDelayedEffecs)
@@ -271,7 +290,10 @@ public class PlayerScript : NetworkBehaviour
     }
     private void ResetHealingSum()
     {
-        healingSum = 0;
+        if(isLocalGamePlayer)
+        {
+            healingSum = 0;
+        }
     }
     public void HealEnemyPlayerScript()
     {
