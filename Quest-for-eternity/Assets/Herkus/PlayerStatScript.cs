@@ -95,8 +95,8 @@ public class PlayerStatScript : NetworkBehaviour
     }
     public void ChangeHealthNest(int input, int armorInput,bool shouldCallCommand)
     {
-        Debug.Log($"Changed health, bool is: {shouldCallCommand}");
-        Debug.Log($"server is changing health for {transform.root.gameObject.name}");
+        //Debug.Log($"Changed health, bool is: {shouldCallCommand}");
+        //Debug.Log($"server is changing health for {transform.root.gameObject.name}");
         if (isClientOnly)
         {
             if (shouldCallCommand)
@@ -134,11 +134,14 @@ public class PlayerStatScript : NetworkBehaviour
             
             playerArmor = damageDelta;
         }
-        
 
+        Debug.Log($"Healing multiplier: {healingMultiplier}");
         int changedValue = playerHealth + desiredHealth * healingMultiplier;
+        Debug.Log($"changedValue: {changedValue}");
+
         playerHealth = changedValue;
-        if(playerHealth >= savedPlayerHealth)
+        Debug.Log($"health set to: {playerHealth}, should be same as changed value");
+        if (playerHealth >= savedPlayerHealth)
         {
             playerHealth = savedPlayerHealth;
         }
@@ -151,7 +154,7 @@ public class PlayerStatScript : NetworkBehaviour
     {
         if(!IsImmuneToAttack(inputType))
         {
-            Debug.Log("didnt play knowledge card");
+            //Debug.Log("didnt play knowledge card");
             inputDamage -= playerHealthOffset;
             if (inputDamage <= 0)
             {
@@ -183,7 +186,7 @@ public class PlayerStatScript : NetworkBehaviour
     
     private bool IsImmuneToAttack(int inputEnemyId)
     {
-        Debug.Log($"immunity count: {immunityIdList.Count}");
+       // Debug.Log($"immunity count: {immunityIdList.Count}");
         for(int i = 0; i < immunityIdList.Count; i++)
         {
             if(inputEnemyId == immunityIdList[i])
