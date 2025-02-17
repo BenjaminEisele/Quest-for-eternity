@@ -122,6 +122,7 @@ public class PlayerStatScript : NetworkBehaviour
         int damageDelta = 0;
         if(desiredHealth < 0)
         {
+            multiplierInput = 1;
             damageDelta = playerArmor + desiredHealth;
             if(damageDelta < 0)
             {
@@ -136,6 +137,7 @@ public class PlayerStatScript : NetworkBehaviour
         }
 
         Debug.Log($"Healing multiplier: {multiplierInput}");
+
         int changedValue = playerHealth + desiredHealth * multiplierInput;
 
         Debug.Log($"changedValue: {changedValue}");
