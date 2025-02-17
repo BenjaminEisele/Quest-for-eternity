@@ -96,7 +96,10 @@ public class PlayerObjectController : NetworkBehaviour
         {
             Manager.GamePlayers.Remove(this);
         }
-        LobbyController.Instance.UpdatePlayerList();
+        if (LobbyController.Instance != null)
+        {
+            LobbyController.Instance.UpdatePlayerList();
+        }
     }
 
     [Command]
