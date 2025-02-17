@@ -155,7 +155,7 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 inputDamage = 0;
             }
-            ChangeHealthNest(-inputDamage * damageMultiplier, 0, false);
+            ChangeHealthNest(-inputDamage * damageMultiplier, 0, true);
             playerHealthOffset = 0;
         }
         else
