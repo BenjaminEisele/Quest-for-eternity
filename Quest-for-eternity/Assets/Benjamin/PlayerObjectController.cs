@@ -117,13 +117,28 @@ public class PlayerObjectController : NetworkBehaviour
         manager.StartGame(SceneName);
     }
 
-    public void Quit()
+    public void QuitCheck()
     {
         //zuerst für clients machen
         if (isServer)
         {
             RpcQuit();
         }
+        Invoke("Quit", 1f);
+    }
+
+    [ClientRpc]
+    private void RpcQuit()
+    {
+       if (isClientOnly)
+       {
+            Debug.Log("Disconnected by Server hurra");
+            Quit();
+       }
+    }
+
+    private void Quit()
+    {
         SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
         Destroy(GameObject.Find("NetworkManager"));
         manager.offlineScene = "";
@@ -133,21 +148,12 @@ public class PlayerObjectController : NetworkBehaviour
         {
             if (isServer)
             {
-                manager.StopHost();               
+                manager.StopHost();
             }
             else
             {
                 manager.StopClient();
             }
         }
-    }
-
-    [ClientRpc]
-    private void RpcQuit()
-    {
-       if (isClientOnly)
-       {
-            Quit();
-       }
     }
 }
