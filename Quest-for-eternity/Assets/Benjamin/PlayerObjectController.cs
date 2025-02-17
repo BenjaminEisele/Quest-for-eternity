@@ -120,6 +120,10 @@ public class PlayerObjectController : NetworkBehaviour
     public void Quit()
     {
         //zuerst für clients machen
+        if (isServer)
+        {
+            RpcQuit();
+        }
         SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
         Destroy(GameObject.Find("NetworkManager"));
         manager.offlineScene = "";
@@ -136,5 +140,14 @@ public class PlayerObjectController : NetworkBehaviour
                 manager.StopClient();
             }
         }
+    }
+
+    [ClientRpc]
+    private void RpcQuit()
+    {
+       if (isClientOnly)
+       {
+            Quit();
+       }
     }
 }
