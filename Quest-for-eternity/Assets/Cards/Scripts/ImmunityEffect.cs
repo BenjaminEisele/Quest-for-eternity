@@ -11,7 +11,6 @@ public class ImmunityEffect : EffectTemplate
         {
             inputGameobject.GetComponent<SceneObjectDatabase>().playerStatReference.immunityIdList.Add((int)effectValue);
             inputGameobject.GetComponent<SceneObjectDatabase>().playerStatReference.immunityCount += 2;
-            //inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.DealDamagePlayerScript(false, true, (int)effectValue, false, true);
         }
     }
 }
