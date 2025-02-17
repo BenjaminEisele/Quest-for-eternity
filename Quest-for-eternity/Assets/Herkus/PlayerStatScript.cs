@@ -81,7 +81,7 @@ public class PlayerStatScript : NetworkBehaviour
     {
         playerHealthOffset = 0;
         playerHealth = savedPlayerHealth;
-        ChangePlayerHealth(savedPlayerHealth, 0);
+        ChangePlayerHealth(savedPlayerHealth, 0, healingMultiplier);
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
     }
 
@@ -101,22 +101,22 @@ public class PlayerStatScript : NetworkBehaviour
         {
             if (shouldCallCommand)
             {
-                CmdChangePlayerHealth(input, armorInput);
+                CmdChangePlayerHealth(input, armorInput, healingMultiplier);
             }
         }
         else
         {
-            ChangePlayerHealth(input, armorInput);
+            ChangePlayerHealth(input, armorInput, healingMultiplier);
         }
     }
 
     [Command(requiresAuthority = false)]
-    private void CmdChangePlayerHealth(int input, int armorInput)
+    private void CmdChangePlayerHealth(int input, int armorInput, int multiplierInput)
     {
-        ChangePlayerHealth(input, armorInput); 
+        ChangePlayerHealth(input, armorInput, multiplierInput); 
     }
 
-    public void ChangePlayerHealth(int desiredHealth, int desiredArmor)
+    public void ChangePlayerHealth(int desiredHealth, int desiredArmor, int multiplierInput)
     {
         playerArmor += desiredArmor;
         int damageDelta = 0;
@@ -135,8 +135,9 @@ public class PlayerStatScript : NetworkBehaviour
             playerArmor = damageDelta;
         }
 
-        Debug.Log($"Healing multiplier: {healingMultiplier}");
-        int changedValue = playerHealth + desiredHealth * healingMultiplier;
+        Debug.Log($"Healing multiplier: {multiplierInput}");
+        int changedValue = playerHealth + desiredHealth * multiplierInput;
+
         Debug.Log($"changedValue: {changedValue}");
 
         playerHealth = changedValue;
@@ -205,7 +206,7 @@ public class PlayerStatScript : NetworkBehaviour
         }
         else
         {
-            ChangeHealthNest(1, 0, true);
+            ChangeHealthNest(1 * healingMultiplier, 0, true);
         }
     }
     public void UpdateFighterTextInvocation(int oldInt, int newInt)
