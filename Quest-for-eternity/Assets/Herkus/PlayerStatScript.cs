@@ -206,7 +206,7 @@ public class PlayerStatScript : NetworkBehaviour
         }
         else
         {
-            ChangeHealthNest(1 * healingMultiplier, 0, true);
+            ChangeHealthNest(1, 0, true);
         }
     }
     public void UpdateFighterTextInvocation(int oldInt, int newInt)
