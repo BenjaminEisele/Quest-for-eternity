@@ -126,7 +126,7 @@ public class PlayerObjectController : NetworkBehaviour
         {
             RpcQuit();
             Debug.Log("Rpc Called");
-            Quit();
+            Invoke("Quit", 1f);
             Debug.Log("Invoke");
         }
         else
@@ -146,7 +146,6 @@ public class PlayerObjectController : NetworkBehaviour
 
     private void Quit()
     {
-        Debug.Log("Actuall Quit");
         SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
         Destroy(GameObject.Find("NetworkManager"));
         manager.offlineScene = "";
