@@ -14,6 +14,7 @@ public class HitRateSetEffect : EffectTemplate
             inputGameobject.GetComponent<SceneObjectDatabase>().fieldScriptReference.hitRateModifier = effectValue;
             handScriptAccess = inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference;
             handScriptAccess.ChangeAllVisualHitrates(false, effectValue, true);
+            handScriptAccess.isHelpAndLeadActive = true;
         }
     }
 

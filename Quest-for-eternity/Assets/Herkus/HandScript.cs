@@ -69,6 +69,8 @@ public class HandScript : MonoBehaviour
 
     public bool isInDamageSliderMode;
     public int clickedCardId;
+
+    public bool isHelpAndLeadActive;
     private void Start()
     {
         utilityLimit = 3;
@@ -84,6 +86,7 @@ public class HandScript : MonoBehaviour
         isInDamageSliderMode = false;
         isInMergeMode = false;
         isInLongShotMode = false;
+        isHelpAndLeadActive = false;
         cardCount = 0;
         cardDebt = 0;
         cardQueIndex = 0;
@@ -219,14 +222,17 @@ public class HandScript : MonoBehaviour
     }
     private void RestoreAllOriginalHitrates()
     {
-        foreach (CardScript card in cardList)
+        if(!isHelpAndLeadActive)
         {
-            if (card != null)
+            foreach (CardScript card in cardList)
             {
-                card.RestroreOriginalHitrate();
+                if (card != null)
+                {
+                    card.RestroreOriginalHitrate();
+                }
             }
-        }
-        ChangeAllVisualHitrates(true, 0, false);
+            ChangeAllVisualHitrates(true, 0, false);
+        }       
     }
     public void ChangeAllVisualHitrates(bool shouldRestoreOriginal, float effectValue, bool shouldAddToValue)
     {
@@ -361,6 +367,7 @@ public class HandScript : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         playerScriptAccess.DealDamagePlayerScript(false, false, 0, false, true);
         isInQuickAttackMode = false;
+        isHelpAndLeadActive = false;
         SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();
         canInteract = true;
@@ -370,7 +377,8 @@ public class HandScript : MonoBehaviour
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
         ActionCardEffectActivation(inputCardId);
-        if(!isInDamageSliderMode)
+        isHelpAndLeadActive = false;
+        if (!isInDamageSliderMode)
         {
             turnScriptAccess.CallEndTurnEvent();
         }
@@ -385,6 +393,7 @@ public class HandScript : MonoBehaviour
     {
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
+        isHelpAndLeadActive = false;
         ActionCardEffectActivation(firstId);
         ActionCardEffectActivation(secondId);
         turnScriptAccess.CallEndTurnEvent();
