@@ -274,6 +274,20 @@ public class HandScript : MonoBehaviour
                 SetCardActivityStatus(true, 0);
                 isInLongShotMode = false;
             }
+            else if(isInMergeMode)
+            {
+                if (CountActionCards() > 1)
+                {
+                    canPlayUtility = false;
+                    SetCardActivityStatus(true, 1);
+                }
+                else
+                {
+                    canPlayUtility = true;
+                    SetCardActivityStatus(true, 2);
+                    isInMergeMode = false;
+                }
+            }
             else
             {
                 canPlayUtility = true;
