@@ -4338,14 +4338,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObject: {fileID: 7512260821461713194, guid: a8ead3cc8474d914eb5eec6ac92b8881, type: 3}
-<<<<<<< Updated upstream
-=======
   dropdownSound: {fileID: 8300000, guid: 7a2d0901a6a536d43b7770e5d72de218, type: 3}
   hoverSound: {fileID: 8300000, guid: 415f4307fa92fba4a8cc964cfe3e674e, type: 3}
   buttonSound: {fileID: 8300000, guid: 1567a440f0895a748981df7fefe01895, type: 3}
   toggleSound: {fileID: 8300000, guid: 38ded434607c1a7458714222012496ad, type: 3}
   sliderSound: {fileID: 8300000, guid: 955529886b05cab4c8efeba82acc3cf8, type: 3}
->>>>>>> Stashed changes
 --- !u!1 &2598165417822517435
 GameObject:
   m_ObjectHideFlags: 0
@@ -13715,9 +13712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 6415535125784032262}
-<<<<<<< Updated upstream
   toggleSound: {fileID: 0}
-=======
   soundFXManager: {fileID: 2700874927693389095}
 --- !u!114 &8576288161234457909
 MonoBehaviour:
@@ -13732,7 +13727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundFXManager: {fileID: 2700874927693389095}
->>>>>>> Stashed changes
 --- !u!1 &8978295025209039151
 GameObject:
   m_ObjectHideFlags: 0
