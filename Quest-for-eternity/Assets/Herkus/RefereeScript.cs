@@ -559,7 +559,6 @@ public class RefereeScript : NetworkBehaviour
         {
             CmdSwitchPlayerAttackId();
         }
-        playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
     }
 
     private void SwitchPlayerAttackId()
@@ -576,7 +575,7 @@ public class RefereeScript : NetworkBehaviour
                 targetPlayerId++;
             }
         }
-       
+        playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
     }
 
     [Command(requiresAuthority = false)]
@@ -593,6 +592,8 @@ public class RefereeScript : NetworkBehaviour
                 targetPlayerId++;
             }
         }
+        playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
+
     }
 
     public void SpecialAttackCounterNest(bool shouldSet)
