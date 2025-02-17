@@ -132,7 +132,6 @@ public class PlayerObjectController : NetworkBehaviour
     {
        if (isClientOnly)
        {
-            Debug.Log("Disconnected by Server hurra");
             Quit();
        }
     }
