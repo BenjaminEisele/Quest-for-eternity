@@ -11,6 +11,8 @@ public class PlayerObjectController : NetworkBehaviour
     [SyncVar] public ulong PlayerSteamID;
     [SyncVar(hook = nameof(PlayerNameUpdate))] public string PlayerName;
     [SyncVar(hook = nameof(PlayerReadyUpdate))] public bool Ready;
+    private GameObject LocalPlayerObject;
+    private PlayerObjectController LocalPlayerController;
 
     private CustomNetworkManager manager;
     
@@ -118,6 +120,13 @@ public class PlayerObjectController : NetworkBehaviour
     public void CmdCanStartGame(string SceneName)
     {
         manager.StartGame(SceneName);
+    }
+
+    public void PlayerQuit()
+    {
+        LocalPlayerObject = GameObject.Find("LocalGamePlayer");
+        LocalPlayerController = LocalPlayerObject.GetComponent<PlayerObjectController>();
+        LocalPlayerController.QuitCheck();
     }
 
     public void QuitCheck()
