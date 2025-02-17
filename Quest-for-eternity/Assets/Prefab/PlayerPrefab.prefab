@@ -4340,10 +4340,7 @@ MonoBehaviour:
   soundObject: {fileID: 7512260821461713194, guid: a8ead3cc8474d914eb5eec6ac92b8881, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   dropdownSound: {fileID: 8300000, guid: 7a2d0901a6a536d43b7770e5d72de218, type: 3}
@@ -4352,9 +4349,6 @@ MonoBehaviour:
   toggleSound: {fileID: 8300000, guid: 38ded434607c1a7458714222012496ad, type: 3}
   sliderSound: {fileID: 8300000, guid: 955529886b05cab4c8efeba82acc3cf8, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -13729,11 +13723,8 @@ MonoBehaviour:
   fullscreenToggle: {fileID: 6415535125784032262}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   toggleSound: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   soundFXManager: {fileID: 2700874927693389095}
@@ -13751,9 +13742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundFXManager: {fileID: 2700874927693389095}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
