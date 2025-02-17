@@ -476,6 +476,7 @@ public class RefereeScript : NetworkBehaviour
     }
     private IEnumerator ForeachEnemyTurnCoroutine()
     {
+        // COROUTINE GETS CALLED ONCE.
         Debug.Log("Coroutine gets called");
         yield return new WaitForSeconds(1.5f);
         if (!areAllEnemiesDead)
@@ -518,7 +519,10 @@ public class RefereeScript : NetworkBehaviour
     [ClientRpc]
     public void RpcDealDamageToPlayer(int inputDamage, int inputType)
     {
-        DealDamageLogic(inputDamage, inputType);
+        if(isClientOnly)
+        {
+            DealDamageLogic(inputDamage, inputType);
+        }
     }
     [Command(requiresAuthority = false)]
     public void CmdDealDamageToPlayer(int inputDamage, int inputType)
@@ -528,7 +532,7 @@ public class RefereeScript : NetworkBehaviour
 
     public void DealDamageLogic(int inputDamage, int inputType)
     {
-       // Debug.Log("Deal Damage Logic");
+        Debug.Log("Deal Damage Logic");
         if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage, inputType))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
