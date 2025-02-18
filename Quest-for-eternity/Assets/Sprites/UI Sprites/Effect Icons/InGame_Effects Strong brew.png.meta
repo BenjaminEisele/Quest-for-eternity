@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_Effects Strong brew_0: -7616122312263673325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

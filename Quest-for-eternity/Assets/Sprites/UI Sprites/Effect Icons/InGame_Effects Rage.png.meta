@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_Effects Rage_0: -3861800004618838732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
