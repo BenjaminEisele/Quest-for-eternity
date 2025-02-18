@@ -15,10 +15,16 @@ public class BlockEnemyEffect : EffectTemplate
             {
                 enemy.canAttack = false;
             }
+            //RefereeScript.instance.enemyList[targetId].canAttack = false;
+            /*SceneObjectDatabase sceneObjectDatabaseAccess = inputGameobject.GetComponent<SceneObjectDatabase>();
+            // sceneObjectDatabaseAccess.playerStatReference.playerHealth += (int)effectValue;
+            sceneObjectDatabaseAccess.playerStatReference.ChangePlayerHealth((int)effectValue);
+            //Debug.Log(sceneObjectDatabaseAccess.playerStatReference.playerHealth); */
         }
         else
         {
             Debug.Log("nepavyko");
         }
+        //Debug.Log($"I healed {targetId}! The value was: {value}");
     }
 }

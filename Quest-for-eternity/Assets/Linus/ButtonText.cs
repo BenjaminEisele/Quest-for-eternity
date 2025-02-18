@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonHover: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonHoverText: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject descText;
 

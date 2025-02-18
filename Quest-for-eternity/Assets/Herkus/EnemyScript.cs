@@ -52,6 +52,7 @@ public class EnemyScript : NetworkBehaviour
         enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
         databaseMultiplayerAccess.updatedLootList.Add(databaseMultiplayerAccess.enemyList[personalId].lootCardId);
+        // play enemy spawn sound 
     }
     public void ResetEnemy()
     {
@@ -60,6 +61,7 @@ public class EnemyScript : NetworkBehaviour
     }
     public void TakeDamageAndCheckIfDead(int inputDamage)
     {
+        Debug.Log("taking damage");
         enemyHealth -= inputDamage;
         if (enemyHealth >= savedEnemyHealth)
         {
@@ -104,7 +106,7 @@ public class EnemyScript : NetworkBehaviour
     }
     public int GenerateAttack()
     {
-       int myDamage;
+        int myDamage;
        
 
         if (isEnemyAlive)
@@ -121,6 +123,7 @@ public class EnemyScript : NetworkBehaviour
                     specialAttackCounter++;
                     RefereeScript.instance.SpecialAttackCounterNest(false);
                 }
+                // play enemy attack sound
                 myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
             }
         }

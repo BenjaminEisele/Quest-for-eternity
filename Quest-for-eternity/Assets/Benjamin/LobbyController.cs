@@ -105,7 +105,7 @@ public class LobbyController : MonoBehaviour
 
     public void UpdatePlayerList()
     {
-        if (!PlayerItemCreated) { CreateHostPlayerItem(); }
+        if (!PlayerItemCreated) { CreateHostPlayerItem(); } //Here
         if (PlayerListItems.Count < Manager.GamePlayers.Count) { CreateClientPlayerItem(); }
         if (PlayerListItems.Count > Manager.GamePlayers.Count) { RemovePlayerItem(); }
         if (PlayerListItems.Count == Manager.GamePlayers.Count) { UpdatePlayerItem(); }
@@ -129,7 +129,7 @@ public class LobbyController : MonoBehaviour
             NewPlayerItemScript.ConecctionID = player.ConnectionID;
             NewPlayerItemScript.PlayerSteamID = player.PlayerSteamID;
             NewPlayerItemScript.Ready = player.Ready;
-            NewPlayerItemScript.SetPlayerValues();
+            NewPlayerItemScript.SetPlayerValues(); //here
 
             NewPlayerItem.transform.SetParent(PlayerListViewContent.transform);
             NewPlayerItem.transform.localScale = Vector3.one;

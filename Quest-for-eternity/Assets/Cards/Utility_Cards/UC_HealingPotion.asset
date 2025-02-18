@@ -19,6 +19,6 @@ MonoBehaviour:
   cardDescription: Heals 2 HP
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 6ce8ae20ce86e394a857a28aa91a5199, type: 2}
-    effectValue: 2
+    effectValue: 10
     shouldActivateNow: 1
   isDisplayable: 1
