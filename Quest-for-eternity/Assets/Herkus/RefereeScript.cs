@@ -19,6 +19,9 @@ public class RefereeScript : NetworkBehaviour
     [SyncVar]
     public bool isServersTurn;
 
+    [SyncVar]
+    public bool shouldSwitchTargetPlayer;
+
     public GameObject restartGameButton;
     public GameObject lostImage;
     public GameObject winImage;
@@ -508,7 +511,11 @@ public class RefereeScript : NetworkBehaviour
                 yield return new WaitForSeconds(0.75f);
             }
             ResetDamageMultiplier();
-            SwitchPlayerAttackIdNest();
+            if (shouldSwitchTargetPlayer)
+            {
+                SwitchPlayerAttackIdNest();
+            }
+            shouldSwitchTargetPlayer = true; //might nest
         }
         if (canTransferTurnToPlayer)
         {
@@ -549,7 +556,7 @@ public class RefereeScript : NetworkBehaviour
         }
     }
     
-    private void SwitchPlayerAttackIdNest()
+    public void SwitchPlayerAttackIdNest()
     {     
         if (isServer)
         {

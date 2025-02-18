@@ -18,7 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: 0}
   cardDescription: Get down mr president (take damage for your ally)
   effectUnitList:
-  - myEffect: {fileID: 0}
+  - myEffect: {fileID: 11400000, guid: c8e75cbf52b3bc749a8504843780e379, type: 2}
     effectValue: 0
     shouldActivateNow: 1
   isDisplayable: 1
