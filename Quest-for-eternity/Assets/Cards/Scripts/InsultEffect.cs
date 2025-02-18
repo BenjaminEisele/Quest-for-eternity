@@ -1,9 +1,9 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "LeadEffect", menuName = "Effect/LeadEffect")]
+[CreateAssetMenu(fileName = "InsultEffect", menuName = "Effect/InsultEffect")]
 [System.Serializable]
-public class LeadEffect : EffectTemplate
+public class InsultEffect : EffectTemplate
 {
     public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
@@ -11,7 +11,7 @@ public class LeadEffect : EffectTemplate
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             Debug.Log("lead effect active");
-            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SendCardsOver(null, 21);
+            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SendCardsOver(new GameObject().transform, 25);
         }
     }
 }
