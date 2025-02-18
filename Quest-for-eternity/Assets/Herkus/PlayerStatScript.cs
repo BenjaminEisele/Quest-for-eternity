@@ -10,7 +10,7 @@ public class PlayerStatScript : NetworkBehaviour
     [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
     public int playerHealth;
     [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
-    public int playerArmor;
+    public int playerArmor = 0;
     int savedPlayerHealth;
     public List<int> immunityIdList;
     public int immunityCount;
@@ -33,7 +33,7 @@ public class PlayerStatScript : NetworkBehaviour
     private void Awake()
     {
         playerHealth = 25;
-        playerArmor = 0;
+        //playerArmor = 0;
         damageMultiplier = 1;
         healingMultiplier = 1;
         savedPlayerHealth = playerHealth;
