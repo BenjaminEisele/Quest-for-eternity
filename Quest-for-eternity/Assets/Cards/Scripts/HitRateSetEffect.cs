@@ -19,8 +19,13 @@ public class HitRateSetEffect : EffectTemplate
         }
     }
 
-   /* private void OnDestroy()
+    private void Awake()
     {
-        //handScriptAccess.HitRateRestoriationMethod();
-    } */
+        Debug.Log("I am Awake!!");
+
+    }
+    private void OnDestroy()
+     {
+        Debug.Log("I am destroyed");
+     } 
 }
