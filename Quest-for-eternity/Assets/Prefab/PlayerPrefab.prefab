@@ -1114,6 +1114,7 @@ MonoBehaviour:
   slider: {fileID: 8276603361383728767}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: masterVol
+  soundFXManager: {fileID: 0}
 --- !u!1 &540777929100373561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1557,7 @@ MonoBehaviour:
   slider: {fileID: 3850524900374633370}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: sfxVol
+  soundFXManager: {fileID: 0}
 --- !u!1 &754769993535659440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,6 +4289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 4845441515480399367}
+  soundFXManager: {fileID: 0}
 --- !u!1 &2428342767998440717
 GameObject:
   m_ObjectHideFlags: 0
@@ -8328,7 +8331,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4589480795386260224
@@ -9095,6 +9098,7 @@ MonoBehaviour:
   slider: {fileID: 1205599319092100307}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: musicVol
+  soundFXManager: {fileID: 0}
 --- !u!1 &4935750503428102579
 GameObject:
   m_ObjectHideFlags: 0
@@ -12493,6 +12497,7 @@ MonoBehaviour:
   slider: {fileID: 4061538754144116186}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: ambienceVol
+  soundFXManager: {fileID: 0}
 --- !u!1 &7812393869306579686
 GameObject:
   m_ObjectHideFlags: 0
@@ -13236,6 +13241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qualityDropdown: {fileID: 8260201616065804644}
   qualityIndexSave: 0
+  soundFXManager: {fileID: 0}
 --- !u!1 &8237182334087757875
 GameObject:
   m_ObjectHideFlags: 0
@@ -14537,6 +14543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 6415535125784032262}
+  soundFXManager: {fileID: 0}
 --- !u!1 &8978295025209039151
 GameObject:
   m_ObjectHideFlags: 0
