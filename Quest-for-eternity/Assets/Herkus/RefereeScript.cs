@@ -112,6 +112,7 @@ public class RefereeScript : NetworkBehaviour
             targetPlayerId = 0;
         }
         
+        shouldSwitchTargetPlayer = true;
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;                  
         isGameOver = false;    
