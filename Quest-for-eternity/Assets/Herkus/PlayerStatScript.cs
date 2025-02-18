@@ -226,7 +226,7 @@ public class PlayerStatScript : NetworkBehaviour
             }
             else
             {
-                //playerArmorText.gameObject.SetActive(false);
+                playerArmorText.gameObject.SetActive(false);
             }
             UiScript.UpdateFighterText(playerArmorText, playerArmor);
         }
