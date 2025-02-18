@@ -8,6 +8,7 @@ public class HitRateSetEffect : EffectTemplate
     HandScript handScriptAccess;
     public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
+        Debug.Log("activate effect");
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
@@ -18,8 +19,8 @@ public class HitRateSetEffect : EffectTemplate
         }
     }
 
-    private void OnDestroy()
+   /* private void OnDestroy()
     {
-        handScriptAccess.HitRateRestoriationMethod();
-    }
+        //handScriptAccess.HitRateRestoriationMethod();
+    } */
 }
