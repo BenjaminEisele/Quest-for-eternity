@@ -507,6 +507,7 @@ public class RefereeScript : NetworkBehaviour
                 }
                 yield return new WaitForSeconds(0.75f);
             }
+            ResetDamageMultiplier();
             SwitchPlayerAttackIdNest();
         }
         if (canTransferTurnToPlayer)
@@ -685,5 +686,32 @@ public class RefereeScript : NetworkBehaviour
             }
         }
         return areAllPlayersDead;
+    }
+
+    private void ResetDamageMultiplier()
+    {
+        if (isServer)
+        {
+            RpcResetDamageMultiplier();
+        }
+        else
+        {
+            DmgResetDamageMultiplier();
+        }
+    }
+
+    [ClientRpc]
+    private void RpcResetDamageMultiplier()
+    {
+        if (isClientOnly)
+        {
+            playerList[1].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
+        }
+    }
+
+    [Command]
+    private void DmgResetDamageMultiplier()
+    {
+        playerList[0].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
     }
 }
