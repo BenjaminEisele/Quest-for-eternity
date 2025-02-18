@@ -110,6 +110,7 @@ public class FieldScript : MonoBehaviour
         if (playerScriptAccess.isThisPlayersTurn)
         {
             damagePointsLiquid = damagePoints + boostPoints;
+            Debug.Log($"Dealing {damagePointsLiquid} damage");
             FieldEffectActivation();
             if (actionCardReference != null)
             {

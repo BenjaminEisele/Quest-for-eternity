@@ -7,5 +7,6 @@ public class DamageBoostEffect : EffectTemplate
     public override void UseEffect<T>(int targetId, float effectValue, T value)
     {
         FieldScript.boostPoints += (int)effectValue;
+        Debug.Log(FieldScript.boostPoints);
     }
 }
