@@ -186,13 +186,11 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isServer)
         {
-            health[3].SetActive(false);
-            health[2].SetActive(false);
+            health[1].transform.position = new Vector3(-3.56f, 16.53f, 1.050181f);
         }
         else
         {
-            health[1].SetActive(false);
-            health[0].SetActive(false);
+            health[0].transform.position = new Vector3(-3.56f, 16.53f, 1.050181f);
         }
     }
 
