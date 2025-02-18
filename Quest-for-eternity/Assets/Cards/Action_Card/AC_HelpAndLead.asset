@@ -19,3 +19,4 @@ MonoBehaviour:
   cardDescription: Your ally's hit rate for the next ACT is 100%
   cardDamage: 0
   cardHitRate: 1
+  actionEffectUnitList: []
