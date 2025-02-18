@@ -32,6 +32,7 @@ public class PlayerStatScript : NetworkBehaviour
 
     private void Awake()
     {
+        playerArmorText.gameObject.SetActive(false);
         playerHealth = 25;
         playerArmor = 0;
         damageMultiplier = 1;
@@ -221,7 +222,7 @@ public class PlayerStatScript : NetworkBehaviour
         {
             if(playerArmor > 0)
             {
-                playerArmorText.color = Color.blue;
+                playerArmorText.color = Color.yellow;
                 playerArmorText.gameObject.SetActive(true);
             }
             else
