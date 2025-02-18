@@ -483,6 +483,7 @@ public class RefereeScript : NetworkBehaviour
                 if(enemyList[i].canAttack)
                 {   
                     int enemyDamage = enemyList[i].GenerateAttack();
+                    int enemyType = enemyList[i].myEnemyType;
                     if (isClientOnly)
                     {
                         CmdDealDamageToPlayer(enemyDamage, enemyType);

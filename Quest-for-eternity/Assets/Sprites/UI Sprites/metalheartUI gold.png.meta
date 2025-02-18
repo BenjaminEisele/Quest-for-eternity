@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      metalheartUI gold_0: 1493660614029919328
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_Effects Knowledge Zombies_0: -3690238692055802970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

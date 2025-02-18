@@ -170,7 +170,7 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.isServersTurn = false;
         }
     }
-    public void DealDamagePlayerScript(bool inputBool)
+    public void DealDamagePlayerScript(bool inputBool, bool shouldDealAoE, int setDamage, bool hammerEffect, bool activateDelayedEffecs)
     {
         bool hasGuaranteedHit = false;
         for(int i = 0; i < knowledgeIdList.Count; i++)
@@ -414,7 +414,7 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     private void CmdPlayCardForOtherPlayer(int cardID)
     {
-       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID);
+       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID, false);
     }
 
     [ClientRpc]
@@ -422,7 +422,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID);
+            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID, false);
         }
     }
 }

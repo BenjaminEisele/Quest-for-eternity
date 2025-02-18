@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_Effects too Long shot_0: 7574936292863565586
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

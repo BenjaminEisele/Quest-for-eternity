@@ -167,7 +167,7 @@ public class PlayerObjectController : NetworkBehaviour
             {
                 manager.StopClient();
             }
-        S}
+        }
     }
 
 }

@@ -63,6 +63,9 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public int utlCardsPlayedForOtherPlayer;
 
+    [SerializeField]
+    GameObject damageSliderObject;
+
     bool isFullRefill;
 
     public bool isInDamageSliderMode;
@@ -630,7 +633,7 @@ public class HandScript : MonoBehaviour
             }
         }
         else if(customInput != -1)
-        
+        {
             clickedCardId = customInput;
             playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
         }

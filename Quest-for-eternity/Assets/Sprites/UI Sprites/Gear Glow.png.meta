@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gear Glow_0: 4868108746554785554
+      Gear Glow_1: -7902969732192094140
+      Gear Glow_2: 689919155765917826
+      Gear Glow_3: -1029266130424743129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -144,7 +144,7 @@ public class FieldScript : MonoBehaviour
                     //play miss sound
                     hitRateModifier = 0;
                     damagePoints = 0;
-					boosPoints = 0;
+					boostPoints = 0;
                     UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
                     if (inputBool)
                     {
