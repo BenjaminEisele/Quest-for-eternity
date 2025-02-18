@@ -79,6 +79,7 @@ public class HandScript : MonoBehaviour
         turnScriptAccess.endTurnEvent += AddCardsEvent;
         turnScriptAccess.endTurnEvent += RebuildCardListLite;
         turnScriptAccess.endTurnEvent += ResetQuickAttackMode;
+        turnScriptAccess.endTurnEvent += HitRateRestoriationMethod;
         turnScriptAccess.restartGameEvent += HandReset;
         turnScriptAccess.restartGameEvent += RebuildCardListLite;
         damageSliderObject.SetActive(false);
