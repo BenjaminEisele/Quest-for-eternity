@@ -44,10 +44,11 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public bool isInQuickAttackMode;
 
-    public bool isInLongShotMode;
+	public bool isInLongShotMode;
 
-    public bool isInMergeMode;
-    //[HideInInspector]
+	public bool isInMergeMode;
+
+    [HideInInspector]
     public int utilityCount;
     public int utilityLimit;
     int cardDebt;
@@ -62,15 +63,13 @@ public class HandScript : MonoBehaviour
     [HideInInspector]
     public int utlCardsPlayedForOtherPlayer;
 
-    [SerializeField]
-    GameObject damageSliderObject;
-
     bool isFullRefill;
 
     public bool isInDamageSliderMode;
     public int clickedCardId;
 
     public bool isHelpAndLeadActive;
+
     private void Start()
     {
         utilityLimit = 3;
@@ -82,7 +81,7 @@ public class HandScript : MonoBehaviour
         turnScriptAccess.endTurnEvent += HitRateRestoriationMethod;
         turnScriptAccess.restartGameEvent += HandReset;
         turnScriptAccess.restartGameEvent += RebuildCardListLite;
-        damageSliderObject.SetActive(false);
+		damageSliderObject.SetActive(false);
         isInQuickAttackMode = false;
         isInDamageSliderMode = false;
         isInMergeMode = false;
@@ -98,13 +97,7 @@ public class HandScript : MonoBehaviour
         RebuildCardListLite();
         utlCardsPlayedForOtherPlayer = 0;
     }
-    /*private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            SendCardsOver(new GameObject().transform, 21);
-        }
-    }*/
+
     private void SubscriptionInvokeHand()
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
@@ -123,10 +116,10 @@ public class HandScript : MonoBehaviour
                     deckManagerAccess.handCardList.Remove(clickedCardId);
                     deckManagerAccess.discardedCardList.Add(clickedCardId);
 
-                    if (isInMergeMode)
-                    {
-                        fieldScriptAccess.InputCardForMerging(clickedCardId);
-                    }                   
+					if (isInMergeMode)
+					{
+						fieldScriptAccess.InputCardForMerging(clickedCardId);
+					}
                     else if (fieldScriptAccess.SpawnActiveCard(clickedCardId, false))
                     {
                         canInteract = false;
@@ -149,7 +142,7 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    public void MergedCardExecution(int firstInput, int secondInput)
+	public void MergedCardExecution(int firstInput, int secondInput)
     {
         isInMergeMode = false;
         handScriptDelayCoroutine = StartCoroutine(MergedCoroutine(firstInput, secondInput));
@@ -159,7 +152,7 @@ public class HandScript : MonoBehaviour
         SetCardActivityStatus(false, 2);
         damageSliderObject.SetActive(true);
     }
-
+   
     public void RebuildCardListLite()
     {
         int interval = 90 / (cardCount + 1);
@@ -219,9 +212,9 @@ public class HandScript : MonoBehaviour
     private void NewTurnHandLogic()
     {
         utilityLimit = 3;
-        fieldScriptAccess.mergeIdList.Clear();
-        isInMergeMode = false;
-        isInDamageSliderMode = false;
+		fieldScriptAccess.mergeIdList.Clear();
+		isInMergeMode = false;
+		isInDamageSliderMode = false;
     }
     public void HitRateRestoriationMethod()
     {
@@ -416,6 +409,7 @@ public class HandScript : MonoBehaviour
             }
         }
     }
+
     public void DelayedActionCardEffectActivation()
     {
         if(clickedCardId != -1)
@@ -434,6 +428,7 @@ public class HandScript : MonoBehaviour
             }
         } 
     }
+
     private void CardInstantiation()
     {
         Vector3 cardPlacementVector = new Vector3(1, 0, 0);
@@ -506,7 +501,6 @@ public class HandScript : MonoBehaviour
                         cardQueDataList[cardQueIndex].QueuedVector = cardPlacementVector;
                         cardQueDataList[cardQueIndex].QueuedIndex = i;
                         cardQueIndex++;
-                        //cardCount++;
                         cardDebt++;
                     }
                     refillCount--;
@@ -560,7 +554,8 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponentInChildren<CardScript>();
         }
-        cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);      
+        cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);   
+        // draw card sound
     }
 
     private int CalculateCardIndex()
@@ -577,12 +572,10 @@ public class HandScript : MonoBehaviour
                 break;
             }
         }
-        Debug.Log($"my index is {returnIndex}");
         return returnIndex;
     } 
     public void DrawQueuedCards()
     {
-        Debug.Log($"card debt is : {cardDebt}");
         if (playerScriptAccess.isPlayersTurnLocal)
         {
             SetCardActivityStatus(true, 2);
@@ -594,12 +587,10 @@ public class HandScript : MonoBehaviour
                 if(!isFullRefill)
                 {
                     GenerateCard(new Vector3(0,0,0), CalculateCardIndex());
-                    //GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
                 }
                 else
                 {
                     GenerateCard(new Vector3(0, 0, 0), CalculateCardIndex());
-                    //GenerateCard(queUnit.QueuedVector, queUnit.QueuedIndex);
                     if (cardCount >= cardLimit)
                     {
                         break;
@@ -616,7 +607,6 @@ public class HandScript : MonoBehaviour
 
     public void SendCardsOver(Transform card, int customInput)
     {
-        Debug.Log("Send cards over reached");
         if (canInteract && playerScriptAccess.isThisPlayersTurn)
         {
             int clickedCardId;
@@ -633,16 +623,14 @@ public class HandScript : MonoBehaviour
                     RebuildCardList(card.root.gameObject);               
                 }
             }
-            else //if (customInput != -1)
+            else
             {
-                Debug.Log("Else statement reached");
                 clickedCardId = customInput;
                 playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
             }
         }
         else if(customInput != -1)
-        {
-            Debug.Log("Else statement reached");
+        
             clickedCardId = customInput;
             playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
         }
@@ -666,8 +654,6 @@ public class HandScript : MonoBehaviour
         cardQueIndex = 0;
         CardInstantiation();
         RebuildCardListLite();
-        //canInteract = true;
-        //isInQuickAttackMode = false;
     }
 
     public void DiscardCard(Transform card)

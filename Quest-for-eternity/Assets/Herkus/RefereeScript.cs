@@ -9,8 +9,9 @@ public class RefereeScript : NetworkBehaviour
     public List<EnemyScript> enemyList;
     public List<EnemyScript> killedEnemyList;
 
-    public EnemyGenerator enemyGeneratorAccess;
 
+    public EnemyGenerator enemyGeneratorAccess;
+    
     private bool isGameOver;
     private bool areAllEnemiesDead;
     [SyncVar]
@@ -61,13 +62,13 @@ public class RefereeScript : NetworkBehaviour
     public int randomEnemyCount = 0;
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
     public List<int> lootIdList;
-    public Coroutine myCoroutine = null;
+    Coroutine myCoroutine = null;
 
     public int lootCardCount;
 
     [SerializeField]
     DatabaseMultiplayer databaseMultiplayerAccess;
-    
+
     private void Awake()
     {
         instance = this;        
@@ -114,8 +115,8 @@ public class RefereeScript : NetworkBehaviour
         
         shouldSwitchTargetPlayer = true;
         areAllEnemiesDead = false;
-        canTransferTurnToPlayer = true;                  
-        isGameOver = false;    
+        canTransferTurnToPlayer = true;
+        isGameOver = false;
     }
     private void Update()
     {
@@ -246,25 +247,18 @@ public class RefereeScript : NetworkBehaviour
         {
             turnStartEvent();
         }
-        if(!singlePlayerMode)
+        if(isServer)
         {
-            if (isServer)
+            if(!playerList[1].isPlayerAlive)
             {
-                Debug.Log("this shouldn't get executed in the beginning");
-                if (!playerList[1].isPlayerAlive)
-                {
-                    Debug.Log("I am DEAD!! I AM A COrPSE! 1");
-                    Invoke("RpcCallEndTurnEventForPlayer", 0.1f);
-                }
+                Invoke("RpcCallEndTurnEventForPlayer", 0.1f);
             }
-            else
+        }
+        else
+        {
+            if (!playerList[0].isPlayerAlive)
             {
-                Debug.Log("this shouldn't get executed in the beginning 2");
-                if (!playerList[0].isPlayerAlive)
-                {
-                    Debug.Log("I am DEAD!! I AM A COrPSE! 2");
-                    Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
-                }
+                Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
             }
         }
         TurnScript.instance.ShouldStartPlayerTurn(true);
@@ -339,7 +333,6 @@ public class RefereeScript : NetworkBehaviour
     }
     public void NewWaveCheck()
     {
-        Debug.Log("checking new wave");
         areAllEnemiesDead = true;
         foreach (EnemyScript enemy in enemyList)
         {
@@ -427,9 +420,8 @@ public class RefereeScript : NetworkBehaviour
     private void StartNextWaveLogic(bool shouldStartEvents)
     {
         areAllEnemiesDead = false;
-        if(myCoroutine != null)
+        if (myCoroutine != null)
         {
-            Debug.Log("Coroutine still running!");
             StopCoroutine(myCoroutine);
             if (canTransferTurnToPlayer)
             {
@@ -459,7 +451,7 @@ public class RefereeScript : NetworkBehaviour
             CallNewWaveEvent();   
         }
     }
-
+    
     public void RefereeReset()
     {
         isGameOver = false;
@@ -482,7 +474,6 @@ public class RefereeScript : NetworkBehaviour
     private IEnumerator ForeachEnemyTurnCoroutine()
     {
         // COROUTINE GETS CALLED ONCE.
-        Debug.Log("Coroutine gets called");
         yield return new WaitForSeconds(1.5f);
         if (!areAllEnemiesDead)
         {
@@ -492,15 +483,12 @@ public class RefereeScript : NetworkBehaviour
                 if(enemyList[i].canAttack)
                 {   
                     int enemyDamage = enemyList[i].GenerateAttack();
-                    int enemyType = enemyList[i].myEnemyType;
                     if (isClientOnly)
                     {
-                        Debug.Log("Client damage call");
                         CmdDealDamageToPlayer(enemyDamage, enemyType);
                     }
                     else
                     {
-                        Debug.Log("server damage call");
                         RpcDealDamageToPlayer(enemyDamage, enemyType);
                     }
                     UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
@@ -516,7 +504,7 @@ public class RefereeScript : NetworkBehaviour
             {
                 SwitchPlayerAttackIdNest();
             }
-            shouldSwitchTargetPlayer = true; //might nest
+            shouldSwitchTargetPlayer = true;
         }
         if (canTransferTurnToPlayer)
         {
@@ -541,7 +529,6 @@ public class RefereeScript : NetworkBehaviour
 
     public void DealDamageLogic(int inputDamage, int inputType)
     {
-        //Debug.Log("Deal Damage Logic");
         if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage, inputType))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
@@ -582,7 +569,6 @@ public class RefereeScript : NetworkBehaviour
                 targetPlayerId++;
             }
         }
-        //playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
     }
 
     [Command(requiresAuthority = false)]
@@ -599,8 +585,6 @@ public class RefereeScript : NetworkBehaviour
                 targetPlayerId++;
             }
         }
-        //playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().ResetPlayerStatList();
-
     }
 
     public void SpecialAttackCounterNest(bool shouldSet)
@@ -714,7 +698,6 @@ public class RefereeScript : NetworkBehaviour
         if (isClientOnly)
         {
             playerList[1].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
-            Debug.Log("Playerlist 1");
         }
     }
 
@@ -722,6 +705,5 @@ public class RefereeScript : NetworkBehaviour
     private void CmdResetDamageMultiplier()
     {
         playerList[0].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
-        Debug.Log("Playerlist 0");
     }
 }

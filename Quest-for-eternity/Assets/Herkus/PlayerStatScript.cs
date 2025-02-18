@@ -26,7 +26,6 @@ public class PlayerStatScript : NetworkBehaviour
     public int healingMultiplier;
     private void Start()
     {
-        //playerScriptAccess = transform.root.GetComponentInChildren<PlayerScript>();
         Invoke("SubscriptionInvoke", 1f);
     }
 
@@ -38,7 +37,6 @@ public class PlayerStatScript : NetworkBehaviour
         damageMultiplier = 1;
         healingMultiplier = 1;
         savedPlayerHealth = playerHealth;
-        //playerHealthText = GetComponentInChildren<TextMeshPro>();
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
         ResetPlayer();
         PlayerStatNewTurnEvent();
@@ -64,14 +62,12 @@ public class PlayerStatScript : NetworkBehaviour
     {
         if(playerScriptAccess.isThisPlayersTurn)
         {
-            //damageMultiplier = 1;
             healingMultiplier = 1;
         }
     }
 
     public void ResetPlayerStatList()
     {
-        Debug.Log($"cleared, called from {transform.root.gameObject.name}");
         immunityIdList.Clear();
     }
     private void PlayerStatNewWaveEvent()
@@ -96,8 +92,6 @@ public class PlayerStatScript : NetworkBehaviour
     }
     public void ChangeHealthNest(int input, int armorInput,bool shouldCallCommand)
     {
-        //Debug.Log($"Changed health, bool is: {shouldCallCommand}");
-        //Debug.Log($"server is changing health for {transform.root.gameObject.name}");
         if (isClientOnly)
         {
             if (shouldCallCommand)
@@ -139,12 +133,11 @@ public class PlayerStatScript : NetworkBehaviour
 
         int changedValue = playerHealth + desiredHealth * multiplierInput;
         playerHealth = changedValue;
-        Debug.Log($"health set to: {playerHealth}, should be same as changed value");
         if (playerHealth >= savedPlayerHealth)
         {
             playerHealth = savedPlayerHealth;
         }
-        if (playerArmor < 0)
+        if(playerArmor < 0)
         {
             playerArmor = 0;
         }
@@ -154,7 +147,7 @@ public class PlayerStatScript : NetworkBehaviour
         if(!IsImmuneToAttack(inputType))
         {
             inputDamage -= playerHealthOffset;
-            if (inputDamage <= 0)
+            if(inputDamage <= 0)
             {
                 inputDamage = 0;
             }
@@ -231,5 +224,6 @@ public class PlayerStatScript : NetworkBehaviour
             }
             UiScript.UpdateFighterText(playerArmorText, playerArmor);
         }
+        
     }
 }

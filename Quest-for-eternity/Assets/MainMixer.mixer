@@ -6,7 +6,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Music
+  m_Name: Ambience
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: fd45dfc7f20226647a798433ac91563c
   m_Children: []
@@ -25,7 +25,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ambience
+  m_Name: Voicelines
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: b8fee23e8075aeb4fbd8aeee6647ce91
   m_Children: []
@@ -74,11 +74,11 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: d952c242b2cf60f41996aa5ce18f4b47
-    name: ambienceVol
+    name: voiceVol
   - guid: ee984cd332e85e84f9fe6287eae3234d
     name: masterVol
   - guid: ae3b03255ade294408f3a6af05d43f43
-    name: musicVol
+    name: ambienceVol
   - guid: 302a403849e1df84ca93d5ca850656ab
     name: sfxVol
   m_AudioMixerGroupViews:

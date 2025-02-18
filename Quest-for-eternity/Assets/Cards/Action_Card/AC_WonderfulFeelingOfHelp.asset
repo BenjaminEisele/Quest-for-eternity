@@ -20,7 +20,3 @@ MonoBehaviour:
     turn
   cardDamage: 0
   cardHitRate: 1
-  actionEffectUnitList:
-  - myEffect: {fileID: 11400000, guid: 1651145050003614f973d132fd0a45b8, type: 2}
-    effectValue: 0
-    shouldActivateNow: 1

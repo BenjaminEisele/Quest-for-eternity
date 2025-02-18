@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class QualityDropdown : MonoBehaviour
+public class QualityDropdown : MonoBehaviour, IPointerClickHandler
 {
+    private bool gameOpening = true;
     public TMPro.TMP_Dropdown qualityDropdown;
     public int qualityIndexSave;
+    [SerializeField] SoundFXManager soundFXManager;
 
     void Start()
     {
@@ -12,10 +15,20 @@ public class QualityDropdown : MonoBehaviour
             PlayerPrefs.SetInt("quality", 1);
         }
         qualityDropdown.value = PlayerPrefs.GetInt("quality");
+        gameOpening = false;
+    }
+
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        soundFXManager.DropdownSound();
     }
 
     public void SetQuality(int qualityIndex)
     {
+        if (!gameOpening)
+        {
+            soundFXManager.DropdownSound();
+        }
         QualitySettings.SetQualityLevel(qualityIndex);
         qualityIndexSave = qualityIndex;
         PlayerPrefs.SetInt("quality", qualityIndexSave);

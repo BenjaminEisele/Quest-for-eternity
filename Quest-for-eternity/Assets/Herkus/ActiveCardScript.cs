@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class ActiveCardScript : MonoBehaviour
@@ -97,7 +96,6 @@ public class ActiveCardScript : MonoBehaviour
         }
         activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;
         activeCardName = databasePlayerAccess.cardList[activeCardId].cardName;
-
         activeCardTextArray[0].text = activeCardDamage.ToString();
         activeCardTextArray[1].text = activeCardName;
         return activeCardDamage;
@@ -140,7 +138,6 @@ public class ActiveCardScript : MonoBehaviour
         }
         activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;
         activeCardName = databasePlayerAccess.cardList[activeCardId].cardName;
-
         activeCardTextArray[0].text = activeCardDamage.ToString();
         activeCardTextArray[1].text = activeCardName;
         return activeCardDamage;

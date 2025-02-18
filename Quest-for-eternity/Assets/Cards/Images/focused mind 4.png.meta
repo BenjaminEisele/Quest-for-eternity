@@ -103,12 +103,12 @@ TextureImporter:
       name: focused mind 4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1110
-        height: 1452
+        x: 30
+        y: 57
+        width: 1015
+        height: 1338
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0e89361b50731fa419acf4aa9b8303cc
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 

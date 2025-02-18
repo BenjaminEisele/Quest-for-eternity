@@ -19,4 +19,7 @@ MonoBehaviour:
   cardDescription: She priming it till i strike
   cardDamage: 6
   cardHitRate: 1
-  actionEffectUnitList: []
+  actionEffectUnitList:
+  - myEffect: {fileID: 11400000, guid: 6ce8ae20ce86e394a857a28aa91a5199, type: 2}
+    effectValue: 2
+    shouldActivateNow: 1

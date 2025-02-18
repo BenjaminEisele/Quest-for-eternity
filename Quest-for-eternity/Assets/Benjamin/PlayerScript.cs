@@ -23,7 +23,6 @@ public class PlayerScript : NetworkBehaviour
     public int damageThisRound;
     [SyncVar]
     public bool isPlayerAlive;
-    private int myPlayerListId;
     [SerializeField]
     ChooseNewCardScript chooseNewCardAccess;
     private bool shouldCheck = true;
@@ -34,8 +33,7 @@ public class PlayerScript : NetworkBehaviour
     public int multiplier;
     public int healingSum;
 
-    PlayerStatScript playerStatAccess;
-
+    private PlayerStatScript playerStatAccess;
     public List<int> knowledgeIdList;
 
     private void Start()
@@ -69,8 +67,8 @@ public class PlayerScript : NetworkBehaviour
                     }
                 }
                 RefereeScript.instance.turnStartEvent += EndTurnPlayerScript;
-                RefereeScript.instance.turnStartEvent += ResetHealingSum;
                 RefereeScript.instance.turnStartEvent += SetLocalPlayersTurnTrue;
+                RefereeScript.instance.turnStartEvent += ResetHealingSum;
                 turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;
                 turnScriptAccess.endTurnEvent += DealDamageEventTrue;
                 shouldCheck = false;
@@ -97,7 +95,6 @@ public class PlayerScript : NetworkBehaviour
     }
     public void EndTurnPlayerScript()
     {
-        //Debug.Log("ending turn");
         handScriptAccess.DisableAllCardsEvent();
         if (!isServer)
         {
@@ -125,10 +122,8 @@ public class PlayerScript : NetworkBehaviour
     {
         if (RefereeScript.instance.enemyList.Count > 0)
         {
-            Debug.Log($"target is: {target}");
             if (RefereeScript.instance.enemyList[target] != null)
             {
-                //healingSum = inputDamage2;
                 RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
             }
         }
@@ -139,17 +134,13 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isThisPlayersTurn)
         {
-            
             if(RefereeScript.instance.enemyList.Count > 0)
             {
-                Debug.Log($"target is: {target}");
                 if (RefereeScript.instance.enemyList[target] != null)
                 {
-                    //healingSum = inputDamage;
                     RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage);
                 }
             }
-            
         }
     }
 
@@ -179,7 +170,7 @@ public class PlayerScript : NetworkBehaviour
             RefereeScript.instance.isServersTurn = false;
         }
     }
-    public void DealDamagePlayerScript(bool inputBool, bool shouldDealAoE, int setDamage, bool hammerEffect, bool activateDelayedEffecs)
+    public void DealDamagePlayerScript(bool inputBool)
     {
         bool hasGuaranteedHit = false;
         for(int i = 0; i < knowledgeIdList.Count; i++)
@@ -189,7 +180,7 @@ public class PlayerScript : NetworkBehaviour
                 hasGuaranteedHit = true;
                 break;
             }
-        }
+        }       
         if (!isServer)
         {
             if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit))
@@ -214,7 +205,6 @@ public class PlayerScript : NetworkBehaviour
                     {
                         healingSum = damageThisRound;
                     }
-                    Debug.Log($"Healing sum: {healingSum}");
                 }
             }
             if(hammerEffect)
@@ -262,7 +252,6 @@ public class PlayerScript : NetworkBehaviour
                     {
                         healingSum = damageThisRound;
                     }
-                    Debug.Log($"Healing sum: {healingSum}");
                 }
             }
             if (hammerEffect)
@@ -285,9 +274,10 @@ public class PlayerScript : NetworkBehaviour
                 playerStatAccess.ChangeHealthNest(healingSum,0, false);
                 shouldHealByDamageAmount = false;
             }
-
         }
+        
     }
+
     private void ResetHealingSum()
     {
         if(isLocalGamePlayer)
@@ -295,6 +285,7 @@ public class PlayerScript : NetworkBehaviour
             healingSum = 0;
         }
     }
+
     public void HealEnemyPlayerScript()
     {
         int damage = -3;
@@ -313,7 +304,6 @@ public class PlayerScript : NetworkBehaviour
     {
         handScriptAccess.DisableAllCardsEvent();
         fieldScriptAccess.FieldClear();
-        Debug.Log(transform.root.gameObject.name);
         if(!RefereeScript.instance.singlePlayerMode)
         {
             if (isThisPlayersTurn)
@@ -333,7 +323,6 @@ public class PlayerScript : NetworkBehaviour
         }
         else
         {
-            Debug.Log("Pre new wave");
             RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
             RefereeScript.instance.CallPreNewWaveEvent();
             EndTurnPlayerScript();
@@ -411,7 +400,6 @@ public class PlayerScript : NetworkBehaviour
 
     public void PlayCardForOtherPlayer(int cardID)
     {
-        Debug.Log("play card for other player reached");
         if (isServer)
         {
             RpcPlayCardForOtherPlayer(cardID);
@@ -426,7 +414,7 @@ public class PlayerScript : NetworkBehaviour
     [Command]
     private void CmdPlayCardForOtherPlayer(int cardID)
     {
-       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID, false);
+       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID);
     }
 
     [ClientRpc]
@@ -434,7 +422,7 @@ public class PlayerScript : NetworkBehaviour
     {
         if (isClientOnly)
         {
-            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID, false);
+            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID);
         }
     }
 }
