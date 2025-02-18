@@ -98,7 +98,13 @@ public class HandScript : MonoBehaviour
         RebuildCardListLite();
         utlCardsPlayedForOtherPlayer = 0;
     }
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            SendCardsOver(new GameObject().transform, 21);
+        }
+    }
     private void SubscriptionInvokeHand()
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
