@@ -209,8 +209,6 @@ public class RefereeScript : NetworkBehaviour
 
     private void DeactivateButton(GameObject[] button)
     {
-        Debug.Log(button.Length);
-
         if (isServer)
         {
             button[1].SetActive(false);
@@ -223,7 +221,6 @@ public class RefereeScript : NetworkBehaviour
 
     private void DeactivateCards(GameObject[] cards)
     {
-        Debug.Log(cards.Length);
         if (isServer)
         {
             for (int i = 7; i < cards.Length; i++)

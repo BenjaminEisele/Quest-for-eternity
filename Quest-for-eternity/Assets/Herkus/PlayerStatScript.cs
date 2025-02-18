@@ -221,7 +221,7 @@ public class PlayerStatScript : NetworkBehaviour
         {
             if(playerArmor > 0)
             {
-                playerArmorText.color = Color.yellow;
+                playerArmorText.color = Color.blue;
                 playerArmorText.gameObject.SetActive(true);
             }
             else
