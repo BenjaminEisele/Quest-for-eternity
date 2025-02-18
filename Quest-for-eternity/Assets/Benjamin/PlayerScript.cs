@@ -412,6 +412,7 @@ public class PlayerScript : NetworkBehaviour
 
     public void PlayCardForOtherPlayer(int cardID)
     {
+        Debug.Log("play card for other player reached");
         if (isServer)
         {
             RpcPlayCardForOtherPlayer(cardID);

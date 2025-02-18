@@ -98,13 +98,13 @@ public class HandScript : MonoBehaviour
         RebuildCardListLite();
         utlCardsPlayedForOtherPlayer = 0;
     }
-    private void Update()
+    /*private void Update()
     {
         if(Input.GetKeyDown(KeyCode.O))
         {
             SendCardsOver(new GameObject().transform, 21);
         }
-    }
+    }*/
     private void SubscriptionInvokeHand()
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
@@ -616,6 +616,7 @@ public class HandScript : MonoBehaviour
 
     public void SendCardsOver(Transform card, int customInput)
     {
+        Debug.Log("Send cards over reached");
         if (canInteract && playerScriptAccess.isThisPlayersTurn)
         {
             int clickedCardId;
@@ -634,10 +635,10 @@ public class HandScript : MonoBehaviour
             }
             else
             {
+                Debug.Log("Else statement reached");
                 clickedCardId = customInput;
                 playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
-            }
-                        
+            }                       
         }
     }
     public void HandReset()
