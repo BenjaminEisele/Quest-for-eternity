@@ -696,7 +696,7 @@ public class RefereeScript : NetworkBehaviour
         }
         else
         {
-            DmgResetDamageMultiplier();
+            CmdResetDamageMultiplier();
         }
     }
 
@@ -706,12 +706,14 @@ public class RefereeScript : NetworkBehaviour
         if (isClientOnly)
         {
             playerList[1].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
+            Debug.Log("Playerlist 1");
         }
     }
 
-    [Command]
-    private void DmgResetDamageMultiplier()
+    [Command(requiresAuthority = false)]
+    private void CmdResetDamageMultiplier()
     {
         playerList[0].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
+        Debug.Log("Playerlist 0");
     }
 }
