@@ -38,7 +38,7 @@ public class DamageSliderScript : MonoBehaviour
     public void ConfirmDamage()
     {
         FieldScript.damagePoints = fakeSliderValue;
-        playerStatAccess.ChangeHealthNest(-fakeSliderValue, 0, true);
+        playerStatAccess.ChangeHealthNest(-(fakeSliderValue + FieldScript.boostPoints), 0, true);
         myButton.enabled = false;
         turnScriptAccess.CallEndTurnEvent();
         gameObject.SetActive(false);
