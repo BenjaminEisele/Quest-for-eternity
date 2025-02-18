@@ -55,4 +55,12 @@ public class VoiceManager : MonoBehaviour
         }
         PlaySoundClip(tutorialLines[lineIndex], transform, 1f, false);
     }
+
+    public void StopTutorialLine()
+    {
+        if (!latestSource.IsDestroyed())
+        {
+            Destroy(latestSource.gameObject);
+        }
+    }
 }

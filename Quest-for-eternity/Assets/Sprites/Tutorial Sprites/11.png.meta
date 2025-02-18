@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 902bcdf98108e394b8ccb009f71bfee2
+guid: d1a6d14131d4e0047b7640c5de922502
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8389134475083476877
-    second: 13_0
+      213: -1116512474048888928
+    second: Tutorial with Voiceover changes_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 13_0
+      name: Tutorial with Voiceover changes_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8f65588b513c6470800000000000000
-      internalID: 8389134475083476877
+      spriteID: 0aff50502d95180f0800000000000000
+      internalID: -1116512474048888928
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      13_0: 8389134475083476877
+      Tutorial with Voiceover changes_0: -1116512474048888928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
