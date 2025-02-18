@@ -10,7 +10,7 @@ public class PlayerStatScript : NetworkBehaviour
     [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
     public int playerHealth;
     [SyncVar(hook = nameof(UpdateFighterTextInvocation))]
-    public int playerArmor = 0;
+    public int playerArmor;
     int savedPlayerHealth;
     public List<int> immunityIdList;
     public int immunityCount;
@@ -33,7 +33,7 @@ public class PlayerStatScript : NetworkBehaviour
     private void Awake()
     {
         playerHealth = 25;
-        //playerArmor = 0;
+        playerArmor = 0;
         damageMultiplier = 1;
         healingMultiplier = 1;
         savedPlayerHealth = playerHealth;
@@ -136,12 +136,7 @@ public class PlayerStatScript : NetworkBehaviour
             playerArmor = damageDelta;
         }
 
-        //Debug.Log($"Healing multiplier: {multiplierInput}");
-
         int changedValue = playerHealth + desiredHealth * multiplierInput;
-
-        //Debug.Log($"changedValue: {changedValue}");
-
         playerHealth = changedValue;
         Debug.Log($"health set to: {playerHealth}, should be same as changed value");
         if (playerHealth >= savedPlayerHealth)
@@ -157,7 +152,6 @@ public class PlayerStatScript : NetworkBehaviour
     {
         if(!IsImmuneToAttack(inputType))
         {
-            //Debug.Log("didnt play knowledge card");
             inputDamage -= playerHealthOffset;
             if (inputDamage <= 0)
             {
@@ -173,7 +167,6 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 immunityIdList.Clear();
             }
-            Debug.Log("immune to attack?");
         }
         if (playerHealth <= 0)
         {
@@ -189,7 +182,6 @@ public class PlayerStatScript : NetworkBehaviour
     
     private bool IsImmuneToAttack(int inputEnemyId)
     {
-       // Debug.Log($"immunity count: {immunityIdList.Count}");
         for(int i = 0; i < immunityIdList.Count; i++)
         {
             if(inputEnemyId == immunityIdList[i])
@@ -234,7 +226,7 @@ public class PlayerStatScript : NetworkBehaviour
             }
             else
             {
-                playerArmorText.gameObject.SetActive(false);
+                //playerArmorText.gameObject.SetActive(false);
             }
             UiScript.UpdateFighterText(playerArmorText, playerArmor);
         }
