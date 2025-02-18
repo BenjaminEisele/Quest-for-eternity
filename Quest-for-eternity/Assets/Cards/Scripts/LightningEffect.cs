@@ -10,7 +10,8 @@ public class LightningEffect : EffectTemplate
 
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
-            inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.DealDamagePlayerScript(false, true, RefereeScript.instance.enemyList.Count, false, true);
+            FieldScript.damagePoints += RefereeScript.instance.enemyList.Count;
+            inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.DealDamagePlayerScript(false, true, 0, false, true);
         }
     }
 }

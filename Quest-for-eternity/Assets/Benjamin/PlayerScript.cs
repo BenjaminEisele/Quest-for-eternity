@@ -204,8 +204,7 @@ public class PlayerScript : NetworkBehaviour
                         if(isThisPlayersTurn)
                         {
                             healingSum += damageThisRound;
-                        }
-                        
+                        }                       
                     }
                 }
                 else
