@@ -9,7 +9,6 @@ public class SteamLobby : MonoBehaviour
     protected Callback<LobbyCreated_t> LobbyCreated;
     protected Callback<GameLobbyJoinRequested_t> JoinRequest;
     protected Callback<LobbyEnter_t> LobbyEntered;
-    protected Callback<LobbyKicked_t> Kicked;
 
     public ulong CurrentLobbyID;
     const string HostAddressKey = "HostAddress";
@@ -23,7 +22,6 @@ public class SteamLobby : MonoBehaviour
         LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
         LobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
-        Kicked = Callback<LobbyKicked_t>.Create(OnLobbyKicked);
     }
 
     public void HostLobby()
@@ -56,10 +54,5 @@ public class SteamLobby : MonoBehaviour
             manager.networkAddress = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), HostAddressKey);
             manager.StartClient();
         }
-    }
-
-    private void OnLobbyKicked(LobbyKicked_t callback)
-    {
-        Debug.Log("I was kicked");
     }
 }
