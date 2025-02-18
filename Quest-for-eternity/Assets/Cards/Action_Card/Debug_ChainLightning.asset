@@ -18,7 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: 7123932223435111009, guid: 01956b8adc6567f4ab02a6eb0330faa9, type: 3}
   cardDescription: 
   cardDamage: 0
-  cardHitRate: 0
+  cardHitRate: 0.7
   actionEffectUnitList:
   - myEffect: {fileID: 11400000, guid: da34dcb91c2fab5468efab684c7e4993, type: 2}
     effectValue: 0
