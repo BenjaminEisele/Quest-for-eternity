@@ -103,10 +103,10 @@ TextureImporter:
       name: Punch_0
       rect:
         serializedVersion: 2
-        x: 529
-        y: 27
-        width: 1078
-        height: 1901
+        x: 0
+        y: 0
+        width: 2000
+        height: 2070
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

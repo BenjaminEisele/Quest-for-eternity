@@ -215,7 +215,7 @@ public class LobbyController : MonoBehaviour
 
     public void Quit()
     {
-        LocalPlayerController.Quit();
+        LocalPlayerController.QuitCheck();
     }
 
 }

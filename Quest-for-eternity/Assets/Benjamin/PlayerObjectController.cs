@@ -11,6 +11,8 @@ public class PlayerObjectController : NetworkBehaviour
     [SyncVar] public ulong PlayerSteamID;
     [SyncVar(hook = nameof(PlayerNameUpdate))] public string PlayerName;
     [SyncVar(hook = nameof(PlayerReadyUpdate))] public bool Ready;
+    private GameObject LocalPlayerObject;
+    private PlayerObjectController LocalPlayerController;
 
     private CustomNetworkManager manager;
     
@@ -96,7 +98,10 @@ public class PlayerObjectController : NetworkBehaviour
         {
             Manager.GamePlayers.Remove(this);
         }
-        LobbyController.Instance.UpdatePlayerList();
+        if (LobbyController.Instance != null)
+        {
+            LobbyController.Instance.UpdatePlayerList();
+        }
     }
 
     [Command]
@@ -117,7 +122,38 @@ public class PlayerObjectController : NetworkBehaviour
         manager.StartGame(SceneName);
     }
 
-    public void Quit()
+    public void PlayerQuit()
+    {
+        LocalPlayerObject = GameObject.Find("LocalGamePlayer");
+        LocalPlayerController = LocalPlayerObject.GetComponent<PlayerObjectController>();
+        LocalPlayerController.QuitCheck();
+    }
+
+    public void QuitCheck()
+    {
+        if (isServer)
+        {
+            RpcQuit();
+            Debug.Log("Rpc Called");
+            Invoke("Quit", 1f);
+            Debug.Log("Invoke");
+        }
+        else
+        {
+            Quit();
+        }
+    }
+
+    [ClientRpc]
+    private void RpcQuit()
+    {
+       if (isClientOnly)
+       {
+            Quit();
+       }
+    }
+
+    private void Quit()
     {
         SteamMatchmaking.LeaveLobby((CSteamID)SteamLobby.instance.CurrentLobbyID);
         Destroy(GameObject.Find("NetworkManager"));
@@ -128,7 +164,7 @@ public class PlayerObjectController : NetworkBehaviour
         {
             if (isServer)
             {
-                manager.StopHost();               
+                manager.StopHost();
             }
             else
             {
