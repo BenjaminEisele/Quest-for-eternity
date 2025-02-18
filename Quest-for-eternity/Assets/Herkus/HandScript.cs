@@ -632,13 +632,13 @@ public class HandScript : MonoBehaviour
                     deckManagerAccess.discardedCardList.Add(clickedCardId);
                     RebuildCardList(card.root.gameObject);               
                 }
-            }
-            else
-            {
-                Debug.Log("Else statement reached");
-                clickedCardId = customInput;
-                playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
-            }                       
+            }                                 
+        }
+        else if(customInput != -1)
+        {
+            Debug.Log("Else statement reached");
+            clickedCardId = customInput;
+            playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
         }
     }
     public void HandReset()
