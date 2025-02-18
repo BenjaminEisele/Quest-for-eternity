@@ -128,7 +128,7 @@ public class PlayerScript : NetworkBehaviour
             Debug.Log($"target is: {target}");
             if (RefereeScript.instance.enemyList[target] != null)
             {
-                healingSum = inputDamage2;
+                //healingSum = inputDamage2;
                 RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
             }
         }
@@ -145,7 +145,7 @@ public class PlayerScript : NetworkBehaviour
                 Debug.Log($"target is: {target}");
                 if (RefereeScript.instance.enemyList[target] != null)
                 {
-                    healingSum = inputDamage;
+                    //healingSum = inputDamage;
                     RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage);
                 }
             }
