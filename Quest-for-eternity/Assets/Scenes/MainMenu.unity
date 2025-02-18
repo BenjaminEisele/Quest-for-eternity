@@ -5039,7 +5039,7 @@ MonoBehaviour:
   hoverSound: {fileID: 8300000, guid: 505439b507a29c5448fdfe428226ab19, type: 3}
   buttonSound: {fileID: 8300000, guid: 1567a440f0895a748981df7fefe01895, type: 3}
   toggleSound: {fileID: 8300000, guid: 38ded434607c1a7458714222012496ad, type: 3}
-  sliderSound: {fileID: 8300000, guid: 9e230e15978186648a4f15b5d04d65b4, type: 3}
+  sliderSound: {fileID: 8300000, guid: 4ab743f6f9b071244a7badfaa8bcc950, type: 3}
   latestSource: {fileID: 0}
 --- !u!114 &881336162
 MonoBehaviour:

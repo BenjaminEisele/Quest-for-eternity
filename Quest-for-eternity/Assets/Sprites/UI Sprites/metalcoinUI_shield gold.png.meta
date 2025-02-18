@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec08563ae43751e4081ecda91d814170
+guid: 75012c59a5e3d294eaf0a1fcb1826771
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9145267996286065256
-    second: metalheartUI_shield_0
+      213: 930857563913791196
+    second: metalcoinUI_shield gold_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: metalheartUI_shield_0
+      name: metalcoinUI_shield gold_0
       rect:
         serializedVersion: 2
         x: 400
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86a1166f9c48aee70800000000000000
-      internalID: 9145267996286065256
+      spriteID: cd62191c5021bec00800000000000000
+      internalID: 930857563913791196
       vertices: []
       indices: 
       edges: []
