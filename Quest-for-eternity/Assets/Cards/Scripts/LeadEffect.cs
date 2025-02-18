@@ -10,6 +10,7 @@ public class LeadEffect : EffectTemplate
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
+            Debug.Log("lead effect active");
             inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SendCardsOver(new GameObject().transform, 21);
         }
     }
