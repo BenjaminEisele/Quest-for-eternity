@@ -64,7 +64,7 @@ public class PlayerStatScript : NetworkBehaviour
     {
         if(playerScriptAccess.isThisPlayersTurn)
         {
-            damageMultiplier = 1;
+            //damageMultiplier = 1;
             healingMultiplier = 1;
         }
     }
