@@ -19,7 +19,9 @@ public class EnemyScript : NetworkBehaviour
 
     TextMeshPro enemyHealthText;
     [SerializeField]
-    public TextMeshPro enemyNameText; // public temporarily
+    public TextMeshPro enemyNameText;
+    [SerializeField]
+    public TextMeshPro enemyDamageText;// public temporarily
     [SerializeField]
     GameObject myMarker;
     [SerializeField]
@@ -50,6 +52,7 @@ public class EnemyScript : NetworkBehaviour
         GetComponentInChildren<SpriteRenderer>().sprite = databaseMultiplayerAccess.enemyList[personalId].enemySprite;
         enemyHealthText = GetComponentInChildren<TextMeshPro>();
         enemyNameText.text = databaseMultiplayerAccess.enemyList[personalId].enemyName;
+        enemyDamageText.text = databaseMultiplayerAccess.enemyList[personalId].enemyDamage.ToString();
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
         databaseMultiplayerAccess.updatedLootList.Add(databaseMultiplayerAccess.enemyList[personalId].lootCardId);
         // play enemy spawn sound 
