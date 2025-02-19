@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Skeleton Head
   enemyHealth: 5
   enemyDamage: 5
-  enemySprite: {fileID: 3942963666889514385, guid: 984970f6997b7f948b6fad0a14d3e3bd, type: 3}
+  enemySprite: {fileID: -2739807658926110822, guid: c5325c5b68213ea4fb1985d1b46e3fe6, type: 3}
   isBoss: 0
   lootCardId: 1
   difficultyValue: 3
