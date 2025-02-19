@@ -4,6 +4,6 @@ public class IngameAmienceSound : MonoBehaviour
 {
     void Awake()
     {
-        MusicManager.instance.PlayMainMenuMusic();
+        MusicManager.instance.PlayAmbience();
     }
 }

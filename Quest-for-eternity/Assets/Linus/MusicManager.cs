@@ -23,8 +23,6 @@ public class MusicManager : MonoBehaviour
         //Spawn Gameobject
         AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
 
-        mainMusicSource = audioSource;
-
         //assign audio Clip
         audioSource.clip = audioClip;
 
@@ -45,8 +43,9 @@ public class MusicManager : MonoBehaviour
         Destroy(audioSource.gameObject);
     }
 
-    public void PlayMainMenuMusic()
+    public void PlayAmbience()
     {
+        Debug.Log("function executed");
         mainMusicSource = PlayMusic(mainMenuMusic, transform, 1f);
     }
 

@@ -13,7 +13,7 @@ public class MainMenuScript : MonoBehaviour
 {
     void Awake()
     {
-        MusicManager.instance.PlayMainMenuMusic();
+        MusicManager.instance.PlayAmbience();
     }
     public void QuitGame()
     {
