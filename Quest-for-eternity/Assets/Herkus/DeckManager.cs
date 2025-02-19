@@ -36,9 +36,9 @@ public class DeckManager : MonoBehaviour
     }
     public void ResetDeck(bool shouldShuffle)
     {
+        SoundFXManager.instance.ShuffleSound();
         if(shouldShuffle)
         {
-            //shuffel sound 
             ShuffleCards(discardedCardList);
         }
         deckCardList.AddRange(discardedCardList);
