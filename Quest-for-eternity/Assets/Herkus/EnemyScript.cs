@@ -85,6 +85,10 @@ public class EnemyScript : NetworkBehaviour
             isEnemyAlive = true;
         }
     }
+    private void OnMouseDown()
+    {
+        Debug.Log("clicked on enemy");
+    }
     public void ChangeSelectedStatus(bool inputBool)
     {
         myMarker.SetActive(inputBool);

@@ -315,7 +315,25 @@ public class RefereeScript : NetworkBehaviour
             chosenEnemyId = 0;
             enemyList[chosenEnemyId].ChangeSelectedStatus(true);
         }
-        
+    }
+    public void ChosenEnemyClick(EnemyScript inputEnemy)
+    {
+        if (!areAllEnemiesDead)
+        {
+            foreach (EnemyScript enemy in enemyList)
+            {
+                enemy.ChangeSelectedStatus(false);
+            }
+        }
+        for(int i = 0; i < enemyList.Count; i++)
+        {
+            if(GameObject.ReferenceEquals(inputEnemy.gameObject, enemyList[i].gameObject))
+            {
+                chosenEnemyId = i;
+                enemyList[chosenEnemyId].ChangeSelectedStatus(true);
+                break;
+            }
+        }
     }
     private void ChooseNewEnemy(int inputDirection)
     {
