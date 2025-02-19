@@ -159,12 +159,14 @@ public class HandScript : MonoBehaviour
     public void RebuildCardListLite()
     {
         int interval = 90 / (cardCount + 1);
+        float cardZLocator = -1f;
         for (int k = 0; k < cardList.Count; k++)
         {
             if (cardList[k] != null)
             {
                 float myRotValue = 45 - interval * (k + 1);
-                cardList[k].gameObject.transform.root.localEulerAngles = new Vector3(0, 0, myRotValue);
+                cardList[k].gameObject.transform.root.localEulerAngles = new Vector3(cardZLocator, 0, myRotValue);
+                cardZLocator += 0.1f;
                 cardList[k].gameObject.GetComponent<DragDrop>().cardPosition = cardList[k].gameObject.transform.localPosition;
             }
         }
@@ -201,12 +203,14 @@ public class HandScript : MonoBehaviour
             }
         }
         int interval = 90 / (cardCount + 1);
+        float cardZLocator = -1f;
         for (int k = 0; k < cardList.Count; k++)
         {
             if(cardList[k] != null)
             {
                 float myRotValue = 45 - interval * (k + 1);
                 cardList[k].gameObject.transform.root.localEulerAngles = new Vector3(0, 0, myRotValue);
+                cardZLocator += 0.1f;
                 cardList[k].gameObject.GetComponent<DragDrop>().cardPosition = cardList[k].gameObject.transform.localPosition;
             }
         }
