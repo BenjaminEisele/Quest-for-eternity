@@ -10,7 +10,7 @@ using Mirror.BouncyCastle.Tsp;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 
-public class VolumeSlider : MonoBehaviour//, IPointerUpHandler//, //IPointerDownHandler
+public class VolumeSlider : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     private bool gameOpening = true;
     private bool firstChange = true;
@@ -31,7 +31,7 @@ public class VolumeSlider : MonoBehaviour//, IPointerUpHandler//, //IPointerDown
         audioMixer.SetFloat(volumeVar, Mathf.Log10(volume) * 20f);
         PlayerPrefs.SetFloat(volumeVar, volume);
     }
-    public void OnPointerStart()
+    public void OnPointerDown(PointerEventData eventData)
     {
         if (!gameOpening && firstChange)
         {
@@ -39,7 +39,7 @@ public class VolumeSlider : MonoBehaviour//, IPointerUpHandler//, //IPointerDown
             firstChange = false;
         }
     }
-    public void OnPointerEnd()
+    public void OnPointerUp(PointerEventData eventData)
     {
         if(!soundFXManager.latestSource.IsDestroyed())
         {
