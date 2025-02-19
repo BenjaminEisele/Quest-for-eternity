@@ -318,7 +318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &84571541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1704,7 +1703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!1 &471338281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,7 +1755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &471338284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2492,7 +2489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!1 &549490366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,7 +2676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!1 &562274937
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,7 +3260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &626995373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3919,7 +3913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!1 &684455249
 GameObject:
   m_ObjectHideFlags: 0
@@ -6922,7 +6915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &1202546375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7299,7 +7291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!1 &1304165462
 GameObject:
   m_ObjectHideFlags: 0
@@ -8189,7 +8180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!1 &1458925544
 GameObject:
   m_ObjectHideFlags: 0
@@ -8206,7 +8196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1458925545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8702,7 +8692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundFXManager: {fileID: 881336161}
 --- !u!1 &1655315024
 GameObject:
   m_ObjectHideFlags: 0
