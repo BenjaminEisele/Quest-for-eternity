@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class HandScript : MonoBehaviour
 {
@@ -100,7 +101,13 @@ public class HandScript : MonoBehaviour
         RebuildCardListLite();
         utlCardsPlayedForOtherPlayer = 0;
     }
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            EditorApplication.isPaused = true;  
+        }
+    }
     private void SubscriptionInvokeHand()
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
@@ -165,9 +172,11 @@ public class HandScript : MonoBehaviour
             if (cardList[k] != null)
             {
                 float myRotValue = 45 - interval * (k + 1);
-                cardList[k].gameObject.transform.root.localEulerAngles = new Vector3(cardZLocator, 0, myRotValue);
+                cardList[k].gameObject.transform.root.localEulerAngles = new Vector3(0, 0, myRotValue);
                 cardZLocator += 0.1f;
                 cardList[k].gameObject.GetComponent<DragDrop>().cardPosition = cardList[k].gameObject.transform.localPosition;
+                cardList[k].transform.root.position = new Vector3(cardList[k].transform.root.position.x, cardList[k].transform.root.position.y, 0);
+                cardList[k].transform.root.position += new Vector3(0, 0, cardZLocator);
             }
         }
     }
@@ -212,6 +221,8 @@ public class HandScript : MonoBehaviour
                 cardList[k].gameObject.transform.root.localEulerAngles = new Vector3(0, 0, myRotValue);
                 cardZLocator += 0.1f;
                 cardList[k].gameObject.GetComponent<DragDrop>().cardPosition = cardList[k].gameObject.transform.localPosition;
+                cardList[k].transform.root.position = new Vector3(cardList[k].transform.root.position.x, cardList[k].transform.root.position.y, 0);
+                cardList[k].transform.root.position += new Vector3(0, 0, cardZLocator);
             }
         }
     }
