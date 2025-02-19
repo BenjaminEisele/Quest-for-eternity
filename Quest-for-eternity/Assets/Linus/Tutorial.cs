@@ -10,11 +10,6 @@ public class Tutorial : MonoBehaviour
     [SerializeField] VoiceManager voiceManager;
     private int currentSlide = 0;
 
-    void Start()
-    {
-        
-    }
-
     public void NextSlide()
     {
         if (currentSlide < slides.Length -1)
@@ -25,7 +20,7 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-        public void PreviousSlide()
+    public void PreviousSlide()
     {
         if (currentSlide > 0)
         {
@@ -33,5 +28,11 @@ public class Tutorial : MonoBehaviour
             image.sprite = slides[currentSlide];  
             voiceManager.PlayTutorialLine(currentSlide);
         }
+    }
+
+    public void ResetTutorial()
+    {
+        currentSlide = 0;
+        image.sprite = slides[currentSlide];
     }
 }

@@ -275,7 +275,6 @@ public class PlayerScript : NetworkBehaviour
                 shouldHealByDamageAmount = false;
             }
         }
-        
     }
 
     private void ResetHealingSum()

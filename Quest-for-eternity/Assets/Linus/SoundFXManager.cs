@@ -24,21 +24,20 @@ public class SoundFXManager : MonoBehaviour
         }   
     }
 
-    public void PlaySoundClip(AudioClip audioClip, Transform spawnTransform, float volume, bool loop)
+    public void PlaySoundClip(AudioClip audioClip, Transform spawnTransform, float volume, bool setLatestSource)
     {
         //Spawn Gameobject
         AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
-
-        latestSource = audioSource;
+        if(setLatestSource)
+        {
+            latestSource = audioSource;
+        }
 
         //assign audio Clip
         audioSource.clip = audioClip;
 
         //assgin volume
         audioSource.volume = volume;
-
-        //set if looped
-        audioSource.loop = loop;
 
         //play sound
         audioSource.Play();
@@ -50,17 +49,32 @@ public class SoundFXManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLenght);
     }
 
+    public void SliderSound()
+    {
+        //Spawn Gameobject
+        AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
+
+        latestSource = audioSource;
+
+        //assign audio Clip
+        audioSource.clip = sliderSound;
+
+        //assgin volume
+        audioSource.volume = 1f;
+
+        //loop sound
+        audioSource.loop = true;
+
+        //play sound
+        audioSource.Play();
+    }
+
     public void ButtonSound()
     {
         instance.PlaySoundClip(buttonSound, transform, 1f, false);
     }
 
-    public void SliderSound()
-    {
-        instance.PlaySoundClip(sliderSound, transform, 1f, true);
-    }
-
-    public void StopSliderSound ()
+    public void StopLatestSound ()
     {
         Destroy(latestSource.gameObject);
     }

@@ -435,6 +435,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 184935916}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: ResetTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &84571542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,26 +851,26 @@ MonoBehaviour:
   - {fileID: 4130640169021434097, guid: 01fb906b08410254b9a934028bb2b183, type: 3}
   - {fileID: 3465286685962602723, guid: 1e638cd9ee3129143975730076630676, type: 3}
   - {fileID: 7028616704906629411, guid: aa089f969802d9c458c4f6b54c11d506, type: 3}
-  - {fileID: 4113829005332862926, guid: 330ac961de42897419161f11929950f7, type: 3}
-  - {fileID: -5099292496197868168, guid: 041d702baa2142746b6d2d117c92fbc9, type: 3}
-  - {fileID: -1540426309290004842, guid: 6f70dbe4ecb2ce049acf4cf2cb25095e, type: 3}
+  - {fileID: 8288426215254106694, guid: cf035dedb1fe6234ab9deec17ff1e6f5, type: 3}
+  - {fileID: -5099292496197868168, guid: 7e391d4420f18914abbe73f5d9e6096c, type: 3}
+  - {fileID: -5099292496197868168, guid: c85cfc91d89d93645ab53a52d7c7e7d9, type: 3}
   - {fileID: 8389134475083476877, guid: 902bcdf98108e394b8ccb009f71bfee2, type: 3}
-  - {fileID: -6270953770400647376, guid: 8e9a18e1a9d5b614eb6e7f455cf41200, type: 3}
+  - {fileID: -1540426309290004842, guid: 6f70dbe4ecb2ce049acf4cf2cb25095e, type: 3}
   - {fileID: -1116512474048888928, guid: d1a6d14131d4e0047b7640c5de922502, type: 3}
-  - {fileID: 6660783624410144326, guid: 619c46f11098df34fa2c6c7e2cd10bf8, type: 3}
-  - {fileID: 2960402581040015946, guid: 473dcbb43c0e44742841e5a82b776c92, type: 3}
-  - {fileID: 7157561037332017152, guid: 6635b7c08f166444fb52a0450d11773e, type: 3}
-  - {fileID: 4164744761163438241, guid: f7f0c6a0041bb4c49aa046b39b1a9227, type: 3}
+  - {fileID: 6660783624410144326, guid: 6642bb94d205d894e9dd5f22503a791f, type: 3}
+  - {fileID: 4349915267927364619, guid: 57c7bebc79f9e89448d52a5f7fd2f861, type: 3}
+  - {fileID: 7680820834086852892, guid: d65a46fb6e1b09144aba16ef9bb88a39, type: 3}
+  - {fileID: 6660783624410144326, guid: d8ba729856d32dd4ca92cf227f9b8933, type: 3}
   - {fileID: -5750353039905602045, guid: de5a35af428df4b498ae9e57b7e56e62, type: 3}
   - {fileID: -7371509505491802261, guid: 237d6957699fdbf4184ce167f4033945, type: 3}
-  - {fileID: 2720535173406242035, guid: 850ae40fc7e35a04aa92209584c5a18d, type: 3}
-  - {fileID: 8102358098348255977, guid: 5e54b1c160cd7104cb9ec36efd14071b, type: 3}
-  - {fileID: 6894999169920593895, guid: 6d5c1ff9a538ee046abd62e6d03e0d39, type: 3}
-  - {fileID: -5622901713081898559, guid: 22e81027eecca364a9b790bfdfc8f67f, type: 3}
-  - {fileID: 5272401415994956661, guid: 134935f13f3c52941b89b9fbf2397df2, type: 3}
-  - {fileID: 3620510468529025383, guid: 31b78814a9480b94c900ca7d3bc8416a, type: 3}
+  - {fileID: 4164744761163438241, guid: f7f0c6a0041bb4c49aa046b39b1a9227, type: 3}
+  - {fileID: 8102358098348255977, guid: cc87c9aca1f6b9148b2ca8de547ad1ef, type: 3}
+  - {fileID: 6894999169920593895, guid: d592c9c8e378ef147bb9297e6c344359, type: 3}
+  - {fileID: -5622901713081898559, guid: a80d586edf7ea4948b18cb84f7b0fff4, type: 3}
+  - {fileID: 8102358098348255977, guid: e3cf9ee89cea8af40a32d07da89abc4b, type: 3}
+  - {fileID: 6894999169920593895, guid: ff0c65060474ee34d95cb4677461f2eb, type: 3}
   - {fileID: -164082725380277428, guid: 1b073f3823865594a8a6f891975a1bf1, type: 3}
-  - {fileID: -8712778243190278716, guid: 84298cdf2c33aa04d86d2ec007d83c48, type: 3}
+  - {fileID: -5622901713081898559, guid: e1025536be6b02b4e81f8faacc88daf1, type: 3}
   image: {fileID: 812309285}
   voiceManager: {fileID: 881336163}
 --- !u!1 &200766660
@@ -2722,18 +2734,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1581146029}
-        m_TargetAssemblyTypeName: SteamLobby, Assembly-CSharp
-        m_MethodName: HostLobby
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 562274942}
         m_TargetAssemblyTypeName: ButtonHover, Assembly-CSharp
         m_MethodName: DeactivateText
@@ -2749,6 +2749,18 @@ MonoBehaviour:
       - m_Target: {fileID: 881336161}
         m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
         m_MethodName: ButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1458925546}
+        m_TargetAssemblyTypeName: DoorZoom, Assembly-CSharp
+        m_MethodName: DoDoorZoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6708,6 +6720,7 @@ GameObject:
   - component: {fileID: 1202546372}
   - component: {fileID: 1202546373}
   - component: {fileID: 1202546374}
+  - component: {fileID: 1202546375}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -6830,6 +6843,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundFXManager: {fileID: 881336161}
+--- !u!114 &1202546375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202546370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1202546373}
+          m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+          m_MethodName: OnPointerEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1202546373}
+          m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+          m_MethodName: OnPointerStart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1274932909
 GameObject:
   m_ObjectHideFlags: 0
@@ -8061,6 +8119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1458925545}
+  - component: {fileID: 1458925546}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -8094,6 +8153,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00078011, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1458925546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458925544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc7d9444e3d934418d4dfd259070db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steamLobbyAccess: {fileID: 1581146029}
 --- !u!1 &1521287718
 GameObject:
   m_ObjectHideFlags: 0
