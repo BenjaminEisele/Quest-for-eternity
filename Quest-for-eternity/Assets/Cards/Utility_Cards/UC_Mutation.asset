@@ -19,7 +19,7 @@ MonoBehaviour:
   cardDescription: Convert all armor into healing. If you don't have any armor heal
     1 HP
   effectUnitList:
-  - myEffect: {fileID: 0}
-    effectValue: 1
+  - myEffect: {fileID: 11400000, guid: bf32be5668209a243bef64dcbd20e84c, type: 2}
+    effectValue: 0
     shouldActivateNow: 1
   isDisplayable: 1

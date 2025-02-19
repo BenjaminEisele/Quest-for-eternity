@@ -18,7 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: 8788316349479306362, guid: 686dba3c5f5ce4242bc6063951a745f1, type: 3}
   cardDescription: Temporary HP (Armor) +2
   effectUnitList:
-  - myEffect: {fileID: 0}
+  - myEffect: {fileID: 11400000, guid: eeb78c6b688e33a4d95acefc075c35ee, type: 2}
     effectValue: 2
     shouldActivateNow: 1
   isDisplayable: 1

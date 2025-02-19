@@ -18,7 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: 0}
   cardDescription: Boost ally damage by 2 points
   effectUnitList:
-  - myEffect: {fileID: 0}
-    effectValue: 2
+  - myEffect: {fileID: 11400000, guid: f2b1704a1a0cb0c4da5b371a73771d48, type: 2}
+    effectValue: 1
     shouldActivateNow: 1
   isDisplayable: 1

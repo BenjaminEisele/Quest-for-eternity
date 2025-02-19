@@ -18,7 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: -5573193802400841360, guid: 85630845953ea2c408a71e84e2365c06, type: 3}
   cardDescription: 100% HR versus skeletons until end of turn
   effectUnitList:
-  - myEffect: {fileID: 0}
-    effectValue: 1
+  - myEffect: {fileID: 11400000, guid: fca7d4cc500cda54ea97a8444705420b, type: 2}
+    effectValue: 0
     shouldActivateNow: 1
   isDisplayable: 1

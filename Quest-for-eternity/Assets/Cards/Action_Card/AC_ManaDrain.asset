@@ -19,3 +19,7 @@ MonoBehaviour:
   cardDescription: Heals by amount of dealt damage
   cardDamage: 2
   cardHitRate: 0.5
+  actionEffectUnitList:
+  - myEffect: {fileID: 11400000, guid: 1807abaa73d653249924685931a91755, type: 2}
+    effectValue: 0
+    shouldActivateNow: 1

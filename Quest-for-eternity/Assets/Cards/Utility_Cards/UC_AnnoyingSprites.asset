@@ -18,7 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: 6225983093349463321, guid: a1e981cb4ee96e149ae6334cf5bbcda8, type: 3}
   cardDescription: Enemy skips it's next turn
   effectUnitList:
-  - myEffect: {fileID: 0}
+  - myEffect: {fileID: 11400000, guid: 4e6384a910d302548b3b63f3b0788b94, type: 2}
     effectValue: 0
     shouldActivateNow: 1
   isDisplayable: 1

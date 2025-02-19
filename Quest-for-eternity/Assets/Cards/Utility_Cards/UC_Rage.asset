@@ -19,7 +19,7 @@ MonoBehaviour:
   cardDescription: Double DMG for the next ACT, but receive 2x DMG next time you're
     hit
   effectUnitList:
-  - myEffect: {fileID: 0}
+  - myEffect: {fileID: 11400000, guid: c26f44d8ffcf7ef44bfe26d33b8b5e72, type: 2}
     effectValue: 2
     shouldActivateNow: 1
   isDisplayable: 1

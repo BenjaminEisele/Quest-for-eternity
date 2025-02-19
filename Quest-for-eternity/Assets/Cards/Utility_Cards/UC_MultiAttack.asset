@@ -19,7 +19,7 @@ MonoBehaviour:
   cardDescription: Combine the damage of two action cards (take the higher hit rate
     from the two cards you play)
   effectUnitList:
-  - myEffect: {fileID: 0}
-    effectValue: 2
+  - myEffect: {fileID: 11400000, guid: 6539bb00cfc6c294ca154e15e74c05e2, type: 2}
+    effectValue: 0
     shouldActivateNow: 1
   isDisplayable: 1

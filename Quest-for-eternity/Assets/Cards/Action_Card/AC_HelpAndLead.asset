@@ -19,4 +19,7 @@ MonoBehaviour:
   cardDescription: Your ally's hit rate for the next ACT is 100%
   cardDamage: 0
   cardHitRate: 1
-  actionEffectUnitList: []
+  actionEffectUnitList:
+  - myEffect: {fileID: 11400000, guid: 1d731502236b20f4283fbb934f2d6d33, type: 2}
+    effectValue: 0
+    shouldActivateNow: 1

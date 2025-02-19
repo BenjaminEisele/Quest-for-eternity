@@ -19,3 +19,7 @@ MonoBehaviour:
   cardDescription: Loose up to 5 HP, and deal same amount of DMG to 1 enemy
   cardDamage: 0
   cardHitRate: 1
+  actionEffectUnitList:
+  - myEffect: {fileID: 11400000, guid: 0076dd53bf2db1c4283772691c0d8cab, type: 2}
+    effectValue: 0
+    shouldActivateNow: 1

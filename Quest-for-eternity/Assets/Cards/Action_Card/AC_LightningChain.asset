@@ -19,3 +19,7 @@ MonoBehaviour:
   cardDescription: Deals 1 DMG for each enemy on field to all enemies
   cardDamage: 0
   cardHitRate: 0.7
+  actionEffectUnitList:
+  - myEffect: {fileID: 11400000, guid: da34dcb91c2fab5468efab684c7e4993, type: 2}
+    effectValue: 0
+    shouldActivateNow: 1

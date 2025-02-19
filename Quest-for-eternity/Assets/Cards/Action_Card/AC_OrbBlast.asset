@@ -19,3 +19,7 @@ MonoBehaviour:
   cardDescription: Hit all enemies
   cardDamage: 2
   cardHitRate: 0.6
+  actionEffectUnitList:
+  - myEffect: {fileID: 11400000, guid: a6b48f02f6d1d6840974db5ae277998d, type: 2}
+    effectValue: 0
+    shouldActivateNow: 1

@@ -19,3 +19,7 @@ MonoBehaviour:
   cardDescription: Temporary HP (Armor) +2
   cardDamage: 1
   cardHitRate: 1
+  actionEffectUnitList:
+  - myEffect: {fileID: 11400000, guid: eeb78c6b688e33a4d95acefc075c35ee, type: 2}
+    effectValue: 2
+    shouldActivateNow: 1
