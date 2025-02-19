@@ -2066,7 +2066,7 @@ GameObject:
   - component: {fileID: 1880953578}
   - component: {fileID: 1880953577}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2132,7 +2132,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5600d428ab9edd04c8dbc220f29c84cc, type: 2}
+  - {fileID: 2100000, guid: 36935d2ac683f404ba928f7ab86c1617, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2238,7 +2238,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8089617036023863156, guid: e377d168245dc9d498ba030275ed267b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2246,7 +2246,7 @@ SpriteRenderer:
   m_Size: {x: 45, y: 44.780273}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1955469605
