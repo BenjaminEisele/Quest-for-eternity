@@ -106,10 +106,10 @@ TextureImporter:
       name: Chain lightning_0
       rect:
         serializedVersion: 2
-        x: 253
-        y: 116
-        width: 3718
-        height: 4169
+        x: 234
+        y: 86
+        width: 3783
+        height: 4198
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
