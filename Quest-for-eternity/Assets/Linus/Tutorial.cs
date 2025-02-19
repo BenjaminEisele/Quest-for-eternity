@@ -7,7 +7,6 @@ public class Tutorial : MonoBehaviour
 {
     public Sprite[] slides;
     public UnityEngine.UI.Image image;
-    [SerializeField] VoiceManager voiceManager;
     private int currentSlide = 0;
 
     public void NextSlide()
@@ -16,7 +15,7 @@ public class Tutorial : MonoBehaviour
         {
             currentSlide++;
             image.sprite = slides[currentSlide]; 
-            voiceManager.PlayTutorialLine(currentSlide);
+            VoiceManager.instance.PlayTutorialLine(currentSlide);
         }
     }
 
@@ -26,7 +25,7 @@ public class Tutorial : MonoBehaviour
         {
             currentSlide--;
             image.sprite = slides[currentSlide];  
-            voiceManager.PlayTutorialLine(currentSlide);
+            VoiceManager.instance.PlayTutorialLine(currentSlide);
         }
     }
 

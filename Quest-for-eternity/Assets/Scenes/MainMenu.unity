@@ -871,7 +871,6 @@ MonoBehaviour:
   - {fileID: -164082725380277428, guid: 1b073f3823865594a8a6f891975a1bf1, type: 3}
   - {fileID: -5622901713081898559, guid: e1025536be6b02b4e81f8faacc88daf1, type: 3}
   image: {fileID: 812309285}
-  voiceManager: {fileID: 881336163}
 --- !u!1 &200766660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,7 +1690,6 @@ MonoBehaviour:
   slider: {fileID: 397496390}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: voiceVol
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &397496392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2507,7 +2505,6 @@ MonoBehaviour:
   slider: {fileID: 546170535}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: masterVol
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &546170537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2724,7 +2721,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qualityDropdown: {fileID: 549490367}
   qualityIndexSave: 0
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &549490372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5213,6 +5209,7 @@ MonoBehaviour:
   buttonSound: {fileID: 8300000, guid: 1567a440f0895a748981df7fefe01895, type: 3}
   toggleSound: {fileID: 8300000, guid: 38ded434607c1a7458714222012496ad, type: 3}
   sliderSound: {fileID: 8300000, guid: 4ab743f6f9b071244a7badfaa8bcc950, type: 3}
+  coinSound: {fileID: 8300000, guid: 4f442d4513fc45346a5b84cc44d5161e, type: 3}
   latestSource: {fileID: 0}
 --- !u!114 &881336162
 MonoBehaviour:
@@ -7022,7 +7019,6 @@ MonoBehaviour:
   slider: {fileID: 1202546372}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: sfxVol
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &1202546374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8814,7 +8810,6 @@ MonoBehaviour:
   slider: {fileID: 1595230888}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: ambienceVol
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &1595230890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10426,7 +10421,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 1958317915}
-  soundFXManager: {fileID: 881336161}
 --- !u!114 &1958317919
 MonoBehaviour:
   m_ObjectHideFlags: 0

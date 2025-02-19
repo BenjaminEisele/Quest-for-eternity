@@ -14,7 +14,9 @@ public class SoundFXManager : MonoBehaviour
     public AudioClip buttonSound;
     public AudioClip toggleSound;
     public AudioClip sliderSound;
+    public AudioClip coinSound;
     public AudioSource latestSource;
+    
 
     private void Awake()
     {
@@ -92,5 +94,10 @@ public class SoundFXManager : MonoBehaviour
         public void HoverSound()
     {
         instance.PlaySoundClip(hoverSound, transform, 1f, false);
+    }
+
+    public void CoinSound()
+    {
+        instance.PlaySoundClip(coinSound, transform, 1f, false);
     }
 }

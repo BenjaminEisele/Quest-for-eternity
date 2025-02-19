@@ -17,7 +17,6 @@ public class VolumeSlider : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     public Slider slider;
     public AudioMixer audioMixer;
     public string volumeVar;
-    [SerializeField] SoundFXManager soundFXManager;
 
     void Start()
     {
@@ -35,15 +34,15 @@ public class VolumeSlider : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     {
         if (!gameOpening && firstChange)
         {
-            soundFXManager.SliderSound();
+            SoundFXManager.instance.SliderSound();
             firstChange = false;
         }
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        if(!soundFXManager.latestSource.IsDestroyed())
+        if(!SoundFXManager.instance.latestSource.IsDestroyed())
         {
-            soundFXManager.StopLatestSound();
+            SoundFXManager.instance.StopLatestSound();
         }
         firstChange = true;
     }

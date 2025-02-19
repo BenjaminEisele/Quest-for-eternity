@@ -5,7 +5,6 @@ public class ResolutionDropdown : MonoBehaviour, IPointerClickHandler
 {
     private bool gameOpening = true;
     public TMPro.TMP_Dropdown resolutionDropdown;
-    [SerializeField] SoundFXManager soundFXManager;
 
     void Start()
     {
@@ -15,14 +14,14 @@ public class ResolutionDropdown : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        soundFXManager.DropdownSound();
+        SoundFXManager.instance.DropdownSound();
     }
 
     public void SetResolution(int resolutionIndex)
     {
         if (!gameOpening)
         {
-            soundFXManager.DropdownSound();
+            SoundFXManager.instance.DropdownSound();
         }
         switch (resolutionIndex)
         {

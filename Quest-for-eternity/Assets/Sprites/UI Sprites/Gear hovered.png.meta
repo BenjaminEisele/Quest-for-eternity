@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 4fbcd31787c0e264ba70989ec698f49d
+guid: 6608c5906596cc34f81053c49f097ff0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4868108746554785554
-    second: Gear Glow_0
-  - first:
-      213: -7902969732192094140
-    second: Gear Glow_1
-  - first:
-      213: 689919155765917826
-    second: Gear Glow_2
-  - first:
-      213: -1029266130424743129
-    second: Gear Glow_3
+      213: -1884627874627424678
+    second: Gear hovered_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gear Glow_0
+      name: Gear hovered_0
       rect:
         serializedVersion: 2
-        x: 233
-        y: 584
-        width: 341
-        height: 66
+        x: 0
+        y: 0
+        width: 283
+        height: 294
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21fbe56dc1ffe8340800000000000000
-      internalID: 4868108746554785554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gear Glow_1
-      rect:
-        serializedVersion: 2
-        x: 281
-        y: 179
-        width: 285
-        height: 296
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 448b60a76e2035290800000000000000
-      internalID: -7902969732192094140
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gear Glow_2
-      rect:
-        serializedVersion: 2
-        x: 318
-        y: 7
-        width: 280
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2883a2b11d5139900800000000000000
-      internalID: 689919155765917826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gear Glow_3
-      rect:
-        serializedVersion: 2
-        x: 591
-        y: 65
-        width: 23
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 72b31bc58ef47b1f0800000000000000
-      internalID: -1029266130424743129
+      spriteID: a5e6807eee478d5e0800000000000000
+      internalID: -1884627874627424678
       vertices: []
       indices: 
       edges: []
@@ -209,11 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Gear Glow_0: 4868108746554785554
-      Gear Glow_1: -7902969732192094140
-      Gear Glow_2: 689919155765917826
-      Gear Glow_3: -1029266130424743129
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

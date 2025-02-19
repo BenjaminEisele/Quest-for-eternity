@@ -16,7 +16,6 @@ public class MusicManager : MonoBehaviour
         {
             instance = this;
         }
-        PlayMainMenuMusic();
     }
 
     public AudioSource PlayMusic(AudioClip audioClip, Transform spawnTransform, float volume)
@@ -48,7 +47,7 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMainMenuMusic()
     {
-        mainMusicSource = PlayMusic(mainMenuMusic, transform, 0.05f);
+        mainMusicSource = PlayMusic(mainMenuMusic, transform, 1f);
     }
 
     public void PauseMainMusic()

@@ -11,6 +11,10 @@ using System;
 
 public class MainMenuScript : MonoBehaviour
 {
+    void Awake()
+    {
+        MusicManager.instance.PlayMainMenuMusic();
+    }
     public void QuitGame()
     {
         Application.Quit();
