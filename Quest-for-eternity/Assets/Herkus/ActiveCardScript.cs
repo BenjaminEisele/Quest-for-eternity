@@ -77,6 +77,7 @@ public class ActiveCardScript : MonoBehaviour
         {
             activeCardDamage = actionCardAccess.cardDamage;
             activeCardHitRate = actionCardAccess.cardHitRate;
+            activeCardTextArray[0].text = activeCardDamage.ToString();
             isActionCard = true;          
         }
         else
@@ -86,6 +87,7 @@ public class ActiveCardScript : MonoBehaviour
 
             Utility utilityCardAccess = databasePlayerAccess.cardList[activeCardId] as Utility;
             shouldShowCard = utilityCardAccess.isDisplayable;
+            activeCardTextArray[0].text = "";
             foreach (EffectUnit myEffectUnit in utilityCardAccess.effectUnitList)
             {
                 if(myEffectUnit.shouldActivateNow)
@@ -96,7 +98,7 @@ public class ActiveCardScript : MonoBehaviour
         }
         activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;
         activeCardName = databasePlayerAccess.cardList[activeCardId].cardName;
-        activeCardTextArray[0].text = activeCardDamage.ToString();
+        
         activeCardTextArray[1].text = activeCardName;
         return activeCardDamage;
     }

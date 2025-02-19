@@ -36,11 +36,14 @@ public class CardScript : MonoBehaviour
         myCardName = databasePlayerAccess.cardList[myCardId].cardName;     
         string cardTypeName;
         Utility utilityCardAccess = databasePlayerAccess.cardList[myCardId] as Utility;
+        cardTextArray = GetComponentsInChildren<TextMeshPro>();
+
         if (utilityCardAccess)
         {
             myDamage = 0;
             cardTypeName = "Utility";
             isActionCard = false;
+            cardTextArray[0].text = "";
         }
         else
         {
@@ -48,12 +51,12 @@ public class CardScript : MonoBehaviour
             myDamage = actionCardAccess.cardDamage;
             cardTypeName = "Action";
             isActionCard = true;
+            cardTextArray[0].text = myDamage.ToString();
+
             myCardHitRate = actionCardAccess.cardHitRate;
             savedCardHitRate = myCardHitRate;
         }
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
-        cardTextArray = GetComponentsInChildren<TextMeshPro>();
-        cardTextArray[0].text = myDamage.ToString();
         cardTextArray[1].text = cardTypeName;
         cardTextArray[2].text = myCardName;
         cardTextArray[3].text = databasePlayerAccess.cardList[myCardId].cardDescription;
