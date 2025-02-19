@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: d0cdabeadcb7aee4e948a998b06399ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2423697382269175028
+    second: KnowledgeSkeleton_0
+  - first:
+      213: -3170015102358699766
+    second: KnowledgeSkeleton_1
+  - first:
+      213: -8325876614230678904
+    second: KnowledgeSkeleton_2
+  - first:
+      213: 1358064947828374897
+    second: KnowledgeSkeleton_3
+  - first:
+      213: 3323709213668722984
+    second: KnowledgeSkeleton_4
+  - first:
+      213: -2188902086539177019
+    second: KnowledgeSkeleton_5
+  - first:
+      213: -253775577219593099
+    second: KnowledgeSkeleton_6
+  - first:
+      213: -4812211270868480711
+    second: KnowledgeSkeleton_7
+  - first:
+      213: 753937094566777102
+    second: KnowledgeSkeleton_8
+  - first:
+      213: 5318693578666149252
+    second: KnowledgeSkeleton_9
+  - first:
+      213: -2787031014423942926
+    second: KnowledgeSkeleton_10
+  - first:
+      213: 5251887426524423518
+    second: KnowledgeSkeleton_11
+  - first:
+      213: -1261704622622442038
+    second: KnowledgeSkeleton_12
+  - first:
+      213: 1854605729510088762
+    second: KnowledgeSkeleton_13
+  - first:
+      213: 6819700421856215392
+    second: KnowledgeSkeleton_14
+  - first:
+      213: -2625066018074043806
+    second: KnowledgeSkeleton_15
+  - first:
+      213: 867662768537976683
+    second: KnowledgeSkeleton_16
+  - first:
+      213: -745632567520786908
+    second: KnowledgeSkeleton_17
+  - first:
+      213: 3112548899847654934
+    second: KnowledgeSkeleton_18
+  - first:
+      213: -8683039531395743938
+    second: KnowledgeSkeleton_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3701
+        width: 1211
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0b3dc6721c4d5ed0800000000000000
+      internalID: -2423697382269175028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_1
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 4339
+        width: 97
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0149435f08d104d0800000000000000
+      internalID: -3170015102358699766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_2
+      rect:
+        serializedVersion: 2
+        x: 1816
+        y: 4395
+        width: 102
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8826c0de45b847c80800000000000000
+      internalID: -8325876614230678904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_3
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 4396
+        width: 99
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d383defd0d8d210800000000000000
+      internalID: 1358064947828374897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_4
+      rect:
+        serializedVersion: 2
+        x: 2425
+        y: 4446
+        width: 34
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829ca698bef202e20800000000000000
+      internalID: 3323709213668722984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_5
+      rect:
+        serializedVersion: 2
+        x: 2679
+        y: 4407
+        width: 80
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c398bb46257f91e0800000000000000
+      internalID: -2188902086539177019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_6
+      rect:
+        serializedVersion: 2
+        x: 2956
+        y: 4361
+        width: 114
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c082305786a7cf0800000000000000
+      internalID: -253775577219593099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_7
+      rect:
+        serializedVersion: 2
+        x: 3236
+        y: 3871
+        width: 1019
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93dc0c76857973db0800000000000000
+      internalID: -4812211270868480711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_8
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 4235
+        width: 95
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0194a00bc5867a00800000000000000
+      internalID: 753937094566777102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_9
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 4279
+        width: 130
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4850c8151abcfc940800000000000000
+      internalID: 5318693578666149252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_10
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 4181
+        width: 111
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f8a3470f0a7259d0800000000000000
+      internalID: -2787031014423942926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_11
+      rect:
+        serializedVersion: 2
+        x: 2236
+        y: 4189
+        width: 118
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e55245ae9c372e840800000000000000
+      internalID: 5251887426524423518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3303
+        width: 1328
+        height: 905
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acdfe1d94568d7ee0800000000000000
+      internalID: -1261704622622442038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1585
+        width: 4255
+        height: 2583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a306ad9b512ecb910800000000000000
+      internalID: 1854605729510088762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_14
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 4135
+        width: 105
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061425fb66174ae50800000000000000
+      internalID: 6819700421856215392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_15
+      rect:
+        serializedVersion: 2
+        x: 2599
+        y: 4159
+        width: 107
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a5fb06d54e19bd0800000000000000
+      internalID: -2625066018074043806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_16
+      rect:
+        serializedVersion: 2
+        x: 2921
+        y: 4111
+        width: 99
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6fb98fd0be8a0c00800000000000000
+      internalID: 867662768537976683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 943
+        width: 4255
+        height: 1177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42606ff512bf6a5f0800000000000000
+      internalID: -745632567520786908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4255
+        height: 1153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ec371cbbef13b20800000000000000
+      internalID: 3112548899847654934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnowledgeSkeleton_19
+      rect:
+        serializedVersion: 2
+        x: 3424
+        y: 882
+        width: 831
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f7b780d85af7780800000000000000
+      internalID: -8683039531395743938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      KnowledgeSkeleton_0: -2423697382269175028
+      KnowledgeSkeleton_1: -3170015102358699766
+      KnowledgeSkeleton_10: -2787031014423942926
+      KnowledgeSkeleton_11: 5251887426524423518
+      KnowledgeSkeleton_12: -1261704622622442038
+      KnowledgeSkeleton_13: 1854605729510088762
+      KnowledgeSkeleton_14: 6819700421856215392
+      KnowledgeSkeleton_15: -2625066018074043806
+      KnowledgeSkeleton_16: 867662768537976683
+      KnowledgeSkeleton_17: -745632567520786908
+      KnowledgeSkeleton_18: 3112548899847654934
+      KnowledgeSkeleton_19: -8683039531395743938
+      KnowledgeSkeleton_2: -8325876614230678904
+      KnowledgeSkeleton_3: 1358064947828374897
+      KnowledgeSkeleton_4: 3323709213668722984
+      KnowledgeSkeleton_5: -2188902086539177019
+      KnowledgeSkeleton_6: -253775577219593099
+      KnowledgeSkeleton_7: -4812211270868480711
+      KnowledgeSkeleton_8: 753937094566777102
+      KnowledgeSkeleton_9: 5318693578666149252
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

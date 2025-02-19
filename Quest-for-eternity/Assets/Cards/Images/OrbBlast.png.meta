@@ -1,0 +1,2117 @@
+fileFormatVersion: 2
+guid: cc8e341d9200798449eea3bd353dc9a8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9059039507253727656
+    second: OrbBlast_0
+  - first:
+      213: -4627195927280694970
+    second: OrbBlast_1
+  - first:
+      213: -2275186520933231557
+    second: OrbBlast_2
+  - first:
+      213: 5983067574275017698
+    second: OrbBlast_3
+  - first:
+      213: -3977455749487333368
+    second: OrbBlast_4
+  - first:
+      213: 4952147592806949693
+    second: OrbBlast_5
+  - first:
+      213: -6054982285168442939
+    second: OrbBlast_6
+  - first:
+      213: -1136972595684271902
+    second: OrbBlast_7
+  - first:
+      213: -2752152922793111000
+    second: OrbBlast_8
+  - first:
+      213: 3645159702314945592
+    second: OrbBlast_9
+  - first:
+      213: -7177519248858759619
+    second: OrbBlast_10
+  - first:
+      213: 6973758238366912309
+    second: OrbBlast_11
+  - first:
+      213: -6928396982101225393
+    second: OrbBlast_12
+  - first:
+      213: -7303604623721592783
+    second: OrbBlast_13
+  - first:
+      213: -3810335042737385788
+    second: OrbBlast_14
+  - first:
+      213: -8018395790038740972
+    second: OrbBlast_15
+  - first:
+      213: 2248861221158805645
+    second: OrbBlast_16
+  - first:
+      213: -8720207876557858776
+    second: OrbBlast_17
+  - first:
+      213: -1960929905403193329
+    second: OrbBlast_18
+  - first:
+      213: -8285335488607835534
+    second: OrbBlast_19
+  - first:
+      213: -6602798320400722156
+    second: OrbBlast_20
+  - first:
+      213: 4027034702930203310
+    second: OrbBlast_21
+  - first:
+      213: 328997311012130683
+    second: OrbBlast_22
+  - first:
+      213: -6333171660640102977
+    second: OrbBlast_23
+  - first:
+      213: -8607016517207876272
+    second: OrbBlast_24
+  - first:
+      213: 1773930319591018064
+    second: OrbBlast_25
+  - first:
+      213: -7752146784339691624
+    second: OrbBlast_26
+  - first:
+      213: -8755086200943392012
+    second: OrbBlast_27
+  - first:
+      213: 8918079833236874002
+    second: OrbBlast_28
+  - first:
+      213: 3640176589141352296
+    second: OrbBlast_29
+  - first:
+      213: 8166001017790930720
+    second: OrbBlast_30
+  - first:
+      213: -9063127124946847723
+    second: OrbBlast_31
+  - first:
+      213: 7666916980718758943
+    second: OrbBlast_32
+  - first:
+      213: -5469812578897612747
+    second: OrbBlast_33
+  - first:
+      213: -2092176583184352383
+    second: OrbBlast_34
+  - first:
+      213: 4311331162454747781
+    second: OrbBlast_35
+  - first:
+      213: -6149835931882535331
+    second: OrbBlast_36
+  - first:
+      213: 8773043948051824123
+    second: OrbBlast_37
+  - first:
+      213: -4851906737112662211
+    second: OrbBlast_38
+  - first:
+      213: 3376476772274872093
+    second: OrbBlast_39
+  - first:
+      213: 462795440425697888
+    second: OrbBlast_40
+  - first:
+      213: 1901202441814431727
+    second: OrbBlast_41
+  - first:
+      213: -3280901335680568735
+    second: OrbBlast_42
+  - first:
+      213: -150002004471901017
+    second: OrbBlast_43
+  - first:
+      213: -3664425073042025129
+    second: OrbBlast_44
+  - first:
+      213: -6405489080722783124
+    second: OrbBlast_45
+  - first:
+      213: 2106729746704313474
+    second: OrbBlast_46
+  - first:
+      213: 3689576742133861012
+    second: OrbBlast_47
+  - first:
+      213: -4755243852138267420
+    second: OrbBlast_48
+  - first:
+      213: -7858393719306518974
+    second: OrbBlast_49
+  - first:
+      213: -1081580426944972296
+    second: OrbBlast_50
+  - first:
+      213: -657429715605165199
+    second: OrbBlast_51
+  - first:
+      213: -3869657319427731085
+    second: OrbBlast_52
+  - first:
+      213: 2048657071851503459
+    second: OrbBlast_53
+  - first:
+      213: -3633225283004689573
+    second: OrbBlast_54
+  - first:
+      213: 1578169212457090013
+    second: OrbBlast_55
+  - first:
+      213: 3465946846815511679
+    second: OrbBlast_56
+  - first:
+      213: 8730445367441094695
+    second: OrbBlast_57
+  - first:
+      213: -2000600565811329266
+    second: OrbBlast_58
+  - first:
+      213: 2373031548233917589
+    second: OrbBlast_59
+  - first:
+      213: -5271503650870024093
+    second: OrbBlast_60
+  - first:
+      213: -3989012350033229082
+    second: OrbBlast_61
+  - first:
+      213: 3033886329576819950
+    second: OrbBlast_62
+  - first:
+      213: -4276292059837950676
+    second: OrbBlast_63
+  - first:
+      213: 8662924288242098066
+    second: OrbBlast_64
+  - first:
+      213: 5822142674390689607
+    second: OrbBlast_65
+  - first:
+      213: 6769775638770673023
+    second: OrbBlast_66
+  - first:
+      213: 6456666502609262870
+    second: OrbBlast_67
+  - first:
+      213: -5060133447041634367
+    second: OrbBlast_68
+  - first:
+      213: -7610560653104864315
+    second: OrbBlast_69
+  - first:
+      213: 6799785044048233937
+    second: OrbBlast_70
+  - first:
+      213: -645868422980579891
+    second: OrbBlast_71
+  - first:
+      213: -110098320729590823
+    second: OrbBlast_72
+  - first:
+      213: -2476045042267675885
+    second: OrbBlast_73
+  - first:
+      213: -6231866272164485061
+    second: OrbBlast_74
+  - first:
+      213: 3347956054575031509
+    second: OrbBlast_75
+  - first:
+      213: -2235191187942145131
+    second: OrbBlast_76
+  - first:
+      213: -6318871704472234257
+    second: OrbBlast_77
+  - first:
+      213: -7977435467708476461
+    second: OrbBlast_78
+  - first:
+      213: -5125820701253019534
+    second: OrbBlast_79
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OrbBlast_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 676
+        width: 4226
+        height: 3775
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1961c5f6c28bd70800000000000000
+      internalID: 9059039507253727656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_1
+      rect:
+        serializedVersion: 2
+        x: 3617
+        y: 3644
+        width: 638
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649cc40f1d5e8cfb0800000000000000
+      internalID: -4627195927280694970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_2
+      rect:
+        serializedVersion: 2
+        x: 3763
+        y: 3924
+        width: 492
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b349406e9e9ec60e0800000000000000
+      internalID: -2275186520933231557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_3
+      rect:
+        serializedVersion: 2
+        x: 2898
+        y: 2990
+        width: 1357
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb02d75240280350800000000000000
+      internalID: 5983067574275017698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_4
+      rect:
+        serializedVersion: 2
+        x: 3995
+        y: 2898
+        width: 260
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800f8fdb11d3dc8c0800000000000000
+      internalID: -3977455749487333368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_5
+      rect:
+        serializedVersion: 2
+        x: 3997
+        y: 2752
+        width: 258
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3360908fff89b440800000000000000
+      internalID: 4952147592806949693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_6
+      rect:
+        serializedVersion: 2
+        x: 4055
+        y: 2618
+        width: 200
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1804b31b168fba0800000000000000
+      internalID: -6054982285168442939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_7
+      rect:
+        serializedVersion: 2
+        x: 4073
+        y: 2472
+        width: 182
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e892eab279a830f0800000000000000
+      internalID: -1136972595684271902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_8
+      rect:
+        serializedVersion: 2
+        x: 3952
+        y: 2327
+        width: 303
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8221d5d8f736ec9d0800000000000000
+      internalID: -2752152922793111000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_9
+      rect:
+        serializedVersion: 2
+        x: 3945
+        y: 2159
+        width: 310
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83c0d06bf65369230800000000000000
+      internalID: 3645159702314945592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_10
+      rect:
+        serializedVersion: 2
+        x: 3979
+        y: 1675
+        width: 276
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ebe337544546c90800000000000000
+      internalID: -7177519248858759619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_11
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 1334
+        width: 223
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f40535b24c7c060800000000000000
+      internalID: 6973758238366912309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_12
+      rect:
+        serializedVersion: 2
+        x: 3994
+        y: 1149
+        width: 255
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f40d7fa27a369df90800000000000000
+      internalID: -6928396982101225393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_13
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 660
+        width: 211
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1388c277a4264aa90800000000000000
+      internalID: -7303604623721592783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_14
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 467
+        width: 272
+        height: 597
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce4a667778fe1bc0800000000000000
+      internalID: -3810335042737385788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_15
+      rect:
+        serializedVersion: 2
+        x: 2495
+        y: 374
+        width: 323
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 410d042238fe8b090800000000000000
+      internalID: -8018395790038740972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_16
+      rect:
+        serializedVersion: 2
+        x: 4083
+        y: 916
+        width: 172
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d80625c9d5f853f10800000000000000
+      internalID: 2248861221158805645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 579
+        width: 259
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828943e43299bf680800000000000000
+      internalID: -8720207876557858776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_18
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 563
+        width: 286
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f089007f3a069c4e0800000000000000
+      internalID: -1960929905403193329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_19
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 516
+        width: 170
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27aa79c4543940d80800000000000000
+      internalID: -8285335488607835534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_20
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 673
+        width: 65
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41718f429e52e54a0800000000000000
+      internalID: -6602798320400722156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_21
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 535
+        width: 108
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea25356e9b6e2e730800000000000000
+      internalID: 4027034702930203310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_22
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 472
+        width: 101
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7fcfeeaf45d09400800000000000000
+      internalID: 328997311012130683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_23
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 548
+        width: 102
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb5d9f1eded0c18a0800000000000000
+      internalID: -6333171660640102977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_24
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 463
+        width: 79
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d97eb541cbd8880800000000000000
+      internalID: -8607016517207876272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_25
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 568
+        width: 72
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e848b1a344e9810800000000000000
+      internalID: 1773930319591018064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_26
+      rect:
+        serializedVersion: 2
+        x: 1986
+        y: 538
+        width: 89
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 897feb08297da6490800000000000000
+      internalID: -7752146784339691624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_27
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 0
+        width: 153
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fa48d69c7faf7680800000000000000
+      internalID: -8755086200943392012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_28
+      rect:
+        serializedVersion: 2
+        x: 2201
+        y: 526
+        width: 131
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 213a8aabb5263cb70800000000000000
+      internalID: 8918079833236874002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_29
+      rect:
+        serializedVersion: 2
+        x: 2374
+        y: 354
+        width: 139
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f96734251848230800000000000000
+      internalID: 3640176589141352296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_30
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 543
+        width: 133
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f18ec09a6735170800000000000000
+      internalID: 8166001017790930720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_31
+      rect:
+        serializedVersion: 2
+        x: 2764
+        y: 278
+        width: 264
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 518f55bf5ed493280800000000000000
+      internalID: -9063127124946847723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_32
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 302
+        width: 322
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ce6267f5c566a60800000000000000
+      internalID: 7666916980718758943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_33
+      rect:
+        serializedVersion: 2
+        x: 3191
+        y: 562
+        width: 220
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53038d690725714b0800000000000000
+      internalID: -5469812578897612747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_34
+      rect:
+        serializedVersion: 2
+        x: 3437
+        y: 494
+        width: 254
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18bf7ef7b7817f2e0800000000000000
+      internalID: -2092176583184352383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_35
+      rect:
+        serializedVersion: 2
+        x: 3732
+        y: 448
+        width: 250
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58aef2f89dce4db30800000000000000
+      internalID: 4311331162454747781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_36
+      rect:
+        serializedVersion: 2
+        x: 3943
+        y: 543
+        width: 224
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d56453d9dc467aaa0800000000000000
+      internalID: -6149835931882535331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_37
+      rect:
+        serializedVersion: 2
+        x: 4067
+        y: 664
+        width: 188
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfdf48a3dfc10c970800000000000000
+      internalID: 8773043948051824123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 299
+        width: 221
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f331377809aacb0800000000000000
+      internalID: -4851906737112662211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_39
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 278
+        width: 272
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1f1dcb2cb7abde20800000000000000
+      internalID: 3376476772274872093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_40
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 346
+        width: 202
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0628e36400e2c6600800000000000000
+      internalID: 462795440425697888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_41
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 414
+        width: 139
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe7547e3c8d626a10800000000000000
+      internalID: 1901202441814431727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_42
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 401
+        width: 58
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 162b7af3e95e772d0800000000000000
+      internalID: -3280901335680568735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_43
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 491
+        width: 11
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a41bdfb8f51bedf0800000000000000
+      internalID: -150002004471901017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_44
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 352
+        width: 87
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7559b4f9fc8552dc0800000000000000
+      internalID: -3664425073042025129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_45
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 0
+        width: 76
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6400ea6e912b17a0800000000000000
+      internalID: -6405489080722783124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_46
+      rect:
+        serializedVersion: 2
+        x: 3424
+        y: 234
+        width: 255
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c2f0eea8b9c3d10800000000000000
+      internalID: 2106729746704313474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_47
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 200
+        width: 139
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a8e6eaf72043330800000000000000
+      internalID: 3689576742133861012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_48
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 431
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec30fc29eaf10eb0800000000000000
+      internalID: -4755243852138267420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_49
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 64
+        width: 80
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ef29f3c8061f290800000000000000
+      internalID: -7858393719306518974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_50
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 388
+        width: 49
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9fde705547df0f0800000000000000
+      internalID: -1081580426944972296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_51
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 0
+        width: 153
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b6198282750e6f0800000000000000
+      internalID: -657429715605165199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_52
+      rect:
+        serializedVersion: 2
+        x: 3087
+        y: 117
+        width: 226
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37115099b273c4ac0800000000000000
+      internalID: -3869657319427731085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_53
+      rect:
+        serializedVersion: 2
+        x: 2017
+        y: 417
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ffc4aa0ca4e6c10800000000000000
+      internalID: 2048657071851503459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_54
+      rect:
+        serializedVersion: 2
+        x: 3739
+        y: 113
+        width: 369
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b539981dad0349dc0800000000000000
+      internalID: -3633225283004689573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_55
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 28
+        width: 212
+        height: 327
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddb76f78988c6e510800000000000000
+      internalID: 1578169212457090013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_56
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 98
+        width: 194
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f74e2d63b44891030800000000000000
+      internalID: 3465946846815511679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_57
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 337
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 728f7494ec5c82970800000000000000
+      internalID: 8730445367441094695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_58
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 58
+        width: 83
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e07ce5192607c34e0800000000000000
+      internalID: -2000600565811329266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_59
+      rect:
+        serializedVersion: 2
+        x: 2773
+        y: 48
+        width: 174
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5942749ce93bee020800000000000000
+      internalID: 2373031548233917589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_60
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 269
+        width: 53
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 368a7b1fb5bd7d6b0800000000000000
+      internalID: -5271503650870024093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_61
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1
+        width: 96
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea8f9ff66e24a8c0800000000000000
+      internalID: -3989012350033229082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_62
+      rect:
+        serializedVersion: 2
+        x: 2483
+        y: 0
+        width: 129
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec0753ea878a1a20800000000000000
+      internalID: 3033886329576819950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_63
+      rect:
+        serializedVersion: 2
+        x: 2628
+        y: 257
+        width: 66
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c251981470f87a4c0800000000000000
+      internalID: -4276292059837950676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_64
+      rect:
+        serializedVersion: 2
+        x: 3386
+        y: 0
+        width: 254
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29f16c4fdb3e83870800000000000000
+      internalID: 8662924288242098066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_65
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 238
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74723b25ae76cc050800000000000000
+      internalID: 5822142674390689607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_66
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 243
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f75e40e531313fd50800000000000000
+      internalID: 6769775638770673023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_67
+      rect:
+        serializedVersion: 2
+        x: 2674
+        y: 256
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6195039a9ffaa9950800000000000000
+      internalID: 6456666502609262870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_68
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 114
+        width: 113
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cfa20d807bc6c9b0800000000000000
+      internalID: -5060133447041634367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_69
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 0
+        width: 119
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c3ae12986bd16690800000000000000
+      internalID: -7610560653104864315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_70
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 0
+        width: 130
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d542838870bd5e50800000000000000
+      internalID: 6799785044048233937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_71
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 0
+        width: 118
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcdc99c571a6907f0800000000000000
+      internalID: -645868422980579891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_72
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 0
+        width: 92
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d3bb8e192ad87ef0800000000000000
+      internalID: -110098320729590823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_73
+      rect:
+        serializedVersion: 2
+        x: 2668
+        y: 0
+        width: 130
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 313a4c7172253add0800000000000000
+      internalID: -2476045042267675885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_74
+      rect:
+        serializedVersion: 2
+        x: 3037
+        y: 0
+        width: 145
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b38e5efa4a6f389a0800000000000000
+      internalID: -6231866272164485061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_75
+      rect:
+        serializedVersion: 2
+        x: 3722
+        y: 0
+        width: 209
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4209c1b44567e20800000000000000
+      internalID: 3347956054575031509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_76
+      rect:
+        serializedVersion: 2
+        x: 4053
+        y: 0
+        width: 155
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59300a505710bf0e0800000000000000
+      internalID: -2235191187942145131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_77
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 0
+        width: 82
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe65aa1e9abde48a0800000000000000
+      internalID: -6318871704472234257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_78
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 0
+        width: 61
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d352a855b47a4190800000000000000
+      internalID: -7977435467708476461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrbBlast_79
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 0
+        width: 115
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 278587fda3d6dd8b0800000000000000
+      internalID: -5125820701253019534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

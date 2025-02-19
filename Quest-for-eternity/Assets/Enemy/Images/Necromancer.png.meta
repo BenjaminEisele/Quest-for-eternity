@@ -103,10 +103,10 @@ TextureImporter:
       name: Necromancer_0
       rect:
         serializedVersion: 2
-        x: 1101
-        y: 73
-        width: 2173
-        height: 4163
+        x: 1029
+        y: 12
+        width: 2177
+        height: 4292
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
