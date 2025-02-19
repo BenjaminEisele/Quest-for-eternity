@@ -45,7 +45,6 @@ public class MusicManager : MonoBehaviour
 
     public void PlayAmbience()
     {
-        Debug.Log("function executed");
         mainMusicSource = PlayMusic(mainMenuMusic, transform, 1f);
     }
 

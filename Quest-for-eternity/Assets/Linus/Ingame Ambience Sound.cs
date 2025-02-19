@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class IngameAmienceSound : MonoBehaviour
 {
-    void Awake()
+    void Start()
     {
         MusicManager.instance.PlayAmbience();
     }
