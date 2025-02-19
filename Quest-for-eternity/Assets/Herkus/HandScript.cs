@@ -176,6 +176,7 @@ public class HandScript : MonoBehaviour
                 cardZLocator += 0.1f;
                 cardList[k].gameObject.GetComponent<DragDrop>().cardPosition = cardList[k].gameObject.transform.localPosition;
                 cardList[k].transform.root.position = new Vector3(cardList[k].transform.root.position.x, cardList[k].transform.root.position.y, 0);
+                cardList[k].GetComponent<OnHoverScript>().zLocator = cardZLocator;
                 cardList[k].transform.root.position += new Vector3(0, 0, cardZLocator);
             }
         }
@@ -222,6 +223,7 @@ public class HandScript : MonoBehaviour
                 cardZLocator += 0.1f;
                 cardList[k].gameObject.GetComponent<DragDrop>().cardPosition = cardList[k].gameObject.transform.localPosition;
                 cardList[k].transform.root.position = new Vector3(cardList[k].transform.root.position.x, cardList[k].transform.root.position.y, 0);
+                cardList[k].GetComponent<OnHoverScript>().zLocator = cardZLocator;
                 cardList[k].transform.root.position += new Vector3(0, 0, cardZLocator);
             }
         }

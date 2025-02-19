@@ -4978,7 +4978,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 662237097}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.7563043
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5211,6 +5211,8 @@ MonoBehaviour:
   sliderSound: {fileID: 8300000, guid: 4ab743f6f9b071244a7badfaa8bcc950, type: 3}
   coinSound: {fileID: 8300000, guid: 4f442d4513fc45346a5b84cc44d5161e, type: 3}
   drawSound: {fileID: 0}
+  playCardSound: {fileID: 0}
+  shuffleSound: {fileID: 0}
   latestSource: {fileID: 0}
 --- !u!114 &881336162
 MonoBehaviour:

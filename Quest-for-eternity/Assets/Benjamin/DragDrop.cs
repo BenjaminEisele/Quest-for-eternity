@@ -6,7 +6,7 @@ public class DragDrop : MonoBehaviour
     Vector3 mousePositionOffset;
     [HideInInspector]
     public Vector3 cardPosition;
-    bool isInPlayingField;
+    public bool isInPlayingField;
     bool isInSendCardsOverField;
     bool isInDiscardField;
     [SerializeField]

@@ -1092,7 +1092,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.01, y: 14.87, z: 1.06}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8725334655717431593}
@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd31035e0dfae245a24ac64451383ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCard: {fileID: 5861898488446956728}
+  baseCard: {fileID: 878749362521664140}
   cardSpawnLocator: {fileID: 8123020633538326466}
   fieldScriptAccess: {fileID: 5498560621881706503}
   turnScriptAccess: {fileID: 7221015898841572849}
@@ -2621,6 +2621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d147d3417652f049991dd450d1eaa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zLocator: 0
   description: {fileID: 4619952641835126100}
   dragDropAccess: {fileID: 8790729103843228352}
 --- !u!114 &8790729103843228352
@@ -2636,6 +2637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPosition: {x: 0, y: 0, z: 0}
+  isInPlayingField: 0
   handScriptAccess: {fileID: 4716527281068523202}
   cardScriptAccess: {fileID: 7966999302529742683}
   onHoverScriptAccess: {fileID: 1974002010071925220}
@@ -3832,6 +3834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d147d3417652f049991dd450d1eaa24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zLocator: 0
   description: {fileID: 2763508546960763761}
   dragDropAccess: {fileID: 5904794597110541832}
 --- !u!114 &5904794597110541832
@@ -3847,6 +3850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPosition: {x: 0, y: 0, z: 0}
+  isInPlayingField: 0
   handScriptAccess: {fileID: 4716527281068523202}
   cardScriptAccess: {fileID: 7922362900197818327}
   onHoverScriptAccess: {fileID: 7189901953755365207}
@@ -4623,7 +4627,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.09, y: 8.81, z: 0.96018124}
-  m_LocalScale: {x: 1, y: 1.9191, z: 1}
+  m_LocalScale: {x: 1, y: 1.9191, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8725334655717431593}
@@ -9034,6 +9038,8 @@ MonoBehaviour:
   sliderSound: {fileID: 8300000, guid: 4ab743f6f9b071244a7badfaa8bcc950, type: 3}
   coinSound: {fileID: 8300000, guid: 4f442d4513fc45346a5b84cc44d5161e, type: 3}
   drawSound: {fileID: 8300000, guid: bf76c9c001910ac4d944c79ea8bcc2e4, type: 3}
+  playCardSound: {fileID: 0}
+  shuffleSound: {fileID: 0}
   latestSource: {fileID: 0}
 --- !u!114 &6845034425483234958
 MonoBehaviour:
@@ -15193,7 +15199,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16.01, y: 7.82, z: 1.06}
-  m_LocalScale: {x: 1, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 0.3, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8725334655717431593}
@@ -15690,7 +15696,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
