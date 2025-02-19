@@ -15,7 +15,8 @@ MonoBehaviour:
   cardName: Spike Trap
   effectValue: 0
   cardColor: {r: 1, g: 0, b: 0.07709837, a: 1}
-  cardSprite: {fileID: -2043158116506350236, guid: 70136011fd96c9c4ba5c4c77c0069ed1, type: 3}
+  cardSprite: {fileID: 655709798738885468, guid: 6b2cd6d8cce50984a942ebeb8d1f6174, type: 3}
   cardDescription: 
   cardDamage: 1
   cardHitRate: 0.9
+  actionEffectUnitList: []
