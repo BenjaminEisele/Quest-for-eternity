@@ -122,6 +122,10 @@ public class PlayerScript : NetworkBehaviour
     {
         if (RefereeScript.instance.enemyList.Count > 0)
         {
+            if ((target + 1 > RefereeScript.instance.enemyList.Count) && target != 0)
+            {
+                target--;
+            }
             if (RefereeScript.instance.enemyList[target] != null)
             {
                 RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage2);
@@ -136,6 +140,10 @@ public class PlayerScript : NetworkBehaviour
         {
             if(RefereeScript.instance.enemyList.Count > 0)
             {
+                if ((target + 1 > RefereeScript.instance.enemyList.Count) && target != 0)
+                {
+                    target--;
+                }
                 Debug.Log($"target is {target}");
                 if (RefereeScript.instance.enemyList[target] != null)
                 {
