@@ -1461,34 +1461,39 @@ MonoBehaviour:
     cardName: Boost 3
     cardSprite: {fileID: -9169414916431281427, guid: b18671715183db141963bf38a2d99ef3, type: 3}
   cardList:
+  - {fileID: 11400000, guid: 9594720a1ba46204bacd1a0434d2f58b, type: 2}
+  - {fileID: 11400000, guid: 646dc565a8e6b114fbc0dae8e1c5bfce, type: 2}
+  - {fileID: 11400000, guid: 60b9858fd5f6d9542916aab98e1a530e, type: 2}
+  - {fileID: 11400000, guid: 3212c6f94c879bf47b7eca1f33e239f3, type: 2}
+  - {fileID: 11400000, guid: c760b1395d77dae4a815b0db8105808f, type: 2}
   - {fileID: 11400000, guid: e204e4bbf6014384c9b30ac680f65f88, type: 2}
   - {fileID: 11400000, guid: f487b3a606233f342a733dda7a9addc4, type: 2}
+  - {fileID: 11400000, guid: 413088bdc00c114489267e883c276510, type: 2}
   - {fileID: 11400000, guid: d5e2053cc51739245b6359b8720c3628, type: 2}
+  - {fileID: 11400000, guid: fdffe8e1d406f0945ba086527424477b, type: 2}
+  - {fileID: 11400000, guid: 55f0d7d01daee304f98f8971aae25122, type: 2}
+  - {fileID: 11400000, guid: 6ad094da6c5b81c45b6aa05a5da3cb64, type: 2}
+  - {fileID: 11400000, guid: a37616a04eaa3a44c85c5ca42afee47e, type: 2}
+  - {fileID: 11400000, guid: a8e1035a48eae3d4caa6dbafcf147898, type: 2}
   - {fileID: 11400000, guid: fe02e729406b34147a59fd43e4d4c850, type: 2}
   - {fileID: 11400000, guid: 2d2087be51df9dd49b5b1f2ae566baf5, type: 2}
   - {fileID: 11400000, guid: 7aedfe28c065e494b854d876da68f7aa, type: 2}
   - {fileID: 11400000, guid: eeae388f7a3fc744890989f2750ceb4f, type: 2}
   - {fileID: 11400000, guid: 111331e0d2e6ee248b3b2c8546ae72d0, type: 2}
   - {fileID: 11400000, guid: ccd4d100b84edbb4c9d6c15c1310a0b2, type: 2}
-  - {fileID: 11400000, guid: 9fcc29186b985da47b4b17faf7b87335, type: 2}
-  - {fileID: 11400000, guid: 73d69793fd081234a91fe9845c183e5e, type: 2}
-  - {fileID: 11400000, guid: 16069bf7face5634987ac7b8cb36e5a8, type: 2}
-  - {fileID: 11400000, guid: 830a664720bb24a4ab6907c562e5668b, type: 2}
-  - {fileID: 11400000, guid: d0f2598f013d59e42b1139d363fc5691, type: 2}
-  - {fileID: 11400000, guid: 81fdac3f00f5b3440892cfa03f16edc4, type: 2}
-  - {fileID: 11400000, guid: 96bdd0196a892f745bae147c1a086f0f, type: 2}
-  - {fileID: 11400000, guid: 6ad094da6c5b81c45b6aa05a5da3cb64, type: 2}
-  - {fileID: 11400000, guid: 55f0d7d01daee304f98f8971aae25122, type: 2}
+  - {fileID: 11400000, guid: a7e7793088cbe5241a56a152c2d97467, type: 2}
+  - {fileID: 11400000, guid: 6f04a7ccc9abafe4586693191bf1ffff, type: 2}
+  - {fileID: 11400000, guid: 9d43ae277274ee648860d64687a9435a, type: 2}
+  - {fileID: 11400000, guid: 5a724ff7c43005d418e46bb28c2d92cc, type: 2}
   - {fileID: 11400000, guid: 81157ac6a8dcb3a469a3b64f5ebed0b4, type: 2}
-  - {fileID: 11400000, guid: 989035c7c2d261c44a9f1ed28791573f, type: 2}
-  - {fileID: 11400000, guid: c5d6f1537c3e08a4d80393d9141772d4, type: 2}
-  - {fileID: 11400000, guid: b1dbe40d7da02974b9a17b913bc52e56, type: 2}
-  - {fileID: 11400000, guid: 0c6428eeea3e0174799a9208d238f415, type: 2}
-  - {fileID: 11400000, guid: 77b00c55659deca4ab528e4f40d359cf, type: 2}
-  - {fileID: 11400000, guid: 23de0aa84777a5d43bd39538c27f6c83, type: 2}
-  - {fileID: 11400000, guid: cbce718f623c52f45a244c92ba3e0bb2, type: 2}
+  - {fileID: 11400000, guid: 7a60756626e31014ba048c508f4a058b, type: 2}
+  - {fileID: 11400000, guid: 632e0b6f9746cb24f807f4102a8fcc5a, type: 2}
+  - {fileID: 11400000, guid: 012055df5fb68e448b7ead50427c3498, type: 2}
+  - {fileID: 11400000, guid: 012055df5fb68e448b7ead50427c3498, type: 2}
+  - {fileID: 11400000, guid: 81be87e94373d534a9e1db605e778609, type: 2}
   - {fileID: 11400000, guid: bbadcc12f460dc64e81d84f6c905a35d, type: 2}
-  - {fileID: 11400000, guid: 86ac974f73f0bec4185610a9e365ac8b, type: 2}
+  - {fileID: 11400000, guid: b1dbe40d7da02974b9a17b913bc52e56, type: 2}
+  - {fileID: 11400000, guid: cbce718f623c52f45a244c92ba3e0bb2, type: 2}
 --- !u!114 &7267443404813897993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1501,7 +1506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 1a0000001a0000001a0000000a0000000a0000000a0000000a0000000a0000000a00000000000000000000000000000000000000
+  deckCardList: 05000000060000000d0000000e0000000f0000001000000011000000110000001200000013000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -1746,7 +1751,7 @@ SpriteRenderer:
   m_Size: {x: 20.002588, y: 20.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &878749362521664140
@@ -3904,7 +3909,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2199593997064574149
@@ -10495,7 +10500,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!65 &8513733222404207007
@@ -11986,7 +11991,7 @@ SpriteRenderer:
   m_Size: {x: 17.562273, y: 18.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7120385865729612282
@@ -14428,7 +14433,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!65 &1372271698685779538
@@ -14576,7 +14581,7 @@ SpriteRenderer:
   m_Size: {x: 20.002588, y: 20.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8814617301062071439

@@ -18,7 +18,7 @@ MonoBehaviour:
   cardSprite: {fileID: 0}
   cardDescription: Gain +2 UTL slots for this turn
   effectUnitList:
-  - myEffect: {fileID: 0}
-    effectValue: 2
+  - myEffect: {fileID: 11400000, guid: 38929c02b0f60264194bd39455ecdd2b, type: 2}
+    effectValue: 5
     shouldActivateNow: 1
   isDisplayable: 1
