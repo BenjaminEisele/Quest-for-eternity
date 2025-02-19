@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Armor Repair Kit
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 8788316349479306362, guid: 686dba3c5f5ce4242bc6063951a745f1, type: 3}
+  cardSprite: {fileID: 912097561219913965, guid: 686dba3c5f5ce4242bc6063951a745f1, type: 3}
   cardDescription: Temporary HP (Armor) +2
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: eeb78c6b688e33a4d95acefc075c35ee, type: 2}

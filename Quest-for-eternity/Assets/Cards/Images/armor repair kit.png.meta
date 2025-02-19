@@ -108,10 +108,10 @@ TextureImporter:
         serializedVersion: 2
         x: 343
         y: 133
-        width: 1917
-        height: 4307
+        width: 3522
+        height: 4318
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -133,7 +133,7 @@ TextureImporter:
         width: 1400
         height: 4315
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7ffca0c57f3b2b140978d6cdd6b04397
     internalID: 0
     vertices: []
     indices: 
@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      armor repair kit_0: 912097561219913965
+      armor repair kit_1: -2807052002803565687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

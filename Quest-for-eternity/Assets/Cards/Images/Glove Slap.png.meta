@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Glove Slap_0: -3396493204780138946
+      Glove Slap_1: -7639902903722189876
+      Glove Slap_2: -133660626226947388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

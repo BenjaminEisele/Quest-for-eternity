@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Unfortunate Insult
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: -7004226161487210072, guid: 8ec017af4efd76c4cb38f087ac6d7470, type: 3}
   cardDescription: Boost ally damage by 2 points
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: f2b1704a1a0cb0c4da5b371a73771d48, type: 2}

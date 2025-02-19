@@ -106,12 +106,12 @@ TextureImporter:
       name: Chain lightning_0
       rect:
         serializedVersion: 2
-        x: 239
-        y: 2547
-        width: 3796
-        height: 1738
+        x: 253
+        y: 116
+        width: 3718
+        height: 4169
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: Chain lightning_1
       rect:
         serializedVersion: 2
-        x: 237
-        y: 64
-        width: 3807
-        height: 1910
+        x: 234
+        y: 84
+        width: 3781
+        height: 4201
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2ffee719e445fee439def9b4c49afa68
     internalID: 0
     vertices: []
     indices: 
@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chain lightning_0: 3589904718322098709
+      Chain lightning_1: 2617427887061522777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

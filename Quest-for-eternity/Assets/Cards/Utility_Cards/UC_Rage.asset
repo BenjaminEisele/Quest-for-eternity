@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Rage
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 2249268537740775765, guid: 4a2055acf328e734d858863abdd82559, type: 3}
   cardDescription: Double DMG for the next ACT, but receive 2x DMG next time you're
     hit
   effectUnitList:

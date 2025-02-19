@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      annoying sprites_0: 3880624941980133659
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

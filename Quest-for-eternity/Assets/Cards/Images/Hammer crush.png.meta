@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hammer crush_0: 2957860622279499737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

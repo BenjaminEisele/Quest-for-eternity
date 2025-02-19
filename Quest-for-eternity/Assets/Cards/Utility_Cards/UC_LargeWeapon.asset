@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Large Weapon
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 1934469675562077692, guid: 2eca9b4f090989f459eddc126f88514d, type: 3}
   cardDescription: Your next attack hits all enemies, effects remain unchanged
   effectUnitList:
   - myEffect: {fileID: 0}

@@ -109,12 +109,12 @@ TextureImporter:
       name: Insult_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 1010
-        width: 2082
-        height: 2358
+        width: 4237
+        height: 3033
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -136,7 +136,7 @@ TextureImporter:
         width: 25
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: Insult_2
       rect:
         serializedVersion: 2
-        x: 2082
-        y: 925
+        x: 2088
+        y: 938
         width: 2144
         height: 3145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: eed6ae557300a694ab00f67f60faad13
     internalID: 0
     vertices: []
     indices: 
@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Insult_0: -7004226161487210072
+      Insult_1: 710980191942699089
+      Insult_2: -2697218816030762575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Annoying Sprites
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 6225983093349463321, guid: a1e981cb4ee96e149ae6334cf5bbcda8, type: 3}
+  cardSprite: {fileID: 3880624941980133659, guid: 226806ea01e9c904eacf974c245cb7ab, type: 3}
   cardDescription: Enemy skips it's next turn
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 4e6384a910d302548b3b63f3b0788b94, type: 2}
