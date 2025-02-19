@@ -5993,6 +5993,7 @@ GameObject:
   - component: {fileID: 7366882551975496979}
   - component: {fileID: 8176243081047984854}
   - component: {fileID: 4485664734557763521}
+  - component: {fileID: 6153425358505310977}
   m_Layer: 5
   m_Name: EndTurnButton
   m_TagString: EndTurnButton
@@ -6114,6 +6115,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6153425358505310977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238542833831202524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 7250125789181350792}
 --- !u!1 &3271175969862638563
 GameObject:
   m_ObjectHideFlags: 0
@@ -8226,6 +8240,113 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4576626294787275921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6233887870054041148}
+  - component: {fileID: 7250125789181350792}
+  - component: {fileID: 6845034425483234958}
+  - component: {fileID: 1611595808576227657}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6233887870054041148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576626294787275921}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1142.4304, y: 447.38586, z: -3.7019472}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8725334655717431593}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7250125789181350792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576626294787275921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c2ecd305e24b843ba92cfb0bc32ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 7512260821461713194, guid: a8ead3cc8474d914eb5eec6ac92b8881, type: 3}
+  dropdownSound: {fileID: 8300000, guid: 7a2d0901a6a536d43b7770e5d72de218, type: 3}
+  hoverSound: {fileID: 8300000, guid: 505439b507a29c5448fdfe428226ab19, type: 3}
+  buttonSound: {fileID: 8300000, guid: 1567a440f0895a748981df7fefe01895, type: 3}
+  toggleSound: {fileID: 8300000, guid: 38ded434607c1a7458714222012496ad, type: 3}
+  sliderSound: {fileID: 8300000, guid: 4ab743f6f9b071244a7badfaa8bcc950, type: 3}
+  latestSource: {fileID: 0}
+--- !u!114 &6845034425483234958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576626294787275921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c70a5915bf0ec24c89b25609c1ad3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 7512260821461713194, guid: 2c490422b84ddbd4a8c699ee59721a61, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: 106c185b489f3264fbcd8e4450c0d233, type: 3}
+--- !u!114 &1611595808576227657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576626294787275921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e57675ae22acfc4284e2ee57502a800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 7512260821461713194, guid: ee3c4ce0a2df091479959c045c4ebfcc, type: 3}
+  tutorialLines:
+  - {fileID: 8300000, guid: 7b926105ab7d93f43b35fcf7be75b630, type: 3}
+  - {fileID: 8300000, guid: fbad1dbb801e86948a716f8e4d3cbf65, type: 3}
+  - {fileID: 8300000, guid: 5b9d6790319814444a1d491d54c9d819, type: 3}
+  - {fileID: 8300000, guid: f79d98a0c3d5e32498142da7db474d43, type: 3}
+  - {fileID: 8300000, guid: 04058a572ca3a9f409d6b8eb65e228b8, type: 3}
+  - {fileID: 8300000, guid: 9204228cbabd3494791aef974f412cab, type: 3}
+  - {fileID: 8300000, guid: 60790b79f9f64ab47a0cfca5b6c99e39, type: 3}
+  - {fileID: 8300000, guid: 7a7ebb25b6e3b0b47b2ad5882d73215d, type: 3}
+  - {fileID: 8300000, guid: 030079ae310182f45bd64235d80bc47f, type: 3}
+  - {fileID: 8300000, guid: 258fa2b8610966c4dae0623b0a9c66f4, type: 3}
+  - {fileID: 8300000, guid: e59e3f07082a21246bb0e5fb940b533d, type: 3}
+  - {fileID: 8300000, guid: 107bd19bd8da8344b9f728c48bb92ea2, type: 3}
+  - {fileID: 8300000, guid: 5ab6adf9ce0b58f419e2e3bcf5f7f517, type: 3}
+  - {fileID: 8300000, guid: c81026d9f58a40b41ae7c18f4fe7ef81, type: 3}
+  - {fileID: 8300000, guid: f91287cc21dbdf548bc563a4cd6117ab, type: 3}
+  - {fileID: 8300000, guid: 5210b8b66d29b8a4b8e79121c4b92999, type: 3}
+  - {fileID: 8300000, guid: 91b1f073c6c8a6b4b9e8d5ea8c46e1d1, type: 3}
+  - {fileID: 8300000, guid: 8cad2949d8e7ec34eb90fa00932b5eac, type: 3}
+  - {fileID: 8300000, guid: 5c2a12e9d0c74004abb84bf3c0bdc16c, type: 3}
+  - {fileID: 8300000, guid: 35136d23a61f6f641b198a6e1c4cd414, type: 3}
+  - {fileID: 8300000, guid: 514a5a7860d835948b3183c7c33e391a, type: 3}
+  - {fileID: 8300000, guid: a3d732119cea205439a5776d3e8bcbb0, type: 3}
+  - {fileID: 8300000, guid: 57bac65052c2bd645bcda8dcda10abf2, type: 3}
+  - {fileID: 8300000, guid: 17e9c7272488b4d4a892fa2c6d2cb738, type: 3}
+  - {fileID: 8300000, guid: d3312fe832a51e7499508356cf167bdd, type: 3}
+  latestSource: {fileID: 0}
 --- !u!1 &4589480795386260224
 GameObject:
   m_ObjectHideFlags: 0
@@ -9452,6 +9573,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6233887870054041148}
   - {fileID: 8824635427251087858}
   - {fileID: 8062373966654537663}
   - {fileID: 3486934979282509340}
