@@ -15,6 +15,7 @@ public class SoundFXManager : MonoBehaviour
     public AudioClip toggleSound;
     public AudioClip sliderSound;
     public AudioClip coinSound;
+    public AudioClip drawSound;
     public AudioSource latestSource;
     
 
@@ -99,5 +100,10 @@ public class SoundFXManager : MonoBehaviour
     public void CoinSound()
     {
         instance.PlaySoundClip(coinSound, transform, 1f, false);
+    }
+
+    public void DrawSound()
+    {
+        instance.PlaySoundClip(drawSound, transform, 1f, false);
     }
 }
