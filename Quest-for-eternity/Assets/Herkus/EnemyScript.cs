@@ -87,7 +87,8 @@ public class EnemyScript : NetworkBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("clicked on enemy");
+        // Debug.Log("clicked on enemy");
+        RefereeScript.instance.ChosenEnemyClick(this);
     }
     public void ChangeSelectedStatus(bool inputBool)
     {
