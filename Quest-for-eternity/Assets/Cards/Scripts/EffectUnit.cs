@@ -8,4 +8,5 @@ public class EffectUnit
     public EffectTemplate myEffect;
     public float effectValue;
     public bool shouldActivateNow;
+    public Sprite effectIcon;
 }

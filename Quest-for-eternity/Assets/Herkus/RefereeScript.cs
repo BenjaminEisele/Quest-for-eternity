@@ -35,6 +35,8 @@ public class RefereeScript : NetworkBehaviour
     [SyncVar]
     public int targetPlayerId = 1;
 
+    public int actionCardInLootTableCount = 0;
+
     public delegate void PreNewWaveAction();
     public event PreNewWaveAction preNewWaveEvent;
 
@@ -156,15 +158,28 @@ public class RefereeScript : NetworkBehaviour
         displayCardIdList.Clear();
         if (isServer)
         {
+            actionCardInLootTableCount = 0;
             randomEnemyCount = Random.Range(2, 3);
             enemyGeneratorAccess.RandomNumber(randomEnemyCount);
             for (int i = 0; i < 8; i++)
             {
                 int randomValue = Random.Range(0, maximumValue);
-                while(!IsLootIdValid(randomValue))
+                if(i == 0)
                 {
-                    randomValue = Random.Range(0, maximumValue);
+                    while (!IsLootIdValidAndAction(randomValue))
+                    {
+                        randomValue = Random.Range(0, maximumValue);
+                    }
+                    
                 }
+                else
+                {
+                    while (!IsLootIdValid(randomValue))
+                    {
+                        randomValue = Random.Range(0, maximumValue);
+                    }
+                }
+                
                 displayCardIdList.Add(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 //databaseMultiplayerAccess.genericLootList.Remove(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 lootIdList.Add(randomValue);
@@ -175,14 +190,42 @@ public class RefereeScript : NetworkBehaviour
     }
     private bool IsLootIdValid(int inputId)
     {
-        for(int i = 0; i < lootIdList.Count; i++)
+        for (int i = 0; i < lootIdList.Count; i++)
         {
-            //playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>().cardList[inputId].
-            if(inputId == lootIdList[i])
+            DatabasePlayer databasePlayerReference = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
+            int trueId = databaseMultiplayerAccess.updatedLootList[inputId];
+            Action actionReference = databasePlayerReference.cardList[trueId] as Action;
+            if (actionReference)
+            {
+                if (actionCardInLootTableCount + 1 >= 2)
+                {
+                    return false;
+                }
+                else
+                {
+                    actionCardInLootTableCount++;
+                }
+            }
+            if (inputId == lootIdList[i])
             {
                 return false;
             }
+            
         }
+        return true;
+    }
+    private bool IsLootIdValidAndAction(int inputId)
+    {
+        DatabasePlayer databasePlayerReference = playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>();
+        int trueId = databaseMultiplayerAccess.updatedLootList[inputId];
+        Action actionReference = databasePlayerReference.cardList[trueId] as Action;
+        if (!actionReference)
+        {
+            Debug.Log("i am null!");
+            return false;
+        }
+        Debug.Log($"adding id {trueId} to list");
+        //Debug.Log($"everything works, my ID is: {trueId}");
         return true;
     }
     public int GetRandomNumber(int inputIndex)

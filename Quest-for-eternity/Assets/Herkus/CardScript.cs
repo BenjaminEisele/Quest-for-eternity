@@ -37,7 +37,6 @@ public class CardScript : MonoBehaviour
         string cardTypeName;
         Utility utilityCardAccess = databasePlayerAccess.cardList[myCardId] as Utility;
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
-
         if (utilityCardAccess)
         {
             myDamage = 0;
