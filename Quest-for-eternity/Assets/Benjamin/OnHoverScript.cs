@@ -1,23 +1,23 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class OnHoverScript : MonoBehaviour
 {
     private Vector3 initialScale;
-    private Vector3 initialPosition;
-    private Vector3 moveVector = new Vector3(0.0f, 2.0f, 1.0f);
     public float zLocator;
     public GameObject description;
     MeshRenderer myMeshRenderer;
     [SerializeField]
     DragDrop dragDropAccess;
-
+    [SerializeField]
+    Transform scaleParent;
+    Transform rootParent;
+    [SerializeField]
+    float animationSpeed;
     private void Awake()
     {
-        //savedVector = transform.parent.position;
-        //initialScale = transform.root.transform.localScale;
-        //initialPosition = transform.root.transform.localPosition;
-        initialScale = transform.localScale;
-        //initialPosition = transform.localPosition;
+        rootParent = transform.root;
+        initialScale = scaleParent.localScale;
         myMeshRenderer = description.GetComponent<MeshRenderer>();
         dragDropAccess = GetComponent<DragDrop>();
         myMeshRenderer.enabled = false;
@@ -36,22 +36,23 @@ public class OnHoverScript : MonoBehaviour
     public void IncreasScale(bool status)
     {
         Vector3 finalScale = initialScale;
-        Vector3 finalPosition = initialPosition;
         if (status) 
         {
+            //Quaternion rotQuaternion = Quaternion.Euler(new Vector3(0, 0, -rootParent.eulerAngles.z));
+            scaleParent.DOLocalRotate(new Vector3(0, 0, -rootParent.eulerAngles.z), animationSpeed);
+            scaleParent.DOLocalMoveY(3, animationSpeed);
             transform.parent.position += new Vector3(0,0,-2);
             finalScale = initialScale * 2f;
-            finalPosition = initialPosition + moveVector;
+            scaleParent.DOScale(finalScale, animationSpeed);
         }
         else
         {
+            scaleParent.DOLocalRotate(new Vector3(0, 0, 0), animationSpeed);
+            scaleParent.DOLocalMoveY(0, animationSpeed);
+            scaleParent.DOScale(initialScale, animationSpeed);
             transform.parent.position = new Vector3(transform.parent.position.x, transform.parent.position.y, zLocator);
         }
-        //transform.root.transform.localScale = finalScale;
-       // transform.root.transform.position = finalPosition;
-        transform.localScale = finalScale;
-        //transform.localPosition = finalPosition;
+        //scaleParent.localScale = finalScale;
         myMeshRenderer.enabled = status;
-        //description.SetActive(status);
     }
 }

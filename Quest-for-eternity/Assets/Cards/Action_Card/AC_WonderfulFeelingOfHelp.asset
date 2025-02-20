@@ -16,8 +16,8 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 5900218343284205827, guid: 5e2fa8a7ef1830c4d831bc71428410da, type: 3}
-  cardDescription: This' ACT DMG equal to amunt of UTLs played for your ally this
-    turn
+  cardDescription: Deal DMG equal to the amount of UTL cards played for your ally
+    this turn.
   cardDamage: 0
   cardHitRate: 1
   actionEffectUnitList:

@@ -16,7 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 2957860622279499737, guid: 5f5f8c6f302226b4283d3029bacb1977, type: 3}
-  cardDescription: Deals 1 DMG to all enemies
+  cardDescription: Deal 1 guaranteed DMG to all enemies.
   cardDamage: 1
   cardHitRate: 0.6
   actionEffectUnitList:

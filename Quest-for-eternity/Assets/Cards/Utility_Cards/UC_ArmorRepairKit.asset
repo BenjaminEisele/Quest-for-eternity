@@ -16,7 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 912097561219913965, guid: 686dba3c5f5ce4242bc6063951a745f1, type: 3}
-  cardDescription: Temporary HP (Armor) +2
+  cardDescription: Gain +2 Armor.
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: eeb78c6b688e33a4d95acefc075c35ee, type: 2}
     effectValue: 2

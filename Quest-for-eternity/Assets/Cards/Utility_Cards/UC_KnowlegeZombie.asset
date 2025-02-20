@@ -16,7 +16,8 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: -5099937651795927808, guid: a5439877302809d4daac4958d940a035, type: 3}
-  cardDescription: You do not take damage from zombies next 2 times you are attacked
+  cardDescription: You don't take damage from zombies the next 2 times you are attacked
+    by them.
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: a1a0141a3f76b724ca19c81ce97d3ccd, type: 2}
     effectValue: 1

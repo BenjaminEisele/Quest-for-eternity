@@ -16,8 +16,8 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 2249268537740775765, guid: 4a2055acf328e734d858863abdd82559, type: 3}
-  cardDescription: Double DMG for the next ACT, but receive 2x DMG next time you're
-    hit
+  cardDescription: Double DMG for the next ACT, but receive double DMG next time
+    you're hit.
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: c26f44d8ffcf7ef44bfe26d33b8b5e72, type: 2}
     effectValue: 2

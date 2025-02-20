@@ -16,8 +16,8 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 0}
-  cardDescription: Convert all armor into healing. If you don't have any armor heal
-    1 HP
+  cardDescription: Convert all armor into healing. If you don't have any armor, heal
+    1 HP.
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: bf32be5668209a243bef64dcbd20e84c, type: 2}
     effectValue: 0

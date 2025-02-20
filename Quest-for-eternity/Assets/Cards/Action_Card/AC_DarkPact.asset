@@ -16,7 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: -2352424767999583896, guid: 388633fdf12d5594eadec782dd1b209b, type: 3}
-  cardDescription: Loose up to 5 HP, and deal same amount of DMG to 1 enemy
+  cardDescription: Loose up to 5 HP, and deal same amount of DMG.
   cardDamage: 0
   cardHitRate: 1
   actionEffectUnitList:

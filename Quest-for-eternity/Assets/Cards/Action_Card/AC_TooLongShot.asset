@@ -16,8 +16,8 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 0}
-  cardDescription: Enemy misses next attack directed on you, but you can't play any
-    ACT cards until the end of your next turn
+  cardDescription: Gain immunity but you lose the ability to play any ACT cards until
+    the end of your next turn.
   cardDamage: 2
   cardHitRate: 0.3
   actionEffectUnitList:
