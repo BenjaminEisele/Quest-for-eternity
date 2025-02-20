@@ -18,6 +18,7 @@ public class SoundFXManager : MonoBehaviour
     public AudioClip drawSound;
     public AudioClip playCardSound;
     public AudioClip shuffleSound;
+    public AudioClip flipSound;
     public AudioClip enemySpawnSound;
     public AudioClip hitSound;
     public AudioClip missSound;
@@ -118,6 +119,11 @@ public class SoundFXManager : MonoBehaviour
     public void ShuffleSound()
     {
         instance.PlaySoundClip(shuffleSound);
+    }
+
+    public void FlipSound()
+    {
+        instance.PlaySoundClip(flipSound);
     }
 
     public void EnemySpawnSound()

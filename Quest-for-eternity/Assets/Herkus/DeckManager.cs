@@ -38,10 +38,14 @@ public class DeckManager : MonoBehaviour
     }
     public void ResetDeck(bool shouldShuffle)
     {
-        soundFXManager.ShuffleSound();
         if(shouldShuffle)
         {
             ShuffleCards(discardedCardList);
+            soundFXManager.ShuffleSound();
+        }
+        else
+        {
+            soundFXManager.FlipSound();
         }
         deckCardList.AddRange(discardedCardList);
         discardedCardList.Clear();

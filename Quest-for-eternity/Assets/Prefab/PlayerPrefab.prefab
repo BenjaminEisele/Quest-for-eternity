@@ -9069,6 +9069,7 @@ MonoBehaviour:
   drawSound: {fileID: 8300000, guid: bf76c9c001910ac4d944c79ea8bcc2e4, type: 3}
   playCardSound: {fileID: 8300000, guid: bc2769050e7ce1e48b6a5ab86ef78e30, type: 3}
   shuffleSound: {fileID: 8300000, guid: 23f520b11f9331a4099b10807509f48e, type: 3}
+  flipSound: {fileID: 0}
   enemySpawnSound: {fileID: 8300000, guid: ab1a2fe12cb5110418311ee32469c396, type: 3}
   hitSound: {fileID: 8300000, guid: f3b683c0f6f9b934caf258437f43116e, type: 3}
   missSound: {fileID: 8300000, guid: 054538c5b09dea8488308d285ee5b235, type: 3}
