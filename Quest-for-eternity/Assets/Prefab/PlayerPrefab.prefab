@@ -6782,6 +6782,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7250125789181350792}
+        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
+        m_MethodName: EndTurnSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1211570424352650412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9085,6 +9097,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57bac65052c2bd645bcda8dcda10abf2, type: 3}
   - {fileID: 8300000, guid: 17e9c7272488b4d4a892fa2c6d2cb738, type: 3}
   - {fileID: 8300000, guid: d3312fe832a51e7499508356cf167bdd, type: 3}
+  zombieKillPlayer: {fileID: 8300000, guid: 0717d9c17474efc499c04890301feec7, type: 3}
+  skeletonKillPlayer: {fileID: 8300000, guid: 526e4dc615c6b9d4f8ad314a2da61df8, type: 3}
+  skullKillPlayer: {fileID: 8300000, guid: 2dcd8deb5aa0b314eb9e6edbca269e75, type: 3}
+  necroKillPlayer: {fileID: 0}
   latestSource: {fileID: 0}
 --- !u!114 &7696522756816989430
 MonoBehaviour:

@@ -11,6 +11,11 @@ public class VoiceManager : MonoBehaviour
 
     public AudioClip[] tutorialLines;
 
+    public AudioClip zombieKillPlayer;
+    public AudioClip skeletonKillPlayer;
+    public AudioClip skullKillPlayer;
+    public AudioClip necroKillPlayer;
+
     public AudioSource latestSource;
 
     private void Awake()
@@ -21,10 +26,10 @@ public class VoiceManager : MonoBehaviour
         }   
     }
 
-    public void PlaySoundClip(AudioClip audioClip, Transform spawnTransform, float volume, bool loop)
+    public void PlaySoundClip(AudioClip audioClip, bool loop)
     {
         //Spawn Gameobject
-        AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
 
         latestSource = audioSource;
 
@@ -32,7 +37,7 @@ public class VoiceManager : MonoBehaviour
         audioSource.clip = audioClip;
 
         //assgin volume
-        audioSource.volume = volume;
+        audioSource.volume = 1f;
 
         //set if looped
         audioSource.loop = loop;
@@ -53,7 +58,34 @@ public class VoiceManager : MonoBehaviour
         {
             Destroy(latestSource.gameObject);
         }
-        PlaySoundClip(tutorialLines[lineIndex], transform, 1f, false);
+        PlaySoundClip(tutorialLines[lineIndex], false);
+    }
+
+    public void KillPlayerLine(int enemyID)
+    {
+        Debug.Log("function executed : " + enemyID);
+        switch (enemyID)
+        {
+            case 0:
+
+                PlaySoundClip(zombieKillPlayer, false);
+                break;
+
+            case 1:
+
+                PlaySoundClip(skeletonKillPlayer, true);
+                break;
+
+            case 2:
+
+                PlaySoundClip(skullKillPlayer, true);
+                break;
+
+            case 3:
+
+                PlaySoundClip(necroKillPlayer, true);
+                break;
+        }
     }
 
     public void StopTutorialLine()

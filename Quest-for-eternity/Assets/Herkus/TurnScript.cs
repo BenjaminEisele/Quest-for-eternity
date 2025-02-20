@@ -42,7 +42,6 @@ public class TurnScript : MonoBehaviour
             isSinglePlayer = true;
         }
         endTurnEvent += TransferTurnToEnemy;
-        endTurnEvent += PlayEndTurnSound;
         uiScriptAccess.ChangeEndTurnButtonStatus(true);
         isPlayersTurn = true;
     }
@@ -128,9 +127,4 @@ public class TurnScript : MonoBehaviour
         RefereeScript.instance.RefereeReset();
         isPlayersTurn = true;
     } 
-
-    private void PlayEndTurnSound()
-    {
-        SoundFXManager.instance.EndTurnSound();
-    }
 }

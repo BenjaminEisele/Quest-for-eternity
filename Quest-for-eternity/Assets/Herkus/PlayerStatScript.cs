@@ -149,7 +149,6 @@ public class PlayerStatScript : NetworkBehaviour
             inputDamage -= playerHealthOffset;
             if(inputDamage <= 0)
             {
-                //Player gets killed
                 inputDamage = 0;
             }
             ChangeHealthNest(-inputDamage * damageMultiplier, 0, true);
@@ -166,6 +165,7 @@ public class PlayerStatScript : NetworkBehaviour
         if (playerHealth <= 0)
         {
             playerHealth = 0;
+            VoiceManager.instance.KillPlayerLine(voiceReference);
 
             return true;
         }
@@ -208,7 +208,7 @@ public class PlayerStatScript : NetworkBehaviour
             }
             else
             {
-                playerHealthText.color = Color.white;
+                playerHealthText.color = Color.grey;
             }
             UiScript.UpdateFighterText(playerHealthText, playerHealth);
         }
@@ -216,7 +216,7 @@ public class PlayerStatScript : NetworkBehaviour
         {
             if(playerArmor > 0)
             {
-                playerArmorText.color = Color.yellow;
+                playerArmorText.color = Color.grey;
                 playerArmorText.gameObject.SetActive(true);
             }
             else
