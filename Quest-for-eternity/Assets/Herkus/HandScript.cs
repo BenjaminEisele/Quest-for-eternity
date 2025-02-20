@@ -135,7 +135,7 @@ public class HandScript : MonoBehaviour
                         canInteract = false;
                         if (isInQuickAttackMode)
                         {
-                            handScriptDelayCoroutine = StartCoroutine(QuickAttackModeCoroutine());
+                            handScriptDelayCoroutine = StartCoroutine(QuickAttackModeCoroutine(clickedCardId));
                         }
                         else
                         {
@@ -382,9 +382,10 @@ public class HandScript : MonoBehaviour
         }
     }
 
-    private IEnumerator QuickAttackModeCoroutine()
+    private IEnumerator QuickAttackModeCoroutine(int inputCardId)
     {
         yield return new WaitForSeconds(0.75f);
+        ActionCardEffectActivation(inputCardId);
         playerScriptAccess.DealDamagePlayerScript(false, false, 0, false, true);
         isInQuickAttackMode = false;
         isHelpAndLeadActive = false;
