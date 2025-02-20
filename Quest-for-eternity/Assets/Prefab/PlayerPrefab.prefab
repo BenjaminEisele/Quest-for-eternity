@@ -9143,9 +9143,9 @@ MonoBehaviour:
   skeletonKillPlayer: {fileID: 8300000, guid: 526e4dc615c6b9d4f8ad314a2da61df8, type: 3}
   skullKillPlayer: {fileID: 8300000, guid: 2dcd8deb5aa0b314eb9e6edbca269e75, type: 3}
   necroKillPlayer: {fileID: 0}
-  zombieSpawns: {fileID: 0}
-  skeletonSpawns: {fileID: 0}
-  skullSpawns: {fileID: 0}
+  zombieSpawns: {fileID: 8300000, guid: e882705db8092b14e95f4239156b8366, type: 3}
+  skeletonSpawns: {fileID: 8300000, guid: c9b21a6ea4a923b4ea2ef4b01875d2b6, type: 3}
+  skullSpawns: {fileID: 8300000, guid: 15e4902492f6c394aa18ef4863deee70, type: 3}
   necroSpawns: {fileID: 0}
   zombieSpawned: 0
   skeletonSpawned: 0
