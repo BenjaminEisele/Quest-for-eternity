@@ -23,11 +23,19 @@ public class UiScript : MonoBehaviour
     [SerializeField]
     public Button endTurnButton;
 
+    [SerializeField]
+    Image instanceImage;
+
 
     private void Start()
     {
         uiTextArray = GetComponentsInChildren<TextMeshProUGUI>();
         UpdateTurnInfo(0);
+    }
+
+    public void GenerateIcon(Sprite inputSprite)
+    {
+        instanceImage.sprite = inputSprite;
     }
     public static void UpdateFighterText(TextMeshPro changedText, int value)
     {

@@ -12,6 +12,7 @@ public class DoubleDamageEffect : EffectTemplate
         {
             inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.multiplier = (int)effectValue;
             inputGameobject.GetComponent<SceneObjectDatabase>().playerStatReference.damageMultiplier = (int)effectValue;
+            //inputGameobject.GetComponent<SceneObjectDatabase>().uiScriptAccess.GenerateIcon();
         }
     }
 }

@@ -7,4 +7,5 @@ public class SceneObjectDatabase : MonoBehaviour
     public HandScript handScriptReference;
     public PlayerScript playerScriptAccess;
     public DatabasePlayer databasePlayerAccess;
+    public UiScript uiScriptAccess;
 }

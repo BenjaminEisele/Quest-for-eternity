@@ -62,6 +62,7 @@ public class ActiveCardScript : MonoBehaviour
                     if (!myEffectUnit.shouldActivateNow)
                     {
                         myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                        
                     }      
                 }
             }

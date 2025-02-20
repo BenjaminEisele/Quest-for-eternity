@@ -10,7 +10,8 @@ public class AreaAttackEffect : EffectTemplate
 
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
-            inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.DealDamagePlayerScript(false, true, (int)effectValue, false, true);
+            //inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.DealDamagePlayerScript(false, true, (int)effectValue, false, true);
+            inputGameobject.GetComponent<SceneObjectDatabase>().playerScriptAccess.areaAttackActive = true;
         }
     }
 }

@@ -32,6 +32,7 @@ public class PlayerScript : NetworkBehaviour
     public bool shouldHealByDamageAmount;
     public int multiplier;
     public int healingSum;
+    public bool areaAttackActive;
 
     private PlayerStatScript playerStatAccess;
     public List<int> knowledgeIdList;
@@ -196,6 +197,11 @@ public class PlayerScript : NetworkBehaviour
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
+                if(areaAttackActive)
+                {
+                    shouldDealAoE = true;
+                    areaAttackActive = false;
+                }
                 if(shouldDealAoE)
                 {
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
@@ -243,6 +249,11 @@ public class PlayerScript : NetworkBehaviour
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
+                if (areaAttackActive)
+                {
+                    shouldDealAoE = true;
+                    areaAttackActive = false;
+                }
                 if (shouldDealAoE)
                 {
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
