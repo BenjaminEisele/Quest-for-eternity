@@ -45,7 +45,7 @@ public class MusicManager : MonoBehaviour
 
     public void PlayAmbience()
     {
-        mainMusicSource = PlayMusic(mainMenuMusic, transform, 1f);
+        mainMusicSource = PlayMusic(mainMenuMusic, transform, 0.15f);
     }
 
     public void PauseMainMusic()

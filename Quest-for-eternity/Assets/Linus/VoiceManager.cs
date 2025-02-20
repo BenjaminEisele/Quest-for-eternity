@@ -16,6 +16,13 @@ public class VoiceManager : MonoBehaviour
     public AudioClip skullKillPlayer;
     public AudioClip necroKillPlayer;
 
+    public AudioClip zombieSpawns;
+    public AudioClip skeletonSpawns;
+    public AudioClip skullSpawns;
+    public AudioClip necroSpawns;
+
+    public bool isSpawned = true;
+
     public AudioSource latestSource;
 
     private void Awake()
@@ -26,7 +33,7 @@ public class VoiceManager : MonoBehaviour
         }   
     }
 
-    public void PlaySoundClip(AudioClip audioClip, bool loop)
+    public void PlaySoundClip(AudioClip audioClip)
     {
         //Spawn Gameobject
         AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
@@ -40,7 +47,7 @@ public class VoiceManager : MonoBehaviour
         audioSource.volume = 1f;
 
         //set if looped
-        audioSource.loop = loop;
+        audioSource.loop = false;
 
         //play sound
         audioSource.Play();
@@ -58,32 +65,57 @@ public class VoiceManager : MonoBehaviour
         {
             Destroy(latestSource.gameObject);
         }
-        PlaySoundClip(tutorialLines[lineIndex], false);
+        PlaySoundClip(tutorialLines[lineIndex]);
     }
 
     public void KillPlayerLine(int enemyID)
     {
-        Debug.Log("function executed : " + enemyID);
         switch (enemyID)
         {
             case 0:
 
-                PlaySoundClip(zombieKillPlayer, false);
+                PlaySoundClip(zombieKillPlayer);
                 break;
 
             case 1:
 
-                PlaySoundClip(skeletonKillPlayer, true);
+                PlaySoundClip(skeletonKillPlayer);
                 break;
 
             case 2:
 
-                PlaySoundClip(skullKillPlayer, true);
+                PlaySoundClip(skullKillPlayer);
                 break;
 
             case 3:
 
-                PlaySoundClip(necroKillPlayer, true);
+                PlaySoundClip(necroKillPlayer);
+                break;
+        }
+    }
+
+    public void EnemySpawnLine(int enemyID)
+    {
+        switch (enemyID)
+        {
+            case 0:
+
+                PlaySoundClip(zombieSpawns);
+                break;
+
+            case 1:
+
+                PlaySoundClip(skeletonSpawns);
+                break;
+
+            case 2:
+
+                PlaySoundClip(skullSpawns);
+                break;
+
+            case 3:
+
+                PlaySoundClip(necroSpawns);
                 break;
         }
     }
