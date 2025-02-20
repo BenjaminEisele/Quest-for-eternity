@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_bg light reddish_0: 3457656032962447700
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

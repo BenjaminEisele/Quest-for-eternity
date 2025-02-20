@@ -5182,6 +5182,13 @@ MonoBehaviour:
   skeletonKillPlayer: {fileID: 0}
   skullKillPlayer: {fileID: 0}
   necroKillPlayer: {fileID: 0}
+  zombieSpawns: {fileID: 0}
+  skeletonSpawns: {fileID: 0}
+  skullSpawns: {fileID: 0}
+  necroSpawns: {fileID: 0}
+  zombieSpawned: 0
+  skeletonSpawned: 0
+  skullSpawned: 0
   latestSource: {fileID: 0}
 --- !u!1 &886953251
 GameObject:

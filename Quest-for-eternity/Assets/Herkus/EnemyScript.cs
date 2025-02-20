@@ -12,10 +12,6 @@ public class EnemyScript : NetworkBehaviour
     int savedEnemyHealth;
     
     public int voiceReference;
-    bool zombieSpawned = false;
-    bool skeletonSpawned = false;
-    bool skullSpawned = false;
-    public VoiceManager voiceManager;
 
     [SyncVar]
     public bool isEnemyAlive;
@@ -61,42 +57,8 @@ public class EnemyScript : NetworkBehaviour
         enemyDamageText.text = databaseMultiplayerAccess.enemyList[personalId].enemyDamage.ToString();
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
         databaseMultiplayerAccess.updatedLootList.Add(databaseMultiplayerAccess.enemyList[personalId].lootCardId);
-        
-        switch (voiceReference)
-        {
-            case 0:
-                if (!zombieSpawned)
-                {
-                    Debug.Log("zombie didnt spawn yet");
-                    VoiceManager.instance.EnemySpawnLine(voiceReference);
-                    zombieSpawned = true;
-                    Debug.Log("zombie spawned : " + zombieSpawned);
-                }
-                break;
 
-            case 1:
-                if (!skeletonSpawned)
-                {
-                    VoiceManager.instance.EnemySpawnLine(voiceReference);
-                    skeletonSpawned = true;
-                }
-                break;
-
-            case 2:
-                if (!skullSpawned)
-                {
-                    VoiceManager.instance.EnemySpawnLine(voiceReference);
-                    skullSpawned = true;
-                }
-                break;
-
-            case 3:
-                
-                VoiceManager.instance.EnemySpawnLine(voiceReference);
-                
-                break;
-        }
-             
+        VoiceManager.instance.EnemySpawnLine(voiceReference);
         SoundFXManager.instance.EnemySpawnSound(); 
     }
     public void ResetEnemy()

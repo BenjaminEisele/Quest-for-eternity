@@ -21,7 +21,9 @@ public class VoiceManager : MonoBehaviour
     public AudioClip skullSpawns;
     public AudioClip necroSpawns;
 
-    public bool isSpawned = true;
+    public bool zombieSpawned = false;
+    public bool skeletonSpawned = false;
+    public bool skullSpawned = false;
 
     public AudioSource latestSource;
 
@@ -99,22 +101,31 @@ public class VoiceManager : MonoBehaviour
         switch (enemyID)
         {
             case 0:
-
-                PlaySoundClip(zombieSpawns);
+                if(!zombieSpawned)
+                {
+                    PlaySoundClip(zombieSpawns);
+                    zombieSpawned = true;
+                }
+                
                 break;
 
             case 1:
-
-                PlaySoundClip(skeletonSpawns);
+                if (!skeletonSpawned)
+                {
+                    PlaySoundClip(skeletonSpawns);
+                    skeletonSpawned = true;
+                }
                 break;
 
             case 2:
-
-                PlaySoundClip(skullSpawns);
+                if (!skullSpawned)
+                {
+                    PlaySoundClip(skullSpawns);
+                    skullSpawned = true;
+                }
                 break;
 
             case 3:
-
                 PlaySoundClip(necroSpawns);
                 break;
         }
