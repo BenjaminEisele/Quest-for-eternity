@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class IngameAmienceSound : MonoBehaviour
 {
+    [SerializeField] MusicManager musicManager;
     void Start()
     {
-        MusicManager.instance.PlayAmbience();
+        musicManager.PlayAmbience();
     }
 }

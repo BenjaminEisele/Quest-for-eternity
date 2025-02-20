@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 public class ResolutionDropdown : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] SoundFXManager soundFXManager;
     private bool gameOpening = true;
     public TMPro.TMP_Dropdown resolutionDropdown;
 
@@ -14,14 +15,14 @@ public class ResolutionDropdown : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        SoundFXManager.instance.DropdownSound();
+        soundFXManager.DropdownSound();
     }
 
     public void SetResolution(int resolutionIndex)
     {
         if (!gameOpening)
         {
-            SoundFXManager.instance.DropdownSound();
+            soundFXManager.DropdownSound();
         }
         switch (resolutionIndex)
         {

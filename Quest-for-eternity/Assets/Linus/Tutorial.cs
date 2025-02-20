@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 
 public class Tutorial : MonoBehaviour
 {
+    [SerializeField] VoiceManager voiceManager;
     public Sprite[] slides;
     public UnityEngine.UI.Image image;
     private int currentSlide = 0;
@@ -15,7 +16,7 @@ public class Tutorial : MonoBehaviour
         {
             currentSlide++;
             image.sprite = slides[currentSlide]; 
-            VoiceManager.instance.PlayTutorialLine(currentSlide);
+            voiceManager.PlayTutorialLine(currentSlide);
         }
     }
 
@@ -25,7 +26,7 @@ public class Tutorial : MonoBehaviour
         {
             currentSlide--;
             image.sprite = slides[currentSlide];  
-            VoiceManager.instance.PlayTutorialLine(currentSlide);
+            voiceManager.PlayTutorialLine(currentSlide);
         }
     }
 

@@ -12,6 +12,7 @@ using UnityEngine.EventSystems;
 
 public class VolumeSlider : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
+    [SerializeField] SoundFXManager soundFXManager;
     private bool gameOpening = true;
     private bool firstChange = true;
     public Slider slider;
@@ -34,15 +35,15 @@ public class VolumeSlider : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     {
         if (!gameOpening && firstChange)
         {
-            SoundFXManager.instance.SliderSound();
+            soundFXManager.SliderSound();
             firstChange = false;
         }
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        if(!SoundFXManager.instance.latestSource.IsDestroyed())
+        if(!soundFXManager.latestSource.IsDestroyed())
         {
-            SoundFXManager.instance.StopLatestSound();
+            soundFXManager.StopLatestSound();
         }
         firstChange = true;
     }

@@ -1199,6 +1199,7 @@ MonoBehaviour:
   databasePlayerAccess: {fileID: 4730537138289088088}
   sceneObjectAccess: {fileID: 1929009939263703945}
   cardCount: 0
+  soundFXManager: {fileID: 7250125789181350792}
   canInteract: 0
   isInQuickAttackMode: 0
   isInLongShotMode: 0
@@ -1329,6 +1330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197e8720a4d7db44ac2987957eda3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 7250125789181350792}
   slider: {fileID: 8276603361383728767}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: masterVol
@@ -1797,6 +1799,7 @@ MonoBehaviour:
   handScriptAccess: {fileID: 4716527281068523202}
   playerScriptAccess: {fileID: 1214735220539923461}
   turnScriptAccess: {fileID: 7221015898841572849}
+  soundFXManager: {fileID: 7250125789181350792}
 --- !u!1 &748997861930249668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197e8720a4d7db44ac2987957eda3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 7250125789181350792}
   slider: {fileID: 3850524900374633370}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: sfxVol
@@ -4924,6 +4928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cdcd951b9fe5744a5c776abe9f450c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 7250125789181350792}
   resolutionDropdown: {fileID: 4845441515480399367}
 --- !u!114 &5319162540372650004
 MonoBehaviour:
@@ -5003,6 +5008,7 @@ MonoBehaviour:
   databasePlayerAccess: {fileID: 4730537138289088088}
   playerScriptAccess: {fileID: 1214735220539923461}
   displayCardList: []
+  soundFXManager: {fileID: 0}
 --- !u!1 &2444351486642675701
 GameObject:
   m_ObjectHideFlags: 0
@@ -9137,6 +9143,13 @@ MonoBehaviour:
   skeletonKillPlayer: {fileID: 8300000, guid: 526e4dc615c6b9d4f8ad314a2da61df8, type: 3}
   skullKillPlayer: {fileID: 8300000, guid: 2dcd8deb5aa0b314eb9e6edbca269e75, type: 3}
   necroKillPlayer: {fileID: 0}
+  zombieSpawns: {fileID: 0}
+  skeletonSpawns: {fileID: 0}
+  skullSpawns: {fileID: 0}
+  necroSpawns: {fileID: 0}
+  zombieSpawned: 0
+  skeletonSpawned: 0
+  skullSpawned: 0
   latestSource: {fileID: 0}
 --- !u!114 &7696522756816989430
 MonoBehaviour:
@@ -9150,6 +9163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8481c4a5b5a74854685f2661c5ab6879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicManager: {fileID: 0}
 --- !u!1 &4589480795386260224
 GameObject:
   m_ObjectHideFlags: 0
@@ -9965,6 +9979,7 @@ MonoBehaviour:
   baseActiveCard: {fileID: 3143705838561018988}
   playerScriptAccess: {fileID: 1214735220539923461}
   handscriptAccess: {fileID: 4716527281068523202}
+  soundFXManager: {fileID: 7250125789181350792}
   damagePointsLiquid: 0
   hitRateModifier: 0
   activeCardList: []
@@ -10087,6 +10102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197e8720a4d7db44ac2987957eda3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 7250125789181350792}
   slider: {fileID: 1205599319092100307}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: ambienceVol
@@ -13765,6 +13781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197e8720a4d7db44ac2987957eda3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 7250125789181350792}
   slider: {fileID: 4061538754144116186}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: voiceVol
@@ -14827,6 +14844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qualityDropdown: {fileID: 8260201616065804644}
   qualityIndexSave: 0
+  soundFXManager: {fileID: 7250125789181350792}
 --- !u!114 &4965838879449198468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16158,6 +16176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 6415535125784032262}
+  soundFXManager: {fileID: 7250125789181350792}
 --- !u!114 &5615516871606499612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16870,5 +16889,6 @@ MonoBehaviour:
   playerHealthText: {fileID: 6294086634177729102}
   playerArmorText: {fileID: 4903870884063092263}
   playerScriptAccess: {fileID: 1214735220539923461}
+  voiceManager: {fileID: 1611595808576227657}
   damageMultiplier: 0
   healingMultiplier: 0

@@ -6,6 +6,7 @@ public class QualityDropdown : MonoBehaviour, IPointerClickHandler
     private bool gameOpening = true;
     public TMPro.TMP_Dropdown qualityDropdown;
     public int qualityIndexSave;
+    [SerializeField] SoundFXManager soundFXManager;
 
     void Start()
     {
@@ -19,14 +20,14 @@ public class QualityDropdown : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        SoundFXManager.instance.DropdownSound();
+        soundFXManager.DropdownSound();
     }
 
     public void SetQuality(int qualityIndex)
     {
         if (!gameOpening)
         {
-            SoundFXManager.instance.DropdownSound();
+            soundFXManager.DropdownSound();
         }
         QualitySettings.SetQualityLevel(qualityIndex);
         qualityIndexSave = qualityIndex;

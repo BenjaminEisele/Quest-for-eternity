@@ -22,6 +22,8 @@ public class PlayerStatScript : NetworkBehaviour
     [SerializeField]
     PlayerScript playerScriptAccess;
 
+    [SerializeField] VoiceManager voiceManager;
+
     public int damageMultiplier;
     public int healingMultiplier;
     private void Start()
@@ -165,7 +167,7 @@ public class PlayerStatScript : NetworkBehaviour
         if (playerHealth <= 0)
         {
             playerHealth = 0;
-            VoiceManager.instance.KillPlayerLine(voiceReference);
+            voiceManager.KillPlayerLine(voiceReference);
 
             return true;
         }

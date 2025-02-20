@@ -13,6 +13,8 @@ public class FieldScript : MonoBehaviour
 	[SerializeField]
 	HandScript handscriptAccess;
 
+    [SerializeField] SoundFXManager soundFXManager;
+
     public static int damagePoints = 0;
 	public static int boostPoints = 0;
 
@@ -35,7 +37,7 @@ public class FieldScript : MonoBehaviour
 
     public bool SpawnActiveCard(int cardId, bool isMergeSetup)
     {  
-        SoundFXManager.instance.PlayCardSound();
+        soundFXManager.PlayCardSound();
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
         int damagePointsFromActiveCard;
 		if (isMergeSetup)
@@ -128,7 +130,7 @@ public class FieldScript : MonoBehaviour
                 playerScriptAccess.shouldDealDamage = didWeHit;
                 if (didWeHit)
                 {
-                    SoundFXManager.instance.HitSound();
+                    soundFXManager.HitSound();
                     hitRateModifier = 0;
                     damagePoints = 0;
 					boostPoints = 0;
@@ -141,7 +143,7 @@ public class FieldScript : MonoBehaviour
                 }
                 else
                 {
-                    SoundFXManager.instance.MissSound();
+                    soundFXManager.MissSound();
                     hitRateModifier = 0;
                     damagePoints = 0;
 					boostPoints = 0;

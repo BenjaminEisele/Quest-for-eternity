@@ -36,6 +36,8 @@ public class HandScript : MonoBehaviour
     [SerializeField]
     int cardCount = 0;
 
+    [SerializeField] SoundFXManager soundFXManager;
+
     Vector3 cardPlacementVector;
     Coroutine handScriptDelayCoroutine;
 
@@ -576,7 +578,7 @@ public class HandScript : MonoBehaviour
             cardList[cardIndex] = cardClone.GetComponentInChildren<CardScript>();
         }
         cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);
-        SoundFXManager.instance.DrawSound();
+        soundFXManager.DrawSound();
     }
 
     private int CalculateCardIndex()

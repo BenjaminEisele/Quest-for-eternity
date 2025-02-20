@@ -19,6 +19,8 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     TurnScript turnScriptAccess;
 
+    [SerializeField] SoundFXManager soundFXManager;
+
     private void Start()
     {
         Invoke("SubscriptionInvokeDeck", 1f);
@@ -36,7 +38,7 @@ public class DeckManager : MonoBehaviour
     }
     public void ResetDeck(bool shouldShuffle)
     {
-        SoundFXManager.instance.ShuffleSound();
+        soundFXManager.ShuffleSound();
         if(shouldShuffle)
         {
             ShuffleCards(discardedCardList);

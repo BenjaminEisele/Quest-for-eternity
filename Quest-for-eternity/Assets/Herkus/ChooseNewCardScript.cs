@@ -11,8 +11,8 @@ public class ChooseNewCardScript : MonoBehaviour
     private DatabasePlayer databasePlayerAccess;
     public PlayerScript playerScriptAccess;
     public List<GameObject> displayCardList;
-    
 
+    [SerializeField] SoundFXManager soundFXManager;
 
     private int displayCardCount = 0;
 
@@ -32,7 +32,7 @@ public class ChooseNewCardScript : MonoBehaviour
 
     public void ChooseOneCard(GameObject selfObject, int inputId)
     {
-        //select card sound
+        soundFXManager.DrawSound();
         displayCardCount--;
         Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
