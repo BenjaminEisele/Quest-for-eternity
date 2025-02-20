@@ -166,6 +166,7 @@ public class RefereeScript : NetworkBehaviour
                     randomValue = Random.Range(0, maximumValue);
                 }
                 displayCardIdList.Add(databaseMultiplayerAccess.updatedLootList[randomValue]);
+                databaseMultiplayerAccess.genericLootList.Remove(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 lootIdList.Add(randomValue);
             }
             databaseMultiplayerAccess.updatedLootList.Clear();
