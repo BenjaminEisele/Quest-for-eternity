@@ -135,7 +135,7 @@ public class EnemyScript : NetworkBehaviour
                     specialAttackCounter++;
                     RefereeScript.instance.SpecialAttackCounterNest(false);
                 }
-                // play enemy attack sound
+                VoiceManager.instance.EnemyAttackLine(voiceReference);
                 myDamage = databaseMultiplayerAccess.enemyList[personalId].GenerateAttack();
             }
         }

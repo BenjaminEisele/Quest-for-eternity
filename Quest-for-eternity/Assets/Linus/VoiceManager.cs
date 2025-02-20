@@ -21,6 +21,16 @@ public class VoiceManager : MonoBehaviour
     public AudioClip skullSpawns;
     public AudioClip necroSpawns;
 
+    public AudioClip zombieAttacks;
+    public AudioClip skeletonAttacks;
+    public AudioClip skullAttacks;
+    public AudioClip necroAttacks;
+
+    public bool zombieAttacked = false;
+    public bool skeletonAttacked = false;
+    public bool skullAttacked = false;
+    public bool necroAttacked = false;
+
     public bool zombieSpawned = false;
     public bool skeletonSpawned = false;
     public bool skullSpawned = false;
@@ -128,6 +138,46 @@ public class VoiceManager : MonoBehaviour
             case 3:
                 PlaySoundClip(necroSpawns);
                 break;
+        }
+    }
+
+    public void EnemyAttackLine(int enemyID)
+    {
+        switch (enemyID)
+        {
+            case 0:
+                if (!zombieAttacked)
+                {
+                    PlaySoundClip(zombieAttacks);
+                    zombieAttacked = true;
+                }
+
+                break;
+
+            case 1:
+                if (!skeletonAttacked)
+                {
+                    PlaySoundClip(skeletonAttacks);
+                    skeletonAttacked = true;
+                }
+                break;
+
+            case 2:
+                if (!skullAttacked)
+                {
+                    PlaySoundClip(skullAttacks);
+                    skullAttacked = true;
+                }
+                break;
+
+            case 3:
+                if (!necroAttacked)
+                {
+                    PlaySoundClip(necroAttacks);
+                    necroAttacked = true; 
+                }
+                break;
+
         }
     }
 
