@@ -4886,7 +4886,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 662237097}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.7563043
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5178,6 +5178,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 57bac65052c2bd645bcda8dcda10abf2, type: 3}
   - {fileID: 8300000, guid: 17e9c7272488b4d4a892fa2c6d2cb738, type: 3}
   - {fileID: 8300000, guid: d3312fe832a51e7499508356cf167bdd, type: 3}
+  zombieKillPlayer: {fileID: 0}
+  skeletonKillPlayer: {fileID: 0}
+  skullKillPlayer: {fileID: 0}
+  necroKillPlayer: {fileID: 0}
   latestSource: {fileID: 0}
 --- !u!1 &886953251
 GameObject:
