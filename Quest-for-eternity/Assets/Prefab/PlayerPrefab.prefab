@@ -4995,7 +4995,7 @@ MonoBehaviour:
   databasePlayerAccess: {fileID: 4730537138289088088}
   playerScriptAccess: {fileID: 1214735220539923461}
   displayCardList: []
-  soundFXManager: {fileID: 0}
+  soundFXManager: {fileID: 7250125789181350792}
 --- !u!1 &2444351486642675701
 GameObject:
   m_ObjectHideFlags: 0
