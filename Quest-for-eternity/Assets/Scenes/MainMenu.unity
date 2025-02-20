@@ -795,7 +795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &184935915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -831,25 +831,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5deca5ab07b52164e94ea0306de6f8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voiceManager: {fileID: 881336163}
   slides:
   - {fileID: -6470460504253458178, guid: fdd7e19f712eb1842afc97424b87d0b6, type: 3}
   - {fileID: -4178046375966092550, guid: ae8732c5349f20845a33dc1f057933af, type: 3}
   - {fileID: 4130640169021434097, guid: 01fb906b08410254b9a934028bb2b183, type: 3}
   - {fileID: 3465286685962602723, guid: 1e638cd9ee3129143975730076630676, type: 3}
   - {fileID: 7028616704906629411, guid: aa089f969802d9c458c4f6b54c11d506, type: 3}
-  - {fileID: 8288426215254106694, guid: cf035dedb1fe6234ab9deec17ff1e6f5, type: 3}
+  - {fileID: 4113829005332862926, guid: 330ac961de42897419161f11929950f7, type: 3}
   - {fileID: -5099292496197868168, guid: 7e391d4420f18914abbe73f5d9e6096c, type: 3}
   - {fileID: -5099292496197868168, guid: c85cfc91d89d93645ab53a52d7c7e7d9, type: 3}
   - {fileID: 8389134475083476877, guid: 902bcdf98108e394b8ccb009f71bfee2, type: 3}
-  - {fileID: -1540426309290004842, guid: 6f70dbe4ecb2ce049acf4cf2cb25095e, type: 3}
+  - {fileID: -6270953770400647376, guid: 8e9a18e1a9d5b614eb6e7f455cf41200, type: 3}
   - {fileID: -1116512474048888928, guid: d1a6d14131d4e0047b7640c5de922502, type: 3}
   - {fileID: 6660783624410144326, guid: 6642bb94d205d894e9dd5f22503a791f, type: 3}
-  - {fileID: 4349915267927364619, guid: 57c7bebc79f9e89448d52a5f7fd2f861, type: 3}
-  - {fileID: 7680820834086852892, guid: d65a46fb6e1b09144aba16ef9bb88a39, type: 3}
+  - {fileID: 2960402581040015946, guid: 473dcbb43c0e44742841e5a82b776c92, type: 3}
+  - {fileID: 7157561037332017152, guid: 6635b7c08f166444fb52a0450d11773e, type: 3}
   - {fileID: 6660783624410144326, guid: d8ba729856d32dd4ca92cf227f9b8933, type: 3}
   - {fileID: -5750353039905602045, guid: de5a35af428df4b498ae9e57b7e56e62, type: 3}
   - {fileID: -7371509505491802261, guid: 237d6957699fdbf4184ce167f4033945, type: 3}
-  - {fileID: 4164744761163438241, guid: f7f0c6a0041bb4c49aa046b39b1a9227, type: 3}
+  - {fileID: 2720535173406242035, guid: 850ae40fc7e35a04aa92209584c5a18d, type: 3}
   - {fileID: 8102358098348255977, guid: cc87c9aca1f6b9148b2ca8de547ad1ef, type: 3}
   - {fileID: 6894999169920593895, guid: d592c9c8e378ef147bb9297e6c344359, type: 3}
   - {fileID: -5622901713081898559, guid: a80d586edf7ea4948b18cb84f7b0fff4, type: 3}
@@ -1673,6 +1674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197e8720a4d7db44ac2987957eda3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 881336161}
   slider: {fileID: 397496390}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: voiceVol
@@ -2462,6 +2464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197e8720a4d7db44ac2987957eda3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 881336161}
   slider: {fileID: 546170535}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: masterVol
@@ -2668,6 +2671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qualityDropdown: {fileID: 549490367}
   qualityIndexSave: 0
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &549490373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3908,6 +3912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 682305702}
+  soundFXManager: {fileID: 881336161}
 --- !u!114 &682305705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6940,6 +6945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197e8720a4d7db44ac2987957eda3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 881336161}
   slider: {fileID: 1202546372}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: sfxVol
@@ -8692,6 +8698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1197e8720a4d7db44ac2987957eda3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 881336161}
   slider: {fileID: 1595230888}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: ambienceVol
@@ -10293,6 +10300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cdcd951b9fe5744a5c776abe9f450c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundFXManager: {fileID: 881336161}
   resolutionDropdown: {fileID: 1958317915}
 --- !u!114 &1958317919
 MonoBehaviour:
