@@ -360,7 +360,6 @@ GameObject:
   - component: {fileID: 115020166079874995}
   - component: {fileID: 8109068459451030971}
   - component: {fileID: 2065733750607374047}
-  - component: {fileID: 6515882537637396093}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -460,18 +459,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6515882537637396093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273495149286065016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ca75067e82de04b896f64d9d635e18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &276045596515830023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,7 +3823,7 @@ MonoBehaviour:
   zLocator: 0
   description: {fileID: 2763508546960763761}
   dragDropAccess: {fileID: 5904794597110541832}
-  scaleParent: {fileID: 0}
+  scaleParent: {fileID: 326227858333459568}
   animationSpeed: 0
 --- !u!114 &5904794597110541832
 MonoBehaviour:
@@ -9163,7 +9150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8481c4a5b5a74854685f2661c5ab6879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicManager: {fileID: 0}
+  musicManager: {fileID: 6845034425483234958}
 --- !u!1 &4589480795386260224
 GameObject:
   m_ObjectHideFlags: 0

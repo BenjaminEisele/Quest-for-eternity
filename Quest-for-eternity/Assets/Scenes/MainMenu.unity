@@ -795,7 +795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &184935915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9032,6 +9032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ca75067e82de04b896f64d9d635e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicManager: {fileID: 881336162}
 --- !u!4 &1703284397
 Transform:
   m_ObjectHideFlags: 0
