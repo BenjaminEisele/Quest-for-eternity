@@ -502,16 +502,17 @@ public class RefereeScript : NetworkBehaviour
             for (int i = 0; i < loopCount; i++)
             {
                 if(enemyList[i].canAttack)
-                {   
+                {
+                    int voiceReference = enemyList[i].voiceReference;
                     int enemyDamage = enemyList[i].GenerateAttack();
                     int enemyType = enemyList[i].myEnemyType;
                     if (isClientOnly)
                     {
-                        CmdDealDamageToPlayer(enemyDamage, enemyType);
+                        CmdDealDamageToPlayer(enemyDamage, enemyType, voiceReference);
                     }
                     else
                     {
-                        RpcDealDamageToPlayer(enemyDamage, enemyType);
+                        RpcDealDamageToPlayer(enemyDamage, enemyType, voiceReference);
                     }
                     UiScript.UpdateFieldDamageText(enemyDamage.ToString(), false);
                 }
@@ -536,22 +537,22 @@ public class RefereeScript : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcDealDamageToPlayer(int inputDamage, int inputType)
+    public void RpcDealDamageToPlayer(int inputDamage, int inputType, int voiceReference)
     {
         if(isClientOnly ^ singlePlayerMode)
         {
-            DealDamageLogic(inputDamage, inputType);
+            DealDamageLogic(inputDamage, inputType, voiceReference);
         }
     }
     [Command(requiresAuthority = false)]
-    public void CmdDealDamageToPlayer(int inputDamage, int inputType)
+    public void CmdDealDamageToPlayer(int inputDamage, int inputType, int voiceReference)
     {
-        DealDamageLogic(inputDamage, inputType);
+        DealDamageLogic(inputDamage, inputType, voiceReference);
     }
 
-    public void DealDamageLogic(int inputDamage, int inputType)
+    public void DealDamageLogic(int inputDamage, int inputType, int voiceReference)
     {
-        if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage, inputType))
+        if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage, inputType, voiceReference))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
             playerList[targetPlayerId].isPlayerAlive = false;

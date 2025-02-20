@@ -19,3 +19,6 @@ MonoBehaviour:
   isBoss: 1
   lootCardId: 0
   difficultyValue: 20
+  enemyType: 0
+  lootAmount: 0
+  voiceReference: 3

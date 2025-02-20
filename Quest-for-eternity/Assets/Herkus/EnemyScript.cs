@@ -10,6 +10,7 @@ public class EnemyScript : NetworkBehaviour
     public int enemyHealth;
     public int personalId;
     int savedEnemyHealth;
+    public int voiceReference;
 
 
     [SyncVar]
@@ -40,6 +41,7 @@ public class EnemyScript : NetworkBehaviour
 
     public void EnemySetUp(int myID)
     {
+        voiceReference = databaseMultiplayerAccess.enemyList[myID].voiceReference;
         canAttack = true;
         specialAttackCounter = 0;
         personalId = myID;

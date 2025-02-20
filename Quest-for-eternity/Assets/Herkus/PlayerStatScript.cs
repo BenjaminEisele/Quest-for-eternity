@@ -142,13 +142,14 @@ public class PlayerStatScript : NetworkBehaviour
             playerArmor = 0;
         }
     }
-    public bool TakeDamageAndCheckIfDead(int inputDamage, int inputType)
+    public bool TakeDamageAndCheckIfDead(int inputDamage, int inputType, int voiceReference)
     {
         if(!IsImmuneToAttack(inputType))
         {
             inputDamage -= playerHealthOffset;
             if(inputDamage <= 0)
             {
+                //Player gets killed
                 inputDamage = 0;
             }
             ChangeHealthNest(-inputDamage * damageMultiplier, 0, true);

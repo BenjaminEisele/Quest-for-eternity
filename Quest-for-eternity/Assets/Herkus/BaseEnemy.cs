@@ -16,6 +16,7 @@ public class BaseEnemy : ScriptableObject
     public int difficultyValue;
     public int enemyType;
     public int lootAmount;
+    public int voiceReference;
 
     public virtual int GenerateAttack()
     {

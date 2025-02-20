@@ -21,3 +21,4 @@ MonoBehaviour:
   difficultyValue: 2
   enemyType: 0
   lootAmount: 4
+  voiceReference: 1
