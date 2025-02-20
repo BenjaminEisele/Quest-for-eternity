@@ -574,8 +574,8 @@ public class HandScript : MonoBehaviour
         {
             cardList[cardIndex] = cardClone.GetComponentInChildren<CardScript>();
         }
-        cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);   
-        // draw card sound
+        cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);
+        SoundFXManager.instance.DrawSound();
     }
 
     private int CalculateCardIndex()

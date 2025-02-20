@@ -3692,8 +3692,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Confirm
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
+  m_sharedMaterial: {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6782,18 +6782,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7250125789181350792}
-        m_TargetAssemblyTypeName: SoundFXManager, Assembly-CSharp
-        m_MethodName: CoinSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1211570424352650412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7539,8 +7527,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Input
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
+  m_sharedMaterial: {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9038,8 +9026,11 @@ MonoBehaviour:
   sliderSound: {fileID: 8300000, guid: 4ab743f6f9b071244a7badfaa8bcc950, type: 3}
   coinSound: {fileID: 8300000, guid: 4f442d4513fc45346a5b84cc44d5161e, type: 3}
   drawSound: {fileID: 8300000, guid: bf76c9c001910ac4d944c79ea8bcc2e4, type: 3}
-  playCardSound: {fileID: 0}
-  shuffleSound: {fileID: 0}
+  playCardSound: {fileID: 8300000, guid: bc2769050e7ce1e48b6a5ab86ef78e30, type: 3}
+  shuffleSound: {fileID: 8300000, guid: 23f520b11f9331a4099b10807509f48e, type: 3}
+  enemySpawnSound: {fileID: 8300000, guid: ab1a2fe12cb5110418311ee32469c396, type: 3}
+  hitSound: {fileID: 8300000, guid: f3b683c0f6f9b934caf258437f43116e, type: 3}
+  missSound: {fileID: 8300000, guid: 054538c5b09dea8488308d285ee5b235, type: 3}
   latestSource: {fileID: 0}
 --- !u!114 &6845034425483234958
 MonoBehaviour:
@@ -9669,8 +9660,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
+  m_sharedMaterial: {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16115,7 +16106,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 6415535125784032262}
-  soundFXManager: {fileID: 7250125789181350792}
 --- !u!114 &5615516871606499612
 MonoBehaviour:
   m_ObjectHideFlags: 0

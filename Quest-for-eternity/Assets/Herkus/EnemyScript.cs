@@ -55,7 +55,7 @@ public class EnemyScript : NetworkBehaviour
         enemyDamageText.text = databaseMultiplayerAccess.enemyList[personalId].enemyDamage.ToString();
         UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
         databaseMultiplayerAccess.updatedLootList.Add(databaseMultiplayerAccess.enemyList[personalId].lootCardId);
-        // play enemy spawn sound 
+        SoundFXManager.instance.EnemySpawnSound(); 
     }
     public void ResetEnemy()
     {

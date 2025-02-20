@@ -278,7 +278,6 @@ GameObject:
   - component: {fileID: 84571543}
   - component: {fileID: 84571542}
   - component: {fileID: 84571541}
-  - component: {fileID: 84571540}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -306,18 +305,6 @@ RectTransform:
   m_AnchoredPosition: {x: -781, y: 424}
   m_SizeDelta: {x: 206.9597, y: 66.0025}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &84571540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84571538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &84571541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1580,7 +1567,6 @@ GameObject:
   - component: {fileID: 397496389}
   - component: {fileID: 397496390}
   - component: {fileID: 397496391}
-  - component: {fileID: 397496392}
   - component: {fileID: 397496393}
   m_Layer: 5
   m_Name: VoiceSlider
@@ -1690,18 +1676,6 @@ MonoBehaviour:
   slider: {fileID: 397496390}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: voiceVol
---- !u!114 &397496392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397496388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &397496393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,7 +1717,6 @@ GameObject:
   - component: {fileID: 471338286}
   - component: {fileID: 471338285}
   - component: {fileID: 471338284}
-  - component: {fileID: 471338283}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -1771,18 +1744,6 @@ RectTransform:
   m_AnchoredPosition: {x: 832, y: 0}
   m_SizeDelta: {x: 206.9597, y: 66.0025}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &471338283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471338281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &471338284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,7 +2356,6 @@ GameObject:
   - component: {fileID: 546170534}
   - component: {fileID: 546170535}
   - component: {fileID: 546170536}
-  - component: {fileID: 546170537}
   - component: {fileID: 546170538}
   m_Layer: 5
   m_Name: GeneralSlider
@@ -2505,18 +2465,6 @@ MonoBehaviour:
   slider: {fileID: 546170535}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: masterVol
---- !u!114 &546170537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546170533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &546170538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,7 +2478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 1
+  - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -2559,7 +2507,6 @@ GameObject:
   - component: {fileID: 549490369}
   - component: {fileID: 549490367}
   - component: {fileID: 549490371}
-  - component: {fileID: 549490372}
   - component: {fileID: 549490373}
   m_Layer: 5
   m_Name: GraphicDropdown
@@ -2721,18 +2668,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qualityDropdown: {fileID: 549490367}
   qualityIndexSave: 0
---- !u!114 &549490372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549490366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &549490373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3306,7 +3241,6 @@ GameObject:
   - component: {fileID: 626995375}
   - component: {fileID: 626995374}
   - component: {fileID: 626995373}
-  - component: {fileID: 626995372}
   m_Layer: 5
   m_Name: PreviousButton
   m_TagString: Untagged
@@ -3334,18 +3268,6 @@ RectTransform:
   m_AnchoredPosition: {x: -815, y: 0}
   m_SizeDelta: {x: 206.9597, y: 66.0025}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &626995372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626995370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &626995373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3885,7 +3807,6 @@ GameObject:
   - component: {fileID: 682305701}
   - component: {fileID: 682305702}
   - component: {fileID: 682305703}
-  - component: {fileID: 682305704}
   - component: {fileID: 682305705}
   m_Layer: 5
   m_Name: FulscreenToggle
@@ -3987,19 +3908,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 682305702}
-  soundFXManager: {fileID: 881336161}
---- !u!114 &682305704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682305700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &682305705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5213,6 +5121,9 @@ MonoBehaviour:
   drawSound: {fileID: 0}
   playCardSound: {fileID: 0}
   shuffleSound: {fileID: 0}
+  enemySpawnSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  missSound: {fileID: 0}
   latestSource: {fileID: 0}
 --- !u!114 &881336162
 MonoBehaviour:
@@ -6913,7 +6824,6 @@ GameObject:
   - component: {fileID: 1202546372}
   - component: {fileID: 1202546373}
   - component: {fileID: 1202546374}
-  - component: {fileID: 1202546375}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -7023,18 +6933,6 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: sfxVol
 --- !u!114 &1202546374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202546370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1202546375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7225,7 +7123,6 @@ GameObject:
   - component: {fileID: 1303515252}
   - component: {fileID: 1303515251}
   - component: {fileID: 1303515250}
-  - component: {fileID: 1303515253}
   - component: {fileID: 1303515254}
   m_Layer: 5
   m_Name: BackButton
@@ -7383,18 +7280,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303515248}
   m_CullTransparentMesh: 1
---- !u!114 &1303515253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303515248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1303515254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8143,7 +8028,6 @@ GameObject:
   - component: {fileID: 1442008637}
   - component: {fileID: 1442008636}
   - component: {fileID: 1442008635}
-  - component: {fileID: 1442008638}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: Untagged
@@ -8301,18 +8185,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442008633}
   m_CullTransparentMesh: 1
---- !u!114 &1442008638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442008633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1458925544
 GameObject:
   m_ObjectHideFlags: 0
@@ -8703,7 +8575,6 @@ GameObject:
   - component: {fileID: 1595230887}
   - component: {fileID: 1595230888}
   - component: {fileID: 1595230889}
-  - component: {fileID: 1595230890}
   - component: {fileID: 1595230891}
   m_Layer: 5
   m_Name: AmbienceSlider
@@ -8813,18 +8684,6 @@ MonoBehaviour:
   slider: {fileID: 1595230888}
   audioMixer: {fileID: 24100000, guid: 1c838c17d7c006c48946b5361480aec0, type: 2}
   volumeVar: ambienceVol
---- !u!114 &1595230890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595230886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f01162198ca862446a3a2ceed5fd3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1595230891
 MonoBehaviour:
   m_ObjectHideFlags: 0

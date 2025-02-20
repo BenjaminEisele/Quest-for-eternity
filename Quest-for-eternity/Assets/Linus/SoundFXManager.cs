@@ -18,6 +18,10 @@ public class SoundFXManager : MonoBehaviour
     public AudioClip drawSound;
     public AudioClip playCardSound;
     public AudioClip shuffleSound;
+    public AudioClip enemySpawnSound;
+    public AudioClip hitSound;
+    public AudioClip missSound;
+
     public AudioSource latestSource;
     
 
@@ -29,20 +33,16 @@ public class SoundFXManager : MonoBehaviour
         }   
     }
 
-    public void PlaySoundClip(AudioClip audioClip, Transform spawnTransform, float volume, bool setLatestSource)
+    public void PlaySoundClip(AudioClip audioClip)
     {
         //Spawn Gameobject
-        AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
-        if(setLatestSource)
-        {
-            latestSource = audioSource;
-        }
+        AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
 
         //assign audio Clip
         audioSource.clip = audioClip;
 
         //assgin volume
-        audioSource.volume = volume;
+        audioSource.volume = 1f;
 
         //play sound
         audioSource.Play();
@@ -74,48 +74,64 @@ public class SoundFXManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public void ButtonSound()
-    {
-        instance.PlaySoundClip(buttonSound, transform, 1f, false);
-    }
-
     public void StopLatestSound ()
     {
         Destroy(latestSource.gameObject);
     }
 
+    public void ButtonSound()
+    {
+        instance.PlaySoundClip(buttonSound);
+    }
+
+
     public void DropdownSound()
     {
-        instance.PlaySoundClip(dropdownSound, transform, 1f, false);
+        instance.PlaySoundClip(dropdownSound);
     }
 
     public void ToggleSound()
     {
-        instance.PlaySoundClip(toggleSound, transform, 1f, false);
+        instance.PlaySoundClip(toggleSound);
     }
 
-        public void HoverSound()
+    public void HoverSound()
     {
-        instance.PlaySoundClip(hoverSound, transform, 1f, false);
+        instance.PlaySoundClip(hoverSound);
     }
 
-    public void CoinSound()
+    public void EndTurnSound()
     {
-        instance.PlaySoundClip(coinSound, transform, 1f, false);
+        instance.PlaySoundClip(coinSound);
     }
 
     public void DrawSound()
     {
-        instance.PlaySoundClip(drawSound, transform, 1f, false);
+        instance.PlaySoundClip(drawSound);
     }
 
     public void PlayCardSound()
     {
-        instance.PlaySoundClip(playCardSound, transform, 1f, false);
+        instance.PlaySoundClip(playCardSound);
     }
 
     public void ShuffleSound()
     {
-        instance.PlaySoundClip(shuffleSound, transform, 1f, false);
+        instance.PlaySoundClip(shuffleSound);
+    }
+
+    public void EnemySpawnSound()
+    {
+        instance.PlaySoundClip(enemySpawnSound);
+    }
+
+    public void HitSound()
+    {
+        instance.PlaySoundClip(hitSound);
+    }
+
+    public void MissSound()
+    {
+        instance.PlaySoundClip(missSound);
     }
 }

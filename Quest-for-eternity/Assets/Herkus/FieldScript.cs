@@ -35,7 +35,7 @@ public class FieldScript : MonoBehaviour
 
     public bool SpawnActiveCard(int cardId, bool isMergeSetup)
     {  
-        //SoundFXManager.instance.PlayCardSound();
+        SoundFXManager.instance.PlayCardSound();
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
         int damagePointsFromActiveCard;
 		if (isMergeSetup)
@@ -128,7 +128,7 @@ public class FieldScript : MonoBehaviour
                 playerScriptAccess.shouldDealDamage = didWeHit;
                 if (didWeHit)
                 {
-                    // play hit sound
+                    SoundFXManager.instance.HitSound();
                     hitRateModifier = 0;
                     damagePoints = 0;
 					boostPoints = 0;
@@ -141,7 +141,7 @@ public class FieldScript : MonoBehaviour
                 }
                 else
                 {
-                    //play miss sound
+                    SoundFXManager.instance.MissSound();
                     hitRateModifier = 0;
                     damagePoints = 0;
 					boostPoints = 0;

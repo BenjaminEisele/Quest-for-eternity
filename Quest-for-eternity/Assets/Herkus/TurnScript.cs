@@ -131,6 +131,6 @@ public class TurnScript : MonoBehaviour
 
     private void PlayEndTurnSound()
     {
-        //End Turn Sound Here
+        SoundFXManager.instance.EndTurnSound();
     }
 }
