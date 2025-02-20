@@ -67,7 +67,7 @@ public class RefereeScript : NetworkBehaviour
     public int lootCardCount;
 
     [SerializeField]
-    DatabaseMultiplayer databaseMultiplayerAccess;
+    public DatabaseMultiplayer databaseMultiplayerAccess;
 
     private void Awake()
     {
@@ -166,7 +166,7 @@ public class RefereeScript : NetworkBehaviour
                     randomValue = Random.Range(0, maximumValue);
                 }
                 displayCardIdList.Add(databaseMultiplayerAccess.updatedLootList[randomValue]);
-                databaseMultiplayerAccess.genericLootList.Remove(databaseMultiplayerAccess.updatedLootList[randomValue]);
+                //databaseMultiplayerAccess.genericLootList.Remove(databaseMultiplayerAccess.updatedLootList[randomValue]);
                 lootIdList.Add(randomValue);
             }
             databaseMultiplayerAccess.updatedLootList.Clear();

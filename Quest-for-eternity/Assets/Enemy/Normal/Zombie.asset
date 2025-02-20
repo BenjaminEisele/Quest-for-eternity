@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: 
   enemyName: Zombie
-  enemyHealth: 15
+  enemyHealth: 5
   enemyDamage: 2
   enemySprite: {fileID: 6019453725058403666, guid: 9e4cbfdd9ece5734790562d1775c3c2a, type: 3}
   isBoss: 0
-  lootCardId: 0
+  lootCardId: 22
   difficultyValue: 1
   enemyType: 1
   lootAmount: 4
+  voiceReference: 0
