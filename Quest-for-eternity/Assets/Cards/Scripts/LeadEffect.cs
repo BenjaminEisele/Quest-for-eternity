@@ -11,7 +11,7 @@ public class LeadEffect : EffectTemplate
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             Debug.Log("lead effect active");
-            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SendCardsOver(null, 31);
+            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SendCardsOver(null, inputGameobject.GetComponent<SceneObjectDatabase>().databasePlayerAccess.cardList.Count - 2);
         }
     }
 }

@@ -177,6 +177,7 @@ public class RefereeScript : NetworkBehaviour
     {
         for(int i = 0; i < lootIdList.Count; i++)
         {
+            //playerList[0].transform.root.GetComponentInChildren<DatabasePlayer>().cardList[inputId].
             if(inputId == lootIdList[i])
             {
                 return false;

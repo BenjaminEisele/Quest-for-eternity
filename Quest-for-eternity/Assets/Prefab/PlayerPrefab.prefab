@@ -1762,7 +1762,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a60756626e31014ba048c508f4a058b, type: 2}
   - {fileID: 11400000, guid: 632e0b6f9746cb24f807f4102a8fcc5a, type: 2}
   - {fileID: 11400000, guid: 012055df5fb68e448b7ead50427c3498, type: 2}
-  - {fileID: 11400000, guid: 012055df5fb68e448b7ead50427c3498, type: 2}
   - {fileID: 11400000, guid: 81be87e94373d534a9e1db605e778609, type: 2}
   - {fileID: 11400000, guid: bbadcc12f460dc64e81d84f6c905a35d, type: 2}
   - {fileID: 11400000, guid: b1dbe40d7da02974b9a17b913bc52e56, type: 2}
@@ -12725,6 +12724,7 @@ MonoBehaviour:
   fieldScriptReference: {fileID: 5498560621881706503}
   handScriptReference: {fileID: 4716527281068523202}
   playerScriptAccess: {fileID: 1214735220539923461}
+  databasePlayerAccess: {fileID: 0}
 --- !u!1 &6505953166461395639
 GameObject:
   m_ObjectHideFlags: 0
