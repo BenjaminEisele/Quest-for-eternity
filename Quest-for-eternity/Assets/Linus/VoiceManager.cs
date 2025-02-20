@@ -47,6 +47,12 @@ public class VoiceManager : MonoBehaviour
 
     public void PlaySoundClip(AudioClip audioClip)
     {
+        //if there is a voice line playing, destroy it
+        if (!latestSource.IsDestroyed())
+        {
+            Destroy(latestSource.gameObject);
+        }
+
         //Spawn Gameobject
         AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
 
@@ -73,10 +79,6 @@ public class VoiceManager : MonoBehaviour
 
     public void PlayTutorialLine(int lineIndex)
     {
-        if(!latestSource.IsDestroyed())
-        {
-            Destroy(latestSource.gameObject);
-        }
         PlaySoundClip(tutorialLines[lineIndex]);
     }
 
@@ -178,14 +180,6 @@ public class VoiceManager : MonoBehaviour
                 }
                 break;
 
-        }
-    }
-
-    public void StopTutorialLine()
-    {
-        if (!latestSource.IsDestroyed())
-        {
-            Destroy(latestSource.gameObject);
         }
     }
 }
