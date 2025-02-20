@@ -16,7 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0.26274505, g: 0.32103032, b: 0.9490196, a: 1}
   cardSprite: {fileID: 3431513667723699190, guid: fe107af33a277d7438886f8329d1659f, type: 3}
-  cardDescription: Next ACT -30%, It will not end your turn
+  cardDescription: Immidiately play an additional ACT card with -30% accuracy.
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 5f2fd925b56b24247aa37f50c810bd20, type: 2}
     effectValue: 0

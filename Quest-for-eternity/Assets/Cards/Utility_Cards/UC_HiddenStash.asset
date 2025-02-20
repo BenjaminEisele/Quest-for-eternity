@@ -16,7 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0.26274505, g: 0.75700086, b: 0.9490196, a: 1}
   cardSprite: {fileID: 4794254629732514629, guid: 32131c9a6b7d4784fb609dcacf776fbf, type: 3}
-  cardDescription: Draw 2 cards
+  cardDescription: Draw 2 cards.
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: d3b292b7632f1a940a3a4bf3c4f551a2, type: 2}
     effectValue: 2

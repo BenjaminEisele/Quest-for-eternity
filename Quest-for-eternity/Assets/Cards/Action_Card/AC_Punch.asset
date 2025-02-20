@@ -16,6 +16,7 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 1, g: 0, b: 0.07709837, a: 1}
   cardSprite: {fileID: -4335222134116007343, guid: 747733e326f10294b85f2003b895aac7, type: 3}
-  cardDescription: Hit the enemy
+  cardDescription: 
   cardDamage: 1
   cardHitRate: 0.9
+  actionEffectUnitList: []
