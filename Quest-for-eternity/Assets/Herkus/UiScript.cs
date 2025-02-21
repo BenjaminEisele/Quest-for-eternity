@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class UiScript : MonoBehaviour
 {
@@ -41,21 +42,29 @@ public class UiScript : MonoBehaviour
 
     public void GenerateIcon(Sprite inputSprite)
     {
-        GameObject newIcon = Instantiate(instanceImage.gameObject, iconSpawnpoint.position, Quaternion.identity, transform.parent);
+        GameObject newIcon = Instantiate(instanceImage.gameObject, iconSpawnpoint.position + new Vector3(0,-4,0), Quaternion.identity, transform.parent);
         newIcon.SetActive(true);
         newIcon.GetComponent<Image>().sprite = inputSprite;
         iconList.Add(newIcon);
         SquashIcons();
     }
+    public void RebuildIconList()
+    {
 
+    }
     private void SquashIcons()
     {
         float interval = 475f/(iconList.Count + 1);
         for (int i = 0; i < iconList.Count; i++)
         {
-            Debug.Log($"coordinate is {0 + interval * (i + 1)}");
-
-            iconList[i].transform.position = new Vector3(iconSpawnpoint.position.x + interval * (i + 1), iconSpawnpoint.position.y, iconSpawnpoint.position.z);
+            //iconList[i].transform.position = new Vector3(iconSpawnpoint.position.x, iconSpawnpoint.position.y - 5, iconSpawnpoint.position.z);
+            //Debug.Log($"coordinate is {0 + interval * (i + 1)}");
+            if(i == iconList.Count - 1)
+            {
+                iconList[i].transform.position = new Vector3(iconSpawnpoint.position.x + interval * (i + 1), iconSpawnpoint.position.y - 250, iconSpawnpoint.position.z);
+            }
+            iconList[i].transform.DOMove(new Vector3(iconSpawnpoint.position.x + interval * (i + 1), iconSpawnpoint.position.y, iconSpawnpoint.position.z), 0.3f);
+            //iconList[i].transform.position = new Vector3(iconSpawnpoint.position.x + interval * (i + 1), iconSpawnpoint.position.y, iconSpawnpoint.position.z);
         }
     }
     public static void UpdateFighterText(TextMeshPro changedText, int value)
