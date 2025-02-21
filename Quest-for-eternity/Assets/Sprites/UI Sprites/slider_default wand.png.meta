@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4ad0abfc528d8c647ad08e0f23a9b56a
+guid: 250f7c269f5439547b71de2ff46aa945
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3020688550104541841
-    second: PlaceholderIcon5_0
+      213: -845599480378608729
+    second: slider_default wand_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlaceholderIcon5_0
+      name: slider_default wand_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
+        x: 477
+        y: 129
+        width: 726
+        height: 4228
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f65dde994cb5416d0800000000000000
-      internalID: -3020688550104541841
+      spriteID: 7a337c5b0c3d344f0800000000000000
+      internalID: -845599480378608729
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      PlaceholderIcon5_0: -3020688550104541841
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

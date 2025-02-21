@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: bebffc233e4f4dd438f174111c4de0c9
+guid: 008a954b190fd0a43b28f842098a1b0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1199562824159972388
-    second: signui_0
+      213: 2235315541761828483
+    second: slider_handle magiceffect_0
+  - first:
+      213: -7796044577728760915
+    second: slider_handle magiceffect_1
+  - first:
+      213: -6400902097439812475
+    second: slider_handle magiceffect_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: signui_0
+      name: slider_handle magiceffect_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 202
-        width: 1580
-        height: 666
+        x: 291
+        y: 631
+        width: 1063
+        height: 233
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42cc1d37804b5a010800000000000000
-      internalID: 1199562824159972388
+      spriteID: 386af9b54af650f10800000000000000
+      internalID: 2235315541761828483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slider_handle magiceffect_1
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 590
+        width: 119
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da3fd5303c2eec390800000000000000
+      internalID: -7796044577728760915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slider_handle magiceffect_2
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 680
+        width: 75
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5841c00b47d6b27a0800000000000000
+      internalID: -6400902097439812475
       vertices: []
       indices: 
       edges: []
@@ -134,8 +184,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      signui_0: 1199562824159972388
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
