@@ -23,6 +23,7 @@ public class PlayerStatScript : NetworkBehaviour
     PlayerScript playerScriptAccess;
 
     [SerializeField] VoiceManager voiceManager;
+    [SerializeField] UiScript uiScriptAccess;
 
     public int damageMultiplier;
     public int healingMultiplier;
@@ -62,10 +63,16 @@ public class PlayerStatScript : NetworkBehaviour
     }
     private void PlayerStatNewTurnEvent()
     {
-        if(playerScriptAccess.isThisPlayersTurn)
+        if(RefereeScript.instance)
         {
-            healingMultiplier = 1;
+            if (playerScriptAccess.isThisPlayersTurn ^ RefereeScript.instance.singlePlayerMode)
+            {
+                Debug.Log("activation 2");
+                healingMultiplier = 1;
+                uiScriptAccess.DestroyIcon(27);
+            }
         }
+        
     }
 
     public void ResetPlayerStatList()
@@ -155,6 +162,8 @@ public class PlayerStatScript : NetworkBehaviour
             }
             ChangeHealthNest(-inputDamage * damageMultiplier, 0, true);
             playerHealthOffset = 0;
+            //Debug.Log()
+            uiScriptAccess.DestroyIcon(15);
         }
         else
         {

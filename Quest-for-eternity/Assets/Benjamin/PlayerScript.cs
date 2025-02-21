@@ -260,7 +260,7 @@ public class PlayerScript : NetworkBehaviour
 
                 if (damageThisRound > 3 && (Random.Range(0f, 1f) > 0.33))
                 {
-                    voiceManager.StrongAttackLine();
+                   // voiceManager.StrongAttackLine();
                 }
 
                 if (areaAttackActive)

@@ -1780,7 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 0f0000000f0000000f0000000f0000001b0000001b0000001b000000110000001200000000000000000000000000000000000000
+  deckCardList: 0f0000000f0000000f0000000f0000001b0000001b0000001b0000001b0000001b00000012000000120000001200000012000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -3546,6 +3546,7 @@ MonoBehaviour:
   endTurnButton: {fileID: 4485664734557763521}
   instanceImage: {fileID: 5285365155431568478}
   iconSpawnpoint: {fileID: 373729295937624361}
+  databasePlayerAccess: {fileID: 4730537138289088088}
   iconList: []
 --- !u!1 &1663298374461166314
 GameObject:
@@ -11684,7 +11685,7 @@ MonoBehaviour:
   multiplier: 0
   healingSum: 0
   areaAttackActive: 0
-  voiceManager: {fileID: 0}
+  voiceManager: {fileID: 1611595808576227657}
   knowledgeIdList: 
 --- !u!1 &6419282960436208635
 GameObject:
@@ -15622,5 +15623,6 @@ MonoBehaviour:
   playerArmorText: {fileID: 4903870884063092263}
   playerScriptAccess: {fileID: 1214735220539923461}
   voiceManager: {fileID: 1611595808576227657}
+  uiScriptAccess: {fileID: 8797810155221267089}
   damageMultiplier: 0
   healingMultiplier: 0
