@@ -26,6 +26,9 @@ public class UiScript : MonoBehaviour
     [SerializeField]
     Image instanceImage;
 
+    [SerializeField]
+    Transform iconSpawnpoint;
+
 
     private void Start()
     {
@@ -35,7 +38,8 @@ public class UiScript : MonoBehaviour
 
     public void GenerateIcon(Sprite inputSprite)
     {
-        instanceImage.sprite = inputSprite;
+        GameObject newIcon = Instantiate(instanceImage.gameObject, iconSpawnpoint.position, Quaternion.identity);
+        newIcon.GetComponent<Image>().sprite = inputSprite;
     }
     public static void UpdateFighterText(TextMeshPro changedText, int value)
     {

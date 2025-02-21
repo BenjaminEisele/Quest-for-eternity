@@ -21,6 +21,8 @@ public class ActiveCardScript : MonoBehaviour
     DatabasePlayer databasePlayerAccess;
     [SerializeField]
     GameObject activeCardImage;
+    [SerializeField]
+    UiScript uiManagerAccess;
     public bool CheckIfCardHasActionType()
     {
         return isActionCard;
@@ -65,6 +67,10 @@ public class ActiveCardScript : MonoBehaviour
                         
                     }      
                 }
+            }
+            if(databasePlayerAccess.cardList[activeCardId].cardSprite != null)
+            {
+                uiManagerAccess.GenerateIcon(databasePlayerAccess.cardList[activeCardId].cardSprite);
             }
         } 
     }
