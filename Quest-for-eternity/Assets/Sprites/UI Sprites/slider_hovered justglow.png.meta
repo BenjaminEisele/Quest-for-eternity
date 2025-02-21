@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b78ef29374be7d442a4cb9e1986aff1b
+guid: 5c0fc215b9a5f734e8116197d10011f7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2492951721103832907
-    second: PlaceholderIcon4_0
+      213: 4171861439783871446
+    second: slider_hovered justglow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlaceholderIcon4_0
+      name: slider_hovered justglow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 1552
+        height: 1504
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b47b792d16eb89220800000000000000
-      internalID: 2492951721103832907
+      spriteID: 6d3a77240ed65e930800000000000000
+      internalID: 4171861439783871446
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      PlaceholderIcon4_0: 2492951721103832907
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
