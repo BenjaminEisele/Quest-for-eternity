@@ -9,7 +9,6 @@ public class RefereeScript : NetworkBehaviour
     public List<EnemyScript> enemyList;
     public List<EnemyScript> killedEnemyList;
 
-
     public EnemyGenerator enemyGeneratorAccess;
     
     private bool isGameOver;
@@ -261,11 +260,13 @@ public class RefereeScript : NetworkBehaviour
     {
         if (isServer)
         {
-            button[1].SetActive(false);
+            button[2].SetActive(false);
+            button[3].SetActive(false);
         }
         else
         {
             button[0].SetActive(false);
+            button[1].SetActive(false);
         }
     }
 
