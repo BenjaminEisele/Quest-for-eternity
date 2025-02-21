@@ -233,7 +233,7 @@ public class RefereeScript : NetworkBehaviour
     }
     private void DeactivateHealth(GameObject[] health)
     {
-        Vector3 vec = new Vector3(-3.56f, 16.53f, 1.050181f);
+        Vector3 vec = new Vector3(10, 16.37f, 1.050181f);
         if (isServer)
         {
             health[1].transform.localPosition = vec;
