@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      playercardblurred_0: 3359022728144335783
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

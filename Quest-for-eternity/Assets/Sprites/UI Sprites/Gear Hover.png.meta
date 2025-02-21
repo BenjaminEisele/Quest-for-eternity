@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 550395d92ca9fa8479b2776a6972ce90
+guid: 7b88f622ed06b0f41946e254f7202c6b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1164544544865613776
-    second: Gear unhovered_0
+      213: -5424360659707843432
+    second: Gear Hover_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gear unhovered_0
+      name: Gear Hover_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 283
-        height: 294
+        width: 2920
+        height: 2906
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0388a2e08e4b6dfe0800000000000000
-      internalID: -1164544544865613776
+      spriteID: 89ca28038bcc8b4b0800000000000000
+      internalID: -5424360659707843432
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e2027bf00980af945a06f6558ee6bfd2
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gear unhovered_0: -1164544544865613776
+      Gear Hover_0: -5424360659707843432
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

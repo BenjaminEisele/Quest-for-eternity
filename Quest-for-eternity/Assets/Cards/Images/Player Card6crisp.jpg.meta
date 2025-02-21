@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Player Card6crisp_0: 6298624205264801559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

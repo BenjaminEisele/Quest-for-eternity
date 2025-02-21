@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_hovered justglow_0: 4171861439783871446
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

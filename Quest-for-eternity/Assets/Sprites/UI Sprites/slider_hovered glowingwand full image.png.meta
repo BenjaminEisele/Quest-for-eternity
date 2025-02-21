@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_hovered glowingwand full image_0: 8683971235396075861
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -26,6 +26,8 @@ public class VoiceManager : MonoBehaviour
     public AudioClip skullAttacks;
     public AudioClip necroAttacks;
 
+    public AudioClip[] StrongAttacks;
+
     public bool zombieAttacked = false;
     public bool skeletonAttacked = false;
     public bool skullAttacked = false;
@@ -181,5 +183,11 @@ public class VoiceManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void StrongAttackLine()
+    {
+        int rnd = Random.Range(0, StrongAttacks.Length +1);
+        PlaySoundClip(StrongAttacks[rnd]);
     }
 }

@@ -34,6 +34,8 @@ public class PlayerScript : NetworkBehaviour
     public int healingSum;
     public bool areaAttackActive;
 
+    [SerializeField] VoiceManager voiceManager;
+
     private PlayerStatScript playerStatAccess;
     public List<int> knowledgeIdList;
 
@@ -197,6 +199,12 @@ public class PlayerScript : NetworkBehaviour
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
+
+                if (damageThisRound > 3 && (Random.Range(0f, 1f) > 0.33))
+                {
+                    voiceManager.StrongAttackLine();
+                }
+
                 if(areaAttackActive)
                 {
                     shouldDealAoE = true;
@@ -249,6 +257,12 @@ public class PlayerScript : NetworkBehaviour
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
+
+                if (damageThisRound > 3 && (Random.Range(0f, 1f) > 0.33))
+                {
+                    voiceManager.StrongAttackLine();
+                }
+
                 if (areaAttackActive)
                 {
                     shouldDealAoE = true;

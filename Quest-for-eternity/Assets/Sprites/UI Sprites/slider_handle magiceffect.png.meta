@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_handle magiceffect_0: 2235315541761828483
+      slider_handle magiceffect_1: -7796044577728760915
+      slider_handle magiceffect_2: -6400902097439812475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
