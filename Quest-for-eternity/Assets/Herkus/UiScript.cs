@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor;
+using System.Collections.Generic;
 
 public class UiScript : MonoBehaviour
 {
@@ -29,17 +29,34 @@ public class UiScript : MonoBehaviour
     [SerializeField]
     Transform iconSpawnpoint;
 
+    public List<GameObject> iconList;
+
 
     private void Start()
     {
+        instanceImage.gameObject.SetActive(false);
         uiTextArray = GetComponentsInChildren<TextMeshProUGUI>();
         UpdateTurnInfo(0);
     }
 
     public void GenerateIcon(Sprite inputSprite)
     {
-        GameObject newIcon = Instantiate(instanceImage.gameObject, iconSpawnpoint.position, Quaternion.identity);
+        GameObject newIcon = Instantiate(instanceImage.gameObject, iconSpawnpoint.position, Quaternion.identity, transform.parent);
+        newIcon.SetActive(true);
         newIcon.GetComponent<Image>().sprite = inputSprite;
+        iconList.Add(newIcon);
+        SquashIcons();
+    }
+
+    private void SquashIcons()
+    {
+        float interval = 475f/(iconList.Count + 1);
+        for (int i = 0; i < iconList.Count; i++)
+        {
+            Debug.Log($"coordinate is {0 + interval * (i + 1)}");
+
+            iconList[i].transform.position = new Vector3(iconSpawnpoint.position.x + interval * (i + 1), iconSpawnpoint.position.y, iconSpawnpoint.position.z);
+        }
     }
     public static void UpdateFighterText(TextMeshPro changedText, int value)
     {

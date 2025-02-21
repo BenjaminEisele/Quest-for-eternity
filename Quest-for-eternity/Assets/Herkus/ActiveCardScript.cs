@@ -54,6 +54,7 @@ public class ActiveCardScript : MonoBehaviour
 
     public void ActivateMyEffect()
     {
+        Debug.Log("activation");
         if (!isActionCard)
         {
             Utility utilityCardAccess = databasePlayerAccess.cardList[activeCardId] as Utility;
@@ -68,10 +69,7 @@ public class ActiveCardScript : MonoBehaviour
                     }      
                 }
             }
-            if(databasePlayerAccess.cardList[activeCardId].cardSprite != null)
-            {
-                uiManagerAccess.GenerateIcon(databasePlayerAccess.cardList[activeCardId].cardSprite);
-            }
+            
         } 
     }
     public int ActiveCardSetup(int activeCardId)
@@ -100,7 +98,13 @@ public class ActiveCardScript : MonoBehaviour
                 if(myEffectUnit.shouldActivateNow)
                 {
                     myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                    if(myEffectUnit.effectIcon)
+                    {
+                        Debug.Log("icon should appear");
+                        uiManagerAccess.GenerateIcon(myEffectUnit.effectIcon);
+                    }
                 }
+
             }
         }
         activeCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[activeCardId].cardSprite;

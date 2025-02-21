@@ -379,6 +379,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 373729295937624361}
   - {fileID: 1921910965235059533}
   - {fileID: 6304653201661947520}
   - {fileID: 4854812309215876119}
@@ -1779,7 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 0500000006000000010000000e0000000f00000010000000110000001100000012000000130000001700000017000000070000000700000007000000
+  deckCardList: 0f0000000f0000000f0000000f0000001b0000001b0000001b00000011000000120000001a0000001a0000001a0000001a000000
   handCardList: 
   discardedCardList: 
   uiScripAccess: {fileID: 8797810155221267089}
@@ -3544,6 +3545,8 @@ MonoBehaviour:
   shuffleWindow: {fileID: 4196307270203155198}
   endTurnButton: {fileID: 4485664734557763521}
   instanceImage: {fileID: 5285365155431568478}
+  iconSpawnpoint: {fileID: 373729295937624361}
+  iconList: []
 --- !u!1 &1663298374461166314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,6 +4598,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2363279869250995247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373729295937624361}
+  m_Layer: 0
+  m_Name: IconSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &373729295937624361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363279869250995247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -981.1, y: -497, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1159011028957069073}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2383248217080497961
 GameObject:
   m_ObjectHideFlags: 0
@@ -5957,7 +5991,7 @@ RectTransform:
   m_Father: {fileID: 5852425048771853751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: -0.00006866455}
   m_SizeDelta: {x: 0, y: 0.00013733}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6189,6 +6223,7 @@ MonoBehaviour:
   sceneObjectAccess: {fileID: 1929009939263703945}
   databasePlayerAccess: {fileID: 4730537138289088088}
   activeCardImage: {fileID: 6673016693832918745}
+  uiManagerAccess: {fileID: 8797810155221267089}
 --- !u!1 &3198231324387313845
 GameObject:
   m_ObjectHideFlags: 0
