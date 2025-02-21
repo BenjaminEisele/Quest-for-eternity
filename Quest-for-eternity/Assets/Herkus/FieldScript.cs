@@ -14,6 +14,8 @@ public class FieldScript : MonoBehaviour
 	HandScript handscriptAccess;
 
     [SerializeField] SoundFXManager soundFXManager;
+    [SerializeField] VoiceManager voiceManager;
+    float rnd;
 
     public static int damagePoints = 0;
 	public static int boostPoints = 0;
@@ -143,6 +145,12 @@ public class FieldScript : MonoBehaviour
                 }
                 else
                 {
+                    rnd = Random.Range(0, 100);
+                    Debug.Log(rnd);
+                    if (rnd > 66)
+                    {
+                        voiceManager.MissedAttackLine();
+                    }
                     soundFXManager.MissSound();
                     hitRateModifier = 0;
                     damagePoints = 0;

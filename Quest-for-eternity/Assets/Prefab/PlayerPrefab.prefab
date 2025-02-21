@@ -388,9 +388,9 @@ RectTransform:
   - {fileID: 5322684661226988998}
   - {fileID: 6365354855849043985}
   - {fileID: 8873002796791147069}
-  - {fileID: 287546145421312490}
   - {fileID: 7544202146451775828}
   - {fileID: 1796511861436015340}
+  - {fileID: 287546145421312490}
   m_Father: {fileID: 8725334655717431593}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1199562824159972388, guid: bebffc233e4f4dd438f174111c4de0c9, type: 3}
+  m_Sprite: {fileID: 1199562824159972388, guid: 8e12caf02f648b246b71478350c0ad01, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3790,7 +3790,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5433,14 +5433,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: Shuffle
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a2bfbb27dbf5d7d4bb92c148e25c508f, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
+  m_sharedMaterial: {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -5499,7 +5499,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2723216804751584482
@@ -8315,14 +8315,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: Keep as is
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a2bfbb27dbf5d7d4bb92c148e25c508f, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
+  m_sharedMaterial: {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -8381,7 +8381,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4390934723367731975
@@ -8673,10 +8673,15 @@ MonoBehaviour:
   skeletonAttacks: {fileID: 8300000, guid: 7fe5d87e54734f34f8b25ffbac99ff36, type: 3}
   skullAttacks: {fileID: 8300000, guid: 28aed56927b0cd5448ac48465770cedc, type: 3}
   necroAttacks: {fileID: 8300000, guid: 7fe5d87e54734f34f8b25ffbac99ff36, type: 3}
-  StrongAttacks:
+  strongAttacks:
   - {fileID: 8300000, guid: 54060fcccfde39c499a5bcc6b84cb31b, type: 3}
   - {fileID: 8300000, guid: f5cc1bc0d4e2e6046872db72c2648d82, type: 3}
   - {fileID: 8300000, guid: 558350e168833d743939a7725041768b, type: 3}
+  missedAttacks:
+  - {fileID: 8300000, guid: 915242c81a7f3b247a2e8dc94f881023, type: 3}
+  - {fileID: 8300000, guid: fda666240e19ee6499558141ed0fc010, type: 3}
+  - {fileID: 8300000, guid: dc52604eb0833e64599418ad6d236e5d, type: 3}
+  - {fileID: 8300000, guid: 5347351d0fa9fad439969300832e496c, type: 3}
   zombieAttacked: 0
   skeletonAttacked: 0
   skullAttacked: 0
@@ -9514,6 +9519,7 @@ MonoBehaviour:
   playerScriptAccess: {fileID: 1214735220539923461}
   handscriptAccess: {fileID: 4716527281068523202}
   soundFXManager: {fileID: 7250125789181350792}
+  voiceManager: {fileID: 1611595808576227657}
   damagePointsLiquid: 0
   hitRateModifier: 0
   activeCardList: []
@@ -9772,7 +9778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1199562824159972388, guid: bebffc233e4f4dd438f174111c4de0c9, type: 3}
+  m_Sprite: {fileID: 1199562824159972388, guid: 8e12caf02f648b246b71478350c0ad01, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10740,7 +10746,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 5
   m_WholeNumbers: 1
-  m_Value: 5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
