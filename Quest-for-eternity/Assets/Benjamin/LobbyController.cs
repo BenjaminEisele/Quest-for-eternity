@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Steamworks;
+using TMPro;
 using System.Linq;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class LobbyController : MonoBehaviour
 {
     public static LobbyController Instance;
 
-    public Text LobbyNameText;
-
-    public GameObject PlayerListViewContent;
+    public GameObject ServerItemSpawnPoint;
+    public GameObject ClientItemSpawnPoint;
+    public GameObject ServerReadySpawnPoint;
+    public GameObject ClientReadySpawnPoint;
     public GameObject PlayerListItemPrefab;
     public GameObject LocalPlayerObject;
 
@@ -20,7 +22,7 @@ public class LobbyController : MonoBehaviour
     public PlayerObjectController LocalPlayerController;
 
     public Button StartGameButton;
-    public Text ReadyButtonText;
+    public TextMeshProUGUI ReadyButtonText;
 
     private CustomNetworkManager manager;
 
@@ -100,12 +102,11 @@ public class LobbyController : MonoBehaviour
     public void UpdateLobbyName()
     {
         CurrentLobbyID = Manager.GetComponent<SteamLobby>().CurrentLobbyID;
-        LobbyNameText.text = SteamMatchmaking.GetLobbyData(new CSteamID(CurrentLobbyID), "name");
     }
 
     public void UpdatePlayerList()
     {
-        if (!PlayerItemCreated) { CreateHostPlayerItem(); } //Here
+        if (!PlayerItemCreated) { CreateHostPlayerItem(); }
         if (PlayerListItems.Count < Manager.GamePlayers.Count) { CreateClientPlayerItem(); }
         if (PlayerListItems.Count > Manager.GamePlayers.Count) { RemovePlayerItem(); }
         if (PlayerListItems.Count == Manager.GamePlayers.Count) { UpdatePlayerItem(); }
@@ -129,9 +130,11 @@ public class LobbyController : MonoBehaviour
             NewPlayerItemScript.ConecctionID = player.ConnectionID;
             NewPlayerItemScript.PlayerSteamID = player.PlayerSteamID;
             NewPlayerItemScript.Ready = player.Ready;
-            NewPlayerItemScript.SetPlayerValues(); //here
-
-            NewPlayerItem.transform.SetParent(PlayerListViewContent.transform);
+            NewPlayerItemScript.SetPlayerValues();
+            NewPlayerItem.transform.SetParent(ServerItemSpawnPoint.transform);
+            NewPlayerItem.transform.localPosition = Vector3.zero;
+            NewPlayerItem.transform.GetChild(3).transform.SetParent(ServerReadySpawnPoint.transform);
+            ServerReadySpawnPoint.transform.GetChild(0).localPosition = Vector3.zero;
             NewPlayerItem.transform.localScale = Vector3.one;
 
             PlayerListItems.Add(NewPlayerItemScript);
@@ -153,8 +156,10 @@ public class LobbyController : MonoBehaviour
                 NewPlayerItemScript.PlayerSteamID = player.PlayerSteamID;
                 NewPlayerItemScript.Ready = player.Ready;
                 NewPlayerItemScript.SetPlayerValues();
-
-                NewPlayerItem.transform.SetParent(PlayerListViewContent.transform);
+                NewPlayerItem.transform.SetParent(ClientItemSpawnPoint.transform);
+                NewPlayerItem.transform.localPosition = Vector3.zero;
+                NewPlayerItem.transform.GetChild(3).transform.SetParent(ClientReadySpawnPoint.transform);
+                ClientReadySpawnPoint.transform.GetChild(0).localPosition = Vector3.zero;
                 NewPlayerItem.transform.localScale = Vector3.one;
 
                 PlayerListItems.Add(NewPlayerItemScript);
@@ -218,4 +223,33 @@ public class LobbyController : MonoBehaviour
         LocalPlayerController.QuitCheck();
     }
 
+    public void PlayerReadyTween()
+    {
+        LocalPlayerController.PlayerReadyTween();
+    }
+
+    public void ClientTween()
+    {
+        ClientReadySpawnPoint.transform.GetChild(0).transform.DOLocalMoveX(-790, 1.5f);
+    }
+
+    public void ServerTween()
+    {
+        ServerReadySpawnPoint.transform.GetChild(0).transform.DOLocalMoveX(743, 1.5f);
+    }
+
+    public void ResetPlayerReady()
+    {
+        LocalPlayerController.ResetPlayerReady();
+    }
+
+    public void ResetClientTween()
+    {
+        ClientReadySpawnPoint.transform.GetChild(0).transform.DOLocalMoveX(0,0.75f);
+    }
+
+    public void ResetServerTween()
+    {
+        ServerReadySpawnPoint.transform.GetChild(0).transform.DOLocalMoveX(0,0.75f);
+    }
 }

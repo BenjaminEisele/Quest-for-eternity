@@ -64,6 +64,33 @@ public class PlayerObjectController : NetworkBehaviour
         }
     }
 
+    public void PlayerReadyTween()
+    {
+        if (isServer)
+        {
+            LobbyController.Instance.ServerTween();
+        }
+        else
+        {
+            LobbyController.Instance.ClientTween();
+        }
+    }
+
+    public void ResetPlayerReady()
+    {
+        if (isOwned)
+        {
+            if (!isClientOnly)
+            {
+                LobbyController.Instance.ResetServerTween();
+            }
+            else
+            {
+                LobbyController.Instance.ResetClientTween();
+            }
+        }
+    }
+
     public void CanStartGame(string SceneName)
     {
         if (isOwned)

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Steamworks;
+using TMPro;
 
 public class PlayerListItem : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class PlayerListItem : MonoBehaviour
     public int ConecctionID;
     public ulong PlayerSteamID;
     private bool AvatarRecieved;
-    public Text PlayerNameText;
-    public Text PlayerReadyText;
+    public TextMeshProUGUI PlayerNameText;
+    public GameObject PlayerReady;
     public RawImage PlayerIcon;
     public bool Ready;
-    
+    public GameObject ServerReadySpawnPoint;
+    public GameObject ClientReadySpawnPoint;
+    private bool isFirstTime = true;
 
     protected Callback<AvatarImageLoaded_t> ImageLoaded;
 
@@ -23,7 +26,7 @@ public class PlayerListItem : MonoBehaviour
 
     public void SetPlayerValues()
     {
-        PlayerNameText.text = PlayerName; //here
+        PlayerNameText.text = PlayerName;
         ChangeReadyStatus();
         if (!AvatarRecieved) { GetPlayerIcon(); }
     }
@@ -73,14 +76,18 @@ public class PlayerListItem : MonoBehaviour
     {
         if (Ready)
         {
-            PlayerReadyText.text = "Ready";
-            PlayerReadyText.color = Color.green;
+            PlayerReady.SetActive(true);
+            LobbyController.Instance.PlayerReadyTween();
+            isFirstTime = false;
         }
 
         else
         {
-            PlayerReadyText.text = "Not ready";
-            PlayerReadyText.color = Color.red;
+            //PlayerReady.SetActive(false);
+            if (!isFirstTime)
+            {
+                LobbyController.Instance.ResetPlayerReady();
+            }
         }
     }
 
