@@ -101,13 +101,7 @@ public class HandScript : MonoBehaviour
         RebuildCardListLite();
         utlCardsPlayedForOtherPlayer = 0;
     }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            EditorApplication.isPaused = true;  
-        }
-    }
+
     private void SubscriptionInvokeHand()
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
