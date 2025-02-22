@@ -11,7 +11,7 @@ public class InsultEffect : EffectTemplate
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             Debug.Log("lead effect active");
-            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SendCardsOver(new GameObject().transform, inputGameobject.GetComponent<SceneObjectDatabase>().databasePlayerAccess.cardList.Count - 1);
+            inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SendCardsOver(null, 31);//inputGameobject.GetComponent<SceneObjectDatabase>().databasePlayerAccess.cardList.Count - 1);
         }
     }
 }
