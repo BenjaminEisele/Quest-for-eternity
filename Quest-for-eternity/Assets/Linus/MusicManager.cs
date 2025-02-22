@@ -38,9 +38,12 @@ public class MusicManager : MonoBehaviour
         return audioSource;
     }
 
-    public void PauseMusic (AudioSource audioSource)
+    public void StopMusic (AudioSource audioSource)
     {
-        Destroy(audioSource.gameObject);
+        if(!audioSource.gameObject.IsDestroyed())
+        {
+            Destroy(audioSource.gameObject);
+        }
     }
 
     public void PlayAmbience()
@@ -48,8 +51,8 @@ public class MusicManager : MonoBehaviour
         mainMusicSource = PlayMusic(mainMenuMusic, transform, 0.15f);
     }
 
-    public void PauseMainMusic()
+    public void StopMainMusic()
     {
-        PauseMusic(mainMusicSource);
+        StopMusic(mainMusicSource);
     }
 }

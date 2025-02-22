@@ -88,9 +88,41 @@ public class VoiceManager : MonoBehaviour
         }
     }
 
+    public void EndLastetLine()
+    {
+        Destroy(latestSource.gameObject);
+    }
+
     public void PlayTutorialLine(int lineIndex)
     {
-        PlaySoundClip(tutorialLines[lineIndex]);
+        //if there is a voice line playing, destroy it
+        if (!latestSource.IsDestroyed())
+        {
+            Destroy(latestSource.gameObject);
+        }
+
+        //Spawn Gameobject
+        AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
+
+        latestSource = audioSource;
+
+        //assign audio Clip
+        audioSource.clip = tutorialLines[lineIndex];
+
+        //assgin volume
+        audioSource.volume = 1f;
+
+        //set if looped
+        audioSource.loop = false;
+
+        //play sound
+        audioSource.Play();
+
+        //get length of clip
+        float clipLenght = audioSource.clip.length;
+
+        //remove gameobject when done playing
+        Destroy(audioSource.gameObject, clipLenght);
     }
 
     public void KillPlayerLine(int enemyID)
