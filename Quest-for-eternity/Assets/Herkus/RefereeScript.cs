@@ -77,7 +77,7 @@ public class RefereeScript : NetworkBehaviour
 
     private void Start()
     {
-        preNewWaveEvent += SwitchPlayerAttackIdNest;
+        preNewWaveEvent += CallSwitchEnemyIdNestEvent;
         if (playerScripts == null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
@@ -131,6 +131,10 @@ public class RefereeScript : NetworkBehaviour
         }
     }
 
+    private void CallSwitchEnemyIdNestEvent()
+    {
+        SwitchPlayerAttackIdNest(false);
+    }
     private void SetPlayerList(GameObject[] Scripts)
     {
         foreach (GameObject Script in Scripts)
@@ -571,7 +575,7 @@ public class RefereeScript : NetworkBehaviour
             ResetDamageMultiplier();
             if (shouldSwitchTargetPlayer)
             {
-                SwitchPlayerAttackIdNest();
+                SwitchPlayerAttackIdNest(false);
             }
             shouldSwitchTargetPlayer = true;
         }
@@ -613,15 +617,25 @@ public class RefereeScript : NetworkBehaviour
         }
     }
     
-    public void SwitchPlayerAttackIdNest()
-    {     
+    public void SwitchPlayerAttackIdNest(bool isActivatedByEffect)
+    {   
+        
         if (isServer)
         {
             SwitchPlayerAttackId();
+            if (!isActivatedByEffect)
+            {
+                Debug.Log("lol");
+                playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(29, 0);
+            }
         }
         else
         {
             CmdSwitchPlayerAttackId();
+            if (!isActivatedByEffect)
+            {
+                playerList[1].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(29, 0);
+            }
         }
     }
 
@@ -764,9 +778,16 @@ public class RefereeScript : NetworkBehaviour
     [ClientRpc]
     private void RpcResetDamageMultiplier()
     {
+        
         if (isClientOnly)
         {
             playerList[1].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
+            playerList[1].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
+        }
+        else if(singlePlayerMode)
+        {
+            playerList[0].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
+            playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
         }
     }
 
@@ -774,5 +795,6 @@ public class RefereeScript : NetworkBehaviour
     private void CmdResetDamageMultiplier()
     {
         playerList[0].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
+        playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
     }
 }

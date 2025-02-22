@@ -68,7 +68,7 @@ public class EnemyScript : NetworkBehaviour
     }
     public void TakeDamageAndCheckIfDead(int inputDamage)
     {
-        Debug.Log("taking damage");
+
         enemyHealth -= inputDamage;
         if (enemyHealth >= savedEnemyHealth)
         {

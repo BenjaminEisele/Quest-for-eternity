@@ -64,8 +64,7 @@ public class ActiveCardScript : MonoBehaviour
                 {
                     if (!myEffectUnit.shouldActivateNow)
                     {
-                        myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
-                        
+                        myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);                        
                     }      
                 }
             }
@@ -83,7 +82,20 @@ public class ActiveCardScript : MonoBehaviour
             activeCardDamage = actionCardAccess.cardDamage;
             activeCardHitRate = actionCardAccess.cardHitRate;
             activeCardTextArray[0].text = activeCardDamage.ToString();
-            isActionCard = true;          
+            isActionCard = true;
+            foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
+            {
+                if (myEffectUnit.shouldActivateNow)
+                {
+                    myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
+                    if (myEffectUnit.effectIcon)
+                    {
+                        Debug.Log("icon should appear");
+                        uiManagerAccess.GenerateIcon(myEffectUnit.effectIcon);
+                    }
+                }
+
+            }
         }
         else
         {

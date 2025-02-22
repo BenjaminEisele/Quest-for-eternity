@@ -9,10 +9,8 @@ public class LongShotEffect : EffectTemplate
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
+            Debug.Log("too long shot effect called");
             inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.isInLongShotMode = true;
-            //inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.DisableAllCardsEvent();
-            //inputGameobject.GetComponent<SceneObjectDatabase>().handScriptReference.SetCardActivityStatus(true, 0);
-            //inputGameobject.GetComponent<SceneObjectDatabase>().playerStatReference.playerHealthOffset += (int)effectValue;
         }
     }
 }

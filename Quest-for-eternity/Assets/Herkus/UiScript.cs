@@ -53,50 +53,73 @@ public class UiScript : MonoBehaviour
         iconList.Add(newIcon);
         SquashIcons();
     }
-    public void DestroyIcon(int cardId)
-    {     
+    public void DestroyIcon(int cardId, int effectEntry)
+    {
+        Debug.Log("destroying");
         Utility utilityAccess = databasePlayerAccess.cardList[cardId] as Utility;
-        if(utilityAccess)
+        List<EffectUnit> uiEffectList = new List<EffectUnit>();
+        if (utilityAccess)
         {
-            foreach (EffectUnit myEffectUnit in utilityAccess.effectUnitList)
-            {
-                if (myEffectUnit.effectIcon)
-                {
-                    for (int i = 0; i < iconList.Count; i++)
-                    {
-                        if (myEffectUnit.effectIcon == iconList[i].GetComponent<Image>().sprite)
-                        {
-                            //Destroy(iconList[i]);
-                            StartCoroutine(DestructionCoroutine(i));
-                            GameObject tweenReference = iconList[i];
-                            tweenReference.transform.DOMove(tweenReference.transform.position + new Vector3(0, -100, 0), 0.8f);
-                            //iconList.Remove(iconList[i]);
-                            iconList[i] = null; 
-                            List<GameObject> newList = new List<GameObject>();
-                            
-                            foreach (GameObject item in iconList)
-                            {
-                                if (item != null) // Ensures no null values
-                                {
-                                    newList.Add(item);
-                                }
-                            }
-                            iconList.Clear();
-                            foreach (GameObject item in newList)
-                            {
-                                //Debug.Log("lol");
-                                 iconList.Add(item);                               
-                            }
-                            SquashIconsAfterClear();
-                            break;
-                        }
-                    }
-                }         
-            }
+            uiEffectList = utilityAccess.effectUnitList;
         }
+        else
+        {
+            Action actionAccess = databasePlayerAccess.cardList[cardId] as Action;
+            uiEffectList = actionAccess.actionEffectUnitList;
+            Debug.Log("za giro");
+        }
+        EffectUnit myEffectUnit = uiEffectList[effectEntry];
+        //foreach (EffectUnit myEffectUnit in uiEffectList)
+        //{
+            int additionalLoopCount = 0;
+            if (myEffectUnit.effectIcon)
+            {
+                Debug.Log("za giro 3");
+                for (int i = 0; i < iconList.Count + additionalLoopCount; i++)
+                {
+                    Debug.Log($"ilgis: {iconList.Count}");
+                    int trueIndex;
+                    if(additionalLoopCount <= 0)
+                    {
+                        trueIndex = i;
+                    }
+                    else
+                    {
+                        trueIndex = i - additionalLoopCount;
+                    }
+                    Debug.Log($"right side: {myEffectUnit.effectIcon.name}, left side: {iconList[trueIndex].GetComponent<Image>().sprite.name}");
+                    if (myEffectUnit.effectIcon == iconList[trueIndex].GetComponent<Image>().sprite)
+                    {
+                        StartCoroutine(DestructionCoroutine(trueIndex));
+                        GameObject tweenReference = iconList[trueIndex];
+                        tweenReference.transform.DOMove(tweenReference.transform.position + new Vector3(0, -100, 0), 0.8f);
+                        iconList[trueIndex] = null;
+                        List<GameObject> newList = new List<GameObject>();
+
+                        foreach (GameObject item in iconList)
+                        {
+                            if (item != null)
+                            {
+                                newList.Add(item);
+                            }
+                        }
+                        iconList.Clear();
+                        foreach (GameObject item in newList)
+                        {
+                            iconList.Add(item);
+                        }
+                        SquashIconsAfterClear();
+                        //break;
+                        additionalLoopCount++;
+                    }                   
+                }
+            }         
+       // }
+       // }
     }
     private IEnumerator DestructionCoroutine(int inputId)
     {
+        Debug.Log("coroutine");
         GameObject destructableReference = iconList[inputId];
         yield return new WaitForSeconds(1);
         Destroy(destructableReference);

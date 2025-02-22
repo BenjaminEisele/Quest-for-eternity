@@ -32,6 +32,9 @@ public class HandScript : MonoBehaviour
     SceneObjectDatabase sceneObjectAccess;
 
     [SerializeField]
+    UiScript uiScriptAccess;
+
+    [SerializeField]
     int cardCount = 0;
 
     [SerializeField] SoundFXManager soundFXManager;
@@ -293,6 +296,8 @@ public class HandScript : MonoBehaviour
             {
                 SetCardActivityStatus(true, 0);
                 isInLongShotMode = false;
+                Debug.Log("this part is reached (as it should)?!?");
+                uiScriptAccess.DestroyIcon(10, 0);
             }
             else if(isInMergeMode)
             {

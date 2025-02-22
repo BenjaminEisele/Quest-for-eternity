@@ -199,7 +199,8 @@ public class PlayerScript : NetworkBehaviour
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
-
+                multiplier = 1;
+                transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
                 if (damageThisRound > 3 && (Random.Range(0f, 1f) > 0.33))
                 {
                     voiceManager.StrongAttackLine();
@@ -257,7 +258,8 @@ public class PlayerScript : NetworkBehaviour
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
-
+                multiplier = 1;
+                transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
                 if (damageThisRound > 3 && (Random.Range(0f, 1f) > 0.33))
                 {
                    // voiceManager.StrongAttackLine();
@@ -310,7 +312,11 @@ public class PlayerScript : NetworkBehaviour
             }
         }
     }
+    public void GenerateProvocationIcon()
+    {
+        transform.root.GetComponentInChildren<UiScript>().DestroyIcon(29, 0);
 
+    }
     private void ResetHealingSum()
     {
         if(isLocalGamePlayer)

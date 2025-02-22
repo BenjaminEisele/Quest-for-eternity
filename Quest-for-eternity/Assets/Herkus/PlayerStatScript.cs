@@ -67,9 +67,12 @@ public class PlayerStatScript : NetworkBehaviour
         {
             if (playerScriptAccess.isThisPlayersTurn ^ RefereeScript.instance.singlePlayerMode)
             {
-                Debug.Log("activation 2");
-                healingMultiplier = 1;
-                uiScriptAccess.DestroyIcon(27);
+                if(healingMultiplier != 1)
+                {
+                    healingMultiplier = 1;
+                    uiScriptAccess.DestroyIcon(27, 0);
+                }
+                
             }
         }
         
@@ -163,13 +166,14 @@ public class PlayerStatScript : NetworkBehaviour
             ChangeHealthNest(-inputDamage * damageMultiplier, 0, true);
             playerHealthOffset = 0;
             //Debug.Log()
-            uiScriptAccess.DestroyIcon(15);
+            uiScriptAccess.DestroyIcon(15, 0);
         }
         else
         {
             immunityCount--;
             if(immunityCount <= 0)
             {
+                uiScriptAccess.DestroyIcon(22, 0);
                 immunityIdList.Clear();
             }
         }
