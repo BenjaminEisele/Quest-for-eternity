@@ -473,7 +473,6 @@ GameObject:
   - component: {fileID: 4732567976911583107}
   - component: {fileID: 4355102813082823552}
   - component: {fileID: 914331562112904588}
-  - component: {fileID: 1118700366181005923}
   - component: {fileID: 3188073849355711126}
   m_Layer: 5
   m_Name: ContinueButton
@@ -595,7 +594,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1118700366181005923}
+      - m_Target: {fileID: 5926840190218766188}
         m_TargetAssemblyTypeName: PauseMenuCheck, Assembly-CSharp
         m_MethodName: ClosePauseMenu
         m_Mode: 1
@@ -619,19 +618,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1118700366181005923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 276045596515830023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aa2288c14a7641468cf50062866dc91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuOpen: 0
 --- !u!114 &3188073849355711126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2210,7 +2196,6 @@ GameObject:
   - component: {fileID: 4133983796204738281}
   - component: {fileID: 4767241199094687654}
   - component: {fileID: 1825924955679229583}
-  - component: {fileID: 7591219864580697283}
   - component: {fileID: 824151361074267243}
   m_Layer: 5
   m_Name: IngameMenuButton
@@ -2332,7 +2317,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 7591219864580697283}
+      - m_Target: {fileID: 5926840190218766188}
         m_TargetAssemblyTypeName: PauseMenuCheck, Assembly-CSharp
         m_MethodName: OpenPauseMenu
         m_Mode: 1
@@ -2368,19 +2353,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &7591219864580697283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1075465696237466501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aa2288c14a7641468cf50062866dc91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuOpen: 0
 --- !u!114 &824151361074267243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,6 +2581,7 @@ MonoBehaviour:
   handScriptAccess: {fileID: 4716527281068523202}
   cardScriptAccess: {fileID: 7966999302529742683}
   onHoverScriptAccess: {fileID: 1974002010071925220}
+  pauseMenuCheckAccess: {fileID: 5926840190218766188}
   isDragging: 0
 --- !u!65 &6671925163539753793
 BoxCollider:
@@ -7723,6 +7696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 287546145421312490}
+  - component: {fileID: 5926840190218766188}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -7770,6 +7744,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.00048828125, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5926840190218766188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4054183140814396810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa2288c14a7641468cf50062866dc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuOpen: 0
 --- !u!1 &4177781002061407632
 GameObject:
   m_ObjectHideFlags: 0
@@ -10353,7 +10340,6 @@ GameObject:
   - component: {fileID: 211102961342996540}
   - component: {fileID: 1411217447022152344}
   - component: {fileID: 7781677554511704002}
-  - component: {fileID: 7480991743148491853}
   - component: {fileID: 2831740175557007493}
   - component: {fileID: 5753907493313608930}
   m_Layer: 5
@@ -10464,7 +10450,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7480991743148491853}
+      - m_Target: {fileID: 5926840190218766188}
         m_TargetAssemblyTypeName: PauseMenuCheck, Assembly-CSharp
         m_MethodName: ClosePauseMenu
         m_Mode: 1
@@ -10500,19 +10486,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7480991743148491853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363659648541001257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aa2288c14a7641468cf50062866dc91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuOpen: 0
 --- !u!114 &2831740175557007493
 MonoBehaviour:
   m_ObjectHideFlags: 0

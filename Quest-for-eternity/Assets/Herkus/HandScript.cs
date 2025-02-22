@@ -678,7 +678,7 @@ public class HandScript : MonoBehaviour
 
     public void DiscardCard(Transform card)
     {
-        int cardId = card.GetComponentInParent<CardScript>().myCardId;       
+        int cardId = card.GetComponentInParent<CardScript>().myCardId;
         deckManagerAccess.handCardList.Remove(cardId);
         deckManagerAccess.discardedCardList.Add(cardId);
         RebuildCardList(card.root.gameObject);

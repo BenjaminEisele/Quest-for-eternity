@@ -15,6 +15,8 @@ public class DragDrop : MonoBehaviour
     CardScript cardScriptAccess;
     [SerializeField]
     OnHoverScript onHoverScriptAccess;
+    [SerializeField]
+    PauseMenuCheck pauseMenuCheckAccess;
     [HideInInspector]
     public bool isDragging = false;
 
@@ -32,9 +34,12 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
-        isDragging = true;
-        onHoverScriptAccess.IncreasScale(false);
+        if (!pauseMenuCheckAccess.pauseMenuOpen)
+        {
+            mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
+            isDragging = true;
+            onHoverScriptAccess.IncreasScale(false);
+        }
     }
 
     private void OnMouseUp()
