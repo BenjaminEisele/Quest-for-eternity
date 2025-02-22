@@ -145,9 +145,7 @@ public class FieldScript : MonoBehaviour
                 }
                 else
                 {
-                    rnd = Random.Range(0, 100);
-                    Debug.Log(rnd);
-                    if (rnd > 66)
+                    if (Random.Range(0, 100) < voiceManager.miscLineChance)
                     {
                         voiceManager.MissedAttackLine();
                     }

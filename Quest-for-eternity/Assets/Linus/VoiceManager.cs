@@ -28,6 +28,10 @@ public class VoiceManager : MonoBehaviour
 
     public AudioClip[] strongAttacks;
     public AudioClip[] missedAttacks;
+    public AudioClip[] playerTurn;
+    public AudioClip[] openMenu;
+
+    public int miscLineChance = 33;
 
     public bool zombieAttacked = false;
     public bool skeletonAttacked = false;
@@ -48,36 +52,40 @@ public class VoiceManager : MonoBehaviour
         }   
     }
 
-    public void PlaySoundClip(AudioClip audioClip)
+    public bool PlaySoundClip(AudioClip audioClip)
     {
         //if there is a voice line playing, destroy it
-        if (!latestSource.IsDestroyed())
+        if (latestSource.IsDestroyed())
         {
-            Destroy(latestSource.gameObject);
+            //Spawn Gameobject
+            AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
+
+            latestSource = audioSource;
+
+            //assign audio Clip
+            audioSource.clip = audioClip;
+
+            //assgin volume
+            audioSource.volume = 1f;
+
+            //set if looped
+            audioSource.loop = false;
+
+            //play sound
+            audioSource.Play();
+
+            //get length of clip
+            float clipLenght = audioSource.clip.length;
+
+            //remove gameobject when done playing
+            Destroy(audioSource.gameObject, clipLenght);
+
+            return true;
         }
-
-        //Spawn Gameobject
-        AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
-
-        latestSource = audioSource;
-
-        //assign audio Clip
-        audioSource.clip = audioClip;
-
-        //assgin volume
-        audioSource.volume = 1f;
-
-        //set if looped
-        audioSource.loop = false;
-
-        //play sound
-        audioSource.Play();
-
-        //get length of clip
-        float clipLenght = audioSource.clip.length;
-
-        //remove gameobject when done playing
-        Destroy(audioSource.gameObject, clipLenght);
+        else
+        {
+            return false;
+        }
     }
 
     public void PlayTutorialLine(int lineIndex)
@@ -118,8 +126,8 @@ public class VoiceManager : MonoBehaviour
             case 0:
                 if(!zombieSpawned)
                 {
-                    PlaySoundClip(zombieSpawns);
-                    zombieSpawned = true;
+                    bool didPlay = PlaySoundClip(zombieSpawns);
+                    zombieSpawned = didPlay;
                 }
                 
                 break;
@@ -127,16 +135,16 @@ public class VoiceManager : MonoBehaviour
             case 1:
                 if (!skeletonSpawned)
                 {
-                    PlaySoundClip(skeletonSpawns);
-                    skeletonSpawned = true;
+                    bool didPlay = PlaySoundClip(skeletonSpawns);
+                    skeletonSpawned = didPlay;
                 }
                 break;
 
             case 2:
                 if (!skullSpawned)
                 {
-                    PlaySoundClip(skullSpawns);
-                    skullSpawned = true;
+                    bool didPlay = PlaySoundClip(skullSpawns);
+                    skullSpawned = didPlay;
                 }
                 break;
 
@@ -153,8 +161,8 @@ public class VoiceManager : MonoBehaviour
             case 0:
                 if (!zombieAttacked)
                 {
-                    PlaySoundClip(zombieAttacks);
-                    zombieAttacked = true;
+                    bool didPlay = PlaySoundClip(zombieAttacks);
+                    zombieAttacked = didPlay;
                 }
 
                 break;
@@ -162,24 +170,24 @@ public class VoiceManager : MonoBehaviour
             case 1:
                 if (!skeletonAttacked)
                 {
-                    PlaySoundClip(skeletonAttacks);
-                    skeletonAttacked = true;
+                    bool didPlay = PlaySoundClip(skeletonAttacks);
+                    skeletonAttacked = didPlay;
                 }
                 break;
 
             case 2:
                 if (!skullAttacked)
                 {
-                    PlaySoundClip(skullAttacks);
-                    skullAttacked = true;
+                    bool didPlay = PlaySoundClip(skullAttacks);
+                    skullAttacked = didPlay;
                 }
                 break;
 
             case 3:
                 if (!necroAttacked)
                 {
-                    PlaySoundClip(necroAttacks);
-                    necroAttacked = true; 
+                    bool didPlay = PlaySoundClip(necroAttacks);
+                    necroAttacked = didPlay; 
                 }
                 break;
 
@@ -191,9 +199,22 @@ public class VoiceManager : MonoBehaviour
         int rnd = Random.Range(0, strongAttacks.Length);
         PlaySoundClip(strongAttacks[rnd]);
     }
+
     public void MissedAttackLine()
     {
         int rnd = Random.Range(0, missedAttacks.Length);
         PlaySoundClip(missedAttacks[rnd]);
+    }
+
+    public void PlayersTurnLine()
+    {
+        int rnd = Random.Range(0, playerTurn.Length);
+        PlaySoundClip(playerTurn[rnd]);
+    }
+
+    public void OpenMenuLine()
+    {
+        int rnd = Random.Range(0, openMenu.Length);
+        PlaySoundClip(openMenu[rnd]);
     }
 }

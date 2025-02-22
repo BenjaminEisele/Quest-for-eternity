@@ -2355,6 +2355,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1611595808576227657}
+        m_TargetAssemblyTypeName: VoiceManager, Assembly-CSharp
+        m_MethodName: OpenMenuLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &7591219864580697283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8248,6 +8260,7 @@ MonoBehaviour:
   uiScriptAccess: {fileID: 8797810155221267089}
   isPlayersTurn: 0
   deckManagerAccess: {fileID: 7267443404813897993}
+  voiceManager: {fileID: 1611595808576227657}
 --- !u!1 &4376459898405115031
 GameObject:
   m_ObjectHideFlags: 0
@@ -8664,15 +8677,15 @@ MonoBehaviour:
   zombieKillPlayer: {fileID: 8300000, guid: 0717d9c17474efc499c04890301feec7, type: 3}
   skeletonKillPlayer: {fileID: 8300000, guid: 526e4dc615c6b9d4f8ad314a2da61df8, type: 3}
   skullKillPlayer: {fileID: 8300000, guid: 2dcd8deb5aa0b314eb9e6edbca269e75, type: 3}
-  necroKillPlayer: {fileID: 8300000, guid: 526e4dc615c6b9d4f8ad314a2da61df8, type: 3}
+  necroKillPlayer: {fileID: 8300000, guid: fa06a0daa06cac544bc3d0dc1f24b5b2, type: 3}
   zombieSpawns: {fileID: 8300000, guid: e882705db8092b14e95f4239156b8366, type: 3}
   skeletonSpawns: {fileID: 8300000, guid: c9b21a6ea4a923b4ea2ef4b01875d2b6, type: 3}
   skullSpawns: {fileID: 8300000, guid: 15e4902492f6c394aa18ef4863deee70, type: 3}
-  necroSpawns: {fileID: 8300000, guid: c9b21a6ea4a923b4ea2ef4b01875d2b6, type: 3}
+  necroSpawns: {fileID: 8300000, guid: 9a6c1e467bcd2ac4ab982fb1f3e3e7bd, type: 3}
   zombieAttacks: {fileID: 8300000, guid: 48bd5b536549dcf4cadc427283c4444f, type: 3}
   skeletonAttacks: {fileID: 8300000, guid: 7fe5d87e54734f34f8b25ffbac99ff36, type: 3}
   skullAttacks: {fileID: 8300000, guid: 28aed56927b0cd5448ac48465770cedc, type: 3}
-  necroAttacks: {fileID: 8300000, guid: 7fe5d87e54734f34f8b25ffbac99ff36, type: 3}
+  necroAttacks: {fileID: 8300000, guid: bb68e2a8e12a82d4faf9c5bb40d5dc39, type: 3}
   strongAttacks:
   - {fileID: 8300000, guid: 54060fcccfde39c499a5bcc6b84cb31b, type: 3}
   - {fileID: 8300000, guid: f5cc1bc0d4e2e6046872db72c2648d82, type: 3}
@@ -8682,6 +8695,36 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fda666240e19ee6499558141ed0fc010, type: 3}
   - {fileID: 8300000, guid: dc52604eb0833e64599418ad6d236e5d, type: 3}
   - {fileID: 8300000, guid: 5347351d0fa9fad439969300832e496c, type: 3}
+  playerTurn:
+  - {fileID: 8300000, guid: cbf4f19a824e86646bcd716f3702a6ff, type: 3}
+  - {fileID: 8300000, guid: 6b3029346153fe54aa8c08ae9cd41790, type: 3}
+  - {fileID: 8300000, guid: b9386a81871d4a14ea967d48ba1c0460, type: 3}
+  - {fileID: 8300000, guid: d846b8e66cc2c7b4e93178f3ce51e459, type: 3}
+  - {fileID: 8300000, guid: 911064aaa617871488c2a1aff0177d8c, type: 3}
+  - {fileID: 8300000, guid: 5d012bf44a84e054391d47b33efca213, type: 3}
+  - {fileID: 8300000, guid: 0dff73f354ec7d84f9ef8e087ba5d6a6, type: 3}
+  - {fileID: 8300000, guid: 46fc0ffd40bb8c74f97368a5e4fd9f6b, type: 3}
+  - {fileID: 8300000, guid: 454b85e8bbe4eed49ae1733a3ff895e2, type: 3}
+  - {fileID: 8300000, guid: f3af9f851f57ce948b1015b7a4a4f2e9, type: 3}
+  - {fileID: 8300000, guid: 5d9f8e4c3c657594b8f73a77c3cf480a, type: 3}
+  - {fileID: 8300000, guid: 3b195fe0e2a9acc43a59c5b617bc10a3, type: 3}
+  - {fileID: 8300000, guid: f9492d057c4ba13408cd4385b349916e, type: 3}
+  - {fileID: 8300000, guid: cb0e6b65768b093418797848fa9f123a, type: 3}
+  - {fileID: 8300000, guid: 857c62f2f3c67604cae48b8f3b229889, type: 3}
+  - {fileID: 8300000, guid: 1ddb64b7a0fce62438196c872ba0e394, type: 3}
+  - {fileID: 8300000, guid: 2bc4fe93d76be6d489d99aba862e7b16, type: 3}
+  - {fileID: 8300000, guid: 4bee3b2aa8cc407478e20781cca13d39, type: 3}
+  openMenu:
+  - {fileID: 8300000, guid: 45225ec3f9479ee49823a69c2b0e618f, type: 3}
+  - {fileID: 8300000, guid: 18191c34fe60b7d408aab279c47ac85f, type: 3}
+  - {fileID: 8300000, guid: f247e70add4207f4f975a3efb846716e, type: 3}
+  - {fileID: 8300000, guid: 93543268334ce3a4fab13451e35b9d54, type: 3}
+  - {fileID: 8300000, guid: 6107203a1df27ec4d81b64ba71740f4e, type: 3}
+  - {fileID: 8300000, guid: fb67294031982de43ac5d79c1ff68193, type: 3}
+  - {fileID: 8300000, guid: bd51fd75a0bfc3d4d9454aedb1c4bb9c, type: 3}
+  - {fileID: 8300000, guid: efed380a2d8d798499f307a6c5edba57, type: 3}
+  - {fileID: 8300000, guid: 7ebb090078f9cb0438fa75d6450f45d2, type: 3}
+  miscLineChance: 33
   zombieAttacked: 0
   skeletonAttacked: 0
   skullAttacked: 0
