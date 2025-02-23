@@ -201,7 +201,7 @@ public class PlayerScript : NetworkBehaviour
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
                 multiplier = 1;
                 transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
-                if (damageThisRound > 3 && (Random.Range(0f, 1f) > 0.33))
+                if (damageThisRound > 4 && (Random.Range(1, 101) > voiceManager.miscLineChance))
                 {
                     voiceManager.StrongAttackLine();
                 }

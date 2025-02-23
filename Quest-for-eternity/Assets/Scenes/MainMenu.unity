@@ -868,25 +868,26 @@ MonoBehaviour:
   - {fileID: 4130640169021434097, guid: 01fb906b08410254b9a934028bb2b183, type: 3}
   - {fileID: 3465286685962602723, guid: 1e638cd9ee3129143975730076630676, type: 3}
   - {fileID: 7028616704906629411, guid: aa089f969802d9c458c4f6b54c11d506, type: 3}
-  - {fileID: 8288426215254106694, guid: cf035dedb1fe6234ab9deec17ff1e6f5, type: 3}
+  - {fileID: 4113829005332862926, guid: 330ac961de42897419161f11929950f7, type: 3}
   - {fileID: -5099292496197868168, guid: 7e391d4420f18914abbe73f5d9e6096c, type: 3}
   - {fileID: -5099292496197868168, guid: c85cfc91d89d93645ab53a52d7c7e7d9, type: 3}
   - {fileID: 8389134475083476877, guid: 902bcdf98108e394b8ccb009f71bfee2, type: 3}
-  - {fileID: -1540426309290004842, guid: 6f70dbe4ecb2ce049acf4cf2cb25095e, type: 3}
+  - {fileID: -6270953770400647376, guid: 8e9a18e1a9d5b614eb6e7f455cf41200, type: 3}
   - {fileID: -1116512474048888928, guid: d1a6d14131d4e0047b7640c5de922502, type: 3}
   - {fileID: 6660783624410144326, guid: 6642bb94d205d894e9dd5f22503a791f, type: 3}
-  - {fileID: 4349915267927364619, guid: 57c7bebc79f9e89448d52a5f7fd2f861, type: 3}
-  - {fileID: 7680820834086852892, guid: d65a46fb6e1b09144aba16ef9bb88a39, type: 3}
+  - {fileID: 2960402581040015946, guid: 473dcbb43c0e44742841e5a82b776c92, type: 3}
+  - {fileID: 7157561037332017152, guid: 6635b7c08f166444fb52a0450d11773e, type: 3}
   - {fileID: 6660783624410144326, guid: d8ba729856d32dd4ca92cf227f9b8933, type: 3}
   - {fileID: -5750353039905602045, guid: de5a35af428df4b498ae9e57b7e56e62, type: 3}
   - {fileID: -7371509505491802261, guid: 237d6957699fdbf4184ce167f4033945, type: 3}
-  - {fileID: 4164744761163438241, guid: f7f0c6a0041bb4c49aa046b39b1a9227, type: 3}
+  - {fileID: 2720535173406242035, guid: 850ae40fc7e35a04aa92209584c5a18d, type: 3}
   - {fileID: 8102358098348255977, guid: cc87c9aca1f6b9148b2ca8de547ad1ef, type: 3}
   - {fileID: 6894999169920593895, guid: d592c9c8e378ef147bb9297e6c344359, type: 3}
   - {fileID: -5622901713081898559, guid: a80d586edf7ea4948b18cb84f7b0fff4, type: 3}
   - {fileID: 8102358098348255977, guid: e3cf9ee89cea8af40a32d07da89abc4b, type: 3}
   - {fileID: 6894999169920593895, guid: ff0c65060474ee34d95cb4677461f2eb, type: 3}
   - {fileID: -164082725380277428, guid: 1b073f3823865594a8a6f891975a1bf1, type: 3}
+  - {fileID: -5622901713081898559, guid: e1025536be6b02b4e81f8faacc88daf1, type: 3}
   - {fileID: -5622901713081898559, guid: e1025536be6b02b4e81f8faacc88daf1, type: 3}
   image: {fileID: 812309285}
 --- !u!1 &200766660
@@ -5193,43 +5194,65 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fbad1dbb801e86948a716f8e4d3cbf65, type: 3}
   - {fileID: 8300000, guid: 5b9d6790319814444a1d491d54c9d819, type: 3}
   - {fileID: 8300000, guid: f79d98a0c3d5e32498142da7db474d43, type: 3}
-  - {fileID: 8300000, guid: 04058a572ca3a9f409d6b8eb65e228b8, type: 3}
+  - {fileID: 8300000, guid: d81e006d5d6b5754fae26a43509d1d65, type: 3}
   - {fileID: 8300000, guid: 9204228cbabd3494791aef974f412cab, type: 3}
-  - {fileID: 8300000, guid: 60790b79f9f64ab47a0cfca5b6c99e39, type: 3}
+  - {fileID: 8300000, guid: 2fbf1b928001f1e4f95a2765776e46ba, type: 3}
   - {fileID: 8300000, guid: 7a7ebb25b6e3b0b47b2ad5882d73215d, type: 3}
   - {fileID: 8300000, guid: 030079ae310182f45bd64235d80bc47f, type: 3}
   - {fileID: 8300000, guid: 258fa2b8610966c4dae0623b0a9c66f4, type: 3}
   - {fileID: 8300000, guid: e59e3f07082a21246bb0e5fb940b533d, type: 3}
   - {fileID: 8300000, guid: 107bd19bd8da8344b9f728c48bb92ea2, type: 3}
-  - {fileID: 8300000, guid: 5ab6adf9ce0b58f419e2e3bcf5f7f517, type: 3}
-  - {fileID: 8300000, guid: c81026d9f58a40b41ae7c18f4fe7ef81, type: 3}
-  - {fileID: 8300000, guid: f91287cc21dbdf548bc563a4cd6117ab, type: 3}
-  - {fileID: 8300000, guid: 5210b8b66d29b8a4b8e79121c4b92999, type: 3}
+  - {fileID: 8300000, guid: f83b6b6041575864eb5249ecf569a803, type: 3}
+  - {fileID: 8300000, guid: ce253a7c31209d74e89b66fc1c484ffa, type: 3}
+  - {fileID: 8300000, guid: e13cd7377e72cf544b85b859fa32a684, type: 3}
+  - {fileID: 8300000, guid: e943fece17a5dbb48bfb223a514b260e, type: 3}
   - {fileID: 8300000, guid: 91b1f073c6c8a6b4b9e8d5ea8c46e1d1, type: 3}
-  - {fileID: 8300000, guid: 8cad2949d8e7ec34eb90fa00932b5eac, type: 3}
-  - {fileID: 8300000, guid: 5c2a12e9d0c74004abb84bf3c0bdc16c, type: 3}
+  - {fileID: 8300000, guid: 5f6210514c507734d9f34bc2608b66d6, type: 3}
+  - {fileID: 8300000, guid: 4b4c0c2b8fd172849b28b0185806ea27, type: 3}
   - {fileID: 8300000, guid: 35136d23a61f6f641b198a6e1c4cd414, type: 3}
   - {fileID: 8300000, guid: 514a5a7860d835948b3183c7c33e391a, type: 3}
-  - {fileID: 8300000, guid: a3d732119cea205439a5776d3e8bcbb0, type: 3}
+  - {fileID: 8300000, guid: 9f4fbc07e16942942b57baa594df6f56, type: 3}
   - {fileID: 8300000, guid: 57bac65052c2bd645bcda8dcda10abf2, type: 3}
   - {fileID: 8300000, guid: 17e9c7272488b4d4a892fa2c6d2cb738, type: 3}
   - {fileID: 8300000, guid: d3312fe832a51e7499508356cf167bdd, type: 3}
-  zombieKillPlayer: {fileID: 0}
-  skeletonKillPlayer: {fileID: 0}
-  skullKillPlayer: {fileID: 0}
-  necroKillPlayer: {fileID: 0}
-  zombieSpawns: {fileID: 0}
-  skeletonSpawns: {fileID: 0}
-  skullSpawns: {fileID: 0}
-  necroSpawns: {fileID: 0}
-  zombieAttacks: {fileID: 0}
-  skeletonAttacks: {fileID: 0}
-  skullAttacks: {fileID: 0}
-  necroAttacks: {fileID: 0}
+  - {fileID: 8300000, guid: 25e5a9ece75fd5c428b1055405b3234f, type: 3}
+  zombieKillPlayer: {fileID: 8300000, guid: 0717d9c17474efc499c04890301feec7, type: 3}
+  skeletonKillPlayer: {fileID: 8300000, guid: 526e4dc615c6b9d4f8ad314a2da61df8, type: 3}
+  skullKillPlayer: {fileID: 8300000, guid: 2dcd8deb5aa0b314eb9e6edbca269e75, type: 3}
+  necroKillPlayer: {fileID: 8300000, guid: fa06a0daa06cac544bc3d0dc1f24b5b2, type: 3}
+  zombieSpawns: {fileID: 8300000, guid: e882705db8092b14e95f4239156b8366, type: 3}
+  skeletonSpawns: {fileID: 8300000, guid: c9b21a6ea4a923b4ea2ef4b01875d2b6, type: 3}
+  skullSpawns: {fileID: 8300000, guid: 15e4902492f6c394aa18ef4863deee70, type: 3}
+  necroSpawns: {fileID: 8300000, guid: 9a6c1e467bcd2ac4ab982fb1f3e3e7bd, type: 3}
+  zombieAttacks: {fileID: 8300000, guid: 48bd5b536549dcf4cadc427283c4444f, type: 3}
+  skeletonAttacks: {fileID: 8300000, guid: 7fe5d87e54734f34f8b25ffbac99ff36, type: 3}
+  skullAttacks: {fileID: 8300000, guid: 28aed56927b0cd5448ac48465770cedc, type: 3}
+  necroAttacks: {fileID: 8300000, guid: bb68e2a8e12a82d4faf9c5bb40d5dc39, type: 3}
   strongAttacks: []
   missedAttacks: []
   playerTurn: []
   openMenu: []
+  openGame:
+  - {fileID: 8300000, guid: 0f76877b18c3ada4a8da4b5157109460, type: 3}
+  - {fileID: 8300000, guid: 2c3a52203cef01b428385cdf18e5be61, type: 3}
+  - {fileID: 8300000, guid: f9a020de06f9a4244b3e72aa90ce3a21, type: 3}
+  - {fileID: 8300000, guid: e6d619c456dc38545a88649c5c5c69c4, type: 3}
+  - {fileID: 8300000, guid: b3bd6f61a199c124c8db65613473c512, type: 3}
+  startMatch:
+  - {fileID: 8300000, guid: 7514e1aa168052847b7271890e727312, type: 3}
+  - {fileID: 8300000, guid: 432fb1ddbc2cc4f44890929baffacaed, type: 3}
+  - {fileID: 8300000, guid: b3713676bab7083458928f5a0e37271b, type: 3}
+  - {fileID: 8300000, guid: 05004c23a6f6cda498da8324d16a2b42, type: 3}
+  - {fileID: 8300000, guid: eb57b5c1cf63f4645b0d958802d672fe, type: 3}
+  - {fileID: 8300000, guid: d09854380d68c9b46ba2fdb25c0b33ea, type: 3}
+  - {fileID: 8300000, guid: a7c118590cab3014ca2ee2d7c32458aa, type: 3}
+  - {fileID: 8300000, guid: 7b34dfeeeb24d344da65683fd5255c82, type: 3}
+  - {fileID: 8300000, guid: 7b34dfeeeb24d344da65683fd5255c82, type: 3}
+  - {fileID: 8300000, guid: 53989c1b8727023459d13d5fd09f84ac, type: 3}
+  - {fileID: 8300000, guid: 833f6f3b2984de04bb27190447e332f1, type: 3}
+  - {fileID: 8300000, guid: 31138f3f4d3ee0948b4d9b72aa8487f1, type: 3}
+  - {fileID: 8300000, guid: 9236c7b1aabe7cf49b599056c46778bb, type: 3}
+  - {fileID: 8300000, guid: 9a0c951041feedb4081d64c425f9ddbf, type: 3}
   miscLineChance: 0
   zombieAttacked: 0
   skeletonAttacked: 0
@@ -9076,6 +9099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ca75067e82de04b896f64d9d635e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voiceManager: {fileID: 881336163}
   musicManager: {fileID: 881336162}
 --- !u!4 &1703284397
 Transform:

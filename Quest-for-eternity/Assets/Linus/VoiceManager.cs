@@ -30,6 +30,8 @@ public class VoiceManager : MonoBehaviour
     public AudioClip[] missedAttacks;
     public AudioClip[] playerTurn;
     public AudioClip[] openMenu;
+    public AudioClip[] openGame;
+    public AudioClip[] startMatch;
 
     public int miscLineChance = 33;
 
@@ -52,10 +54,47 @@ public class VoiceManager : MonoBehaviour
         }   
     }
 
-    public bool PlaySoundClip(AudioClip audioClip)
+    public bool PlaySoundClip(AudioClip audioClip, bool waitForLastLine)
     {
-        //if there is a voice line playing, destroy it
-        if (latestSource.IsDestroyed())
+        if (latestSource != null)
+        {
+            if (!waitForLastLine)
+            {
+                EndLastetLine();
+            }
+            if (latestSource.gameObject.IsDestroyed() || !waitForLastLine)
+            {
+                //Spawn Gameobject
+                AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
+
+                latestSource = audioSource;
+
+                //assign audio Clip
+                audioSource.clip = audioClip;
+
+                //assgin volume
+                audioSource.volume = 1f;
+
+                //set if looped
+                audioSource.loop = false;
+
+                //play sound
+                audioSource.Play();
+
+                //get length of clip
+                float clipLenght = audioSource.clip.length;
+
+                //remove gameobject when done playing
+                Destroy(audioSource.gameObject, clipLenght);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if (latestSource == null)
         {
             //Spawn Gameobject
             AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
@@ -90,15 +129,21 @@ public class VoiceManager : MonoBehaviour
 
     public void EndLastetLine()
     {
-        Destroy(latestSource.gameObject);
+        if (!latestSource.gameObject.IsDestroyed())
+        {
+            Destroy(latestSource.gameObject);
+        }
     }
 
     public void PlayTutorialLine(int lineIndex)
     {
         //if there is a voice line playing, destroy it
-        if (!latestSource.gameObject.IsDestroyed())
+        if (latestSource != null)
         {
-            Destroy(latestSource.gameObject);
+            if (!latestSource.gameObject.IsDestroyed())
+            {
+                Destroy(latestSource.gameObject);
+            }
         }
 
         //Spawn Gameobject
@@ -131,22 +176,22 @@ public class VoiceManager : MonoBehaviour
         {
             case 0:
 
-                PlaySoundClip(zombieKillPlayer);
+                PlaySoundClip(zombieKillPlayer, false);
                 break;
 
             case 1:
 
-                PlaySoundClip(skeletonKillPlayer);
+                PlaySoundClip(skeletonKillPlayer, false);
                 break;
 
             case 2:
 
-                PlaySoundClip(skullKillPlayer);
+                PlaySoundClip(skullKillPlayer, false);
                 break;
 
             case 3:
 
-                PlaySoundClip(necroKillPlayer);
+                PlaySoundClip(necroKillPlayer, false);
                 break;
         }
     }
@@ -158,8 +203,9 @@ public class VoiceManager : MonoBehaviour
             case 0:
                 if(!zombieSpawned)
                 {
-                    bool didPlay = PlaySoundClip(zombieSpawns);
+                    bool didPlay = PlaySoundClip(zombieSpawns, true);
                     zombieSpawned = didPlay;
+                    
                 }
                 
                 break;
@@ -167,7 +213,7 @@ public class VoiceManager : MonoBehaviour
             case 1:
                 if (!skeletonSpawned)
                 {
-                    bool didPlay = PlaySoundClip(skeletonSpawns);
+                    bool didPlay = PlaySoundClip(skeletonSpawns, true);
                     skeletonSpawned = didPlay;
                 }
                 break;
@@ -175,13 +221,13 @@ public class VoiceManager : MonoBehaviour
             case 2:
                 if (!skullSpawned)
                 {
-                    bool didPlay = PlaySoundClip(skullSpawns);
+                    bool didPlay = PlaySoundClip(skullSpawns, true);
                     skullSpawned = didPlay;
                 }
                 break;
 
             case 3:
-                PlaySoundClip(necroSpawns);
+                PlaySoundClip(necroSpawns, true);
                 break;
         }
     }
@@ -193,7 +239,7 @@ public class VoiceManager : MonoBehaviour
             case 0:
                 if (!zombieAttacked)
                 {
-                    bool didPlay = PlaySoundClip(zombieAttacks);
+                    bool didPlay = PlaySoundClip(zombieAttacks, true);
                     zombieAttacked = didPlay;
                 }
 
@@ -202,7 +248,7 @@ public class VoiceManager : MonoBehaviour
             case 1:
                 if (!skeletonAttacked)
                 {
-                    bool didPlay = PlaySoundClip(skeletonAttacks);
+                    bool didPlay = PlaySoundClip(skeletonAttacks, true);
                     skeletonAttacked = didPlay;
                 }
                 break;
@@ -210,7 +256,7 @@ public class VoiceManager : MonoBehaviour
             case 2:
                 if (!skullAttacked)
                 {
-                    bool didPlay = PlaySoundClip(skullAttacks);
+                    bool didPlay = PlaySoundClip(skullAttacks, true);
                     skullAttacked = didPlay;
                 }
                 break;
@@ -218,7 +264,7 @@ public class VoiceManager : MonoBehaviour
             case 3:
                 if (!necroAttacked)
                 {
-                    bool didPlay = PlaySoundClip(necroAttacks);
+                    bool didPlay = PlaySoundClip(necroAttacks, true);
                     necroAttacked = didPlay; 
                 }
                 break;
@@ -229,24 +275,36 @@ public class VoiceManager : MonoBehaviour
     public void StrongAttackLine()
     {
         int rnd = Random.Range(0, strongAttacks.Length);
-        PlaySoundClip(strongAttacks[rnd]);
+        PlaySoundClip(strongAttacks[rnd], true);
     }
 
     public void MissedAttackLine()
     {
         int rnd = Random.Range(0, missedAttacks.Length);
-        PlaySoundClip(missedAttacks[rnd]);
+        PlaySoundClip(missedAttacks[rnd], true);
     }
 
     public void PlayersTurnLine()
     {
         int rnd = Random.Range(0, playerTurn.Length);
-        PlaySoundClip(playerTurn[rnd]);
+        PlaySoundClip(playerTurn[rnd], true);
     }
 
     public void OpenMenuLine()
     {
         int rnd = Random.Range(0, openMenu.Length);
-        PlaySoundClip(openMenu[rnd]);
+        PlaySoundClip(openMenu[rnd], false);
+    }
+
+    public void OpenGameLine()
+    {
+        int rnd = Random.Range(0, openGame.Length);
+        PlaySoundClip(openGame[rnd], false);
+    }
+
+    public void StartMatchLine()
+    {
+        int rnd = Random.Range(0, startMatch.Length);
+        PlaySoundClip(startMatch[rnd], false);
     }
 }

@@ -21,6 +21,11 @@ public class VolumeSlider : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
     void Start()
     {
+        if (PlayerPrefs.GetInt("FirstTimeOpened") == 0)
+        {
+            PlayerPrefs.SetFloat(volumeVar, 1);
+            PlayerPrefs.SetInt("FirstTimeOpened", 1);
+        }
         slider.value = PlayerPrefs.GetFloat(volumeVar);
         audioMixer.SetFloat(volumeVar, Mathf.Log10(slider.value) * 20f);
         gameOpening = false;

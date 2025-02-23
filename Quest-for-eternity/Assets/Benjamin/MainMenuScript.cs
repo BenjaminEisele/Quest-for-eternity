@@ -11,9 +11,11 @@ using System;
 
 public class MainMenuScript : MonoBehaviour
 {
+    [SerializeField] VoiceManager voiceManager;
     [SerializeField] MusicManager musicManager;
     void Awake()
     {
+        voiceManager.OpenGameLine();
         musicManager.PlayAmbience();
     }
     public void QuitGame()

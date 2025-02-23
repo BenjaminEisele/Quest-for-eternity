@@ -618,6 +618,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1611595808576227657}
+        m_TargetAssemblyTypeName: VoiceManager, Assembly-CSharp
+        m_MethodName: EndLastetLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3188073849355711126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,7 +1415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000091552734}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: 0, y: 74.6025}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &560000822483726301
@@ -5608,7 +5620,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7817978256402400011}
   m_HandleRect: {fileID: 204868905369243928}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6090,7 +6102,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -8712,6 +8724,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bd51fd75a0bfc3d4d9454aedb1c4bb9c, type: 3}
   - {fileID: 8300000, guid: efed380a2d8d798499f307a6c5edba57, type: 3}
   - {fileID: 8300000, guid: 7ebb090078f9cb0438fa75d6450f45d2, type: 3}
+  openGame: []
+  startMatch:
+  - {fileID: 8300000, guid: 7514e1aa168052847b7271890e727312, type: 3}
+  - {fileID: 8300000, guid: 432fb1ddbc2cc4f44890929baffacaed, type: 3}
+  - {fileID: 8300000, guid: b3713676bab7083458928f5a0e37271b, type: 3}
+  - {fileID: 8300000, guid: 05004c23a6f6cda498da8324d16a2b42, type: 3}
+  - {fileID: 8300000, guid: eb57b5c1cf63f4645b0d958802d672fe, type: 3}
+  - {fileID: 8300000, guid: d09854380d68c9b46ba2fdb25c0b33ea, type: 3}
+  - {fileID: 8300000, guid: a7c118590cab3014ca2ee2d7c32458aa, type: 3}
+  - {fileID: 8300000, guid: 7b34dfeeeb24d344da65683fd5255c82, type: 3}
+  - {fileID: 8300000, guid: 79dbc4a87b456994a9b5165ff08057ef, type: 3}
+  - {fileID: 8300000, guid: 53989c1b8727023459d13d5fd09f84ac, type: 3}
+  - {fileID: 8300000, guid: 833f6f3b2984de04bb27190447e332f1, type: 3}
+  - {fileID: 8300000, guid: 31138f3f4d3ee0948b4d9b72aa8487f1, type: 3}
+  - {fileID: 8300000, guid: 9236c7b1aabe7cf49b599056c46778bb, type: 3}
+  - {fileID: 8300000, guid: 9a0c951041feedb4081d64c425f9ddbf, type: 3}
   miscLineChance: 33
   zombieAttacked: 0
   skeletonAttacked: 0
@@ -13289,7 +13317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 73.0846}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &8063792157073030202
