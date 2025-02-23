@@ -96,7 +96,7 @@ public class VoiceManager : MonoBehaviour
     public void PlayTutorialLine(int lineIndex)
     {
         //if there is a voice line playing, destroy it
-        if (!latestSource.IsDestroyed())
+        if (!latestSource.gameObject.IsDestroyed())
         {
             Destroy(latestSource.gameObject);
         }
