@@ -12,4 +12,9 @@ public class RestartButtonScript : MonoBehaviour
         winImage.SetActive(false);
         lostImage.SetActive(false);
     }
+
+    public void Test()
+    {
+        RefereeScript.instance.Test();
+    }
 }

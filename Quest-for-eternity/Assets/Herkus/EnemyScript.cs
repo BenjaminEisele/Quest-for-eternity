@@ -77,6 +77,13 @@ public class EnemyScript : NetworkBehaviour
         }
         if (enemyHealth <= 0)
         {
+            if (isBoss)
+            {
+                if (RefereeScript.instance.enemyList.Count > 1)
+                {
+                    RefereeScript.instance.enemyList[1].TakeDamageAndCheckIfDead(20);
+                }
+            }
             enemyHealth = 0;          
             UiScript.UpdateFighterText(enemyHealthText, enemyHealth);
             isEnemyAlive = false;

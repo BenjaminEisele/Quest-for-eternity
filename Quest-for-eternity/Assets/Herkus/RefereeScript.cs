@@ -797,4 +797,9 @@ public class RefereeScript : NetworkBehaviour
         playerList[0].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
         playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
     }
+
+    public void Test()
+    {
+        waveCount++;
+    }
 }
