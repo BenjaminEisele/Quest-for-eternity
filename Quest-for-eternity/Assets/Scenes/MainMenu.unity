@@ -5267,6 +5267,7 @@ MonoBehaviour:
   zombieSpawned: 0
   skeletonSpawned: 0
   skullSpawned: 0
+  isAlreadyDead: 0
   latestSource: {fileID: 0}
   filler: {fileID: 0}
 --- !u!1 &886953251
