@@ -6,7 +6,7 @@ public class BeerMugTween : NetworkBehaviour
 {
     public void ReadyTween(bool server)
     {
-        if (!server)
+        if (server)
         {
             ServerTween();
             Debug.Log("ServerTween");
@@ -20,7 +20,7 @@ public class BeerMugTween : NetworkBehaviour
 
     public void ResetTween(bool server)
     {
-        if (!server)
+        if (server)
         {
             ResetServerTween();
         }
