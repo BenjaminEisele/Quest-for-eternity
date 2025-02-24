@@ -129,7 +129,7 @@ public class VoiceManager : MonoBehaviour
 
     public void EndLastetLine()
     {
-        if (!latestSource.gameObject.IsDestroyed())
+        if (latestSource != null && !latestSource.gameObject.IsDestroyed())
         {
             Destroy(latestSource.gameObject);
         }
