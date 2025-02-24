@@ -104,12 +104,12 @@ public class LobbyController : MonoBehaviour
         CurrentLobbyID = Manager.GetComponent<SteamLobby>().CurrentLobbyID;
     }
 
-    public void UpdatePlayerList(bool server)
+    public void UpdatePlayerList()
     {
         if (!PlayerItemCreated) { CreateHostPlayerItem(); }
         if (PlayerListItems.Count < Manager.GamePlayers.Count) { CreateClientPlayerItem(); }
         if (PlayerListItems.Count > Manager.GamePlayers.Count) { RemovePlayerItem(); }
-        if (PlayerListItems.Count == Manager.GamePlayers.Count) { UpdatePlayerItem(server); }
+        if (PlayerListItems.Count == Manager.GamePlayers.Count) { UpdatePlayerItem(); }
     }
 
     public void FindLocalPlayer()
@@ -130,7 +130,8 @@ public class LobbyController : MonoBehaviour
             NewPlayerItemScript.ConecctionID = player.ConnectionID;
             NewPlayerItemScript.PlayerSteamID = player.PlayerSteamID;
             NewPlayerItemScript.Ready = player.Ready;
-            NewPlayerItemScript.SetPlayerValues(true);
+            NewPlayerItemScript.server = true;
+            NewPlayerItemScript.SetPlayerValues();
             NewPlayerItem.transform.SetParent(ServerItemSpawnPoint.transform);
             NewPlayerItem.transform.localPosition = Vector3.zero;
             NewPlayerItem.transform.GetChild(3).transform.SetParent(ServerReadySpawnPoint.transform);
@@ -153,7 +154,8 @@ public class LobbyController : MonoBehaviour
             NewPlayerItemScript.ConecctionID = host.ConnectionID;
             NewPlayerItemScript.PlayerSteamID = host.PlayerSteamID;
             NewPlayerItemScript.Ready = host.Ready;
-            NewPlayerItemScript.SetPlayerValues(true);
+            NewPlayerItemScript.server = true;
+            NewPlayerItemScript.SetPlayerValues();
             NewPlayerItem.transform.SetParent(ServerItemSpawnPoint.transform);
             NewPlayerItem.transform.localPosition = Vector3.zero;
             NewPlayerItem.transform.GetChild(3).transform.SetParent(ServerReadySpawnPoint.transform);
@@ -170,7 +172,8 @@ public class LobbyController : MonoBehaviour
             NewPlayerItemScript.ConecctionID = client.ConnectionID;
             NewPlayerItemScript.PlayerSteamID = client.PlayerSteamID;
             NewPlayerItemScript.Ready = client.Ready;
-            NewPlayerItemScript.SetPlayerValues(false);
+            NewPlayerItemScript.server = false;
+            NewPlayerItemScript.SetPlayerValues();
             NewPlayerItem.transform.SetParent(ClientItemSpawnPoint.transform);
             NewPlayerItem.transform.localPosition = Vector3.zero;
             NewPlayerItem.transform.GetChild(3).transform.SetParent(ClientReadySpawnPoint.transform);
@@ -180,7 +183,7 @@ public class LobbyController : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerItem(bool server)
+    public void UpdatePlayerItem()
     {
         foreach (PlayerObjectController player in Manager.GamePlayers)
         {
@@ -190,7 +193,7 @@ public class LobbyController : MonoBehaviour
                 {
                     PlayerListItemScript.PlayerName = player.PlayerName;
                     PlayerListItemScript.Ready = player.Ready;
-                    PlayerListItemScript.SetPlayerValues(server);
+                    PlayerListItemScript.SetPlayerValues();
                     if (player == LocalPlayerController)
                     {
                         UpdateButton();

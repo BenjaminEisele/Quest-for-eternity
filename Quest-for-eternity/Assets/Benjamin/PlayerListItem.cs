@@ -16,6 +16,7 @@ public class PlayerListItem : MonoBehaviour
     public GameObject ServerReadySpawnPoint;
     public GameObject ClientReadySpawnPoint;
     private bool isFirstTime = true;
+    public bool server; 
     [SerializeField]
     BeerMugTween tweeningObject;
 
@@ -26,10 +27,10 @@ public class PlayerListItem : MonoBehaviour
         ImageLoaded = Callback<AvatarImageLoaded_t>.Create(OnImageLoaded);
     }
 
-    public void SetPlayerValues(bool server)
+    public void SetPlayerValues()
     {
         PlayerNameText.text = PlayerName;
-        ChangeReadyStatus(server);
+        ChangeReadyStatus();
         if (!AvatarRecieved) { GetPlayerIcon(); }
     }
 
@@ -74,7 +75,7 @@ public class PlayerListItem : MonoBehaviour
         }
     }
 
-    public void ChangeReadyStatus(bool server)
+    public void ChangeReadyStatus()
     {
         if (Ready)
         {
