@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: be17c2f85e23ce246a7daeba3abb3078
+guid: 09cf7fbe4c8822546bcad13bacd046c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2278264054925010834
-    second: Game_Icon_0
+      213: -8698716740630109362
+    second: metalcoinUI_shield gold shiny_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Game_Icon_0
+      name: metalcoinUI_shield gold shiny_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 14
-        width: 2128
-        height: 2667
+        x: 400
+        y: 52
+        width: 988
+        height: 963
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6857ada9eaf160e0800000000000000
-      internalID: -2278264054925010834
+      spriteID: e43aff05633f74780800000000000000
+      internalID: -8698716740630109362
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Game_Icon_0: -2278264054925010834
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

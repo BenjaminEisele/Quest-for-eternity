@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c35f1e04724092941b370aafbb6da38b
+guid: fbfee9565490e3d4b8732fa5629fd0d8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2053207887582067411
-    second: InGame_Coin with multiple person_0
+      213: -4875002100710523818
+    second: InGame_Coin person shiny_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InGame_Coin with multiple person_0
+      name: InGame_Coin person shiny_0
       rect:
         serializedVersion: 2
         x: 343
-        y: 198
-        width: 2054
-        height: 2030
+        y: 62
+        width: 2169
+        height: 2166
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3dafb5502b57e7c10800000000000000
-      internalID: 2053207887582067411
+      spriteID: 65cbdd31b63885cb0800000000000000
+      internalID: -4875002100710523818
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      InGame_Coin with multiple person_0: 2053207887582067411
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

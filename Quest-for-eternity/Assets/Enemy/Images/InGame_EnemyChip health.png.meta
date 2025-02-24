@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 19514ef53532a04429ce8d590fdedf44
+guid: 8ec2159dde1893e4c9b7d076b514359a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1277800759069612620
-    second: InGame_Coin with person_0
+      213: 1082118999575251873
+    second: InGame_EnemyChip health_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InGame_Coin with person_0
+      name: InGame_EnemyChip health_0
       rect:
         serializedVersion: 2
-        x: 343
-        y: 198
-        width: 2054
-        height: 2030
+        x: 177
+        y: 71
+        width: 2057
+        height: 2004
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4a91123509abb110800000000000000
-      internalID: 1277800759069612620
+      spriteID: 1ab426e2f75740f00800000000000000
+      internalID: 1082118999575251873
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      InGame_Coin with person_0: 1277800759069612620
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
