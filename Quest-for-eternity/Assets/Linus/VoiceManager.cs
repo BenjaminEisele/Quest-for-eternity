@@ -60,7 +60,6 @@ public class VoiceManager : MonoBehaviour
         {
             if (!waitForLastLine)
             {
-                Debug.Log("Dont Wait");
                 EndLastetLine();
             }
             if (latestSource.gameObject.IsDestroyed() || !waitForLastLine)
@@ -137,7 +136,7 @@ public class VoiceManager : MonoBehaviour
         }
         else if (latestSource == null)
         {
-            Debug.Log("latest line null");
+            Debug.Log("latest source null");
         }
         else if (latestSource.gameObject.IsDestroyed())
         {
