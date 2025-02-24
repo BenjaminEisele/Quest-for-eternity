@@ -116,6 +116,7 @@ public class FieldScript : MonoBehaviour
 		}
         activeCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
+        handscriptAccess.discardPile.SetActive(true);
     }
 
     public int CheckIfHitAndShouldClearField(bool inputBool, bool shouldGuaranteeHit)

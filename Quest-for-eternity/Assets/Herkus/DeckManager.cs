@@ -54,6 +54,7 @@ public class DeckManager : MonoBehaviour
         handScriptAccess.canInteract = true;
         handScriptAccess.deckText.text = deckCardList.Count.ToString();
         handScriptAccess.deckCard.SetActive(true);
+        handScriptAccess.discardPile.SetActive(false);
     }
 
     public void ResetAllCardLists()

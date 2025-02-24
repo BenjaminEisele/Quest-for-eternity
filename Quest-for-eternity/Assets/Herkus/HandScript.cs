@@ -82,6 +82,8 @@ public class HandScript : MonoBehaviour
     public TextMeshPro deckText;
     public GameObject deckCard;
 
+    public GameObject discardPile;
+
     private void Start()
     {
         utilityLimit = 3;
@@ -109,6 +111,7 @@ public class HandScript : MonoBehaviour
         RebuildCardListLite();
         utlCardsPlayedForOtherPlayer = 0;
         deckText.text = deckManagerAccess.deckCardList.Count.ToString();
+        discardPile.SetActive(false);
     }
 
     private void SubscriptionInvokeHand()
@@ -704,6 +707,7 @@ public class HandScript : MonoBehaviour
         deckManagerAccess.handCardList.Remove(cardId);
         deckManagerAccess.discardedCardList.Add(cardId);
         RebuildCardList(card.root.gameObject);
+        discardPile.SetActive(true);
     }
 
 }
