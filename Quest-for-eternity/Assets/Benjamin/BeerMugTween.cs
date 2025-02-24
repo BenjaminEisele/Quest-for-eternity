@@ -42,7 +42,7 @@ public class BeerMugTween : NetworkBehaviour
 
     private void ClientTween()
     {
-        transform.DOLocalMoveX(-800, 1.5f);
+        transform.DOLocalMoveX(-820, 1.5f);
     }
 
     private void ResetClientTween()
