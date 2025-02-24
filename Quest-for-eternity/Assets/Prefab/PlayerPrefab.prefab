@@ -8700,6 +8700,24 @@ MonoBehaviour:
   skeletonAttacks: {fileID: 8300000, guid: 7fe5d87e54734f34f8b25ffbac99ff36, type: 3}
   skullAttacks: {fileID: 8300000, guid: 28aed56927b0cd5448ac48465770cedc, type: 3}
   necroAttacks: {fileID: 8300000, guid: bb68e2a8e12a82d4faf9c5bb40d5dc39, type: 3}
+  necroHealsSkeleton:
+  - {fileID: 8300000, guid: 1bd6e3000f5bfe443938b77289473c63, type: 3}
+  - {fileID: 8300000, guid: ee2036b8a16cc474ca1dc0bd18eb7e2e, type: 3}
+  - {fileID: 8300000, guid: 9fc09751dd3c6fa4cbcb29d539023cd0, type: 3}
+  - {fileID: 8300000, guid: a65926b5e313de84a8c997025b9f7445, type: 3}
+  - {fileID: 8300000, guid: f86eaae33815f0c498aa1796be04d4d1, type: 3}
+  - {fileID: 8300000, guid: 09179f7f81f9af643a0dfb6d4bf17e3f, type: 3}
+  necroSpawnsSkeleton:
+  - {fileID: 8300000, guid: c6e77e5dc10cda543966c0d56749733e, type: 3}
+  - {fileID: 8300000, guid: 484604d5e9ef6b94fbad56552a4030e2, type: 3}
+  - {fileID: 8300000, guid: fca909392099dfe42bbd45226bc51711, type: 3}
+  necroRespawnsSkeleton:
+  - {fileID: 8300000, guid: 374fd041c908f5244b5e62f620631543, type: 3}
+  - {fileID: 8300000, guid: 43ee672f5e153d84eb0775285fd15c17, type: 3}
+  - {fileID: 8300000, guid: fb8682777bbae6840aa541d868269010, type: 3}
+  - {fileID: 8300000, guid: 7656ecd6adf05d3439811d323da48e1d, type: 3}
+  - {fileID: 8300000, guid: 9ef11d7a044fad041bd455332c983ea8, type: 3}
+  - {fileID: 8300000, guid: f6f30e0e5f987174f84e70f956fa873e, type: 3}
   strongAttacks:
   - {fileID: 8300000, guid: 54060fcccfde39c499a5bcc6b84cb31b, type: 3}
   - {fileID: 8300000, guid: f5cc1bc0d4e2e6046872db72c2648d82, type: 3}
@@ -8780,6 +8798,7 @@ MonoBehaviour:
   skeletonAttacked: 0
   skullAttacked: 0
   necroAttacked: 0
+  necroSkeletons: 0
   zombieSpawned: 0
   skeletonSpawned: 0
   skullSpawned: 0

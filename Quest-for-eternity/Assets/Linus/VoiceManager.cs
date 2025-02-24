@@ -26,6 +26,10 @@ public class VoiceManager : MonoBehaviour
     public AudioClip skullAttacks;
     public AudioClip necroAttacks;
 
+    public AudioClip[] necroHealsSkeleton;
+    public AudioClip[] necroSpawnsSkeleton;
+    public AudioClip[] necroRespawnsSkeleton;
+
     public AudioClip[] strongAttacks;
     public AudioClip[] missedAttacks;
     public AudioClip[] playerTurn;
@@ -41,6 +45,8 @@ public class VoiceManager : MonoBehaviour
     public bool skeletonAttacked = false;
     public bool skullAttacked = false;
     public bool necroAttacked = false;
+
+    public int necroSkeletons = 0;
 
     public bool zombieSpawned = false;
     public bool skeletonSpawned = false;
@@ -131,6 +137,7 @@ public class VoiceManager : MonoBehaviour
         }
     }
 
+    //Enemy Lines
     public void EndLastetLine()
     {
         filler = GameObject.Find("VoiceObject(Clone)");
@@ -313,6 +320,29 @@ public class VoiceManager : MonoBehaviour
         }
     }
 
+    public void NecroSpawnsSkeleton()
+    {
+        if (necroSkeletons == 0)
+        {
+            int rnd = Random.Range(0, necroSpawnsSkeleton.Length);
+            PlaySoundClip(necroSpawnsSkeleton[rnd], true);
+            necroSkeletons = 1;
+        }
+        if (necroSkeletons == 1)
+        {
+            int rnd = Random.Range(0, necroRespawnsSkeleton.Length);
+            PlaySoundClip(necroRespawnsSkeleton[rnd], true);
+        }
+    }
+
+    public void NecroHealskeleton()
+    {
+        int rnd = Random.Range(0, necroHealsSkeleton.Length);
+        PlaySoundClip(necroHealsSkeleton[rnd], true);
+    }
+
+
+    //Misc Lines
     public void StrongAttackLine()
     {
         int rnd = Random.Range(0, strongAttacks.Length);
