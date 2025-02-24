@@ -52,6 +52,8 @@ public class VoiceManager : MonoBehaviour
     public bool skeletonSpawned = false;
     public bool skullSpawned = false;
 
+    public bool isAlreadyDead = false;
+
     public AudioSource latestSource;
 
     public GameObject filler;
@@ -184,64 +186,68 @@ public class VoiceManager : MonoBehaviour
 
     public void KillPlayerLine(int enemyID)
     {
-        switch (enemyID)
+        if (!isAlreadyDead)
         {
-            case 0:
-                if (latestSource != null)
-                {
-                    if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+            switch (enemyID)
+            {
+                case 0:
+                    if (latestSource != null)
+                    {
+                        if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                        {
+                            PlaySoundClip(zombieKillPlayer, false);
+                        }
+                    }
+                    else
                     {
                         PlaySoundClip(zombieKillPlayer, false);
                     }
-                }
-                else
-                {
-                    PlaySoundClip(zombieKillPlayer, false);
-                }
 
-                break;
+                    break;
 
-            case 1:
-                if (latestSource != null)
-                {
-                    if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                case 1:
+                    if (latestSource != null)
+                    {
+                        if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                        {
+                            PlaySoundClip(skeletonKillPlayer, false);
+                        }
+                    }
+                    else
                     {
                         PlaySoundClip(skeletonKillPlayer, false);
                     }
-                }
-                else
-                {
-                    PlaySoundClip(skeletonKillPlayer, false);
-                }
-                break;
+                    break;
 
-            case 2:
-                if (latestSource != null)
-                {
-                    if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                case 2:
+                    if (latestSource != null)
+                    {
+                        if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                        {
+                            PlaySoundClip(skullKillPlayer, false);
+                        }
+                    }
+                    else
                     {
                         PlaySoundClip(skullKillPlayer, false);
                     }
-                }
-                else
-                {
-                    PlaySoundClip(skullKillPlayer, false);
-                }
-                break;
+                    break;
 
-            case 3:
-                if (latestSource != null)
-                {
-                    if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                case 3:
+                    if (latestSource != null)
+                    {
+                        if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                        {
+                            PlaySoundClip(necroKillPlayer, false);
+                        }
+                    }
+                    else
                     {
                         PlaySoundClip(necroKillPlayer, false);
                     }
-                }
-                else
-                {
-                    PlaySoundClip(necroKillPlayer, false);
-                }
-                break;
+                    break;
+            }
+            isAlreadyDead = true;
         }
     }
 

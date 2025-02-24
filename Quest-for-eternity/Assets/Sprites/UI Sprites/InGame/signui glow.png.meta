@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8e12caf02f648b246b71478350c0ad01
+guid: fec87f2c0613b084ba322bcfcfc60fd7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1199562824159972388
-    second: signui_0
+      213: 7667088790167916613
+    second: signui glow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: signui_0
+      name: signui glow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42cc1d37804b5a010800000000000000
-      internalID: 1199562824159972388
+      spriteID: 5409657f1a8f66a60800000000000000
+      internalID: 7667088790167916613
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 62437c109d156934a9580ba00f3df10c
+    spriteID: c66f2b6a3c8a90f4e8cbfaa9d5d3dfd9
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      signui_0: 1199562824159972388
+      signui glow_0: 7667088790167916613
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
