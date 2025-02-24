@@ -5190,31 +5190,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundObject: {fileID: 7512260821461713194, guid: ee3c4ce0a2df091479959c045c4ebfcc, type: 3}
   tutorialLines:
-  - {fileID: 8300000, guid: 7b926105ab7d93f43b35fcf7be75b630, type: 3}
-  - {fileID: 8300000, guid: fbad1dbb801e86948a716f8e4d3cbf65, type: 3}
-  - {fileID: 8300000, guid: 5b9d6790319814444a1d491d54c9d819, type: 3}
-  - {fileID: 8300000, guid: f79d98a0c3d5e32498142da7db474d43, type: 3}
+  - {fileID: 8300000, guid: 49c493f69c9f0714d964c2831b88e0e6, type: 3}
+  - {fileID: 8300000, guid: 21573a7d9921fd840b4cfc148734cf91, type: 3}
+  - {fileID: 8300000, guid: 5453afce8a7c5c045bcf10ae2e50c098, type: 3}
+  - {fileID: 8300000, guid: 20b2488a53de3424d9ccf447d6ff6995, type: 3}
   - {fileID: 8300000, guid: d81e006d5d6b5754fae26a43509d1d65, type: 3}
-  - {fileID: 8300000, guid: 9204228cbabd3494791aef974f412cab, type: 3}
+  - {fileID: 8300000, guid: 9a1784288be68f74e926f27071509078, type: 3}
   - {fileID: 8300000, guid: 2fbf1b928001f1e4f95a2765776e46ba, type: 3}
-  - {fileID: 8300000, guid: 7a7ebb25b6e3b0b47b2ad5882d73215d, type: 3}
-  - {fileID: 8300000, guid: 030079ae310182f45bd64235d80bc47f, type: 3}
-  - {fileID: 8300000, guid: 258fa2b8610966c4dae0623b0a9c66f4, type: 3}
-  - {fileID: 8300000, guid: e59e3f07082a21246bb0e5fb940b533d, type: 3}
-  - {fileID: 8300000, guid: 107bd19bd8da8344b9f728c48bb92ea2, type: 3}
+  - {fileID: 8300000, guid: 1ca71657133ccf541ad05d874f685d5c, type: 3}
+  - {fileID: 8300000, guid: af60f1681ffa1ae49a4008e2163b78f5, type: 3}
+  - {fileID: 8300000, guid: 52d09fb9fe075db468ac01feec22a70a, type: 3}
+  - {fileID: 8300000, guid: d5878c6bc44925c4b8f10c1583383fdf, type: 3}
+  - {fileID: 8300000, guid: a9eb1b79d237e724697ece4f26c98603, type: 3}
   - {fileID: 8300000, guid: f83b6b6041575864eb5249ecf569a803, type: 3}
   - {fileID: 8300000, guid: ce253a7c31209d74e89b66fc1c484ffa, type: 3}
   - {fileID: 8300000, guid: e13cd7377e72cf544b85b859fa32a684, type: 3}
   - {fileID: 8300000, guid: e943fece17a5dbb48bfb223a514b260e, type: 3}
-  - {fileID: 8300000, guid: 91b1f073c6c8a6b4b9e8d5ea8c46e1d1, type: 3}
+  - {fileID: 8300000, guid: 2687ad5efe976ab4181f54a5ffbd8b24, type: 3}
   - {fileID: 8300000, guid: 5f6210514c507734d9f34bc2608b66d6, type: 3}
   - {fileID: 8300000, guid: 4b4c0c2b8fd172849b28b0185806ea27, type: 3}
-  - {fileID: 8300000, guid: 35136d23a61f6f641b198a6e1c4cd414, type: 3}
-  - {fileID: 8300000, guid: 514a5a7860d835948b3183c7c33e391a, type: 3}
+  - {fileID: 8300000, guid: 9fc648ff4e090ff4a92d4ab67bbe0647, type: 3}
+  - {fileID: 8300000, guid: e982f1b05794410408e46fb52126bce2, type: 3}
   - {fileID: 8300000, guid: 9f4fbc07e16942942b57baa594df6f56, type: 3}
-  - {fileID: 8300000, guid: 57bac65052c2bd645bcda8dcda10abf2, type: 3}
-  - {fileID: 8300000, guid: 17e9c7272488b4d4a892fa2c6d2cb738, type: 3}
-  - {fileID: 8300000, guid: d3312fe832a51e7499508356cf167bdd, type: 3}
+  - {fileID: 8300000, guid: 98e9dfa06c57270458bf138597cff193, type: 3}
+  - {fileID: 8300000, guid: 2ff44b2dd3bb5224399ed4a1a2e93523, type: 3}
+  - {fileID: 8300000, guid: 90310feeee840d446b50a9b6e8f818ad, type: 3}
   - {fileID: 8300000, guid: 25e5a9ece75fd5c428b1055405b3234f, type: 3}
   zombieKillPlayer: {fileID: 8300000, guid: 0717d9c17474efc499c04890301feec7, type: 3}
   skeletonKillPlayer: {fileID: 8300000, guid: 526e4dc615c6b9d4f8ad314a2da61df8, type: 3}

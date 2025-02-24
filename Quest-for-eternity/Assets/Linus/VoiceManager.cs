@@ -324,21 +324,25 @@ public class VoiceManager : MonoBehaviour
     {
         if (necroSkeletons == 0)
         {
+            if (!skeletonSpawned)
+            {
+                skeletonSpawned = true;
+            }
             int rnd = Random.Range(0, necroSpawnsSkeleton.Length);
-            PlaySoundClip(necroSpawnsSkeleton[rnd], true);
+            PlaySoundClip(necroSpawnsSkeleton[rnd], false);
             necroSkeletons = 1;
         }
         if (necroSkeletons == 1)
         {
             int rnd = Random.Range(0, necroRespawnsSkeleton.Length);
-            PlaySoundClip(necroRespawnsSkeleton[rnd], true);
+            PlaySoundClip(necroRespawnsSkeleton[rnd], false);
         }
     }
 
     public void NecroHealskeleton()
     {
         int rnd = Random.Range(0, necroHealsSkeleton.Length);
-        PlaySoundClip(necroHealsSkeleton[rnd], true);
+        PlaySoundClip(necroHealsSkeleton[rnd], false);
     }
 
 
