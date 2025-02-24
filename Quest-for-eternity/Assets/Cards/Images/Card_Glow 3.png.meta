@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Card_Glow 3_0: 5884485065429278187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

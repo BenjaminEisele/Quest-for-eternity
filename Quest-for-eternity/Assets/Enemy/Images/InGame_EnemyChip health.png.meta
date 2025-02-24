@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_EnemyChip health_0: 1082118999575251873
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

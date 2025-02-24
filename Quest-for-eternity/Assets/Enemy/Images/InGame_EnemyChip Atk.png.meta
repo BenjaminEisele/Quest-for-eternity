@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_EnemyChip Atk_0: 443337877286933706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      metalcoinUI_heart gold shiny_0: -6052781375931513325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

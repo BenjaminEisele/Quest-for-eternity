@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_Coin ppl shiny_0: -7715681569016801314
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
