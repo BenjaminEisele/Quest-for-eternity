@@ -175,23 +175,31 @@ public class VoiceManager : MonoBehaviour
         switch (enemyID)
         {
             case 0:
-
-                PlaySoundClip(zombieKillPlayer, false);
+                if (!latestSource.clip == zombieKillPlayer && !latestSource.clip == skeletonKillPlayer && !latestSource.clip == skullKillPlayer && !latestSource.clip == necroKillPlayer)
+                {
+                    PlaySoundClip(zombieKillPlayer, false);
+                }
                 break;
 
             case 1:
-
-                PlaySoundClip(skeletonKillPlayer, false);
+                if (!latestSource.clip == zombieKillPlayer && !latestSource.clip == skeletonKillPlayer && !latestSource.clip == skullKillPlayer && !latestSource.clip == necroKillPlayer)
+                {
+                    PlaySoundClip(skeletonKillPlayer, false);
+                }
                 break;
 
             case 2:
-
-                PlaySoundClip(skullKillPlayer, false);
+                if (!latestSource.clip == zombieKillPlayer && !latestSource.clip == skeletonKillPlayer && !latestSource.clip == skullKillPlayer && !latestSource.clip == necroKillPlayer)
+                {
+                    PlaySoundClip(skullKillPlayer, false);
+                }
                 break;
 
             case 3:
-
-                PlaySoundClip(necroKillPlayer, false);
+                if (!latestSource.clip == zombieKillPlayer && !latestSource.clip == skeletonKillPlayer && !latestSource.clip == skullKillPlayer && !latestSource.clip == necroKillPlayer)
+                {
+                    PlaySoundClip(necroKillPlayer, false);
+                }
                 break;
         }
     }

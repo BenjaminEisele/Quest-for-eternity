@@ -14,6 +14,9 @@ public class OnHoverScript : MonoBehaviour
     Transform rootParent;
     [SerializeField]
     float animationSpeed;
+
+    [SerializeField] SoundFXManager soundFXManager;
+
     private void Awake()
     {
         rootParent = transform.root;
@@ -38,7 +41,7 @@ public class OnHoverScript : MonoBehaviour
         Vector3 finalScale = initialScale;
         if (status) 
         {
-            //Hover over card
+            soundFXManager.DrawSound();
             scaleParent.DOLocalRotate(new Vector3(0, 0, -rootParent.eulerAngles.z), animationSpeed);
             scaleParent.DOLocalMoveY(3, animationSpeed);
             transform.parent.position += new Vector3(0,0,-2);
