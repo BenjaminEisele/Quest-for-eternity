@@ -389,6 +389,7 @@ public class HandScript : MonoBehaviour
         playerScriptAccess.DealDamagePlayerScript(false, false, 0, false, true);
         isInQuickAttackMode = false;
         isHelpAndLeadActive = false;
+        uiScriptAccess.DestroyIcon(30, 0);
         SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();
         canInteract = true;
@@ -400,6 +401,8 @@ public class HandScript : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         
         isHelpAndLeadActive = false;
+        uiScriptAccess.DestroyIcon(30, 0);
+
         if (!isInDamageSliderMode)
         {
             turnScriptAccess.CallEndTurnEvent();
@@ -416,6 +419,8 @@ public class HandScript : MonoBehaviour
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
         isHelpAndLeadActive = false;
+        uiScriptAccess.DestroyIcon(30, 0);
+
         ActionCardEffectActivation(firstId);
         ActionCardEffectActivation(secondId);
         turnScriptAccess.CallEndTurnEvent();
