@@ -307,8 +307,14 @@ public class HandScript : MonoBehaviour
     }
     private void AddCardsEvent()
     {
+        Invoke("AddCardsEventLogic", 0.2f);
+    }
+
+    private void AddCardsEventLogic()
+    {
         AddCardsToHand(0);
         utilityCount = 0;
+
     }
     public void DisableAllCardsEvent()
     {
