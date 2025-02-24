@@ -76,6 +76,8 @@ public class ChooseNewCardScript : MonoBehaviour
     public void DisplayCardsHidden()
     {
         isInLootingPhase = false;
+        transform.root.GetComponentInChildren<HandScript>().canInteract = true;
+
         displayCardList.Clear();
         if (playerScriptAccess.isHost)
         {
