@@ -145,7 +145,6 @@ public class LobbyController : MonoBehaviour
     public void CreateClientPlayerItem()
     {
         PlayerObjectController host = Manager.GamePlayers[0];
-        PlayerObjectController client = Manager.GamePlayers[1];
         if (!PlayerListItems.Any(b => b.ConecctionID == host.ConnectionID))
         {
             GameObject NewPlayerItem = Instantiate(PlayerListItemPrefab) as GameObject;
@@ -162,6 +161,7 @@ public class LobbyController : MonoBehaviour
             NewPlayerItem.transform.localScale = Vector3.one;
             PlayerListItems.Add(NewPlayerItemScript);
         }
+        PlayerObjectController client = Manager.GamePlayers[1];
         if (!PlayerListItems.Any(b => b.ConecctionID == client.ConnectionID))
         {
             GameObject NewPlayerItem = Instantiate(PlayerListItemPrefab) as GameObject;
@@ -234,35 +234,5 @@ public class LobbyController : MonoBehaviour
     public void Quit()
     {
         LocalPlayerController.QuitCheck();
-    }
-
-    public void PlayerReadyTween()
-    {
-        LocalPlayerController.PlayerReadyTween();
-    }
-
-    public void ClientTween()
-    {
-        ClientReadySpawnPoint.transform.GetChild(0).transform.DOLocalMoveX(-790, 1.5f);
-    }
-
-    public void ServerTween()
-    {
-        ServerReadySpawnPoint.transform.GetChild(0).transform.DOLocalMoveX(743, 1.5f);
-    }
-
-    public void ResetPlayerReady()
-    {
-        LocalPlayerController.ResetPlayerReady();
-    }
-
-    public void ResetClientTween()
-    {
-        ClientReadySpawnPoint.transform.GetChild(0).transform.DOLocalMoveX(0,0.75f);
-    }
-
-    public void ResetServerTween()
-    {
-        ServerReadySpawnPoint.transform.GetChild(0).transform.DOLocalMoveX(0,0.75f);
     }
 }

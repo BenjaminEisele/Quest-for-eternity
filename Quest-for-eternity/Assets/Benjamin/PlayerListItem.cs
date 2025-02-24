@@ -16,6 +16,8 @@ public class PlayerListItem : MonoBehaviour
     public GameObject ServerReadySpawnPoint;
     public GameObject ClientReadySpawnPoint;
     private bool isFirstTime = true;
+    [SerializeField]
+    BeerMugTween tweeningObject;
 
     protected Callback<AvatarImageLoaded_t> ImageLoaded;
 
@@ -77,7 +79,7 @@ public class PlayerListItem : MonoBehaviour
         if (Ready)
         {
             PlayerReady.SetActive(true);
-            LobbyController.Instance.PlayerReadyTween();
+            tweeningObject.ReadyTween();
             isFirstTime = false;
         }
 
@@ -86,7 +88,7 @@ public class PlayerListItem : MonoBehaviour
             //PlayerReady.SetActive(false);
             if (!isFirstTime)
             {
-                LobbyController.Instance.ResetPlayerReady();
+                tweeningObject.ResetTween();
             }
         }
     }
