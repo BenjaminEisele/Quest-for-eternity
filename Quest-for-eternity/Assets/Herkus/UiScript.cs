@@ -181,7 +181,7 @@ public class UiScript : MonoBehaviour
     
     public void ChangeEndTurnButtonStatus(bool inputBool)
     {
-        endTurnButton.interactable = inputBool;
+        //endTurnButton.interactable = inputBool;
     }
     public static void UpdateGameOverText(string inputString)
     {
