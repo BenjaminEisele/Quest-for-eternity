@@ -108,11 +108,13 @@ public class EnemyScript : NetworkBehaviour
         if (RefereeScript.instance.enemyList.Count >= 2)
         {
             Debug.Log($"{personalId} healing enemy");
+            // Healing
             RefereeScript.instance.HealEnemyRefereeScript();
         }
         else
         {
             Debug.Log($"{personalId} spawning enemy");
+            // spawning
             RefereeScript.instance.EnemyGenerationNest();
         }
     }

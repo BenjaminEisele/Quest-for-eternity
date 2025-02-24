@@ -38,7 +38,7 @@ public class OnHoverScript : MonoBehaviour
         Vector3 finalScale = initialScale;
         if (status) 
         {
-            //Quaternion rotQuaternion = Quaternion.Euler(new Vector3(0, 0, -rootParent.eulerAngles.z));
+            //Hover over card
             scaleParent.DOLocalRotate(new Vector3(0, 0, -rootParent.eulerAngles.z), animationSpeed);
             scaleParent.DOLocalMoveY(3, animationSpeed);
             transform.parent.position += new Vector3(0,0,-2);
@@ -52,7 +52,6 @@ public class OnHoverScript : MonoBehaviour
             scaleParent.DOScale(initialScale, animationSpeed);
             transform.parent.position = new Vector3(transform.parent.position.x, transform.parent.position.y, zLocator);
         }
-        //scaleParent.localScale = finalScale;
         myMeshRenderer.enabled = status;
     }
 }

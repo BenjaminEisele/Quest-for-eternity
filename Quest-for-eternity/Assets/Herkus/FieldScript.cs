@@ -39,6 +39,7 @@ public class FieldScript : MonoBehaviour
 
     public bool SpawnActiveCard(int cardId, bool isMergeSetup)
     {  
+        //Add an additional Bool to Method that is only true if play card for ally
         soundFXManager.PlayCardSound();
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
         int damagePointsFromActiveCard;

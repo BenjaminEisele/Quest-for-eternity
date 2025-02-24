@@ -629,6 +629,7 @@ public class HandScript : MonoBehaviour
     {
         if (canInteract && playerScriptAccess.isThisPlayersTurn)
         {
+            //play card for ally
             int clickedCardId;
             if (customInput == -1)
             {
