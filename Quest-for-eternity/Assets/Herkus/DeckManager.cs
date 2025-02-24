@@ -6,6 +6,7 @@ public class DeckManager : MonoBehaviour
     public List<int> deckCardList;
     public List<int> handCardList;
     public List<int> discardedCardList;
+    public List<int> starterCardList;
 
     [SerializeField]
     UiScript uiScripAccess;
@@ -24,13 +25,13 @@ public class DeckManager : MonoBehaviour
     private void Start()
     {
         Invoke("SubscriptionInvokeDeck", 1f);
-        turnScriptAccess.restartGameEvent += ResetAllCardLists;
         uiScripAccess.ToggleShuffleWindow(false);
     }
 
     private void SubscriptionInvokeDeck()
     {
         RefereeScript.instance.newWaveEvent += ResetAllCardLists;
+        RefereeScript.instance.restartGameEvent += ResetToStarterCards;
     }
     public void ResetDeckBegin()
     {
@@ -69,7 +70,19 @@ public class DeckManager : MonoBehaviour
             handScriptAccess.HandReset();
         } 
     }
-
+    public void ResetToStarterCards()
+    {
+        if (playerScriptAccess.isLocalGamePlayer)
+        {
+            discardedCardList.Clear();
+            handCardList.Clear();
+            deckCardList.Clear();
+            deckCardList.AddRange(starterCardList);
+            ShuffleCards(deckCardList);
+            handScriptAccess.HandReset();
+            handScriptAccess.RebuildCardListLite();
+        }
+    }
     public void ShuffleCards(List<int> inputList)
     {
         int lenght = inputList.Count;

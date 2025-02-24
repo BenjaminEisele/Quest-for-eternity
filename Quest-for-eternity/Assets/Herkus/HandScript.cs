@@ -93,8 +93,9 @@ public class HandScript : MonoBehaviour
         turnScriptAccess.endTurnEvent += RebuildCardListLite;
         turnScriptAccess.endTurnEvent += ResetQuickAttackMode;
         turnScriptAccess.endTurnEvent += HitRateRestoriationMethod;
-        turnScriptAccess.restartGameEvent += HandReset;
-        turnScriptAccess.restartGameEvent += RebuildCardListLite;
+        turnScriptAccess.endTurnEvent += ShowDiscardPile;
+        //RefereeScript.instance.restartGameEvent += HandReset;
+        //RefereeScript.instance.restartGameEvent += RebuildCardListLite;
 		damageSliderObject.SetActive(false);
         isInQuickAttackMode = false;
         isInDamageSliderMode = false;
@@ -118,8 +119,28 @@ public class HandScript : MonoBehaviour
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
         RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
+        RefereeScript.instance.restartGameEvent += EffectAndVariableReset;
     }
-
+    private void EffectAndVariableReset()
+    {
+        isInQuickAttackMode = false;
+        isInDamageSliderMode = false;
+        isInMergeMode = false;
+        isInLongShotMode = false;
+        isHelpAndLeadActive = false;
+        canPlayUtility = true;
+        utlCardsPlayedForOtherPlayer = 0;
+        utilityLimit = 3;
+        cardLimit = 5;
+        damageSliderObject.SetActive(false);
+    }
+    private void ShowDiscardPile()
+    {
+        if(deckManagerAccess.discardedCardList.Count > 0)
+        {
+            discardPile.SetActive(true);
+        }
+    }
     public void PlayCard(Transform card)
     {
         if(canInteract && playerScriptAccess.isThisPlayersTurn)

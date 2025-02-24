@@ -12,7 +12,6 @@ public class PlayerScript : NetworkBehaviour
     public TurnScript turnScriptAccess;
     [SerializeField]
     FieldScript fieldScriptAccess;
-    public bool shouldDealDamage;
     [SyncVar]
     public bool isHost;
     [SyncVar]
@@ -72,6 +71,7 @@ public class PlayerScript : NetworkBehaviour
                 RefereeScript.instance.turnStartEvent += EndTurnPlayerScript;
                 RefereeScript.instance.turnStartEvent += SetLocalPlayersTurnTrue;
                 RefereeScript.instance.turnStartEvent += ResetHealingSum;
+                RefereeScript.instance.restartGameEvent += RestartPlayerScript;
                 turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;
                 turnScriptAccess.endTurnEvent += DealDamageEventTrue;
                 shouldCheck = false;
@@ -80,6 +80,19 @@ public class PlayerScript : NetworkBehaviour
             }           
         }
     }
+
+    private void RestartPlayerScript()
+    {
+        if(isHost)
+        {
+            isThisPlayersTurn = true;
+        }
+        else
+        {
+            isThisPlayersTurn = false;
+        }
+    }
+
     private void SetLocalPlayersTurnFalse()
     {
         isPlayersTurnLocal = false;

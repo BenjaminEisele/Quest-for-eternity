@@ -32,7 +32,6 @@ public class FieldScript : MonoBehaviour
    
     private void Start()
     {
-        playerScriptAccess.shouldDealDamage = false;
         hitRateModifier = 0;
         activeCardSpawnPosition = spawnpoint.position;
     }
@@ -106,17 +105,22 @@ public class FieldScript : MonoBehaviour
 
     public void FieldClear()
     {
+        int foreachCount = 0;
         foreach (GameObject activeCardMember in activeCardList)
         {
             Destroy(activeCardMember);
+            foreachCount++;
         }
-		foreach (GameObject ghostCard in ghostCardList)
+        if(foreachCount > 0)
+        {
+            handscriptAccess.discardPile.SetActive(true);
+        }
+        foreach (GameObject ghostCard in ghostCardList)
 		{
 			Destroy(ghostCard);
 		}
         activeCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
-        handscriptAccess.discardPile.SetActive(true);
     }
 
     public int CheckIfHitAndShouldClearField(bool inputBool, bool shouldGuaranteeHit)
@@ -139,7 +143,6 @@ public class FieldScript : MonoBehaviour
                     didWeHit = true;
                 }
                 
-                playerScriptAccess.shouldDealDamage = didWeHit;
                 if (didWeHit)
                 {
                     soundFXManager.HitSound();

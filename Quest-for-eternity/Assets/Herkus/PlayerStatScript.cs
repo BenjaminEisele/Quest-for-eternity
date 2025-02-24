@@ -41,8 +41,7 @@ public class PlayerStatScript : NetworkBehaviour
         healingMultiplier = 1;
         savedPlayerHealth = playerHealth;
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
-        ResetPlayer();
-        PlayerStatNewTurnEvent();
+       
     }
 
     private void SubscriptionInvoke()
@@ -57,21 +56,9 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 RefereeScript.instance.newWaveEvent += HostNewWaveHeal;
             }
-            RefereeScript.instance.turnStartEvent += PlayerStatNewTurnEvent;
             RefereeScript.instance.newWaveEvent += PlayerStatNewWaveEvent;
+            RefereeScript.instance.restartGameEvent += ResetPlayerStat;
         }
-    }
-    private void PlayerStatNewTurnEvent()
-    {
-        if(RefereeScript.instance)
-        {
-            if (playerScriptAccess.isThisPlayersTurn ^ RefereeScript.instance.singlePlayerMode)
-            {
-               
-                
-            }
-        }
-        
     }
 
     public void ResetPlayerStatList()
@@ -82,14 +69,6 @@ public class PlayerStatScript : NetworkBehaviour
     {
         playerArmor = 0;
     }
-    public void ResetPlayer()
-    {
-        playerHealthOffset = 0;
-        playerHealth = savedPlayerHealth;
-        ChangePlayerHealth(savedPlayerHealth, 0, healingMultiplier);
-        UiScript.UpdateFighterText(playerHealthText, playerHealth);
-    }
-
     private void ClientNewWaveHeal()
     {
         ChangeHealthNest(2, 0, true);
@@ -123,22 +102,30 @@ public class PlayerStatScript : NetworkBehaviour
     {
         playerArmor += desiredArmor;
         int damageDelta = 0;
-        if(desiredHealth < 0)
+        Debug.Log($"Desired armor is: {desiredArmor}");
+        if(desiredArmor >= 0)
         {
-            multiplierInput = 1;
-            damageDelta = playerArmor + desiredHealth;
-            if(damageDelta < 0)
+            if (desiredHealth < 0)
             {
-                desiredHealth = damageDelta;
-            }
-            else
-            {
-                desiredHealth = 0;
-            }
-            
-            playerArmor = damageDelta;
-        }
+                multiplierInput = 1;
+                damageDelta = playerArmor + desiredHealth;
+                if (damageDelta < 0)
+                {
+                    desiredHealth = damageDelta;
+                }
+                else
+                {
+                    desiredHealth = 0;
+                }
 
+                playerArmor = damageDelta;
+            }
+        }
+        else
+        {
+            Debug.Log("this doesnt get executed");
+        }
+       
         int changedValue = playerHealth + desiredHealth * multiplierInput;
         if (multiplierInput != 1)
         {
@@ -240,7 +227,17 @@ public class PlayerStatScript : NetworkBehaviour
                 playerArmorText.gameObject.SetActive(false);
             }
             UiScript.UpdateFighterText(playerArmorText, playerArmor);
-        }
-        
+        }       
+    }
+
+    private void ResetPlayerStat()
+    {
+        Debug.Log("Reset player");
+        ChangeHealthNest(50, -10000, true);
+        immunityIdList.Clear();
+        immunityCount = 0;
+        damageMultiplier = 1;
+        healingMultiplier = 1;
+        playerHealthOffset = 0;
     }
 }

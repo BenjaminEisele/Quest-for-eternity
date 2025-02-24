@@ -45,6 +45,9 @@ public class RefereeScript : NetworkBehaviour
     public delegate void TurnStartAction();
     public event TurnStartAction turnStartEvent;
 
+    public delegate void RestartGameAction();
+    public event RestartGameAction restartGameEvent;
+
     private GameObject[] card;
     private GameObject[] button;
     private GameObject[] mainCamera;
@@ -129,8 +132,18 @@ public class RefereeScript : NetworkBehaviour
         {
             ChooseNewEnemy(-1);
         }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            CallRestartGameEvent();
+        }
     }
-
+    private void CallRestartGameEvent()
+    {
+        if (restartGameEvent != null)
+        {
+            restartGameEvent();
+        }
+    }
     private void CallSwitchEnemyIdNestEvent()
     {
         SwitchPlayerAttackIdNest(false);
