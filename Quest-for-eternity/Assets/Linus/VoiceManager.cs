@@ -129,12 +129,13 @@ public class VoiceManager : MonoBehaviour
 
     public void EndLastetLine()
     {
-        if (latestSource != null && !latestSource.gameObject.IsDestroyed())
+        //latestSource = GameObject.Find("VoiceObject(Clone)");
+        if (latestSource.gameObject != null && !latestSource.gameObject.IsDestroyed())
         {
             Debug.Log("Destroy triggered");
             Destroy(latestSource.gameObject);
         }
-        else if (latestSource == null)
+        else if (latestSource.gameObject == null)
         {
             Debug.Log("latest source null");
         }
@@ -251,7 +252,6 @@ public class VoiceManager : MonoBehaviour
                 {
                     bool didPlay = PlaySoundClip(zombieSpawns, true);
                     zombieSpawned = didPlay;
-                    
                 }
                 
                 break;
