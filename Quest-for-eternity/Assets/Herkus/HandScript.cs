@@ -307,7 +307,7 @@ public class HandScript : MonoBehaviour
     }
     private void AddCardsEvent()
     {
-        Invoke("AddCardsEventLogic", 0.2f);
+        Invoke("AddCardsEventLogic", 0.5f);
     }
 
     private void AddCardsEventLogic()
