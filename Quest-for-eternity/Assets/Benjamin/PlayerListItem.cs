@@ -26,10 +26,10 @@ public class PlayerListItem : MonoBehaviour
         ImageLoaded = Callback<AvatarImageLoaded_t>.Create(OnImageLoaded);
     }
 
-    public void SetPlayerValues()
+    public void SetPlayerValues(bool server)
     {
         PlayerNameText.text = PlayerName;
-        ChangeReadyStatus();
+        ChangeReadyStatus(server);
         if (!AvatarRecieved) { GetPlayerIcon(); }
     }
 
@@ -74,12 +74,12 @@ public class PlayerListItem : MonoBehaviour
         }
     }
 
-    public void ChangeReadyStatus()
+    public void ChangeReadyStatus(bool server)
     {
         if (Ready)
         {
             PlayerReady.SetActive(true);
-            tweeningObject.ReadyTween();
+            tweeningObject.ReadyTween(server);
             isFirstTime = false;
         }
 
@@ -88,7 +88,7 @@ public class PlayerListItem : MonoBehaviour
             //PlayerReady.SetActive(false);
             if (!isFirstTime)
             {
-                tweeningObject.ResetTween();
+                tweeningObject.ResetTween(server);
             }
         }
     }

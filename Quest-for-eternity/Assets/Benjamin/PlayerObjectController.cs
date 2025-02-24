@@ -40,7 +40,7 @@ public class PlayerObjectController : NetworkBehaviour
         }
         if (isClient)
         {
-            LobbyController.Instance.UpdatePlayerList();
+            LobbyController.Instance.UpdatePlayerList(false);
         }
     }
 
@@ -52,7 +52,7 @@ public class PlayerObjectController : NetworkBehaviour
         }
         if (isClient)
         {
-            LobbyController.Instance.UpdatePlayerList();
+            LobbyController.Instance.UpdatePlayerList(false);
         }
     }
 
@@ -88,7 +88,7 @@ public class PlayerObjectController : NetworkBehaviour
 			Manager.GamePlayers.Add(this);
 		}
         LobbyController.Instance.UpdateLobbyName();
-        LobbyController.Instance.UpdatePlayerList();
+        LobbyController.Instance.UpdatePlayerList(false);
     }
 
     public override void OnStopClient()
@@ -99,7 +99,7 @@ public class PlayerObjectController : NetworkBehaviour
         }
         if (LobbyController.Instance != null)
         {
-            LobbyController.Instance.UpdatePlayerList();
+            LobbyController.Instance.UpdatePlayerList(false);
         }
     }
 

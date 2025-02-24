@@ -4,9 +4,9 @@ using DG.Tweening;
 
 public class BeerMugTween : NetworkBehaviour
 {
-    public void ReadyTween()
+    public void ReadyTween(bool server)
     {
-        if (!isClientOnly)
+        if (!server)
         {
             ServerTween();
             Debug.Log("ServerTween");
@@ -18,9 +18,9 @@ public class BeerMugTween : NetworkBehaviour
         }
     }
 
-    public void ResetTween()
+    public void ResetTween(bool server)
     {
-        if (!isClientOnly)
+        if (!server)
         {
             ResetServerTween();
         }
