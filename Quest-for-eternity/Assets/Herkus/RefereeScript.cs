@@ -141,6 +141,7 @@ public class RefereeScript : NetworkBehaviour
     {
         if (restartGameEvent != null)
         {
+            Debug.Log("Restart event called!");
             restartGameEvent();
         }
     }
