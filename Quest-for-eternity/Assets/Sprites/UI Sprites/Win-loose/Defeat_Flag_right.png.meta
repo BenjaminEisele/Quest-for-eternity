@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Defeat_Flag_right_0: -6053913446573742764
+      Defeat_Flag_right_1: 7447738351885434203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

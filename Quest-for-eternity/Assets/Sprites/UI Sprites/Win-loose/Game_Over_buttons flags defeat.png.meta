@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Game_Over_buttons flags defeat_0: 5515701653916864833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

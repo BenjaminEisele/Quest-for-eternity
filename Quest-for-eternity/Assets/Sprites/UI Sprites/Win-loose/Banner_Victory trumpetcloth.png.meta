@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Banner_Victory trumpetcloth_0: -6067491001255529367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

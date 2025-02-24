@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VictoryLossScreen_DarkeningOverlay Sunset_0: -6649955165097876368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

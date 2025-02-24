@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Victory_Flag right_0: 576127715373532567
+      Victory_Flag right_1: 4210263862425286951
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
