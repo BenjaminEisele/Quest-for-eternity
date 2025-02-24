@@ -175,28 +175,57 @@ public class VoiceManager : MonoBehaviour
         switch (enemyID)
         {
             case 0:
-                if (!latestSource.clip == zombieKillPlayer && !latestSource.clip == skeletonKillPlayer && !latestSource.clip == skullKillPlayer && !latestSource.clip == necroKillPlayer)
+                if (latestSource != null)
+                {
+                    if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                    {
+                        PlaySoundClip(zombieKillPlayer, false);
+                    }
+                }
+                else
                 {
                     PlaySoundClip(zombieKillPlayer, false);
                 }
+
                 break;
 
             case 1:
-                if (!latestSource.clip == zombieKillPlayer && !latestSource.clip == skeletonKillPlayer && !latestSource.clip == skullKillPlayer && !latestSource.clip == necroKillPlayer)
+                if (latestSource != null)
+                {
+                    if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                    {
+                        PlaySoundClip(skeletonKillPlayer, false);
+                    }
+                }
+                else
                 {
                     PlaySoundClip(skeletonKillPlayer, false);
                 }
                 break;
 
             case 2:
-                if (!latestSource.clip == zombieKillPlayer && !latestSource.clip == skeletonKillPlayer && !latestSource.clip == skullKillPlayer && !latestSource.clip == necroKillPlayer)
+                if (latestSource != null)
+                {
+                    if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                    {
+                        PlaySoundClip(skullKillPlayer, false);
+                    }
+                }
+                else
                 {
                     PlaySoundClip(skullKillPlayer, false);
                 }
                 break;
 
             case 3:
-                if (!latestSource.clip == zombieKillPlayer && !latestSource.clip == skeletonKillPlayer && !latestSource.clip == skullKillPlayer && !latestSource.clip == necroKillPlayer)
+                if (latestSource != null)
+                {
+                    if (latestSource.clip != zombieKillPlayer && latestSource.clip != skeletonKillPlayer && latestSource.clip != skullKillPlayer && latestSource.clip != necroKillPlayer)
+                    {
+                        PlaySoundClip(necroKillPlayer, false);
+                    }
+                }
+                else
                 {
                     PlaySoundClip(necroKillPlayer, false);
                 }
