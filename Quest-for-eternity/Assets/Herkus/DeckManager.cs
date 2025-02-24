@@ -72,8 +72,10 @@ public class DeckManager : MonoBehaviour
     }
     public void ResetToStarterCards()
     {
+        Debug.Log("reset 1");
         if (playerScriptAccess.isLocalGamePlayer)
         {
+            Debug.Log("reset 2");
             discardedCardList.Clear();
             handCardList.Clear();
             deckCardList.Clear();
