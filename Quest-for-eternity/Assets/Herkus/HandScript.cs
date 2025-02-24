@@ -622,7 +622,14 @@ public class HandScript : MonoBehaviour
         }
         else
         {
-            cardList[cardIndex] = cardClone.GetComponentInChildren<CardScript>();
+            if(cardIndex + 1 > cardList.Count)
+            {
+                cardList.Add(cardClone.GetComponentInChildren<CardScript>());
+            }
+            else
+            {
+                cardList[cardIndex] = cardClone.GetComponentInChildren<CardScript>();
+            }          
         }
         cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);
         soundFXManager.DrawSound();
