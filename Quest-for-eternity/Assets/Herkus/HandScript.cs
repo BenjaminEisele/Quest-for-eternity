@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 public class HandScript : MonoBehaviour
 {
     [SerializeField]
@@ -78,6 +79,9 @@ public class HandScript : MonoBehaviour
 
     public bool isHelpAndLeadActive;
 
+    public TextMeshPro deckText;
+    public GameObject deckCard;
+
     private void Start()
     {
         utilityLimit = 3;
@@ -104,6 +108,7 @@ public class HandScript : MonoBehaviour
         ActivateAllCardsEvent();
         RebuildCardListLite();
         utlCardsPlayedForOtherPlayer = 0;
+        deckText.text = deckManagerAccess.deckCardList.Count.ToString();
     }
 
     private void SubscriptionInvokeHand()
@@ -562,6 +567,10 @@ public class HandScript : MonoBehaviour
         cardClone.GetComponentInChildren<CardScript>().HandCardSetup(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
         deckManagerAccess.handCardList.Add(deckManagerAccess.deckCardList[deckManagerAccess.deckCardList.Count - 1]);
         deckManagerAccess.deckCardList.RemoveAt(deckManagerAccess.deckCardList.Count - 1);
+        if (deckManagerAccess.deckCardList.Count <= 0)
+        {
+            deckCard.SetActive(false);
+        }
         if(isHitrateAffected)
         {
             cardClone.GetComponentInChildren<CardScript>().ChangeVisualCardHitrate(false, savedHitrateDelta, false);
@@ -583,6 +592,7 @@ public class HandScript : MonoBehaviour
         }
         cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);
         soundFXManager.DrawSound();
+        deckText.text = deckManagerAccess.deckCardList.Count.ToString();
     }
 
     private int CalculateCardIndex()

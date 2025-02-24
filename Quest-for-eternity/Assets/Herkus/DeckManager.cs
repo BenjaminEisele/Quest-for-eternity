@@ -52,6 +52,8 @@ public class DeckManager : MonoBehaviour
         uiScripAccess.ToggleShuffleWindow(false);
         handScriptAccess.DrawQueuedCards();
         handScriptAccess.canInteract = true;
+        handScriptAccess.deckText.text = deckCardList.Count.ToString();
+        handScriptAccess.deckCard.SetActive(true);
     }
 
     public void ResetAllCardLists()
