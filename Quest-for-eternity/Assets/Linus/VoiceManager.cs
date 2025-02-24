@@ -130,15 +130,18 @@ public class VoiceManager : MonoBehaviour
 
     public void EndLastetLine()
     {
-        Debug.Log("End Started");
         if (latestSource != null && !latestSource.gameObject.IsDestroyed())
         {
             Debug.Log("Destroy triggered");
             Destroy(latestSource.gameObject);
         }
-        else
+        else if (latestSource == null)
         {
-            Debug.Log("´Destroy not triggered");
+            Debug.Log("latest line null");
+        }
+        else if (latestSource.gameObject.IsDestroyed())
+        {
+            Debug.Log("latest source destroyed");
         }
     }
 
@@ -336,7 +339,6 @@ public class VoiceManager : MonoBehaviour
 
     public void OpenMenuLine()
     {
-        Debug.Log("OpenMenu");
         int rnd = Random.Range(0, openMenu.Length);
         PlaySoundClip(openMenu[rnd], false);
     }
