@@ -782,12 +782,12 @@ public class RefereeScript : NetworkBehaviour
         if (isClientOnly)
         {
             playerList[1].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
-            playerList[1].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
+            playerList[1].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
         }
         else if(singlePlayerMode)
         {
             playerList[0].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
-            playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
+            playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
         }
     }
 
@@ -795,6 +795,6 @@ public class RefereeScript : NetworkBehaviour
     private void CmdResetDamageMultiplier()
     {
         playerList[0].transform.root.GetComponentInChildren<PlayerStatScript>().damageMultiplier = 1;
-        playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
+        playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
     }
 }

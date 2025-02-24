@@ -385,19 +385,20 @@ public class HandScript : MonoBehaviour
     private IEnumerator QuickAttackModeCoroutine(int inputCardId)
     {
         yield return new WaitForSeconds(0.75f);
-        ActionCardEffectActivation(inputCardId);
+        //ActionCardEffectActivation(inputCardId);
         playerScriptAccess.DealDamagePlayerScript(false, false, 0, false, true);
         isInQuickAttackMode = false;
         isHelpAndLeadActive = false;
         SetCardActivityStatus(true, 0);
         RestoreAllOriginalHitrates();
         canInteract = true;
+        ActionCardEffectActivation(inputCardId);
     }
     private IEnumerator EndTurnDelayCoroutine(int inputCardId)
     {
         SetCardActivityStatus(false, 2);
         yield return new WaitForSeconds(0.75f);
-        ActionCardEffectActivation(inputCardId);
+        
         isHelpAndLeadActive = false;
         if (!isInDamageSliderMode)
         {
@@ -407,7 +408,7 @@ public class HandScript : MonoBehaviour
         {
             damageSliderObject.SetActive(true);
         }
-        
+        ActionCardEffectActivation(inputCardId);
     }
 
     private IEnumerator MergedCoroutine(int firstId, int secondId)
@@ -424,7 +425,7 @@ public class HandScript : MonoBehaviour
         Action actionCardAccess = databasePlayerAccess.cardList[inputCardId] as Action;
         foreach (EffectUnit myEffectUnit in actionCardAccess.actionEffectUnitList)
         {
-            if (myEffectUnit.shouldActivateNow)
+            if (!myEffectUnit.shouldActivateNow)
             {
                 myEffectUnit.myEffect.UseEffect<GameObject>(RefereeScript.instance.chosenEnemyId, myEffectUnit.effectValue, sceneObjectAccess.gameObject);
             }

@@ -10,6 +10,7 @@ public class FullImmunityEffect : EffectTemplate
         GameObject inputGameobject = value as GameObject;
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
+            Debug.Log("immunity effect");
             for(int i = 0; i < 2; i++)
             {
                 inputGameobject.GetComponent<SceneObjectDatabase>().playerStatReference.immunityIdList.Add(i);

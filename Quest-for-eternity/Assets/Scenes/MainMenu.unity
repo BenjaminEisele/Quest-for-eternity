@@ -2804,7 +2804,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 2169243526425645442, guid: d9be6aeab5d14f145882b59e4de7eb4b, type: 3}
     m_PressedSprite: {fileID: 2169243526425645442, guid: d9be6aeab5d14f145882b59e4de7eb4b, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 2169243526425645442, guid: d9be6aeab5d14f145882b59e4de7eb4b, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -5228,6 +5228,9 @@ MonoBehaviour:
   skeletonAttacks: {fileID: 8300000, guid: 7fe5d87e54734f34f8b25ffbac99ff36, type: 3}
   skullAttacks: {fileID: 8300000, guid: 28aed56927b0cd5448ac48465770cedc, type: 3}
   necroAttacks: {fileID: 8300000, guid: bb68e2a8e12a82d4faf9c5bb40d5dc39, type: 3}
+  necroHealsSkeleton: []
+  necroSpawnsSkeleton: []
+  necroRespawnsSkeleton: []
   strongAttacks: []
   missedAttacks: []
   playerTurn: []
@@ -5253,15 +5256,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 31138f3f4d3ee0948b4d9b72aa8487f1, type: 3}
   - {fileID: 8300000, guid: 9236c7b1aabe7cf49b599056c46778bb, type: 3}
   - {fileID: 8300000, guid: 9a0c951041feedb4081d64c425f9ddbf, type: 3}
+  playForAlly: []
+  recieveFromAlly: []
   miscLineChance: 0
   zombieAttacked: 0
   skeletonAttacked: 0
   skullAttacked: 0
   necroAttacked: 0
+  necroSkeletons: 0
   zombieSpawned: 0
   skeletonSpawned: 0
   skullSpawned: 0
   latestSource: {fileID: 0}
+  filler: {fileID: 0}
 --- !u!1 &886953251
 GameObject:
   m_ObjectHideFlags: 0

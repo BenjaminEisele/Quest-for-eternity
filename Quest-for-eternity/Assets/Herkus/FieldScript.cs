@@ -118,7 +118,7 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
     }
 
-    public bool CheckIfHitAndShouldClearField(bool inputBool, bool shouldGuaranteeHit)
+    public int CheckIfHitAndShouldClearField(bool inputBool, bool shouldGuaranteeHit)
     {
         bool didWeHit;
 
@@ -128,7 +128,8 @@ public class FieldScript : MonoBehaviour
             FieldEffectActivation();
             if (actionCardReference != null)
             {
-                if(!shouldGuaranteeHit)
+              
+                if (!shouldGuaranteeHit)
                 {
                     didWeHit = actionCardReference.DidActiveCardHit(hitRateModifier);
                 }
@@ -149,7 +150,7 @@ public class FieldScript : MonoBehaviour
                     {
                         FieldClear();
                     }
-                    return didWeHit;
+                    return 0;
                 }
                 else
                 {
@@ -166,7 +167,7 @@ public class FieldScript : MonoBehaviour
                     {
                         FieldClear();
                     }
-                    return false;
+                    return 1;
 
                 }
             }
@@ -181,9 +182,10 @@ public class FieldScript : MonoBehaviour
                     FieldClear();
                 }
 
-                return false;
+                //return false;
+                return 2;
             }
         }
-        return false;
+        return 2;
     }
 }

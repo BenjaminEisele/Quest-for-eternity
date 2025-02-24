@@ -67,11 +67,7 @@ public class PlayerStatScript : NetworkBehaviour
         {
             if (playerScriptAccess.isThisPlayersTurn ^ RefereeScript.instance.singlePlayerMode)
             {
-                if(healingMultiplier != 1)
-                {
-                    healingMultiplier = 1;
-                    uiScriptAccess.DestroyIcon(27, 0);
-                }
+               
                 
             }
         }
@@ -144,6 +140,11 @@ public class PlayerStatScript : NetworkBehaviour
         }
 
         int changedValue = playerHealth + desiredHealth * multiplierInput;
+        if (multiplierInput != 1)
+        {
+            healingMultiplier = 1;
+            uiScriptAccess.DestroyIcon(27, 0);
+        }
         playerHealth = changedValue;
         if (playerHealth >= savedPlayerHealth)
         {

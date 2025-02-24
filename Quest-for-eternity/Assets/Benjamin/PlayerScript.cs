@@ -195,12 +195,16 @@ public class PlayerScript : NetworkBehaviour
         }       
         if (!isServer)
         {
-            if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit))
+            // 0 - Hit
+            // 1 - Miss
+            // 2 - no action card
+            int hitOutcome = fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit);
+            if (hitOutcome == 0)
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
                 multiplier = 1;
-                transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
+                transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
                 if (damageThisRound > 4 && (Random.Range(1, 101) > voiceManager.miscLineChance))
                 {
                     voiceManager.StrongAttackLine();
@@ -231,7 +235,13 @@ public class PlayerScript : NetworkBehaviour
                     }
                 }
             }
-            if(hammerEffect)
+            else if(hitOutcome == 1)
+            {
+                multiplier = 1;
+                transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
+            }
+            
+            if (hammerEffect)
             {
                 for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
                 {
@@ -246,6 +256,7 @@ public class PlayerScript : NetworkBehaviour
             {
                 handScriptAccess.DelayedActionCardEffectActivation();
             }
+
             if (shouldHealByDamageAmount)
             {
                 playerStatAccess.ChangeHealthNest(healingSum, 0, true);
@@ -254,12 +265,12 @@ public class PlayerScript : NetworkBehaviour
         }
         else if (isServer)
         {
-            if (fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit))
+            int hitOutcome = fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit);
+            if (hitOutcome == 0)
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
-                multiplier = 1;
-                transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 1);
+                transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
                 if (damageThisRound > 3 && (Random.Range(0f, 1f) > 0.33))
                 {
                    // voiceManager.StrongAttackLine();
@@ -290,6 +301,12 @@ public class PlayerScript : NetworkBehaviour
                     }
                 }
             }
+            else if (hitOutcome == 1)
+            {
+                multiplier = 1;
+                transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
+            }
+
             if (hammerEffect)
             {
                 for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)

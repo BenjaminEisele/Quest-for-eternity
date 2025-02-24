@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_target marker_0: -4028602971607293987
+      InGame_target marker_1: -7444981702779534871
+      InGame_target marker_10: 528389691848240680
+      InGame_target marker_11: -1648930000570333523
+      InGame_target marker_12: 4484152511045950783
+      InGame_target marker_13: 9048455167858060831
+      InGame_target marker_14: 5473899203511351314
+      InGame_target marker_15: 6678876654390902768
+      InGame_target marker_2: 585285562560992748
+      InGame_target marker_3: -352746068833542838
+      InGame_target marker_4: 4921203941317595360
+      InGame_target marker_5: 6186043098375267781
+      InGame_target marker_6: 3266591465981654682
+      InGame_target marker_7: -630189793775230080
+      InGame_target marker_8: -4196076607350831117
+      InGame_target marker_9: -7828347268058764791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
