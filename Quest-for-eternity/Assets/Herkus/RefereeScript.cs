@@ -134,10 +134,12 @@ public class RefereeScript : NetworkBehaviour
         }
         if(Input.GetKeyDown(KeyCode.R))
         {
-            CallRestartGameEvent();
+            RpcCallRestartGameEvent();
         }
     }
-    private void CallRestartGameEvent()
+
+    [ClientRpc]
+    private void RpcCallRestartGameEvent()
     {
         if (restartGameEvent != null)
         {
