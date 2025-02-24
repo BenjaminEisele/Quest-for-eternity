@@ -32,6 +32,8 @@ public class VoiceManager : MonoBehaviour
     public AudioClip[] openMenu;
     public AudioClip[] openGame;
     public AudioClip[] startMatch;
+    public AudioClip[] playForAlly;
+    public AudioClip[] recieveFromAlly;
 
     public int miscLineChance = 33;
 
@@ -46,7 +48,7 @@ public class VoiceManager : MonoBehaviour
 
     public AudioSource latestSource;
 
-    public GameObject test;
+    public GameObject filler;
 
     private void Awake()
     {
@@ -131,19 +133,10 @@ public class VoiceManager : MonoBehaviour
 
     public void EndLastetLine()
     {
-        test = GameObject.Find("VoiceObject(Clone)");
-        if (test != null && !test.IsDestroyed())
+        filler = GameObject.Find("VoiceObject(Clone)");
+        if (filler != null && !filler.IsDestroyed())
         {
-            Debug.Log("Destroy triggered");
-            Destroy(test);
-        }
-        else if (test == null)
-        {
-            Debug.Log("latest source null");
-        }
-        else if (test.IsDestroyed())
-        {
-            Debug.Log("latest source destroyed");
+            Destroy(filler);
         }
     }
 
@@ -354,5 +347,17 @@ public class VoiceManager : MonoBehaviour
     {
         int rnd = Random.Range(0, startMatch.Length);
         PlaySoundClip(startMatch[rnd], false);
+    }
+
+    public void PlayCardForAlly()
+    {
+        int rnd = Random.Range(0, playForAlly.Length);
+        PlaySoundClip(playForAlly[rnd], true);
+    }
+
+    public void RecieveCardFromAlly()
+    {
+        int rnd = Random.Range(0, recieveFromAlly.Length);
+        PlaySoundClip(recieveFromAlly[rnd], true);
     }
 }

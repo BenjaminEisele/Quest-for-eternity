@@ -1188,6 +1188,7 @@ MonoBehaviour:
   uiScriptAccess: {fileID: 8797810155221267089}
   cardCount: 0
   soundFXManager: {fileID: 7250125789181350792}
+  voiceManager: {fileID: 1611595808576227657}
   canInteract: 0
   isInQuickAttackMode: 0
   isInLongShotMode: 0
@@ -8753,6 +8754,27 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 31138f3f4d3ee0948b4d9b72aa8487f1, type: 3}
   - {fileID: 8300000, guid: 9236c7b1aabe7cf49b599056c46778bb, type: 3}
   - {fileID: 8300000, guid: 9a0c951041feedb4081d64c425f9ddbf, type: 3}
+  playForAlly:
+  - {fileID: 8300000, guid: f9533cfe45df94540954176f0e1bf0b5, type: 3}
+  - {fileID: 8300000, guid: 2e273ecea8ce309449c4bf1a4479c770, type: 3}
+  - {fileID: 8300000, guid: 35db8105e3f2a38428bf6c8f2a568b1a, type: 3}
+  - {fileID: 8300000, guid: d0fea9c9dbcc9a34899ee476943f1d6d, type: 3}
+  recieveFromAlly:
+  - {fileID: 8300000, guid: 89e45906690ab7641a2e78e5a48484f4, type: 3}
+  - {fileID: 8300000, guid: 925d423496b3f2941b10b2385899b492, type: 3}
+  - {fileID: 8300000, guid: 73b325a5f394e2441864c1f4ea25937c, type: 3}
+  - {fileID: 8300000, guid: 92228bea18f24f0499570232a79e7ba3, type: 3}
+  - {fileID: 8300000, guid: a44373b6b8fb22b45a1327cc63188a88, type: 3}
+  - {fileID: 8300000, guid: f0cae46bceabd1d418eca90f01b19f2b, type: 3}
+  - {fileID: 8300000, guid: 850bbd06ae3728c4bb46f9d45644f94f, type: 3}
+  - {fileID: 8300000, guid: b6da3e0758d283f4e98c765e01a1fc77, type: 3}
+  - {fileID: 8300000, guid: 8685671ef1930044a94b549147286a64, type: 3}
+  - {fileID: 8300000, guid: 4d038ad9e68427041b31b0a298c29a19, type: 3}
+  - {fileID: 8300000, guid: d8195b1a34fd01d4a885f2a88f004948, type: 3}
+  - {fileID: 8300000, guid: 501126f07bd9ae443a2bd1c6777c3db8, type: 3}
+  - {fileID: 8300000, guid: 332c7620bc73a4e47ba59f964f4924ed, type: 3}
+  - {fileID: 8300000, guid: 611685e2f538a02438a1a7784c04f5de, type: 3}
+  - {fileID: 8300000, guid: 777b5c1c8fff9d8418fb53f9ac740eee, type: 3}
   miscLineChance: 33
   zombieAttacked: 0
   skeletonAttacked: 0
@@ -8762,6 +8784,7 @@ MonoBehaviour:
   skeletonSpawned: 0
   skullSpawned: 0
   latestSource: {fileID: 0}
+  filler: {fileID: 0}
 --- !u!114 &7696522756816989430
 MonoBehaviour:
   m_ObjectHideFlags: 0

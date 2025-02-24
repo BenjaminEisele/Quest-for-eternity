@@ -37,9 +37,16 @@ public class FieldScript : MonoBehaviour
         activeCardSpawnPosition = spawnpoint.position;
     }
 
-    public bool SpawnActiveCard(int cardId, bool isMergeSetup)
-    {  
-        //Add an additional Bool to Method that is only true if play card for ally
+    public bool SpawnActiveCard(int cardId, bool isMergeSetup, bool fromAlly)
+    {
+        if (fromAlly)
+        {
+            if (Random.Range(0, 100) < voiceManager.miscLineChance)
+            {
+                voiceManager.RecieveCardFromAlly();
+            }
+        }
+
         soundFXManager.PlayCardSound();
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
         int damagePointsFromActiveCard;
@@ -82,7 +89,7 @@ public class FieldScript : MonoBehaviour
         mergeIdList.Add(inputCardId);
         if(mergeIdList.Count >= 2)
         {
-            SpawnActiveCard(0, true);
+            SpawnActiveCard(0, true, false);
             handscriptAccess.MergedCardExecution(mergeIdList[0], mergeIdList[1]);
             mergeIdList.Clear();
         }

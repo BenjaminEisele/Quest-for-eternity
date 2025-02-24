@@ -437,31 +437,31 @@ public class PlayerScript : NetworkBehaviour
         }
     }
 
-    public void PlayCardForOtherPlayer(int cardID)
+    public void PlayCardForOtherPlayer(int cardID, bool playForOtherPlayer)
     {
         if (isServer)
         {
-            RpcPlayCardForOtherPlayer(cardID);
+            RpcPlayCardForOtherPlayer(cardID, playForOtherPlayer);
         }
 
         else if (!isServer)
         {
-            CmdPlayCardForOtherPlayer(cardID);
+            CmdPlayCardForOtherPlayer(cardID, playForOtherPlayer);
         }
     }
 
     [Command]
-    private void CmdPlayCardForOtherPlayer(int cardID)
+    private void CmdPlayCardForOtherPlayer(int cardID, bool playForOtherPlayer)
     {
-       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID, false);
+       RefereeScript.instance.playerList[0].fieldScriptAccess.SpawnActiveCard(cardID, false, playForOtherPlayer);
     }
 
     [ClientRpc]
-    private void RpcPlayCardForOtherPlayer(int cardID)
+    private void RpcPlayCardForOtherPlayer(int cardID, bool playForOtherPlayer)
     {
         if (isClientOnly)
         {
-            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID, false);
+            RefereeScript.instance.playerList[1].fieldScriptAccess.SpawnActiveCard(cardID, false, playForOtherPlayer);
         }
     }
 }

@@ -38,6 +38,7 @@ public class HandScript : MonoBehaviour
     int cardCount = 0;
 
     [SerializeField] SoundFXManager soundFXManager;
+    [SerializeField] VoiceManager voiceManager;
 
     Vector3 cardPlacementVector;
     Coroutine handScriptDelayCoroutine;
@@ -127,7 +128,7 @@ public class HandScript : MonoBehaviour
 					{
 						fieldScriptAccess.InputCardForMerging(clickedCardId);
 					}
-                    else if (fieldScriptAccess.SpawnActiveCard(clickedCardId, false))
+                    else if (fieldScriptAccess.SpawnActiveCard(clickedCardId, false, false))
                     {
                         canInteract = false;
                         if (isInQuickAttackMode)
@@ -629,7 +630,11 @@ public class HandScript : MonoBehaviour
     {
         if (canInteract && playerScriptAccess.isThisPlayersTurn)
         {
-            //play card for ally
+            if (Random.Range(0, 100) < voiceManager.miscLineChance)
+            {
+                voiceManager.PlayCardForAlly();
+            }
+
             int clickedCardId;
             if (customInput == -1)
             {
@@ -638,7 +643,7 @@ public class HandScript : MonoBehaviour
                     utlCardsPlayedForOtherPlayer++;
                     clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
 
-                    playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
+                    playerScriptAccess.PlayCardForOtherPlayer(clickedCardId, true);
                     deckManagerAccess.handCardList.Remove(clickedCardId);
                     deckManagerAccess.discardedCardList.Add(clickedCardId);
                     RebuildCardList(card.root.gameObject);               
@@ -647,13 +652,13 @@ public class HandScript : MonoBehaviour
             else
             {
                 clickedCardId = customInput;
-                playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
+                playerScriptAccess.PlayCardForOtherPlayer(clickedCardId, false);
             }
         }
         else if(customInput != -1)
         {
             clickedCardId = customInput;
-            playerScriptAccess.PlayCardForOtherPlayer(clickedCardId);
+            playerScriptAccess.PlayCardForOtherPlayer(clickedCardId, false);
         }
     }
     public void HandReset()

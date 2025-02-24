@@ -11,7 +11,7 @@ public class SupportEffect : EffectTemplate
         if (inputGameobject.GetComponent<SceneObjectDatabase>() != null)
         {
             SceneObjectDatabase sceneObjectDatabaseAccess = inputGameobject.GetComponent<SceneObjectDatabase>();
-            sceneObjectDatabaseAccess.playerScriptAccess.PlayCardForOtherPlayer(0);
+            sceneObjectDatabaseAccess.playerScriptAccess.PlayCardForOtherPlayer(0, false);
         }
     }
 }
