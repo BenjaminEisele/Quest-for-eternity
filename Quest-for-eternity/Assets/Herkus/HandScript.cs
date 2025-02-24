@@ -91,7 +91,7 @@ public class HandScript : MonoBehaviour
         Invoke("SubscriptionInvokeHand", 1f);
         turnScriptAccess.endTurnEvent += AddCardsEvent;
         turnScriptAccess.endTurnEvent += RebuildCardListLite;
-        turnScriptAccess.endTurnEvent += ResetQuickAttackMode;
+        //turnScriptAccess.endTurnEvent += ResetQuickAttackMode;
         turnScriptAccess.endTurnEvent += HitRateRestoriationMethod;
         turnScriptAccess.endTurnEvent += ShowDiscardPile;
         //RefereeScript.instance.restartGameEvent += HandReset;
@@ -314,7 +314,7 @@ public class HandScript : MonoBehaviour
     {
         AddCardsToHand(0);
         utilityCount = 0;
-
+        RebuildCardListLite();
     }
     public void DisableAllCardsEvent()
     {
