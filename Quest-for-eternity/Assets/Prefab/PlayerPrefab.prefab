@@ -2723,6 +2723,7 @@ MonoBehaviour:
   dragDropAccess: {fileID: 8790729103843228352}
   scaleParent: {fileID: 1011170593455595567}
   animationSpeed: 0.25
+  handScriptAccess: {fileID: 4716527281068523202}
   soundFXManager: {fileID: 7250125789181350792}
 --- !u!114 &8790729103843228352
 MonoBehaviour:

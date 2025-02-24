@@ -34,7 +34,7 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!pauseMenuCheckAccess.pauseMenuOpen)
+        if (!pauseMenuCheckAccess.pauseMenuOpen && handScriptAccess.canInteract)
         {
             mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
             isDragging = true;
@@ -93,7 +93,7 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if(cardScriptAccess.isClickable)
+        if(cardScriptAccess.isClickable && handScriptAccess.canInteract)
         {
             transform.position = GetMouseWorldPosition() + mousePositionOffset;
         }

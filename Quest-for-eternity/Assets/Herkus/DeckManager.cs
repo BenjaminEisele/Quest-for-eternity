@@ -35,7 +35,11 @@ public class DeckManager : MonoBehaviour
     }
     public void ResetDeckBegin()
     {
-        uiScripAccess.ToggleShuffleWindow(true);
+        if(!transform.root.GetComponentInChildren<ChooseNewCardScript>().isInLootingPhase)
+        {
+            uiScripAccess.ToggleShuffleWindow(true);
+            handScriptAccess.canInteract = false;
+        }        
     }
     public void ResetDeck(bool shouldShuffle)
     {

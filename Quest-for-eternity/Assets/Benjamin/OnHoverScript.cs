@@ -14,6 +14,8 @@ public class OnHoverScript : MonoBehaviour
     Transform rootParent;
     [SerializeField]
     float animationSpeed;
+    [SerializeField]
+    HandScript handScriptAccess;
 
     [SerializeField] SoundFXManager soundFXManager;
 
@@ -28,7 +30,7 @@ public class OnHoverScript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!dragDropAccess.isDragging) IncreasScale(true);
+        if (!dragDropAccess.isDragging && handScriptAccess.canInteract) IncreasScale(true);
     }
 
     private void OnMouseExit()

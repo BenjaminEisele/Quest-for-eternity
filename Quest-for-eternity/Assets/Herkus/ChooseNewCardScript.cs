@@ -15,7 +15,7 @@ public class ChooseNewCardScript : MonoBehaviour
     [SerializeField] SoundFXManager soundFXManager;
 
     private int displayCardCount = 0;
-
+    public bool isInLootingPhase = false;
 
     private void Start()
     {
@@ -75,6 +75,7 @@ public class ChooseNewCardScript : MonoBehaviour
     }
     public void DisplayCardsHidden()
     {
+        isInLootingPhase = false;
         displayCardList.Clear();
         if (playerScriptAccess.isHost)
         {
@@ -88,7 +89,8 @@ public class ChooseNewCardScript : MonoBehaviour
     }
 
     public void DisplayCards()
-    {   
+    {
+        isInLootingPhase = true;
         //show loot cards sound
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < RefereeScript.instance.lootCardCount; i++)
