@@ -46,6 +46,8 @@ public class VoiceManager : MonoBehaviour
 
     public AudioSource latestSource;
 
+    public GameObject test;
+
     private void Awake()
     {
         if (instance == null)
@@ -129,17 +131,17 @@ public class VoiceManager : MonoBehaviour
 
     public void EndLastetLine()
     {
-        //latestSource = GameObject.Find("VoiceObject(Clone)");
-        if (latestSource.gameObject != null && !latestSource.gameObject.IsDestroyed())
+        test = GameObject.Find("VoiceObject(Clone)");
+        if (test != null && !test.IsDestroyed())
         {
             Debug.Log("Destroy triggered");
-            Destroy(latestSource.gameObject);
+            Destroy(test);
         }
-        else if (latestSource.gameObject == null)
+        else if (test == null)
         {
             Debug.Log("latest source null");
         }
-        else if (latestSource.gameObject.IsDestroyed())
+        else if (test.IsDestroyed())
         {
             Debug.Log("latest source destroyed");
         }
