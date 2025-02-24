@@ -83,6 +83,11 @@ public class PlayerScript : NetworkBehaviour
 
     private void RestartPlayerScript()
     {
+        Invoke("RestartPlayerScriptLogic", 0.2f);   
+    }
+
+    private void RestartPlayerScriptLogic()
+    {
         isPlayerAlive = true;
         shouldHealByDamageAmount = false;
         multiplier = 1;
@@ -92,11 +97,13 @@ public class PlayerScript : NetworkBehaviour
         if (isHost)
         {
             isThisPlayersTurn = true;
+            isPlayersTurnLocal = true;
             handScriptAccess.SetCardActivityStatus(true, 2);
         }
         else
         {
             isThisPlayersTurn = false;
+            isPlayersTurnLocal = false;
             handScriptAccess.SetCardActivityStatus(false, 2);
         }
     }
