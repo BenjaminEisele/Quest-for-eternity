@@ -133,6 +133,8 @@ public class HandScript : MonoBehaviour
         utilityLimit = 3;
         cardLimit = 5;
         damageSliderObject.SetActive(false);
+        discardPile.SetActive(false);
+
         RestoreAllOriginalHitrates();
         StopAllCoroutines();
     }

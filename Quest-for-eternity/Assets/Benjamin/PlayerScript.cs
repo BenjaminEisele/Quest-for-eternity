@@ -92,12 +92,12 @@ public class PlayerScript : NetworkBehaviour
         if (isHost)
         {
             isThisPlayersTurn = true;
-            handScriptAccess.ActivateAllCardsEvent();
+            handScriptAccess.SetCardActivityStatus(true, 2);
         }
         else
         {
             isThisPlayersTurn = false;
-            handScriptAccess.DisableAllCardsEvent();
+            handScriptAccess.SetCardActivityStatus(false, 2);
         }
     }
 
