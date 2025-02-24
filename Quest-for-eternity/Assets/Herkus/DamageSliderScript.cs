@@ -26,6 +26,8 @@ public class DamageSliderScript : MonoBehaviour
         myButton.enabled = true;
         mySlider.minValue = 1 + FieldScript.boostPoints;
         mySlider.maxValue = 5 + FieldScript.boostPoints;
+        mySlider.value = 3;
+        SetSliderDamage();
     }
     public void SetSliderDamage()
     {
