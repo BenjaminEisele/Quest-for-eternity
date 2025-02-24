@@ -60,8 +60,8 @@ public class RefereeScript : NetworkBehaviour
 
     public bool singlePlayerMode;
 
-    [SyncVar]
-    int[] randomNumbers = new int[4];
+    //[SyncVar]
+    //int[] randomNumbers = new int[4];
     [SyncVar]
     public int randomEnemyCount = 0;
     public readonly SyncList<int> displayCardIdList = new SyncList<int>();
@@ -75,12 +75,14 @@ public class RefereeScript : NetworkBehaviour
 
     private void Awake()
     {
-        instance = this;        
+        instance = this;   
+       
     }
 
     private void Start()
     {
         preNewWaveEvent += CallSwitchEnemyIdNestEvent;
+        restartGameEvent += RestartRefereeScript;
         if (playerScripts == null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
@@ -137,7 +139,36 @@ public class RefereeScript : NetworkBehaviour
             RpcCallRestartGameEvent();
         }
     }
-
+    private void RestartRefereeScript()
+    {
+        waveCount = 0;
+        foreach (EnemyScript enemy in enemyList)
+        {
+            Destroy(enemy.gameObject);
+        }
+        enemyList.Clear();
+        foreach (EnemyScript enemy in killedEnemyList)
+        {
+            Destroy(enemy.gameObject);
+        }
+        killedEnemyList.Clear();
+        isGameOver = false;
+        areAllEnemiesDead = false;
+        databaseMultiplayerAccess.genericLootList.Clear();
+        databaseMultiplayerAccess.genericLootList.AddRange(databaseMultiplayerAccess.savedGenericLootList);
+        RandomNumbersSetUpRoot();
+        enemyGeneratorAccess.GenerateEnemies(1, false);
+        ResetChosenEnemy();
+        if (singlePlayerMode)
+        {
+            targetPlayerId = 0;
+        }
+        else
+        {
+            targetPlayerId = 1;
+        }
+        StopAllCoroutines();
+    }
     [ClientRpc]
     private void RpcCallRestartGameEvent()
     {

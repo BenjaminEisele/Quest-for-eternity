@@ -5,7 +5,13 @@ using System.Collections.Generic;
 public class DatabaseMultiplayer : MonoBehaviour
 {
     public List<BaseEnemy> enemyList;
+    public List<int> savedGenericLootList;
     public List<int> genericLootList;
     public List<int> updatedLootList;
-    
+
+
+    private void Awake()
+    {
+        savedGenericLootList.AddRange(genericLootList);
+    }
 }

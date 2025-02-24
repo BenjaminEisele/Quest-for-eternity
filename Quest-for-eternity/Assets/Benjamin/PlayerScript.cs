@@ -83,13 +83,21 @@ public class PlayerScript : NetworkBehaviour
 
     private void RestartPlayerScript()
     {
-        if(isHost)
+        isPlayerAlive = true;
+        shouldHealByDamageAmount = false;
+        multiplier = 1;
+        healingSum = 0;
+        areaAttackActive = false;
+        knowledgeIdList.Clear();
+        if (isHost)
         {
             isThisPlayersTurn = true;
+            handScriptAccess.ActivateAllCardsEvent();
         }
         else
         {
             isThisPlayersTurn = false;
+            handScriptAccess.DisableAllCardsEvent();
         }
     }
 

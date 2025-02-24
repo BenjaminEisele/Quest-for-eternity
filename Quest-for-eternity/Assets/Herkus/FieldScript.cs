@@ -10,15 +10,15 @@ public class FieldScript : MonoBehaviour
     [SerializeField]
     PlayerScript playerScriptAccess;
     ActiveCardScript actionCardReference;
-	[SerializeField]
-	HandScript handscriptAccess;
+    [SerializeField]
+    HandScript handscriptAccess;
 
     [SerializeField] SoundFXManager soundFXManager;
     [SerializeField] VoiceManager voiceManager;
     float rnd;
 
     public static int damagePoints = 0;
-	public static int boostPoints = 0;
+    public static int boostPoints = 0;
 
     public int damagePointsLiquid = 0;
     [HideInInspector]
@@ -26,14 +26,20 @@ public class FieldScript : MonoBehaviour
     Vector3 activeCardSpawnPosition;
 
     public List<GameObject> activeCardList;
-	public List<GameObject> ghostCardList;
+    public List<GameObject> ghostCardList;
 
-	public List<int> mergeIdList;
-   
+    public List<int> mergeIdList;
+
     private void Start()
     {
         hitRateModifier = 0;
         activeCardSpawnPosition = spawnpoint.position;
+        Invoke("FieldSubscription", 1f);
+    }
+
+    private void FieldSubscription()
+    {
+        RefereeScript.instance.restartGameEvent += ResetFieldScript;
     }
 
     public bool SpawnActiveCard(int cardId, bool isMergeSetup, bool fromAlly)
@@ -49,14 +55,14 @@ public class FieldScript : MonoBehaviour
         soundFXManager.PlayCardSound();
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
         int damagePointsFromActiveCard;
-		if (isMergeSetup)
-		{
-			damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetupMerged(mergeIdList[0], mergeIdList[1]);
-		}
-		else
-		{
-			damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
-		}
+        if (isMergeSetup)
+        {
+            damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetupMerged(mergeIdList[0], mergeIdList[1]);
+        }
+        else
+        {
+            damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
+        }
 
         damagePoints += damagePointsFromActiveCard;
         if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
@@ -65,11 +71,11 @@ public class FieldScript : MonoBehaviour
             activeCardInstance.SetActive(true);
             activeCardList.Add(activeCardInstance);
         }
-		else
-		{
-			ghostCardList.Add(activeCardInstance);
-			activeCardInstance.SetActive(false);
-		}
+        else
+        {
+            ghostCardList.Add(activeCardInstance);
+            activeCardInstance.SetActive(false);
+        }
         UiScript.UpdateFieldDamageText(damagePoints.ToString(), true);
         bool isSpawningActionCard = activeCardInstance.GetComponent<ActiveCardScript>().CheckIfCardHasActionType();
         if (isSpawningActionCard)
@@ -83,16 +89,16 @@ public class FieldScript : MonoBehaviour
         return isSpawningActionCard;
     }
 
-	public void InputCardForMerging(int inputCardId)
+    public void InputCardForMerging(int inputCardId)
     {
         mergeIdList.Add(inputCardId);
-        if(mergeIdList.Count >= 2)
+        if (mergeIdList.Count >= 2)
         {
             SpawnActiveCard(0, true, false);
             handscriptAccess.MergedCardExecution(mergeIdList[0], mergeIdList[1]);
             mergeIdList.Clear();
         }
-        
+
     }
 
     private void FieldEffectActivation()
@@ -103,6 +109,15 @@ public class FieldScript : MonoBehaviour
         }
     }
 
+    private void ResetFieldScript()
+    {
+        boostPoints = 0;
+        damagePoints = 0;
+        damagePointsLiquid = 0;
+        hitRateModifier = 0;
+        mergeIdList.Clear();
+        RestartGameFieldClear();
+    }
     public void FieldClear()
     {
         int foreachCount = 0;
@@ -120,6 +135,21 @@ public class FieldScript : MonoBehaviour
 			Destroy(ghostCard);
 		}
         activeCardList.Clear();
+        ghostCardList.Clear();
+        activeCardSpawnPosition = spawnpoint.position;
+    }
+    private void RestartGameFieldClear()
+    {
+        foreach (GameObject activeCardMember in activeCardList)
+        {
+            Destroy(activeCardMember);
+        }
+        foreach (GameObject ghostCard in ghostCardList)
+        {
+            Destroy(ghostCard);
+        }
+        activeCardList.Clear();
+        ghostCardList.Clear();
         activeCardSpawnPosition = spawnpoint.position;
     }
 

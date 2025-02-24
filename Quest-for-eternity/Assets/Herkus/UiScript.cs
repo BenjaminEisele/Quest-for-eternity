@@ -43,8 +43,13 @@ public class UiScript : MonoBehaviour
         instanceImage.gameObject.SetActive(false);
         uiTextArray = GetComponentsInChildren<TextMeshProUGUI>();
         UpdateTurnInfo(0);
+        Invoke("UiManagerSubscription", 1f);
     }
 
+    private void UiManagerSubscription()
+    {
+      RefereeScript.instance.restartGameEvent += DestroyAllIcons;
+    }
     public void GenerateIcon(Sprite inputSprite)
     {
         GameObject newIcon = Instantiate(instanceImage.gameObject, iconSpawnpoint.position + new Vector3(0,-4,0), Quaternion.identity, transform.parent);
@@ -69,53 +74,67 @@ public class UiScript : MonoBehaviour
             Debug.Log("za giro");
         }
         EffectUnit myEffectUnit = uiEffectList[effectEntry];
-        //foreach (EffectUnit myEffectUnit in uiEffectList)
-        //{
-            int additionalLoopCount = 0;
-            if (myEffectUnit.effectIcon)
-            {
-                Debug.Log("za giro 3");
-                for (int i = 0; i < iconList.Count + additionalLoopCount; i++)
-                {
-                    Debug.Log($"ilgis: {iconList.Count}");
-                    int trueIndex;
-                    if(additionalLoopCount <= 0)
-                    {
-                        trueIndex = i;
-                    }
-                    else
-                    {
-                        trueIndex = i - additionalLoopCount;
-                    }
-                    Debug.Log($"right side: {myEffectUnit.effectIcon.name}, left side: {iconList[trueIndex].GetComponent<Image>().sprite.name}");
-                    if (myEffectUnit.effectIcon == iconList[trueIndex].GetComponent<Image>().sprite)
-                    {
-                        StartCoroutine(DestructionCoroutine(trueIndex));
-                        GameObject tweenReference = iconList[trueIndex];
-                        tweenReference.transform.DOMove(tweenReference.transform.position + new Vector3(0, -100, 0), 0.8f);
-                        iconList[trueIndex] = null;
-                        List<GameObject> newList = new List<GameObject>();
 
-                        foreach (GameObject item in iconList)
-                        {
-                            if (item != null)
-                            {
-                                newList.Add(item);
-                            }
-                        }
-                        iconList.Clear();
-                        foreach (GameObject item in newList)
-                        {
-                            iconList.Add(item);
-                        }
-                        SquashIconsAfterClear();
-                        //break;
-                        additionalLoopCount++;
-                    }                   
+        int additionalLoopCount = 0;
+        if (myEffectUnit.effectIcon)
+        {
+            Debug.Log("za giro 3");
+            for (int i = 0; i < iconList.Count + additionalLoopCount; i++)
+            {
+                Debug.Log($"ilgis: {iconList.Count}");
+                int trueIndex;
+                if(additionalLoopCount <= 0)
+                {
+                    trueIndex = i;
                 }
-            }         
-       // }
-       // }
+                else
+                {
+                    trueIndex = i - additionalLoopCount;
+                }
+                Debug.Log($"right side: {myEffectUnit.effectIcon.name}, left side: {iconList[trueIndex].GetComponent<Image>().sprite.name}");
+                if (myEffectUnit.effectIcon == iconList[trueIndex].GetComponent<Image>().sprite)
+                {
+                    StartCoroutine(DestructionCoroutine(trueIndex));
+                    GameObject tweenReference = iconList[trueIndex];
+                    tweenReference.transform.DOMove(tweenReference.transform.position + new Vector3(0, -100, 0), 0.8f);
+                    iconList[trueIndex] = null;
+                    List<GameObject> newList = new List<GameObject>();
+
+                    foreach (GameObject item in iconList)
+                    {
+                        if (item != null)
+                        {
+                            newList.Add(item);
+                        }
+                    }
+                    iconList.Clear();
+                    foreach (GameObject item in newList)
+                    {
+                        iconList.Add(item);
+                    }
+                    SquashIconsAfterClear();
+                    //break;
+                    additionalLoopCount++;
+                }                   
+            }
+        }         
+    }
+
+    private void DestroyAllIcons()
+    {
+     /*   DestroyIcon(26, 0);
+        DestroyIcon(26, 1);
+        DestroyIcon(29, 0);
+        DestroyIcon(10, 0);
+        DestroyIcon(30, 0);
+        DestroyIcon(27, 0);
+        DestroyIcon(15, 0);
+        DestroyIcon(22, 0); */
+        foreach(GameObject gameObj in iconList)
+        {
+            Destroy(gameObj);
+        }
+        iconList.Clear();
     }
     private IEnumerator DestructionCoroutine(int inputId)
     {
