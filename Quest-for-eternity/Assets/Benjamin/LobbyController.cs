@@ -144,26 +144,39 @@ public class LobbyController : MonoBehaviour
 
     public void CreateClientPlayerItem()
     {
-        foreach (PlayerObjectController player in Manager.GamePlayers)
+        PlayerObjectController host = Manager.GamePlayers[0];
+        PlayerObjectController client = Manager.GamePlayers[1];
+        if (!PlayerListItems.Any(b => b.ConecctionID == host.ConnectionID))
         {
-            if (!PlayerListItems.Any(b => b.ConecctionID == player.ConnectionID))
-            {
-                GameObject NewPlayerItem = Instantiate(PlayerListItemPrefab) as GameObject;
-                PlayerListItem NewPlayerItemScript = NewPlayerItem.GetComponent<PlayerListItem>();
-
-                NewPlayerItemScript.PlayerName = player.PlayerName;
-                NewPlayerItemScript.ConecctionID = player.ConnectionID;
-                NewPlayerItemScript.PlayerSteamID = player.PlayerSteamID;
-                NewPlayerItemScript.Ready = player.Ready;
-                NewPlayerItemScript.SetPlayerValues();
-                NewPlayerItem.transform.SetParent(ClientItemSpawnPoint.transform);
-                NewPlayerItem.transform.localPosition = Vector3.zero;
-                NewPlayerItem.transform.GetChild(3).transform.SetParent(ClientReadySpawnPoint.transform);
-                ClientReadySpawnPoint.transform.GetChild(0).localPosition = Vector3.zero;
-                NewPlayerItem.transform.localScale = Vector3.one;
-
-                PlayerListItems.Add(NewPlayerItemScript);
-            }
+            GameObject NewPlayerItem = Instantiate(PlayerListItemPrefab) as GameObject;
+            PlayerListItem NewPlayerItemScript = NewPlayerItem.GetComponent<PlayerListItem>();
+            NewPlayerItemScript.PlayerName = host.PlayerName;
+            NewPlayerItemScript.ConecctionID = host.ConnectionID;
+            NewPlayerItemScript.PlayerSteamID = host.PlayerSteamID;
+            NewPlayerItemScript.Ready = host.Ready;
+            NewPlayerItemScript.SetPlayerValues();
+            NewPlayerItem.transform.SetParent(ServerItemSpawnPoint.transform);
+            NewPlayerItem.transform.localPosition = Vector3.zero;
+            NewPlayerItem.transform.GetChild(3).transform.SetParent(ServerReadySpawnPoint.transform);
+            ServerReadySpawnPoint.transform.GetChild(0).localPosition = Vector3.zero;
+            NewPlayerItem.transform.localScale = Vector3.one;
+            PlayerListItems.Add(NewPlayerItemScript);
+        }
+        if (!PlayerListItems.Any(b => b.ConecctionID == client.ConnectionID))
+        {
+            GameObject NewPlayerItem = Instantiate(PlayerListItemPrefab) as GameObject;
+            PlayerListItem NewPlayerItemScript = NewPlayerItem.GetComponent<PlayerListItem>();
+            NewPlayerItemScript.PlayerName = client.PlayerName;
+            NewPlayerItemScript.ConecctionID = client.ConnectionID;
+            NewPlayerItemScript.PlayerSteamID = client.PlayerSteamID;
+            NewPlayerItemScript.Ready = client.Ready;
+            NewPlayerItemScript.SetPlayerValues();
+            NewPlayerItem.transform.SetParent(ClientItemSpawnPoint.transform);
+            NewPlayerItem.transform.localPosition = Vector3.zero;
+            NewPlayerItem.transform.GetChild(3).transform.SetParent(ClientReadySpawnPoint.transform);
+            ClientReadySpawnPoint.transform.GetChild(0).localPosition = Vector3.zero;
+            NewPlayerItem.transform.localScale = Vector3.one;
+            PlayerListItems.Add(NewPlayerItemScript);
         }
     }
 
