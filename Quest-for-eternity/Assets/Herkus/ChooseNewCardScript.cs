@@ -43,6 +43,11 @@ public class ChooseNewCardScript : MonoBehaviour
     }
     public void ChooseOneCard(GameObject selfObject, int inputId)
     {
+        if (RefereeScript.instance.glowCoroutine != null)
+        {
+            Debug.Log("Stop Coroutine");
+            StopCoroutine(RefereeScript.instance.glowCoroutine);
+        }
         soundFXManager.DrawSound();
         displayCardCount--;
         Destroy(selfObject);
