@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Defeat Glow Right_0: -5030583367613481663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

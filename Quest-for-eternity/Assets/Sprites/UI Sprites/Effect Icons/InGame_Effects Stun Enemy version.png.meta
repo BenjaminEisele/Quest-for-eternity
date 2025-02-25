@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      InGame_Effects Stun Enemy version_0: -2930898025578362258
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Defeat Left Glow_0: 4872629965006816065
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
