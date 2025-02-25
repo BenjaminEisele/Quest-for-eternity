@@ -448,7 +448,7 @@ public class HandScript : MonoBehaviour
         {
             damageSliderObject.SetActive(true);
         }
-        ActionCardEffectActivation(inputCardId);
+        //ActionCardEffectActivation(inputCardId);
     }
 
     private IEnumerator MergedCoroutine(int firstId, int secondId)
