@@ -211,6 +211,7 @@ public class PlayerStatScript : NetworkBehaviour
             }
             else if(playerHealth < 0)
             {
+                Debug.Log("setting to false in playerstatscript");
                 playerScriptAccess.isPlayerAlive = false;
             }
             else 
