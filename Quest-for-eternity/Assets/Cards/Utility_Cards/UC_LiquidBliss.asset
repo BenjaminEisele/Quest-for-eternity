@@ -16,11 +16,11 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 6298030248558254930, guid: ebb67773e723b814494f217886bd90fd, type: 3}
-  cardDescription: Heal by 5 HP but you can't play ACT cards until the end of your
+  cardDescription: Heal by 3 HP but you can't play ACT cards until the end of your
     next Turn.
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: 6ce8ae20ce86e394a857a28aa91a5199, type: 2}
-    effectValue: 5
+    effectValue: 3
     shouldActivateNow: 1
     effectIcon: {fileID: 0}
   - myEffect: {fileID: 11400000, guid: 478c0df0faa4b50438d46bb1a11aa2a5, type: 2}

@@ -1951,6 +1951,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 46905363a06af6945b6807cc0dc3d840, type: 2}
   - {fileID: 11400000, guid: f9dfede5a04a2f54ab43f066f8e79012, type: 2}
   - {fileID: 11400000, guid: 6a6ce24557414a0419f9164f2b10c5e3, type: 2}
+  - {fileID: 11400000, guid: 6f0187a07b443fd49992b0f42673208d, type: 2}
+  - {fileID: 11400000, guid: c2a99c3195216ec47af075aea54f964f, type: 2}
+  - {fileID: 11400000, guid: 5533a32c3ed932b48ae9b2c4ac13bae3, type: 2}
+  - {fileID: 11400000, guid: d020189483ccc7a46a2f93dba3e9b18e, type: 2}
+  - {fileID: 11400000, guid: e99f8f5c77edcc04bb4801bc55b59074, type: 2}
+  - {fileID: 11400000, guid: c0809a40e78d22642a88f5fa06ceaff9, type: 2}
+  - {fileID: 11400000, guid: fe27641b9125a5b41bfa87ef410b6183, type: 2}
   - {fileID: 11400000, guid: b99736db5c8ad0b48b186125f5bd647c, type: 2}
   - {fileID: 11400000, guid: 9384fe23726683e45b9d7ac421ad64f2, type: 2}
   - {fileID: 11400000, guid: c1c06c4036507ac4b92ade398a3ec09f, type: 2}
@@ -1969,7 +1976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 1e0000001f00000020000000210000002200000023000000240000001e0000001f00000020000000
+  deckCardList: 0100000005000000060000000e0000000f0000001000000011000000110000001200000013000000
   handCardList: 
   discardedCardList: 
   starterCardList: 0100000005000000060000000e0000000f0000001000000011000000110000001200000013000000
