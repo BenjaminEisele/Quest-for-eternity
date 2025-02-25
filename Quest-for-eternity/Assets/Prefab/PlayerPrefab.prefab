@@ -3108,7 +3108,7 @@ MonoBehaviour:
   myCardId: 0
   myCardImage: {fileID: 754769993535659440}
   playerScriptAccess: {fileID: 0}
-  glowObject: {fileID: 0}
+  glowObject: {fileID: 3637954729146668607}
 --- !u!65 &6499140213140984146
 BoxCollider:
   m_ObjectHideFlags: 0
