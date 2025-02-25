@@ -25,5 +25,5 @@ MonoBehaviour:
   - myEffect: {fileID: 11400000, guid: e998f1967ddcf2e4eb1c6790396c53e4, type: 2}
     effectValue: 0
     shouldActivateNow: 1
-    effectIcon: {fileID: 7574936292863565586, guid: 318e463f08dd3f44e9117576125d6404, type: 3}
+    effectIcon: {fileID: 0}
   isDisplayable: 1

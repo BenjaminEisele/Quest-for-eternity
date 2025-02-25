@@ -31,4 +31,4 @@ MonoBehaviour:
   - myEffect: {fileID: 11400000, guid: 3c0ef976b7473fc43b52d77cd91fa792, type: 2}
     effectValue: 0
     shouldActivateNow: 1
-    effectIcon: {fileID: -2958684212177792304, guid: ea375db44dcbd514697a0d6988f0ccf9, type: 3}
+    effectIcon: {fileID: 0}
