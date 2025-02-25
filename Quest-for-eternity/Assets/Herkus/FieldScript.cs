@@ -119,8 +119,6 @@ public class FieldScript : MonoBehaviour
     }
     public void FieldClear()
     {
-        Debug.Log("FieldCleared");
-        Debug.Log(transform.root.gameObject.name);
         int foreachCount = 0;
         foreach (GameObject activeCardMember in activeCardList)
         {

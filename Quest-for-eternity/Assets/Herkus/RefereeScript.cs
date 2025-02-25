@@ -74,6 +74,8 @@ public class RefereeScript : NetworkBehaviour
     [SerializeField]
     public DatabaseMultiplayer databaseMultiplayerAccess;
 
+    public Coroutine glowCoroutine;
+
     private void Awake()
     {
         instance = this;   
@@ -497,10 +499,16 @@ public class RefereeScript : NetworkBehaviour
             else
             {
                 playerList[1].BeginPreNewWaveCall();
-                playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
-
+                glowCoroutine = StartCoroutine(ChangeGlowCoroutine());
             }
         }
+    }
+
+    private IEnumerator ChangeGlowCoroutine()
+    {
+        new WaitForSeconds(0.5f);
+        playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
+        yield return null;
     }
 
     public void CallPreNewWaveEvent()
