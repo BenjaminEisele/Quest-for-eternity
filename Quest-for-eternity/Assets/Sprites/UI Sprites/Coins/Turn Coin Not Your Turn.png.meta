@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fbfee9565490e3d4b8732fa5629fd0d8
+guid: 6a788cda1276d8d4081afb4db5ecdc74
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4875002100710523818
-    second: InGame_Coin person shiny_0
+      213: -3982478850776784284
+    second: Turn Coin Not Your Turn_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InGame_Coin person shiny_0
+      name: Turn Coin Not Your Turn_0
       rect:
         serializedVersion: 2
-        x: 343
-        y: 62
-        width: 2169
-        height: 2166
+        x: 51
+        y: 29
+        width: 426
+        height: 425
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 65cbdd31b63885cb0800000000000000
-      internalID: -4875002100710523818
+      spriteID: 462a1f5d5946bb8c0800000000000000
+      internalID: -3982478850776784284
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      InGame_Coin person shiny_0: -4875002100710523818
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

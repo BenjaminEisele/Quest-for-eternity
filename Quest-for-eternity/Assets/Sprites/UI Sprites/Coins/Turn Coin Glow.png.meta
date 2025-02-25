@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 49dca0278401a8542b9204781c4a6284
+guid: 07bf862799b79e9429247902b5ec0e0d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6162500937095974391
-    second: InGame_Coin shiny_0
+      213: 3008941124892600519
+    second: Turn Coin Glow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InGame_Coin shiny_0
+      name: Turn Coin Glow_0
       rect:
         serializedVersion: 2
-        x: 343
-        y: 62
-        width: 2169
-        height: 2166
+        x: 0
+        y: 0
+        width: 503
+        height: 510
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7fd0e93b3f9958550800000000000000
-      internalID: 6162500937095974391
+      spriteID: 7c8a943d208e1c920800000000000000
+      internalID: 3008941124892600519
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      InGame_Coin shiny_0: 6162500937095974391
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
