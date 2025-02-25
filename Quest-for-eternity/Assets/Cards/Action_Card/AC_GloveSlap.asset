@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8efc953effc0f464ca4994f700a808a7, type: 3}
-  m_Name: AC_ShieldStrike
+  m_Name: AC_GloveSlap
   m_EditorClassIdentifier: 
-  cardName: Shield Strike
+  cardName: Glove Slap
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: -5515017798610295933, guid: f8a80809da7e9bf4cbc914a9aa2ba071, type: 3}
-  cardDescription: Gain +2 Armor.
+  cardSprite: {fileID: -3396493204780138946, guid: 21c8b906e7fa35e4383c6f27256426cd, type: 3}
+  cardDescription: Gain +1 armor.
   cardDamage: 1
-  cardHitRate: 0.8
+  cardHitRate: 1
   actionEffectUnitList:
   - myEffect: {fileID: 11400000, guid: eeb78c6b688e33a4d95acefc075c35ee, type: 2}
-    effectValue: 2
+    effectValue: 1
     shouldActivateNow: 1
     effectIcon: {fileID: 0}

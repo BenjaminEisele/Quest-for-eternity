@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
-  m_Name: UC_InfiniteInventory
+  m_Name: GC_AimBoost_100
   m_EditorClassIdentifier: 
-  cardName: '"Infinite" Inventory'
+  cardName: Ghost card. Should not appear
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 2605688369367802914, guid: 656761bdcafe0914c8a61e44ec35086f, type: 3}
-  cardDescription: Gain +2 UTL slots this turn.
+  cardSprite: {fileID: -7034448406637311706, guid: e7c7b7f7f5b462040833440ee5f17fa0, type: 3}
+  cardDescription: 
   effectUnitList:
-  - myEffect: {fileID: 11400000, guid: 38929c02b0f60264194bd39455ecdd2b, type: 2}
-    effectValue: 5
+  - myEffect: {fileID: 11400000, guid: 3247c201504eaa645b4e282f9bf42b06, type: 2}
+    effectValue: 1
     shouldActivateNow: 1
-    effectIcon: {fileID: 0}
-  isDisplayable: 1
+    effectIcon: {fileID: 3327506159400448619, guid: 92fbfbac63900c8428df3486a8150238, type: 3}
+  isDisplayable: 0

@@ -1,0 +1,2117 @@
+fileFormatVersion: 2
+guid: 4b5d8eaed095e874991edde521a0765c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6701550067862405372
+    second: Holy Blind_0
+  - first:
+      213: 5677464394282535174
+    second: Holy Blind_1
+  - first:
+      213: 5293011713743799185
+    second: Holy Blind_2
+  - first:
+      213: 3432395465316151323
+    second: Holy Blind_3
+  - first:
+      213: 4549901548720382363
+    second: Holy Blind_4
+  - first:
+      213: -287230770595610520
+    second: Holy Blind_5
+  - first:
+      213: -3000402187404281895
+    second: Holy Blind_6
+  - first:
+      213: -2425695313136839450
+    second: Holy Blind_7
+  - first:
+      213: 7979637689095829359
+    second: Holy Blind_8
+  - first:
+      213: 1273757912978622513
+    second: Holy Blind_9
+  - first:
+      213: 8539711906264009819
+    second: Holy Blind_10
+  - first:
+      213: -2329820276954208556
+    second: Holy Blind_11
+  - first:
+      213: 8083252221567091823
+    second: Holy Blind_12
+  - first:
+      213: -4251467019843689480
+    second: Holy Blind_13
+  - first:
+      213: -3642351588481888480
+    second: Holy Blind_14
+  - first:
+      213: 3177943030425610349
+    second: Holy Blind_15
+  - first:
+      213: -1119820976437026571
+    second: Holy Blind_16
+  - first:
+      213: -3519931741781606553
+    second: Holy Blind_17
+  - first:
+      213: -8093219948067938176
+    second: Holy Blind_18
+  - first:
+      213: 2205214837843260881
+    second: Holy Blind_19
+  - first:
+      213: 8005157068665723986
+    second: Holy Blind_20
+  - first:
+      213: -2379122156426743607
+    second: Holy Blind_21
+  - first:
+      213: 5853101363508160874
+    second: Holy Blind_22
+  - first:
+      213: 1688736148476256781
+    second: Holy Blind_23
+  - first:
+      213: -6725909746499541038
+    second: Holy Blind_24
+  - first:
+      213: -7206520038418629039
+    second: Holy Blind_25
+  - first:
+      213: 8797910678980028294
+    second: Holy Blind_26
+  - first:
+      213: 3073374661271797053
+    second: Holy Blind_27
+  - first:
+      213: -2290195564291026836
+    second: Holy Blind_28
+  - first:
+      213: 8921457804051026194
+    second: Holy Blind_29
+  - first:
+      213: 104990026809118915
+    second: Holy Blind_30
+  - first:
+      213: -3722068509909655427
+    second: Holy Blind_31
+  - first:
+      213: -1006863100074500314
+    second: Holy Blind_32
+  - first:
+      213: 7521915607771542058
+    second: Holy Blind_33
+  - first:
+      213: 1620055797247568665
+    second: Holy Blind_34
+  - first:
+      213: -4303795252787576099
+    second: Holy Blind_35
+  - first:
+      213: 8403854263090340640
+    second: Holy Blind_36
+  - first:
+      213: 2474695496426669655
+    second: Holy Blind_37
+  - first:
+      213: -5741436742012411274
+    second: Holy Blind_38
+  - first:
+      213: 9170217051974638752
+    second: Holy Blind_39
+  - first:
+      213: -5809684594399373732
+    second: Holy Blind_40
+  - first:
+      213: -2237727772184007126
+    second: Holy Blind_41
+  - first:
+      213: 4841692102806196575
+    second: Holy Blind_42
+  - first:
+      213: -5846496298314308986
+    second: Holy Blind_43
+  - first:
+      213: 7954947174229821923
+    second: Holy Blind_44
+  - first:
+      213: -4312355230099639566
+    second: Holy Blind_45
+  - first:
+      213: 209488923267890659
+    second: Holy Blind_46
+  - first:
+      213: 2627096511909653916
+    second: Holy Blind_47
+  - first:
+      213: 8902647723173399241
+    second: Holy Blind_48
+  - first:
+      213: -5159372441661265930
+    second: Holy Blind_49
+  - first:
+      213: -8405927167407771842
+    second: Holy Blind_50
+  - first:
+      213: -4921319871186072247
+    second: Holy Blind_51
+  - first:
+      213: -3428641059169921692
+    second: Holy Blind_52
+  - first:
+      213: -8386525439690193436
+    second: Holy Blind_53
+  - first:
+      213: -4994271907787913206
+    second: Holy Blind_54
+  - first:
+      213: 545172320695783073
+    second: Holy Blind_55
+  - first:
+      213: 4715300865867540618
+    second: Holy Blind_56
+  - first:
+      213: 6478835660342226078
+    second: Holy Blind_57
+  - first:
+      213: -486898081293067990
+    second: Holy Blind_58
+  - first:
+      213: -8846337542934726093
+    second: Holy Blind_59
+  - first:
+      213: 329272894186569120
+    second: Holy Blind_60
+  - first:
+      213: -6874801789083970750
+    second: Holy Blind_61
+  - first:
+      213: -3939502351839821920
+    second: Holy Blind_62
+  - first:
+      213: -8675283952816208907
+    second: Holy Blind_63
+  - first:
+      213: -1640061579744322532
+    second: Holy Blind_64
+  - first:
+      213: -4923341784627784009
+    second: Holy Blind_65
+  - first:
+      213: -2448560410928168366
+    second: Holy Blind_66
+  - first:
+      213: 4608132467585646245
+    second: Holy Blind_67
+  - first:
+      213: 7925823657324708941
+    second: Holy Blind_68
+  - first:
+      213: -7777719721012071604
+    second: Holy Blind_69
+  - first:
+      213: 8991183641831685976
+    second: Holy Blind_70
+  - first:
+      213: -6896253578564031561
+    second: Holy Blind_71
+  - first:
+      213: -1915568573023083129
+    second: Holy Blind_72
+  - first:
+      213: 8322832750377693679
+    second: Holy Blind_73
+  - first:
+      213: -7896342021881536821
+    second: Holy Blind_74
+  - first:
+      213: 1107602154581219807
+    second: Holy Blind_75
+  - first:
+      213: 116172968548637869
+    second: Holy Blind_76
+  - first:
+      213: -2707530498277839269
+    second: Holy Blind_77
+  - first:
+      213: -5903033911746479262
+    second: Holy Blind_78
+  - first:
+      213: -8954319579384416600
+    second: Holy Blind_79
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Holy Blind_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 676
+        width: 4226
+        height: 3775
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ff09838bf4ff2a0800000000000000
+      internalID: -6701550067862405372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_1
+      rect:
+        serializedVersion: 2
+        x: 3617
+        y: 3644
+        width: 638
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609832e39c76ace40800000000000000
+      internalID: 5677464394282535174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_2
+      rect:
+        serializedVersion: 2
+        x: 3763
+        y: 3924
+        width: 492
+        height: 389
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1934ead2c1e847940800000000000000
+      internalID: 5293011713743799185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_3
+      rect:
+        serializedVersion: 2
+        x: 2898
+        y: 2990
+        width: 1357
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10b4d67d7152af20800000000000000
+      internalID: 3432395465316151323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_4
+      rect:
+        serializedVersion: 2
+        x: 3995
+        y: 2898
+        width: 260
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b916a762a5f742f30800000000000000
+      internalID: 4549901548720382363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_5
+      rect:
+        serializedVersion: 2
+        x: 3997
+        y: 2752
+        width: 258
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 860461ec22d830cf0800000000000000
+      internalID: -287230770595610520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_6
+      rect:
+        serializedVersion: 2
+        x: 4055
+        y: 2618
+        width: 200
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7767c7b1e6c56d0800000000000000
+      internalID: -3000402187404281895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_7
+      rect:
+        serializedVersion: 2
+        x: 4073
+        y: 2472
+        width: 182
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e4162fe6f2365ed0800000000000000
+      internalID: -2425695313136839450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_8
+      rect:
+        serializedVersion: 2
+        x: 3952
+        y: 2327
+        width: 303
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6730e6433e5dbe60800000000000000
+      internalID: 7979637689095829359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_9
+      rect:
+        serializedVersion: 2
+        x: 3945
+        y: 2159
+        width: 310
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1380fecb21c4da110800000000000000
+      internalID: 1273757912978622513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_10
+      rect:
+        serializedVersion: 2
+        x: 3979
+        y: 1675
+        width: 276
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c4a01cbb6238670800000000000000
+      internalID: 8539711906264009819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_11
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 1334
+        width: 223
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d664a15dc0daafd0800000000000000
+      internalID: -2329820276954208556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_12
+      rect:
+        serializedVersion: 2
+        x: 3994
+        y: 1149
+        width: 255
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64c460911b7d2070800000000000000
+      internalID: 8083252221567091823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_13
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 660
+        width: 211
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3adeb4541cff4c0800000000000000
+      internalID: -4251467019843689480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_14
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 467
+        width: 272
+        height: 597
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f057d3784c37dc0800000000000000
+      internalID: -3642351588481888480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_15
+      rect:
+        serializedVersion: 2
+        x: 2495
+        y: 374
+        width: 323
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6862f449525a1c20800000000000000
+      internalID: 3177943030425610349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_16
+      rect:
+        serializedVersion: 2
+        x: 4083
+        y: 916
+        width: 172
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f0a07741c89570f0800000000000000
+      internalID: -1119820976437026571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 579
+        width: 259
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f3c71fab0b62fc0800000000000000
+      internalID: -3519931741781606553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_18
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 563
+        width: 286
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0802e42465b1faf80800000000000000
+      internalID: -8093219948067938176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_19
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 516
+        width: 170
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d57117163f7a9e10800000000000000
+      internalID: 2205214837843260881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_20
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 673
+        width: 65
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25c1709d0f7081f60800000000000000
+      internalID: 8005157068665723986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_21
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 535
+        width: 108
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c03cecf009abfed0800000000000000
+      internalID: -2379122156426743607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_22
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 472
+        width: 101
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a692246dda46a3150800000000000000
+      internalID: 5853101363508160874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_23
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 548
+        width: 102
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d02e94964989f6710800000000000000
+      internalID: 1688736148476256781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_24
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 463
+        width: 79
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d7ae8098b4c8a2a0800000000000000
+      internalID: -6725909746499541038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_25
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 568
+        width: 72
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15eb253f43c4dfb90800000000000000
+      internalID: -7206520038418629039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_26
+      rect:
+        serializedVersion: 2
+        x: 1986
+        y: 538
+        width: 89
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68768323625781a70800000000000000
+      internalID: 8797910678980028294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_27
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 0
+        width: 153
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3dbac298f1d6aa20800000000000000
+      internalID: 3073374661271797053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_28
+      rect:
+        serializedVersion: 2
+        x: 2201
+        y: 526
+        width: 131
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60124ca4479730e0800000000000000
+      internalID: -2290195564291026836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_29
+      rect:
+        serializedVersion: 2
+        x: 2374
+        y: 354
+        width: 139
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2111919da926fcb70800000000000000
+      internalID: 8921457804051026194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_30
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 543
+        width: 133
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c09ae48fdff47100800000000000000
+      internalID: 104990026809118915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_31
+      rect:
+        serializedVersion: 2
+        x: 2764
+        y: 278
+        width: 264
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d70ea2d196e885cc0800000000000000
+      internalID: -3722068509909655427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_32
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 302
+        width: 322
+        height: 386
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f5c965857e602f0800000000000000
+      internalID: -1006863100074500314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_33
+      rect:
+        serializedVersion: 2
+        x: 3191
+        y: 562
+        width: 220
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2270b77466336860800000000000000
+      internalID: 7521915607771542058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_34
+      rect:
+        serializedVersion: 2
+        x: 3437
+        y: 494
+        width: 254
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91be0470a289b7610800000000000000
+      internalID: 1620055797247568665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_35
+      rect:
+        serializedVersion: 2
+        x: 3732
+        y: 448
+        width: 250
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd285932509d544c0800000000000000
+      internalID: -4303795252787576099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_36
+      rect:
+        serializedVersion: 2
+        x: 3943
+        y: 543
+        width: 224
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023e6af3dec70a470800000000000000
+      internalID: 8403854263090340640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_37
+      rect:
+        serializedVersion: 2
+        x: 4067
+        y: 664
+        width: 188
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75645c74172e75220800000000000000
+      internalID: 2474695496426669655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 299
+        width: 221
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67269fbd3b15250b0800000000000000
+      internalID: -5741436742012411274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_39
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 278
+        width: 272
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ac9d28a2d7234f70800000000000000
+      internalID: 9170217051974638752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_40
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 346
+        width: 202
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5614c574aadf5fa0800000000000000
+      internalID: -5809684594399373732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_41
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 414
+        width: 139
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e22fa727ef1f0e0800000000000000
+      internalID: -2237727772184007126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_42
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 401
+        width: 58
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f51d39ba055213340800000000000000
+      internalID: 4841692102806196575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_43
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 491
+        width: 11
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682e65eb7921ddea0800000000000000
+      internalID: -5846496298314308986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_44
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 352
+        width: 87
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e947fece46a56e60800000000000000
+      internalID: 7954947174229821923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_45
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 0
+        width: 76
+        height: 533
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f2fc9c14cf6724c0800000000000000
+      internalID: -4312355230099639566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_46
+      rect:
+        serializedVersion: 2
+        x: 3424
+        y: 234
+        width: 255
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3edf2c7d01148e200800000000000000
+      internalID: 209488923267890659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_47
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 200
+        width: 139
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9dea0fcb52557420800000000000000
+      internalID: 2627096511909653916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_48
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 431
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cac03c9fee8c8b70800000000000000
+      internalID: 8902647723173399241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_49
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 64
+        width: 80
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f727de891a3668b0800000000000000
+      internalID: -5159372441661265930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_50
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 388
+        width: 49
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3faada17c5285b80800000000000000
+      internalID: -8405927167407771842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_51
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 0
+        width: 153
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94d02e3c6a5f3bbb0800000000000000
+      internalID: -4921319871186072247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_52
+      rect:
+        serializedVersion: 2
+        x: 3087
+        y: 117
+        width: 226
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4659bd55f150b60d0800000000000000
+      internalID: -3428641059169921692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_53
+      rect:
+        serializedVersion: 2
+        x: 2017
+        y: 417
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e54d7bdb831d9b80800000000000000
+      internalID: -8386525439690193436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_54
+      rect:
+        serializedVersion: 2
+        x: 3739
+        y: 113
+        width: 369
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08c6902928c0bab0800000000000000
+      internalID: -4994271907787913206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_55
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 28
+        width: 212
+        height: 327
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae82745657d09700800000000000000
+      internalID: 545172320695783073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_56
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 98
+        width: 194
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a88602f972d107140800000000000000
+      internalID: 4715300865867540618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_57
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 337
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9ce4dce4b279e950800000000000000
+      internalID: 6478835660342226078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_58
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 58
+        width: 83
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2915b656c03e39f0800000000000000
+      internalID: -486898081293067990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_59
+      rect:
+        serializedVersion: 2
+        x: 2773
+        y: 48
+        width: 174
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a7c26efde7b3580800000000000000
+      internalID: -8846337542934726093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_60
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 269
+        width: 53
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0adb724e3ffc19400800000000000000
+      internalID: 329272894186569120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_61
+      rect:
+        serializedVersion: 2
+        x: 1549
+        y: 1
+        width: 96
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2431e64723cc790a0800000000000000
+      internalID: -6874801789083970750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_62
+      rect:
+        serializedVersion: 2
+        x: 2483
+        y: 0
+        width: 129
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af75cebb731459c0800000000000000
+      internalID: -3939502351839821920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_63
+      rect:
+        serializedVersion: 2
+        x: 2628
+        y: 257
+        width: 66
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f34eb265333b9780800000000000000
+      internalID: -8675283952816208907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_64
+      rect:
+        serializedVersion: 2
+        x: 3386
+        y: 0
+        width: 254
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1cd291cea45d39e0800000000000000
+      internalID: -1640061579744322532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_65
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 238
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b65c6b5bb6ccabb0800000000000000
+      internalID: -4923341784627784009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_66
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 243
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 252ca8f7747f40ed0800000000000000
+      internalID: -2448560410928168366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_67
+      rect:
+        serializedVersion: 2
+        x: 2674
+        y: 256
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aef268701063ff30800000000000000
+      internalID: 4608132467585646245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_68
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 114
+        width: 113
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d440a3f9f9e2efd60800000000000000
+      internalID: 7925823657324708941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_69
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 0
+        width: 119
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4376823f1dff0490800000000000000
+      internalID: -7777719721012071604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_70
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 0
+        width: 130
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f3ea982e917cc70800000000000000
+      internalID: 8991183641831685976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_71
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 0
+        width: 118
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bbaca088e59b40a0800000000000000
+      internalID: -6896253578564031561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_72
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 0
+        width: 92
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785ae0e28888a65e0800000000000000
+      internalID: -1915568573023083129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_73
+      rect:
+        serializedVersion: 2
+        x: 2668
+        y: 0
+        width: 130
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe1ff3b4a44a08370800000000000000
+      internalID: 8322832750377693679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_74
+      rect:
+        serializedVersion: 2
+        x: 3037
+        y: 0
+        width: 145
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bced2c884ce8a6290800000000000000
+      internalID: -7896342021881536821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_75
+      rect:
+        serializedVersion: 2
+        x: 3722
+        y: 0
+        width: 209
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd955409a4efe5f00800000000000000
+      internalID: 1107602154581219807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_76
+      rect:
+        serializedVersion: 2
+        x: 4053
+        y: 0
+        width: 155
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac18da03babc9100800000000000000
+      internalID: 116172968548637869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_77
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 0
+        width: 82
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5eec9f5b5bec6ad0800000000000000
+      internalID: -2707530498277839269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_78
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 0
+        width: 61
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b3441dee5341ea0800000000000000
+      internalID: -5903033911746479262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Holy Blind_79
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 0
+        width: 115
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a67779d8cddbb380800000000000000
+      internalID: -8954319579384416600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

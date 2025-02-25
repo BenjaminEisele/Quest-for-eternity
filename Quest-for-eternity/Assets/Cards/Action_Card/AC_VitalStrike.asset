@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8efc953effc0f464ca4994f700a808a7, type: 3}
-  m_Name: AC_ShieldStrike
+  m_Name: AC_VitalStrike
   m_EditorClassIdentifier: 
-  cardName: Shield Strike
+  cardName: Vital Strike
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: -5515017798610295933, guid: f8a80809da7e9bf4cbc914a9aa2ba071, type: 3}
-  cardDescription: Gain +2 Armor.
+  cardSprite: {fileID: 655709798738885468, guid: 6b2cd6d8cce50984a942ebeb8d1f6174, type: 3}
+  cardDescription: your allies next ACT on their turn has +1 DMG.
   cardDamage: 1
   cardHitRate: 0.8
   actionEffectUnitList:
-  - myEffect: {fileID: 11400000, guid: eeb78c6b688e33a4d95acefc075c35ee, type: 2}
-    effectValue: 2
+  - myEffect: {fileID: 11400000, guid: 62abb95b93055b14f9e3aac82f134035, type: 2}
+    effectValue: 0
     shouldActivateNow: 1
     effectIcon: {fileID: 0}

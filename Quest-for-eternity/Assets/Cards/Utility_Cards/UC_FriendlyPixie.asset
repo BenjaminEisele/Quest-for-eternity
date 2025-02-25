@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
-  m_Name: UC_InfiniteInventory
+  m_Name: UC_FriendlyPixie
   m_EditorClassIdentifier: 
-  cardName: '"Infinite" Inventory'
+  cardName: Friendly Pixie
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 2605688369367802914, guid: 656761bdcafe0914c8a61e44ec35086f, type: 3}
-  cardDescription: Gain +2 UTL slots this turn.
+  cardSprite: {fileID: 7741453447124998630, guid: 70bbc4b8595a91449bbeea12cc03870e, type: 3}
+  cardDescription: Heal you and your ally by +1.
   effectUnitList:
-  - myEffect: {fileID: 11400000, guid: 38929c02b0f60264194bd39455ecdd2b, type: 2}
-    effectValue: 5
+  - myEffect: {fileID: 11400000, guid: 6ce8ae20ce86e394a857a28aa91a5199, type: 2}
+    effectValue: 1
+    shouldActivateNow: 1
+    effectIcon: {fileID: 0}
+  - myEffect: {fileID: 11400000, guid: f085a3a880d656049a63850944776dc6, type: 2}
+    effectValue: 0
     shouldActivateNow: 1
     effectIcon: {fileID: 0}
   isDisplayable: 1

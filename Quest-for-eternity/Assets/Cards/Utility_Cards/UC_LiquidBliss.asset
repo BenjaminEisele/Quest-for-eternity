@@ -9,23 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc953effc0f464ca4994f700a808a7, type: 3}
-  m_Name: AC_TooLongShot
+  m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
+  m_Name: UC_LiquidBliss
   m_EditorClassIdentifier: 
-  cardName: Too Long Shot
+  cardName: Liquid Bliss
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 7104054614039890252, guid: ad1d3e732f2651a4e8d1c2942f37f28a, type: 3}
-  cardDescription: Gain immunity but you can't play ACT cards until the end of your
-    next turn.
-  cardDamage: 2
-  cardHitRate: 0.3
-  actionEffectUnitList:
+  cardSprite: {fileID: 6298030248558254930, guid: ebb67773e723b814494f217886bd90fd, type: 3}
+  cardDescription: Heal by 5 HP but you can't play ACT cards until the end of your
+    next Turn.
+  effectUnitList:
+  - myEffect: {fileID: 11400000, guid: 6ce8ae20ce86e394a857a28aa91a5199, type: 2}
+    effectValue: 5
+    shouldActivateNow: 1
+    effectIcon: {fileID: 0}
   - myEffect: {fileID: 11400000, guid: 478c0df0faa4b50438d46bb1a11aa2a5, type: 2}
     effectValue: 0
     shouldActivateNow: 1
     effectIcon: {fileID: 7574936292863565586, guid: 318e463f08dd3f44e9117576125d6404, type: 3}
-  - myEffect: {fileID: 11400000, guid: 2404a165b5f87c6408e618a4ecbaab0b, type: 2}
-    effectValue: 0
-    shouldActivateNow: 1
-    effectIcon: {fileID: 0}
+  isDisplayable: 1

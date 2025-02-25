@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52d4b29176e0d0941b9b5151b6718814, type: 3}
-  m_Name: GC_DamageBoost
+  m_Name: GC_DamageBoost_2
   m_EditorClassIdentifier: 
   cardName: Ghost card, SHOULD NOT APPEAR
   effectValue: 0
