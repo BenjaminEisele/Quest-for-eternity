@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Turn Coin Glow_0: 3008941124892600519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

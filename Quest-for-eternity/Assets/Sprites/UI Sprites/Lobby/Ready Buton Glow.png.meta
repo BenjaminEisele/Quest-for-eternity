@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ready Buton Glow_0: -1669523457889680762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

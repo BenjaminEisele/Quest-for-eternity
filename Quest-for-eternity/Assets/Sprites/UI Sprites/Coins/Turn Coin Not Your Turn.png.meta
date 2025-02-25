@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Turn Coin Not Your Turn_0: -3982478850776784284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
