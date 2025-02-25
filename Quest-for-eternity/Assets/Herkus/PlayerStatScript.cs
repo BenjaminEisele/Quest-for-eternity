@@ -141,7 +141,11 @@ public class PlayerStatScript : NetworkBehaviour
             playerScriptAccess.isPlayerAlive = false;
             playerHealth = 0;
         }
-        if(playerArmor < 0)
+        if (playerHealth > 0)
+        {
+            playerScriptAccess.isPlayerAlive = true;
+        }
+        if (playerArmor < 0)
         {
             playerArmor = 0;
         }
