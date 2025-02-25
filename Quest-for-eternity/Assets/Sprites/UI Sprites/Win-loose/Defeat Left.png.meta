@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 266580eb47cbdc54f9d06a2c5f76a904
+guid: 1a110242041c3754d8b53f15c8f1d70c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 576127715373532567
-    second: Victory_Flag right_0
-  - first:
-      213: 4210263862425286951
-    second: Victory_Flag right_1
+      213: -3771262010908778553
+    second: Defeat Left_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Victory_Flag right_0
+      name: Defeat Left_0
       rect:
         serializedVersion: 2
-        x: 4442
-        y: 2985
-        width: 55
-        height: 11
+        x: 0
+        y: 0
+        width: 725
+        height: 375
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 795c81cca11def700800000000000000
-      internalID: 576127715373532567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Victory_Flag right_1
-      rect:
-        serializedVersion: 2
-        x: 1254
-        y: 954
-        width: 4467
-        height: 1905
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 729f58a0dacdd6a30800000000000000
-      internalID: 4210263862425286951
+      spriteID: 7cf5bdc9e29c9abc0800000000000000
+      internalID: -3771262010908778553
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 832195d05ace72347ba44afd8d1d4b26
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Victory_Flag right_0: 576127715373532567
-      Victory_Flag right_1: 4210263862425286951
+      Defeat Left_0: -3771262010908778553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

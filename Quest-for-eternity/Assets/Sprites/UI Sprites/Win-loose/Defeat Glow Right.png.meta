@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 24abb5a8afd4b7f41ab61498eded4853
+guid: 52e1f1f6919db3442b3efc301b0606bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -430703248933955051
-    second: Defeat_Flag_left_0
+      213: -5030583367613481663
+    second: Defeat Glow Right_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Defeat_Flag_left_0
+      name: Defeat Glow Right_0
       rect:
         serializedVersion: 2
-        x: 1066
-        y: 1058
-        width: 4667
-        height: 2128
+        x: 0
+        y: 0
+        width: 533
+        height: 272
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51a5fa35da5d50af0800000000000000
-      internalID: -430703248933955051
+      spriteID: 14df8609417cf2ab0800000000000000
+      internalID: -5030583367613481663
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Defeat_Flag_left_0: -430703248933955051
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
