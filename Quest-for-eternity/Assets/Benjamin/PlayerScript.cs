@@ -438,7 +438,10 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     private void RpcClearField()
     {
-        fieldScriptAccess.FieldClear();
+        if (isLocalPlayer)
+        {
+            fieldScriptAccess.FieldClear();
+        }
     }
 
     [Command(requiresAuthority = false)]
