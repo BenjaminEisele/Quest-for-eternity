@@ -187,7 +187,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        if (RefereeScript.instance.canTransferTurnToPlayer)
+        if (RefereeScript.instance.canTransferTurnToPlayer && isLocalPlayer)
         {
             isThisPlayersTurn = !isThisPlayersTurn;
             turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
@@ -200,7 +200,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurn()
     {
-        if (isClientOnly)
+        if (isClientOnly && isLocalPlayer)
         {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
