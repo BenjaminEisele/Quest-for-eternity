@@ -15,6 +15,8 @@ public class PlayerStatScript : NetworkBehaviour
     public List<int> immunityIdList;
     public int immunityCount;
 
+    public GameObject shieldIcon;
+
     [SerializeField]
     TextMeshPro playerHealthText;
     [SerializeField]
@@ -230,9 +232,17 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 playerArmorText.color = Color.grey;
                 playerArmorText.gameObject.SetActive(true);
+                if (shieldIcon != null)
+                {
+                    shieldIcon.SetActive(true);
+                }
             }
             else
             {
+                if(shieldIcon != null)
+                {
+                    shieldIcon.SetActive(false);
+                }
                 playerArmorText.gameObject.SetActive(false);
             }
             UiScript.UpdateFighterText(playerArmorText, playerArmor);
