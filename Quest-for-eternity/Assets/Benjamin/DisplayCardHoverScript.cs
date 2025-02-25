@@ -19,6 +19,6 @@ public class DisplayCardHoverScript : MonoBehaviour
 
     private void ShowDescription(bool status)
     {
-        text.SetActive(status);
+        text.GetComponent<MeshRenderer>().enabled = status;
     }
 }
