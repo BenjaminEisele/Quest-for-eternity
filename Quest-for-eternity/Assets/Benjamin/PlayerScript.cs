@@ -250,6 +250,7 @@ public class PlayerScript : NetworkBehaviour
                     shouldDealAoE = true;
                     areaAttackActive = false;
                 }
+                Debug.Log(shouldDealAoE);
                 if(shouldDealAoE)
                 {
                     for (int j = 0; j < RefereeScript.instance.enemyList.Count; j++)
