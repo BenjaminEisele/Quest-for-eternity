@@ -372,14 +372,15 @@ public class RefereeScript : NetworkBehaviour
                 {
                     Invoke("RpcCallEndTurnEventForPlayer", 0.1f);
                 }
-                else
+            }
+            else
+            {
+                if (!playerList[0].isPlayerAlive)
                 {
-                    if (!playerList[0].isPlayerAlive)
-                    {
-                        Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
-                    }
+                    Invoke("CmdCallEndTurnEventForPlayer", 0.1f);
                 }
             }
+            
         }
         TurnScript.instance.ShouldStartPlayerTurn(true);
     }
