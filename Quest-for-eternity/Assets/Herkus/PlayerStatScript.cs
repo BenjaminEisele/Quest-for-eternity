@@ -209,7 +209,11 @@ public class PlayerStatScript : NetworkBehaviour
             {
                 playerHealthText.color = Color.red;
             }
-            else
+            else if(playerHealth < 0)
+            {
+                playerScriptAccess.isPlayerAlive = false;
+            }
+            else 
             {
                 playerHealthText.color = Color.grey;
             }
