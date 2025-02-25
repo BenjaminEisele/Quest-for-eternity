@@ -733,6 +733,7 @@ public class HandScript : MonoBehaviour
         cardCount = 0;
         cardDebt = 0;
         cardQueIndex = 0;
+        utlCardsPlayedForOtherPlayer = 0;
         CardInstantiation();
         RebuildCardListLite();
     }
