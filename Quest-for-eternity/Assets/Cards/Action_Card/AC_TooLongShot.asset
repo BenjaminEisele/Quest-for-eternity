@@ -28,4 +28,4 @@ MonoBehaviour:
   - myEffect: {fileID: 11400000, guid: 2404a165b5f87c6408e618a4ecbaab0b, type: 2}
     effectValue: 0
     shouldActivateNow: 1
-    effectIcon: {fileID: 0}
+    effectIcon: {fileID: -6018976226707309675, guid: db03d32bc6a6f804787cdcedc666d5ec, type: 3}
