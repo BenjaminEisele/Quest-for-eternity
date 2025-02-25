@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_scroll unfolds appears_0: -3399618096379260410
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

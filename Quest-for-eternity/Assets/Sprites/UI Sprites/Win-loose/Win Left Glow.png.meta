@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Win Left Glow_0: 1787877703681299742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
