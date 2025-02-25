@@ -200,14 +200,17 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurn()
     {
-        if (RefereeScript.instance.canTransferTurnToPlayer)
+        if (isClientOnly)
         {
-            damageThisRound = 0;
-            isThisPlayersTurn = !isThisPlayersTurn;
-            turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
-            this.EndTurnButton.interactable = isThisPlayersTurn;
-            handScriptAccess.ActivateAllCardsEvent();
-            RefereeScript.instance.isServersTurn = false;
+            if (RefereeScript.instance.canTransferTurnToPlayer)
+            {
+                damageThisRound = 0;
+                isThisPlayersTurn = !isThisPlayersTurn;
+                turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
+                this.EndTurnButton.interactable = isThisPlayersTurn;
+                handScriptAccess.ActivateAllCardsEvent();
+                RefereeScript.instance.isServersTurn = false;
+            }
         }
     }
     public void DealDamagePlayerScript(bool inputBool, bool shouldDealAoE, int setDamage, bool hammerEffect, bool activateDelayedEffecs)
