@@ -396,7 +396,7 @@ public class PlayerScript : NetworkBehaviour
     public void BeginPreNewWaveCall()
     {
         handScriptAccess.DisableAllCardsEvent();
-        fieldScriptAccess.FieldClear();
+        ClearFieldNest();
         if(!RefereeScript.instance.singlePlayerMode)
         {
             if (isThisPlayersTurn)
@@ -421,6 +421,30 @@ public class PlayerScript : NetworkBehaviour
             EndTurnPlayerScript();
         }
         
+    }
+
+    private void ClearFieldNest()
+    {
+        if (isClientOnly)
+        {
+            CmdClearField();
+        }
+        else
+        {
+            RpcClearField();
+        }
+    }
+
+    [ClientRpc]
+    private void RpcClearField()
+    {
+        fieldScriptAccess.FieldClear();
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdClearField()
+    {
+        RpcClearField();
     }
 
     [Command(requiresAuthority = false)]
