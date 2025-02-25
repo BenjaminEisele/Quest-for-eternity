@@ -189,13 +189,16 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        if (RefereeScript.instance.canTransferTurnToPlayer)
+        if (isServer && isLocalPlayer)
         {
-            isThisPlayersTurn = true;
-            turnScriptAccess.isPlayersTurn = true;
-            EndTurnButton.interactable = true;
-            handScriptAccess.ActivateAllCardsEvent();
-            RefereeScript.instance.isServersTurn = true;
+            if (RefereeScript.instance.canTransferTurnToPlayer)
+            {
+                isThisPlayersTurn = true;
+                turnScriptAccess.isPlayersTurn = true;
+                EndTurnButton.interactable = true;
+                handScriptAccess.ActivateAllCardsEvent();
+                RefereeScript.instance.isServersTurn = true;
+            }
         }
     }
 
