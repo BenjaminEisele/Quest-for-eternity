@@ -105,7 +105,7 @@ public class ChooseNewCardScript : MonoBehaviour
     public void DisplayCards()
     {
         isInLootingPhase = true;
-        soundFXManager.LootAppearsSound();
+        //soundFXManager.LootAppearsSound();
         Vector3 newDisplayCardLocation = displayCardLocator.position;
         for (int i = 0; i < RefereeScript.instance.lootCardCount; i++)
         {
