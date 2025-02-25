@@ -168,11 +168,12 @@ public class PlayerStatScript : NetworkBehaviour
         {
             playerHealth = 0;
             voiceManager.KillPlayerLine(voiceReference);
-
+            
             return true;
         }
         else
         {
+            Debug.Log($"Health is: {playerHealth}");
             return false;
         }       
     }
