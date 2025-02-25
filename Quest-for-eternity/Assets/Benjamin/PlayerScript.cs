@@ -207,7 +207,6 @@ public class PlayerScript : NetworkBehaviour
         {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
-                damageThisRound = 0;
                 isThisPlayersTurn = true;
                 turnScriptAccess.isPlayersTurn = true;
                 EndTurnButton.interactable = true;
