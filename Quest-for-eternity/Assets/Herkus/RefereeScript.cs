@@ -53,6 +53,7 @@ public class RefereeScript : NetworkBehaviour
     private GameObject[] mainCamera;
     private GameObject[] playerHealth;
     private GameObject[] playerScripts;
+    private GameObject[] deckText;
 
     public List<PlayerScript> playerList;
 
@@ -110,6 +111,11 @@ public class RefereeScript : NetworkBehaviour
             {
                 playerHealth = GameObject.FindGameObjectsWithTag("Health");
                 DeactivateHealth(playerHealth);
+            }
+            if (deckText == null && 1 > 2)
+            {
+                deckText = GameObject.FindGameObjectsWithTag("DeckText");
+                DeactivateDeckText(deckText);
             }
         }
         else
@@ -339,6 +345,19 @@ public class RefereeScript : NetworkBehaviour
             }
         } 
     }
+
+    private void DeactivateDeckText(GameObject[] deckText)
+    {
+        if (isServer)
+        {
+            deckText[1].SetActive(false);
+        }
+        else
+        {
+            deckText[0].SetActive(false);
+        }
+    }
+
     public void CallStartTurnEvent()
     {
         if (turnStartEvent != null)
