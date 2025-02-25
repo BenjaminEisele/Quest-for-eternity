@@ -396,17 +396,17 @@ public class PlayerScript : NetworkBehaviour
     public void BeginPreNewWaveCall()
     {
         handScriptAccess.DisableAllCardsEvent();
-        if(!RefereeScript.instance.singlePlayerMode)
+        transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
+
+        if (!RefereeScript.instance.singlePlayerMode)
         {
             if (isThisPlayersTurn)
             {
                 if (isHost && isServer)
                 {
                     RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
-                    RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
 
                     RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
-                    RefereeScript.instance.playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(false);
 
                     RefereeScript.instance.CallPreNewWaveEvent();
                     CallNewCardsAsServer();
@@ -432,9 +432,7 @@ public class PlayerScript : NetworkBehaviour
         if (!isHost)
         {
             RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = false;
-            RefereeScript.instance.playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(false);
             RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = true;
-            RefereeScript.instance.playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
             RefereeScript.instance.CallPreNewWaveEvent();
             CallNewCardsAsServer();
         }
