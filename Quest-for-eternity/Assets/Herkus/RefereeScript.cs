@@ -123,6 +123,7 @@ public class RefereeScript : NetworkBehaviour
         areAllEnemiesDead = false;
         canTransferTurnToPlayer = true;
         isGameOver = false;
+        VoiceManager.instance.StartMatchLine();
     }
     private void Update()
     {
