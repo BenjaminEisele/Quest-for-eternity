@@ -34,7 +34,11 @@ public class ChooseNewCardScript : MonoBehaviour
     {
         foreach(GameObject displayCard in displayCardList)
         {
-            displayCard.GetComponent<DisplayCardScript>().glowObject.SetActive(desiredActivation);
+            if(displayCard != null)
+            {
+                displayCard.GetComponent<DisplayCardScript>().glowObject.SetActive(desiredActivation);
+            }
+            
         }
     }
     public void ChooseOneCard(GameObject selfObject, int inputId)
