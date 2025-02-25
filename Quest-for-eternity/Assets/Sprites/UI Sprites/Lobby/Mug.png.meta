@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b704c59aea342e6499a1eb54bef50392
+guid: d3bc47fb5f2e74a41b9cb56b9d1b5ad3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3474171905110429592
-    second: bar-lobby-color-progress red!_0
+      213: 6666875012819194
+    second: Mug_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bar-lobby-color-progress red!_0
+      name: Mug_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 106
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 860304b2f0349cfc0800000000000000
-      internalID: -3474171905110429592
+      spriteID: af8a6eccc7fa71000800000000000000
+      internalID: 6666875012819194
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      bar-lobby-color-progress red!_0: -3474171905110429592
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
