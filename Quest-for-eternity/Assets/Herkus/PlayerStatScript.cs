@@ -43,7 +43,6 @@ public class PlayerStatScript : NetworkBehaviour
         healingMultiplier = 1;
         savedPlayerHealth = playerHealth;
         UiScript.UpdateFighterText(playerHealthText, playerHealth);
-       
     }
 
     private void SubscriptionInvoke()

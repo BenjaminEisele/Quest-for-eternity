@@ -447,6 +447,8 @@ public class PlayerScript : NetworkBehaviour
     public void BeginDisplayCardSynchronization(int inputId)
     {
         isThisPlayersTurnToChoose = false;
+        transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(false);
+
         if (!isServer)
         {
             CmdSyncrhonizeCardDestruction(inputId);

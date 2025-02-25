@@ -23,6 +23,8 @@ public class DisplayCardScript : MonoBehaviour
     [HideInInspector]
     public PlayerScript playerScriptAccess;
 
+    public GameObject glowObject;
+
     void OnMouseOver()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerScriptAccess.isThisPlayersTurnToChoose)
