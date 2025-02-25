@@ -16,8 +16,8 @@ MonoBehaviour:
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 0}
-  cardDescription: On your next turn your first ACT deals double DMG but your ally
-    receives double DMG on their next turn.
+  cardDescription: your next ACT deals double DMG but your ally receives double DMG
+    on their next turn.
   cardDamage: 2
   cardHitRate: 0.6
   actionEffectUnitList:

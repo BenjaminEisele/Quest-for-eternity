@@ -22,6 +22,7 @@ public class SoundFXManager : MonoBehaviour
     public AudioClip enemySpawnSound;
     public AudioClip hitSound;
     public AudioClip missSound;
+    public AudioClip lootAppearsSound;
 
     public AudioSource latestSource;
     
@@ -82,62 +83,67 @@ public class SoundFXManager : MonoBehaviour
 
     public void ButtonSound()
     {
-        instance.PlaySoundClip(buttonSound);
+        PlaySoundClip(buttonSound);
     }
 
 
     public void DropdownSound()
     {
-        instance.PlaySoundClip(dropdownSound);
+        PlaySoundClip(dropdownSound);
     }
 
     public void ToggleSound()
     {
-        instance.PlaySoundClip(toggleSound);
+        PlaySoundClip(toggleSound);
     }
 
     public void HoverSound()
     {
-        instance.PlaySoundClip(hoverSound);
+        PlaySoundClip(hoverSound);
     }
 
     public void EndTurnSound()
     {
-        instance.PlaySoundClip(coinSound);
+        PlaySoundClip(coinSound);
     }
 
     public void DrawSound()
     {
-        instance.PlaySoundClip(drawSound);
+        PlaySoundClip(drawSound);
     }
 
     public void PlayCardSound()
     {
-        instance.PlaySoundClip(playCardSound);
+        PlaySoundClip(playCardSound);
     }
 
     public void ShuffleSound()
     {
-        instance.PlaySoundClip(shuffleSound);
+        PlaySoundClip(shuffleSound);
     }
 
     public void FlipSound()
     {
-        instance.PlaySoundClip(flipSound);
+        PlaySoundClip(flipSound);
     }
 
     public void EnemySpawnSound()
     {
-        instance.PlaySoundClip(enemySpawnSound);
+        PlaySoundClip(enemySpawnSound);
     }
 
     public void HitSound()
     {
-        instance.PlaySoundClip(hitSound);
+        PlaySoundClip(hitSound);
     }
 
     public void MissSound()
     {
-        instance.PlaySoundClip(missSound);
+        PlaySoundClip(missSound);
+    }
+
+    public void LootAppearsSound()
+    {
+        PlaySoundClip(lootAppearsSound);
     }
 }
