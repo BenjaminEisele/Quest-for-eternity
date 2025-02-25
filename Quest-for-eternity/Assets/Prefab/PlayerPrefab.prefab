@@ -3062,6 +3062,7 @@ GameObject:
   - component: {fileID: 959503652363763803}
   - component: {fileID: 3548369945443255270}
   - component: {fileID: 6499140213140984146}
+  - component: {fileID: 8082027708201584778}
   m_Layer: 0
   m_Name: DisplayCard
   m_TagString: Untagged
@@ -3130,6 +3131,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 3.2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8082027708201584778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318038394523368806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88b0c5aadfb94e45b8907ffe9e89e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 3890865739850812806}
 --- !u!1 &1323041148388425105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3655,7 +3669,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 585758183622744307, guid: 2f46874014d032546b10e1ecae4e3320, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7843,8 +7857,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255615
+  m_fontColor: {r: 1, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7861,8 +7875,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3.5
-  m_fontSizeBase: 3.5
+  m_fontSize: 4
+  m_fontSizeBase: 4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7899,7 +7913,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 8.971568, y: 1.890964, z: 9.518632, w: 1.3089867}
+  m_margin: {x: 7.7737055, y: 1.3008415, z: 8.364814, w: 1.3089867}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -9009,7 +9023,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 585758183622744307, guid: 2f46874014d032546b10e1ecae4e3320, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9167,6 +9181,7 @@ MonoBehaviour:
   enemySpawnSound: {fileID: 8300000, guid: d0496fa7eddd59f4694d42da9fd0c987, type: 3}
   hitSound: {fileID: 8300000, guid: baf4f8707e95c074d9d64af16f3a27ff, type: 3}
   missSound: {fileID: 8300000, guid: 69032a5eafb720f48a17a3754c81811f, type: 3}
+  lootAppearsSound: {fileID: 8300000, guid: 87bd9dded0e45a545be3f2de57e05716, type: 3}
   latestSource: {fileID: 0}
 --- !u!114 &6845034425483234958
 MonoBehaviour:
@@ -9599,8 +9614,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255615
+  m_fontColor: {r: 1, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10642,7 +10657,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 585758183622744307, guid: 2f46874014d032546b10e1ecae4e3320, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12557,7 +12572,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 585758183622744307, guid: 2f46874014d032546b10e1ecae4e3320, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12926,7 +12941,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 585758183622744307, guid: 2f46874014d032546b10e1ecae4e3320, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
