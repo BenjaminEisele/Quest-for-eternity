@@ -172,7 +172,7 @@ public class FieldScript : MonoBehaviour
                 {
                     didWeHit = true;
                 }
-                
+                Debug.Log(didWeHit);
                 if (didWeHit)
                 {
                     soundFXManager.HitSound();

@@ -60,7 +60,7 @@ public class UiScript : MonoBehaviour
     }
     public void DestroyIcon(int cardId, int effectEntry)
     {
-        Debug.Log("destroying");
+        //Debug.Log("destroying");
         Utility utilityAccess = databasePlayerAccess.cardList[cardId] as Utility;
         List<EffectUnit> uiEffectList = new List<EffectUnit>();
         if (utilityAccess)
@@ -71,17 +71,17 @@ public class UiScript : MonoBehaviour
         {
             Action actionAccess = databasePlayerAccess.cardList[cardId] as Action;
             uiEffectList = actionAccess.actionEffectUnitList;
-            Debug.Log("za giro");
+            //Debug.Log("za giro");
         }
         EffectUnit myEffectUnit = uiEffectList[effectEntry];
 
         int additionalLoopCount = 0;
         if (myEffectUnit.effectIcon)
         {
-            Debug.Log("za giro 3");
+            //Debug.Log("za giro 3");
             for (int i = 0; i < iconList.Count + additionalLoopCount; i++)
             {
-                Debug.Log($"ilgis: {iconList.Count}");
+                //Debug.Log($"ilgis: {iconList.Count}");
                 int trueIndex;
                 if(additionalLoopCount <= 0)
                 {
@@ -91,7 +91,7 @@ public class UiScript : MonoBehaviour
                 {
                     trueIndex = i - additionalLoopCount;
                 }
-                Debug.Log($"right side: {myEffectUnit.effectIcon.name}, left side: {iconList[trueIndex].GetComponent<Image>().sprite.name}");
+                //Debug.Log($"right side: {myEffectUnit.effectIcon.name}, left side: {iconList[trueIndex].GetComponent<Image>().sprite.name}");
                 if (myEffectUnit.effectIcon == iconList[trueIndex].GetComponent<Image>().sprite)
                 {
                     StartCoroutine(DestructionCoroutine(trueIndex));

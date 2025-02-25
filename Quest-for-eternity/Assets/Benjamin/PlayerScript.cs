@@ -233,6 +233,7 @@ public class PlayerScript : NetworkBehaviour
             // 1 - Miss
             // 2 - no action card
             int hitOutcome = fieldScriptAccess.CheckIfHitAndShouldClearField(inputBool, hasGuaranteedHit);
+            Debug.Log(hitOutcome);
             if (hitOutcome == 0)
             {
                 int target = RefereeScript.instance.chosenEnemyId;
