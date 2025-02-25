@@ -127,6 +127,9 @@ public class PlayerScript : NetworkBehaviour
     public void EndTurnPlayerScript()
     {
         handScriptAccess.DisableAllCardsEvent();
+        isThisPlayersTurn = false;
+        turnScriptAccess.isPlayersTurn = false;
+        EndTurnButton.interactable = false;
         if (!isServer)
         {
             Invoke("CmdEndTurn", 0.1f);
@@ -142,7 +145,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdDealDamage(int inputDamage, int target)
     {
-        if (isThisPlayersTurn)
+        if (!isThisPlayersTurn)
         {
             RefereeScript.instance.playerList[0].DealDamageAsServer(inputDamage, target);
         }
@@ -188,9 +191,9 @@ public class PlayerScript : NetworkBehaviour
     {
         if (RefereeScript.instance.canTransferTurnToPlayer)
         {
-            isThisPlayersTurn = !isThisPlayersTurn;
-            turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
-            this.EndTurnButton.interactable = isThisPlayersTurn;
+            isThisPlayersTurn = true;
+            turnScriptAccess.isPlayersTurn = true;
+            EndTurnButton.interactable = true;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = true;
         }
@@ -199,14 +202,17 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurn()
     {
-        if (RefereeScript.instance.canTransferTurnToPlayer)
+        if (isClientOnly && isLocalPlayer)
         {
-            damageThisRound = 0;
-            isThisPlayersTurn = !isThisPlayersTurn;
-            turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
-            this.EndTurnButton.interactable = isThisPlayersTurn;
-            handScriptAccess.ActivateAllCardsEvent();
-            RefereeScript.instance.isServersTurn = false;
+            if (RefereeScript.instance.canTransferTurnToPlayer)
+            {
+                damageThisRound = 0;
+                isThisPlayersTurn = !isThisPlayersTurn;
+                turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
+                this.EndTurnButton.interactable = isThisPlayersTurn;
+                handScriptAccess.ActivateAllCardsEvent();
+                RefereeScript.instance.isServersTurn = false;
+            }
         }
     }
     public void DealDamagePlayerScript(bool inputBool, bool shouldDealAoE, int setDamage, bool hammerEffect, bool activateDelayedEffecs)
