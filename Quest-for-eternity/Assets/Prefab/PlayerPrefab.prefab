@@ -1554,7 +1554,7 @@ Transform:
   m_GameObject: {fileID: 540777929100373561}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0415778, y: 12.749077, z: 1.0501813}
+  m_LocalPosition: {x: 1.66, y: 11.869077, z: 1.0501813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 0f0000000f0000000f0000000f00000011000000110000000d0000000d0000000d00000000000000000000000000000000000000
+  deckCardList: 000000000000000000000000000000000000000000000000000000000d0000001800000018000000180000001800000018000000
   handCardList: 
   discardedCardList: 
   starterCardList: 0100000005000000060000000e0000000f0000001000000011000000110000001200000013000000
@@ -6818,7 +6818,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 8.991005, y: 1.4611292, z: 8.996885, w: 2.0491447}
+  m_margin: {x: 9.290016, y: 1.4611292, z: 9.272893, w: 2.0491447}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -7449,7 +7449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7389101242650691198
 Transform:
   m_ObjectHideFlags: 0
@@ -7765,7 +7765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.17, y: 2.61}
+  m_AnchoredPosition: {x: 0.28, y: 2.61}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6396660773227774006
@@ -7833,7 +7833,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: giybhjvbjsdahvjsgdvgj
+  m_text: Combine the damage of two action cards, take the higher hit rate from the
+    two cards you play.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_sharedMaterial: {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
@@ -7878,7 +7879,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 4
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
@@ -7898,7 +7899,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 8.738466, y: 1.6793597, z: 9.070924, w: 1.3089867}
+  m_margin: {x: 8.847078, y: 1.890964, z: 9.385846, w: 1.3089867}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -9520,7 +9521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.17, y: 3.07}
+  m_AnchoredPosition: {x: -0.43, y: 3.07}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8857030262675260284
@@ -9588,7 +9589,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Attack the enemy
+  m_text: Combine the damage of two action cards, take the higher hit rate from the
+    two cards you play.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_sharedMaterial: {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
@@ -9653,7 +9655,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.023987, y: 2.507972, z: 9.357443, w: 0.848374}
+  m_margin: {x: 8.890431, y: 2.507972, z: 7.9855485, w: 0.848374}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0

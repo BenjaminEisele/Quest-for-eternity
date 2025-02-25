@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rusted Sword_0: 6445261032382828273
+      Rusted Sword_1: 7114746139269323187
+      Rusted Sword_2: 7246010660520214128
+      Rusted Sword_3: 3915984131220022845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
