@@ -672,6 +672,7 @@ public class RefereeScript : NetworkBehaviour
         if (playerList[targetPlayerId].transform.root.GetComponentInChildren<PlayerStatScript>().TakeDamageAndCheckIfDead(inputDamage, inputType, voiceReference))
         {
             TurnScript.instance.ShouldStartPlayerTurn(false);
+            Debug.Log("set to false");
             playerList[targetPlayerId].isPlayerAlive = false;
             if (AreAllPlayersDead())
             {
@@ -680,6 +681,8 @@ public class RefereeScript : NetworkBehaviour
         }
         else
         {
+            Debug.Log("set to true");
+
             playerList[targetPlayerId].isPlayerAlive = true;
         }
     }
