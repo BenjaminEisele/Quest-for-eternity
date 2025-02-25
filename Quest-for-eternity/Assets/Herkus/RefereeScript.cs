@@ -496,7 +496,6 @@ public class RefereeScript : NetworkBehaviour
             }
             else
             {
-                Debug.Log("Client pre new wave call");
                 playerList[1].BeginPreNewWaveCall();
                 playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
 
