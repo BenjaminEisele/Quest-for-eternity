@@ -136,6 +136,11 @@ public class PlayerStatScript : NetworkBehaviour
         {
             playerHealth = savedPlayerHealth;
         }
+        else if(playerHealth <= 0)
+        {
+            playerScriptAccess.isPlayerAlive = false;
+            playerHealth = 0;
+        }
         if(playerArmor < 0)
         {
             playerArmor = 0;
@@ -208,11 +213,6 @@ public class PlayerStatScript : NetworkBehaviour
             if (playerHealth < savedPlayerHealth)
             {
                 playerHealthText.color = Color.red;
-            }
-            else if(playerHealth < 0)
-            {
-                Debug.Log("setting to false in playerstatscript");
-                playerScriptAccess.isPlayerAlive = false;
             }
             else 
             {
