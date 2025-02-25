@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: af1124d905063044daceec29cce32c2a
+guid: 50c9d57e7e5ca0846a40caa22440dfb8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6053913446573742764
-    second: Defeat_Flag_right_0
-  - first:
-      213: 7447738351885434203
-    second: Defeat_Flag_right_1
+      213: -2932513457500294362
+    second: Next_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Defeat_Flag_right_0
+      name: Next_0
       rect:
         serializedVersion: 2
-        x: 4232
-        y: 3111
-        width: 52
-        height: 10
+        x: 0
+        y: 0
+        width: 2559
+        height: 1964
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 455e20c9bcd2cfba0800000000000000
-      internalID: -6053913446573742764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Defeat_Flag_right_1
-      rect:
-        serializedVersion: 2
-        x: 1262
-        y: 1219
-        width: 4162
-        height: 1775
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b5d3f2c329eab5760800000000000000
-      internalID: 7447738351885434203
+      spriteID: 62374aa2c8e9d47d0800000000000000
+      internalID: -2932513457500294362
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bafe17fa5ff3452449652c85e1ec0365
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Defeat_Flag_right_0: -6053913446573742764
-      Defeat_Flag_right_1: 7447738351885434203
+      Next_0: -2932513457500294362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

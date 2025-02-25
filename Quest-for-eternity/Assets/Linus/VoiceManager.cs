@@ -202,7 +202,7 @@ public class VoiceManager : MonoBehaviour
                     {
                         PlaySoundClip(zombieKillPlayer, false);
                     }
-
+                    isAlreadyDead = true;
                     break;
 
                 case 1:
@@ -217,6 +217,7 @@ public class VoiceManager : MonoBehaviour
                     {
                         PlaySoundClip(skeletonKillPlayer, false);
                     }
+                    isAlreadyDead = true;
                     break;
 
                 case 2:
@@ -231,6 +232,7 @@ public class VoiceManager : MonoBehaviour
                     {
                         PlaySoundClip(skullKillPlayer, false);
                     }
+                    isAlreadyDead = true;
                     break;
 
                 case 3:
@@ -245,6 +247,7 @@ public class VoiceManager : MonoBehaviour
                     {
                         PlaySoundClip(necroKillPlayer, false);
                     }
+                    isAlreadyDead = true;
                     break;
             }
             isAlreadyDead = true;
@@ -328,7 +331,7 @@ public class VoiceManager : MonoBehaviour
 
     public void NecroSpawnsSkeleton()
     {
-        if (necroSkeletons == 0)
+        if (necroSkeletons == 1)
         {
             if (!skeletonSpawned)
             {
@@ -338,7 +341,7 @@ public class VoiceManager : MonoBehaviour
             PlaySoundClip(necroSpawnsSkeleton[rnd], false);
             necroSkeletons = 1;
         }
-        if (necroSkeletons == 1)
+        if (necroSkeletons == 2)
         {
             int rnd = Random.Range(0, necroRespawnsSkeleton.Length);
             PlaySoundClip(necroRespawnsSkeleton[rnd], false);
