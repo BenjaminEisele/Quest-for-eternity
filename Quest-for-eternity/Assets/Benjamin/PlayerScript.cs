@@ -145,6 +145,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdDealDamage(int inputDamage, int target)
     {
+        Debug.Log($"Cmd Called {isThisPlayersTurn}");
         if (isThisPlayersTurn)
         {
             RefereeScript.instance.playerList[0].DealDamageAsServer(inputDamage, target);
