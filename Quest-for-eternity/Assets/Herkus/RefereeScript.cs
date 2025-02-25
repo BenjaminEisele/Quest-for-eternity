@@ -482,11 +482,13 @@ public class RefereeScript : NetworkBehaviour
         }
         if (areAllEnemiesDead)
         {
-            if(!singlePlayerMode)
+            playerList[0].transform.root.GetComponentInChildren<FieldScript>().FieldClear();
+            playerList[1].transform.root.GetComponentInChildren<FieldScript>().FieldClear();
+            if (!singlePlayerMode)
             {
                 canTransferTurnToPlayer = false;
             }
-            if (playerList[0].isThisPlayersTurn)
+            if (isServersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
             }
@@ -496,6 +498,7 @@ public class RefereeScript : NetworkBehaviour
             }
         }
     }
+
     public void CallPreNewWaveEvent()
     {
         if (isServer)
