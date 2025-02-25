@@ -491,10 +491,14 @@ public class RefereeScript : NetworkBehaviour
             if (isServersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
+                playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
+
             }
             else
             {
                 playerList[1].BeginPreNewWaveCall();
+                playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
+
             }
         }
     }

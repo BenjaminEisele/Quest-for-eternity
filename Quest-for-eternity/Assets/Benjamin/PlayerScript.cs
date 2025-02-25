@@ -396,7 +396,7 @@ public class PlayerScript : NetworkBehaviour
     public void BeginPreNewWaveCall()
     {
         handScriptAccess.DisableAllCardsEvent();
-        transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
+        
 
         if (!RefereeScript.instance.singlePlayerMode)
         {
@@ -405,7 +405,6 @@ public class PlayerScript : NetworkBehaviour
                 if (isHost && isServer)
                 {
                     RefereeScript.instance.playerList[0].isThisPlayersTurnToChoose = true;
-
                     RefereeScript.instance.playerList[1].isThisPlayersTurnToChoose = false;
 
                     RefereeScript.instance.CallPreNewWaveEvent();
