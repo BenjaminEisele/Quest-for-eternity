@@ -9,6 +9,7 @@ TagManager:
   - Health
   - PlayerScriptTag
   - DeckText
+  - Overlay
   layers:
   - Default
   - TransparentFX

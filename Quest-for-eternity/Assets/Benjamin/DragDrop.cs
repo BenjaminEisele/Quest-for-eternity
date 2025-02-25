@@ -1,5 +1,6 @@
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+using DG.Tweening;
+
 
 public class DragDrop : MonoBehaviour
 {
@@ -19,14 +20,20 @@ public class DragDrop : MonoBehaviour
     PauseMenuCheck pauseMenuCheckAccess;
     [HideInInspector]
     public bool isDragging = false;
-
+    public Transform rootParent;
+    [SerializeField]
+    Transform scaleParent;
+    float animationSpeed = 0.25f;
     private void Start()
     {
         cardPosition = transform.localPosition;
         onHoverScriptAccess = GetComponent<OnHoverScript>();
         cardScriptAccess = GetComponent<CardScript>();
     }
-
+    private void Awake()
+    {
+        rootParent = transform.root; 
+    }
     private Vector3 GetMouseWorldPosition()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -36,6 +43,10 @@ public class DragDrop : MonoBehaviour
     {
         if (!pauseMenuCheckAccess.pauseMenuOpen && handScriptAccess.canInteract)
         {
+            //scaleParent.DOLocalRotate(new Vector3(0, 0, -rootParent.eulerAngles.z), animationSpeed);
+            scaleParent.localEulerAngles = new Vector3(0, 0, -rootParent.eulerAngles.z);
+            //DOTween.KillAll();
+            DOTween.Kill(8);
             mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
             isDragging = true;
             onHoverScriptAccess.IncreasScale(false);
@@ -44,6 +55,7 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
+        scaleParent.localEulerAngles = new Vector3(0, 0, 0);
         isDragging = false;
         if (isInPlayingField)
         {
@@ -96,6 +108,11 @@ public class DragDrop : MonoBehaviour
         if(cardScriptAccess.isClickable && handScriptAccess.canInteract)
         {
             transform.position = GetMouseWorldPosition() + mousePositionOffset;
+            //transform.position = new Vector3(0, 0, -rootParent.eulerAngles.z);
+            scaleParent.localEulerAngles = new Vector3(0, 0, -rootParent.eulerAngles.z);
+            // DOTween.KillAll();
+            DOTween.Kill(8);
+
         }
     }
 

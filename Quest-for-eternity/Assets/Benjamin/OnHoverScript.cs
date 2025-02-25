@@ -18,6 +18,7 @@ public class OnHoverScript : MonoBehaviour
     HandScript handScriptAccess;
 
     [SerializeField] SoundFXManager soundFXManager;
+    
 
     private void Awake()
     {
@@ -35,7 +36,10 @@ public class OnHoverScript : MonoBehaviour
 
     private void OnMouseExit()
     {
-        IncreasScale(false);
+        if(!dragDropAccess.isDragging)
+        {
+            IncreasScale(false);
+        }     
     }
 
     public void IncreasScale(bool status)
@@ -44,7 +48,7 @@ public class OnHoverScript : MonoBehaviour
         if (status) 
         {
             soundFXManager.DrawSound();
-            scaleParent.DOLocalRotate(new Vector3(0, 0, -rootParent.eulerAngles.z), animationSpeed);
+            scaleParent.DOLocalRotate(new Vector3(0, 0, -rootParent.eulerAngles.z), animationSpeed).SetId(8);
             scaleParent.DOLocalMoveY(3, animationSpeed);
             transform.parent.position += new Vector3(0,0,-2);
             finalScale = initialScale * 2f;
@@ -52,7 +56,7 @@ public class OnHoverScript : MonoBehaviour
         }
         else
         {
-            scaleParent.DOLocalRotate(new Vector3(0, 0, 0), animationSpeed);
+            scaleParent.DOLocalRotate(new Vector3(0, 0, 0), animationSpeed).SetId(8);
             scaleParent.DOLocalMoveY(0, animationSpeed);
             scaleParent.DOScale(initialScale, animationSpeed);
             transform.parent.position = new Vector3(transform.parent.position.x, transform.parent.position.y, zLocator);
