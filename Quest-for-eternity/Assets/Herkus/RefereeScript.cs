@@ -497,7 +497,7 @@ public class RefereeScript : NetworkBehaviour
             else
             {
                 playerList[1].BeginPreNewWaveCall();
-                Invoke("InvokeChangeGlow", 0.1f);
+                Invoke("InvokeChangeGlow", 0.5f);
             }
         }
     }
