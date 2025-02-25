@@ -112,7 +112,7 @@ public class RefereeScript : NetworkBehaviour
                 playerHealth = GameObject.FindGameObjectsWithTag("Health");
                 DeactivateHealth(playerHealth);
             }
-            if (deckText == null && 1 > 2)
+            if (deckText == null)
             {
                 deckText = GameObject.FindGameObjectsWithTag("DeckText");
                 DeactivateDeckText(deckText);
