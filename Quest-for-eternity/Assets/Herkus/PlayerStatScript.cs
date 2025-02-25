@@ -102,7 +102,6 @@ public class PlayerStatScript : NetworkBehaviour
     {
         playerArmor += desiredArmor;
         int damageDelta = 0;
-        Debug.Log($"Desired armor is: {desiredArmor}");
         if(desiredArmor >= 0)
         {
             if (desiredHealth < 0)

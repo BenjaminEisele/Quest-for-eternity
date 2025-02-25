@@ -54,7 +54,6 @@ public class ActiveCardScript : MonoBehaviour
 
     public void ActivateMyEffect()
     {
-        Debug.Log("activation");
         if (!isActionCard)
         {
             Utility utilityCardAccess = databasePlayerAccess.cardList[activeCardId] as Utility;

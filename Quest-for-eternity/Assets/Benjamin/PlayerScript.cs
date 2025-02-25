@@ -175,7 +175,6 @@ public class PlayerScript : NetworkBehaviour
                 {
                     target--;
                 }
-                Debug.Log($"target is {target}");
                 if (RefereeScript.instance.enemyList[target] != null)
                 {
                     RefereeScript.instance.enemyList[target].TakeDamageAndCheckIfDead(inputDamage);
@@ -212,6 +211,7 @@ public class PlayerScript : NetworkBehaviour
     }
     public void DealDamagePlayerScript(bool inputBool, bool shouldDealAoE, int setDamage, bool hammerEffect, bool activateDelayedEffecs)
     {
+        Debug.Log("DealDamage");
         bool hasGuaranteedHit = false;
         for(int i = 0; i < knowledgeIdList.Count; i++)
         {

@@ -63,7 +63,6 @@ public class FieldScript : MonoBehaviour
         {
             damagePointsFromActiveCard = activeCardInstance.GetComponent<ActiveCardScript>().ActiveCardSetup(cardId);
         }
-
         damagePoints += damagePointsFromActiveCard;
         if (activeCardInstance.GetComponent<ActiveCardScript>().shouldShowCard)
         {
@@ -159,6 +158,8 @@ public class FieldScript : MonoBehaviour
 
         if (playerScriptAccess.isThisPlayersTurn)
         {
+            Debug.Log(damagePoints);
+            Debug.Log(boostPoints);
             damagePointsLiquid = damagePoints + boostPoints;
             FieldEffectActivation();
             if (actionCardReference != null)

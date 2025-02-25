@@ -692,7 +692,6 @@ public class RefereeScript : NetworkBehaviour
             SwitchPlayerAttackId();
             if (!isActivatedByEffect)
             {
-                Debug.Log("lol");
                 playerList[0].transform.root.GetComponentInChildren<UiScript>().DestroyIcon(29, 0);
             }
         }

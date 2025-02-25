@@ -75,7 +75,7 @@ public class HandScript : MonoBehaviour
     bool isFullRefill;
 
     public bool isInDamageSliderMode;
-    public int clickedCardId;
+    private int clickedCardId;
 
     public bool isHelpAndLeadActive;
 
@@ -156,8 +156,7 @@ public class HandScript : MonoBehaviour
                     clickedCardId = card.GetComponentInParent<CardScript>().myCardId;
                     deckManagerAccess.handCardList.Remove(clickedCardId);
                     deckManagerAccess.discardedCardList.Add(clickedCardId);
-
-					if (isInMergeMode)
+                    if (isInMergeMode)
 					{
 						fieldScriptAccess.InputCardForMerging(clickedCardId);
 					}
@@ -336,7 +335,6 @@ public class HandScript : MonoBehaviour
             {
                 SetCardActivityStatus(true, 0);
                 isInLongShotMode = false;
-                Debug.Log("this part is reached (as it should)?!?");
                 uiScriptAccess.DestroyIcon(10, 0);
             }
             else if(isInMergeMode)
@@ -478,7 +476,7 @@ public class HandScript : MonoBehaviour
 
     public void DelayedActionCardEffectActivation()
     {
-        if(clickedCardId != -1)
+        if (clickedCardId != -1)
         {
             Action actionCardAccess = databasePlayerAccess.cardList[clickedCardId] as Action;
             if(actionCardAccess)

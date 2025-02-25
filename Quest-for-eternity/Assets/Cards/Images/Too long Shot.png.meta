@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Too long Shot_0: 683264449133540067
+      Too long Shot_1: 5226996060057828009
+      Too long Shot_2: 7104054614039890252
+      Too long Shot_3: 4543282847930252104
+      Too long Shot_4: 4819127795326991056
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
