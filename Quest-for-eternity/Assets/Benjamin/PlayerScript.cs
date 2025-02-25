@@ -127,6 +127,9 @@ public class PlayerScript : NetworkBehaviour
     public void EndTurnPlayerScript()
     {
         handScriptAccess.DisableAllCardsEvent();
+        isThisPlayersTurn = false;
+        turnScriptAccess.isPlayersTurn = false;
+        EndTurnButton.interactable = false;
         if (!isServer)
         {
             Invoke("CmdEndTurn", 0.1f);
@@ -189,9 +192,9 @@ public class PlayerScript : NetworkBehaviour
     {
         if (RefereeScript.instance.canTransferTurnToPlayer && isLocalPlayer)
         {
-            isThisPlayersTurn = !isThisPlayersTurn;
-            turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
-            this.EndTurnButton.interactable = isThisPlayersTurn;
+            isThisPlayersTurn = true;
+            turnScriptAccess.isPlayersTurn = true;
+            EndTurnButton.interactable = true;
             handScriptAccess.ActivateAllCardsEvent();
             RefereeScript.instance.isServersTurn = true;
         }
@@ -205,9 +208,9 @@ public class PlayerScript : NetworkBehaviour
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
                 damageThisRound = 0;
-                isThisPlayersTurn = !isThisPlayersTurn;
-                turnScriptAccess.isPlayersTurn = isThisPlayersTurn;
-                this.EndTurnButton.interactable = isThisPlayersTurn;
+                isThisPlayersTurn = true;
+                turnScriptAccess.isPlayersTurn = true;
+                EndTurnButton.interactable = true;
                 handScriptAccess.ActivateAllCardsEvent();
                 RefereeScript.instance.isServersTurn = false;
             }
