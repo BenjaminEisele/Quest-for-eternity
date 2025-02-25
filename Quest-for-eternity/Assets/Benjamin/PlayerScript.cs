@@ -448,7 +448,6 @@ public class PlayerScript : NetworkBehaviour
 
     public void BeginDisplayCardSynchronization(int inputId)
     {
-        Debug.Log("setting false");
         isThisPlayersTurnToChoose = false;
         transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(false);
 

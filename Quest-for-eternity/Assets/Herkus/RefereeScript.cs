@@ -497,10 +497,14 @@ public class RefereeScript : NetworkBehaviour
             else
             {
                 playerList[1].BeginPreNewWaveCall();
-                playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
-
+                Invoke("InvokeChangeGlow", 0.1f);
             }
         }
+    }
+
+    private void InvokeChangeGlow()
+    {
+        playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
     }
 
     public void CallPreNewWaveEvent()
