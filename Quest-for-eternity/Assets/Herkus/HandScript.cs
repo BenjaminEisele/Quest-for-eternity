@@ -66,7 +66,7 @@ public class HandScript : MonoBehaviour
     public bool canPlayUtility;
     float savedHitrateDelta;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int utlCardsPlayedForOtherPlayer;
 
     [SerializeField]
