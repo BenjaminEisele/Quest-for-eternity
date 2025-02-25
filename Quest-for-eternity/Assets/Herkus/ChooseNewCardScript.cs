@@ -30,6 +30,13 @@ public class ChooseNewCardScript : MonoBehaviour
         }
     }
 
+    public void ChangeGlowEffectStatus(bool desiredActivation)
+    {
+        foreach(GameObject displayCard in displayCardList)
+        {
+            displayCard.GetComponent<DisplayCardScript>().glowObject.SetActive(desiredActivation);
+        }
+    }
     public void ChooseOneCard(GameObject selfObject, int inputId)
     {
         soundFXManager.DrawSound();
@@ -57,6 +64,7 @@ public class ChooseNewCardScript : MonoBehaviour
                     displayCardCount--;
                     Destroy(displayCardObject);
                     playerScriptAccess.isThisPlayersTurnToChoose = true;
+                    ChangeGlowEffectStatus(true);
                     if (displayCardCount <= 0)
                     {
                         if(!playerScriptAccess.isHost)
