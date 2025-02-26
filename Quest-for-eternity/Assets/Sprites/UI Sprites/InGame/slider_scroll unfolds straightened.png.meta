@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slider_scroll unfolds straightened_0: 6980236241837837554
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

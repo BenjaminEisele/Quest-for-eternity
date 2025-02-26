@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab08aff845a5eca49b39b9c6e49ffa79, type: 2}
+  - {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: ab08aff845a5eca49b39b9c6e49ffa79, type: 2}
+  m_sharedMaterial: {fileID: -4007529520515024869, guid: df25e95e0bd4f204d8a9ae1a2388953d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 120000001200000012000000120000001d0000001d0000001d0000001d0000001d0000001d000000000000000000000000000000
+  deckCardList: 120000001200000012000000120000001d0000001d0000001d0000001d0000001d0000001d00000000000000000000000000000016000000160000001600000016000000
   handCardList: 
   discardedCardList: 
   starterCardList: 0100000005000000060000000e0000000f0000001000000011000000110000001200000013000000
@@ -10838,8 +10838,8 @@ Transform:
   - {fileID: 5337094551537763181}
   - {fileID: 5420155674473085338}
   - {fileID: 5416628736194782866}
-  - {fileID: 7093786292390181398}
   - {fileID: 4402947058688956261}
+  - {fileID: 7093786292390181398}
   - {fileID: 8123020633538326466}
   - {fileID: 3190224930268895390}
   - {fileID: 5549960803085507556}
