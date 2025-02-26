@@ -468,13 +468,14 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdSyncrhonizeCardDestruction(int inputId)
     {
-        DestroyCardAsClient(inputId);
+        //DestroyCardAsClient(inputId);
+        RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
 
     [ClientRpc]
     public void DestroyCardAsClient(int inputId)
     {
-        RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
+        //RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
 
     [ClientRpc]
