@@ -185,10 +185,12 @@ public class HandScript : MonoBehaviour
                         canInteract = false;
                         if (isInQuickAttackMode)
                         {
+                            ChangeAllVisualDamagePoints();
                             handScriptDelayCoroutine = StartCoroutine(QuickAttackModeCoroutine(clickedCardId));
                         }
                         else
                         {
+                            ChangeAllVisualDamagePoints();
                             handScriptDelayCoroutine = StartCoroutine(EndTurnDelayCoroutine(clickedCardId));
                         }
                     }
