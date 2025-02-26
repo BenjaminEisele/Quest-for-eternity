@@ -364,6 +364,7 @@ public class HandScript : MonoBehaviour
             else if (!isInLongShotMode)
             {
                 uiScriptAccess.DestroyIcon(10, 0);
+                SetCardActivityStatus(true, 2);
             }
             else if(isInLongShotMode)
             {
