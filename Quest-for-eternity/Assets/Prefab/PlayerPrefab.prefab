@@ -806,18 +806,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4716527281068523202}
-        m_TargetAssemblyTypeName: HandScript, Assembly-CSharp
-        m_MethodName: SetInteract
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &3188073849355711126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2629,18 +2617,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 4716527281068523202}
-        m_TargetAssemblyTypeName: HandScript, Assembly-CSharp
-        m_MethodName: SetInteract
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &824151361074267243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2854,6 +2830,7 @@ MonoBehaviour:
   scaleParent: {fileID: 1011170593455595567}
   animationSpeed: 0.25
   handScriptAccess: {fileID: 4716527281068523202}
+  pauseMenuCheckAccess: {fileID: 5926840190218766188}
   soundFXManager: {fileID: 7250125789181350792}
 --- !u!114 &8790729103843228352
 MonoBehaviour:

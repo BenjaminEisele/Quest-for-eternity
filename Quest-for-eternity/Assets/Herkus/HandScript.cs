@@ -805,10 +805,4 @@ public class HandScript : MonoBehaviour
         RebuildCardList(card.root.gameObject);
         discardPile.SetActive(true);
     }
-
-    public void SetInteract(bool status)
-    {
-        canInteract = status;
-    }
-
 }
