@@ -348,6 +348,7 @@ public class PlayerScript : NetworkBehaviour
             {
                 int target = RefereeScript.instance.chosenEnemyId;
                 damageThisRound = fieldScriptAccess.damagePointsLiquid * multiplier;
+                multiplier = 1;
                 transform.root.GetComponentInChildren<UiScript>().DestroyIcon(26, 0);
                 if (damageThisRound > 3 && (Random.Range(0f, 1f) > 0.33))
                 {

@@ -110,7 +110,7 @@ public class CardScript : MonoBehaviour
     {
         if (isActionCard)
         {
-            //cardTextArray[0].text = ((myDamage + FieldScript.boostPoints) * playerScriptAccess.multiplier).ToString();
+            cardTextArray[0].text = ((myDamage + FieldScript.boostPoints) * playerScriptAccess.multiplier).ToString();
         }
     } 
     public void SetCardActiveStatus(bool desiredStatus)
