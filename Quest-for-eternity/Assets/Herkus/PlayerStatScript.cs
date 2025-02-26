@@ -153,6 +153,7 @@ public class PlayerStatScript : NetworkBehaviour
     }
     public bool TakeDamageAndCheckIfDead(int inputDamage, int inputType, int voiceReference)
     {
+        Debug.Log($"Im being Attacked my name is: {transform.root.gameObject.name}");
         if(!IsImmuneToAttack(inputType))
         {
             inputDamage -= playerHealthOffset;
@@ -192,8 +193,10 @@ public class PlayerStatScript : NetworkBehaviour
     {
         for(int i = 0; i < immunityIdList.Count; i++)
         {
+            Debug.Log("for");
             if(inputEnemyId == immunityIdList[i])
             {
+                Debug.Log("immune");
                 return true;
             }
         }
