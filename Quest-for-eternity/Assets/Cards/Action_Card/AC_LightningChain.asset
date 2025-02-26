@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8efc953effc0f464ca4994f700a808a7, type: 3}
   m_Name: AC_LightningChain
   m_EditorClassIdentifier: 
-  cardName: Lightning Chain
+  cardName: Chain Lightning
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 2617427887061522777, guid: f0fe6c8d46fe66d45be02e060c22fde7, type: 3}
