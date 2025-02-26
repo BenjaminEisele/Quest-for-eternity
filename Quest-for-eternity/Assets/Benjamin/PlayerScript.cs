@@ -497,6 +497,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void DisplayCardsCallNest()
     {
+        RefereeScript.instance.canTransferTurnToPlayer = true;
         RefereeScript.instance.playerList[0].DisplayCardsCall();
     }
 
