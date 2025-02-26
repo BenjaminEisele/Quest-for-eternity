@@ -11,6 +11,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioClip mainMenuMusic;
     [SerializeField] AudioClip CreditsMusic;
     private AudioSource mainMusicSource;
+    private AudioSource creditsSource;
 
     private void Awake()
     {
@@ -42,9 +43,12 @@ public class MusicManager : MonoBehaviour
 
     public void StopMusic (AudioSource audioSource)
     {
+        if(audioSource.gameObject != null)
+        {
         if(!audioSource.gameObject.IsDestroyed())
         {
             Destroy(audioSource.gameObject);
+        }
         }
     }
 
@@ -60,6 +64,10 @@ public class MusicManager : MonoBehaviour
 
     public void PlayCredits()
     {
-        mainMusicSource = PlayMusic(CreditsMusic, 1f);
+        creditsSource = PlayMusic(CreditsMusic, 1f);
+    }
+        public void StopCreditsMusic()
+    {
+        StopMusic(creditsSource);
     }
 }
