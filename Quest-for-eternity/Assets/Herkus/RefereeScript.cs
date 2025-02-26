@@ -87,8 +87,6 @@ public class RefereeScript : NetworkBehaviour
     {
         preNewWaveEvent += CallSwitchEnemyIdNestEvent;
         restartGameEvent += RestartRefereeScript;
-        restartGameEvent += playerList[0].transform.GetComponent<VoiceManager>().ResetVoiceManager;
-        restartGameEvent += playerList[1].transform.GetComponent<VoiceManager>().ResetVoiceManager;
         if (playerScripts == null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
@@ -140,6 +138,8 @@ public class RefereeScript : NetworkBehaviour
         canTransferTurnToPlayer = true;
         isGameOver = false;
         VoiceManager.instance.StartMatchLine();
+        restartGameEvent += playerList[0].transform.GetComponent<VoiceManager>().ResetVoiceManager;
+        restartGameEvent += playerList[1].transform.GetComponent<VoiceManager>().ResetVoiceManager;
     }
     private void Update()
     {
