@@ -142,7 +142,7 @@ public class VoiceManager : MonoBehaviour
             audioSource.Play();
 
             //get length of clip
-            float clipLenght = audioSource.clip.length;
+            float clipLenght = 10f;//audioSource.clip.length;
 
             //remove gameobject when done playing
             Destroy(audioSource.gameObject, clipLenght);
