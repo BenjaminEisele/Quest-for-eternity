@@ -524,10 +524,8 @@ public class RefereeScript : NetworkBehaviour
 
     private IEnumerator ChangeGlowCoroutine()
     {
-        Debug.Log("CoroutineStarted");
         new WaitForSeconds(0.5f);
         playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
-        Debug.Log("Glow active");
         glowCoroutine = null;
         yield return null;
     }

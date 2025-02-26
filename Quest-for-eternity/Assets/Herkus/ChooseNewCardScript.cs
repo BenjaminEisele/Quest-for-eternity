@@ -32,10 +32,13 @@ public class ChooseNewCardScript : MonoBehaviour
     public void ChangeGlowEffectStatus(bool desiredActivation)
     {
         Debug.Log(transform.root.gameObject.name);
+        Debug.Log(desiredActivation);
         foreach (GameObject displayCard in displayCardList)
         {
+            Debug.Log("foreach");
             if(displayCard != null)
             {
+                Debug.Log($"display card not null, setting outline to {desiredActivation}");
                 displayCard.GetComponent<DisplayCardScript>().glowObject.SetActive(desiredActivation);
             }
             
