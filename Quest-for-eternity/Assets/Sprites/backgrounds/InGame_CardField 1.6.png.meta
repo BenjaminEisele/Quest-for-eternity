@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8d09a9d4d896609468a332182fcf92ed
+guid: 91f11ef968f272e4d830330afd9dd3b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -563251231125481937
-    second: InGame_CardField 2.5_0
+      213: 983166309166897815
+    second: InGame_CardField 1.6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InGame_CardField 2.5_0
+      name: InGame_CardField 1.6_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2566
-        height: 795
+        width: 3676
+        height: 804
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f26d6715dfdee28f0800000000000000
-      internalID: -563251231125481937
+      spriteID: 79a56059c88e4ad00800000000000000
+      internalID: 983166309166897815
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      InGame_CardField 2.5_0: -563251231125481937
+      InGame_CardField 1_0: 5023715933917565075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
