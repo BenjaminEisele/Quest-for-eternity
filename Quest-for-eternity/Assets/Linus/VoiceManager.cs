@@ -66,6 +66,18 @@ public class VoiceManager : MonoBehaviour
         }   
     }
 
+    public void RestartGameVoice()
+    {
+        zombieAttacked = false;
+        skullAttacked = false;
+        skeletonAttacked = false;
+        necroAttacked = false;
+        necroSkeletons = 0;
+        zombieSpawned = false;
+        skeletonSpawned = false;
+        skullSpawned = false;
+        isAlreadyDead = false;
+    }
     public bool PlaySoundClip(AudioClip audioClip, bool waitForLastLine)
     {
         if (latestSource != null)
@@ -85,7 +97,7 @@ public class VoiceManager : MonoBehaviour
                 audioSource.clip = audioClip;
 
                 //assgin volume
-                audioSource.volume = 1f;
+                audioSource.volume = 0.75f;
 
                 //set if looped
                 audioSource.loop = false;
@@ -117,7 +129,7 @@ public class VoiceManager : MonoBehaviour
             audioSource.clip = audioClip;
 
             //assgin volume
-            audioSource.volume = 1f;
+            audioSource.volume = 0.75f;
 
             //set if looped
             audioSource.loop = false;

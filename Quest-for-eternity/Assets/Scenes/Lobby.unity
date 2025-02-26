@@ -198,6 +198,138 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &240501467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 240501468}
+  - component: {fileID: 240501470}
+  - component: {fileID: 240501469}
+  - component: {fileID: 240501471}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &240501468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240501467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 892.3574, y: 530.8873, z: 0.79070616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &240501469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240501467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c70a5915bf0ec24c89b25609c1ad3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voiceManager: {fileID: 240501471}
+  soundObject: {fileID: 7512260821461713194, guid: 2c490422b84ddbd4a8c699ee59721a61, type: 3}
+  mainMenuMusic: {fileID: 0}
+  CreditsMusic: {fileID: 0}
+  TutorialMusic: {fileID: 0}
+  gameMusic:
+  - {fileID: 8300000, guid: 23f520b11f9331a4099b10807509f48e, type: 3}
+  - {fileID: 8300000, guid: c20594ea582b8194f90c79b4ee98b359, type: 3}
+--- !u!114 &240501470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240501467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c2ecd305e24b843ba92cfb0bc32ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 7512260821461713194, guid: a8ead3cc8474d914eb5eec6ac92b8881, type: 3}
+  dropdownSound: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: 505439b507a29c5448fdfe428226ab19, type: 3}
+  buttonSound: {fileID: 8300000, guid: 1567a440f0895a748981df7fefe01895, type: 3}
+  toggleSound: {fileID: 0}
+  sliderSound: {fileID: 0}
+  coinSound: {fileID: 0}
+  drawSound: {fileID: 0}
+  playCardSound: {fileID: 0}
+  shuffleSound: {fileID: 0}
+  flipSound: {fileID: 0}
+  enemySpawnSound: {fileID: 0}
+  hitSound: {fileID: 0}
+  missSound: {fileID: 0}
+  lootAppearsSound: {fileID: 0}
+  startTurnSound: {fileID: 0}
+  latestSource: {fileID: 0}
+--- !u!114 &240501471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240501467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e57675ae22acfc4284e2ee57502a800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObject: {fileID: 7512260821461713194, guid: ee3c4ce0a2df091479959c045c4ebfcc, type: 3}
+  tutorialLines: []
+  zombieKillPlayer: {fileID: 0}
+  skeletonKillPlayer: {fileID: 0}
+  skullKillPlayer: {fileID: 0}
+  necroKillPlayer: {fileID: 0}
+  zombieSpawns: {fileID: 0}
+  skeletonSpawns: {fileID: 0}
+  skullSpawns: {fileID: 0}
+  necroSpawns: {fileID: 0}
+  zombieAttacks: {fileID: 0}
+  skeletonAttacks: {fileID: 0}
+  skullAttacks: {fileID: 0}
+  necroAttacks: {fileID: 0}
+  necroHealsSkeleton: []
+  necroSpawnsSkeleton: []
+  necroRespawnsSkeleton: []
+  strongAttacks: []
+  missedAttacks: []
+  playerTurn: []
+  openMenu: []
+  openGame: []
+  startMatch: []
+  playForAlly: []
+  recieveFromAlly: []
+  miscLineChance: 33
+  zombieAttacked: 0
+  skeletonAttacked: 0
+  skullAttacked: 0
+  necroAttacked: 0
+  necroSkeletons: 0
+  zombieSpawned: 0
+  skeletonSpawned: 0
+  skullSpawned: 0
+  isAlreadyDead: 0
+  latestSource: {fileID: 0}
+  filler: {fileID: 0}
 --- !u!1 &246102019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1756,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 893272606}
   - {fileID: 546363937}
+  - {fileID: 240501468}
   - {fileID: 1918490898}
   - {fileID: 60465206}
   - {fileID: 1118303593}

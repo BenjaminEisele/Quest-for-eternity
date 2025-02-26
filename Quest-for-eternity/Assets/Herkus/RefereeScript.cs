@@ -11,7 +11,7 @@ public class RefereeScript : NetworkBehaviour
 
     public EnemyGenerator enemyGeneratorAccess;
     
-    private bool isGameOver;
+    public bool isGameOver;
     private bool areAllEnemiesDead;
     [SyncVar]
     public bool canTransferTurnToPlayer;

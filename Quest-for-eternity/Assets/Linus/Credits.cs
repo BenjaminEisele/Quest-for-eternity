@@ -32,7 +32,7 @@ public class Credits : MonoBehaviour
             credits.SetActive(false);
             menu.SetActive(true);
             settings.SetActive(true);
-            musicManager.StopMainMusic();
+            musicManager.StopCreditMusic();
             musicManager.PlayAmbience();
             
         }
