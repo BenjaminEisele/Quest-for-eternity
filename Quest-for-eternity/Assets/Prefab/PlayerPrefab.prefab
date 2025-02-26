@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c81614c7e145bc46ad2c45a80ba9637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckCardList: 0e0000000e0000000e0000000e00000004000000040000000400000004000000110000001100000011000000110000000100000005000000060000000f00000010000000110000001200000013000000
+  deckCardList: 00000000000000000000000000000000000000000000000004000000040000001100000011000000
   handCardList: 
   discardedCardList: 
   starterCardList: 0100000005000000060000000e0000000f0000001000000011000000110000001200000013000000
@@ -4010,7 +4010,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -7588774022678944121, guid: e605b9380290a0b4780fcb7b1a8ee352, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10947,7 +10947,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -7588774022678944121, guid: e605b9380290a0b4780fcb7b1a8ee352, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -15611,7 +15611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8784314, b: 0.7137255, a: 0.18431373}
+  m_Color: {r: 1, g: 0.7764706, b: 0.52156866, a: 0.07450981}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
