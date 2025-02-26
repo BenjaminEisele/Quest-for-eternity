@@ -190,7 +190,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        if (isServer && isLocalPlayer)
+        if (isServer)
         {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
@@ -207,7 +207,7 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurn()
     {
-        if (isClientOnly && isLocalPlayer)
+        if (isClientOnly)
         {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
