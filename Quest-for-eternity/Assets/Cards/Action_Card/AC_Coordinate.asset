@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8efc953effc0f464ca4994f700a808a7, type: 3}
-  m_Name: AC_Coordination
+  m_Name: AC_Coordinate
   m_EditorClassIdentifier: 
-  cardName: Coordination
+  cardName: Coordinate
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: 1439030931727939181, guid: 1328287bed93be9488c058e96d5e364d, type: 3}
@@ -22,7 +22,7 @@ MonoBehaviour:
   cardHitRate: 0.6
   actionEffectUnitList:
   - myEffect: {fileID: 11400000, guid: c26f44d8ffcf7ef44bfe26d33b8b5e72, type: 2}
-    effectValue: 0
+    effectValue: 2
     shouldActivateNow: 1
     effectIcon: {fileID: -3861800004618838732, guid: e3f5708f6fe87db4994c167bc0c3c9dd, type: 3}
   - myEffect: {fileID: 11400000, guid: e22adebe7945edb499797df936b6ab84, type: 2}

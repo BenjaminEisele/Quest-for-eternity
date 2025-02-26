@@ -22,7 +22,7 @@ MonoBehaviour:
   cardHitRate: 0.6
   actionEffectUnitList:
   - myEffect: {fileID: 11400000, guid: a18134a6d045dbc4aab933cc6c984b06, type: 2}
-    effectValue: 0
+    effectValue: 2
     shouldActivateNow: 1
     effectIcon: {fileID: -7418534139415837667, guid: 14a713312381d5446a4b69e14ae1863c, type: 3}
   - myEffect: {fileID: 11400000, guid: b2e6ff97676af3741ab3d3342e80d96f, type: 2}

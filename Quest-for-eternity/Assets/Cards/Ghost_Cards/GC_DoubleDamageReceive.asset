@@ -19,7 +19,7 @@ MonoBehaviour:
   cardDescription: 
   effectUnitList:
   - myEffect: {fileID: 11400000, guid: a18134a6d045dbc4aab933cc6c984b06, type: 2}
-    effectValue: 0
+    effectValue: 2
     shouldActivateNow: 1
     effectIcon: {fileID: -7418534139415837667, guid: 14a713312381d5446a4b69e14ae1863c, type: 3}
   isDisplayable: 0
