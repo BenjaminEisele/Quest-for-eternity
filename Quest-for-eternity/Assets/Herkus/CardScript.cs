@@ -7,6 +7,7 @@ public class CardScript : MonoBehaviour
 { 
     public int myCardId;
     int myDamage;
+    int savedDamage;
     private float myCardHitRate;
     private float savedCardHitRate;
 
@@ -19,6 +20,8 @@ public class CardScript : MonoBehaviour
     GameObject myCardOutline;
     [SerializeField]
     DatabasePlayer databasePlayerAccess;
+    [SerializeField]
+    PlayerScript playerScriptAccess;
 
 
     [HideInInspector]
@@ -55,6 +58,8 @@ public class CardScript : MonoBehaviour
             myCardHitRate = actionCardAccess.cardHitRate;
             savedCardHitRate = myCardHitRate;
         }
+        savedDamage = myDamage;
+
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
         cardTextArray[1].text = cardTypeName;
         cardTextArray[2].text = myCardName;
@@ -101,6 +106,13 @@ public class CardScript : MonoBehaviour
             }
         }
     }
+    public void UpdateVisualDamagePoints()
+    {
+        if (isActionCard)
+        {
+            cardTextArray[0].text = ((myDamage + FieldScript.boostPoints) * playerScriptAccess.multiplier).ToString();
+        }
+    } 
     public void SetCardActiveStatus(bool desiredStatus)
     {   
         isClickable = desiredStatus;

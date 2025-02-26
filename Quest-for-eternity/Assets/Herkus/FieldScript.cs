@@ -52,7 +52,7 @@ public class FieldScript : MonoBehaviour
                 voiceManager.RecieveCardFromAlly();
             }
         }
-
+        handscriptAccess.ChangeAllVisualDamagePoints();
         soundFXManager.PlayCardSound();
         GameObject activeCardInstance = Instantiate(baseActiveCard, activeCardSpawnPosition, Quaternion.identity);
         int damagePointsFromActiveCard;

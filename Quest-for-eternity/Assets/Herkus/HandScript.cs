@@ -129,6 +129,7 @@ public class HandScript : MonoBehaviour
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
         RefereeScript.instance.turnStartEvent += SetCanInteractTrue;
+        RefereeScript.instance.turnStartEvent += ChangeAllVisualDamagePoints;
         RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
         RefereeScript.instance.preNewWaveEvent += DeactivateDiscardPile;
         RefereeScript.instance.restartGameEvent += EffectAndVariableReset;
@@ -318,6 +319,16 @@ public class HandScript : MonoBehaviour
             if (card != null)
             {
                 card.ChangeVisualCardHitrate(shouldRestoreOriginal, effectValue, shouldAddToValue);
+            }
+        }
+    }
+    public void ChangeAllVisualDamagePoints()
+    {
+        foreach (CardScript card in cardList)
+        {
+            if (card != null)
+            {
+                card.UpdateVisualDamagePoints();
             }
         }
     }
