@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -6,8 +7,9 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
 
-    [SerializeField] private AudioSource soundObject;
-    [SerializeField] private AudioClip mainMenuMusic;
+    [SerializeField] AudioSource soundObject;
+    [SerializeField] AudioClip mainMenuMusic;
+    [SerializeField] AudioClip CreditsMusic;
     private AudioSource mainMusicSource;
 
     private void Awake()
@@ -18,10 +20,10 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public AudioSource PlayMusic(AudioClip audioClip, Transform spawnTransform, float volume)
+    public AudioSource PlayMusic(AudioClip audioClip, float volume)
     {
         //Spawn Gameobject
-        AudioSource audioSource = Instantiate(soundObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
 
         //assign audio Clip
         audioSource.clip = audioClip;
@@ -48,11 +50,16 @@ public class MusicManager : MonoBehaviour
 
     public void PlayAmbience()
     {
-        mainMusicSource = PlayMusic(mainMenuMusic, transform, 0.15f);
+        mainMusicSource = PlayMusic(mainMenuMusic, 0.15f);
     }
 
     public void StopMainMusic()
     {
         StopMusic(mainMusicSource);
+    }
+
+    public void PlayCredits()
+    {
+        mainMusicSource = PlayMusic(CreditsMusic, 1f);
     }
 }
