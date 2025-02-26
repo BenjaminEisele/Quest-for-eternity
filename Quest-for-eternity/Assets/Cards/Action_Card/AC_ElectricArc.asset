@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Electric Arc
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 8635377868791981954, guid: 29190b72824711b40b640a8ad3cdea95, type: 3}
+  cardSprite: {fileID: -4360201223787904816, guid: 6176032697acc1440906cd93c538c1d7, type: 3}
   cardDescription: Deal 2 guaranteed DMG to all enemies.
   cardDamage: 1
   cardHitRate: 0.5
