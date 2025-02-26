@@ -142,6 +142,23 @@ public class PlayerScript : NetworkBehaviour
         handScriptAccess.utlCardsPlayedForOtherPlayer = 0;
         knowledgeIdList.Clear();
     }
+
+    public void StartTurnPlayerScript()
+    {
+        handScriptAccess.ActivateAllCardsEvent();
+        isPlayersTurnLocal = true;
+        isThisPlayersTurn = true;
+        turnScriptAccess.isPlayersTurn = true;
+        EndTurnButton.interactable = true;
+        if (isServer)
+        {
+            RefereeScript.instance.isServersTurn = true;
+        }
+        else
+        {
+            RefereeScript.instance.isServersTurn = false;
+        }
+    }
     
     [Command(requiresAuthority = false)]
     public void CmdDealDamage(int inputDamage, int target)
@@ -468,14 +485,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CmdSyncrhonizeCardDestruction(int inputId)
     {
-        //DestroyCardAsClient(inputId);
         RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
-    }
-
-    [ClientRpc]
-    public void DestroyCardAsClient(int inputId)
-    {
-        //RefereeScript.instance.playerList[0].chooseNewCardAccess.FindAndDestroyCard(inputId);
     }
 
     [ClientRpc]
