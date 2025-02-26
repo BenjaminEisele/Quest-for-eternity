@@ -524,7 +524,7 @@ public class RefereeScript : NetworkBehaviour
 
     private IEnumerator ChangeGlowCoroutine()
     {
-        new WaitForSeconds(0.5f);
+        new WaitForSeconds(2f);
         playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
         glowCoroutine = null;
         yield return null;
