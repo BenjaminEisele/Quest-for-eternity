@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Brittle Spear_0: -873981177801871396
+      Brittle Spear_1: 1471293095556008583
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
