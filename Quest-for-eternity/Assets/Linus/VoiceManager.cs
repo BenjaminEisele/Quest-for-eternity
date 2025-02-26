@@ -58,6 +58,19 @@ public class VoiceManager : MonoBehaviour
 
     public GameObject filler;
 
+    public void ResetVoiceManager()
+    {
+        zombieAttacked = false;
+        skeletonAttacked = false;
+        skullAttacked = false;
+        necroAttacked = false;
+        zombieSpawned = false;
+        skeletonSpawned = false;
+        skullSpawned = false;
+        necroSkeletons = 0;
+        isAlreadyDead = false;
+    }
+
     private void Awake()
     {
         if (instance == null)

@@ -87,6 +87,8 @@ public class RefereeScript : NetworkBehaviour
     {
         preNewWaveEvent += CallSwitchEnemyIdNestEvent;
         restartGameEvent += RestartRefereeScript;
+        restartGameEvent += playerList[0].transform.GetComponent<VoiceManager>().ResetVoiceManager;
+        restartGameEvent += playerList[1].transform.GetComponent<VoiceManager>().ResetVoiceManager;
         if (playerScripts == null)
         {
             playerScripts = GameObject.FindGameObjectsWithTag("PlayerScriptTag");
