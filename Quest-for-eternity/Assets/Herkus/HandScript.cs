@@ -793,6 +793,8 @@ public class HandScript : MonoBehaviour
         utlCardsPlayedForOtherPlayer = 0;
         CardInstantiation();
         RebuildCardListLite();
+        deckCard.SetActive(true);
+
     }
 
     public void DiscardCard(Transform card)
