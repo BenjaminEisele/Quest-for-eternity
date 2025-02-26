@@ -17,13 +17,9 @@ MonoBehaviour:
   cardColor: {r: 0, g: 0, b: 0, a: 0}
   cardSprite: {fileID: -4360201223787904816, guid: 6176032697acc1440906cd93c538c1d7, type: 3}
   cardDescription: Deal 2 guaranteed DMG to all enemies.
-  cardDamage: 1
+  cardDamage: 2
   cardHitRate: 0.5
   actionEffectUnitList:
-  - myEffect: {fileID: 11400000, guid: a6b48f02f6d1d6840974db5ae277998d, type: 2}
-    effectValue: 0
-    shouldActivateNow: 1
-    effectIcon: {fileID: 0}
   - myEffect: {fileID: 11400000, guid: 7319e95d5396da54e892816e5972207d, type: 2}
     effectValue: 1
     shouldActivateNow: 1
