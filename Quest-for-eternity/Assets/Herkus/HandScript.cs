@@ -36,6 +36,9 @@ public class HandScript : MonoBehaviour
     UiScript uiScriptAccess;
 
     [SerializeField]
+    ChooseNewCardScript chooseNewCardScriptAccess;
+
+    [SerializeField]
     int cardCount = 0;
 
     [SerializeField] SoundFXManager soundFXManager;
@@ -115,11 +118,20 @@ public class HandScript : MonoBehaviour
         discardPile.SetActive(false);
     }
 
+    private void SetCanInteractTrue()
+    {
+        if(!chooseNewCardScriptAccess.isInLootingPhase)
+        {
+            canInteract = true;
+        }
+    }
+
     private void SubscriptionInvokeHand()
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
         RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
         RefereeScript.instance.restartGameEvent += EffectAndVariableReset;
+        RefereeScript.instance.turnStartEvent += SetCanInteractTrue;
     }
     private void EffectAndVariableReset()
     {

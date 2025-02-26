@@ -1362,6 +1362,7 @@ MonoBehaviour:
   databasePlayerAccess: {fileID: 4730537138289088088}
   sceneObjectAccess: {fileID: 1929009939263703945}
   uiScriptAccess: {fileID: 8797810155221267089}
+  chooseNewCardScriptAccess: {fileID: 1577412184725532746}
   cardCount: 0
   soundFXManager: {fileID: 7250125789181350792}
   voiceManager: {fileID: 1611595808576227657}
