@@ -120,12 +120,8 @@ public class VoiceManager : MonoBehaviour
         }
         else if (latestSource == null)
         {
-            Debug.Log(soundObject);
-            Debug.Log(soundObject.transform.position);
-            Debug.Log(Quaternion.identity);
             //Spawn Gameobject
             AudioSource audioSource = Instantiate(soundObject, soundObject.transform.position, Quaternion.identity);
-            Debug.Log(audioSource);
 
             latestSource = audioSource;
 

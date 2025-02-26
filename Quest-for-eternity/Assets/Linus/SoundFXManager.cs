@@ -39,7 +39,7 @@ public class SoundFXManager : MonoBehaviour
     public void PlaySoundClip(AudioClip audioClip)
     {
         //Spawn Gameobject
-        AudioSource audioSource = Instantiate(soundObject, transform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(soundObject, soundObject.transform.position, Quaternion.identity);
 
         //assign audio Clip
         audioSource.clip = audioClip;
@@ -51,10 +51,10 @@ public class SoundFXManager : MonoBehaviour
         audioSource.Play();
 
         //get length of clip
-        float clipLenght = audioSource.clip.length;
+        //float clipLenght = audioSource.clip.length;
 
         //remove gameobject when done playing
-        Destroy(audioSource.gameObject, clipLenght);
+        //Destroy(audioSource.gameObject, clipLenght);
     }
 
     public void SliderSound()
