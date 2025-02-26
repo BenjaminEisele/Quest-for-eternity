@@ -555,6 +555,7 @@ public class RefereeScript : NetworkBehaviour
             }
         }
     }
+    [ClientRpc]
     private void EndGame(bool didPlayerWin)
     {
         playerList[0].transform.root.GetComponentInChildren<HandScript>().canInteract = false;
@@ -570,6 +571,7 @@ public class RefereeScript : NetworkBehaviour
             lostImage.SetActive(true);
         }
     }
+    
     public void CallNewWaveEvent()
     {
         if (newWaveEvent != null)
