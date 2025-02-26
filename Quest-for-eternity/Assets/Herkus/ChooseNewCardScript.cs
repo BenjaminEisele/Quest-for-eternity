@@ -53,10 +53,10 @@ public class ChooseNewCardScript : MonoBehaviour
         Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
         RefereeScript.instance.databaseMultiplayerAccess.genericLootList.Remove(inputId);
-        /*if (displayCardCount <= 0)
+        if (displayCardCount <= 0)
         {
             playerScriptAccess.StartTurnPlayerScript();
-        }*/
+        }
         if(RefereeScript.instance.singlePlayerMode)
         {
             if (displayCardCount <= 0)
