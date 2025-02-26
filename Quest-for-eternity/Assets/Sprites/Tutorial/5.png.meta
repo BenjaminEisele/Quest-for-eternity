@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6f1d799e48f8f1e4aafb2b69af38b7e6
+guid: d70928044c8065645adbae3d2763eef6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5158927827758609983
-    second: InGame_Effects more damage 1_0
+      213: 4130640169021434097
+    second: 5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: InGame_Effects more damage 1_0
+      name: 5_0
       rect:
         serializedVersion: 2
-        x: 345
-        y: 10
-        width: 2180
-        height: 2150
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c9029c497ec768b0800000000000000
-      internalID: -5158927827758609983
+      spriteID: 1f86b71495bf25930800000000000000
+      internalID: 4130640169021434097
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      InGame_Effects more damage 1_0: -5158927827758609983
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
