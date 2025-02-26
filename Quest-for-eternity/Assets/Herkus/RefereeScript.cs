@@ -180,6 +180,15 @@ public class RefereeScript : NetworkBehaviour
         }
         StopAllCoroutines();
     }
+
+    public void RestartGameEvent()
+    {
+        if (isServer)
+        {
+            RpcCallRestartGameEvent();
+        }
+    }
+
     [ClientRpc]
     public void RpcCallRestartGameEvent()
     {

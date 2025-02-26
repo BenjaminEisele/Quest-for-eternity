@@ -969,6 +969,7 @@ MonoBehaviour:
   enemyList: []
   killedEnemyList: []
   enemyGeneratorAccess: {fileID: 118785381}
+  isGameOver: 0
   canTransferTurnToPlayer: 0
   isServersTurn: 0
   shouldSwitchTargetPlayer: 0
@@ -1696,7 +1697,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 569160454}
         m_TargetAssemblyTypeName: RefereeScript, Assembly-CSharp
-        m_MethodName: RpcCallRestartGameEvent
+        m_MethodName: RestartGameEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3072,7 +3073,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 569160454}
         m_TargetAssemblyTypeName: RefereeScript, Assembly-CSharp
-        m_MethodName: RpcCallRestartGameEvent
+        m_MethodName: RestartGameEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
