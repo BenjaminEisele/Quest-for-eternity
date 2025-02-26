@@ -76,6 +76,7 @@ public class ChooseNewCardScript : MonoBehaviour
                     ChangeGlowEffectStatus(true);
                     if (displayCardCount <= 0)
                     {
+                        playerScriptAccess.EndTurnPlayerScript();
                         if(!playerScriptAccess.isHost)
                         {
                             RefereeScript.instance.playerList[0].DisplayCardsCallNest();
@@ -96,14 +97,14 @@ public class ChooseNewCardScript : MonoBehaviour
         transform.root.GetComponentInChildren<HandScript>().canInteract = true;
 
         displayCardList.Clear();
-        if (playerScriptAccess.isHost)
+        /*if (playerScriptAccess.isHost)
         {
             RefereeScript.instance.CallEndTurnForBothPlayers();
         }
         else
         {
             RefereeScript.instance.CmdCallEndTurnForBothPlayers();
-        }
+        }*/
         RefereeScript.instance.StartNextWaveInitalize();
     }
 
