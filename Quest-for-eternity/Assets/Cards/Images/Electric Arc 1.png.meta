@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Electric Arc 1_0: -4360201223787904816
+      Electric Arc 1_1: 3042046855252672712
+      Electric Arc 1_2: -2424871420404476429
+      Electric Arc 1_3: 2207805412070827604
+      Electric Arc 1_4: -1200975273948540487
+      Electric Arc 1_5: 7017205587140199563
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

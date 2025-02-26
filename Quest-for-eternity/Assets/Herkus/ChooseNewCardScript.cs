@@ -59,6 +59,7 @@ public class ChooseNewCardScript : MonoBehaviour
         if (displayCardCount <= 0)
         {
             playerScriptAccess.StartTurnPlayerScript();
+            isInLootingPhase = false;
         }
         if(RefereeScript.instance.singlePlayerMode)
         {
@@ -91,6 +92,7 @@ public class ChooseNewCardScript : MonoBehaviour
                         {
                             DisplayCardsHidden();
                         }
+                        isInLootingPhase = false;
                         playerScriptAccess.EndTurnPlayerScript();
                     }
                     break;

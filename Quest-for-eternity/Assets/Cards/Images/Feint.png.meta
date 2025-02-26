@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Feint_0: 2136297236069658017
+      Feint_1: -66109104911349314
+      Feint_2: -7072488313449098668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
