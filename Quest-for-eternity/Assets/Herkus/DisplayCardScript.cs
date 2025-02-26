@@ -44,7 +44,7 @@ public class DisplayCardScript : MonoBehaviour
     {
         myCardId = myId;
         myCardName = databasePlayerAccess.cardList[myCardId].cardName;
-       
+        cardTextArray = GetComponentsInChildren<TextMeshPro>();
         Utility utilityCardAccess = databasePlayerAccess.cardList[myCardId] as Utility;
         if (utilityCardAccess)
         {
@@ -62,7 +62,7 @@ public class DisplayCardScript : MonoBehaviour
 
         }
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
-        cardTextArray = GetComponentsInChildren<TextMeshPro>();
+        
         cardTextArray[1].text = myCardName;
         cardTextArray[2].text = databasePlayerAccess.cardList[myCardId].cardDescription;
         if (isActionCard)
