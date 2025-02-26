@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Overlay_gradient both colour_0: 3637690314618690605
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

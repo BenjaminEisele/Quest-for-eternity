@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bar-lobby-credits_0: 6546965481644417226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
