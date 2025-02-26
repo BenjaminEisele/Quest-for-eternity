@@ -233,7 +233,7 @@ public class RefereeScript : NetworkBehaviour
             for (int i = 0; i < 8; i++)
             {
                 int randomValue = Random.Range(0, maximumValue);
-                if(i == 0)
+                if(i == 0 && i == 1)
                 {
                     while (!IsLootIdValidAndAction(randomValue))
                     {
@@ -266,7 +266,7 @@ public class RefereeScript : NetworkBehaviour
             Action actionReference = databasePlayerReference.cardList[trueId] as Action;
             if (actionReference)
             {
-                if (actionCardInLootTableCount + 1 >= 2)
+                if (actionCardInLootTableCount + 1 >= 4)
                 {
                     return false;
                 }
