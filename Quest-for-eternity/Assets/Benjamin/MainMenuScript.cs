@@ -6,6 +6,7 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] MusicManager musicManager;
     void Awake()
     {
+        musicManager.PlayMainMenuSong();
         if (PlayerPrefs.GetInt("firstOpened") == 0)
         {
             voiceManager.OpenGameLine();
