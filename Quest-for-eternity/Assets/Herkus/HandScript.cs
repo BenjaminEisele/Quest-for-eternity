@@ -806,4 +806,9 @@ public class HandScript : MonoBehaviour
         discardPile.SetActive(true);
     }
 
+    public void SetInteract(bool status)
+    {
+        canInteract = status;
+    }
+
 }
