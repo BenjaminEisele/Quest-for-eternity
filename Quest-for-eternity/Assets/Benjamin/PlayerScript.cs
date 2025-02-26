@@ -190,7 +190,7 @@ public class PlayerScript : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndTurn()
     {
-        if (isServer)
+        if (isServer && isLocalPlayer)
         {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
@@ -207,7 +207,8 @@ public class PlayerScript : NetworkBehaviour
     [ClientRpc]
     public void RpcEndTurn()
     {
-        if (isClientOnly)
+        Debug.Log(transform.root.gameObject.name);
+        if (isClientOnly && isLocalPlayer)
         {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
