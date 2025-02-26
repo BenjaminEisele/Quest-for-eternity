@@ -222,7 +222,7 @@ public class LobbyController : MonoBehaviour
         {
             foreach(PlayerListItem playerlistItemToRemove in playerListItemToRemove)
             {
-                DestroyMethod(playerlistItemToRemove);
+                Destroy(playerlistItemToRemove.PlayerReady.gameObject);
                 GameObject ObjectToRemove = playerlistItemToRemove.gameObject;
                 PlayerListItems.Remove(playerlistItemToRemove);
                 Destroy(ObjectToRemove);
@@ -239,11 +239,5 @@ public class LobbyController : MonoBehaviour
     public void Quit()
     {
         LocalPlayerController.QuitCheck();
-    }
-
-    [Command(requiresAuthority = false)]
-    private void DestroyMethod(PlayerListItem playerlistItemToRemove)
-    {
-        Destroy(playerlistItemToRemove.PlayerReady);
     }
 }
