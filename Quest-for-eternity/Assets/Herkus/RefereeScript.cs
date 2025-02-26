@@ -54,6 +54,7 @@ public class RefereeScript : NetworkBehaviour
     private GameObject[] playerHealth;
     private GameObject[] playerScripts;
     private GameObject[] deckText;
+    private GameObject[] overlay;
 
     public List<PlayerScript> playerList;
 
@@ -118,6 +119,11 @@ public class RefereeScript : NetworkBehaviour
             {
                 deckText = GameObject.FindGameObjectsWithTag("DeckText");
                 DeactivateDeckText(deckText);
+            }
+            if (overlay == null)
+            {
+                overlay = GameObject.FindGameObjectsWithTag("Overlay");
+                DeactivateOverlay(overlay);
             }
         }
         else
@@ -357,6 +363,18 @@ public class RefereeScript : NetworkBehaviour
         else
         {
             deckText[0].SetActive(false);
+        }
+    }
+
+    private void DeactivateOverlay(GameObject[] overlay)
+    {
+        if (isServer)
+        {
+            overlay[1].SetActive(false);
+        }
+        else
+        {
+            overlay[0].SetActive(false);
         }
     }
 
