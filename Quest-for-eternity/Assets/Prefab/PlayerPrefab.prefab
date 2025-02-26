@@ -9222,6 +9222,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: baf4f8707e95c074d9d64af16f3a27ff, type: 3}
   missSound: {fileID: 8300000, guid: 69032a5eafb720f48a17a3754c81811f, type: 3}
   lootAppearsSound: {fileID: 8300000, guid: 87bd9dded0e45a545be3f2de57e05716, type: 3}
+  startTurnSound: {fileID: 8300000, guid: 7249fdbff243c8149ab5bc3f62959f6f, type: 3}
   latestSource: {fileID: 0}
 --- !u!114 &6845034425483234958
 MonoBehaviour:
