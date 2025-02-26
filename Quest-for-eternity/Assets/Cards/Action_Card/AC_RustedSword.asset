@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Rusted Sword
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 7246010660520214128, guid: a472bd71a2c990149888f578698609d6, type: 3}
+  cardSprite: {fileID: 6445261032382828273, guid: a472bd71a2c990149888f578698609d6, type: 3}
   cardDescription: 
   cardDamage: 2
   cardHitRate: 0.6

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Brittle Spear
   effectValue: 0
   cardColor: {r: 0, g: 0, b: 0, a: 0}
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 1471293095556008583, guid: f002e9f47d050c242bd6846c5594decf, type: 3}
   cardDescription: 
   cardDamage: 3
   cardHitRate: 0.4

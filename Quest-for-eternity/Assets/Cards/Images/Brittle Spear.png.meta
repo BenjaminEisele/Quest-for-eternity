@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: a472bd71a2c990149888f578698609d6
+guid: f002e9f47d050c242bd6846c5594decf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6445261032382828273
-    second: Rusted Sword_0
+      213: -873981177801871396
+    second: Brittle Spear_0
+  - first:
+      213: 1471293095556008583
+    second: Brittle Spear_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rusted Sword_0
+      name: Brittle Spear_0
       rect:
         serializedVersion: 2
-        x: 862
-        y: 24
-        width: 2531
-        height: 4402
+        x: 838
+        y: 843
+        width: 642
+        height: 619
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fe88dfa2ca227950800000000000000
-      internalID: 6445261032382828273
+      spriteID: cdfedb4dfbefed3f0800000000000000
+      internalID: -873981177801871396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brittle Spear_1
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 137
+        width: 2660
+        height: 4195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78ac91176451b6410800000000000000
+      internalID: 1471293095556008583
       vertices: []
       indices: 
       edges: []
