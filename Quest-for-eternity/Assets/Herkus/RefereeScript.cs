@@ -149,10 +149,6 @@ public class RefereeScript : NetworkBehaviour
         {
             ChooseNewEnemy(-1);
         }
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            RpcCallRestartGameEvent();
-        }
     }
     private void RestartRefereeScript()
     {
