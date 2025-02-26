@@ -15,6 +15,7 @@ public class TurnScript : MonoBehaviour
     DeckManager deckManagerAccess;
 
     [SerializeField] VoiceManager voiceManager;
+    
 
     public delegate void EndTurnAction();
     public event EndTurnAction endTurnEvent;

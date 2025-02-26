@@ -23,6 +23,7 @@ public class SoundFXManager : MonoBehaviour
     public AudioClip hitSound;
     public AudioClip missSound;
     public AudioClip lootAppearsSound;
+    public AudioClip startTurnSound;
 
     public AudioSource latestSource;
     
@@ -145,5 +146,10 @@ public class SoundFXManager : MonoBehaviour
     public void LootAppearsSound()
     {
         PlaySoundClip(lootAppearsSound);
+    }
+
+    public void StartTurnSound()
+    {
+        PlaySoundClip(startTurnSound);
     }
 }
