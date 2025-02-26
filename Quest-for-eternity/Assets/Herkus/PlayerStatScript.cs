@@ -170,6 +170,8 @@ public class PlayerStatScript : NetworkBehaviour
             playerHealthOffset = 0;
             //Debug.Log()
             uiScriptAccess.DestroyIcon(15, 0);
+            uiScriptAccess.DestroyIcon(43, 0);
+
         }
         else
         {

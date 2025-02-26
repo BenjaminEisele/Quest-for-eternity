@@ -301,6 +301,9 @@ public class HandScript : MonoBehaviour
                     card.RestroreOriginalHitrate();
                 }
             }
+            uiScriptAccess.DestroyIcon(46, 0);
+            uiScriptAccess.DestroyIcon(17, 0);
+
             ChangeAllVisualHitrates(true, 0, false);
         }       
     }
@@ -324,6 +327,14 @@ public class HandScript : MonoBehaviour
             {
                 card.UpdateVisualDamagePoints();
             }
+        }
+        if(FieldScript.boostPoints <= 0)
+        {
+            uiScriptAccess.DestroyIcon(48, 0);
+            uiScriptAccess.DestroyIcon(44, 0);
+            uiScriptAccess.DestroyIcon(16, 0);
+            uiScriptAccess.DestroyIcon(33, 0);
+
         }
     }
     public void ShouldWeDisableCards()
