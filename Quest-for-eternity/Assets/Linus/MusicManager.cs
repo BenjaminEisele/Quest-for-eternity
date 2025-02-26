@@ -8,8 +8,6 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager instance;
 
-    [SerializeField] VoiceManager voiceManager;
-
     [SerializeField] AudioSource soundObject;
     [SerializeField] AudioClip mainMenuMusic;
     [SerializeField] AudioClip CreditsMusic;
