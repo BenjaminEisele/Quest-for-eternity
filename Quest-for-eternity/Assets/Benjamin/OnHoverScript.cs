@@ -33,7 +33,7 @@ public class OnHoverScript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!dragDropAccess.isDragging && handScriptAccess.canInteract && !pauseMenuCheckAccess.pauseMenuOpen) IncreasScale(true);
+        if (!dragDropAccess.isDragging && handScriptAccess.canInteract && !pauseMenuCheckAccess.pauseMenuOpen && !RefereeScript.instance.isGameOver) IncreasScale(true);
     }
 
     private void OnMouseExit()

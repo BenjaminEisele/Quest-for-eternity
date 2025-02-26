@@ -41,7 +41,7 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!pauseMenuCheckAccess.pauseMenuOpen && handScriptAccess.canInteract && !RefereeScript.instance.isGameOver)
+        if (!pauseMenuCheckAccess.pauseMenuOpen && handScriptAccess.canInteract)
         {
             //scaleParent.DOLocalRotate(new Vector3(0, 0, -rootParent.eulerAngles.z), animationSpeed);
             scaleParent.localEulerAngles = new Vector3(0, 0, -rootParent.eulerAngles.z);
