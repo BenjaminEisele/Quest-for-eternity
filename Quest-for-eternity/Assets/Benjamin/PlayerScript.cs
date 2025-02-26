@@ -72,6 +72,7 @@ public class PlayerScript : NetworkBehaviour
                 RefereeScript.instance.turnStartEvent += SetLocalPlayersTurnTrue;
                 RefereeScript.instance.turnStartEvent += ResetHealingSum;
                 RefereeScript.instance.restartGameEvent += RestartPlayerScript;
+                RefereeScript.instance.newWaveEvent += NewWavePlayerScript;
                 turnScriptAccess.endTurnEvent += SetLocalPlayersTurnFalse;
                 turnScriptAccess.endTurnEvent += DealDamageEventTrue;
                 shouldCheck = false;
@@ -107,7 +108,15 @@ public class PlayerScript : NetworkBehaviour
             handScriptAccess.SetCardActivityStatus(false, 2);
         }
     }
-
+    private void NewWavePlayerScript()
+    {
+        isPlayerAlive = true;
+        shouldHealByDamageAmount = false;
+        multiplier = 1;
+        healingSum = 0;
+        areaAttackActive = false;
+        knowledgeIdList.Clear();
+    }
     private void SetLocalPlayersTurnFalse()
     {
         isPlayersTurnLocal = false;

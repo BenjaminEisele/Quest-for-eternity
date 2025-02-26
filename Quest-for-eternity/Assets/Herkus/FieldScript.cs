@@ -40,6 +40,7 @@ public class FieldScript : MonoBehaviour
     private void FieldSubscription()
     {
         RefereeScript.instance.restartGameEvent += ResetFieldScript;
+        RefereeScript.instance.newWaveEvent += NewWaveFieldScript;
     }
 
     public bool SpawnActiveCard(int cardId, bool isMergeSetup, bool fromAlly)
@@ -109,6 +110,16 @@ public class FieldScript : MonoBehaviour
     }
 
     private void ResetFieldScript()
+    {
+        boostPoints = 0;
+        damagePoints = 0;
+        damagePointsLiquid = 0;
+        hitRateModifier = 0;
+        mergeIdList.Clear();
+        RestartGameFieldClear();
+    }
+
+    private void NewWaveFieldScript()
     {
         boostPoints = 0;
         damagePoints = 0;

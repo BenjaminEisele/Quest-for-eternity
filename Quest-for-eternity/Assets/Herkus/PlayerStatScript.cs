@@ -69,6 +69,11 @@ public class PlayerStatScript : NetworkBehaviour
     private void PlayerStatNewWaveEvent()
     {
         playerArmor = 0;
+        immunityIdList.Clear();
+        immunityCount = 0;
+        damageMultiplier = 1;
+        healingMultiplier = 1;
+        playerHealthOffset = 0;
     }
     private void ClientNewWaveHeal()
     {

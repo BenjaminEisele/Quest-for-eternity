@@ -49,6 +49,7 @@ public class UiScript : MonoBehaviour
     private void UiManagerSubscription()
     {
       RefereeScript.instance.restartGameEvent += DestroyAllIcons;
+        RefereeScript.instance.newWaveEvent += DestroyAllIcons;
     }
     public void GenerateIcon(Sprite inputSprite)
     {
