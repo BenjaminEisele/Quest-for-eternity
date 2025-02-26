@@ -66,19 +66,19 @@ public class MusicManager : MonoBehaviour
 
     public void PlayCredits()
     {
-        creditsSource = PlayMusic(CreditsMusic, 1f);
+        //creditsSource = PlayMusic(CreditsMusic, 1f);
     }
         public void StopCreditsMusic()
     {
-        StopMusic(creditsSource);
+        //StopMusic(creditsSource);
     }
 
         public void PlayMainMenuSong()
     {
-        mainMenuSongSource = PlayMusic(mainMenuSong, 1f);
+        //mainMenuSongSource = PlayMusic(mainMenuSong, 1f);
     }
         public void StopMainMenuSong()
     {
-        StopMusic(mainMenuSongSource);
+        //StopMusic(mainMenuSongSource);
     }
 }

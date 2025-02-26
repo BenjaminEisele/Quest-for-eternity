@@ -9241,6 +9241,7 @@ MonoBehaviour:
   soundObject: {fileID: 7512260821461713194, guid: 2c490422b84ddbd4a8c699ee59721a61, type: 3}
   mainMenuMusic: {fileID: 8300000, guid: 106c185b489f3264fbcd8e4450c0d233, type: 3}
   CreditsMusic: {fileID: 0}
+  mainMenuSong: {fileID: 0}
 --- !u!114 &1611595808576227657
 MonoBehaviour:
   m_ObjectHideFlags: 0
