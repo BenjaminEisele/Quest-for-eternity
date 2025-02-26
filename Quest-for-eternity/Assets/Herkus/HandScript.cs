@@ -361,11 +361,14 @@ public class HandScript : MonoBehaviour
                 canPlayUtility = false;
                 SetCardActivityStatus(true, 1);
             }
+            else if (!isInLongShotMode)
+            {
+                uiScriptAccess.DestroyIcon(10, 0);
+            }
             else if(isInLongShotMode)
             {
                 SetCardActivityStatus(true, 0);
                 isInLongShotMode = false;
-                uiScriptAccess.DestroyIcon(10, 0);
             }
             else if(isInMergeMode)
             {

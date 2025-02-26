@@ -176,6 +176,7 @@ public class PlayerStatScript : NetworkBehaviour
             immunityCount--;
             if(immunityCount <= 0)
             {
+                uiScriptAccess.DestroyIcon(10,1);
                 uiScriptAccess.DestroyIcon(22, 0);
                 immunityIdList.Clear();
             }
