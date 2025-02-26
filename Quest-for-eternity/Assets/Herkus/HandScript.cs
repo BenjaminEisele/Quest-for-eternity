@@ -129,10 +129,17 @@ public class HandScript : MonoBehaviour
     private void SubscriptionInvokeHand()
     {
         RefereeScript.instance.turnStartEvent += NewTurnHandLogic;
-        RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
-        RefereeScript.instance.restartGameEvent += EffectAndVariableReset;
         RefereeScript.instance.turnStartEvent += SetCanInteractTrue;
+        RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
+        RefereeScript.instance.preNewWaveEvent += DeactivateDiscardPile;
+        RefereeScript.instance.restartGameEvent += EffectAndVariableReset;
     }
+
+    private void DeactivateDiscardPile()
+    {
+        discardPile.SetActive(false);
+    }
+
     private void EffectAndVariableReset()
     {
         isInQuickAttackMode = false;

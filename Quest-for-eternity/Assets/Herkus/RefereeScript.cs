@@ -185,14 +185,22 @@ public class RefereeScript : NetworkBehaviour
         StopAllCoroutines();
     }
     [ClientRpc]
-    private void RpcCallRestartGameEvent()
+    public void RpcCallRestartGameEvent()
     {
         if (restartGameEvent != null)
         {
             Debug.Log("Restart event called!");
             restartGameEvent();
+            lostImage.SetActive(false);
+            winImage.SetActive(false);
         }
     }
+
+    public void Quit()
+    {
+        playerList[0].transform.root.GetComponentInChildren<PlayerObjectController>().QuitCheck();
+    }
+
     private void CallSwitchEnemyIdNestEvent()
     {
         SwitchPlayerAttackIdNest(false);
@@ -549,6 +557,8 @@ public class RefereeScript : NetworkBehaviour
     }
     private void EndGame(bool didPlayerWin)
     {
+        playerList[0].transform.root.GetComponentInChildren<HandScript>().canInteract = false;
+        playerList[1].transform.root.GetComponentInChildren<HandScript>().canInteract = false;
         TurnScript.instance.SetPlayerTurnBool(false);
         isGameOver = true;
         if(didPlayerWin)
@@ -559,7 +569,6 @@ public class RefereeScript : NetworkBehaviour
         {
             lostImage.SetActive(true);
         }
-        restartGameButton.SetActive(true);
     }
     public void CallNewWaveEvent()
     {
