@@ -516,7 +516,7 @@ public class RefereeScript : NetworkBehaviour
             {
                 canTransferTurnToPlayer = false;
             }
-            if (isServersTurn)
+            if (playerList[0].isThisPlayersTurn)//isServersTurn)
             {
                 playerList[0].BeginPreNewWaveCall();
                 playerList[0].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
