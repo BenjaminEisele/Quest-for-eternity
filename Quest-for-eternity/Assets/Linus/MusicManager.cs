@@ -95,10 +95,9 @@ public class MusicManager : MonoBehaviour
     public void PlayTutorial()
     {
         tutorialSource = PlayMusic(TutorialMusic, 0.7f, true); 
-        
     }
 
-        public void StopTutorialMusic()
+    public void StopTutorialMusic()
     {
         StopMusic(tutorialSource);
     }
