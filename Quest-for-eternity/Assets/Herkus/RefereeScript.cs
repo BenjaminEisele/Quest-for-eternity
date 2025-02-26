@@ -153,6 +153,11 @@ public class RefereeScript : NetworkBehaviour
         {
             RpcCallRestartGameEvent();
         }
+        if(isGameOver)
+        {
+            MusicManager.instance.StopGameMusic();
+            VoiceManager.instance.RestartGameVoice();
+        }
     }
     private void RestartRefereeScript()
     {

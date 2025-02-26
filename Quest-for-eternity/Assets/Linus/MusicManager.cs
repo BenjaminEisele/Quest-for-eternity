@@ -34,11 +34,6 @@ public class MusicManager : MonoBehaviour
 
     private void Update()
     {
-        if(RefereeScript.instance.isGameOver)
-        {
-            StopGameMusic();
-            voiceManager.RestartGameVoice();
-        }
         if (musicSource == null)
         {
             if(gameMusicShouldplay)
@@ -78,7 +73,7 @@ public class MusicManager : MonoBehaviour
 
     public void PlayAmbience()
     {
-        ambienceSource = PlayMusic(mainMenuMusic, 0.4f, true);
+        ambienceSource = PlayMusic(mainMenuMusic, 0.1f, true);
     }
 
     public void StopMainMusic()
@@ -88,7 +83,7 @@ public class MusicManager : MonoBehaviour
 
     public void PlayCredits()
     {
-        creditsSource = PlayMusic(CreditsMusic, 1f, true);
+        creditsSource = PlayMusic(CreditsMusic, 0.7f, true);
         
     }
 
@@ -99,7 +94,7 @@ public class MusicManager : MonoBehaviour
 
     public void PlayTutorial()
     {
-        tutorialSource = PlayMusic(TutorialMusic, 1f, true); 
+        tutorialSource = PlayMusic(TutorialMusic, 0.7f, true); 
         
     }
 
@@ -112,7 +107,7 @@ public class MusicManager : MonoBehaviour
     {
         gameMusicShouldplay = true;
         int rnd = Random.Range(0, gameMusic.Length);
-        musicSource = PlayMusic(gameMusic[rnd], 1f, false);
+        musicSource = PlayMusic(gameMusic[rnd], 0.7f, false);
         float clipLenght = musicSource.clip.length;
         Destroy(musicSource.gameObject, clipLenght);
     }
