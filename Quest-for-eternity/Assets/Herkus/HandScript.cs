@@ -133,12 +133,6 @@ public class HandScript : MonoBehaviour
         RefereeScript.instance.preNewWaveEvent += DisableAllCardsEvent;
         RefereeScript.instance.preNewWaveEvent += DeactivateDiscardPile;
         RefereeScript.instance.restartGameEvent += EffectAndVariableReset;
-        RefereeScript.instance.turnStartEvent += TurnStartSound;
-    }
-
-    private void TurnStartSound()
-    {
-        soundFXManager.StartTurnSound();
     }
 
     private void DeactivateDiscardPile()

@@ -34,6 +34,7 @@ public class PlayerScript : NetworkBehaviour
     public bool areaAttackActive;
 
     [SerializeField] VoiceManager voiceManager;
+    [SerializeField] SoundFXManager soundFXManager;
 
     private PlayerStatScript playerStatAccess;
     public List<int> knowledgeIdList;
@@ -220,6 +221,11 @@ public class PlayerScript : NetworkBehaviour
         {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
+                soundFXManager.StartTurnSound();
+                if (Random.Range(0, 101) < 10)
+                {
+                    voiceManager.PlayersTurnLine();
+                }
                 isPlayersTurnLocal = true;
                 isThisPlayersTurn = true;
                 turnScriptAccess.isPlayersTurn = true;
@@ -238,6 +244,11 @@ public class PlayerScript : NetworkBehaviour
         {
             if (RefereeScript.instance.canTransferTurnToPlayer)
             {
+                soundFXManager.StartTurnSound();
+                if (Random.Range(0, 101) < 10)
+                {
+                    voiceManager.PlayersTurnLine();
+                }
                 isPlayersTurnLocal = true;
                 damageThisRound = 0;
                 isThisPlayersTurn = true;

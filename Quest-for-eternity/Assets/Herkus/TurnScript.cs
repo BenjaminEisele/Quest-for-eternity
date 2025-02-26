@@ -74,10 +74,6 @@ public class TurnScript : MonoBehaviour
             if (endTurnEvent != null)
             {
                 endTurnEvent();
-                if (Random.Range(0, 101) < 10)
-                {
-                    voiceManager.PlayersTurnLine();
-                }
             }
             //uiScriptAccess.ChangeEndTurnButtonStatus(false);
         }
