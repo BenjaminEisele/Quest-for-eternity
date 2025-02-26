@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Mirror;
+using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class PlayerStatScript : NetworkBehaviour
 {
@@ -29,6 +31,8 @@ public class PlayerStatScript : NetworkBehaviour
 
     public int damageMultiplier;
     public int healingMultiplier;
+
+    public GameObject damageIndicatorText;
     private void Start()
     {
         Invoke("SubscriptionInvoke", 1f);
@@ -161,6 +165,8 @@ public class PlayerStatScript : NetworkBehaviour
         Debug.Log($"Im being Attacked my name is: {transform.root.gameObject.name}");
         if(!IsImmuneToAttack(inputType))
         {
+            DamageIndicatorTween(inputDamage.ToString());
+            //damageIndicatorText.text = inputDamage.ToString();
             inputDamage -= playerHealthOffset;
             if(inputDamage <= 0)
             {
@@ -175,6 +181,9 @@ public class PlayerStatScript : NetworkBehaviour
         }
         else
         {
+            DamageIndicatorTween("0");
+
+            // damageIndicatorText.text = "0";
             immunityCount--;
             if(immunityCount <= 0)
             {
@@ -196,7 +205,25 @@ public class PlayerStatScript : NetworkBehaviour
             return false;
         }       
     }
+
+    private void DamageIndicatorTween(string inputString)
+    {
+        GameObject attackIndicatorClone = Instantiate(damageIndicatorText, playerHealthText.gameObject.transform.position, Quaternion.identity);
+        attackIndicatorClone.SetActive(true);
+        attackIndicatorClone.GetComponent<TextMeshPro>().text = inputString;
+        attackIndicatorClone.transform.DOMoveY(2, 2);
+        attackIndicatorClone.GetComponent<TextMeshPro>().color = Color.red;
+        //Color newColor = Color.red;
+        Color newColor = new Color(1, 0, 0, 0);
+        attackIndicatorClone.GetComponent<TextMeshPro>().DOColor(newColor, 2);
+        StartCoroutine(DestructionCoroutine(attackIndicatorClone));
+    }
     
+    private IEnumerator DestructionCoroutine(GameObject inputGameObj)
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(inputGameObj);
+    }
     private bool IsImmuneToAttack(int inputEnemyId)
     {
         for(int i = 0; i < immunityIdList.Count; i++)

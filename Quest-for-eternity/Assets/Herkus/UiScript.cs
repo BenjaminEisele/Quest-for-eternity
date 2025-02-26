@@ -148,7 +148,7 @@ public class UiScript : MonoBehaviour
             {
                 iconList[i].transform.position = new Vector3(iconSpawnpoint.position.x + interval * (i + 1), iconSpawnpoint.position.y - 250, iconSpawnpoint.position.z);
             }
-            iconList[i].transform.DOMove(new Vector3(iconSpawnpoint.position.x + interval * (i + 1), iconSpawnpoint.position.y, iconSpawnpoint.position.z), 0.3f);
+            iconList[i].transform.DOMove(new Vector3(iconSpawnpoint.position.x + interval * (i + 1), iconSpawnpoint.position.y + 30, iconSpawnpoint.position.z), 0.3f);
         }
     }
 
