@@ -53,10 +53,10 @@ public class ChooseNewCardScript : MonoBehaviour
         Destroy(selfObject);
         databasePlayerAccess.gameObject.GetComponent<DeckManager>().discardedCardList.Add(inputId);
         RefereeScript.instance.databaseMultiplayerAccess.genericLootList.Remove(inputId);
-        if (displayCardCount <= 0)
+        /*if (displayCardCount <= 0)
         {
             playerScriptAccess.StartTurnPlayerScript();
-        }
+        }*/
         if(RefereeScript.instance.singlePlayerMode)
         {
             if (displayCardCount <= 0)
@@ -80,7 +80,6 @@ public class ChooseNewCardScript : MonoBehaviour
                     ChangeGlowEffectStatus(true);
                     if (displayCardCount <= 0)
                     {
-                        playerScriptAccess.EndTurnPlayerScript();
                         if(!playerScriptAccess.isHost)
                         {
                             RefereeScript.instance.playerList[0].DisplayCardsCallNest();
@@ -89,6 +88,7 @@ public class ChooseNewCardScript : MonoBehaviour
                         {
                             DisplayCardsHidden();
                         }
+                        playerScriptAccess.EndTurnPlayerScript();
                     }
                     break;
                 }
@@ -98,6 +98,7 @@ public class ChooseNewCardScript : MonoBehaviour
     public void DisplayCardsHidden()
     {
         isInLootingPhase = false;
+        RefereeScript.instance.canTransferTurnToPlayer = true;
         transform.root.GetComponentInChildren<HandScript>().canInteract = true;
 
         displayCardList.Clear();
