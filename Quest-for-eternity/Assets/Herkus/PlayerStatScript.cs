@@ -211,11 +211,11 @@ public class PlayerStatScript : NetworkBehaviour
         GameObject attackIndicatorClone = Instantiate(damageIndicatorText, playerHealthText.gameObject.transform.position, Quaternion.identity);
         attackIndicatorClone.SetActive(true);
         attackIndicatorClone.GetComponent<TextMeshPro>().text = inputString;
-        attackIndicatorClone.transform.DOMoveY(3, 3);
+        attackIndicatorClone.transform.DOMoveY(2, 2);
         attackIndicatorClone.GetComponent<TextMeshPro>().color = Color.red;
         //Color newColor = Color.red;
         Color newColor = new Color(1, 0, 0, 0);
-        attackIndicatorClone.GetComponent<TextMeshPro>().DOColor(newColor, 3);
+        attackIndicatorClone.GetComponent<TextMeshPro>().DOColor(newColor, 2);
         StartCoroutine(DestructionCoroutine(attackIndicatorClone));
     }
     
