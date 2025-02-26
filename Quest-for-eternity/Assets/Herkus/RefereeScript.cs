@@ -528,7 +528,6 @@ public class RefereeScript : NetworkBehaviour
         new WaitForSeconds(0.5f);
         playerList[1].transform.root.GetComponentInChildren<ChooseNewCardScript>().ChangeGlowEffectStatus(true);
         Debug.Log("Glow active");
-        Debug.Log(transform.root.gameObject.name);
         glowCoroutine = null;
         yield return null;
     }

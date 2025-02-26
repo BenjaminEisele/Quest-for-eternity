@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 public class ChooseNewCardScript : MonoBehaviour
 {
@@ -32,6 +31,7 @@ public class ChooseNewCardScript : MonoBehaviour
 
     public void ChangeGlowEffectStatus(bool desiredActivation)
     {
+        Debug.Log(transform.root.gameObject.name);
         foreach (GameObject displayCard in displayCardList)
         {
             if(displayCard != null)
