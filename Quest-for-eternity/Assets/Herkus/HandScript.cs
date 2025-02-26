@@ -644,6 +644,10 @@ public class HandScript : MonoBehaviour
         cardClone.GetComponentInChildren<CardScript>().SetCardActiveStatus(turnScriptAccess.isPlayersTurn);
         soundFXManager.DrawSound();
         deckText.text = deckManagerAccess.deckCardList.Count.ToString();
+        if (!playerScriptAccess.isPlayersTurnLocal)
+        {
+            SetCardActivityStatus(false, 2);
+        }
     }
 
     private int CalculateCardIndex()
