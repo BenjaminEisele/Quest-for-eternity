@@ -2809,6 +2809,7 @@ MonoBehaviour:
   myCardImage: {fileID: 959710751129587599}
   myCardOutline: {fileID: 560000822483726301}
   databasePlayerAccess: {fileID: 4730537138289088088}
+  playerScriptAccess: {fileID: 1214735220539923461}
   isClickable: 0
   isActionCard: 0
 --- !u!114 &1974002010071925220
