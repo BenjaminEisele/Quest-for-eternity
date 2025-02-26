@@ -57,7 +57,6 @@ public class HandScript : MonoBehaviour
 
 	public bool isInMergeMode;
 
-    [HideInInspector]
     public int utilityCount;
     public int utilityLimit;
     int cardDebt;
@@ -150,6 +149,7 @@ public class HandScript : MonoBehaviour
         canPlayUtility = true;
         utlCardsPlayedForOtherPlayer = 0;
         utilityLimit = 3;
+        utilityCount = 0;
         cardLimit = 5;
         damageSliderObject.SetActive(false);
         discardPile.SetActive(false);
@@ -759,6 +759,7 @@ public class HandScript : MonoBehaviour
         cardList.Clear();
         cardCount = 0;
         cardDebt = 0;
+        utilityCount = 0;
         cardQueIndex = 0;
         utlCardsPlayedForOtherPlayer = 0;
         CardInstantiation();
