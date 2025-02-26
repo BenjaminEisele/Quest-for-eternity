@@ -92,7 +92,7 @@ public class UiScript : MonoBehaviour
                 {
                     StartCoroutine(DestructionCoroutine(trueIndex));
                     GameObject tweenReference = iconList[trueIndex];
-                    tweenReference.transform.DOMove(tweenReference.transform.position + new Vector3(0, -100, 0), 0.8f);
+                    tweenReference.transform.DOMove(tweenReference.transform.position + new Vector3(0, -200, 0), 0.8f);
                     iconList[trueIndex] = null;
                     List<GameObject> newList = new List<GameObject>();
 
