@@ -58,7 +58,7 @@ public class VoiceManager : MonoBehaviour
 
     public GameObject filler;
 
-    public void ResetVoiceManager()
+    private void ResetVoiceManager()
     {
         zombieAttacked = false;
         skeletonAttacked = false;
@@ -76,8 +76,19 @@ public class VoiceManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-        }   
+        }
+        if (RefereeScript.instance != null)
+        {
+            Invoke("SubscriptionInvoke", 1f);
+        }
     }
+
+
+    private void SubscriptionInvoke()
+    {
+        RefereeScript.instance.restartGameEvent += ResetVoiceManager;
+    }
+
 
     public bool PlaySoundClip(AudioClip audioClip, bool waitForLastLine)
     {
