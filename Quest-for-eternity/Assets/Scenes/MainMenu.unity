@@ -5779,6 +5779,7 @@ MonoBehaviour:
   hitSound: {fileID: 0}
   missSound: {fileID: 0}
   lootAppearsSound: {fileID: 0}
+  startTurnSound: {fileID: 0}
   latestSource: {fileID: 0}
 --- !u!114 &881336162
 MonoBehaviour:
