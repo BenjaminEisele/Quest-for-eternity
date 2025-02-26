@@ -49,6 +49,8 @@ public class DisplayCardScript : MonoBehaviour
         if (utilityCardAccess)
         {
             isActionCard = false;
+            cardTextArray[0].text = " ";
+
         }
         else
         {
@@ -56,10 +58,11 @@ public class DisplayCardScript : MonoBehaviour
             myDamage = actionCardAccess.cardDamage;
             isActionCard = true;
             myCardHitRate = actionCardAccess.cardHitRate;
+            cardTextArray[0].text = myDamage.ToString();
+
         }
         myCardImage.GetComponent<SpriteRenderer>().sprite = databasePlayerAccess.cardList[myCardId].cardSprite;
         cardTextArray = GetComponentsInChildren<TextMeshPro>();
-        cardTextArray[0].text = myDamage.ToString();
         cardTextArray[1].text = myCardName;
         cardTextArray[2].text = databasePlayerAccess.cardList[myCardId].cardDescription;
         if (isActionCard)
