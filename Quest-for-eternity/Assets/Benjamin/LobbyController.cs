@@ -4,6 +4,7 @@ using TMPro;
 using System.Linq;
 using System.Collections.Generic;
 using DG.Tweening;
+using Mirror;
 
 public class LobbyController : MonoBehaviour
 {
@@ -221,7 +222,7 @@ public class LobbyController : MonoBehaviour
         {
             foreach(PlayerListItem playerlistItemToRemove in playerListItemToRemove)
             {
-                Destroy(playerlistItemToRemove.PlayerReady);
+                DestroyMethod(playerlistItemToRemove);
                 GameObject ObjectToRemove = playerlistItemToRemove.gameObject;
                 PlayerListItems.Remove(playerlistItemToRemove);
                 Destroy(ObjectToRemove);
@@ -238,5 +239,11 @@ public class LobbyController : MonoBehaviour
     public void Quit()
     {
         LocalPlayerController.QuitCheck();
+    }
+
+    [Command(requiresAuthority = false)]
+    private void DestroyMethod(PlayerListItem playerlistItemToRemove)
+    {
+        Destroy(playerlistItemToRemove.PlayerReady);
     }
 }
